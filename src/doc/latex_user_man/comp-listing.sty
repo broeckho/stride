@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  IDENTIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{comp-listing}
+
+\RequirePackage{listings,color}
+%\RequirePackage{lineno}
+
+%-------------------
+% myLstListingFormat
+%-------------------
+\newcommand{\myLstListingFormat}{%
+%
+	\definecolor{keywordsColor}{rgb}{0.69,0,0.33}		% red
+	\definecolor{keywordsColor2}{rgb}{0.8,0,0}
+	\definecolor{includeColor}{rgb}{0,0.5,0}		% green
+	\definecolor{singleCommentColor}{rgb}{0,0.52,0.56}
+	\definecolor{multipleCommentColor}{rgb}{0,0.33,0.66}
+	\definecolor{stringColor}{rgb}{0,0,0}			% black
+	\definecolor{identifierColor}{rgb}{0,0,0.9}		% blue
+%	
+	\lstset{
+		tabsize=4, 
+		xleftmargin=2ex,
+		captionpos=b,
+		basicstyle=\ttfamily \small,
+		showstringspaces=false,
+%
+		identifierstyle=\color{identifierColor},
+		stringstyle=\color{stringColor},
+                keywordstyle=\color{keywordsColor}\bf,
+		keywordstyle=[2]\color{keywordsColor2},
+%
+		commentstyle=\scriptsize, 
+                morecomment=[l][\color{singleCommentColor}]{//},
+		morecomment=[n][\color{multipleCommentColor}]{/*}{*/},
+		moredelim=*[l][\color{includeColor}]{\#},
+%
+		numberstyle=\tiny,
+		numbers=left,
+		stepnumber=1
+	}
+%
+	\lstloadlanguages{C++,Java}
+	\lstset{language=C++, directivestyle=\color{includeColor}\scriptsize}
+%
+	\lstdefinelanguage[CppUnit]{C++}{
+		morekeywords=[2]{
+			CPPUNIT\_ASSERT,CPPUNIT\_ASSERT\_MESSAGE,CPPUNIT\_ASSERT\_EQUAL,
+			CPPUNIT\_ASSERT\_DOUBLES\_EQUAL,CPPUNIT\_ASSERT\_EQUAL\_MESSAGE,
+			CPPUNIT\_FAIL,CPPUNIT\_TEST,CPPUNIT\_TEST\_SUITE,CPPUNIT\_TEST\_SUITE\_END,
+			CPPUNIT\_TEST\_EXCEPTION,CPPUNIT\_TEST\_SUITE\_REGISTRATION,
+			CPPUNIT\_TEST\_SUITE\_NAMED\_REGISTRATION
+		}
+	}
+%
+	\lstdefinelanguage{ETHOberon}{
+		keywords={
+			ARRAY,BEGIN,BY,CASE,CONST,DIV,DO,ELSE,ELSIF,END,EXIT,FOR,
+			IF,IMPORT,IN,IS,LOOP,MOD,MODULE,NIL,OF,OR,POINTER,
+			PROCEDURE,RECORD,REPEAT,RETURN,THEN,TO,TYPE,UNTIL,VAR,WHILE,WITH
+		},
+		keywords=[2]{
+			ABS,ASH,ASSERT,BOOLEAN,CAP,CHAR,CHR,COPY,DEC,ENTIER,EXCL,
+			FALSE,HALT,INC,INCL,INTEGER,LEN,LONG,LONGINT,LONGREAL,
+			MAX,MIN,NEW,ODD,ORD,REAL,SET,SHORT,SHORTINT,SIZE,TRUE
+		},
+		sensitive=true,
+		morecomment=[s]{(*}{*)}
+	}
+%
+}
+
+%-----------------
+% myCppInput
+%-----------------
+% #1 = (optional) line range to print. syntax <begin1>-<end1>, <begin2>-<end2> ..
+% #2 = dir
+% #3 = file
+% #4 = caption text
+\newcommand{\myCppInput}[4][1-9999999]{%
+	\lstset{escapeinside={/*@}{@*/}}
+	\lstset{
+		includerangemarker=false,
+                rangebeginprefix=//BEGIN_SNIPPET\{,
+                rangeendprefix=//END_SNIPPET\{,
+	        rangesuffix=\}
+	}     
+        \ifthenelse { \equal{#1}{1-9999999} }
+		{ \lstinputlisting[linerange={#1}, language=C++, float=htbp, label={#3}, caption={#4 (#3).} ]{#2/#3} }
+		{ \lstinputlisting[linerange={#1}, language=C++, float=htbp, label={#3:#1}, caption={#4 (#3).} ]{#2/#3} }
+}
+
+%-----------------
+% myJavaInput
+%-----------------
+% #1 = (optional) line range to print. syntax <begin1>-<end1>, <begin2>-<end2> ...
+% #2 = dir
+% #3 = file
+% #4 = caption text
+% example: \myJavaInput[7-8]{../code}{Serial1.java}{First Serialization Example}
+% example: adding a line reference: /*@ \label{Serial5.java:Person} @*/
+% example: delimiting a range: //BEGIN_SNIPPET{Person}  ... //END_SNIPPET{Person}
+\newcommand{\myJavaInput}[4][1-9999999]{%
+	\lstset{escapeinside={/*@}{@*/}}
+	\lstset{
+		includerangemarker=false,
+                rangebeginprefix=//BEGIN_SNIPPET\{,
+                rangeendprefix=//END_SNIPPET\{,
+	        rangesuffix=\}
+	}     
+        \ifthenelse { \equal{#1}{1-9999999} }
+		{ \lstinputlisting[linerange={#1}, language=Java, float=htbp, label={#3}, caption={#4 (#3).} ]{#2/#3} }
+		{ \lstinputlisting[linerange={#1}, language=Java, float=htbp, label={#3:#1}, caption={#4 (#3).} ]{#2/#3} }
+}
+
+%-----------------
+% myXMLInput
+%-----------------
+% #1 = (optional) line range to print. syntax <begin1>-<end1>, <begin2>-<end2> ...
+% #2 = dir
+% #3 = file
+% #4 = caption text
+\newcommand{\myXMLInput}[4][1-9999999]{%
+	\lstset{escapeinside={<!--@}{@-->}}
+	\lstset{includerangemarker=false,
+                rangebeginprefix=<!--BEGIN_SNIPPET-->,  
+                rangeendprefix=<!--END_SNIPPET-->,   
+	        rangesuffix=\}}          % }
+        \ifthenelse { \equal{#1}{1-9999999} }
+	{ \lstinputlisting[linerange={#1}, language=XML, float=htbp, label={#3}, caption={#4 (#3).} ]{#2/#3} }
+	{ \lstinputlisting[linerange={#1}, language=XML, float=htbp, label={#3:#1}, caption={#4 (#3).} ]{#2/#3} }
+}
+
+%-----------------
+% myListing
+%-----------------
+% #1 = label van de listing
+\newcommand{\myListing}[1]{ listing \ref{#1} }
+
+
+
+

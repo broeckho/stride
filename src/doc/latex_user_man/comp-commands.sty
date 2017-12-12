@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  IDENTIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{comp-commands}
+
+\RequirePackage{shadow}
+\RequirePackage{colortbl}
+\RequirePackage{amssymb}
+\RequirePackage{color}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% MISCELLANEOUS COMMANDS TO BE USED IN THE MAIN BODY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------
+%%%% myDef
+%---------
+\newcommand{\myDef}[2]{
+	\begin{flushright}
+		\parbox{3.3cm}{
+			\begin{flushleft}
+				{\emph{Definitie}:\\ \vspace{1mm}}{\bf  #1 }
+			\end{flushleft}
+		}
+		\parbox{10.5cm}{ #2 }
+	\end{flushright}
+}
+
+%---------
+%%%% myTxt
+%---------
+\newcommand{\myTxt}[2]{
+	\begin{flushright}
+		\parbox{3.3cm}{
+			\begin{flushleft}
+				{\bf  #1 }
+			\end{flushleft}
+		}
+		\parbox{10.5cm}{ #2 }
+	\end{flushright}
+}
+
+%------------
+%%%% myMarTxt
+%------------
+\newcommand{\myMarTxt}[1]{
+	\reversemarginpar
+	\setlength{\marginparwidth}{5cm}
+	\marginpar[\ \\ \begin{minipage}{5cm}{\begin{flushright} { #1 } \end{flushright}}\end{minipage}]{}
+}
+
+%-------------
+% mySidebarTxt
+%-------------
+\newcommand{\mySidebarTxt}[1]{%
+	\newlength{\temptabcolsep}
+	\setlength{\temptabcolsep}{\tabcolsep}%
+	\setlength{\tabcolsep}{0pt}%
+	\begin{tabular}{r|>{\columncolor[gray]{0.75}}cr}%
+		\begin{minipage}{4cm}%
+			\begin{flushright}
+    				#1%
+            		\end{flushright}
+		\end{minipage}%
+		\hspace*{0.15cm} &%
+		\hspace*{0.15cm} &%
+	\end{tabular}%
+	\setlength{\tabcolsep}{\temptabcolsep}%
+}
+
+%---------------------
+% myShadedParagraphTxt
+%---------------------
+\newcommand{\myShadedParagraph}[1]{%
+	\begin{tabular}{>{\columncolor[gray]{.75}}l}%
+		\begin{minipage}{0.96\textwidth}%
+			\vspace*{0.2cm}%
+				#1%
+			\vspace*{0.2cm}%
+		\end{minipage}%
+	\end{tabular}%
+}
+
+%-----------
+% myBoxedTxt
+%-----------
+\newcommand{\myFramedParagraph}[1]{%
+	\setlength{\fboxsep}{0.5cm}
+	\begin{center}
+ 		\framebox { \parbox{13cm}{#1}}
+	\end{center}
+}
+
+%-----------------
+% myShabox
+%-----------------
+\newcommand{\myShabox}{%
+	\setlength{\sdim}{6pt}
+}
+
+%-----------------
+% myOpdracht
+%-----------------
+\newcommand{\myOpdracht}[1]{%
+	\ \newline 
+	\begin{center}
+		\shabox{ 
+			\parbox{12cm}{ \large 
+				\begin{itemize}
+					\item #1
+				\end{itemize}
+			}
+		}
+	\end{center}
+}
+
+%-----------------
+% TOFIX
+%-----------------
+\newcommand*{\TOFIX}[1]{%
+	{ \fbox {\bfseries\sffamily\scriptsize TOFIX } }
+	{ \sf\small$\blacktriangleright$\textsl{ #1 }$\blacktriangleleft$ }
+}
+
+%-----------------
+% myToFix
+%-----------------
+\newcommand*{\myToFix}[1]{%
+	{ \definecolor{green}{rgb}{0,1,0} \fbox {\bfseries\sffamily\scriptsize\color{green} TOFIX } }
+	{ \sf\small$\blacktriangleright$\textsl{ #1 }$\blacktriangleleft$ }
+}
+
+%-----------------
+% myTextAdd
+%-----------------
+\newcommand*{\myTextAdd}[1]{%
+	{ \definecolor{blue}{rgb}{0,0,1} \fbox {\bfseries\sffamily\scriptsize\color{blue} ADD } }
+	{ \color{blue} \sf\small$\blacktriangleright$\textsl{ #1 }$\blacktriangleleft$ }
+}
+
+%-----------------
+% myTextDelete
+%-----------------
+\newcommand*{\myTextDelete}[1]{%
+	{ \definecolor{red}{rgb}{1,0,0} \fbox {\bfseries\sffamily\scriptsize\color{red} DELETE } }
+	{ \color{red} \sf\small$\blacktriangleright$\textsl{ #1 }$\blacktriangleleft$ }
+}

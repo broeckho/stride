@@ -1,0 +1,91 @@
+#############################################################################
+#  This file is part of the Stride software. 
+#  It is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by 
+#  the Free Software Foundation, either version 3 of the License, or any 
+#  later version.
+#  The software is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License,
+#  along with the software. If not, see <http://www.gnu.org/licenses/>.
+#  see http://www.gnu.org/licenses/.
+#
+#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#############################################################################
+#
+#        This file contains local (at your site or for you personally) 
+#        configuration of the Makefile. The repository has been configured 
+#        to ignore this file. We adopted this approach because Eclipse and 
+#        other IDE's do not pick up your personalized environment variables.
+#
+#############################################################################
+
+#============================================================================
+# If you want verbose Make output, modify the MAKEFLAGS macro below.
+#============================================================================
+MAKEFLAGS   += --no-print-directory
+
+#============================================================================
+# If you want parallel make, otherwise comment away
+#============================================================================
+PARALLEL_MAKE = 6
+
+ifeq ($(shell hostname),hermes.uantwerpen.be)
+		PARALLEL_MAKE = 8   
+endif
+ifeq ($(shell hostname),octo)
+		PARALLEL_MAKE = 14      
+endif
+ifeq ($(shell hostname),roadrunner)
+		PARALLEL_MAKE = 20      
+endif
+ifeq ($(shell hostname),radiko)
+		PARALLEL_MAKE = 16      
+endif
+
+#============================================================================
+# MACRO definitions you can pass on to cmake:
+#============================================================================
+CMAKE_BUILD_TYPE           = Release
+STRIDE_INCLUDE_DOC         = OFF
+STRIDE_FORCE_NO_OPENMP     = OFF
+STRIDE_VERBOSE_TESTING     = ON
+
+#----------------------------------------------------------------------------
+#LABEL=$(shell git rev-parse --short HEAD)
+#CMAKE_INSTALL_PREFIX  = $(HOME)/opt/Stride-$(LABEL)
+LABEL=$(shell git rev-list HEAD --count)
+ifneq ($(shell git status | grep 'modified:' -c),0)
+	LABEL=$(shell git rev-list HEAD --count)+
+endif
+CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
+    
+ifeq ($(shell uname),Darwin)
+		#CC  = /opt/local/bin/clang
+		#CXX = /opt/local/bin/clang++
+		CC  = /opt/local/bin/gcc
+		CXX = /opt/local/bin/g++
+		STRIDE_BOOST_ROOT = /opt/boost163
+endif
+ifeq ($(shell uname),Linux)
+		#CC  = /opt/clang/bin/clang
+		#CXX = /opt/clang/bin/clang++
+		#CC  = /usr/bin/clang
+		#CXX = /usr/bin/clang++
+		CC  = /usr/bin/gcc
+		CXX = /usr/bin/g++
+endif
+    
+ifneq ($(CC),)
+		CMAKE_C_COMPILER = $(CC)
+endif
+ifneq ($(CXX),)
+		CMAKE_CXX_COMPILER = $(CXX)
+endif
+
+#CMAKE_CXX_FLAGS="-Wextra -pedantic"
+#CMAKE_CXX_FLAGS="-Wextra"
+
+#############################################################################

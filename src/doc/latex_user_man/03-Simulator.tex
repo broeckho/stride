@@ -1,0 +1,83 @@
+%%!TEX root = ./UserManual.tex
+\chapter{Simulator}
+\label{chap:simulator}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Workspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Workspace}
+
+By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}). 
+Compilation and installation of the software will create the following files and directories: (illustrated in Figure \ref{fig:workspace}):
+
+\begin{compactitem}
+    \item Binaries 
+    		in directory \texttt{<project\_dir>/bin}
+      	\begin{itemize}
+        		\item $stride$: executable.
+		\item $gtester$: regression tests for the sequential code.
+        		\item $wrapper\_sim.py$: Python simulation wrapper  		
+        \end{itemize}
+    \item Configuration files (xml and json)
+      	in directory \texttt{<project\_dir>/config}
+      	\begin{itemize}
+		\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
+        		\item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
+		\item $wrapper_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
+		\item ...
+        \end{itemize}
+    \item Data files (csv)
+      	in directory \texttt{<project\_dir>/data}
+      	\begin{itemize}
+        		\item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
+		\item $belgium\_population$: Relative Belgian population per city. Details are provided for all cities and for 13 major cities.
+		\item $contact\_matrix_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
+		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Community clusters have week rates.
+		\item $contact\_matrix_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
+		\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
+		\item $holidays\_xxx$: Holiday characteristics for xxx.
+		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}. 
+		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
+		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011. 
+
+		
+        \end{itemize}
+    \item Documentation files
+      	in directory \texttt{./target/installed/doc}
+      	\begin{itemize}
+        		\item Reference manual
+        		\item User manual
+        \end{itemize}
+\end{compactitem}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Run
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Run the simulator}
+
+
+From the workspace directory, the simulator can be started with default configuration using the command \mbox{``\texttt{./bin/stride}''}. Settings can be passed to the simulator using one or more command line arguments:
+
+\begin{compactitem}
+
+\item \texttt{-c} or \texttt{{-}-config}: The configuration file.
+
+\item \texttt{-r} or \texttt{{-}-r0}: To obtain the basic reproduction number, no tertiary infections.
+
+\end{compactitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sim Wrapper
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Python Wrapper}
+A Python wrapper is provided to perform multiple runs with the C++ executable. 
+The wrapper is designed to be used with .json configuration files and examples are provided with the source code. 
+For example: \\ \\
+\centerline{\texttt{./bin/wrapper\_sim --config ./config/wrapper\_default.json}} \\ \\
+will start the simulator with each configuration in the file.
+It is important to note the input notation: values given inside brackets can be extended (e.g., ``rng\_seeds''=[1,2,3]) but single values can only be replaced by one other value (e.g., ``days'': 100).
+
+

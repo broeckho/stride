@@ -1,0 +1,728 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  IDENTIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{comp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%   SETUP MACROS AND SWITCHES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\@title{}
+\def\@author{}
+
+\def\titlepageblurb#1{\gdef\@titlepageblurb{#1}}
+\def\coursemajor#1{\gdef\@coursemajor{#1}}
+\def\@coursemajor{Computer Science}
+\def\principaladviser#1{\gdef\@principaladviser{#1}}
+\def\@principaladviser{*}
+\def\coprincipaladviser#1{\gdef\@coprincipaladviser{#1}}
+\def\@coprincipaladviser{*}
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} 
+\def\@copyrightyear{\number\the\year}
+\def\reportnumber#1{\gdef\@reportnumber{#1}}
+\def\tocdepthvalue#1{\gdef\@tocdepthvalue{#1}}
+\def\secnumdepthvalue#1{\gdef\@secnumdepthvalue{#1}}
+\def\@tocdepthvalue{}
+\def\@secnumdepthvalue{}
+\def\bibfile#1{\gdef\@bibfile{#1}}
+
+% If you would like to integrate a preface in the frontpages, define prefacefile
+% to include the path to the tex file that contains the preface, and 
+% set w@ntpreface to true
+\def\prefacefile#1{\gdef\@prefacefile{#1}}
+\def\@prefacefile{*}
+
+\newif\ifw@ntcopyright
+\newif\ifw@nttableofcontents
+\newif\ifw@ntlistoffigures
+\newif\ifw@ntlistoftables
+\newif\ifw@ntbibliography
+\newif\ifw@ntindex
+\newif\ifw@ntpreface
+
+% Default value to trigger a sensible error message in the situation where
+% you want a preface but have not defined \prefacefile
+\prefacefile{00-Preface} %Default @prefaceFile
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  OPTION DECLARATION PART
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------
+%%%%  ENGLISH OPTION
+%-------------------
+\DeclareOption{english}{%
+		\PassOptionsToPackage{english}{babel}
+		%
+		\def\@submitdate{%
+			\ifcase\the\month\or
+			January\or February\or March\or April\or May\or June\or
+			July\or August\or September\or October\or November\or December\fi
+			\space \number\the\year
+		}
+		%
+		\def\@phddegree{Doctor}
+		%
+		\def\@masterdegree{Master}
+		%
+		\def\@bachelordegree{Bachelor}
+		%
+		\def\@advisername{Promotor}
+		%
+		\def\@coadvisername{Co-promotor}
+		%
+		\def\@dissertationblurb{
+		   	Proefschrift voorgelegd op \@submitdate\ 
+			tot het behalen van de graad van \@thesisdegree\ in de Wetenschappen, \\
+%			richting Informatica, bij de faculteit wetenschappen, \\
+%			aan de Universiteit Antwerpen.
+			bij de faculteit Wetenschappen, aan de Universiteit Antwerpen.
+			\newline
+		}
+		%
+		\def\@techreportblurb{
+		   	Version \@reportnumber \ (\@submitdate) . \\
+%		   	Department of Mathematics and Computer Science\\
+%		   	of the Faculty of Sciences, University of Antwerp.
+\vspace{0.5cm}
+Centre for Health Economics Research \& Modeling of Infectious
+Diseases, Vaccine and Infectious Disease Institute, University of Antwerp.  
+\\ 
+\vspace{0.5cm}
+Modeling of Systems and Internet Communication, Department of
+Mathematics and Computer Science, University of Antwerp.  
+\\
+\vspace{0.5cm}
+Interuniversity Institute for Biostatistics and statistical Bioinformatics, Hasselt University. }
+		\def\@advisersblurb{%					
+			\if*\@principaladviser 
+			\else {
+              	 		\if*\@coprincipaladviser
+				    {\@advisername:  } \\ 
+			     	\else
+				    {Promotoren: } \\ 
+				\fi
+			     }   
+			\fi
+			\if*\@principaladviser \else
+		  		 {\@principaladviser} \\
+		  	\fi
+		  	\if*\@coprincipaladviser \else
+		  		 {\@coprincipaladviser}\\
+		  	\fi
+		}
+		%
+		\def\@courseblurb{
+		   	\@coursedegree\ of \@coursemajor\ curriculum,\\
+		   	Faculty of Sciences, University of Antwerp.\\
+		   	Course notes for academic year \@submitdate.
+		}
+		%
+		\def\@researchgroupblurb{%
+			Research Group Computational \\
+			Modelling and Programming
+		}
+		%
+		\def\@copyrightblurb{%
+			All rights reserved.
+		}
+		\def\@prefacename{%
+			Preface
+		}
+}
+
+%-----------------
+%%%%  DUTCH OPTION
+%-----------------
+\DeclareOption{dutch}{%
+		\PassOptionsToPackage{dutch}{babel}
+		%
+		\def\@submitdate{%
+			\ifcase\the\month\or
+			Januari\or Februari\or Maart\or April\or Mei\or Juni\or
+			Juli\or Augustus\or September\or Oktober\or November\or December\fi
+			\space \number\the\year
+		}
+		%
+		\def\@phddegree{Doctor}
+		%
+		\def\@masterdegree{Master}
+		%
+		\def\@bachelordegree{Bachelor}
+		%
+		\def\@advisername{Promotor}
+		%
+		\def\@coadvisername{Co-Promotor}
+		%
+		\def\@dissertationblurb{
+		   	Proefschrift voorgelegd op \@submitdate\ 
+			tot het behalen van de graad van \@thesisdegree\ in de Wetenschappen, \\
+			richting Informatica, bij de faculteit Wetenschappen, \\
+			aan de Universiteit Antwerpen.
+			\newline
+		}
+		%
+		\def\@techreportblurb{
+		   	Technisch Rapport \@reportnumber , ingediend \@submitdate . \\
+		   	Department of Wiskunde en Informatica van de \\
+		   	Faculteit Wetenschappen, Universiteit Antwerpen.
+		}
+		%
+		\def\@advisersblurb{
+			\if*\@principaladviser \else {
+                		\if*\@coprincipaladviser    
+				    {\@advisername: } \\ 
+			     	\else
+				    {Promotoren: } \\
+			     	\fi
+            		} \fi
+			\if*\@principaladviser \else
+		  		 {\@principaladviser} \\
+		  	\fi
+		  	\if*\@coprincipaladviser \else
+		  		 {\@coprincipaladviser}\\
+		  	\fi
+		}
+		%
+		\def\@courseblurb{
+		   	Opleiding \@coursedegree\ of Science in \@coursemajor\ van de\\
+		   	Faculteit Wetenschappen, Universiteit Antwerpen.\\
+		   	Nota's bij de cursus voor academiejaar \@submitdate.
+		   	\newline
+		}
+		%
+		\def\@researchgroupblurb{% 
+			Onderzoeksgroep Computationeel \\
+			Modelleren en Programmeren
+		}
+		%
+		\def\@copyrightblurb{%
+			Alle rechten voorbehouden.
+		}
+		%
+		\def\@prefacename{%
+			Voorwoord
+		}
+}
+
+%------------------------------
+%%%%  PHDTHESIS OPTION DEFAULTS
+%------------------------------
+\DeclareOption{phdthesis}{%
+   	\def\@thesisdegree{\@phddegree}
+   	\def\@titlepageblurb{\@dissertationblurb}
+   	\w@ntcopyrightfalse
+   	\def\@tocdepthvalue{1}
+   	\w@nttableofcontentstrue
+   	\w@ntlistoffigurestrue		
+   	\w@ntlistoftablestrue
+	\w@ntprefacetrue
+   	%	
+   	\def\@secnumdepthvalue{2} 	
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%---------------------------------
+%%%%  MASTERTHESIS OPTION DEFAULTS
+%---------------------------------
+\DeclareOption{masterthesis}{%
+   	\def\@thesisdegree{\@masterdegree}
+   	\def\@titlepageblurb{\@dissertationblurb}
+   	\w@ntcopyrightfalse
+   	\w@nttableofcontentstrue
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffigurestrue		
+   	\w@ntlistoftablestrue
+	\w@ntprefacetrue	
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%-----------------------------------
+%%%%  BACHELORTHESIS OPTION DEFAULTS
+%-----------------------------------
+\DeclareOption{bachelorthesis}{%
+   	\def\@thesisdegree{\@bachelordegree}
+   	\def\@titlepageblurb{\@dissertationblurb}
+   	\w@ntcopyrightfalse
+   	\w@nttableofcontentstrue
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffiguresfalse		
+   	\w@ntlistoftablesfalse
+	\w@ntprefacefalse		
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%---------------------------------
+%%%%  MASTERCOURSE OPTION DEFAULTS
+%---------------------------------
+\DeclareOption{mastercourse}{%
+   	\def\@coursedegree{\@masterdegree}
+   	\def\@titlepageblurb{\@courseblurb}
+   	\w@ntcopyrightfalse
+   	\w@nttableofcontentstrue
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffiguresfalse		
+   	\w@ntlistoftablesfalse
+	\w@ntprefacefalse
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%-----------------------------------
+%%%%  BACHELORCOURSE OPTION DEFAULTS
+%-----------------------------------
+\DeclareOption{bachelorcourse}{%
+   	\def\@coursedegree{\@bachelordegree}
+   	\def\@titlepageblurb{\@courseblurb}
+   	\w@nttableofcontentstrue
+   	\w@ntcopyrightfalse
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffiguresfalse		
+   	\w@ntlistoftablesfalse
+	\w@ntprefacefalse
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%-------------------------------
+%%%%  TECHREPORT OPTION DEFAULTS
+%-------------------------------
+\DeclareOption{techreport}{%
+   	\def\@titlepageblurb{\@techreportblurb}
+   	\w@nttableofcontentstrue
+   	\w@ntcopyrightfalse
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffiguresfalse		
+   	\w@ntlistoftablesfalse
+	\w@ntprefacefalse
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%----------------------------
+%%%%  GENERIC OPTION DEFAULTS
+%----------------------------
+\DeclareOption{generic}{%
+   	\def\@titlepageblurb{}
+   	\w@nttableofcontentsfalse
+   	\w@ntcopyrightfalse
+   	\def\@tocdepthvalue{1}
+   	\w@ntlistoffiguresfalse		
+   	\w@ntlistoftablesfalse
+	\w@ntprefacefalse
+   	%	
+   	\def\@secnumdepthvalue{2}
+   	%
+   	\w@ntbibliographytrue
+   	\w@ntindexfalse		
+}
+
+%---------------------------------
+%%%%  COPYRIGHT OPTION
+%---------------------------------
+\DeclareOption{copyright}{   \w@ntcopyrighttrue  }
+\DeclareOption{nocopyright}{ \w@ntcopyrightfalse }
+
+%---------------------------------
+%%%%  TABLEOFCONTENTS OPTION
+%---------------------------------
+\DeclareOption{tableofcontents}{   \w@nttableofcontentstrue  }
+\DeclareOption{notableofcontents}{ \w@nttableofcontentsfalse }
+
+%-----------------------------------------
+%%%%  LISTOFFIGURES OPTION
+%-----------------------------------------
+\DeclareOption{listoffigures}{   \w@ntlistoffigurestrue  }
+\DeclareOption{nolistoffigures}{ \w@ntlistoffiguresfalse }
+
+%---------------------------------------
+%%%%  LISTOFTABLES OPTION
+%---------------------------------------
+\DeclareOption{listoftables}{   \w@ntlistoftablestrue  }
+\DeclareOption{nolistoftables}{ \w@ntlistoftablesfalse }
+
+%---------------------------------------
+%%%%  LISTOFTABLES OPTION
+%---------------------------------------
+\DeclareOption{preface}{   \w@ntprefacetrue  }
+\DeclareOption{nopreface}{ \w@ntprefacefalse }
+
+%---------------------------------------
+%%%%  BIBLIOGRAPHY OPTION
+%---------------------------------------
+\DeclareOption{bibliograpy}{    \w@ntbibliographytrue  }
+\DeclareOption{nobibliography}{ \w@ntbibliographyfalse }
+
+%-------------------------
+%%%%  INDEX OPTION
+%-------------------------
+\DeclareOption{index}{%
+	\makeindex
+	\w@ntindextrue
+}
+\DeclareOption{noindex}{%
+	\w@ntindexfalse
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  EXECUTION OF OPTIONS PART
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExecuteOptions{phdthesis,english}
+\ProcessOptions
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  PACKAGE LOADING PART
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[pdftex]{graphicx}
+\RequirePackage[Sonny]{fncychap}
+\RequirePackage[noindentafter,calcwidth]{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{paralist}
+\RequirePackage{listings,color}
+\RequirePackage[numbers,square,comma]{natbib}
+\RequirePackage{url}
+\RequirePackage{babel}
+\RequirePackage{ifthen}
+\RequirePackage{picinpar}
+\RequirePackage{comp-listing}
+\RequirePackage{comp-commands}
+\RequirePackage{colortbl}
+\RequirePackage{shadow}
+%\RequirePackage{lineno}
+%\RequirePackage{subfiles}
+\RequirePackage{epstopdf}
+%
+\ifw@ntindex
+	\RequirePackage{makeidx}
+\fi
+%
+% Hack for my windows miktex where \pdfoutput is not defined
+\ifx\pdfoutput\undefined
+   \def\pdfoutput{0}
+\fi
+%
+\ifcase\pdfoutput
+\else
+	\RequirePackage{pdfpages}
+\fi
+%\RequirePackage{lineno}
+\RequirePackage[colorlinks=true,urlcolor=blue,citecolor=red,bookmarks=true]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   MAIN CODE PART: TEXTPAGE FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%---------------
+%%%% PAGE LAYOUT
+%---------------
+\oddsidemargin=1.80cm 
+\if@twoside
+     	\setlength\oddsidemargin   {1.80cm}
+     	\setlength\evensidemargin  {0\p@}
+     	\setlength\marginparwidth {40\p@}
+\else
+     	\setlength\oddsidemargin   {1.80cm}
+     	\setlength\evensidemargin  {1.80cm}
+	\setlength\marginparwidth  {40\p@}
+\fi
+\textwidth=14cm 
+\setlength{\voffset}{-10mm}
+\setlength{\textheight}{215mm}
+\setlength{\headheight}{14pt}
+%\setlength{\parindent}{0.0mm}
+%\addtolength{\parskip}{0.3\baselineskip}
+
+%--------------
+%%%% PAGE STYLE
+%--------------
+\fancypagestyle{compP@geStyle}{%
+	\fancyhf{}	
+	\lhead[\thepage]{\rightmark}
+	\rhead[\rightmark]{\thepage}
+	%\rhead{\thepage}
+	%\lhead{\rightmark}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\addtolength{\headheight}{0.5pt}
+}
+
+\fancypagestyle{plain}{%
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+%------------------
+%%%% SECTION TITLES
+%------------------
+\AtBeginDocument{
+	\setcounter{secnumdepth}{\@secnumdepthvalue}
+	\titleformat{\section}[block]
+		{\Large\sffamily}
+		{}{0ex}
+		{\titleline*[l]{\titlerule[1pt]}\vspace{4pt} \thesection\quad}
+		[{\titleline*[l]{\vspace{18pt}\titlerule[1pt]}}]
+	\titlespacing*{\section}{0pc}{*3}{*2}
+	%
+	\titleformat{\subsection}[block]
+		{\large\sffamily}
+		{}{0ex}
+		{\ifthenelse{\@secnumdepthvalue<2}{}{\thesubsection\quad}}
+		[]
+		\titlespacing*{\subsection}{0pc}{*2}{*1}
+		%
+		\titleformat{\subsubsection}[block]
+			{\large\sffamily}
+			{}{0ex}
+			{\ifthenelse{\@secnumdepthvalue<3}{}{\thesubsubsection\quad}}
+			[]
+		\titlespacing*{\subsubsection}{0pc}{*1}{*0}
+		%
+		%
+		\myLstListingFormat		
+		\myShabox
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% MAIN CODE PART : MAKING THE FRONT PAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------
+%%%% TITLE PAGE
+%--------------
+\newcommand{\makeTitlePage}{%
+    \begin{titlepage}
+	\null
+%	\hbox{  
+%		\ifcase\pdfoutput
+%			\includegraphics[5cm,7.2cm][9cm,8.5cm]{comp-logo-u+text.png}
+%		\else
+%			\includegraphics[scale=0.2]{comp-logo-u+text.png}
+%		\fi
+%	}
+	\hbox{
+		\vrule depth 0.87\textheight%
+		\mbox{\hspace{2pt}}
+		\vtop{
+			\vskip 70\p@
+				\raisebox{0mm}[5ex][0ex]{
+					\parbox{12cm}{  {\huge \bfseries \@title \par} }
+				}
+		       		\vskip 180\p@
+			        \raisebox{0mm}[6ex][0ex]{
+			        	\parbox{10cm}{\flushleft{\@titlepageblurb} }
+				}
+			        \vskip 70\p@
+				\raisebox{0mm}[6ex][0ex]{
+				     \parbox{10cm}{{\@advisersblurb} }
+				}
+			        \vskip 60\p@
+			        \mbox{\hspace{2pt} \bfseries \@author \par}
+			        \vskip 15\p@
+	%		        \mbox{ 
+	%				\ifcase\pdfoutput 
+	%					\includegraphics[bb = 7cm 7.8cm 9.5cm 8.8cm,
+						% keepaspectratio]{comp-logo-comp.png}
+	%				\else
+	%					\includegraphics[scale=0.5]{comp-logo-comp.png} 
+	%				\fi
+    %                        	}
+	%		        \raisebox{4mm}{
+	%				\resizebox{!}{0.37cm}{
+	%				\parbox{8cm}{ \scshape \@researchgroupblurb }
+	%				}
+	%		        }
+		        }
+		    } 
+		    \vfill                   
+  	\end{titlepage}	
+	\if@twoside % If we are working in a double page style, add empty page so the next page opens on right.
+		\cleardoublepage
+	\fi
+}
+
+%-------------------
+%%%%% COPYRIGHT PAGE
+%-------------------
+\newcommand{\makeCopyrightPage}{%
+	\begin{titlepage}
+		\null
+		\vfill
+		\begin{center}
+			\large
+			Copyright\ \copyright\ \@copyrightyear\ \@author\\
+			\@copyrightblurb
+		\end{center}
+		\vfill
+	\end{titlepage}	
+	\if@twoside 
+		\thispagestyle{empty} % Otherwise the empty page after the copyright will have a pagenumber
+	\fi
+	\if@twoside % If we are working in a double page style, add empty page so the next page opens on right.
+		\cleardoublepage
+	\fi
+}		
+
+%---------------------------
+%%%%% TABLE OF CONTENTS PAGE
+%---------------------------
+\AtBeginDocument{
+	\setcounter{tocdepth}{\@tocdepthvalue}
+}
+\newcommand{\makeTableOfContentsPage}{%
+    % Fix so page numbering is correct on two-sided print if we count the title 
+    % page as page one. Todo: use a counter increase instead of an absolute 
+    % value so this also works if we add in more front pages? The current 
+    % value (3) presupposes that only the title page and a blank page will 
+    % precede the TOC
+    \if@twoside
+    	\setcounter{page}{3}
+    \fi
+    {\sffamily \tableofcontents}
+}
+
+%-------------------------
+%%%%% LIST OF FIGURES PAGE
+%-------------------------
+\newcommand{\makeListOfFiguresPage}{%
+	% Note: leaving out the double page commands, does not necessarily 
+	% break openright semantics for double sided prints, it does however 
+	% mess up the page numbering in the TOC.
+	\if@twoside
+		\cleardoublepage
+	\fi
+	\addcontentsline{toc}{chapter}{\listfigurename}
+   	\listoffigures
+	\if@twoside
+		\cleardoublepage
+	\fi
+   
+}
+
+%------------------------
+%%%%% LIST OF TABLES PAGE
+%------------------------
+\newcommand{\makeListOfTablesPage}{%
+	\if@twoside
+		\cleardoublepage
+	\fi
+	\addcontentsline{toc}{chapter}{\listtablename}
+   	\listoftables%   	
+	\if@twoside
+		\cleardoublepage
+	\fi
+}
+
+
+%------------------------
+%%%%% NOMENCLATURE PAGE
+%------------------------
+\newcommand{\makeNomenclaturePage}{%
+	\if@twoside
+		\cleardoublepage
+	\fi
+	\addcontentsline{toc}{chapter}{\nomname}
+   	\printnomenclature
+	\if@twoside
+		\cleardoublepage
+	\fi
+}
+
+%------------------------
+%%%%% PREFACE
+%------------------------
+\newcommand{\makePrefacePage}{%
+	\if@twoside
+		\cleardoublepage
+	\fi
+	
+	\addcontentsline{toc}{chapter}{\@prefacename}
+	%\chapter*{\@prefacename}
+    	\input{\@prefacefile}
+	
+	\if@twoside
+		\cleardoublepage
+	\fi
+}
+
+%---------------
+%%%% FRONT PAGES
+%---------------
+\newcommand{\frontpages}{%    	
+	\pagestyle{empty}  
+	\makeTitlePage					
+	\ifw@ntcopyright        \makeCopyrightPage       \fi	
+	\pagenumbering{roman} 
+	\pagestyle{plain}	 
+	\ifw@nttableofcontents  \makeTableOfContentsPage \fi
+	\ifw@ntlistoffigures    \makeListOfFiguresPage   \fi
+	\ifw@ntlistoftables     \makeListOfTablesPage    \fi	
+	\ifw@ntpreface          \makePrefacePage         \fi
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% MAIN CODE PART : MAKING THE MAIN BODY PAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------
+%%%% MAIN BODY PAGES
+%-------------------	
+\newcommand{\mainbodypages}{%
+	\pagestyle{compP@geStyle}
+	\pagenumbering{arabic}		
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% MAIN CODE PART : MAKING THE BACK PAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------
+%%%%% BIBLIOGRAPHY PAGE
+%----------------------
+\newcommand{\makeBibliographyPage}{%
+	\bibliographystyle{ieeetr}
+	\bibliography{\@bibfile}
+}
+
+%---------------------
+%%%%%   THE INDEX PAGE
+%---------------------
+\newcommand{\makeIndexPage}{%
+	\addcontentsline{toc}{chapter}{Index}  	
+	\printindex
+}
+
+%--------------
+%%%% BACK PAGES
+%--------------
+\newcommand{\backpages}{%
+	\pagestyle{plain}
+	\ifw@ntbibliography
+		\makeBibliographyPage
+	\fi
+	\ifw@ntindex
+		\makeIndexPage
+	\fi
+}

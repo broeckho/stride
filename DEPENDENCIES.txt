@@ -1,0 +1,77 @@
+#############################################################################
+#  This file is part of the Stride software. 
+#  It is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by 
+#  the Free Software Foundation, either version 3 of the License, or any 
+#  later version.
+#  The software is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License,
+#  along with the software. If not, see <http://www.gnu.org/licenses/>.
+#  see http://www.gnu.org/licenses/.
+#
+#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#############################################################################
+
+The project depends on a number of resources. Non-included dependencies need
+to be installed on your system. They are very common libraries and most likely 
+already present on your system. If not, they can in most cases be installed 
+using binary distributions available on the internet. For linux systems the
+operating system's package installer will guide you, for MacOS X systems 
+you should look at MacPorts (www.macports.org).
+
+#############################################################################
+#     Non-included dependencies:
+#############################################################################
+
+-----------------------------------------------------------------------------
+    BOOST:
+-----------------------------------------------------------------------------
+Boost headers are REQUIRED, as are libraries filesystem, thread, date_time,
+and system. 
+See www.boost.org.
+
+#############################################################################
+#     Included dependencies: 
+#############################################################################
+
+-----------------------------------------------------------------------------
+    DOMP: see src/main/resources/lib/domp
+-----------------------------------------------------------------------------
+A OpenMP placeholder library with implementations of OpenMP primitives that
+are appropriate for a sequential program. Makes it possible to avoid 
+conditional compilations. We have slightly extended the implementation.
+See https://github.com/chipbuster/libdomp
+-----------------------------------------------------------------------------
+    SPDLOG: see src/main/resources/lib/spdlog
+-----------------------------------------------------------------------------
+A C++ asynchronous an multi-threaded logging library, in header only format
+developed by Gabi Melman.
+See https://github.com/gabime/spdlog
+
+-----------------------------------------------------------------------------
+    TCLAP: see src/main/resources/lib/tclap
+-----------------------------------------------------------------------------
+A templatized C++ command line parser library developped by M. E. Smoot and
+D. Arano. Available at http://http://tclap.sourceforge.net/
+
+-----------------------------------------------------------------------------
+    TRNG4: see src/main/resources/lib/trng-4.15
+-----------------------------------------------------------------------------
+Version 4.0 of Tina's Random Number Generators Library developed by Heiko 
+Bauke and available at htt:/http://numbercrunch.de/trng/. Tina's Random Number 
+Generator Library (TRNG) is a state of the art C++ pseudo-random number 
+generator library for sequential and parallel Monte Carlo simulations. Its 
+design principles are based on a proposal for an extensible random number 
+generator facility, that has become part of the C++11 standard.
+
+-----------------------------------------------------------------------------
+    Googletest: see src/test/resources/lib/gtext
+-----------------------------------------------------------------------------
+A C++ unit test framwework developed by Gooogle and available at 
+https://github.com/google/googletest.
+
+
+#############################################################################

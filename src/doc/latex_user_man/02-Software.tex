@@ -1,0 +1,123 @@
+%%!TEX root = ./UserManual.tex
+\chapter{Software}
+\label{chap:software}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% System Requirements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{System Requirements}
+\label{section:system}
+
+Stride is written in C++ and portable over all platforms that have the GNU C++ compiler. 
+De software has no dependencies on external libraries. The following tools needs to be installed:
+\begin{compactitem}
+    \item g++
+    \item make
+    \item CMake
+    \item Boost
+    \item Python (optional, for automatization)
+    \item Doxygen (optional, for documentation)
+    \item LaTeX (optional, for documentation)
+\end{compactitem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Installation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Installation}
+\label{section:Installation}
+
+To install the project, first obtain the source code by cloning the repository to a directory or download a zip file with all project
+material from the Bitbucket website and de-compress the archive. 
+The build system for Stride uses the CMake tool. This is used to build and install the software at a high level of abstraction and almost platform independent (see \url{http://www.cmake.org/}). 
+The project includes the conventional make targets to ``build'', ``install'', ``test'' and ``clean'' the project. There is one additional target ``configure'' to set up the CMake/make structure that will actually do all the work.
+For those users that do not have a working knowledge of CMake, a front end Makefile has been provided that invokes the appropriate CMake commands.
+More details on building the software can be found in ``INSTALL.txt'' in the source folder.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Documentation}
+\label{section:documentation}
+
+The Application Programmer Interface (API) documentation is generated automatically 
+using the Doxygen tool ((see \url{www.doxygen.org}) from documentation instructions 
+embedded in the code . 
+
+The user manual distributed with the source code has been written in \LaTeX (see \url{www.latex-project.org}).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Directory layout}
+
+The project directory structure is very systematic.
+Everything used to build the software is stored in the directory \texttt{./src}:
+\begin{compactitem}
+    \item \texttt{src/main}: Code related files (sources, third party libraries and headers, ...)
+      	\begin{itemize}
+        		\item \texttt{src/main/<language>}: source code, per coding language: cpp (for C++), python, R,   
+        		\item \texttt{src/main/resources}: third party resources included in the project: 
+        \end{itemize}
+    \item \texttt{src/doc}: documentation files (API, manual, ...)
+      	\begin{itemize}
+        		\item \texttt{src/doc/doxygen\_ref\_man}: files needed to generate the reference documentation with Doxygen
+        		\item \texttt{src/doc/latex\_man}: files needed to generate the user manual with Latex
+        \end{itemize}
+    \item \texttt{src/test}: test related files (scripts, regression files, ...)
+\end{compactitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File formats
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{File formats}
+\label{section:FileFormats}
+
+The Stride software supports different file formats: 
+\begin{description}
+	\item [CSV] \ \\
+	Comma separated values, used for population input data and simulator output.
+	\item [HDF5] \ \\
+	Hierarchical Data Format 5, designed to store and organize large amounts of data.
+	\item [JSON] \ \\
+	JavaScript Object Notation, an open standard format that uses human-readable text to transmit objects consisting of attribute-value pairs. 	 \mbox{(see \url{www.json.org})}
+	\item [TXT] \ \\
+	Text files, for the logger. 
+	\item [XML] \ \\
+	Extensible Markup Language, a markup language (both human-readable and machine-readable) that defines a set of rules for encoding documents.
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Testing}
+Unit tests and install checks are added to Stride based on Google's ``gtest" framework and CMake's ``ctest" tool. 
+In addition, the code base contains assertions to verify the simulator logic. 
+They are activated when the application is built in debug mode and can be used to catch errors at run time. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Results
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{section:Results}
+
+The software can generates different output files:
+\begin{description}
+	\item [cases.csv] \ \\
+	Cumulative number of cases per day.
+	\item [summary.csv] \ \\
+	Aggregated results on the number of cases, configuration details and timings.
+	\item [person.csv] \ \\
+	Individual details on infection characteristics.
+	\item [logfile.txt] \ \\
+	Details on transmission and/or social contacts events.
+\end{description}	
+	
+	
+	

@@ -1,0 +1,118 @@
+#############################################################################
+#  This file is part of the Stride software. 
+#  It is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by 
+#  the Free Software Foundation, either version 3 of the License, or any 
+#  later version.
+#  The software is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  You should have received a copy of the GNU General Public License,
+#  along with the software. If not, see <http://www.gnu.org/licenses/>.
+#  see http://www.gnu.org/licenses/.
+#
+#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#############################################################################
+
+=============================================================================
+    Directory layout:
+=============================================================================
+The directory structure of the project follows maven conventions.
+Everything used to generate project artifacts is placed in directory "src":
+    - documentation files (api, manual, html, pdf and text ...)
+      in directory "src/doc"
+    - code related files (sources, third party libraries and headers, ...)
+      in directory "src/main"
+        - for each language the sources in "src/main/<language>_..."
+        - third party resources in "src/main/resources" 
+        - for each document processing tool a subdir "src/site/<tool>_..."
+    - test related files (description, scripts, regression files, ...)
+      in directory "src/test"
+Every artifact is generated in directory "build" or its sub directories 
+(those names depend on the build procedures).
+
+=============================================================================
+    Macros:
+=============================================================================
+This text refers to a number of macros that configure the functioning of
+the make/cmake build and install targets.
+
+If you do not want the default values for the macros referred to in this
+file, there are two options. You define them on the make or cmake command
+line or you introduce a file named MakeLocalConfig. If such a file exists 
+in this directory, make will include it, thus defining the macros. An
+example MakeLocalConfig file can be found in src/main/resources/make.
+
+If you work with cmake directly and do not want the default macro values,
+you need to define them on the cmake command line.
+      
+Current macro and their values can be found reading this file, or using the
+make command without arguments in the top level project directory
+
+=============================================================================
+    Build and install project artifacts (application, tests, documentation):
+=============================================================================
+We use an out of source build of all artifacts using the cmake tool.
+This requires the build directory (macro BUILD_DIR) to be
+created and configured (target configure) by generating Makefiles in it.
+You can define a build type (macro CMAKE_BUILD_TYPE) such as Debug or Release.
+The project artifacts are installed in a directory (macro CMAKE_BUILD_TYPE).
+      
+The sub directories of src each involve different categories of artifacts:
+
+    src/doc  : API documentation, license info, code analysis, ...
+    src/main : app and test executables, libraries, configuration files, ...
+    src/test : test definitions and resources for testing main artifacts, ...
+    
+There are three activities: build, install, test. While some of the unit 
+tests can run without an installation, most tests depend on installed 
+workspace, output directories for test reports, etc. We have opted to run
+all tests post install.
+
+The targets are listed below.
+
+    configure     ( generate Makefiles in build dir )
+    all           ( build all artifacts             )
+    install       ( install all artifacts           )
+    clean         ( remove entire build directory   )
+    test          ( run tests / checks post install )  
+
+The _main and _test targets are there for development work with recurring
+compile-install-test cycles.
+
+Note that all implies that main and test artifacts are built or installed,
+but not the doc artifacts. For those you need to explicitly set the macro
+STRIDE_INCLUDE_DOC=ON in the make or cmake invocation or in your
+MakeLocalConfig file.
+             
+=============================================================================
+    Build and install directly with make:
+=============================================================================
+We use the Makefile in the toplevel project directory to trigger cmake 
+invocations. The targets have the effect described above: 
+    "make all"            build all artifacts after configuring for cmake
+    "make install"        installs all the artifacts
+    "make test"           runs tests (and that needs to come after install)
+If you just want to configure the build tree without actually building
+anything and get a report of al macro settings the use:
+    "make configure"      constructs build directory and lsists macro settings.
+The other targets execute this step implicitly if you have not already done 
+so previously.
+
+=============================================================================
+    Build and install directly with cmake:
+=============================================================================
+You can bypass the Makefile and directly do ( i.e. the familiar 
+command line CMake procedure):
+    "mkdir build; cd build"
+        creates build directory named target and go to it       
+    "cmake -DCMAKE_INSTALL_PREFIX:PATH=/tmp/some_dir ../src" 
+        generates Makefiles, defining the install directory macro        
+    "make all; make install"                          
+        build and install everything
+        
+If you want a different build type e.g. Debug, then in the third step you have
+to define the CMAKE_BUILD_TYPE. See the section above for the available macros.
+ 
+#############################################################################

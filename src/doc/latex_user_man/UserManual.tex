@@ -1,0 +1,44 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[techreport,english]{comp}
+%
+%\usepackage[notincludeAppendices]{optional}
+%\usepackage[includeAppendices]{optional}
+%
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{float-verbatim}{thp}{lop}
+\floatname{float-verbatim}{List}
+%
+% whitespace between paragraphs, no intendation
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{2.3ex}
+
+% adjust margins
+\setlength{\topmargin}{1ex}
+\setlength{\textheight} {680pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Stride project \\ \\ User Manual}
+\author{Willem L, Kuylen E \& Broeckhove J}
+\submitdate{\today}
+\reportnumber{1.0}
+\bibfile{Refs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\frontpages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%?%%%%%%%
+\mainbodypages
+
+\input{01-Introduction}
+\input{02-Software}
+\input{03-Simulator}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{99-Appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backpages
+\end{document}
