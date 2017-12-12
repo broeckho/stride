@@ -15,23 +15,16 @@
 #  Copyright 2017, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 #
-#   Meta makefile calls cmake to do the heavy lifting. It first
-#   includes the file MakeLocalConfig (if it exists) for local
-#   configuration. If no such file exists the defaults below apply.
-#   This file is tracked by the repository so do not change this 
-#   for personal customization. That should be done in the file 
-#   MakeLocalConfig.
+#	Meta makefile calls cmake to do the heavy lifting.
 #
 #############################################################################
 
 #============================================================================
-#   Load MakeLocalConfig (if it exists) to override defaults below
+#   Configuring Make invocations.
 #============================================================================
-MakeLocalConfig = $(wildcard MakeLocalConfig)
-ifeq ($(MakeLocalConfig),MakeLocalConfig)
-	include MakeLocalConfig
+ifeq ($(PARALLEL_MAKE),)
+	PARALLEL_MAKE = -j4
 endif
-
 #============================================================================
 # 	CMake command
 #============================================================================
@@ -125,7 +118,7 @@ help:
 				
 configure:
 	$(CMAKE) -E make_directory $(BUILD_DIR)
-	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ../src
+	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
 
 all: configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) all
@@ -146,6 +139,6 @@ test installcheck: install_test
 	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest 
 		
 format:
-	src/resources/bash/clang-format-all src
+	resources/bash/clang-format-all .
 
 #############################################################################
