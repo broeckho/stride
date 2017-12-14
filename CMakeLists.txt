@@ -45,9 +45,9 @@ include(CMakeCPP.cmake)
 #============================================================================
 # Configuration for Swig & Python.
 #============================================================================
-find_package(SWIG REQUIRED)
-find_package(PythonInterp 3 REQUIRED)
-find_package(PythonLibs 3 REQUIRED)
+find_package(SWIG)
+find_package(PythonInterp 3)
+find_package(PythonLibs 3)
 
 #============================================================================
 # Configuration for Git.
