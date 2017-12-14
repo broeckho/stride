@@ -36,17 +36,17 @@ CasesFile::~CasesFile() { m_fstream.close(); }
 
 void CasesFile::Initialize(const std::string& output_dir)
 {
-	boost::filesystem::path pathname(output_dir);
-	pathname /= "cases.csv";
-	m_fstream.open(pathname.c_str());
+        boost::filesystem::path pathname(output_dir);
+        pathname /= "cases.csv";
+        m_fstream.open(pathname.c_str());
 }
 
 void CasesFile::Print(const vector<unsigned int>& cases)
 {
-	for (unsigned int i = 0; i < (cases.size() - 1); i++) {
-		m_fstream << cases[i] << ",";
-	}
-	m_fstream << cases[cases.size() - 1] << endl;
+        for (unsigned int i = 0; i < (cases.size() - 1); i++) {
+                m_fstream << cases[i] << ",";
+        }
+        m_fstream << cases[cases.size() - 1] << endl;
 }
 
 } // end_of_namespace

@@ -32,21 +32,21 @@ namespace output {
 class CasesFile
 {
 public:
-	/// Constructor: initialize.
-	CasesFile(const std::string& output_dir = "output");
+        /// Constructor: initialize.
+        CasesFile(const std::string& output_dir = "output");
 
-	/// Destructor: close the file stream.
-	~CasesFile();
+        /// Destructor: close the file stream.
+        ~CasesFile();
 
-	/// Print the given cases with corresponding tag.
-	void Print(const std::vector<unsigned int>& cases);
-
-private:
-	/// Generate file name and open the file stream.
-	void Initialize(const std::string& output_dir);
+        /// Print the given cases with corresponding tag.
+        void Print(const std::vector<unsigned int>& cases);
 
 private:
-	std::ofstream m_fstream; ///< The file stream.
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
 } // end_of_namespace

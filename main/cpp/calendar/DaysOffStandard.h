@@ -32,20 +32,20 @@ namespace stride {
 class DaysOffStandard : public DaysOffInterface
 {
 public:
-	/// Initialize calendar.
-	DaysOffStandard(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        /// Initialize calendar.
+        DaysOffStandard(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
 
-	/// See DaysOffInterface.
-	bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
+        /// See DaysOffInterface.
+        bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
 
-	/// See DaysOffInterface.
-	virtual bool IsSchoolOff() override
-	{
-		return m_calendar->IsWeekend() || m_calendar->IsHoliday() || m_calendar->IsSchoolHoliday();
-	}
+        /// See DaysOffInterface.
+        virtual bool IsSchoolOff() override
+        {
+                return m_calendar->IsWeekend() || m_calendar->IsHoliday() || m_calendar->IsSchoolHoliday();
+        }
 
 private:
-	std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.
+        std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.
 };
 
 } // end_of_namespace

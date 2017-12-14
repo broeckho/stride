@@ -33,17 +33,18 @@ namespace util {
 class PtreeUtils
 {
 public:
-	/// Create a vector with a distribution from a given property tree, based on an xml tag.
-	static std::vector<double> GetDistribution(const boost::property_tree::ptree& pt_root,
-						   const std::string& xml_tag)
-	{
-		std::vector<double> values;
-		boost::property_tree::ptree subtree = pt_root.get_child(xml_tag);
-		for (const auto& tree : subtree) {
-			values.push_back(tree.second.get<double>(""));
-		}
-		return values;
-	}
+        /// Create a vector with a distribution from a given property tree, based on
+        /// an xml tag.
+        static std::vector<double> GetDistribution(const boost::property_tree::ptree& pt_root,
+                                                   const std::string& xml_tag)
+        {
+                std::vector<double> values;
+                boost::property_tree::ptree subtree = pt_root.get_child(xml_tag);
+                for (const auto& tree : subtree) {
+                        values.push_back(tree.second.get<double>(""));
+                }
+                return values;
+        }
 };
 
 } // end of namespace

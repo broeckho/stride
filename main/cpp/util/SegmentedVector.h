@@ -49,235 +49,235 @@ template <typename T, size_t N = 512>
 class SegmentedVector
 {
 public:
-	// ==================================================================
-	// Member types
-	// ==================================================================
-	using value_type = T;
-	using size_type = std::size_t;
-	using self_type = SegmentedVector<T, N>;
-	using iterator = SVIterator<T, N, T*, T&, false>;
-	using const_iterator = SVIterator<T, N>;
+        // ==================================================================
+        // Member types
+        // ==================================================================
+        using value_type = T;
+        using size_type = std::size_t;
+        using self_type = SegmentedVector<T, N>;
+        using iterator = SVIterator<T, N, T*, T&, false>;
+        using const_iterator = SVIterator<T, N>;
 
-	// ==================================================================
-	// Construction / Copy / Move / Destruction
-	// ==================================================================
+        // ==================================================================
+        // Construction / Copy / Move / Destruction
+        // ==================================================================
 
-	/// Construct
-	SegmentedVector() : m_size(0) {}
+        /// Construct
+        SegmentedVector() : m_size(0) {}
 
-	/// Copy constructor
-	SegmentedVector(const self_type& other) : m_size(0)
-	{
-		m_blocks.reserve(other.m_blocks.size());
-		for (const auto& elem : other) {
-			push_back(elem);
-		}
-		assert(m_size == other.m_size);
-		assert(m_blocks.size() == other.m_blocks.size());
-	}
+        /// Copy constructor
+        SegmentedVector(const self_type& other) : m_size(0)
+        {
+                m_blocks.reserve(other.m_blocks.size());
+                for (const auto& elem : other) {
+                        push_back(elem);
+                }
+                assert(m_size == other.m_size);
+                assert(m_blocks.size() == other.m_blocks.size());
+        }
 
-	/// Move constructor
-	SegmentedVector(self_type&& other) : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
-	{
-		other.m_size = 0;
-	}
+        /// Move constructor
+        SegmentedVector(self_type&& other) : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        {
+                other.m_size = 0;
+        }
 
-	/// Copy assignment
-	self_type& operator=(const self_type& other)
-	{
-		if (this != &other) {
-			clear();
-			m_blocks.reserve(other.m_blocks.size());
-			for (const auto& elem : other) {
-				push_back(elem);
-			}
-			assert(m_size == other.m_size);
-			assert(m_blocks.size() == other.m_blocks.size());
-		}
-		return *this;
-	}
+        /// Copy assignment
+        self_type& operator=(const self_type& other)
+        {
+                if (this != &other) {
+                        clear();
+                        m_blocks.reserve(other.m_blocks.size());
+                        for (const auto& elem : other) {
+                                push_back(elem);
+                        }
+                        assert(m_size == other.m_size);
+                        assert(m_blocks.size() == other.m_blocks.size());
+                }
+                return *this;
+        }
 
-	/// Move assignment
-	self_type& operator=(self_type&& other)
-	{
-		if (this != &other) {
-			clear();
-			m_blocks = std::move(other.m_blocks);
-			std::swap(m_size, other.m_size);
-		}
-		return *this;
-	}
+        /// Move assignment
+        self_type& operator=(self_type&& other)
+        {
+                if (this != &other) {
+                        clear();
+                        m_blocks = std::move(other.m_blocks);
+                        std::swap(m_size, other.m_size);
+                }
+                return *this;
+        }
 
-	/// Destructor
-	~SegmentedVector() { clear(); }
+        /// Destructor
+        ~SegmentedVector() { clear(); }
 
-	// ==================================================================
-	// Element access
-	// ==================================================================
+        // ==================================================================
+        // Element access
+        // ==================================================================
 
-	/// Access specified element with bounds checking.
-	T& at(std::size_t pos)
-	{
-		if (pos >= m_size) {
-			throw std::out_of_range("CompactStorage: index out of range.");
-		}
-		const size_t b = pos / N;
-		const size_t i = pos % N;
-		return *static_cast<T*>(static_cast<void*>(&(m_blocks[b][i])));
-	}
+        /// Access specified element with bounds checking.
+        T& at(std::size_t pos)
+        {
+                if (pos >= m_size) {
+                        throw std::out_of_range("CompactStorage: index out of range.");
+                }
+                const size_t b = pos / N;
+                const size_t i = pos % N;
+                return *static_cast<T*>(static_cast<void*>(&(m_blocks[b][i])));
+        }
 
-	/// Access specified element with bounds checking.
-	const T& at(std::size_t pos) const
-	{
-		if (pos >= m_size) {
-			throw std::out_of_range("CompactStorage: index out of range.");
-		}
-		const size_t b = pos / N;
-		const size_t i = pos % N;
-		return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[b][i])));
-	}
+        /// Access specified element with bounds checking.
+        const T& at(std::size_t pos) const
+        {
+                if (pos >= m_size) {
+                        throw std::out_of_range("CompactStorage: index out of range.");
+                }
+                const size_t b = pos / N;
+                const size_t i = pos % N;
+                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[b][i])));
+        }
 
-	/// Access the last element.
-	T& back() { return *static_cast<T*>(static_cast<void*>(&m_blocks[(m_size - 1) / N][(m_size - 1) % N])); }
+        /// Access the last element.
+        T& back() { return *static_cast<T*>(static_cast<void*>(&m_blocks[(m_size - 1) / N][(m_size - 1) % N])); }
 
-	/// Access the last element.
-	const T& back() const
-	{
-		return *static_cast<const T*>(static_cast<const void*>(&m_blocks[(m_size - 1) / N][(m_size - 1) % N]));
-	}
+        /// Access the last element.
+        const T& back() const
+        {
+                return *static_cast<const T*>(static_cast<const void*>(&m_blocks[(m_size - 1) / N][(m_size - 1) % N]));
+        }
 
-	/// Access specified element (no bounds checking).
-	T& operator[](size_t pos) { return *static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N]))); }
+        /// Access specified element (no bounds checking).
+        T& operator[](size_t pos) { return *static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N]))); }
 
-	/// Access specified element (no bounds checking).
-	const T& operator[](size_t pos) const
-	{
-		return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[pos / N][pos % N])));
-	}
+        /// Access specified element (no bounds checking).
+        const T& operator[](size_t pos) const
+        {
+                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[pos / N][pos % N])));
+        }
 
-	// ==================================================================
-	// Iterators
-	// ==================================================================
+        // ==================================================================
+        // Iterators
+        // ==================================================================
 
-	/// Returns an iterator to the beginning of the container.
-	iterator begin() { return (m_size == 0) ? end() : iterator(0, this); }
+        /// Returns an iterator to the beginning of the container.
+        iterator begin() { return (m_size == 0) ? end() : iterator(0, this); }
 
-	/// Returns a const_iterator to the beginning of the container.
-	const_iterator begin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
+        /// Returns a const_iterator to the beginning of the container.
+        const_iterator begin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
-	/// Returns a const_iterator to the beginning of the container.
-	const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
+        /// Returns a const_iterator to the beginning of the container.
+        const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
-	/// Returns an iterator to the end of the container.
-	iterator end() { return iterator(iterator::m_end, this); }
+        /// Returns an iterator to the end of the container.
+        iterator end() { return iterator(iterator::m_end, this); }
 
-	/// Returns a const_iterator to the end of the container.
-	const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
+        /// Returns a const_iterator to the end of the container.
+        const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
 
-	/// Returns a const_iterator to the end.
-	const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
+        /// Returns a const_iterator to the end.
+        const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
 
-	// ==================================================================
-	// Capacity
-	// ==================================================================
+        // ==================================================================
+        // Capacity
+        // ==================================================================
 
-	/// Checks whether container is empty.
-	bool empty() const { return m_size == 0; }
+        /// Checks whether container is empty.
+        bool empty() const { return m_size == 0; }
 
-	/// Returns number of currently allocated blocks.
-	std::size_t get_block_count() const { return m_blocks.size(); }
+        /// Returns number of currently allocated blocks.
+        std::size_t get_block_count() const { return m_blocks.size(); }
 
-	/// Returns number of elements block (template parameter 'N').
-	std::size_t get_elements_per_block() const { return N; }
+        /// Returns number of elements block (template parameter 'N').
+        std::size_t get_elements_per_block() const { return N; }
 
-	/// Returns the number of elements.
-	std::size_t size() const { return m_size; }
+        /// Returns the number of elements.
+        std::size_t size() const { return m_size; }
 
-	// ==================================================================
-	// Modifiers
-	// ==================================================================
+        // ==================================================================
+        // Modifiers
+        // ==================================================================
 
-	/// Clears the content.
-	void clear()
-	{
-		for (auto& i : *this) {
-			i.~T();
-		}
-		for (auto p : m_blocks) {
-			delete[] p;
-		}
-		m_blocks.clear();
-		m_size = 0;
-	}
+        /// Clears the content.
+        void clear()
+        {
+                for (auto& i : *this) {
+                        i.~T();
+                }
+                for (auto p : m_blocks) {
+                        delete[] p;
+                }
+                m_blocks.clear();
+                m_size = 0;
+        }
 
-	/// Constructs element in-place at the end.
-	template <class... Args>
-	T* emplace_back(Args&&... args)
-	{
-		T* memory = this->get_chunk();
-		return new (memory) T(args...); // construct new object
-	}
+        /// Constructs element in-place at the end.
+        template <class... Args>
+        T* emplace_back(Args&&... args)
+        {
+                T* memory = this->get_chunk();
+                return new (memory) T(args...); // construct new object
+        }
 
-	/// Removes the last element.
-	void pop_back()
-	{
-		// No pop on empty container.
-		if (m_size <= 0) {
-			throw std::logic_error("CompactStorage::pop_back called on empty object.");
-		}
+        /// Removes the last element.
+        void pop_back()
+        {
+                // No pop on empty container.
+                if (m_size <= 0) {
+                        throw std::logic_error("CompactStorage::pop_back called on empty object.");
+                }
 
-		// Element destruction.
-		at(m_size - 1).~T();
-		--m_size;
+                // Element destruction.
+                at(m_size - 1).~T();
+                --m_size;
 
-		// If tail block vacated, release it.
-		const size_t last_block_index = m_blocks.size() - 1;
-		if (m_size <= last_block_index * N) {
-			delete[] m_blocks[last_block_index];
-			m_blocks.pop_back();
-		}
-	}
+                // If tail block vacated, release it.
+                const size_t last_block_index = m_blocks.size() - 1;
+                if (m_size <= last_block_index * N) {
+                        delete[] m_blocks[last_block_index];
+                        m_blocks.pop_back();
+                }
+        }
 
-	/// Adds element to end.
-	T* push_back(const T& obj)
-	{
-		T* memory = get_chunk();
-		return new (memory) T(obj); // copy-construct new object
-	}
+        /// Adds element to end.
+        T* push_back(const T& obj)
+        {
+                T* memory = get_chunk();
+                return new (memory) T(obj); // copy-construct new object
+        }
 
-	/// Adds element to end.
-	T* push_back(T&& obj)
-	{
-		T* memory = get_chunk();
-		return new (memory) T(std::move(obj)); // move-construct new object
-	}
-
-private:
-	/// POD type with same alignment requirement as for T's.
-	using Chunk = typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type;
+        /// Adds element to end.
+        T* push_back(T&& obj)
+        {
+                T* memory = get_chunk();
+                return new (memory) T(std::move(obj)); // move-construct new object
+        }
 
 private:
-	friend class SVIterator<T, N>;
-	friend class SVIterator<T, N, T*, T&, false>;
+        /// POD type with same alignment requirement as for T's.
+        using Chunk = typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type;
 
 private:
-	/// Get next available chunk for element construction with placement new.
-	T* get_chunk()
-	{
-		const size_t b = m_size / N; // Index of block in vector m_blocks
-		const size_t i = m_size % N; // Offset of chunk within its block
-
-		if (b == m_blocks.size()) { // Out of buffers, last buffer is full
-			Chunk* chunk = new Chunk[N];
-			m_blocks.push_back(chunk);
-		}
-		++m_size;
-		return static_cast<T*>(static_cast<void*>(&((m_blocks[b])[i])));
-	}
+        friend class SVIterator<T, N>;
+        friend class SVIterator<T, N, T*, T&, false>;
 
 private:
-	std::vector<Chunk*> m_blocks; ///< Vector registers pointers to blocks of chunks.
-	size_t m_size;                ///< Index of first free chunk when indexed contiguously.
+        /// Get next available chunk for element construction with placement new.
+        T* get_chunk()
+        {
+                const size_t b = m_size / N; // Index of block in vector m_blocks
+                const size_t i = m_size % N; // Offset of chunk within its block
+
+                if (b == m_blocks.size()) { // Out of buffers, last buffer is full
+                        Chunk* chunk = new Chunk[N];
+                        m_blocks.push_back(chunk);
+                }
+                ++m_size;
+                return static_cast<T*>(static_cast<void*>(&((m_blocks[b])[i])));
+        }
+
+private:
+        std::vector<Chunk*> m_blocks; ///< Vector registers pointers to blocks of chunks.
+        size_t m_size;                ///< Index of first free chunk when indexed contiguously.
 };
 
 } // namespace

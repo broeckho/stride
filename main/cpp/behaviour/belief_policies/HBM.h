@@ -18,38 +18,39 @@
 
 namespace stride {
 
-// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod ORi^xi))
+// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod
+// ORi^xi))
 
 enum class VariableState
 {
-	Low = 0U,
-	High = 1U
+        Low = 0U,
+        High = 1U
 };
 
 class HBM : public Belief
 {
 public:
-	HBM(const boost::property_tree::ptree& pt)
-	    : Belief(pt), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
-	      m_perceived_severity(0), m_perceived_susceptibility(0), m_perceived_benefit(1), m_perceived_barriers(1)
-	{
-	}
+        HBM(const boost::property_tree::ptree& pt)
+            : Belief(pt), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
+              m_perceived_severity(0), m_perceived_susceptibility(0), m_perceived_benefit(1), m_perceived_barriers(1)
+        {
+        }
 
 private:
-	unsigned int m_num_contacts;
-	unsigned int m_num_contacts_infected;
-	unsigned int m_num_contacts_adopted;
+        unsigned int m_num_contacts;
+        unsigned int m_num_contacts_infected;
+        unsigned int m_num_contacts_adopted;
 
-	VariableState m_perceived_severity;
-	VariableState m_perceived_susceptibility;
-	VariableState m_perceived_benefit;
-	VariableState m_perceived_barriers;
+        VariableState m_perceived_severity;
+        VariableState m_perceived_susceptibility;
+        VariableState m_perceived_benefit;
+        VariableState m_perceived_barriers;
 
 private:
-	static const double m_odds_ratio_0 = -1;
-	static const double m_odds_ratio_severity = 0.626;
-	static const double m_odds_ratio_susceptibility = 1.07;
-	static const double m_odds_ratio_benefit = 0;
-	static const double m_odds_ratio_barriers = -0.4;
+        static const double m_odds_ratio_0 = -1;
+        static const double m_odds_ratio_severity = 0.626;
+        static const double m_odds_ratio_susceptibility = 1.07;
+        static const double m_odds_ratio_benefit = 0;
+        static const double m_odds_ratio_barriers = -0.4;
 };
 } // end_of_namespace

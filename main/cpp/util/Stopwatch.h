@@ -27,93 +27,95 @@ namespace stride {
 namespace util {
 
 /**
- * Provides a stopwatch interface to time: it accumulates time between start/stop pairs.
+ * Provides a stopwatch interface to time: it accumulates time between
+ * start/stop pairs.
  */
 template <typename T = std::chrono::system_clock>
 class Stopwatch
 {
 public:
-	typedef T TClock;
+        typedef T TClock;
 
-	/// Constructor initializes stopwatch.
-	Stopwatch(std::string name = "stopwatch", bool running = false)
-	    : m_accumulated(T::duration::zero()), m_name(name), m_running(running)
-	{
-		if (m_running) {
-			m_last_start = T::now();
-		}
-	}
+        /// Constructor initializes stopwatch.
+        Stopwatch(std::string name = "stopwatch", bool running = false)
+            : m_accumulated(T::duration::zero()), m_name(name), m_running(running)
+        {
+                if (m_running) {
+                        m_last_start = T::now();
+                }
+        }
 
-	/// Starts stopwatch if it was stopped.
-	Stopwatch& Start()
-	{
-		if (!m_running) {
-			m_running = true;
-			m_last_start = T::now();
-		}
-		return *this;
-	}
+        /// Starts stopwatch if it was stopped.
+        Stopwatch& Start()
+        {
+                if (!m_running) {
+                        m_running = true;
+                        m_last_start = T::now();
+                }
+                return *this;
+        }
 
-	/// Stops the stopwatch if it was running.
-	Stopwatch& Stop()
-	{
-		if (m_running) {
-			m_accumulated += (T::now() - m_last_start);
-			m_running = false;
-		}
-		return *this;
-	}
+        /// Stops the stopwatch if it was running.
+        Stopwatch& Stop()
+        {
+                if (m_running) {
+                        m_accumulated += (T::now() - m_last_start);
+                        m_running = false;
+                }
+                return *this;
+        }
 
-	/// Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared.
-	Stopwatch& Reset()
-	{
-		m_accumulated = T::duration::zero();
-		m_running = false;
-		return *this;
-	}
+        /// Resets stopwatch i.e. stopwatch is stopped and time accumulator is
+        /// cleared.
+        Stopwatch& Reset()
+        {
+                m_accumulated = T::duration::zero();
+                m_running = false;
+                return *this;
+        }
 
-	/// Reports whether stopwatch has been started.
-	bool IsRunning() const { return (m_running); }
+        /// Reports whether stopwatch has been started.
+        bool IsRunning() const { return (m_running); }
 
-	/// Return name of this stopwatch
-	std::string GetName() const { return m_name; }
+        /// Return name of this stopwatch
+        std::string GetName() const { return m_name; }
 
-	/// Returns the accumulated value without altering the stopwatch state.
-	typename T::duration Get() const
-	{
-		auto fTemp = m_accumulated;
-		if (m_running) {
-			fTemp += (T::now() - m_last_start);
-		}
-		return fTemp;
-	}
+        /// Returns the accumulated value without altering the stopwatch state.
+        typename T::duration Get() const
+        {
+                auto fTemp = m_accumulated;
+                if (m_running) {
+                        fTemp += (T::now() - m_last_start);
+                }
+                return fTemp;
+        }
 
-	/// Returns string representation of readout
-	std::string ToString() const
-	{
-		using namespace std;
-		using namespace std::chrono;
+        /// Returns string representation of readout
+        std::string ToString() const
+        {
+                using namespace std;
+                using namespace std::chrono;
 
-		string colon_string;
-		typedef typename TClock::period TPeriod;
-		if (ratio_less_equal<TPeriod, micro>::value) {
-			microseconds d = duration_cast<microseconds>(Get());
-			colon_string = TimeToString::ToColonString(d);
-		} else if (ratio_less_equal<TPeriod, milli>::value) {
-			milliseconds d = duration_cast<milliseconds>(Get());
-			colon_string = TimeToString::ToColonString(d);
-		} else {
-			seconds d = duration_cast<seconds>(Get());
-			colon_string = TimeToString::ToColonString(d);
-		}
-		return colon_string;
-	}
+                string colon_string;
+                typedef typename TClock::period TPeriod;
+                if (ratio_less_equal<TPeriod, micro>::value) {
+                        microseconds d = duration_cast<microseconds>(Get());
+                        colon_string = TimeToString::ToColonString(d);
+                } else if (ratio_less_equal<TPeriod, milli>::value) {
+                        milliseconds d = duration_cast<milliseconds>(Get());
+                        colon_string = TimeToString::ToColonString(d);
+                } else {
+                        seconds d = duration_cast<seconds>(Get());
+                        colon_string = TimeToString::ToColonString(d);
+                }
+                return colon_string;
+        }
 
 private:
-	typename T::duration m_accumulated;
-	typename T::time_point m_last_start;
-	std::string m_name;
-	bool m_running;
+        typename T::duration m_accumulated;
+        typename T::time_point m_last_start;
+        std::string m_name;
+        bool m_running;
 };
 
 /**
@@ -122,7 +124,7 @@ private:
 template <typename T>
 std::ostream& operator<<(std::ostream& oss, Stopwatch<T> const& stopwatch)
 {
-	return (oss << stopwatch.ToString());
+        return (oss << stopwatch.ToString());
 }
 
 } // end of namespace

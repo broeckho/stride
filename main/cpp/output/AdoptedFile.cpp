@@ -28,17 +28,17 @@ AdoptedFile::~AdoptedFile() { m_fstream.close(); }
 
 void AdoptedFile::Print(const vector<unsigned int>& adopters)
 {
-	for (unsigned int i = 0; i < (adopters.size() - 1); i++) {
-		m_fstream << adopters[i] << ",";
-	}
-	m_fstream << adopters[adopters.size() - 1] << std::endl;
+        for (unsigned int i = 0; i < (adopters.size() - 1); i++) {
+                m_fstream << adopters[i] << ",";
+        }
+        m_fstream << adopters[adopters.size() - 1] << std::endl;
 }
 
 void AdoptedFile::Initialize(const string& output_dir)
 {
-	boost::filesystem::path pathname(output_dir);
-	pathname /= "adopted.csv";
-	m_fstream.open(pathname.c_str());
+        boost::filesystem::path pathname(output_dir);
+        pathname /= "adopted.csv";
+        m_fstream.open(pathname.c_str());
 }
 
 } // end of namespace

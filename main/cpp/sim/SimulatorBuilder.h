@@ -32,23 +32,23 @@ namespace stride {
 class SimulatorBuilder
 {
 public:
-	///
-	static std::shared_ptr<Simulator> Build(const std::string& config_file_name, unsigned int num_threads,
-						bool track_index_case);
+        ///
+        static std::shared_ptr<Simulator> Build(const std::string& config_file_name, unsigned int num_threads,
+                                                bool track_index_case);
 
-	/// Build the simulator.
-	static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config, unsigned int num_threads,
-						bool track_index_case = false);
+        /// Build the simulator.
+        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config, unsigned int num_threads,
+                                                bool track_index_case = false);
 
-	/// Build the simulator.
-	static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
-						const boost::property_tree::ptree& pt_disease,
-						const boost::property_tree::ptree& pt_contact,
-						unsigned int num_threads = 1U, bool track_index_case = false);
+        /// Build the simulator.
+        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
+                                                const boost::property_tree::ptree& pt_disease,
+                                                const boost::property_tree::ptree& pt_contact,
+                                                unsigned int num_threads = 1U, bool track_index_case = false);
 
 private:
-	/// Initialize the clusters.
-	static void InitializeClusters(std::shared_ptr<Simulator> sim);
+        /// Initialize the clusters.
+        static void InitializeClusters(std::shared_ptr<Simulator> sim);
 };
 
 } // end_of_namespace

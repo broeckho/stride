@@ -26,7 +26,7 @@ namespace stride {
 class NoBelief : public Belief
 {
 public:
-	NoBelief(const boost::property_tree::ptree& pt) : Belief(pt) {}
+        NoBelief(const boost::property_tree::ptree& pt) : Belief(pt) {}
 };
 
 } // end_of_namespace

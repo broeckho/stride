@@ -34,19 +34,19 @@ namespace stride {
 class PopulationBuilder
 {
 public:
-	/**
-	 * Initializes a Population: add persons, set immunity, seed infection.
-	 *
-	 * @param pt_config     Property_tree with general configuration settings.
-	 * @param pt_disease    Property_tree with disease configuration settings.
-	 * @return              Pointer to the initialized population.
-	 */
-	static std::shared_ptr<Population> Build(const boost::property_tree::ptree& pt_config,
-						 const boost::property_tree::ptree& pt_disease, util::Random& rng);
+        /**
+         * Initializes a Population: add persons, set immunity, seed infection.
+         *
+         * @param pt_config     Property_tree with general configuration settings.
+         * @param pt_disease    Property_tree with disease configuration settings.
+         * @return              Pointer to the initialized population.
+         */
+        static std::shared_ptr<Population> Build(const boost::property_tree::ptree& pt_config,
+                                                 const boost::property_tree::ptree& pt_disease, util::Random& rng);
 
 private:
-	/// Sample from the distribution.
-	static unsigned int Sample(util::Random& rng, const std::vector<double>& distribution);
+        /// Sample from the distribution.
+        static unsigned int Sample(util::Random& rng, const std::vector<double>& distribution);
 };
 
 } // end_of_namespace

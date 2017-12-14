@@ -32,22 +32,22 @@ namespace output {
 class SummaryFile
 {
 public:
-	/// Constructor: initialize.
-	SummaryFile(const std::string& output_dir = "output");
+        /// Constructor: initialize.
+        SummaryFile(const std::string& output_dir = "output");
 
-	/// Destructor: close the file stream.
-	~SummaryFile();
+        /// Destructor: close the file stream.
+        ~SummaryFile();
 
-	/// Print the given output with corresponding tag.
-	void Print(const boost::property_tree::ptree& pt_config, unsigned int population_size, unsigned int num_cases,
-		   double transmission_rate, unsigned int run_time, unsigned int total_time);
-
-private:
-	/// Generate file name and open the file stream.
-	void Initialize(const std::string& output_dir);
+        /// Print the given output with corresponding tag.
+        void Print(const boost::property_tree::ptree& pt_config, unsigned int population_size, unsigned int num_cases,
+                   double transmission_rate, unsigned int run_time, unsigned int total_time);
 
 private:
-	std::ofstream m_fstream; ///< The file stream.
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
 } // end of namespace

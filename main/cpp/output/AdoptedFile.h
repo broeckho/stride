@@ -24,21 +24,21 @@ namespace output {
 class AdoptedFile
 {
 public:
-	/// Constructor
-	AdoptedFile(const std::string& output_dir = "output");
+        /// Constructor
+        AdoptedFile(const std::string& output_dir = "output");
 
-	/// Destructor
-	~AdoptedFile();
+        /// Destructor
+        ~AdoptedFile();
 
-	/// Print the given cases with corresponding tag.
-	void Print(const std::vector<unsigned int>& adopters);
-
-private:
-	/// Generate file name and open the file stream.
-	void Initialize(const std::string& output_dir);
+        /// Print the given cases with corresponding tag.
+        void Print(const std::vector<unsigned int>& adopters);
 
 private:
-	std::ofstream m_fstream; ///< The file stream.
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
 } // end of namespace

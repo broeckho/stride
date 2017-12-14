@@ -30,11 +30,11 @@ namespace stride {
 class SimulatorObserver
 {
 public:
-	SimulatorObserver() {}
+        SimulatorObserver() {}
 
-	virtual ~SimulatorObserver() {}
+        virtual ~SimulatorObserver() {}
 
-	virtual void Update(unsigned int timestep) {}
+        virtual void Update(unsigned int timestep) {}
 };
 
 } // end_of_namespace

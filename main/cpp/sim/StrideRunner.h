@@ -36,42 +36,42 @@ namespace stride {
 class StrideRunner
 {
 public:
-	/// Constructor
-	StrideRunner() {}
+        /// Constructor
+        StrideRunner() {}
 
-	/// Destructor
-	virtual ~StrideRunner() {}
+        /// Destructor
+        virtual ~StrideRunner() {}
 
-	/// Register observer
-	static void RegisterObserver(std::shared_ptr<SimulatorObserver>& observer);
+        /// Register observer
+        static void RegisterObserver(std::shared_ptr<SimulatorObserver>& observer);
 
-	///
-	static void Setup(bool track_index_case, const std::string& config_file_name, bool use_install_dirs = false);
+        ///
+        static void Setup(bool track_index_case, const std::string& config_file_name, bool use_install_dirs = false);
 
-	/// Run the simulator with config information provided.
-	static void Run();
+        /// Run the simulator with config information provided.
+        static void Run();
 
-	///
-	static void Stop();
+        ///
+        static void Stop();
 
-	/// Get the simulator
-	static std::shared_ptr<Simulator> GetSimulator() { return m_sim; }
-
-private:
-	/// Generate output files (at the end of the simulation).
-	static void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
-					const std::vector<unsigned int>& adopted,
-					const boost::property_tree::ptree& pt_config, const unsigned int run_time,
-					const unsigned int total_time);
+        /// Get the simulator
+        static std::shared_ptr<Simulator> GetSimulator() { return m_sim; }
 
 private:
-	static bool m_is_running;
-	static bool m_operational;
-	static std::string m_output_prefix;
-	static boost::property_tree::ptree m_pt_config;
-	static util::Stopwatch<> m_total_clock;
+        /// Generate output files (at the end of the simulation).
+        static void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
+                                        const std::vector<unsigned int>& adopted,
+                                        const boost::property_tree::ptree& pt_config, const unsigned int run_time,
+                                        const unsigned int total_time);
 
-	static std::shared_ptr<Simulator> m_sim;
+private:
+        static bool m_is_running;
+        static bool m_operational;
+        static std::string m_output_prefix;
+        static boost::property_tree::ptree m_pt_config;
+        static util::Stopwatch<> m_total_clock;
+
+        static std::shared_ptr<Simulator> m_sim;
 };
 
 } // end_of_namespace

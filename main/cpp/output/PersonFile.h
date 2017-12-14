@@ -34,29 +34,29 @@ namespace output {
 class PersonFile
 {
 public:
-	/// Constructor: initialize.
-	PersonFile(const std::string& output_dir = "output");
+        /// Constructor: initialize.
+        PersonFile(const std::string& output_dir = "output");
 
-	/// Destructor: close the file stream.
-	~PersonFile();
+        /// Destructor: close the file stream.
+        ~PersonFile();
 
-	/// Print the given cases with corresponding tag.
-	void Print(const std::shared_ptr<const Population> population)
-	{
-		for (const auto& p : *population) {
-			const auto& h = p.GetHealth();
-			m_fstream << p.GetId() << "," << p.GetAge() << "," << h.IsRecovered() << "," << h.IsImmune()
-				  << "," << h.GetStartInfectiousness() << "," << h.GetEndInfectiousness() << ","
-				  << h.GetStartSymptomatic() << "," << h.GetEndSymptomatic() << std::endl;
-		}
-	}
-
-private:
-	/// Generate file name and open the file stream.
-	void Initialize(const std::string& output_dir);
+        /// Print the given cases with corresponding tag.
+        void Print(const std::shared_ptr<const Population> population)
+        {
+                for (const auto& p : *population) {
+                        const auto& h = p.GetHealth();
+                        m_fstream << p.GetId() << "," << p.GetAge() << "," << h.IsRecovered() << "," << h.IsImmune()
+                                  << "," << h.GetStartInfectiousness() << "," << h.GetEndInfectiousness() << ","
+                                  << h.GetStartSymptomatic() << "," << h.GetEndSymptomatic() << std::endl;
+                }
+        }
 
 private:
-	std::ofstream m_fstream; ///< The file stream.
+        /// Generate file name and open the file stream.
+        void Initialize(const std::string& output_dir);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
 } // end_of_namespace

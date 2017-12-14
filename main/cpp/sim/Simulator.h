@@ -38,56 +38,56 @@ namespace stride {
 class Simulator : public util::Subject<unsigned int, SimulatorObserver>
 {
 public:
-	/// Default constructor for empty Simulator.
-	Simulator();
+        /// Default constructor for empty Simulator.
+        Simulator();
 
-	/// Get the population.
-	std::shared_ptr<Population> GetPopulation() { return m_population; }
+        /// Get the population.
+        std::shared_ptr<Population> GetPopulation() { return m_population; }
 
-	/// Get the disease profile.
-	const DiseaseProfile GetDiseaseProfile() const { return m_disease_profile; }
+        /// Get the disease profile.
+        const DiseaseProfile GetDiseaseProfile() const { return m_disease_profile; }
 
-	/// Check if the simulator is operational.
-	bool IsOperational() const { return GetDiseaseProfile().IsOperational(); }
+        /// Check if the simulator is operational.
+        bool IsOperational() const { return GetDiseaseProfile().IsOperational(); }
 
-	/// Change track_index_case setting.
-	void SetTrackIndexCase(bool track_index_case) { m_track_index_case = track_index_case; }
+        /// Change track_index_case setting.
+        void SetTrackIndexCase(bool track_index_case) { m_track_index_case = track_index_case; }
 
-	/// Run one time step, computing full simulation (default) or only index case.
-	void TimeStep();
-
-private:
-	/// Update the contacts in the given clusters.
-	template <LogMode log_level, typename local_information_policy, bool track_index_case = false>
-	void UpdateClusters();
+        /// Run one time step, computing full simulation (default) or only index case.
+        void TimeStep();
 
 private:
-	boost::property_tree::ptree m_pt_config; ///< Configuration property tree
+        /// Update the contacts in the given clusters.
+        template <LogMode log_level, typename local_information_policy, bool track_index_case = false>
+        void UpdateClusters();
 
 private:
-	std::string m_local_information_policy; ///<
+        boost::property_tree::ptree m_pt_config; ///< Configuration property tree
 
 private:
-	unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
-	std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
-	LogMode m_log_level;                   ///< Specifies logging mode.
-	std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
+        std::string m_local_information_policy; ///<
 
 private:
-	std::shared_ptr<Population> m_population; ///< Pointer to the Population.
-
-	std::vector<Cluster> m_households;          ///< Container with household Clusters.
-	std::vector<Cluster> m_school_clusters;     ///< Container with school Clusters.
-	std::vector<Cluster> m_work_clusters;       ///< Container with work Clusters.
-	std::vector<Cluster> m_primary_community;   ///< Container with primary community Clusters.
-	std::vector<Cluster> m_secondary_community; ///< Container with secondary community  Clusters.
-
-	DiseaseProfile m_disease_profile; ///< Profile of disease.
-	bool m_track_index_case;          ///< General simulation or tracking index case.
+        unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
+        std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
+        LogMode m_log_level;                   ///< Specifies logging mode.
+        std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
 
 private:
-	friend class SimulatorBuilder;
-	friend class Vaccinator;
+        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
+
+        std::vector<Cluster> m_households;          ///< Container with household Clusters.
+        std::vector<Cluster> m_school_clusters;     ///< Container with school Clusters.
+        std::vector<Cluster> m_work_clusters;       ///< Container with work Clusters.
+        std::vector<Cluster> m_primary_community;   ///< Container with primary community Clusters.
+        std::vector<Cluster> m_secondary_community; ///< Container with secondary community  Clusters.
+
+        DiseaseProfile m_disease_profile; ///< Profile of disease.
+        bool m_track_index_case;          ///< General simulation or tracking index case.
+
+private:
+        friend class SimulatorBuilder;
+        friend class Vaccinator;
 };
 
 } // end_of_namespace

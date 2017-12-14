@@ -30,15 +30,15 @@ namespace util {
 class ConfigInfo
 {
 public:
-	///
-	static constexpr bool HaveOpenMP()
-	{
+        ///
+        static constexpr bool HaveOpenMP()
+        {
 #ifdef _OPENMP
-		return true;
+                return true;
 #else
-		return false;
+                return false;
 #endif
-	}
+        }
 };
 
 } // end of namespace

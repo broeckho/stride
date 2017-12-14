@@ -26,21 +26,21 @@ namespace stride {
 class DiseaseProfile
 {
 public:
-	/// Initialize.
-	DiseaseProfile() : m_transmission_rate(0.0), m_is_operational(true) {}
+        /// Initialize.
+        DiseaseProfile() : m_transmission_rate(0.0), m_is_operational(true) {}
 
-	/// Return transmission rate.
-	double GetTransmissionRate() const { return m_transmission_rate; }
+        /// Return transmission rate.
+        double GetTransmissionRate() const { return m_transmission_rate; }
 
-	/// Check if the disease configuration was valid.
-	double IsOperational() const { return m_is_operational; }
+        /// Check if the disease configuration was valid.
+        double IsOperational() const { return m_is_operational; }
 
-	/// Initialize.
-	void Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
+        /// Initialize.
+        void Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
 
 private:
-	double m_transmission_rate;
-	bool m_is_operational;
+        double m_transmission_rate;
+        bool m_is_operational;
 };
 
 } // end of namespace

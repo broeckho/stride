@@ -41,34 +41,36 @@ template <LogMode log_level, bool track_index_case, typename local_information_p
 class Infector
 {
 public:
-	///
-	static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-			    std::shared_ptr<const Calendar> calendar);
+        ///
+        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                            std::shared_ptr<const Calendar> calendar);
 };
 
 /**
- * Actual contacts and transmissions in cluster (specialization for NoLocalInformation policy)
+ * Actual contacts and transmissions in cluster (specialization for
+ * NoLocalInformation policy)
  */
 template <LogMode log_level, bool track_index_case>
 class Infector<log_level, track_index_case, NoLocalInformation>
 {
 public:
-	///
-	static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-			    std::shared_ptr<const Calendar> calendar);
+        ///
+        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                            std::shared_ptr<const Calendar> calendar);
 };
 
 /**
- * Actual contacts and transmission in cluster (specialization for logging all contacts, and with NoLocalInformation
+ * Actual contacts and transmission in cluster (specialization for logging all
+ * contacts, and with NoLocalInformation
  * policy).
  */
 template <bool track_index_case>
 class Infector<LogMode::Contacts, track_index_case, NoLocalInformation>
 {
 public:
-	///
-	static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-			    std::shared_ptr<const Calendar> calendar);
+        ///
+        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                            std::shared_ptr<const Calendar> calendar);
 };
 
 /// Explicit instantiations in cpp file.

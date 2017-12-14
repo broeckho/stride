@@ -18,23 +18,24 @@ namespace stride {
 
 /**
  * Class for behavior policy 'Vaccination'.
- * Beliefs and information have an influence on the vaccination behaviour of an individual.
+ * Beliefs and information have an influence on the vaccination behaviour of an
+ * individual.
  * TODO integrate this with new Vaccinator class?
  */
 template <typename belief_policy>
 class Vaccination
 {
 public:
-	static bool PracticesSocialDistancing(const typename belief_policy::Data& belief_data) { return false; }
+        static bool PracticesSocialDistancing(const typename belief_policy::Data& belief_data) { return false; }
 
-	static bool PracticesVaccination(const typename belief_policy::Data& belief_data)
-	{
-		if (belief_policy::HasAdopted(belief_data)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+        static bool PracticesVaccination(const typename belief_policy::Data& belief_data)
+        {
+                if (belief_policy::HasAdopted(belief_data)) {
+                        return true;
+                } else {
+                        return false;
+                }
+        }
 };
 
 } // end of namespace

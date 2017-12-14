@@ -33,13 +33,13 @@ PersonFile::~PersonFile() { m_fstream.close(); }
 
 void PersonFile::Initialize(const string& output_dir)
 {
-	boost::filesystem::path pathname(output_dir);
-	pathname /= "person.csv";
-	m_fstream.open(pathname.c_str());
+        boost::filesystem::path pathname(output_dir);
+        pathname /= "person.csv";
+        m_fstream.open(pathname.c_str());
 
-	// add header
-	m_fstream << "id,age,is_recovered,is_immune,start_infectiousness,"
-		  << "end_infectiousness,start_symptomatic,end_symptomatic" << endl;
+        // add header
+        m_fstream << "id,age,is_recovered,is_immune,start_infectiousness,"
+                  << "end_infectiousness,start_symptomatic,end_symptomatic" << endl;
 }
 
 } // end_of_namespace

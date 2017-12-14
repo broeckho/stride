@@ -22,16 +22,17 @@ namespace stride {
 
 /**
  * Class for behaviour policy 'NoBehaviour'.
- * This means that whatever beliefs a person holds, or whatever information they gather,
+ * This means that whatever beliefs a person holds, or whatever information they
+ * gather,
  * this will not result in a change in their behaviour.
  */
 template <typename belief_policy>
 class NoBehaviour
 {
 public:
-	static bool PracticesSocialDistancing(const typename belief_policy::Data& belief_data) { return false; }
+        static bool PracticesSocialDistancing(const typename belief_policy::Data& belief_data) { return false; }
 
-	static bool PracticesVaccination(const typename belief_policy::Data& belief_data) { return false; }
+        static bool PracticesVaccination(const typename belief_policy::Data& belief_data) { return false; }
 };
 
 } // end of namespace

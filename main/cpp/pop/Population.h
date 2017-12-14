@@ -35,66 +35,66 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
-	/// Get the cumulative number of cases.
-	unsigned int GetInfectedCount() const
-	{
-		unsigned int total{0U};
-		for (const auto& p : *this) {
-			const auto& h = p.GetHealth();
-			total += h.IsInfected() || h.IsRecovered();
-		}
-		return total;
-	}
+        /// Get the cumulative number of cases.
+        unsigned int GetInfectedCount() const
+        {
+                unsigned int total{0U};
+                for (const auto& p : *this) {
+                        const auto& h = p.GetHealth();
+                        total += h.IsInfected() || h.IsRecovered();
+                }
+                return total;
+        }
 
-	double GetFractionInfected() const { return GetInfectedCount() / this->size(); }
+        double GetFractionInfected() const { return GetInfectedCount() / this->size(); }
 
-	unsigned int GetAdoptedCount() const
-	{
-		unsigned int total{0U};
-		for (const auto& p : *this) {
-			auto belief = p.GetBelief();
-			bool adopted = belief->HasAdopted();
-			if (adopted) {
-				total++;
-			}
-		}
-		return total;
-	}
+        unsigned int GetAdoptedCount() const
+        {
+                unsigned int total{0U};
+                for (const auto& p : *this) {
+                        auto belief = p.GetBelief();
+                        bool adopted = belief->HasAdopted();
+                        if (adopted) {
+                                total++;
+                        }
+                }
+                return total;
+        }
 
-	void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-			  unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-			  unsigned int start_infectiousness, unsigned int start_symptomatic,
-			  unsigned int time_infectious, unsigned int time_symptomatic, double risk_averseness = 0,
-			  boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
-	{
-		std::string belief_policy = "NoBelief"; // TODO read this from belief_pt
-		if (belief_policy == "NoBelief") {
-			NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
-					    secondary_community_id, start_infectiousness, start_symptomatic,
-					    time_infectious, time_symptomatic, risk_averseness, belief_pt);
-		} else { // TODO add other belief policies
-			throw std::runtime_error(std::string(__func__) + "No valid belief policy!");
-		}
-	}
+        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
+                          unsigned int start_infectiousness, unsigned int start_symptomatic,
+                          unsigned int time_infectious, unsigned int time_symptomatic, double risk_averseness = 0,
+                          boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
+        {
+                std::string belief_policy = "NoBelief"; // TODO read this from belief_pt
+                if (belief_policy == "NoBelief") {
+                        NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
+                                            secondary_community_id, start_infectiousness, start_symptomatic,
+                                            time_infectious, time_symptomatic, risk_averseness, belief_pt);
+                } else { // TODO add other belief policies
+                        throw std::runtime_error(std::string(__func__) + "No valid belief policy!");
+                }
+        }
 
 private:
-	template <typename BeliefPolicy>
-	void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-		       unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-		       unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-		       unsigned int time_symptomatic, double risk_averseness = 0,
-		       boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
-	{
-		static util::SegmentedVector<BeliefPolicy> beliefs_container;
-		const BeliefPolicy b(belief_pt);
+        template <typename BeliefPolicy>
+        void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                       unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
+                       unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
+                       unsigned int time_symptomatic, double risk_averseness = 0,
+                       boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
+        {
+                static util::SegmentedVector<BeliefPolicy> beliefs_container;
+                const BeliefPolicy b(belief_pt);
 
-		assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
-		BeliefPolicy* bp = beliefs_container.emplace_back(b);
-		this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
-					  secondary_community_id, start_infectiousness, start_symptomatic,
-					  time_infectious, time_symptomatic, risk_averseness, bp));
-		assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
-	}
+                assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+                BeliefPolicy* bp = beliefs_container.emplace_back(b);
+                this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
+                                          secondary_community_id, start_infectiousness, start_symptomatic,
+                                          time_infectious, time_symptomatic, risk_averseness, bp));
+                assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+        }
 };
 
 } // end_of_namespace
