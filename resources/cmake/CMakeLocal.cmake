@@ -31,6 +31,13 @@ set(GOBELIJN_COMPILER_ID      Clang)
 #set(GOBELIJN_COMPILER_ID      Apple)
 
 #============================================================================
+# To help find modules.
+#============================================================================
+if(APPLE)
+    set(CMAKE_PREFIX_PATH "/opt/local/Library/Frameworks/Python.framework/Versions/3.6;$ENV{PATH}")
+endif()
+
+#============================================================================
 # Install dir.
 #============================================================================
 execute_process(COMMAND git rev-list HEAD --count
@@ -61,7 +68,6 @@ if(APPLE)
         set(CMAKE_C_COMPILER   /usr/bin/cc   CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /usr/bin/c++  CACHE PATH "CXX compiler path")
     endif()
-#    set(GOBELIJN_BOOST_ROOT "")
 endif()
 
 #############################################################################

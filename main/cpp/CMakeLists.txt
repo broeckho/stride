@@ -60,7 +60,7 @@ target_compile_options(libstride PUBLIC "-fPIC")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
-# Build & install the Swig files.
+# Build & install the Swig files for python environment.
 #============================================================================
 set(SWIG_IFACE
 	swig/health.i
@@ -70,10 +70,7 @@ set(SWIG_IFACE
 	swig/striderunner.i
 	swig/stride.i
 )
-
-find_package(SWIG REQUIRED)
 include(${SWIG_USE_FILE})
-find_package(PythonLibs 3 REQUIRED)
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
 swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)

@@ -18,13 +18,11 @@
 #================================================================================================
 # Example scripts
 #================================================================================================
-
 add_subdirectory(examples)
 
 #================================================================================================
 # Install Python package.
 #================================================================================================
-
 SET(PYTHON_TO_INSTALL _pythonInstallPyStride)
 
 add_custom_target(pythonInstallPyStride ALL
@@ -34,16 +32,17 @@ add_custom_target(pythonInstallPyStride ALL
 )
 
 add_custom_command(OUTPUT _pythonInstallPyStride
-				   COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/stride pystride/stride
-				   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/cpp/stride.py pystride/stride/stride.py
-				   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/cpp/_stride.so pystride/stride/_stride.so
+		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/stride pystride/stride
+		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/cpp/stride.py pystride/stride/stride.py
+		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/cpp/_stride.so pystride/stride/_stride.so
 )
 
 #================================================================================================
 # Copy the Python scripts to the bin folder.
 #================================================================================================
-
-INSTALL(DIRECTORY pystride DESTINATION ${BIN_INSTALL_LOCATION})
-INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/main/python/pystride/stride DESTINATION ${BIN_INSTALL_LOCATION}/pystride/)
+INSTALL(DIRECTORY pystride
+        DESTINATION ${BIN_INSTALL_LOCATION})
+INSTALL(DIRECTORY ${CMAKE_BINARY_DIR}/main/python/pystride/stride
+        DESTINATION ${BIN_INSTALL_LOCATION}/pystride/)
 
 #################################################################################################

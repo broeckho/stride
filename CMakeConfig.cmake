@@ -34,7 +34,7 @@ set(CMAKE_INSTALL_PREFIX  "${CMAKE_BINARY_DIR}/installed"
         CACHE PATH "Install prefix path.")
 set(CMAKE_BUILD_TYPE          "Release"
         CACHE STRING "Build type: None Debug Release RelWithDebInfo MinSizeRel.")
-set( CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/texbin;/usr/local/bin;/usr/bin" 
+set(CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/texbin;/usr/local/bin;/usr/bin"
 		CACHE PATH "Where to look with find_program." )
 	
 #============================================================================

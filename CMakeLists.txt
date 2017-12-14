@@ -41,7 +41,14 @@ set(TESTS_INSTALL_LOCATION   tests)
 # Configuration for CPP.
 #============================================================================
 include(CMakeCPP.cmake)
-  	
+
+#============================================================================
+# Configuration for Swig & Python.
+#============================================================================
+find_package(SWIG REQUIRED)
+find_package(PythonInterp 3 REQUIRED)
+find_package(PythonLibs 3 REQUIRED)
+
 #============================================================================
 # Configuration for Git.
 #============================================================================

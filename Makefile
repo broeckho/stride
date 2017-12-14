@@ -80,14 +80,11 @@ endif
 ifneq ($(STRIDE_FORCE_NO_HDF5),)
 	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=${STRIDE_FORCE_NO_HDF5}
 endif
-ifneq ($(STRIDE_FORCE_NO_HDF5),)
-	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=${STRIDE_FORCE_NO_HDF5}
-endif
 ifneq ($(STRIDE_VERBOSE_TESTING),)
 	CMAKE_ARGS += -DSTRIDE_VERBOSE_TESTING:BOOL=$(STRIDE_VERBOSE_TESTING)
 endif
 ifeq ($(BUILD_DIR),)
-	BUILD_DIR = ./build
+	BUILD_DIR = ./cmake-build-release
 endif
 
 #============================================================================
@@ -123,19 +120,13 @@ configure:
 all: configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) all
 
-install: configure
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install   
-	
-install_main: configure
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR)/main --no-print-directory install
-
-install_test: install_main
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR)/test --no-print-directory install
+install:
+	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
 distclean clean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
-test installcheck: install_test
+test installcheck: install
 	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest 
 		
 format:
