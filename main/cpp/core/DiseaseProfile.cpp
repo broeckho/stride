@@ -21,7 +21,7 @@
 #include "DiseaseProfile.h"
 
 #include <iostream>
-#include <math.h> /* sqrt */
+#include <cmath>
 
 namespace stride {
 
@@ -32,15 +32,15 @@ void DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
 {
 	// Use a quadratic model, fitted to simulation data:
 	// Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
-	const double r0 = pt_config.get<double>("run.r0");
-	const double b0 = pt_disease.get<double>("disease.transmission.b0");
-	const double b1 = pt_disease.get<double>("disease.transmission.b1");
-	const double b2 = pt_disease.get<double>("disease.transmission.b2");
+	const auto r0 {pt_config.get<double>("run.r0")};
+	const auto b0 {pt_disease.get<double>("disease.transmission.b0")};
+	const auto b1 {pt_disease.get<double>("disease.transmission.b1")};
+	const auto b2 {pt_disease.get<double>("disease.transmission.b2")};
 
 	// Find root
-	const double a = b2;
-	const double b = b1;
-	const double c = b0 - r0;
+	const auto a = b2;
+	const auto b = b1;
+	const auto c = b0 - r0;
 
 	// To obtain a real values (instead of complex)
 	if (r0 < (-(b * b) / (4 * a))) {

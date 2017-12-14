@@ -15,7 +15,7 @@
 
 #include "Health.h"
 
-#include <assert.h>
+#include <cassert>
 
 namespace stride {
 

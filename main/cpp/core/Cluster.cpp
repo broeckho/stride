@@ -45,14 +45,14 @@ void Cluster::AddPerson(Person* p)
 
 double Cluster::GetContactRate(const Person* p) const
 {
-	double reference_num_contacts = g_profiles.at(ToSizeType(m_cluster_type))[EffectiveAge(p->GetAge())];
-	double potential_num_contacts = (m_members.size() - 1);
+	const auto i {ToSizeType(m_cluster_type)};
+	const double reference_num_contacts = g_profiles.at(i)[EffectiveAge(static_cast<unsigned int>(p->GetAge()))];
+	const double potential_num_contacts = (m_members.size() - 1);
 
 	double individual_contact_rate = reference_num_contacts / potential_num_contacts;
 	if (individual_contact_rate >= 1) {
 		individual_contact_rate = 0.999;
 	}
-
 	// given that contacts are reciprocal, one needs to make only half of his/her contacts himself/herself
 	individual_contact_rate = individual_contact_rate / 2;
 

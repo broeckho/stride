@@ -31,7 +31,7 @@ class ContactProfile : public std::array<double, MaximumAge() + 1>
 {
 public:
 	/// Need to keep the default constructor available.
-	ContactProfile(){};
+	ContactProfile() =default;
 
 	/// Explicitly initialize
 	ContactProfile(ClusterType cluster_type, const boost::property_tree::ptree& pt_contacts);

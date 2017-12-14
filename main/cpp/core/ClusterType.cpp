@@ -22,7 +22,6 @@
 
 #include <boost/algorithm/string.hpp>
 #include <map>
-#include <string>
 
 namespace {
 

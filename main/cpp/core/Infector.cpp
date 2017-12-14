@@ -21,8 +21,6 @@
 #include "Infector.h"
 
 #include "core/Cluster.h"
-#include "core/ClusterType.h"
-#include "pop/Person.h"
 
 #include <spdlog/spdlog.h>
 
@@ -57,8 +55,8 @@ template <LogMode log_level>
 class LOG_POLICY
 {
 public:
-	static void Execute(shared_ptr<spdlog::logger> logger, Person* p1, Person* p2, ClusterType cluster_type,
-			    shared_ptr<const Calendar> environ)
+	static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
+			    const shared_ptr<const Calendar>& environ)
 	{
 	}
 };
@@ -70,8 +68,8 @@ template <>
 class LOG_POLICY<LogMode::Transmissions>
 {
 public:
-	static void Execute(shared_ptr<spdlog::logger> logger, Person* p1, Person* p2, ClusterType cluster_type,
-			    shared_ptr<const Calendar> environ)
+	static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
+			    const shared_ptr<const Calendar>& environ)
 	{
 		logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(cluster_type),
 			     environ->GetSimulationDay());
@@ -85,17 +83,19 @@ template <>
 class LOG_POLICY<LogMode::Contacts>
 {
 public:
-	static void Execute(shared_ptr<spdlog::logger> logger, Person* p1, Person* p2, ClusterType cluster_type,
-			    shared_ptr<const Calendar> calendar)
+	static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
+			    const shared_ptr<const Calendar>& calendar)
 	{
-		unsigned int home = (cluster_type == ClusterType::Household);
-		unsigned int work = (cluster_type == ClusterType::Work);
-		unsigned int school = (cluster_type == ClusterType::School);
-		unsigned int primary_community = (cluster_type == ClusterType::PrimaryCommunity);
-		unsigned int secundary_community = (cluster_type == ClusterType::SecondaryCommunity);
+		const auto home = (cluster_type == ClusterType::Household);
+		const auto work = (cluster_type == ClusterType::Work);
+		const auto school = (cluster_type == ClusterType::School);
+		const auto primary_community = (cluster_type == ClusterType::PrimaryCommunity);
+		const auto secundary_community = (cluster_type == ClusterType::SecondaryCommunity);
 
-		logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(), home, school,
-			     work, primary_community, secundary_community, calendar->GetSimulationDay());
+		logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
+					 static_cast<unsigned int>(home), static_cast<unsigned int>(school),
+					 static_cast<unsigned int>(work), static_cast<unsigned int>(primary_community),
+					 static_cast<unsigned int>(secundary_community), calendar->GetSimulationDay());
 	}
 };
 
