@@ -37,7 +37,7 @@ class Calendar
 {
 public:
 	/// Constructor
-	Calendar(const boost::property_tree::ptree& pt_config);
+	explicit Calendar(const boost::property_tree::ptree& pt_config);
 
 	/// Advance the internal calendar by one day
 	void AdvanceDay();
