@@ -81,6 +81,6 @@ script:
   # Install stride
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/boost_1_64_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON all
+  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/boost_1_64_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - PARALLEL_MAKE=-j2 make install
   - make test
