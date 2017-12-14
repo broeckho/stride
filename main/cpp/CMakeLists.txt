@@ -59,22 +59,6 @@ target_link_libraries(libstride ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
-#============================================================================
-# Build & install the Swig files for python environment.
-#============================================================================
-set(SWIG_IFACE
-	swig/health.i
-	swig/population.i
-	swig/simulator.i
-	swig/simulatorobserver.i
-	swig/striderunner.i
-	swig/stride.i
-)
-include(${SWIG_USE_FILE})
-include_directories(${PYTHON_INCLUDE_DIRS})
-set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
-swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
-swig_link_libraries(stride PUBLIC libstride ${PYTHON_LIBRARIES})
 
 #============================================================================
 # Build and install the stride executable.
@@ -88,6 +72,5 @@ install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 #============================================================================
 unset(LIB_SRC)
 unset(MAIN_SRC)
-unset(SWIG_IFACE)
 
 #############################################################################
