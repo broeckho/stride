@@ -37,7 +37,7 @@ class Cluster;
 /**
  * Actual contacts and transmission in cluster (primary template).
  */
-template <LogMode log_level, bool track_index_case, typename local_information_policy>
+template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
 class Infector
 {
 public:
@@ -47,10 +47,9 @@ public:
 };
 
 /**
- * Actual contacts and transmissions in cluster (specialization for
- * NoLocalInformation policy)
+ * Actual contacts and transmissions in cluster (specialization for NoLocalInformation policy)
  */
-template <LogMode log_level, bool track_index_case>
+template <LogMode::Id log_level, bool track_index_case>
 class Infector<log_level, track_index_case, NoLocalInformation>
 {
 public:
@@ -61,11 +60,10 @@ public:
 
 /**
  * Actual contacts and transmission in cluster (specialization for logging all
- * contacts, and with NoLocalInformation
- * policy).
+ * contacts, and with NoLocalInformation policy).
  */
 template <bool track_index_case>
-class Infector<LogMode::Contacts, track_index_case, NoLocalInformation>
+class Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>
 {
 public:
         ///
@@ -74,19 +72,19 @@ public:
 };
 
 /// Explicit instantiations in cpp file.
-extern template class Infector<LogMode::None, false, NoLocalInformation>;
-extern template class Infector<LogMode::None, false, LocalDiscussion>;
-extern template class Infector<LogMode::None, true, NoLocalInformation>;
-extern template class Infector<LogMode::None, true, LocalDiscussion>;
+extern template class Infector<LogMode::Id::None, false, NoLocalInformation>;
+extern template class Infector<LogMode::Id::None, false, LocalDiscussion>;
+extern template class Infector<LogMode::Id::None, true, NoLocalInformation>;
+extern template class Infector<LogMode::Id::None, true, LocalDiscussion>;
 
-extern template class Infector<LogMode::Transmissions, false, NoLocalInformation>;
-extern template class Infector<LogMode::Transmissions, false, LocalDiscussion>;
-extern template class Infector<LogMode::Transmissions, true, NoLocalInformation>;
-extern template class Infector<LogMode::Transmissions, true, LocalDiscussion>;
+extern template class Infector<LogMode::Id::Transmissions, false, NoLocalInformation>;
+extern template class Infector<LogMode::Id::Transmissions, false, LocalDiscussion>;
+extern template class Infector<LogMode::Id::Transmissions, true, NoLocalInformation>;
+extern template class Infector<LogMode::Id::Transmissions, true, LocalDiscussion>;
 
-extern template class Infector<LogMode::Contacts, false, NoLocalInformation>;
-extern template class Infector<LogMode::Contacts, false, LocalDiscussion>;
-extern template class Infector<LogMode::Contacts, true, NoLocalInformation>;
-extern template class Infector<LogMode::Contacts, true, LocalDiscussion>;
+extern template class Infector<LogMode::Id::Contacts, false, NoLocalInformation>;
+extern template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
+extern template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
+extern template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
 } // end_of_namespace

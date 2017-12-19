@@ -34,7 +34,7 @@ using namespace std;
 using namespace util;
 
 ///
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const std::string& config_file_name, unsigned int num_threads,
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_name, unsigned int num_threads,
                                                    bool track_index_case)
 {
         ptree pt_config;
@@ -73,9 +73,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
 }
 
 /// Build the simulator.
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::ptree& pt_config,
-                                                   const boost::property_tree::ptree& pt_disease,
-                                                   const boost::property_tree::ptree& pt_contact,
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config,
+                                                   const ptree& pt_disease,
+                                                   const ptree& pt_contact,
                                                    unsigned int num_threads, bool track_index_case)
 {
         auto sim = make_shared<Simulator>();
@@ -89,7 +89,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
         // Get log level.
         const string l = pt_config.get<string>("run.log_level", "None");
         sim->m_log_level =
-            IsLogMode(l) ? ToLogMode(l) : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
+            LogMode::IsLogMode(l) ? LogMode::ToLogMode(l)
+                                  : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
 
         /// Set correct information policies
         const string loc_info_policy = pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
@@ -135,13 +136,13 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
         }
 
         // Initialize contact profiles.
-        Cluster::AddContactProfile(ClusterType::Household, ContactProfile(ClusterType::Household, pt_contact));
-        Cluster::AddContactProfile(ClusterType::School, ContactProfile(ClusterType::School, pt_contact));
-        Cluster::AddContactProfile(ClusterType::Work, ContactProfile(ClusterType::Work, pt_contact));
-        Cluster::AddContactProfile(ClusterType::PrimaryCommunity,
-                                   ContactProfile(ClusterType::PrimaryCommunity, pt_contact));
-        Cluster::AddContactProfile(ClusterType::SecondaryCommunity,
-                                   ContactProfile(ClusterType::SecondaryCommunity, pt_contact));
+        Cluster::AddContactProfile(ClusterType::Id::Household, ContactProfile(ClusterType::Id::Household, pt_contact));
+        Cluster::AddContactProfile(ClusterType::Id::School, ContactProfile(ClusterType::Id::School, pt_contact));
+        Cluster::AddContactProfile(ClusterType::Id::Work, ContactProfile(ClusterType::Id::Work, pt_contact));
+        Cluster::AddContactProfile(ClusterType::Id::PrimaryCommunity,
+                                   ContactProfile(ClusterType::Id::PrimaryCommunity, pt_contact));
+        Cluster::AddContactProfile(ClusterType::Id::SecondaryCommunity,
+                                   ContactProfile(ClusterType::Id::SecondaryCommunity, pt_contact));
 
         // Done.
         return sim;
@@ -160,58 +161,58 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
         Population& population{*sim->m_population};
 
         for (const auto& p : population) {
-                max_id_households = std::max(max_id_households, p.GetClusterId(ClusterType::Household));
-                max_id_school_clusters = std::max(max_id_school_clusters, p.GetClusterId(ClusterType::School));
-                max_id_work_clusters = std::max(max_id_work_clusters, p.GetClusterId(ClusterType::Work));
+                max_id_households = std::max(max_id_households, p.GetClusterId(ClusterType::Id::Household));
+                max_id_school_clusters = std::max(max_id_school_clusters, p.GetClusterId(ClusterType::Id::School));
+                max_id_work_clusters = std::max(max_id_work_clusters, p.GetClusterId(ClusterType::Id::Work));
                 max_id_primary_community =
-                    std::max(max_id_primary_community, p.GetClusterId(ClusterType::PrimaryCommunity));
+                    std::max(max_id_primary_community, p.GetClusterId(ClusterType::Id::PrimaryCommunity));
                 max_id_secondary_community =
-                    std::max(max_id_secondary_community, p.GetClusterId(ClusterType::SecondaryCommunity));
+                    std::max(max_id_secondary_community, p.GetClusterId(ClusterType::Id::SecondaryCommunity));
         }
 
         // Keep separate id counter to provide a unique id for every cluster.
         unsigned int c_id = 1;
 
         for (size_t i = 0; i <= max_id_households; i++) {
-                sim->m_households.emplace_back(Cluster(c_id, ClusterType::Household));
+                sim->m_households.emplace_back(Cluster(c_id, ClusterType::Id::Household));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_school_clusters; i++) {
-                sim->m_school_clusters.emplace_back(Cluster(c_id, ClusterType::School));
+                sim->m_school_clusters.emplace_back(Cluster(c_id, ClusterType::Id::School));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_work_clusters; i++) {
-                sim->m_work_clusters.emplace_back(Cluster(c_id, ClusterType::Work));
+                sim->m_work_clusters.emplace_back(Cluster(c_id, ClusterType::Id::Work));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_primary_community; i++) {
-                sim->m_primary_community.emplace_back(Cluster(c_id, ClusterType::PrimaryCommunity));
+                sim->m_primary_community.emplace_back(Cluster(c_id, ClusterType::Id::PrimaryCommunity));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_secondary_community; i++) {
-                sim->m_secondary_community.emplace_back(Cluster(c_id, ClusterType::SecondaryCommunity));
+                sim->m_secondary_community.emplace_back(Cluster(c_id, ClusterType::Id::SecondaryCommunity));
                 c_id++;
         }
 
         // Cluster id '0' means "not present in any cluster of that type".
         for (auto& p : population) {
-                const auto hh_id = p.GetClusterId(ClusterType::Household);
+                const auto hh_id = p.GetClusterId(ClusterType::Id::Household);
                 if (hh_id > 0) {
                         sim->m_households[hh_id].AddMember(&p);
                 }
-                const auto sc_id = p.GetClusterId(ClusterType::School);
+                const auto sc_id = p.GetClusterId(ClusterType::Id::School);
                 if (sc_id > 0) {
                         sim->m_school_clusters[sc_id].AddMember(&p);
                 }
-                const auto wo_id = p.GetClusterId(ClusterType::Work);
+                const auto wo_id = p.GetClusterId(ClusterType::Id::Work);
                 if (wo_id > 0) {
                         sim->m_work_clusters[wo_id].AddMember(&p);
                 }
-                const auto primCom_id = p.GetClusterId(ClusterType::PrimaryCommunity);
+                const auto primCom_id = p.GetClusterId(ClusterType::Id::PrimaryCommunity);
                 if (primCom_id > 0) {
                         sim->m_primary_community[primCom_id].AddMember(&p);
                 }
-                const auto secCom_id = p.GetClusterId(ClusterType::SecondaryCommunity);
+                const auto secCom_id = p.GetClusterId(ClusterType::Id::SecondaryCommunity);
                 if (secCom_id > 0) {
                         sim->m_secondary_community[secCom_id].AddMember(&p);
                 }

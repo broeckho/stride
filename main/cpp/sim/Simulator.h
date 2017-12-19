@@ -58,7 +58,7 @@ public:
 
 private:
         /// Update the contacts in the given clusters.
-        template <LogMode log_level, typename local_information_policy, bool track_index_case = false>
+        template <LogMode::Id log_level, typename local_information_policy, bool track_index_case = false>
         void UpdateClusters();
 
 private:
@@ -70,7 +70,7 @@ private:
 private:
         unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
         std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
-        LogMode m_log_level;                   ///< Specifies logging mode.
+        LogMode::Id m_log_level;               ///< Specifies logging mode.
         std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
 
 private:

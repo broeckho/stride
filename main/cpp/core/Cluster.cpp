@@ -24,17 +24,17 @@ namespace stride {
 
 using namespace std;
 
-array<ContactProfile, NumOfClusterTypes()> Cluster::g_profiles;
+array<ContactProfile, ClusterType::NumOfTypes()> Cluster::g_profiles;
 
-Cluster::Cluster(std::size_t cluster_id, ClusterType cluster_type)
+Cluster::Cluster(std::size_t cluster_id, ClusterType::Id cluster_type)
     : m_cluster_id(cluster_id), m_cluster_type(cluster_type), m_index_immune(0),
-      m_profile(g_profiles.at(ToSizeType(m_cluster_type)))
+      m_profile(g_profiles.at(static_cast<std::size_t>(m_cluster_type)))
 {
 }
 
-void Cluster::AddContactProfile(ClusterType cluster_type, const ContactProfile& profile)
+void Cluster::AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile)
 {
-        g_profiles.at(ToSizeType(cluster_type)) = profile;
+        g_profiles.at(static_cast<std::size_t>(cluster_type)) = profile;
 }
 
 void Cluster::AddMember(Person *p)
@@ -45,7 +45,7 @@ void Cluster::AddMember(Person *p)
 
 double Cluster::GetContactRate(const Person* p) const
 {
-        const auto i {ToSizeType(m_cluster_type)};
+        const auto i {static_cast<std::size_t>(m_cluster_type)};
         const double reference_num_contacts {g_profiles.at(i)[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
         const double potential_num_contacts {static_cast<double>(m_members.size() - 1)};
 

@@ -24,30 +24,31 @@
 
 namespace stride {
 
-/// Enumerates the cluster types.
-enum class ClusterType
-{
-        Household,
-        School,
-        Work,
-        PrimaryCommunity,
-        SecondaryCommunity,
-        Null
+class ClusterType {
+public:
+        /// Enumerates the cluster types.
+        enum class Id
+        {
+                Household,
+                School,
+                Work,
+                PrimaryCommunity,
+                SecondaryCommunity,
+                Null
+        };
+
+public:
+        /// Number of Cluster types (not including Null type).
+        static constexpr unsigned int NumOfTypes() { return 5U; }
+
+        /// Converts a ClusterType::Id value to corresponding name.
+        static std::string ToString(ClusterType::Id w);
+
+        /// Check whether string is name of a ClusterType::Id.
+        bool IsType(const std::string &s);
+
+        /// Converts a string with name to ClusterType::Id.
+        static ClusterType::Id ToType(const std::string &s);
 };
-
-/// Number of Cluster types (not including Null type).
-inline constexpr unsigned int NumOfClusterTypes() { return 5U; }
-
-/// Cast for array access.
-inline std::size_t ToSizeType(ClusterType c) { return static_cast<std::size_t>(c); }
-
-/// Converts a ClusterType value to corresponding name.
-std::string ToString(ClusterType w);
-
-/// Check whether string is name of a ClusterType value.
-bool IsClusterType(const std::string& s);
-
-/// Converts a string with name to ClusterType value.
-ClusterType ToClusterType(const std::string& s);
 
 } // namespace

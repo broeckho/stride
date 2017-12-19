@@ -27,36 +27,36 @@ namespace stride {
 
 using namespace std;
 
-unsigned int Person::GetClusterId(const ClusterType& cluster_type) const
+unsigned int Person::GetClusterId(const ClusterType::Id& cluster_type) const
 {
         switch (cluster_type) {
-        case ClusterType::Household:
+        case ClusterType::Id::Household:
                 return m_household_id;
-        case ClusterType::School:
+        case ClusterType::Id::School:
                 return m_school_id;
-        case ClusterType::Work:
+        case ClusterType::Id::Work:
                 return m_work_id;
-        case ClusterType::PrimaryCommunity:
+        case ClusterType::Id::PrimaryCommunity:
                 return m_primary_community_id;
-        case ClusterType::SecondaryCommunity:
+        case ClusterType::Id::SecondaryCommunity:
                 return m_secondary_community_id;
         default:
                 throw runtime_error(string(__func__) + "> Should not reach default.");
         }
 }
 
-bool Person::IsInCluster(const ClusterType& c) const
+bool Person::IsInCluster(const ClusterType::Id& c) const
 {
         switch (c) {
-        case ClusterType::Household:
+        case ClusterType::Id::Household:
                 return m_at_household;
-        case ClusterType::School:
+        case ClusterType::Id::School:
                 return m_at_school;
-        case ClusterType::Work:
+        case ClusterType::Id::Work:
                 return m_at_work;
-        case ClusterType::PrimaryCommunity:
+        case ClusterType::Id::PrimaryCommunity:
                 return m_at_primary_community;
-        case ClusterType::SecondaryCommunity:
+        case ClusterType::Id::SecondaryCommunity:
                 return m_at_secondary_community;
         default:
                 throw runtime_error(string(__func__) + "> Should not reach default.");

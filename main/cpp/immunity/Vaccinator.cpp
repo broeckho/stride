@@ -143,23 +143,23 @@ void Vaccinator::Apply(const std::string s, std::shared_ptr<Simulator> sim,
 
                 if (immunity_link_probability > 0) {
 
-                        ClusterType immunity_link_clustertype = ToClusterType(
-                            pt_config.get<string>("run." + StringUtils::ToLower(s) + "_link_clustertype"));
+                        ClusterType::Id immunity_link_clustertype = ClusterType::ToType(
+                                pt_config.get<string>("run." + StringUtils::ToLower(s) + "_link_clustertype"));
 
                         switch (immunity_link_clustertype) {
-                        case ClusterType::Household:
+                                case ClusterType::Id::Household:
                                 immunity_clusters = &sim->m_households;
                                 break;
-                        case ClusterType::School:
+                        case ClusterType::Id::School:
                                 immunity_clusters = &sim->m_school_clusters;
                                 break;
-                        case ClusterType::Work:
+                        case ClusterType::Id::Work:
                                 immunity_clusters = &sim->m_work_clusters;
                                 break;
-                        case ClusterType::PrimaryCommunity:
+                        case ClusterType::Id::PrimaryCommunity:
                                 immunity_clusters = &sim->m_primary_community;
                                 break;
-                        case ClusterType::SecondaryCommunity:
+                        case ClusterType::Id::SecondaryCommunity:
                                 immunity_clusters = &sim->m_secondary_community;
                                 break;
                         default:

@@ -144,7 +144,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree:
                                 p.ParticipateInSurvey();
                                 logger->info("[PART] {}", p.GetId());
                                 logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetClusterId(ClusterType::School), p.GetClusterId(ClusterType::Work));
+                                             p.GetClusterId(ClusterType::Id::School),
+                                             p.GetClusterId(ClusterType::Id::Work));
                                 num_samples++;
                         }
                 }

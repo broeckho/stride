@@ -31,7 +31,7 @@ namespace stride {
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    : m_pt_config(), m_num_threads(1U), m_log_level(LogMode::Null), m_population(nullptr), m_disease_profile(),
+    : m_pt_config(), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_population(nullptr), m_disease_profile(),
       m_track_index_case(false)
 {
 }
@@ -58,28 +58,28 @@ void Simulator::TimeStep()
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case LogMode::Contacts:
-                                UpdateClusters<LogMode::Contacts, NoLocalInformation, true>();
+                        case LogMode::Id::Contacts:
+                                UpdateClusters<LogMode::Id::Contacts, NoLocalInformation, true>();
                                 break;
-                        case LogMode::Transmissions:
-                                UpdateClusters<LogMode::Transmissions, NoLocalInformation, true>();
+                        case LogMode::Id::Transmissions:
+                                UpdateClusters<LogMode::Id::Transmissions, NoLocalInformation, true>();
                                 break;
-                        case LogMode::None:
-                                UpdateClusters<LogMode::None, NoLocalInformation, true>();
+                        case LogMode::Id::None:
+                                UpdateClusters<LogMode::Id::None, NoLocalInformation, true>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_log_level) {
-                        case LogMode::Contacts:
-                                UpdateClusters<LogMode::Contacts, NoLocalInformation, false>();
+                        case LogMode::Id::Contacts:
+                                UpdateClusters<LogMode::Id::Contacts, NoLocalInformation, false>();
                                 break;
-                        case LogMode::Transmissions:
-                                UpdateClusters<LogMode::Transmissions, NoLocalInformation, false>();
+                        case LogMode::Id::Transmissions:
+                                UpdateClusters<LogMode::Id::Transmissions, NoLocalInformation, false>();
                                 break;
-                        case LogMode::None:
-                                UpdateClusters<LogMode::None, NoLocalInformation, false>();
+                        case LogMode::Id::None:
+                                UpdateClusters<LogMode::Id::None, NoLocalInformation, false>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
@@ -88,28 +88,28 @@ void Simulator::TimeStep()
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case LogMode::Contacts:
-                                UpdateClusters<LogMode::Contacts, LocalDiscussion, true>();
+                        case LogMode::Id::Contacts:
+                                UpdateClusters<LogMode::Id::Contacts, LocalDiscussion, true>();
                                 break;
-                        case LogMode::Transmissions:
-                                UpdateClusters<LogMode::Transmissions, LocalDiscussion, true>();
+                        case LogMode::Id::Transmissions:
+                                UpdateClusters<LogMode::Id::Transmissions, LocalDiscussion, true>();
                                 break;
-                        case LogMode::None:
-                                UpdateClusters<LogMode::None, LocalDiscussion, true>();
+                        case LogMode::Id::None:
+                                UpdateClusters<LogMode::Id::None, LocalDiscussion, true>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_log_level) {
-                        case LogMode::Contacts:
-                                UpdateClusters<LogMode::Contacts, LocalDiscussion, false>();
+                        case LogMode::Id::Contacts:
+                                UpdateClusters<LogMode::Id::Contacts, LocalDiscussion, false>();
                                 break;
-                        case LogMode::Transmissions:
-                                UpdateClusters<LogMode::Transmissions, LocalDiscussion, false>();
+                        case LogMode::Id::Transmissions:
+                                UpdateClusters<LogMode::Id::Transmissions, LocalDiscussion, false>();
                                 break;
-                        case LogMode::None:
-                                UpdateClusters<LogMode::None, LocalDiscussion, false>();
+                        case LogMode::Id::None:
+                                UpdateClusters<LogMode::Id::None, LocalDiscussion, false>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
@@ -125,7 +125,7 @@ void Simulator::TimeStep()
 }
 
 /// Update the contacts in the given clusters.
-template <LogMode log_level, typename local_information_policy, bool track_index_case>
+template <LogMode::Id log_level, typename local_information_policy, bool track_index_case>
 void Simulator::UpdateClusters()
 {
 #pragma omp parallel num_threads(m_num_threads)

@@ -36,13 +36,13 @@ class Cluster
 {
 public:
         /// Constructor
-        Cluster(std::size_t cluster_id, ClusterType cluster_type);
+        Cluster(std::size_t cluster_id, ClusterType::Id cluster_type);
 
         /// Add the given Person to the Cluster.
         void AddMember(Person *p);
 
         /// Return the type of this cluster.
-        ClusterType GetClusterType() const { return m_cluster_type; }
+        ClusterType::Id GetClusterType() const { return m_cluster_type; }
         //
         Person* GetMember(unsigned int index) { return m_members[index].first; }
 
@@ -54,7 +54,7 @@ public:
 
 public:
         /// Add contact profile.
-        static void AddContactProfile(ClusterType cluster_type, const ContactProfile& profile);
+        static void AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile);
 
 private:
         /// Sort members w.r.t. health status.
@@ -62,7 +62,7 @@ private:
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
-        template <LogMode log_level, bool track_index_case, typename local_information_policy>
+        template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
         friend class Infector;
 
         /// Calculate which members are present in the cluster on the current day.
@@ -70,13 +70,13 @@ private:
 
 private:
         std::size_t                             m_cluster_id;     ///< The ID of the Cluster (for logging purposes).
-        ClusterType                             m_cluster_type;   ///< The type of the Cluster (for logging purposes).
+        ClusterType::Id                         m_cluster_type;   ///< The type of the Cluster (for logging purposes).
         std::size_t                             m_index_immune;   ///< Index of the first immune member in the Cluster.
         std::vector<std::pair<Person*, bool>>   m_members;        ///< Container with pointers to Cluster members.
         const ContactProfile&                   m_profile;
 
 private:
-        static std::array<ContactProfile, NumOfClusterTypes()> g_profiles;
+        static std::array<ContactProfile, ClusterType::NumOfTypes()> g_profiles;
 };
 
 } // end_of_namespace

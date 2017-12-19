@@ -20,13 +20,12 @@
  */
 
 #include "behaviour/belief_policies/Belief.h"
+#include "core/ClusterType.h"
 #include "core/Health.h"
 
 #include <boost/property_tree/ptree.hpp>
 
 namespace stride {
-
-enum class ClusterType;
 
 /**
  * Store and handle person data.
@@ -68,7 +67,7 @@ public:
         Belief const* GetBelief() const { return m_belief; }
 
         /// Get cluster ID of cluster_type
-        unsigned int GetClusterId(const ClusterType& cluster_type) const;
+        unsigned int GetClusterId(const ClusterType::Id& cluster_type) const;
 
         /// Return person's gender.
         char GetGender() const { return m_gender; }
@@ -83,7 +82,7 @@ public:
         unsigned int GetId() const { return m_id; }
 
         /// Check if a person is present today in a given cluster
-        bool IsInCluster(const ClusterType& c) const;
+        bool IsInCluster(const ClusterType::Id& c) const;
 
         /// Does this person participates in the social contact study?
         bool IsParticipatingInSurvey() const { return m_is_participant; }

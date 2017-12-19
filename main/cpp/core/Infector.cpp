@@ -51,12 +51,12 @@ public:
 /**
  * Primary LOG_POLICY policy, implements LogMode::None.
  */
-template <LogMode log_level>
+template <LogMode::Id log_level>
 class LOG_POLICY
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
-                            const shared_ptr<const Calendar>& environ)
+        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
         {
         }
 };
@@ -65,13 +65,13 @@ public:
  * Specialized LOG_POLICY policy LogMode::Transmissions.
  */
 template <>
-class LOG_POLICY<LogMode::Transmissions>
+class LOG_POLICY<LogMode::Id::Transmissions>
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
-                            const shared_ptr<const Calendar>& environ)
+        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
         {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(cluster_type),
+                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ClusterType::ToString(cluster_type),
                              environ->GetSimulationDay());
         }
 };
@@ -80,17 +80,17 @@ public:
  * Specialized LOG_POLICY policy LogMode::Contacts.
  */
 template <>
-class LOG_POLICY<LogMode::Contacts>
+class LOG_POLICY<LogMode::Id::Contacts>
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ClusterType cluster_type,
-                            const shared_ptr<const Calendar>& calendar)
+        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
-                const auto home = (cluster_type == ClusterType::Household);
-                const auto work = (cluster_type == ClusterType::Work);
-                const auto school = (cluster_type == ClusterType::School);
-                const auto primary_community = (cluster_type == ClusterType::PrimaryCommunity);
-                const auto secundary_community = (cluster_type == ClusterType::SecondaryCommunity);
+                const auto home = (cluster_type == ClusterType::Id::Household);
+                const auto work = (cluster_type == ClusterType::Id::Work);
+                const auto school = (cluster_type == ClusterType::Id::School);
+                const auto primary_community = (cluster_type == ClusterType::Id::PrimaryCommunity);
+                const auto secundary_community = (cluster_type == ClusterType::Id::SecondaryCommunity);
 
                 logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                              static_cast<unsigned int>(home), static_cast<unsigned int>(school),
@@ -105,7 +105,7 @@ public:
 // track_index_case false and true.
 // And every local information policy except NoLocalInformation
 //--------------------------------------------------------------------------
-template <LogMode log_level, bool track_index_case, typename local_information_policy>
+template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
 void Infector<log_level, track_index_case, local_information_policy>::Execute(Cluster& cluster,
                                                                               DiseaseProfile disease_profile,
                                                                               RngHandler& contact_handler,
@@ -164,7 +164,7 @@ void Infector<log_level, track_index_case, local_information_policy>::Execute(Cl
 // Definition of partial specialization for
 // LocalInformationPolicy:NoLocalInformation.
 //-------------------------------------------------------------------------------------------
-template <LogMode log_level, bool track_index_case>
+template <LogMode::Id log_level, bool track_index_case>
 void Infector<log_level, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
                                                                         DiseaseProfile disease_profile,
                                                                         RngHandler& contact_handler,
@@ -233,7 +233,7 @@ void Infector<log_level, track_index_case, NoLocalInformation>::Execute(Cluster&
 // NoLocalInformation policy.
 //-------------------------------------------------------------------------------------------
 template <bool track_index_case>
-void Infector<LogMode::Contacts, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
+void Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
                                                                                 DiseaseProfile disease_profile,
                                                                                 RngHandler& contact_handler,
                                                                                 shared_ptr<const Calendar> calendar)
@@ -262,12 +262,12 @@ void Infector<LogMode::Contacts, track_index_case, NoLocalInformation>::Execute(
 
                                                 // log contact, if person 1 is participating in survey
                                                 if (c_members[i_person1].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Contacts>::Execute(logger, p1, p2, c_type,
+                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p1, p2, c_type,
                                                                                                calendar);
                                                 }
                                                 // log contact, if person 2 is participating in survey
                                                 if (c_members[i_person2].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Contacts>::Execute(logger, p2, p1, c_type,
+                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p2, p1, c_type,
                                                                                                calendar);
                                                 }
 
@@ -294,19 +294,19 @@ void Infector<LogMode::Contacts, track_index_case, NoLocalInformation>::Execute(
 //--------------------------------------------------------------------------
 // All explicit instantiations.
 //--------------------------------------------------------------------------
-template class Infector<LogMode::None, false, NoLocalInformation>;
-template class Infector<LogMode::None, false, LocalDiscussion>;
-template class Infector<LogMode::None, true, NoLocalInformation>;
-template class Infector<LogMode::None, true, LocalDiscussion>;
+template class Infector<LogMode::Id::None, false, NoLocalInformation>;
+template class Infector<LogMode::Id::None, false, LocalDiscussion>;
+template class Infector<LogMode::Id::None, true, NoLocalInformation>;
+template class Infector<LogMode::Id::None, true, LocalDiscussion>;
 
-template class Infector<LogMode::Transmissions, false, NoLocalInformation>;
-template class Infector<LogMode::Transmissions, false, LocalDiscussion>;
-template class Infector<LogMode::Transmissions, true, NoLocalInformation>;
-template class Infector<LogMode::Transmissions, true, LocalDiscussion>;
+template class Infector<LogMode::Id::Transmissions, false, NoLocalInformation>;
+template class Infector<LogMode::Id::Transmissions, false, LocalDiscussion>;
+template class Infector<LogMode::Id::Transmissions, true, NoLocalInformation>;
+template class Infector<LogMode::Id::Transmissions, true, LocalDiscussion>;
 
-template class Infector<LogMode::Contacts, false, NoLocalInformation>;
-template class Infector<LogMode::Contacts, false, LocalDiscussion>;
-template class Infector<LogMode::Contacts, true, NoLocalInformation>;
-template class Infector<LogMode::Contacts, true, LocalDiscussion>;
+template class Infector<LogMode::Id::Contacts, false, NoLocalInformation>;
+template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
+template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
+template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
 } // end_of_namespace
