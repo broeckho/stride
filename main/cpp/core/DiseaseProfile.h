@@ -33,7 +33,7 @@ public:
         double GetTransmissionRate() const { return m_transmission_rate; }
 
         /// Check if the disease configuration was valid.
-        double IsOperational() const { return m_is_operational; }
+        bool IsOperational() const { return m_is_operational; }
 
         /// Initialize.
         void Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);

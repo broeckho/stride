@@ -29,11 +29,8 @@
 #include "util/InstallDirs.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
-#include "util/TimeToString.h"
 
-#include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <iostream>
 #include <omp.h>
 #include <spdlog/spdlog.h>
 
@@ -55,7 +52,7 @@ std::string StrideRunner::m_output_prefix = "";
 ///
 boost::property_tree::ptree StrideRunner::m_pt_config = boost::property_tree::ptree();
 ///
-Stopwatch<> StrideRunner::m_total_clock = Stopwatch<>("total_clock");
+Stopwatch<> StrideRunner::m_clock = Stopwatch<>("total_clock");
 ///
 shared_ptr<Simulator> StrideRunner::m_sim = make_shared<Simulator>();
 
@@ -108,7 +105,7 @@ void StrideRunner::Setup(bool track_index_case, const std::string& config_file_n
 
 #pragma omp parallel
         {
-                num_threads = omp_get_num_threads();
+                num_threads = static_cast<unsigned int>(omp_get_num_threads());
         }
         if (ConfigInfo::HaveOpenMP()) {
                 cout << "Using OpenMP threads:  " << num_threads << endl;
@@ -155,7 +152,7 @@ void StrideRunner::Setup(bool track_index_case, const std::string& config_file_n
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
-        m_total_clock.Start();
+        m_clock.Start();
         cout << "Building the simulator. " << endl;
         m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
         cout << "Done building the simulator. " << endl;
@@ -181,7 +178,7 @@ void StrideRunner::Run()
         Stopwatch<> run_clock("run_clock");
         if (m_operational) {
                 m_is_running = true;
-                const unsigned int num_days = m_pt_config.get<unsigned int>("run.num_days");
+                const auto num_days {m_pt_config.get<unsigned int>("run.num_days")};
                 vector<unsigned int> cases(num_days);
                 vector<unsigned int> adopted(num_days);
                 for (unsigned int i = 0; i < num_days; i++) {
@@ -208,8 +205,8 @@ void StrideRunner::Run()
                 // Generate output files
                 // -----------------------------------------------------------------------------------------
                 GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config,
-                                    duration_cast<milliseconds>(run_clock.Get()).count(),
-                                    duration_cast<milliseconds>(m_total_clock.Get()).count());
+                                    static_cast<unsigned int>(duration_cast<milliseconds>(run_clock.Get()).count()),
+                                    static_cast<unsigned int>(duration_cast<milliseconds>(m_clock.Get()).count()));
 
                 m_is_running = false;
         }
@@ -221,7 +218,7 @@ void StrideRunner::Run()
         // Print final message to command line.
         // -----------------------------------------------------------------------------------------
         cout << endl << endl;
-        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_total_clock.ToString() << endl
+        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_clock.ToString() << endl
              << endl;
         cout << "Exiting at:         " << TimeStamp().ToString() << endl << endl;
 }
@@ -231,8 +228,8 @@ void StrideRunner::Stop() { m_is_running = false; }
 /// Generate output files (at the end of the simulation).
 void StrideRunner::GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
                                        const std::vector<unsigned int>& adopted,
-                                       const boost::property_tree::ptree& pt_config, const unsigned int run_time,
-                                       const unsigned int total_time)
+                                       const boost::property_tree::ptree& pt_config, unsigned int run_time,
+                                       unsigned int total_time)
 {
         // Cases
         CasesFile cases_file(output_prefix);
@@ -244,7 +241,8 @@ void StrideRunner::GenerateOutputFiles(const std::string& output_prefix, const s
 
         // Summary
         SummaryFile summary_file(output_prefix);
-        summary_file.Print(pt_config, m_sim->GetPopulation()->size(), m_sim->GetPopulation()->GetInfectedCount(),
+        summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
+                           m_sim->GetPopulation()->GetInfectedCount(),
                            m_sim->GetDiseaseProfile().GetTransmissionRate(), run_time, total_time);
 
         // Persons

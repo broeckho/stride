@@ -59,7 +59,6 @@ target_link_libraries(libstride ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
-
 #============================================================================
 # Build and install the stride executable.
 #============================================================================

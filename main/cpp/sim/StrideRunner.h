@@ -37,10 +37,10 @@ class StrideRunner
 {
 public:
         /// Constructor
-        StrideRunner() {}
+        StrideRunner() =default;
 
         /// Destructor
-        virtual ~StrideRunner() {}
+        virtual ~StrideRunner() =default;
 
         /// Register observer
         static void RegisterObserver(std::shared_ptr<SimulatorObserver>& observer);
@@ -61,16 +61,15 @@ private:
         /// Generate output files (at the end of the simulation).
         static void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
                                         const std::vector<unsigned int>& adopted,
-                                        const boost::property_tree::ptree& pt_config, const unsigned int run_time,
-                                        const unsigned int total_time);
+                                        const boost::property_tree::ptree& pt_config, unsigned int run_time,
+                                        unsigned int total_time);
 
 private:
         static bool m_is_running;
         static bool m_operational;
         static std::string m_output_prefix;
         static boost::property_tree::ptree m_pt_config;
-        static util::Stopwatch<> m_total_clock;
-
+        static util::Stopwatch<> m_clock;
         static std::shared_ptr<Simulator> m_sim;
 };
 

@@ -65,7 +65,7 @@ void Vaccinator::Administer(std::vector<Cluster>* clusters, std::vector<double>&
         while (total_num_susceptible > 0) {
                 // sample cluster
                 Cluster& p_cluster = clusters->at(rng(clusters->size()));
-                unsigned int household_size = p_cluster.GetSize();
+                unsigned int household_size = static_cast<unsigned int>(p_cluster.GetSize());
                 vector<unsigned int> member_indices = rng.GetRandomIndices(household_size);
 
                 // loop over cluster members, in random order

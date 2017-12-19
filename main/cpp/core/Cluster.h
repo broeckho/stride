@@ -57,8 +57,8 @@ public:
         static void AddContactProfile(ClusterType cluster_type, const ContactProfile& profile);
 
 private:
-        /// Sort members w.r.t. health status (order: exposed/infected/recovered,
-        /// susceptible, immune).
+        /// Sort members w.r.t. health status.
+        /// Sort order: exposed/infected/recovered, susceptible, immune).
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
@@ -69,11 +69,11 @@ private:
         void UpdateMemberPresence();
 
 private:
-        std::size_t m_cluster_id;                        ///< The ID of the Cluster (for logging purposes).
-        ClusterType m_cluster_type;                      ///< The type of the Cluster (for logging purposes).
-        std::size_t m_index_immune;                      ///< Index of the first immune member in the Cluster.
-        std::vector<std::pair<Person*, bool>> m_members; ///< Container with pointers to Cluster members.
-        const ContactProfile& m_profile;
+        std::size_t                             m_cluster_id;     ///< The ID of the Cluster (for logging purposes).
+        ClusterType                             m_cluster_type;   ///< The type of the Cluster (for logging purposes).
+        std::size_t                             m_index_immune;   ///< Index of the first immune member in the Cluster.
+        std::vector<std::pair<Person*, bool>>   m_members;        ///< Container with pointers to Cluster members.
+        const ContactProfile&                   m_profile;
 
 private:
         static std::array<ContactProfile, NumOfClusterTypes()> g_profiles;

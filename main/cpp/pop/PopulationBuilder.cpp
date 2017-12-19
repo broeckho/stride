@@ -49,7 +49,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree:
         const auto pop = make_shared<Population>();
         Population& population = *pop;
 
-        const double seeding_rate = pt_config.get<double>("run.seeding_rate");
+        const auto seeding_rate = pt_config.get<double>("run.seeding_rate");
         const string disease_config_file = pt_config.get<string>("run.disease_config_file");
 
         // ------------------------------------------------
@@ -100,12 +100,12 @@ std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree:
 
                 const auto values = StringUtils::Split(line, ",");
                 const auto risk_averseness = (values.size() <= 6) ? 0.0 : StringUtils::FromString<double>(values[6]);
-                unsigned int age = StringUtils::FromString<unsigned int>(values[0]);
-                unsigned int household_id = StringUtils::FromString<unsigned int>(values[1]);
-                unsigned int school_id = StringUtils::FromString<unsigned int>(values[2]);
-                unsigned int work_id = StringUtils::FromString<unsigned int>(values[3]);
-                unsigned int primary_community_id = StringUtils::FromString<unsigned int>(values[4]);
-                unsigned int secondary_community_id = StringUtils::FromString<unsigned int>(values[5]);
+                auto age = StringUtils::FromString<unsigned int>(values[0]);
+                auto household_id = StringUtils::FromString<unsigned int>(values[1]);
+                auto school_id = StringUtils::FromString<unsigned int>(values[2]);
+                auto work_id = StringUtils::FromString<unsigned int>(values[3]);
+                auto primary_community_id = StringUtils::FromString<unsigned int>(values[4]);
+                auto secondary_community_id = StringUtils::FromString<unsigned int>(values[5]);
 
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
                                         secondary_community_id, start_infectiousness, start_symptomatic,
@@ -120,7 +120,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree:
         //------------------------------------------------
         // Customize the population.
         //------------------------------------------------
-        const unsigned int max_population_index = population.size() - 1;
+        const unsigned int max_population_index = static_cast<unsigned int>(population.size() - 1);
         if (max_population_index <= 1U) {
                 throw runtime_error(string(__func__) + "> Problem with population size.");
         }
@@ -130,15 +130,16 @@ std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree:
         //------------------------------------------------
         const string log_level = pt_config.get<string>("run.log_level", "None");
         if (log_level == "Contacts") {
-                const unsigned int num_participants = pt_config.get<double>("run.num_participants_survey");
+                const unsigned int num_participants {static_cast<unsigned int>(
+                        pt_config.get<double>("run.num_participants_survey"))};
 
                 // use a while-loop to obtain 'num_participant' unique participants (default
                 // sampling is with
                 // replacement)
                 // A for loop will not do because we might draw the same person twice.
-                unsigned int num_samples = 0;
+                unsigned int num_samples {0};
                 while (num_samples < num_participants) {
-                        Person& p = population[rng(max_population_index)];
+                        Person& p {population[rng(max_population_index)]};
                         if (!p.IsParticipatingInSurvey()) {
                                 p.ParticipateInSurvey();
                                 logger->info("[PART] {}", p.GetId());
@@ -165,7 +166,7 @@ unsigned int PopulationBuilder::Sample(util::Random& rng, const std::vector<doub
                 }
         }
         cerr << "WARNING: PROBLEM WITH DISEASE DISTRIBUTION [PopulationBuilder]" << endl;
-        return distribution.size();
+        return static_cast<unsigned int>(distribution.size());
 }
 
 } // end_of_namespace

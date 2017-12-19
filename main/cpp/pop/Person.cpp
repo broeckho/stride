@@ -23,13 +23,11 @@
 #include "core/ClusterType.h"
 #include "pop/Age.h"
 
-#include <stdexcept>
-
 namespace stride {
 
 using namespace std;
 
-unsigned int Person::GetClusterId(ClusterType cluster_type) const
+unsigned int Person::GetClusterId(const ClusterType& cluster_type) const
 {
         switch (cluster_type) {
         case ClusterType::Household:
@@ -47,7 +45,7 @@ unsigned int Person::GetClusterId(ClusterType cluster_type) const
         }
 }
 
-bool Person::IsInCluster(ClusterType c) const
+bool Person::IsInCluster(const ClusterType& c) const
 {
         switch (c) {
         case ClusterType::Household:
@@ -89,7 +87,7 @@ void Person::Update(bool is_work_off, bool is_school_off)
         }
 }
 
-void Person::Update(Person* p)
+void Person::Update(Person*)
 {
         // TODO update beliefs
 }

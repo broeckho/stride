@@ -19,14 +19,11 @@
 #============================================================================
 # Add subdirs:
 #============================================================================
-add_subdirectory( cpp         )
-
-# Only build python directory if both SWIG and PYTHON libraries are found
+add_subdirectory(cpp)
 if (${SWIG_FOUND} AND ${PYTHONLIBS_FOUND})
-	add_subdirectory( python      )
-endif(${SWIG_FOUND} AND ${PYTHONLIBS_FOUND})
-
-add_subdirectory( r           )
-add_subdirectory( resources   )
+	add_subdirectory(python)
+endif()
+add_subdirectory(r)
+add_subdirectory(resources)
 
 #############################################################################

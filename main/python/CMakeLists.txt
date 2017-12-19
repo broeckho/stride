@@ -24,18 +24,18 @@ add_subdirectory(examples)
 # Build & install the Swig files for python environment.
 #============================================================================
 set(SWIG_IFACE
-	../cpp/swig/health.i
-	../cpp/swig/population.i
-	../cpp/swig/simulator.i
-	../cpp/swig/simulatorobserver.i
-	../cpp/swig/striderunner.i
-	../cpp/swig/stride.i
+	swig/health.i
+	swig/population.i
+	swig/simulator.i
+	swig/simulatorobserver.i
+	swig/striderunner.i
+	swig/stride.i
 )
 
 include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)
-swig_add_library(stride LANGUAGE python SOURCES ../cpp/swig/stride.i TYPE MODULE)
+swig_add_library(stride LANGUAGE python SOURCES swig/stride.i TYPE MODULE)
 swig_link_libraries(stride PUBLIC libstride ${PYTHON_LIBRARIES})
 
 #================================================================================================

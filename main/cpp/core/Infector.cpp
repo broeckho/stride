@@ -127,10 +127,10 @@ void Infector<log_level, track_index_case, local_information_policy>::Execute(Cl
 
                         const double contact_rate = cluster.GetContactRate(p1);
                         // loop over possible contacts (contacts can be initiated by each member)
-                        for (size_t i_person2 = 0; i_person2 < c_members.size(); i_person2++) {
+                        for (const auto& member : c_members) {
                                 // check if member is present today
-                                if (c_members[i_person2].second) {
-                                        auto p2 = c_members[i_person2].first;
+                                if (member.second) {
+                                        auto p2 = member.first;
 
                                         // check for contact
                                         if (contact_handler.HasContact(contact_rate)) {

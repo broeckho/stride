@@ -20,7 +20,6 @@
 
 #include "SimulatorBuilder.h"
 
-#include "core/ClusterType.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
 #include "util/InstallDirs.h"
@@ -97,7 +96,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
         sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
 
         // Build population.
-        Random rng(pt_config.get<double>("run.rng_seed"));
+        Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, rng);
 
         // Initialize clusters.
@@ -113,11 +112,12 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const double seeding_rate = pt_config.get<double>("run.seeding_rate");
-        const double seeding_age_min = pt_config.get<double>("run.seeding_age_min", 1);
-        const double seeding_age_max = pt_config.get<double>("run.seeding_age_max", 99);
-        const unsigned int max_population_index = sim->m_population->size() - 1;
-        unsigned int num_infected = floor(static_cast<double>(sim->m_population->size()) * seeding_rate);
+        const auto seeding_rate = pt_config.get<double>("run.seeding_rate");
+        const auto seeding_age_min = pt_config.get<double>("run.seeding_age_min", 1);
+        const auto seeding_age_max = pt_config.get<double>("run.seeding_age_max", 99);
+        const auto max_population_index = static_cast<unsigned int>(sim->m_population->size() - 1);
+        auto num_infected = static_cast<unsigned int>(
+                floor(static_cast<double>(sim->m_population->size()) * seeding_rate));
         while (num_infected > 0) {
                 Person& p = sim->m_population->at(rng(max_population_index));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
@@ -131,7 +131,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const boost::property_tree::p
         // Initialize Rng handlers
         unsigned int new_seed = rng(numeric_limits<unsigned int>::max());
         for (size_t i = 0; i < sim->m_num_threads; i++) {
-                sim->m_rng_handler.emplace_back(RngHandler(new_seed, sim->m_num_threads, i));
+                sim->m_rng_handler.emplace_back(RngHandler(new_seed, sim->m_num_threads, static_cast<unsigned int>(i)));
         }
 
         // Initialize contact profiles.

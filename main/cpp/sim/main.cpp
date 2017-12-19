@@ -20,8 +20,6 @@
 
 #include "sim/StrideRunner.h"
 
-#include <exception>
-#include <iostream>
 #include <tclap/CmdLine.h>
 
 using namespace std;
@@ -41,7 +39,7 @@ int main(int argc, char** argv)
                 SwitchArg index_case_Arg("r", "r0", "R0 only", cmd, false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "./config/run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
-                cmd.parse(argc, argv);
+                cmd.parse(argc, static_cast<const char * const *>(argv));
 
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.

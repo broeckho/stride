@@ -119,7 +119,7 @@ void Simulator::TimeStep()
                 throw std::runtime_error(std::string(__func__) + "No valid local information policy!");
         }
 
-        Notify(m_calendar->GetSimulationDay());
+        Notify(static_cast<unsigned int>(m_calendar->GetSimulationDay()));
 
         m_calendar->AdvanceDay();
 }
@@ -130,7 +130,7 @@ void Simulator::UpdateClusters()
 {
 #pragma omp parallel num_threads(m_num_threads)
         {
-                const unsigned int thread = omp_get_thread_num();
+                const unsigned int thread = static_cast<unsigned int>(omp_get_thread_num());
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_households.size(); i++) {
