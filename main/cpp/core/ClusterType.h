@@ -23,9 +23,8 @@
 #include <string>
 
 namespace stride {
+namespace ClusterType {
 
-class ClusterType {
-public:
         /// Enumerates the cluster types.
         enum class Id
         {
@@ -37,18 +36,17 @@ public:
                 Null
         };
 
-public:
         /// Number of Cluster types (not including Null type).
-        static constexpr unsigned int NumOfTypes() { return 5U; }
+        constexpr unsigned int NumOfTypes() { return 5U; }
 
         /// Converts a ClusterType::Id value to corresponding name.
-        static std::string ToString(ClusterType::Id w);
+        std::string ToString(ClusterType::Id w);
 
         /// Check whether string is name of a ClusterType::Id.
         bool IsType(const std::string &s);
 
         /// Converts a string with name to ClusterType::Id.
-        static ClusterType::Id ToType(const std::string &s);
-};
+        Id ToType(const std::string &s);
 
+} // namespace
 } // namespace

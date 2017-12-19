@@ -22,16 +22,15 @@
 #include <string>
 
 namespace stride {
-
 /**
 * Enum specifiying the level of logging required:
 * \li none at all
 * \li only contacts where transmission occurs
 * \li all contacts.
 */
-class LogMode
+namespace LogMode
 {
-public:
+
         enum class Id
         {
                 None = 0U,
@@ -40,16 +39,14 @@ public:
                 Null
         };
 
-public:
-
         /// Converts a LogMode value to corresponding name.
-        static std::string ToString(LogMode::Id w);
+        std::string ToString(LogMode::Id w);
 
         /// Check whether string is name of LogMode value.
-        static bool IsLogMode(const std::string& s);
+        bool IsLogMode(const std::string& s);
 
         /// Converts a string with name to LogMode value.
-        static LogMode::Id ToLogMode(const std::string& s);
-};
+        LogMode::Id ToLogMode(const std::string& s);
 
+} // end_of_namespace
 } // end_of_namespace

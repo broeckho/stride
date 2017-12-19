@@ -24,11 +24,12 @@
 #include <map>
 
 namespace stride {
+namespace ClusterType {
 
 using namespace std;
 using boost::to_upper;
 
-string ClusterType::ToString(Id c)
+string ToString(Id c)
 {
 
         map<Id, string> cluster_names {
@@ -41,12 +42,12 @@ string ClusterType::ToString(Id c)
         return (cluster_names.count(c) == 1) ? cluster_names[c] : "null";
 }
 
-bool ClusterType::IsType(const string &s)
+bool IsType(const string &s)
 {
         return (ToType(s) !=  Id::Null);
 }
 
-ClusterType::Id ClusterType::ToType(const string &s)
+Id ToType(const string &s)
 {
 
         static map<string, Id> cluster_ids {
@@ -62,4 +63,5 @@ ClusterType::Id ClusterType::ToType(const string &s)
         return (cluster_ids.count(t) == 1) ? cluster_ids[t] : Id::Null;
 }
 
+} // end of namespace
 } // end of namespace

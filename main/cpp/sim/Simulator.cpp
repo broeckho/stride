@@ -55,31 +55,32 @@ void Simulator::TimeStep()
                 p.Update(is_work_off, is_school_off);
         }
 
+        using Id = LogMode::Id;
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case LogMode::Id::Contacts:
-                                UpdateClusters<LogMode::Id::Contacts, NoLocalInformation, true>();
+                        case Id::Contacts:
+                                UpdateClusters<Id::Contacts, NoLocalInformation, true>();
                                 break;
-                        case LogMode::Id::Transmissions:
-                                UpdateClusters<LogMode::Id::Transmissions, NoLocalInformation, true>();
+                        case Id::Transmissions:
+                                UpdateClusters<Id::Transmissions, NoLocalInformation, true>();
                                 break;
-                        case LogMode::Id::None:
-                                UpdateClusters<LogMode::Id::None, NoLocalInformation, true>();
+                        case Id::None:
+                                UpdateClusters<Id::None, NoLocalInformation, true>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_log_level) {
-                        case LogMode::Id::Contacts:
-                                UpdateClusters<LogMode::Id::Contacts, NoLocalInformation, false>();
+                        case Id::Contacts:
+                                UpdateClusters<Id::Contacts, NoLocalInformation, false>();
                                 break;
-                        case LogMode::Id::Transmissions:
-                                UpdateClusters<LogMode::Id::Transmissions, NoLocalInformation, false>();
+                        case Id::Transmissions:
+                                UpdateClusters<Id::Transmissions, NoLocalInformation, false>();
                                 break;
-                        case LogMode::Id::None:
-                                UpdateClusters<LogMode::Id::None, NoLocalInformation, false>();
+                        case Id::None:
+                                UpdateClusters<Id::None, NoLocalInformation, false>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
@@ -88,28 +89,28 @@ void Simulator::TimeStep()
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case LogMode::Id::Contacts:
-                                UpdateClusters<LogMode::Id::Contacts, LocalDiscussion, true>();
+                        case Id::Contacts:
+                                UpdateClusters<Id::Contacts, LocalDiscussion, true>();
                                 break;
-                        case LogMode::Id::Transmissions:
-                                UpdateClusters<LogMode::Id::Transmissions, LocalDiscussion, true>();
+                        case Id::Transmissions:
+                                UpdateClusters<Id::Transmissions, LocalDiscussion, true>();
                                 break;
-                        case LogMode::Id::None:
-                                UpdateClusters<LogMode::Id::None, LocalDiscussion, true>();
+                        case Id::None:
+                                UpdateClusters<Id::None, LocalDiscussion, true>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_log_level) {
-                        case LogMode::Id::Contacts:
-                                UpdateClusters<LogMode::Id::Contacts, LocalDiscussion, false>();
+                        case Id::Contacts:
+                                UpdateClusters<Id::Contacts, LocalDiscussion, false>();
                                 break;
-                        case LogMode::Id::Transmissions:
-                                UpdateClusters<LogMode::Id::Transmissions, LocalDiscussion, false>();
+                        case Id::Transmissions:
+                                UpdateClusters<Id::Transmissions, LocalDiscussion, false>();
                                 break;
-                        case LogMode::Id::None:
-                                UpdateClusters<LogMode::Id::None, LocalDiscussion, false>();
+                        case Id::None:
+                                UpdateClusters<Id::None, LocalDiscussion, false>();
                                 break;
                         default:
                                 throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");

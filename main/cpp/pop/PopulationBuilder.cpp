@@ -32,6 +32,7 @@ namespace stride {
 
 using namespace std;
 using namespace util;
+using namespace boost::property_tree;
 
 /**
  * Initializes a Population: add persons, set immunity, seed infection.
@@ -40,8 +41,7 @@ using namespace util;
  * @param pt_disease    Property_tree with disease configuration settings.
  * @return              Pointer to the initialized population.
  */
-std::shared_ptr<Population> PopulationBuilder::Build(const boost::property_tree::ptree& pt_config,
-                                                     const boost::property_tree::ptree& pt_disease, util::Random& rng)
+std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, const ptree& pt_disease, util::Random& rng)
 {
         // ------------------------------------------------
         // Setup.

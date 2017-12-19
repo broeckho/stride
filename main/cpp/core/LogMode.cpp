@@ -24,11 +24,12 @@
 #include <map>
 
 namespace stride {
+namespace LogMode {
 
 using namespace std;
 using boost::to_upper;
 
-string LogMode::ToString(Id l)
+string ToString(Id l)
 {
         static map<Id, string> names {
                 make_pair(Id::None, "None"),
@@ -38,12 +39,12 @@ string LogMode::ToString(Id l)
         return (names.count(l) == 1) ? names[l] : "Null";
 }
 
-bool LogMode::IsLogMode(const string& s)
+bool IsLogMode(const string& s)
 {
         return (ToLogMode(s) != Id::Null);
 }
 
-LogMode::Id LogMode::ToLogMode(const string& s)
+Id ToLogMode(const string& s)
 {
         static map<string, Id> modes {
                 make_pair("NONE", Id::None),
@@ -55,4 +56,5 @@ LogMode::Id LogMode::ToLogMode(const string& s)
         return (modes.count(t) == 1) ? modes[t] : Id::Null;
 }
 
+} // namespace
 } // namespace
