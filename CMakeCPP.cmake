@@ -50,39 +50,37 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS 	       "${CMAKE_CXX_FLAGS} -fPIC")
 endif()
 #
-include_directories( ${CMAKE_HOME_DIRECTORY}/main/cpp             )
+include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Standard math lib
 #----------------------------------------------------------------------------
-set( LIBS   ${LIBS}   m )
+set(LIBS   ${LIBS}   m)
 
 #----------------------------------------------------------------------------
 # TCLAP Library (command line processing)
 #----------------------------------------------------------------------------
-include_directories( SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include )
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
 # Spdlog Library (logging)
 #----------------------------------------------------------------------------
-include_directories( SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/include )
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/include)
 
 #----------------------------------------------------------------------------
 # Tina's Random Number Generator (TRNG) library and paths
 #----------------------------------------------------------------------------
-include_directories( SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.15/include )
-set( LIBS ${LIBS} trng )
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/trng-4.15/include)
+set(LIBS ${LIBS} trng)
 
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
 set(BOOST_ROOT ${STRIDE_BOOST_ROOT})
-#set(BOOST_INCLUDEDIR ${STRIDE_BOOST_INCLUDEDIR})
-set(BOOST_LIBRARYDIR ${STRIDE_BOOST_LIBRARYDIR})
 set(Boost_NO_SYSTEM_PATHS ${STRIDE_BOOST_NO_SYSTEM_PATHS})
-find_package( Boost COMPONENTS filesystem thread date_time system REQUIRED )
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS} )
-set( LIBS   ${LIBS} ${Boost_LIBRARIES} )
+find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+set(LIBS   ${LIBS} ${Boost_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # OpenMP
