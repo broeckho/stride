@@ -131,7 +131,7 @@ void Simulator::UpdateClusters()
 {
 #pragma omp parallel num_threads(m_num_threads)
         {
-                const unsigned int thread = static_cast<unsigned int>(omp_get_thread_num());
+                const auto thread = static_cast<unsigned int>(omp_get_thread_num());
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_households.size(); i++) {

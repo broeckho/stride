@@ -44,8 +44,9 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                StrideRunner::Setup(index_case_Arg.getValue(), config_file_Arg.getValue(), true);
-                StrideRunner::Run();
+                StrideRunner runner;
+                runner.Setup(index_case_Arg.getValue(), config_file_Arg.getValue(), true);
+                runner.Run();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

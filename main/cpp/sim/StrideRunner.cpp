@@ -43,24 +43,14 @@ using namespace boost::property_tree;
 using namespace std;
 using namespace std::chrono;
 
-///
-bool StrideRunner::m_is_running = false;
-///
-bool StrideRunner::m_operational = false;
-///
-std::string StrideRunner::m_output_prefix = "";
-///
-boost::property_tree::ptree StrideRunner::m_pt_config = boost::property_tree::ptree();
-///
-Stopwatch<> StrideRunner::m_clock = Stopwatch<>("total_clock");
-///
-shared_ptr<Simulator> StrideRunner::m_sim = make_shared<Simulator>();
+StrideRunner::StrideRunner()
+        : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"),
+          m_sim(make_shared<Simulator>())
+{}
 
-/// Register observer
-void StrideRunner::RegisterObserver(std::shared_ptr<SimulatorObserver>& observer) { m_sim->Register(observer); }
+void StrideRunner::RegisterObserver(shared_ptr<SimulatorObserver>& observer) { m_sim->Register(observer); }
 
-///
-void StrideRunner::Setup(bool track_index_case, const std::string& config_file_name, bool use_install_dirs)
+void StrideRunner::Setup(bool track_index_case, const string& config_file_name, bool use_install_dirs)
 {
         // -----------------------------------------------------------------------------------------
         // Print output to command line.
@@ -145,8 +135,8 @@ void StrideRunner::Setup(bool track_index_case, const std::string& config_file_n
         boost::filesystem::path logfile_path = m_output_prefix;
         logfile_path /= "logfile";
         auto file_logger =
-            spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(), std::numeric_limits<size_t>::max(),
-                                       std::numeric_limits<size_t>::max());
+            spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(), numeric_limits<size_t>::max(),
+                                       numeric_limits<size_t>::max());
         file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
@@ -226,9 +216,9 @@ void StrideRunner::Run()
 void StrideRunner::Stop() { m_is_running = false; }
 
 /// Generate output files (at the end of the simulation).
-void StrideRunner::GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
-                                       const std::vector<unsigned int>& adopted,
-                                       const boost::property_tree::ptree& pt_config, unsigned int run_time,
+void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector<unsigned int>& cases,
+                                       const vector<unsigned int>& adopted,
+                                       const ptree& pt_config, unsigned int run_time,
                                        unsigned int total_time)
 {
         // Cases
