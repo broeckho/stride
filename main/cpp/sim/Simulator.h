@@ -43,9 +43,6 @@ public:
         /// Default constructor for empty Simulator.
         Simulator();
 
-        /// Add contact profile.
-        void AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile);
-
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 

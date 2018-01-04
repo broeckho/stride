@@ -104,8 +104,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
 
         // Initialize contact profiles.
         using Id = ClusterType::Id;
-        sim->m_contact_profiles[static_cast<std::size_t>(Id::Household)] = ContactProfile(Id::Household, pt_contact);
-        sim->m_contact_profiles[static_cast<std::size_t>(Id::School)] = ContactProfile(Id::School, pt_contact);
+        sim->m_contact_profiles[ToSizeT(Id::Household)] = ContactProfile(Id::Household, pt_contact);
+        sim->m_contact_profiles[ToSizeT(Id::School)] = ContactProfile(Id::School, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::Work)] = ContactProfile(Id::Work, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)] = ContactProfile(Id::PrimaryCommunity, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);

@@ -20,6 +20,7 @@
  */
 
 #include "core/ClusterType.h"
+#include "core/ContactProfile.h"
 #include <array>
 
 namespace stride {
