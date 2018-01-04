@@ -27,23 +27,23 @@ namespace stride {
 
 using namespace std;
 using namespace util;
+using boost::property_tree::ptree;
 
-/// Initiate the given immunity distribution in the population, according the
-/// given link probability
-void Vaccinator::Administer(std::vector<Cluster>* clusters, std::vector<double>& immunity_distribution,
-                            double immunity_link_probability, util::Random& rng)
+Vaccinator::Vaccinator(std::shared_ptr<Simulator> sim, const boost::property_tree::ptree& pt_config,
+                       const boost::property_tree::ptree& pt_disease, util::Random& rng)
+        : m_config(pt_config), m_disease(pt_disease), m_sim(sim), m_rng(rng) {}
+
+void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& immunity_distribution,
+                            double immunity_link_probability)
 {
-        // initiate a vector to count the population per age class [0-100]
-        vector<double> population_count_age;
-        for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                population_count_age.push_back(0);
-        }
+        // Initialize a vector to count the population per age class [0-100].
+        vector<double> population_count_age(100, 0.0);
 
-        // count individuals per age class and set all "susceptible" individuals "immune"
+        // Count individuals per age class and set all "susceptible" individuals "immune".
         // note: focusing on measles, we expect the number of susceptible individuals
         // to be less compared to the number of immune.
         // TODO but this is a generic simulator
-        for (auto& c : *clusters) {
+        for (auto& c : clusters) {
                 for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
                         Person& p = *c.GetMember(i_p);
                         if (p.GetHealth().IsSusceptible()) {
@@ -53,7 +53,7 @@ void Vaccinator::Administer(std::vector<Cluster>* clusters, std::vector<double>&
                 }
         }
 
-        // calculate the number of susceptible individuals per age class
+        // Calculate the number of susceptible individuals per age class.
         unsigned int total_num_susceptible = 0;
         for (unsigned int index_age = 0; index_age < 100; index_age++) {
                 population_count_age[index_age] =
@@ -61,16 +61,16 @@ void Vaccinator::Administer(std::vector<Cluster>* clusters, std::vector<double>&
                 total_num_susceptible += population_count_age[index_age];
         }
 
-        // sample susceptible individuals, until all age-dependent quota are reached
+        // Sample susceptible individuals, until all age-dependent quota are reached.
         while (total_num_susceptible > 0) {
                 // sample cluster
-                Cluster& p_cluster = clusters->at(rng(clusters->size()));
-                unsigned int household_size = static_cast<unsigned int>(p_cluster.GetSize());
-                vector<unsigned int> member_indices = rng.GetRandomIndices(household_size);
+                const Cluster& p_cluster = clusters[static_cast<unsigned int>(m_rng(clusters.size()))];
+                const auto size = static_cast<unsigned int>(p_cluster.GetSize());
+                vector<unsigned int> indices = m_rng.GetRandomIndices(size);
 
                 // loop over cluster members, in random order
-                for (unsigned int i_p = 0; i_p < household_size && total_num_susceptible > 0; i_p++) {
-                        Person& p = *p_cluster.GetMember(member_indices[i_p]);
+                for (unsigned int i_p = 0; i_p < size && total_num_susceptible > 0; i_p++) {
+                        Person& p = *p_cluster.GetMember(indices[i_p]);
 
                         // if individual is immune and his/her age class has not reached the quota
                         // => make
@@ -81,37 +81,31 @@ void Vaccinator::Administer(std::vector<Cluster>* clusters, std::vector<double>&
                                 total_num_susceptible--;
                         }
                         // random draw to continue in this cluster or to sample a new one
-                        if (rng.NextDouble() < (1 - immunity_link_probability)) {
+                        if (m_rng.NextDouble() < (1 - immunity_link_probability)) {
                                 break;
                         }
                 }
         }
 }
 
-/// Administer cocoon immunization for the given rate and target ages [min-max]
-/// to protect connected individuals of the given age class [min-max]
-void Vaccinator::AdministerCocoon(std::vector<Cluster>* clusters, double immunity_rate, double adult_age_min,
-                                  double adult_age_max, double child_age_min, double child_age_max, util::Random& rng)
+void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immunity_rate, double adult_age_min,
+                                  double adult_age_max, double child_age_min, double child_age_max)
 {
-        for (unsigned int i = 0; i < clusters->size(); i++) {
-                Cluster& p_cluster = clusters->at(i);
-
-                // loop over cluster members
-                for (unsigned int i_p = 0; i_p < p_cluster.GetSize(); i_p++) {
-                        Person& p = *p_cluster.GetMember(i_p);
-
+        for (const auto& c: clusters) {
+                for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
+                        Person& p = *c.GetMember(i_p);
                         if (p.GetHealth().IsSusceptible() && p.GetAge() >= adult_age_min &&
                             p.GetAge() <= adult_age_max) {
 
-                                bool is_connected_to_target_age = false;
-                                for (unsigned int i_p2 = 0; i_p2 < p_cluster.GetSize() && !is_connected_to_target_age;
+                                bool is_connected_to_target_age {false};
+                                for (unsigned int i_p2 = 0; i_p2 < c.GetSize() && !is_connected_to_target_age;
                                      i_p2++) {
-                                        const Person& p2 = *p_cluster.GetMember(i_p2);
+                                        const Person& p2 = *c.GetMember(i_p2);
                                         if (p2.GetAge() >= child_age_min && p2.GetAge() <= child_age_max) {
                                                 is_connected_to_target_age = true;
                                         }
                                 }
-                                if (is_connected_to_target_age == true && rng.NextDouble() < immunity_rate) {
+                                if (is_connected_to_target_age && m_rng.NextDouble() < immunity_rate) {
                                         p.GetHealth().SetImmune();
                                 }
                         }
@@ -119,84 +113,63 @@ void Vaccinator::AdministerCocoon(std::vector<Cluster>* clusters, double immunit
         }
 }
 
-/// Apply the immunization strategy in the configuration file to the Simulator
-/// object.
-void Vaccinator::Apply(const std::string s, std::shared_ptr<Simulator> sim,
-                       const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease,
-                       util::Random& rng)
+void Vaccinator::Apply(const string& s)
 {
-        const std::string immunity_profile = pt_config.get<string>("run." + StringUtils::ToLower(s) + "_profile");
-        std::cout << "Building: " << s << " profile => " << immunity_profile << endl;
+        const string profile = m_config.get<string>("run." + StringUtils::ToLower(s) + "_profile");
+        cout << "Building: " << s << " profile => " << profile << endl;
 
-        if (immunity_profile == "None") {
-                // do nothing
-        } else {
-                std::vector<double> immunity_distribution;
+        if (profile != "None") {
 
-                // default
-                std::vector<Cluster>* immunity_clusters = &sim->m_households;
-
+                vector<double> immunity_distribution;
                 const double immunity_link_probability =
-                    ((immunity_profile == "Cocoon")
+                    ((profile == "Cocoon")
                          ? 1
-                         : pt_config.get<double>("run." + StringUtils::ToLower(s) + "_link_probability"));
+                         : m_config.get<double>("run." + StringUtils::ToLower(s) + "_link_probability"));
 
+                vector<Cluster>* immunity_clusters = nullptr;
                 if (immunity_link_probability > 0) {
-
-                        ClusterType::Id immunity_link_clustertype = ClusterType::ToType(
-                                pt_config.get<string>("run." + StringUtils::ToLower(s) + "_link_clustertype"));
-
-                        switch (immunity_link_clustertype) {
-                                case ClusterType::Id::Household:
-                                immunity_clusters = &sim->m_households;
-                                break;
-                        case ClusterType::Id::School:
-                                immunity_clusters = &sim->m_school_clusters;
-                                break;
-                        case ClusterType::Id::Work:
-                                immunity_clusters = &sim->m_work_clusters;
-                                break;
-                        case ClusterType::Id::PrimaryCommunity:
-                                immunity_clusters = &sim->m_primary_community;
-                                break;
-                        case ClusterType::Id::SecondaryCommunity:
-                                immunity_clusters = &sim->m_secondary_community;
-                                break;
-                        default:
-                                throw runtime_error(std::string(__func__) + "Link cluster type screwed up!");
+                        using Id = ClusterType::Id;
+                        Id clustertype = ClusterType::ToType(
+                                m_config.get<string>("run." + StringUtils::ToLower(s) + "_link_clustertype"));
+                        switch (clustertype) {
+                                case Id::Household: immunity_clusters = &m_sim->m_households; break;
+                                case Id::School: immunity_clusters = &m_sim->m_school_clusters; break;
+                                case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;
+                                case Id::PrimaryCommunity: immunity_clusters = &m_sim->m_primary_community; break;
+                                case Id::SecondaryCommunity: immunity_clusters = &m_sim->m_secondary_community; break;
+                                default: throw runtime_error(string(__func__) + "Link cluster type screwed up!");
                         }
                 }
+                if (profile == "Cocoon") {
+                        cout << "cocoon" << endl;
+                        const auto immunity_rate = m_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
+                        const auto adult_age_min =
+                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_min");
+                        const auto adult_age_max =
+                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_max");
+                        const auto child_age_min =
+                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
+                        const auto child_age_max =
+                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
 
-                if (immunity_profile == "Cocoon") {
-                        std::cout << "cocoon" << std::endl;
-                        const double immunity_rate = pt_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
-                        const double adult_age_min =
-                            pt_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_min");
-                        const double adult_age_max =
-                            pt_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_max");
-                        const double child_age_min =
-                            pt_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
-                        const double child_age_max =
-                            pt_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
-
-                        AdministerCocoon(immunity_clusters, immunity_rate, adult_age_min, adult_age_max, child_age_min,
-                                         child_age_max, rng);
+                        AdministerCocoon(*immunity_clusters, immunity_rate, adult_age_min, adult_age_max, child_age_min,
+                                         child_age_max);
                 } else {
-                        if (immunity_profile == "Random") {
-                                const double immunity_rate =
-                                    pt_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
+                        if (profile == "Random") {
+                                const auto immunity_rate =
+                                    m_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
                                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
                                         immunity_distribution.push_back(immunity_rate);
                                 }
                         } else {
-                                const std::string xml_immunity_profile =
-                                    "disease.immunity_profile." + StringUtils::ToLower(immunity_profile);
-                                immunity_distribution = PtreeUtils::GetDistribution(pt_disease, xml_immunity_profile);
+                                const string xml_immunity_profile =
+                                    "disease.immunity_profile." + StringUtils::ToLower(profile);
+                                immunity_distribution = PtreeUtils::GetDistribution(m_disease, xml_immunity_profile);
                         }
-                        Administer(immunity_clusters, immunity_distribution, immunity_link_probability, rng);
+                        Administer(*immunity_clusters, immunity_distribution, immunity_link_probability);
                 }
         }
-        std::cout << "Done building: " << s << " profile " << endl;
+        cout << "Done building: " << s << " profile " << endl;
 }
 
 } // end_of_namespace

@@ -44,7 +44,7 @@ public:
         /// Return the type of this cluster.
         ClusterType::Id GetClusterType() const { return m_cluster_type; }
         //
-        Person* GetMember(unsigned int index) { return m_members[index].first; }
+        Person* GetMember(unsigned int index) const { return m_members[index].first; }
 
         /// Return number of persons in this cluster.
         std::size_t GetSize() const { return m_members.size(); }
