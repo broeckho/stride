@@ -44,9 +44,10 @@ using namespace std;
 using namespace std::chrono;
 
 StrideRunner::StrideRunner()
-        : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"),
-          m_sim(make_shared<Simulator>())
-{}
+    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"),
+      m_sim(make_shared<Simulator>())
+{
+}
 
 void StrideRunner::RegisterObserver(shared_ptr<SimulatorObserver>& observer) { m_sim->Register(observer); }
 
@@ -134,9 +135,8 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         spdlog::set_async_mode(1048576);
         boost::filesystem::path logfile_path = m_output_prefix;
         logfile_path /= "logfile";
-        auto file_logger =
-            spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(), numeric_limits<size_t>::max(),
-                                       numeric_limits<size_t>::max());
+        auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
+                                                      numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
         file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ void StrideRunner::Run()
         Stopwatch<> run_clock("run_clock");
         if (m_operational) {
                 m_is_running = true;
-                const auto num_days {m_pt_config.get<unsigned int>("run.num_days")};
+                const auto num_days{m_pt_config.get<unsigned int>("run.num_days")};
                 vector<unsigned int> cases(num_days);
                 vector<unsigned int> adopted(num_days);
                 for (unsigned int i = 0; i < num_days; i++) {
@@ -208,8 +208,7 @@ void StrideRunner::Run()
         // Print final message to command line.
         // -----------------------------------------------------------------------------------------
         cout << endl << endl;
-        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_clock.ToString() << endl
-             << endl;
+        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_clock.ToString() << endl << endl;
         cout << "Exiting at:         " << TimeStamp().ToString() << endl << endl;
 }
 
@@ -217,9 +216,8 @@ void StrideRunner::Stop() { m_is_running = false; }
 
 /// Generate output files (at the end of the simulation).
 void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector<unsigned int>& cases,
-                                       const vector<unsigned int>& adopted,
-                                       const ptree& pt_config, unsigned int run_time,
-                                       unsigned int total_time)
+                                       const vector<unsigned int>& adopted, const ptree& pt_config,
+                                       unsigned int run_time, unsigned int total_time)
 {
         // Cases
         CasesFile cases_file(output_prefix);
@@ -232,8 +230,8 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         // Summary
         SummaryFile summary_file(output_prefix);
         summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(),
-                           m_sim->GetDiseaseProfile().GetTransmissionRate(), run_time, total_time);
+                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetTransmissionRate(),
+                           run_time, total_time);
 
         // Persons
         if (pt_config.get<double>("run.generate_person_file") == 1) {

@@ -87,9 +87,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
 
         // Get log level.
         const string l = pt_config.get<string>("run.log_level", "None");
-        sim->m_log_level =
-            LogMode::IsLogMode(l) ? LogMode::ToLogMode(l)
-                                  : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
+        sim->m_log_level = LogMode::IsLogMode(l)
+                               ? LogMode::ToLogMode(l)
+                               : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
 
         /// Set correct information policies
         const string loc_info_policy = pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
@@ -103,9 +103,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         InitializeClusters(sim);
 
         // Initialize population immunity
-        Vaccinator  vacc(sim, pt_config, pt_disease, rng);
-        vacc.Apply("immunity");
-        vacc.Apply("vaccine");
+        Vaccinator v(sim, pt_config, pt_disease, rng);
+        v.Apply("immunity");
+        v.Apply("vaccine");
 
         // Initialize disease profile.
         sim->m_disease_profile.Initialize(pt_config, pt_disease);
@@ -117,8 +117,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         const auto seeding_age_min = pt_config.get<double>("run.seeding_age_min", 1);
         const auto seeding_age_max = pt_config.get<double>("run.seeding_age_max", 99);
         const auto max_population_index = static_cast<unsigned int>(sim->m_population->size() - 1);
-        auto num_infected = static_cast<unsigned int>(
-                floor(static_cast<double>(sim->m_population->size()) * seeding_rate));
+        auto num_infected =
+            static_cast<unsigned int>(floor(static_cast<double>(sim->m_population->size()) * seeding_rate));
         while (num_infected > 0) {
                 Person& p = sim->m_population->at(rng(max_population_index));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&

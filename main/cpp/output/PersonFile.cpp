@@ -47,8 +47,8 @@ void PersonFile::Print(std::shared_ptr<const Population> population)
 {
         for (const auto& p : *population) {
                 const auto& h = p.GetHealth();
-                m_fstream << p.GetId() << "," << p.GetAge() << "," << h.IsRecovered() << "," << h.IsImmune()
-                          << "," << h.GetStartInfectiousness() << "," << h.GetEndInfectiousness() << ","
+                m_fstream << p.GetId() << "," << p.GetAge() << "," << h.IsRecovered() << "," << h.IsImmune() << ","
+                          << h.GetStartInfectiousness() << "," << h.GetEndInfectiousness() << ","
                           << h.GetStartSymptomatic() << "," << h.GetEndSymptomatic() << std::endl;
         }
 }

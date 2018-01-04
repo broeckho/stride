@@ -234,9 +234,9 @@ void Infector<log_level, track_index_case, NoLocalInformation>::Execute(Cluster&
 //-------------------------------------------------------------------------------------------
 template <bool track_index_case>
 void Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
-                                                                                DiseaseProfile disease_profile,
-                                                                                RngHandler& contact_handler,
-                                                                                shared_ptr<const Calendar> calendar)
+                                                                                    DiseaseProfile disease_profile,
+                                                                                    RngHandler& contact_handler,
+                                                                                    shared_ptr<const Calendar> calendar)
 {
         cluster.UpdateMemberPresence();
 
@@ -262,13 +262,13 @@ void Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>::Exec
 
                                                 // log contact, if person 1 is participating in survey
                                                 if (c_members[i_person1].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p1, p2, c_type,
-                                                                                               calendar);
+                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p1, p2,
+                                                                                                   c_type, calendar);
                                                 }
                                                 // log contact, if person 2 is participating in survey
                                                 if (c_members[i_person2].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p2, p1, c_type,
-                                                                                               calendar);
+                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p2, p1,
+                                                                                                   c_type, calendar);
                                                 }
 
                                                 // given the contact, check for transmission

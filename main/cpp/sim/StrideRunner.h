@@ -40,7 +40,7 @@ public:
         StrideRunner();
 
         /// Destructor
-        virtual ~StrideRunner() =default;
+        virtual ~StrideRunner() = default;
 
         /// Register observer
         void RegisterObserver(std::shared_ptr<SimulatorObserver>& observer);
@@ -60,9 +60,8 @@ public:
 private:
         /// Generate output files (at the end of the simulation).
         void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
-                                 const std::vector<unsigned int>& adopted,
-                                 const boost::property_tree::ptree& pt_config, unsigned int run_time,
-                                 unsigned int total_time);
+                                 const std::vector<unsigned int>& adopted, const boost::property_tree::ptree& pt_config,
+                                 unsigned int run_time, unsigned int total_time);
 
 private:
         bool m_is_running;

@@ -25,28 +25,28 @@
 namespace stride {
 namespace ClusterType {
 
-        /// Enumerates the cluster types.
-        enum class Id
-        {
-                Household,
-                School,
-                Work,
-                PrimaryCommunity,
-                SecondaryCommunity,
-                Null
-        };
+/// Enumerates the cluster types.
+enum class Id
+{
+        Household,
+        School,
+        Work,
+        PrimaryCommunity,
+        SecondaryCommunity,
+        Null
+};
 
-        /// Number of Cluster types (not including Null type).
-        constexpr unsigned int NumOfTypes() { return 5U; }
+/// Number of Cluster types (not including Null type).
+constexpr unsigned int NumOfTypes() { return 5U; }
 
-        /// Converts a ClusterType::Id value to corresponding name.
-        std::string ToString(ClusterType::Id w);
+/// Converts a ClusterType::Id value to corresponding name.
+std::string ToString(ClusterType::Id w);
 
-        /// Check whether string is name of a ClusterType::Id.
-        bool IsType(const std::string &s);
+/// Check whether string is name of a ClusterType::Id.
+bool IsType(const std::string& s);
 
-        /// Converts a string with name to ClusterType::Id.
-        Id ToType(const std::string &s);
+/// Converts a string with name to ClusterType::Id.
+Id ToType(const std::string& s);
 
 } // namespace
 } // namespace

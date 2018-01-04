@@ -32,30 +32,27 @@ using boost::to_upper;
 string ToString(Id c)
 {
 
-        map<Id, string> cluster_names {
-                make_pair(Id::Household, "household"),
-                make_pair(Id::School, "school"),
-                make_pair(Id::Work, "work"),
-                make_pair(Id::PrimaryCommunity, "primary_community"),
-                make_pair(Id::SecondaryCommunity, "secondary_community"),
+        map<Id, string> cluster_names{
+            make_pair(Id::Household, "household"),
+            make_pair(Id::School, "school"),
+            make_pair(Id::Work, "work"),
+            make_pair(Id::PrimaryCommunity, "primary_community"),
+            make_pair(Id::SecondaryCommunity, "secondary_community"),
         };
         return (cluster_names.count(c) == 1) ? cluster_names[c] : "null";
 }
 
-bool IsType(const string &s)
-{
-        return (ToType(s) !=  Id::Null);
-}
+bool IsType(const string& s) { return (ToType(s) != Id::Null); }
 
-Id ToType(const string &s)
+Id ToType(const string& s)
 {
 
-        static map<string, Id> cluster_ids {
-                make_pair("HOUSEHOLD", Id::Household),
-                make_pair("SCHOOL", Id::School),
-                make_pair("WORK", Id::Work),
-                make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
-                make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
+        static map<string, Id> cluster_ids{
+            make_pair("HOUSEHOLD", Id::Household),
+            make_pair("SCHOOL", Id::School),
+            make_pair("WORK", Id::Work),
+            make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
+            make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
         };
 
         std::string t{s};

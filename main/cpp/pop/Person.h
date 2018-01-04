@@ -34,11 +34,13 @@ class Person
 {
 public:
         ///
-        Person() : m_id(0), m_age(0.0), m_gender(' '), m_household_id(0), m_school_id(0), m_work_id(0),
-                   m_primary_community_id(0), m_secondary_community_id(0), m_at_household(false), m_at_school(false),
-                   m_at_work(false), m_at_primary_community(false), m_at_secondary_community(false),
-                   m_health(0, 0, 0, 0), m_is_participant(false), m_at_home_due_to_illness(false), m_belief(nullptr)
-        {}
+        Person()
+            : m_id(0), m_age(0.0), m_gender(' '), m_household_id(0), m_school_id(0), m_work_id(0),
+              m_primary_community_id(0), m_secondary_community_id(0), m_at_household(false), m_at_school(false),
+              m_at_work(false), m_at_primary_community(false), m_at_secondary_community(false), m_health(0, 0, 0, 0),
+              m_is_participant(false), m_at_home_due_to_illness(false), m_belief(nullptr)
+        {
+        }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,

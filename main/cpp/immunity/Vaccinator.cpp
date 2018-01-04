@@ -31,7 +31,9 @@ using boost::property_tree::ptree;
 
 Vaccinator::Vaccinator(std::shared_ptr<Simulator> sim, const boost::property_tree::ptree& pt_config,
                        const boost::property_tree::ptree& pt_disease, util::Random& rng)
-        : m_config(pt_config), m_disease(pt_disease), m_sim(sim), m_rng(rng) {}
+    : m_config(pt_config), m_disease(pt_disease), m_sim(sim), m_rng(rng)
+{
+}
 
 void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& immunity_distribution,
                             double immunity_link_probability)
@@ -91,15 +93,14 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
 void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immunity_rate, double adult_age_min,
                                   double adult_age_max, double child_age_min, double child_age_max)
 {
-        for (const auto& c: clusters) {
+        for (const auto& c : clusters) {
                 for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
                         Person& p = *c.GetMember(i_p);
                         if (p.GetHealth().IsSusceptible() && p.GetAge() >= adult_age_min &&
                             p.GetAge() <= adult_age_max) {
 
-                                bool is_connected_to_target_age {false};
-                                for (unsigned int i_p2 = 0; i_p2 < c.GetSize() && !is_connected_to_target_age;
-                                     i_p2++) {
+                                bool is_connected_to_target_age{false};
+                                for (unsigned int i_p2 = 0; i_p2 < c.GetSize() && !is_connected_to_target_age; i_p2++) {
                                         const Person& p2 = *c.GetMember(i_p2);
                                         if (p2.GetAge() >= child_age_min && p2.GetAge() <= child_age_max) {
                                                 is_connected_to_target_age = true;
@@ -115,55 +116,58 @@ void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immuni
 
 void Vaccinator::Apply(const string& s)
 {
-        const string profile = m_config.get<string>("run." + StringUtils::ToLower(s) + "_profile");
+        const string profile = m_config.get<string>("run." + ToLower(s) + "_profile");
         cout << "Building: " << s << " profile => " << profile << endl;
 
         if (profile != "None") {
 
                 vector<double> immunity_distribution;
                 const double immunity_link_probability =
-                    ((profile == "Cocoon")
-                         ? 1
-                         : m_config.get<double>("run." + StringUtils::ToLower(s) + "_link_probability"));
+                    ((profile == "Cocoon") ? 1 : m_config.get<double>("run." + ToLower(s) + "_link_probability"));
 
                 vector<Cluster>* immunity_clusters = nullptr;
                 if (immunity_link_probability > 0) {
                         using Id = ClusterType::Id;
-                        Id clustertype = ClusterType::ToType(
-                                m_config.get<string>("run." + StringUtils::ToLower(s) + "_link_clustertype"));
+                        Id clustertype =
+                            ClusterType::ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
                         switch (clustertype) {
-                                case Id::Household: immunity_clusters = &m_sim->m_households; break;
-                                case Id::School: immunity_clusters = &m_sim->m_school_clusters; break;
-                                case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;
-                                case Id::PrimaryCommunity: immunity_clusters = &m_sim->m_primary_community; break;
-                                case Id::SecondaryCommunity: immunity_clusters = &m_sim->m_secondary_community; break;
-                                default: throw runtime_error(string(__func__) + "Link cluster type screwed up!");
+                        case Id::Household:
+                                immunity_clusters = &m_sim->m_households;
+                                break;
+                        case Id::School:
+                                immunity_clusters = &m_sim->m_school_clusters;
+                                break;
+                        case Id::Work:
+                                immunity_clusters = &m_sim->m_work_clusters;
+                                break;
+                        case Id::PrimaryCommunity:
+                                immunity_clusters = &m_sim->m_primary_community;
+                                break;
+                        case Id::SecondaryCommunity:
+                                immunity_clusters = &m_sim->m_secondary_community;
+                                break;
+                        default:
+                                throw runtime_error(string(__func__) + "Link cluster type screwed up!");
                         }
                 }
                 if (profile == "Cocoon") {
                         cout << "cocoon" << endl;
-                        const auto immunity_rate = m_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
-                        const auto adult_age_min =
-                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_min");
-                        const auto adult_age_max =
-                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_adult_age_max");
-                        const auto child_age_min =
-                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
-                        const auto child_age_max =
-                            m_config.get<double>("run." + StringUtils::ToLower(s) + "_child_age_max");
+                        const auto immunity_rate = m_config.get<double>("run." + ToLower(s) + "_rate");
+                        const auto adult_age_min = m_config.get<double>("run." + ToLower(s) + "_adult_age_min");
+                        const auto adult_age_max = m_config.get<double>("run." + ToLower(s) + "_adult_age_max");
+                        const auto child_age_min = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
+                        const auto child_age_max = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
 
                         AdministerCocoon(*immunity_clusters, immunity_rate, adult_age_min, adult_age_max, child_age_min,
                                          child_age_max);
                 } else {
                         if (profile == "Random") {
-                                const auto immunity_rate =
-                                    m_config.get<double>("run." + StringUtils::ToLower(s) + "_rate");
+                                const auto immunity_rate = m_config.get<double>("run." + ToLower(s) + "_rate");
                                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
                                         immunity_distribution.push_back(immunity_rate);
                                 }
                         } else {
-                                const string xml_immunity_profile =
-                                    "disease.immunity_profile." + StringUtils::ToLower(profile);
+                                const string xml_immunity_profile = "disease.immunity_profile." + ToLower(profile);
                                 immunity_distribution = PtreeUtils::GetDistribution(m_disease, xml_immunity_profile);
                         }
                         Administer(*immunity_clusters, immunity_distribution, immunity_link_probability);

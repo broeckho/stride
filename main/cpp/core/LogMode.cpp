@@ -31,26 +31,17 @@ using boost::to_upper;
 
 string ToString(Id l)
 {
-        static map<Id, string> names {
-                make_pair(Id::None, "None"),
-                make_pair(Id::Transmissions, "Transmissions"),
-                make_pair(Id::Contacts, "Contacts")
-        };
+        static map<Id, string> names{make_pair(Id::None, "None"), make_pair(Id::Transmissions, "Transmissions"),
+                                     make_pair(Id::Contacts, "Contacts")};
         return (names.count(l) == 1) ? names[l] : "Null";
 }
 
-bool IsLogMode(const string& s)
-{
-        return (ToLogMode(s) != Id::Null);
-}
+bool IsLogMode(const string& s) { return (ToLogMode(s) != Id::Null); }
 
 Id ToLogMode(const string& s)
 {
-        static map<string, Id> modes {
-                make_pair("NONE", Id::None),
-                make_pair("TRANSMISSIONS", Id::Transmissions),
-                make_pair("CONTACTS", Id::Contacts)
-        };
+        static map<string, Id> modes{make_pair("NONE", Id::None), make_pair("TRANSMISSIONS", Id::Transmissions),
+                                     make_pair("CONTACTS", Id::Contacts)};
         std::string t{s};
         to_upper(t);
         return (modes.count(t) == 1) ? modes[t] : Id::Null;

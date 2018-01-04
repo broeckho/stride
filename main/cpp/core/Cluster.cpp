@@ -37,7 +37,7 @@ void Cluster::AddContactProfile(ClusterType::Id cluster_type, const ContactProfi
         g_profiles.at(static_cast<std::size_t>(cluster_type)) = profile;
 }
 
-void Cluster::AddMember(Person *p)
+void Cluster::AddMember(Person* p)
 {
         m_members.emplace_back(std::make_pair(p, true));
         m_index_immune++;
@@ -45,9 +45,9 @@ void Cluster::AddMember(Person *p)
 
 double Cluster::GetContactRate(const Person* p) const
 {
-        const auto i {static_cast<std::size_t>(m_cluster_type)};
-        const double reference_num_contacts {g_profiles.at(i)[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
-        const double potential_num_contacts {static_cast<double>(m_members.size() - 1)};
+        const auto i{static_cast<std::size_t>(m_cluster_type)};
+        const double reference_num_contacts{g_profiles.at(i)[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
+        const double potential_num_contacts{static_cast<double>(m_members.size() - 1)};
 
         double individual_contact_rate = reference_num_contacts / potential_num_contacts;
         if (individual_contact_rate >= 1) {

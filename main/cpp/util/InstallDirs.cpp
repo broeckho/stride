@@ -62,8 +62,7 @@ void InstallDirs::Initialize()
 {
         //------- Retrieving path of executable
         {
-// Returns the full path to the currently running executable, or an empty string
-// in case of failure.
+// Returns the full path to the currently running executable, or an empty string in case of failure.
 // http://stackoverflow.com/questions/1023306/finding-current-executables-path-without-proc-self-exe/33249023#33249023
 
 #if defined(WIN32)
@@ -89,8 +88,7 @@ void InstallDirs::Initialize()
 #endif
         }
 
-        //------- Retrieving root and bin directory (the subdirectory of the install
-        // root)
+        //------- Retrieving root and bin directory (the subdirectory of the install root)
         {
                 path exec_dir = g_exec_path.parent_path();
                 if (!g_exec_path.empty()) {
@@ -104,8 +102,8 @@ void InstallDirs::Initialize()
                                 g_root_dir = exec_dir.parent_path();
                         } else
 #endif
-                            if (StringUtils::ToLower(exec_dir.filename().string()) == "debug" ||
-                                StringUtils::ToLower(exec_dir.filename().string()) == "release") {
+                            if (ToLower(exec_dir.filename().string()) == "debug" ||
+                                ToLower(exec_dir.filename().string()) == "release") {
                                 // x/exec                <-Root Path
                                 //      -bin
                                 //              -release/debug

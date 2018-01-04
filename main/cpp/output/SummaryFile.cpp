@@ -51,7 +51,7 @@ void SummaryFile::Print(const boost::property_tree::ptree& pt_config, unsigned i
                         unsigned int num_cases, double transmission_rate, unsigned int run_time,
                         unsigned int total_time)
 {
-        unsigned int num_threads {0};
+        unsigned int num_threads{0};
 
 #pragma omp parallel
         {

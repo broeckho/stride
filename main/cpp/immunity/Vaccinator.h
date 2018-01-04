@@ -45,12 +45,12 @@ public:
 private:
         /// Initiate the given immunity distribution in the population, according the given link probability.
         void Administer(const std::vector<Cluster>& clusters, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability);
+                        double immunity_link_probability);
 
         /// Administer cocoon immunization for the given rate and target ages [min-max] to protect connected
         /// individuals of the given age class [min-max].
         void AdministerCocoon(const std::vector<Cluster>& clusters, double immunity_rate, double adult_age_min,
-                                     double adult_age_max, double child_age_min, double child_age_max);
+                              double adult_age_max, double child_age_min, double child_age_max);
 
 private:
         const boost::property_tree::ptree& m_config;
