@@ -68,7 +68,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         const auto file_name = pt_config.get<string>("run.population_file");
 
-        const auto file_path = InstallDirs::GetDataDir() /= file_name;
+        const auto file_path = InstallDirs().GetDataDir() /= file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
         }

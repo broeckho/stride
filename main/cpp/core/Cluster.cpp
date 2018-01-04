@@ -53,12 +53,9 @@ double Cluster::GetContactRate(const Person* p) const
         if (individual_contact_rate >= 1) {
                 individual_contact_rate = 0.999;
         }
-        // given that contacts are reciprocal, one needs to make only half of his/her
-        // contacts himself/herself
+        // Contacts are reciprocal, so one needs to apply only half of the contacts here.
         individual_contact_rate = individual_contact_rate / 2;
-
-        // take into account that contacts are not directed
-        // contact probability for 1=>2 and 2=>1 = indiv_cnt_rate*indiv_cnt_rate
+        // Contacts are bi-directional: contact probability for 1=>2 and 2=>1 = indiv_cnt_rate*indiv_cnt_rate
         individual_contact_rate += (individual_contact_rate * individual_contact_rate);
 
         return individual_contact_rate;

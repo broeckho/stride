@@ -131,23 +131,12 @@ void Vaccinator::Apply(const string& s)
                         Id clustertype =
                             ClusterType::ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
                         switch (clustertype) {
-                        case Id::Household:
-                                immunity_clusters = &m_sim->m_households;
-                                break;
-                        case Id::School:
-                                immunity_clusters = &m_sim->m_school_clusters;
-                                break;
-                        case Id::Work:
-                                immunity_clusters = &m_sim->m_work_clusters;
-                                break;
-                        case Id::PrimaryCommunity:
-                                immunity_clusters = &m_sim->m_primary_community;
-                                break;
-                        case Id::SecondaryCommunity:
-                                immunity_clusters = &m_sim->m_secondary_community;
-                                break;
-                        default:
-                                throw runtime_error(string(__func__) + "Link cluster type screwed up!");
+                        case Id::Household: immunity_clusters = &m_sim->m_households; break;
+                        case Id::School: immunity_clusters = &m_sim->m_school_clusters; break;
+                        case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;
+                        case Id::PrimaryCommunity: immunity_clusters = &m_sim->m_primary_community; break;
+                        case Id::SecondaryCommunity: immunity_clusters = &m_sim->m_secondary_community; break;
+                        default: throw runtime_error(string(__func__) + "Link cluster type screwed up!");
                         }
                 }
                 if (profile == "Cocoon") {

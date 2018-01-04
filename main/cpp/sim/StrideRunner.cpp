@@ -60,18 +60,19 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         cout << "Starting up at:      " << TimeStamp().ToString() << endl;
 
         if (use_install_dirs) {
-                cout << "Executing:           " << InstallDirs::GetExecPath().string() << endl;
-                cout << "Current directory:   " << InstallDirs::GetCurrentDir().string() << endl;
-                cout << "Install directory:   " << InstallDirs::GetRootDir().string() << endl;
-                cout << "Data    directory:   " << InstallDirs::GetDataDir().string() << endl;
+                InstallDirs dirs;
+                cout << "Executing:           " << dirs.GetExecPath().string() << endl;
+                cout << "Current directory:   " << dirs.GetCurrentDir().string() << endl;
+                cout << "Install directory:   " << dirs.GetRootDir().string() << endl;
+                cout << "Data    directory:   " << dirs.GetDataDir().string() << endl;
 
                 // -----------------------------------------------------------------------------------------
                 // Check execution environment.
                 // -----------------------------------------------------------------------------------------
-                if (InstallDirs::GetCurrentDir().compare(InstallDirs::GetRootDir()) != 0) {
+                if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
                         throw runtime_error(string(__func__) + "> Current directory is not install root! Aborting.");
                 }
-                if (InstallDirs::GetDataDir().empty()) {
+                if (dirs.GetDataDir().empty()) {
                         throw runtime_error(string(__func__) + "> Data directory not present! Aborting.");
                 }
         }

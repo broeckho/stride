@@ -30,34 +30,34 @@ namespace util {
 class InstallDirs
 {
 public:
+        /// Ininitilize.
+        InstallDirs();
+
         /// Utility method: get path to bin directory.
-        static boost::filesystem::path GetBinDir();
+        boost::filesystem::path GetBinDir() const { return m_bin_dir; }
 
         /// Utility method: get path to the current directory.
-        static boost::filesystem::path GetCurrentDir();
+        boost::filesystem::path GetCurrentDir() const { return m_current_dir; }
 
         /// Utility method: get path to the directory for data files.
-        static boost::filesystem::path GetDataDir();
+        boost::filesystem::path GetDataDir() const { return m_data_dir; }
 
         /// Utility method: get name of executable.
-        static boost::filesystem::path GetExecPath();
+        boost::filesystem::path GetExecPath() const { return m_exec_path; }
 
         /// Utility method: get application installation root directory.
-        static boost::filesystem::path GetRootDir();
+        boost::filesystem::path GetRootDir() const { return m_root_dir; }
 
 private:
-        /// Check initialization.
-        static void Check();
-
         /// Initialize all paths.
-        static void Initialize();
+        void Initialize();
 
 private:
-        static boost::filesystem::path g_bin_dir;
-        static boost::filesystem::path g_current_dir;
-        static boost::filesystem::path g_data_dir;
-        static boost::filesystem::path g_exec_path;
-        static boost::filesystem::path g_root_dir;
+        boost::filesystem::path m_bin_dir;
+        boost::filesystem::path m_current_dir;
+        boost::filesystem::path m_data_dir;
+        boost::filesystem::path m_exec_path;
+        boost::filesystem::path m_root_dir;
 };
 
 } // end of namespace

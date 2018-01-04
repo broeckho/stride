@@ -43,28 +43,12 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
-path InstallDirs::g_bin_dir;
-path InstallDirs::g_current_dir;
-path InstallDirs::g_data_dir;
-path InstallDirs::g_exec_path;
-path InstallDirs::g_root_dir;
-
-inline void InstallDirs::Check()
-{
-        static bool initialized = false;
-        if (!initialized) {
-                Initialize();
-                initialized = true;
-        }
-}
+InstallDirs::InstallDirs() { Initialize(); }
 
 void InstallDirs::Initialize()
 {
         //------- Retrieving path of executable
         {
-// Returns the full path to the currently running executable, or an empty string in case of failure.
-// http://stackoverflow.com/questions/1023306/finding-current-executables-path-without-proc-self-exe/33249023#33249023
-
 #if defined(WIN32)
                 char exePath[MAX_PATH];
                 HMODULE hModule = GetModuleHandle(NULL);
@@ -83,23 +67,23 @@ void InstallDirs::Initialize()
                 char exePath[PATH_MAX];
                 uint32_t size = sizeof(exePath);
                 if (_NSGetExecutablePath(exePath, &size) == 0) {
-                        g_exec_path = canonical(system_complete(exePath));
+                        m_exec_path = canonical(system_complete(exePath));
                 }
 #endif
         }
 
         //------- Retrieving root and bin directory (the subdirectory of the install root)
         {
-                path exec_dir = g_exec_path.parent_path();
-                if (!g_exec_path.empty()) {
+                path exec_dir = m_exec_path.parent_path();
+                if (!m_exec_path.empty()) {
 #if (__APPLE__)
                         if (exec_dir.filename().string() == "MacOS") {
                                 // app
                                 //      -Contents               <-Root Path
                                 //              -MacOS
                                 //                   -executables
-                                g_bin_dir = exec_dir;
-                                g_root_dir = exec_dir.parent_path();
+                                m_bin_dir = exec_dir;
+                                m_root_dir = exec_dir.parent_path();
                         } else
 #endif
                             if (ToLower(exec_dir.filename().string()) == "debug" ||
@@ -108,8 +92,8 @@ void InstallDirs::Initialize()
                                 //      -bin
                                 //              -release/debug
                                 //                      -executables
-                                g_bin_dir = exec_dir.parent_path();
-                                g_root_dir = exec_dir.parent_path().parent_path();
+                                m_bin_dir = exec_dir.parent_path();
+                                m_root_dir = exec_dir.parent_path().parent_path();
                         } else
 #if (WIN32)
                             if (exec_dir.filename().string() != "bin") {
@@ -122,52 +106,22 @@ void InstallDirs::Initialize()
                                 // x/exec                <-Root Path
                                 //      -bin
                                 //              -executables
-                                g_bin_dir = exec_dir;
-                                g_root_dir = exec_dir.parent_path();
+                                m_bin_dir = exec_dir;
+                                m_root_dir = exec_dir.parent_path();
                         }
                 }
         }
 
         //------- Data Dir
         {
-                g_data_dir = g_root_dir / "data";
-                g_data_dir = is_directory(g_data_dir) ? g_data_dir : path();
+                m_data_dir = m_root_dir / "data";
+                m_data_dir = is_directory(m_data_dir) ? m_data_dir : path();
         }
 
         //------- Current Dir
         {
-                g_current_dir = system_complete(current_path());
+                m_current_dir = system_complete(current_path());
         }
-}
-
-path InstallDirs::GetBinDir()
-{
-        Check();
-        return g_bin_dir;
-}
-
-path InstallDirs::GetCurrentDir()
-{
-        Check();
-        return g_current_dir;
-}
-
-path InstallDirs::GetDataDir()
-{
-        Check();
-        return g_data_dir;
-}
-
-path InstallDirs::GetExecPath()
-{
-        Check();
-        return g_exec_path;
-}
-
-path InstallDirs::GetRootDir()
-{
-        Check();
-        return g_root_dir;
 }
 
 } // end of namespace

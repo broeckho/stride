@@ -37,12 +37,14 @@ using namespace util;
 std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_name, unsigned int num_threads,
                                                    bool track_index_case)
 {
-        ptree pt_config;
-        const auto file_path = InstallDirs::GetCurrentDir() /= config_file_name;
+        const InstallDirs dirs;
+        const auto file_path = dirs.GetCurrentDir() /= config_file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">Config file " + file_path.string() +
                                     " not present. Aborting.");
         }
+
+        ptree pt_config;
         read_xml(file_path.string(), pt_config);
         return Build(pt_config, num_threads, track_index_case);
 }
@@ -51,22 +53,23 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_nam
 std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsigned int num_threads,
                                                    bool track_index_case)
 {
-        ptree pt_disease;
-
+        const InstallDirs dirs;
         const auto file_name_d{pt_config.get<string>("run.disease_config_file")};
-        const auto file_path_d{InstallDirs::GetDataDir() /= file_name_d};
+        const auto file_path_d{dirs.GetDataDir() /= file_name_d};
         if (!is_regular_file(file_path_d)) {
                 throw runtime_error(std::string(__func__) + "> No file " + file_path_d.string());
         }
+
+        ptree pt_disease;
         read_xml(file_path_d.string(), pt_disease);
 
-        // Contact file.
-        ptree pt_contact;
         const auto file_name_c{pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml")};
-        const auto file_path_c{InstallDirs::GetDataDir() /= file_name_c};
+        const auto file_path_c{dirs.GetDataDir() /= file_name_c};
         if (!is_regular_file(file_path_c)) {
                 throw runtime_error(string(__func__) + "> No file " + file_path_c.string());
         }
+
+        ptree pt_contact;
         read_xml(file_path_c.string(), pt_contact);
 
         return Build(pt_config, pt_disease, pt_contact, num_threads, track_index_case);
