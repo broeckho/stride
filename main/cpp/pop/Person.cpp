@@ -19,8 +19,6 @@
  */
 
 #include "Person.h"
-
-#include "core/ClusterType.h"
 #include "pop/Age.h"
 
 namespace stride {

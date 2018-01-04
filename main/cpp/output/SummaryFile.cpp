@@ -51,11 +51,11 @@ void SummaryFile::Print(const boost::property_tree::ptree& pt_config, unsigned i
                         unsigned int num_cases, double transmission_rate, unsigned int run_time,
                         unsigned int total_time)
 {
-        unsigned int num_threads = 0;
+        unsigned int num_threads {0};
 
 #pragma omp parallel
         {
-                num_threads = omp_get_num_threads();
+                num_threads = static_cast<unsigned int>(omp_get_num_threads());
         }
 
         m_fstream << pt_config.get<string>("run.population_file") << "," << pt_config.get<unsigned int>("run.num_days")

@@ -19,27 +19,38 @@
  */
 
 #include "PersonFile.h"
-
+#include "pop/Population.h"
 #include <boost/filesystem.hpp>
 
 namespace stride {
 namespace output {
 
 using namespace std;
+using namespace boost::filesystem;
 
-PersonFile::PersonFile(const std::string& output_dir) { Initialize(output_dir); }
+PersonFile::PersonFile(const string& output_dir) { Initialize(output_dir); }
 
 PersonFile::~PersonFile() { m_fstream.close(); }
 
 void PersonFile::Initialize(const string& output_dir)
 {
-        boost::filesystem::path pathname(output_dir);
+        path pathname(output_dir);
         pathname /= "person.csv";
         m_fstream.open(pathname.c_str());
 
         // add header
         m_fstream << "id,age,is_recovered,is_immune,start_infectiousness,"
                   << "end_infectiousness,start_symptomatic,end_symptomatic" << endl;
+}
+
+void PersonFile::Print(std::shared_ptr<const Population> population)
+{
+        for (const auto& p : *population) {
+                const auto& h = p.GetHealth();
+                m_fstream << p.GetId() << "," << p.GetAge() << "," << h.IsRecovered() << "," << h.IsImmune()
+                          << "," << h.GetStartInfectiousness() << "," << h.GetEndInfectiousness() << ","
+                          << h.GetStartSymptomatic() << "," << h.GetEndSymptomatic() << std::endl;
+        }
 }
 
 } // end_of_namespace

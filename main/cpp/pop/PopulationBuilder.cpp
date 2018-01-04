@@ -19,8 +19,6 @@
  */
 
 #include "PopulationBuilder.h"
-
-#include "core/ClusterType.h"
 #include "util/InstallDirs.h"
 #include "util/PtreeUtils.h"
 #include "util/StringUtils.h"
@@ -120,7 +118,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Customize the population.
         //------------------------------------------------
-        const unsigned int max_population_index = static_cast<unsigned int>(population.size() - 1);
+        const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
         if (max_population_index <= 1U) {
                 throw runtime_error(string(__func__) + "> Problem with population size.");
         }

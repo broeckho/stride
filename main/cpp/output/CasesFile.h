@@ -33,7 +33,7 @@ class CasesFile
 {
 public:
         /// Constructor: initialize.
-        CasesFile(const std::string& output_dir = "output");
+        explicit CasesFile(const std::string& output_dir = "output");
 
         /// Destructor: close the file stream.
         ~CasesFile();

@@ -21,9 +21,6 @@
 #include "CasesFile.h"
 
 #include <boost/filesystem.hpp>
-#include <fstream>
-#include <string>
-#include <vector>
 
 namespace stride {
 namespace output {

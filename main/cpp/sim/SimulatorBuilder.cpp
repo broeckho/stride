@@ -48,8 +48,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_nam
 }
 
 /// Build the simulator.
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config,
-                                                   unsigned int num_threads, bool track_index_case)
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsigned int num_threads,
+                                                   bool track_index_case)
 {
         ptree pt_disease;
 
@@ -73,10 +73,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config,
 }
 
 /// Build the simulator.
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config,
-                                                   const ptree& pt_disease,
-                                                   const ptree& pt_contact,
-                                                   unsigned int num_threads, bool track_index_case)
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const ptree& pt_disease,
+                                                   const ptree& pt_contact, unsigned int num_threads,
+                                                   bool track_index_case)
 {
         auto sim = make_shared<Simulator>();
         const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
@@ -148,7 +147,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config,
 }
 
 /// Initialize the clusters.
-void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
+void SimulatorBuilder::InitializeClusters(shared_ptr<Simulator> sim)
 {
         // Determine the number of clusters.
         unsigned int max_id_households{0U};
@@ -161,13 +160,11 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
         using Id = ClusterType::Id;
 
         for (const auto& p : population) {
-                max_id_households = std::max(max_id_households, p.GetClusterId(Id::Household));
-                max_id_school_clusters = std::max(max_id_school_clusters, p.GetClusterId(Id::School));
-                max_id_work_clusters = std::max(max_id_work_clusters, p.GetClusterId(Id::Work));
-                max_id_primary_community =
-                    std::max(max_id_primary_community, p.GetClusterId(Id::PrimaryCommunity));
-                max_id_secondary_community =
-                    std::max(max_id_secondary_community, p.GetClusterId(Id::SecondaryCommunity));
+                max_id_households = max(max_id_households, p.GetClusterId(Id::Household));
+                max_id_school_clusters = max(max_id_school_clusters, p.GetClusterId(Id::School));
+                max_id_work_clusters = max(max_id_work_clusters, p.GetClusterId(Id::Work));
+                max_id_primary_community = max(max_id_primary_community, p.GetClusterId(Id::PrimaryCommunity));
+                max_id_secondary_community = max(max_id_secondary_community, p.GetClusterId(Id::SecondaryCommunity));
         }
 
         // Keep separate id counter to provide a unique id for every cluster.

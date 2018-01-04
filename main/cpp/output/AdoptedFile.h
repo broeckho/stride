@@ -25,7 +25,7 @@ class AdoptedFile
 {
 public:
         /// Constructor
-        AdoptedFile(const std::string& output_dir = "output");
+        explicit AdoptedFile(const std::string& output_dir = "output");
 
         /// Destructor
         ~AdoptedFile();
