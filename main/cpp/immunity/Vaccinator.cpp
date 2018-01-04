@@ -125,12 +125,11 @@ void Vaccinator::Apply(const string& s)
                 const double immunity_link_probability =
                     ((profile == "Cocoon") ? 1 : m_config.get<double>("run." + ToLower(s) + "_link_probability"));
 
-                vector<Cluster>* immunity_clusters = nullptr;
+                vector<Cluster>* immunity_clusters = &m_sim->m_households; ///< The default case.
                 if (immunity_link_probability > 0) {
-                        using Id = ClusterType::Id;
-                        Id clustertype =
-                            ClusterType::ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
-                        switch (clustertype) {
+                        using namespace ClusterType;
+                        Id c_type = ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
+                        switch (c_type) {
                         case Id::Household: immunity_clusters = &m_sim->m_households; break;
                         case Id::School: immunity_clusters = &m_sim->m_school_clusters; break;
                         case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;

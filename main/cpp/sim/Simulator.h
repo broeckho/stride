@@ -21,6 +21,7 @@
 
 #include "calendar/Calendar.h"
 #include "core/Cluster.h"
+#include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
 #include "core/RngHandler.h"
@@ -29,6 +30,7 @@
 #include "util/Subject.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <array>
 
 namespace stride {
 
@@ -40,6 +42,9 @@ class Simulator : public util::Subject<unsigned int, SimulatorObserver>
 public:
         /// Default constructor for empty Simulator.
         Simulator();
+
+        /// Add contact profile.
+        void AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile);
 
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
@@ -82,8 +87,10 @@ private:
         std::vector<Cluster> m_primary_community;   ///< Container with primary community Clusters.
         std::vector<Cluster> m_secondary_community; ///< Container with secondary community  Clusters.
 
-        DiseaseProfile m_disease_profile; ///< Profile of disease.
-        bool m_track_index_case;          ///< General simulation or tracking index case.
+        ContactProfiles m_contact_profiles; ///< Contact patterns.
+        DiseaseProfile m_disease_profile;   ///< Profile of disease.
+
+        bool m_track_index_case; ///< General simulation or tracking index case.
 
 private:
         friend class SimulatorBuilder;

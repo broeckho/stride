@@ -55,13 +55,13 @@ void InstallDirs::Initialize()
                 if (GetModuleFileName(NULL, exePath, sizeof(exePath)) != 0)
                         ;
                 {
-                        g_exec_path = canonical(system_complete(exePath));
+                        m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__linux__)
                 char exePath[PATH_MAX];
                 size_t size = ::readlink("/proc/self/exe", exePath, sizeof(exePath));
                 if (size > 0 && size != sizeof(exePath)) {
-                        g_exec_path = canonical(system_complete(exePath));
+                        m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__APPLE__)
                 char exePath[PATH_MAX];
@@ -98,8 +98,8 @@ void InstallDirs::Initialize()
 #if (WIN32)
                             if (exec_dir.filename().string() != "bin") {
                                 // Executables in root folder
-                                g_bin_dir = exec_dir;
-                                g_root_dir = exec_dir;
+                                m_bin_dir = exec_dir;
+                                m_root_dir = exec_dir;
                         } else
 #endif
                         {

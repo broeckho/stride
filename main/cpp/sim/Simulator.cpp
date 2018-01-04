@@ -36,6 +36,11 @@ Simulator::Simulator()
 {
 }
 
+void Simulator::AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile)
+{
+        m_contact_profiles.at(static_cast<std::size_t>(cluster_type)) = profile;
+}
+
 /// Run one time step, computing full simulation (default) or only index case.
 void Simulator::TimeStep()
 {

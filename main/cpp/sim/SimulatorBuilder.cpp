@@ -102,6 +102,14 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, rng);
 
+        // Initialize contact profiles.
+        using Id = ClusterType::Id;
+        sim->m_contact_profiles[static_cast<std::size_t>(Id::Household)] = ContactProfile(Id::Household, pt_contact);
+        sim->m_contact_profiles[static_cast<std::size_t>(Id::School)] = ContactProfile(Id::School, pt_contact);
+        sim->m_contact_profiles[ToSizeT(Id::Work)] = ContactProfile(Id::Work, pt_contact);
+        sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)] = ContactProfile(Id::PrimaryCommunity, pt_contact);
+        sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
+
         // Initialize clusters.
         InitializeClusters(sim);
 
@@ -138,14 +146,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                 sim->m_rng_handler.emplace_back(RngHandler(new_seed, sim->m_num_threads, static_cast<unsigned int>(i)));
         }
 
-        // Initialize contact profiles.
-        using Id = ClusterType::Id;
-        Cluster::AddContactProfile(Id::Household, ContactProfile(Id::Household, pt_contact));
-        Cluster::AddContactProfile(Id::School, ContactProfile(Id::School, pt_contact));
-        Cluster::AddContactProfile(Id::Work, ContactProfile(Id::Work, pt_contact));
-        Cluster::AddContactProfile(Id::PrimaryCommunity, ContactProfile(Id::PrimaryCommunity, pt_contact));
-        Cluster::AddContactProfile(Id::SecondaryCommunity, ContactProfile(Id::SecondaryCommunity, pt_contact));
-
         // Done.
         return sim;
 }
@@ -175,23 +175,23 @@ void SimulatorBuilder::InitializeClusters(shared_ptr<Simulator> sim)
         unsigned int c_id = 1;
 
         for (size_t i = 0; i <= max_id_households; i++) {
-                sim->m_households.emplace_back(Cluster(c_id, Id::Household));
+                sim->m_households.emplace_back(Cluster(c_id, Id::Household, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_school_clusters; i++) {
-                sim->m_school_clusters.emplace_back(Cluster(c_id, Id::School));
+                sim->m_school_clusters.emplace_back(Cluster(c_id, Id::School, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_work_clusters; i++) {
-                sim->m_work_clusters.emplace_back(Cluster(c_id, Id::Work));
+                sim->m_work_clusters.emplace_back(Cluster(c_id, Id::Work, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_primary_community; i++) {
-                sim->m_primary_community.emplace_back(Cluster(c_id, Id::PrimaryCommunity));
+                sim->m_primary_community.emplace_back(Cluster(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_secondary_community; i++) {
-                sim->m_secondary_community.emplace_back(Cluster(c_id, Id::SecondaryCommunity));
+                sim->m_secondary_community.emplace_back(Cluster(c_id, Id::SecondaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
 

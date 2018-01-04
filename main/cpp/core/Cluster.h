@@ -21,6 +21,7 @@
 
 #include "core/ClusterType.h"
 #include "core/ContactProfile.h"
+#include "core/ContactProfiles.h"
 #include "core/LogMode.h"
 #include "pop/Person.h"
 
@@ -36,7 +37,19 @@ class Cluster
 {
 public:
         /// Constructor
-        Cluster(std::size_t cluster_id, ClusterType::Id cluster_type);
+        Cluster(std::size_t cluster_id, ClusterType::Id cluster_type, const ContactProfiles& profiles);
+
+        /// No copying: too big.
+        Cluster(const Cluster&) = delete;
+
+        /// Moving is ok.
+        Cluster(Cluster&&) = default;
+
+        // No assignment: too big.
+        Cluster& operator=(const Cluster&) = delete;
+
+        // Move assignment is ok.
+        Cluster& operator=(Cluster&&) = default;
 
         /// Add the given Person to the Cluster.
         void AddMember(Person* p);
@@ -51,10 +64,6 @@ public:
 
         /// Get basic contact rate in this cluster.
         double GetContactRate(const Person* p) const;
-
-public:
-        /// Add contact profile.
-        static void AddContactProfile(ClusterType::Id cluster_type, const ContactProfile& profile);
 
 private:
         /// Sort members w.r.t. health status.
@@ -73,10 +82,7 @@ private:
         ClusterType::Id m_cluster_type;                  ///< The type of the Cluster (for logging purposes).
         std::size_t m_index_immune;                      ///< Index of the first immune member in the Cluster.
         std::vector<std::pair<Person*, bool>> m_members; ///< Container with pointers to Cluster members.
-        const ContactProfile& m_profile;
-
-private:
-        static std::array<ContactProfile, ClusterType::NumOfTypes()> g_profiles;
+        const ContactProfile& m_profile;                 ///< Contact pattern.
 };
 
 } // end_of_namespace
