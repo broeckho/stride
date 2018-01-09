@@ -32,43 +32,53 @@ namespace stride {
 
 class Cluster;
 
-// TODO might be cleaner with use optimised / no optimised trait?
+/// Indicates whether optimized implementation may be used.
+/// \tparam LL          LogLevel
+/// \tparam LIP         LocalInformationPolicy
+template<LogMode::Id LL, typename LIP>
+struct UseOptimizedInfector
+{
+        static constexpr bool value = false;
+};
 
-/**
- * Actual contacts and transmission in cluster (primary template).
- */
-template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
+/// Indicates whether optimized implementation may be used.
+template<>
+struct UseOptimizedInfector<LogMode::Id::None, NoLocalInformation>
+{
+        static constexpr bool value = true;
+};
+
+/// Indicates whether optimized implementation may be used.
+template<>
+struct UseOptimizedInfector<LogMode::Id::Transmissions, NoLocalInformation>
+{
+        static constexpr bool value = true;
+};
+
+/// Actual contacts and transmission in cluster (primary template).
+/// \tparam LL          LogLevel
+/// \tparam TIC         TrackIndexCase
+/// \tparam LIP         LocalInformationPolicy
+template <LogMode::Id LL, bool TIC, typename LIP, bool TO = UseOptimizedInfector<LL, LIP>::value>
 class Infector
 {
 public:
         ///
-        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-                            std::shared_ptr<const Calendar> calendar);
+        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                         std::shared_ptr<const Calendar> calendar);
 };
 
-/**
- * Actual contacts and transmissions in cluster (specialization for NoLocalInformation policy)
- */
-template <LogMode::Id log_level, bool track_index_case>
-class Infector<log_level, track_index_case, NoLocalInformation>
+/// Time-optimized version (Only for NoLocalInformation policy and None || Transmission logging).
+/// \tparam LL          LogLevel
+/// \tparam TIC         TrackIndexCase
+template <LogMode::Id LL, bool TIC>
+class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-                            std::shared_ptr<const Calendar> calendar);
-};
+        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                         std::shared_ptr<const Calendar> calendar);
 
-/**
- * Actual contacts and transmission in cluster (specialization for logging all
- * contacts, and with NoLocalInformation policy).
- */
-template <bool track_index_case>
-class Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>
-{
-public:
-        ///
-        static void Execute(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
-                            std::shared_ptr<const Calendar> calendar);
 };
 
 /// Explicit instantiations in cpp file.

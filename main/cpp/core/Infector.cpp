@@ -28,62 +28,64 @@ namespace stride {
 
 using namespace std;
 
-/**
- * Primary R0_POLICY: do nothing i.e. track all cases.
- */
-template <bool track_index_case>
+/// Primary R0_POLICY: do nothing i.e. track all cases.
+/// \tparam TIC         TrackIndexCase
+template <bool TIC>
 class R0_POLICY
 {
 public:
-        static void Execute(Person* p) {}
+        static void Exec(Person *p) {}
 };
 
-/**
- * Specialized R0_POLICY: track only the index case.
- */
+/// Specialized R0_POLICY: track only the index case.
 template <>
 class R0_POLICY<true>
 {
 public:
-        static void Execute(Person* p) { p->GetHealth().StopInfection(); }
+        static void Exec(Person *p) { p->GetHealth().StopInfection(); }
 };
 
-/**
- * Primary LOG_POLICY policy, implements LogMode::None.
- */
-template <LogMode::Id log_level>
+/// Primary LOG_POLICY policy, implements LogMode::None.
+/// \tparam LL
+template <LogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
+        {
+        }
+
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                                 ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
         }
 };
 
-/**
- * Specialized LOG_POLICY policy LogMode::Transmissions.
- */
+/// Specialized LOG_POLICY policy LogMode::Transmissions.
 template <>
 class LOG_POLICY<LogMode::Id::Transmissions>
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
+        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
+        {
+        }
+
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
                 logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ClusterType::ToString(cluster_type),
-                             environ->GetSimulationDay());
+                             calendar->GetSimulationDay());
         }
 };
 
-/**
- * Specialized LOG_POLICY policy LogMode::Contacts.
- */
+/// Specialized LOG_POLICY policy LogMode::Contacts.
 template <>
 class LOG_POLICY<LogMode::Id::Contacts>
 {
 public:
-        static void Execute(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
                 const auto home = (cluster_type == ClusterType::Id::Household);
@@ -97,60 +99,70 @@ public:
                              static_cast<unsigned int>(work), static_cast<unsigned int>(primary_community),
                              static_cast<unsigned int>(secundary_community), calendar->GetSimulationDay());
         }
+
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                                 ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+        {
+                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ClusterType::ToString(cluster_type),
+                             calendar->GetSimulationDay());
+        }
 };
 
-//--------------------------------------------------------------------------
-// Definition for primary template covers the situation for
-// LogMode::None & LogMode::Transmissions, both with
-// track_index_case false and true.
+//-------------------------------------------------------------------------------------------------
+// Definition for primary template covers the situation for LogMode::None & LogMode::Transmissions,
+// both with track_index_case false and true.
 // And every local information policy except NoLocalInformation
-//--------------------------------------------------------------------------
-template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
-void Infector<log_level, track_index_case, local_information_policy>::Execute(Cluster& cluster,
-                                                                              DiseaseProfile disease_profile,
-                                                                              RngHandler& contact_handler,
-                                                                              shared_ptr<const Calendar> calendar)
+//-------------------------------------------------------------------------------------------------
+template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
+void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+                                      shared_ptr<const Calendar> calendar)
 {
+        using LP = LOG_POLICY<LL>;
+        using RP = R0_POLICY<TIC>;
+
         cluster.UpdateMemberPresence();
 
         // set up some stuff
         auto logger = spdlog::get("contact_logger");
         const auto c_type = cluster.m_cluster_type;
         const auto& c_members = cluster.m_members;
-        const auto transmission_rate = disease_profile.GetTransmissionRate();
+        const auto t_rate = disease_profile.GetTransmissionRate();
 
         // check all contacts
         for (size_t i_person1 = 0; i_person1 < c_members.size(); i_person1++) {
                 // check if member is present today
                 if (c_members[i_person1].second) {
                         auto p1 = c_members[i_person1].first;
-
-                        const double contact_rate = cluster.GetContactRate(p1);
+                        const double c_rate = cluster.GetContactRate(p1);
                         // loop over possible contacts (contacts can be initiated by each member)
                         for (const auto& member : c_members) {
                                 // check if member is present today
                                 if (member.second) {
                                         auto p2 = member.first;
-
                                         // check for contact
-                                        if (contact_handler.HasContact(contact_rate)) {
+                                        if (contact_handler.HasContact(c_rate)) {
+                                                // log contact, if person 1 is participating in survey
+                                                if (p1->IsParticipatingInSurvey()) {
+                                                        LP::Contact(logger, p1, p2, c_type, calendar);
+                                                }
+                                                // log contact, if person 2 is participating in survey
+                                                if (p2->IsParticipatingInSurvey()) {
+                                                        LP::Contact(logger, p2, p1, c_type, calendar);
+                                                }
                                                 // exchange information about health state & beliefs
-                                                local_information_policy::Update(p1, p2);
-
-                                                bool transmission = contact_handler.HasTransmission(transmission_rate);
-                                                if (transmission) {
+                                                LIP::Update(p1, p2);
+                                                // transmission & insfection.
+                                                if (contact_handler.HasTransmission(t_rate)) {
                                                         if (p1->GetHealth().IsInfectious() &&
                                                             p2->GetHealth().IsSusceptible()) {
-                                                                LOG_POLICY<log_level>::Execute(logger, p1, p2, c_type,
-                                                                                               calendar);
+                                                                LP::Transmission(logger, p1, p2, c_type, calendar);
                                                                 p2->GetHealth().StartInfection();
-                                                                R0_POLICY<track_index_case>::Execute(p2);
+                                                                RP::Exec(p2);
                                                         } else if (p2->GetHealth().IsInfectious() &&
                                                                    p1->GetHealth().IsSusceptible()) {
-                                                                LOG_POLICY<log_level>::Execute(logger, p2, p1, c_type,
-                                                                                               calendar);
+                                                                LP::Transmission(logger, p2, p1, c_type, calendar);
                                                                 p1->GetHealth().StartInfection();
-                                                                R0_POLICY<track_index_case>::Execute(p1);
+                                                                RP::Exec(p1);
                                                         }
                                                 }
                                         }
@@ -161,15 +173,14 @@ void Infector<log_level, track_index_case, local_information_policy>::Execute(Cl
 }
 
 //-------------------------------------------------------------------------------------------
-// Definition of partial specialization for
-// LocalInformationPolicy:NoLocalInformation.
+// Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
-template <LogMode::Id log_level, bool track_index_case>
-void Infector<log_level, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
-                                                                        DiseaseProfile disease_profile,
-                                                                        RngHandler& contact_handler,
-                                                                        shared_ptr<const Calendar> calendar)
+template <LogMode::Id LL, bool TIC>
+void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, DiseaseProfile disease_profile,
+                                                       RngHandler& ch, shared_ptr<const Calendar> calendar)
 {
+        using LP = LOG_POLICY<LL>;
+        using RP = R0_POLICY<TIC>;
 
         // check if the cluster has infected members and sort
         bool infectious_cases;
@@ -184,104 +195,30 @@ void Infector<log_level, track_index_case, NoLocalInformation>::Execute(Cluster&
                 const auto c_type = cluster.m_cluster_type;
                 const auto c_immune = cluster.m_index_immune;
                 const auto& c_members = cluster.m_members;
-                const auto transmission_rate = disease_profile.GetTransmissionRate();
+                const auto t_rate = disease_profile.GetTransmissionRate();
 
                 // match infectious and susceptible members, skip last part (immune members)
                 for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {
                         // check if member is present today
                         if (c_members[i_infected].second) {
                                 const auto p1 = c_members[i_infected].first;
-
                                 if (p1->GetHealth().IsInfectious()) {
-                                        const double contact_rate_p1 = cluster.GetContactRate(p1);
-
+                                        const double c_rate_p1 = cluster.GetContactRate(p1);
                                         // loop over possible susceptible contacts
                                         for (size_t i_contact = num_cases; i_contact < c_immune; i_contact++) {
-
                                                 // check if member is present today
                                                 if (c_members[i_contact].second) {
-
                                                         auto p2 = c_members[i_contact].first;
-                                                        const double contact_rate_p2 = cluster.GetContactRate(p2);
-
-                                                        // check for contact and transmission
-                                                        // p1 => p2 OR p2 => p1
-                                                        if (contact_handler.HasContactAndTransmission(
-                                                                contact_rate_p1, transmission_rate) ||
-                                                            contact_handler.HasContactAndTransmission(
-                                                                contact_rate_p2, transmission_rate)) {
-
+                                                        const double c_rate_p2 = cluster.GetContactRate(p2);
+                                                        if (ch.HasContactAndTransmission(c_rate_p1, t_rate) ||
+                                                            ch.HasContactAndTransmission(c_rate_p2, t_rate)) {
                                                                 if (p1->GetHealth().IsInfectious() &&
                                                                     p2->GetHealth().IsSusceptible()) {
-
                                                                         p2->GetHealth().StartInfection();
-                                                                        R0_POLICY<track_index_case>::Execute(p2);
-                                                                        LOG_POLICY<log_level>::Execute(
-                                                                            logger, p1, p2, c_type, calendar);
+                                                                        RP::Exec(p2);
+                                                                        LP::Transmission(logger, p1, p2, c_type,
+                                                                                         calendar);
                                                                 }
-                                                        }
-                                                }
-                                        }
-                                }
-                        }
-                }
-        }
-}
-
-//-------------------------------------------------------------------------------------------
-// Definition of partial specialization for LogMode::Contacts and
-// NoLocalInformation policy.
-//-------------------------------------------------------------------------------------------
-template <bool track_index_case>
-void Infector<LogMode::Id::Contacts, track_index_case, NoLocalInformation>::Execute(Cluster& cluster,
-                                                                                    DiseaseProfile disease_profile,
-                                                                                    RngHandler& contact_handler,
-                                                                                    shared_ptr<const Calendar> calendar)
-{
-        cluster.UpdateMemberPresence();
-
-        // set up some stuff
-        auto logger = spdlog::get("contact_logger");
-        const auto c_type = cluster.m_cluster_type;
-        const auto& c_members = cluster.m_members;
-        const auto transmission_rate = disease_profile.GetTransmissionRate();
-
-        // check all contacts
-        for (size_t i_person1 = 0; i_person1 < c_members.size(); i_person1++) {
-                // check if member is present today
-                if (c_members[i_person1].second) {
-                        auto p1 = c_members[i_person1].first;
-                        const double contact_rate = cluster.GetContactRate(p1);
-                        // loop over possible contacts
-                        for (size_t i_person2 = 0; i_person2 < c_members.size(); i_person2++) {
-                                // check if possible contact is present today
-                                if (i_person2 != i_person1 && c_members[i_person2].second) {
-                                        auto p2 = c_members[i_person2].first;
-                                        // check for effective contact
-                                        if (contact_handler.HasContact(contact_rate)) {
-
-                                                // log contact, if person 1 is participating in survey
-                                                if (c_members[i_person1].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p1, p2,
-                                                                                                   c_type, calendar);
-                                                }
-                                                // log contact, if person 2 is participating in survey
-                                                if (c_members[i_person2].first->IsParticipatingInSurvey()) {
-                                                        LOG_POLICY<LogMode::Id::Contacts>::Execute(logger, p2, p1,
-                                                                                                   c_type, calendar);
-                                                }
-
-                                                // given the contact, check for transmission
-                                                bool transmission = contact_handler.HasTransmission(transmission_rate);
-                                                if (transmission) {
-                                                        if (p1->GetHealth().IsInfectious() &&
-                                                            p2->GetHealth().IsSusceptible()) {
-                                                                p2->GetHealth().StartInfection();
-                                                                R0_POLICY<track_index_case>::Execute(p2);
-                                                        } else if (p2->GetHealth().IsInfectious() &&
-                                                                   p1->GetHealth().IsSusceptible()) {
-                                                                p1->GetHealth().StartInfection();
-                                                                R0_POLICY<track_index_case>::Execute(p1);
                                                         }
                                                 }
                                         }

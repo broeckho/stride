@@ -71,7 +71,7 @@ private:
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
-        template <LogMode::Id log_level, bool track_index_case, typename local_information_policy>
+        template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
         friend class Infector;
 
         /// Calculate which members are present in the cluster on the current day.

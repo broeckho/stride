@@ -107,25 +107,25 @@ void Simulator::UpdateClusters()
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_households.size(); i++) {
-                        Infector<log_level, track_index_case, local_information_policy>::Execute(
+                        Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_households[i], m_disease_profile, m_rng_handler[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_school_clusters.size(); i++) {
-                        Infector<log_level, track_index_case, local_information_policy>::Execute(
+                        Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_school_clusters[i], m_disease_profile, m_rng_handler[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_work_clusters.size(); i++) {
-                        Infector<log_level, track_index_case, local_information_policy>::Execute(
+                        Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_work_clusters[i], m_disease_profile, m_rng_handler[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_secondary_community.size(); i++) {
-                        Infector<log_level, track_index_case, local_information_policy>::Execute(
+                        Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_secondary_community[i], m_disease_profile, m_rng_handler[thread], m_calendar);
                 }
         }

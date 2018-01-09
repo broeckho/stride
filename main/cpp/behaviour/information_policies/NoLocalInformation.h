@@ -23,6 +23,8 @@ namespace stride {
  */
 class NoLocalInformation
 {
+public:
+        static void Update(Person* p1, Person* p2) {}
 };
 
 } // end of namespace
