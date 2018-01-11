@@ -99,13 +99,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         const string loc_info_policy = pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
 
-        std::cout << "Building population" << std::endl;
-
         // Build population.
         Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, rng);
-
-        std::cout << "Initialize contact profiles" << std::endl;
 
         // Initialize contact profiles.
         using Id = ClusterType::Id;
@@ -115,24 +111,16 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)] = ContactProfile(Id::PrimaryCommunity, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
 
-        std::cout << "Initialize clusters" << std::endl;
-
         // Initialize clusters.
         InitializeClusters(sim);
-
-        std::cout << "Initialize immunity" << std::endl;
 
         // Initialize population immunity
         Vaccinator v(sim, pt_config, pt_disease, rng);
         v.Apply("immunity");
         v.Apply("vaccine");
 
-        std::cout << "Initialize disease" << std::endl;
-
         // Initialize disease profile.
         sim->m_disease_profile.Initialize(pt_config, pt_disease);
-
-        std::cout << "Seed infected" << std::endl;
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -152,8 +140,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                         logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
-
-        std::cout << "Initialize random number gen" << std::endl;
 
         // Initialize Rng handlers
         unsigned int new_seed = rng(numeric_limits<unsigned int>::max());

@@ -44,6 +44,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
+		std::cout << "Setup" << std::endl;
         const auto pop = make_shared<Population>();
         Population& population = *pop;
 
@@ -53,11 +54,13 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // ------------------------------------------------
         // Logger.
         // ------------------------------------------------
+        std::cout << "Logger" << std::endl;
         const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
 
         //------------------------------------------------
         // Check input.
         //------------------------------------------------
+        std::cout << "Check input" << std::endl;
         bool status = (seeding_rate <= 1);
         if (!status) {
                 throw runtime_error(string(__func__) + "> Bad input data.");
@@ -66,6 +69,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Add persons to population.
         //------------------------------------------------
+        std::cout << "Population file" << std::endl;
         const auto file_name = pt_config.get<string>("run.population_file");
 
         const auto file_path = InstallDirs().GetDataDir() /= file_name;
@@ -118,6 +122,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Customize the population.
         //------------------------------------------------
+        std::cout << "Customize" << std::endl;
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
         if (max_population_index <= 1U) {
                 throw runtime_error(string(__func__) + "> Problem with population size.");
@@ -126,6 +131,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Set participants in social contact survey.
         //------------------------------------------------
+        std::cout << "Survey" << std::endl;
         const string log_level = pt_config.get<string>("run.log_level", "None");
         if (log_level == "Contacts") {
                 const unsigned int num_participants{
