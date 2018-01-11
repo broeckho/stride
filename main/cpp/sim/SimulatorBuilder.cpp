@@ -54,7 +54,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
                                                    bool track_index_case)
 {
         const InstallDirs dirs;
-        std::cout << "Getting disease config" << std::endl;
         const auto file_name_d{pt_config.get<string>("run.disease_config_file")};
         const auto file_path_d{dirs.GetDataDir() /= file_name_d};
         if (!is_regular_file(file_path_d)) {
@@ -64,8 +63,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
         ptree pt_disease;
         read_xml(file_path_d.string(), pt_disease);
 
-        std::cout << "Getting contact matrix file" << std::endl;
-
         const auto file_name_c{pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml")};
         const auto file_path_c{dirs.GetDataDir() /= file_name_c};
         if (!is_regular_file(file_path_c)) {
@@ -74,8 +71,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
 
         ptree pt_contact;
         read_xml(file_path_c.string(), pt_contact);
-
-        std::cout << "Continuing build ..." << std::endl;
 
         return Build(pt_config, pt_disease, pt_contact, num_threads, track_index_case);
 }
@@ -110,6 +105,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, rng);
 
+        std::cout << "Initialize contact profiles" << std::endl;
+
         // Initialize contact profiles.
         using Id = ClusterType::Id;
         sim->m_contact_profiles[ToSizeT(Id::Household)] = ContactProfile(Id::Household, pt_contact);
@@ -118,16 +115,24 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)] = ContactProfile(Id::PrimaryCommunity, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
 
+        std::cout << "Initialize clusters" << std::endl;
+
         // Initialize clusters.
         InitializeClusters(sim);
+
+        std::cout << "Initialize immunity" << std::endl;
 
         // Initialize population immunity
         Vaccinator v(sim, pt_config, pt_disease, rng);
         v.Apply("immunity");
         v.Apply("vaccine");
 
+        std::cout << "Initialize disease" << std::endl;
+
         // Initialize disease profile.
         sim->m_disease_profile.Initialize(pt_config, pt_disease);
+
+        std::cout << "Seed infected" << std::endl;
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -147,6 +152,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                         logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
+
+        std::cout << "Initialize random number gen" << std::endl;
 
         // Initialize Rng handlers
         unsigned int new_seed = rng(numeric_limits<unsigned int>::max());
