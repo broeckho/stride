@@ -54,6 +54,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
                                                    bool track_index_case)
 {
         const InstallDirs dirs;
+        std::cout << "Getting disease config" << std::endl;
         const auto file_name_d{pt_config.get<string>("run.disease_config_file")};
         const auto file_path_d{dirs.GetDataDir() /= file_name_d};
         if (!is_regular_file(file_path_d)) {
@@ -62,6 +63,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
 
         ptree pt_disease;
         read_xml(file_path_d.string(), pt_disease);
+
+        std::cout << "Getting contact matrix file" << std::endl;
 
         const auto file_name_c{pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml")};
         const auto file_path_c{dirs.GetDataDir() /= file_name_c};
@@ -72,6 +75,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
         ptree pt_contact;
         read_xml(file_path_c.string(), pt_contact);
 
+        std::cout << "Continuing build ..." << std::endl;
+
         return Build(pt_config, pt_disease, pt_contact, num_threads, track_index_case);
 }
 
@@ -81,6 +86,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                                                    bool track_index_case)
 {
         auto sim = make_shared<Simulator>();
+        std::cout << "Getting logger" << std::endl;
         const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
 
         sim->m_pt_config = pt_config;                       // Initialize config ptree.
@@ -97,6 +103,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         /// Set correct information policies
         const string loc_info_policy = pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
+
+        std::cout << "Building population" << std::endl;
 
         // Build population.
         Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
