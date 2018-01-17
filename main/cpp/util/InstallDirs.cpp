@@ -60,7 +60,8 @@ void InstallDirs::Initialize()
 #elif defined(__linux__)
                 char exePath[PATH_MAX];
                 size_t size = ::readlink("/proc/self/exe", exePath, sizeof(exePath));
-                if (size > 0 && size != sizeof(exePath)) {
+                if (size > 0 && size < sizeof(exePath)) {
+                        exePath[size] = '\0';
                         m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__APPLE__)
