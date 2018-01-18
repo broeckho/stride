@@ -39,4 +39,4 @@ ContactProfile::ContactProfile(ClusterType::Id cluster_type, const ptree& pt_con
         }
 }
 
-} // end of namespace
+} // namespace stride

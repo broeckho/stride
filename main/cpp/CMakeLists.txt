@@ -30,6 +30,9 @@ set(LIB_SRC
     core/Infector.cpp
     core/LogMode.cpp
 #---
+    geo/GeoCoordinate.cpp
+    geo/GeoCoordCalculator.cpp
+#---
 	immunity/Vaccinator.cpp
 #---
 	output/AdoptedFile.cpp
@@ -40,15 +43,16 @@ set(LIB_SRC
     pop/Person.cpp
     pop/PopulationBuilder.cpp
 #---
+    popgen/PopulationGenerator.cpp
+    popgen/utils.cpp
+    popgen/FamilyParser.cpp
+#---
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
 #---
 	util/InstallDirs.cpp
-)
-
-set(MAIN_SRC
-	sim/main.cpp
+	util/AliasDistribution.cpp
 )
 
 #============================================================================
@@ -62,14 +66,20 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 #============================================================================
 # Build and install the stride executable.
 #============================================================================
-add_executable(stride ${MAIN_SRC})
+add_executable(stride sim/main.cpp)
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================
+# Build and install the stride executable.
+#============================================================================
+add_executable(popgen popgen/main.cpp)
+target_link_libraries(popgen ${LIBS} libstride)
+install(TARGETS popgen  DESTINATION   ${BIN_INSTALL_LOCATION})
+
+#============================================================================
 # Clean up.
 #============================================================================
-unset(LIB_SRC)
 unset(MAIN_SRC)
 
 #############################################################################

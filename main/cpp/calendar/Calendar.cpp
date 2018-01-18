@@ -85,4 +85,4 @@ void Calendar::InitializeHolidays(const boost::property_tree::ptree& pt_config)
         }
 }
 
-} // end_of_namespace
+} // namespace stride

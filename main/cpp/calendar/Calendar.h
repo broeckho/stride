@@ -81,4 +81,4 @@ private:
         std::vector<boost::gregorian::date> m_school_holidays; ///< Vector of school holidays
 };
 
-} // end_of_namespace
+} // namespace stride

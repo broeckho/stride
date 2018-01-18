@@ -46,5 +46,5 @@ void CasesFile::Print(const vector<unsigned int>& cases)
         m_fstream << cases[cases.size() - 1] << endl;
 }
 
-} // end_of_namespace
-} // end_of_namespace
+} // namespace output
+} // namespace stride

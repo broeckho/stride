@@ -43,4 +43,4 @@ private:
         bool m_is_operational;
 };
 
-} // end of namespace
+} // namespace stride

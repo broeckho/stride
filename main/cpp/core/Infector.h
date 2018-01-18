@@ -35,21 +35,21 @@ class Cluster;
 /// Indicates whether optimized implementation may be used.
 /// \tparam LL          LogLevel
 /// \tparam LIP         LocalInformationPolicy
-template<LogMode::Id LL, typename LIP>
+template <LogMode::Id LL, typename LIP>
 struct UseOptimizedInfector
 {
         static constexpr bool value = false;
 };
 
 /// Indicates whether optimized implementation may be used.
-template<>
+template <>
 struct UseOptimizedInfector<LogMode::Id::None, NoLocalInformation>
 {
         static constexpr bool value = true;
 };
 
 /// Indicates whether optimized implementation may be used.
-template<>
+template <>
 struct UseOptimizedInfector<LogMode::Id::Transmissions, NoLocalInformation>
 {
         static constexpr bool value = true;
@@ -78,7 +78,6 @@ public:
         ///
         static void Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
                          std::shared_ptr<const Calendar> calendar);
-
 };
 
 /// Explicit instantiations in cpp file.
@@ -97,4 +96,4 @@ extern template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
 extern template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
 extern template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
-} // end_of_namespace
+} // namespace stride

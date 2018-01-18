@@ -94,4 +94,4 @@ private:
         friend class Vaccinator;
 };
 
-} // end_of_namespace
+} // namespace stride

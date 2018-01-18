@@ -52,5 +52,5 @@ private:
         std::ofstream m_fstream;
 };
 
-} // end_of_namespace
-} // end_of_namespace
+} // namespace output
+} // namespace stride

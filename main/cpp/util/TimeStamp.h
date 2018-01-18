@@ -79,5 +79,5 @@ private:
  */
 inline std::ostream& operator<<(std::ostream& os, TimeStamp t) { return (os << t.ToString()); }
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

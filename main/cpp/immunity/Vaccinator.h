@@ -59,4 +59,4 @@ private:
         util::Random& m_rng;
 };
 
-} // end_of_namespace
+} // namespace stride

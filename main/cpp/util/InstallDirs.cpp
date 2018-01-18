@@ -43,10 +43,15 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
-InstallDirs::InstallDirs() { Initialize(); }
-
-void InstallDirs::Initialize()
+InstallDirs::Dirs& InstallDirs::Get()
 {
+        static Dirs dirs{Initialize()};
+        return dirs;
+}
+
+InstallDirs::Dirs InstallDirs::Initialize()
+{
+        Dirs dirs;
         //------- Retrieving path of executable
         {
 #if defined(WIN32)
@@ -55,36 +60,36 @@ void InstallDirs::Initialize()
                 if (GetModuleFileName(NULL, exePath, sizeof(exePath)) != 0)
                         ;
                 {
-                        m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__linux__)
                 char exePath[PATH_MAX];
                 size_t size = ::readlink("/proc/self/exe", exePath, sizeof(exePath));
                 if (size > 0 && size < sizeof(exePath)) {
                         exePath[size] = '\0';
-                        m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__APPLE__)
                 char exePath[PATH_MAX];
                 uint32_t size = sizeof(exePath);
                 if (_NSGetExecutablePath(exePath, &size) == 0) {
-                        m_exec_path = canonical(system_complete(exePath));
+                        dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #endif
         }
 
         //------- Retrieving root and bin directory (the subdirectory of the install root)
         {
-                path exec_dir = m_exec_path.parent_path();
-                if (!m_exec_path.empty()) {
+                path exec_dir = dirs.m_exec_path.parent_path();
+                if (!dirs.m_exec_path.empty()) {
 #if (__APPLE__)
                         if (exec_dir.filename().string() == "MacOS") {
                                 // app
                                 //      -Contents               <-Root Path
                                 //              -MacOS
                                 //                   -executables
-                                m_bin_dir = exec_dir;
-                                m_root_dir = exec_dir.parent_path();
+                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_root_dir = exec_dir.parent_path();
                         } else
 #endif
                             if (ToLower(exec_dir.filename().string()) == "debug" ||
@@ -93,37 +98,38 @@ void InstallDirs::Initialize()
                                 //      -bin
                                 //              -release/debug
                                 //                      -executables
-                                m_bin_dir = exec_dir.parent_path();
-                                m_root_dir = exec_dir.parent_path().parent_path();
+                                dirs.m_bin_dir = exec_dir.parent_path();
+                                dirs.m_root_dir = exec_dir.parent_path().parent_path();
                         } else
 #if (WIN32)
                             if (exec_dir.filename().string() != "bin") {
                                 // Executables in root folder
-                                m_bin_dir = exec_dir;
-                                m_root_dir = exec_dir;
+                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_root_dir = exec_dir;
                         } else
 #endif
                         {
                                 // x/exec                <-Root Path
                                 //      -bin
                                 //              -executables
-                                m_bin_dir = exec_dir;
-                                m_root_dir = exec_dir.parent_path();
+                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_root_dir = exec_dir.parent_path();
                         }
                 }
         }
 
         //------- Data Dir
         {
-                m_data_dir = m_root_dir / "data";
-                m_data_dir = is_directory(m_data_dir) ? m_data_dir : path();
+                dirs.m_data_dir = dirs.m_root_dir / "data";
+                dirs.m_data_dir = is_directory(dirs.m_data_dir) ? dirs.m_data_dir : path();
         }
 
         //------- Current Dir
         {
-                m_current_dir = system_complete(current_path());
+                dirs.m_current_dir = system_complete(current_path());
         }
+        return dirs;
 }
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

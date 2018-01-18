@@ -241,4 +241,4 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         }
 }
 
-} // end_of_namespace
+} // namespace stride

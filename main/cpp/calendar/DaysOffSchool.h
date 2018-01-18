@@ -42,4 +42,4 @@ private:
         std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.
 };
 
-} // end_of_namespace
+} // namespace stride

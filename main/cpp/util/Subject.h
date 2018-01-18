@@ -84,5 +84,5 @@ void Subject<E, U>::Notify(const E& e)
         }
 }
 
-} // end_of_namespace
-} // end_of_namespace
+} // namespace util
+} // namespace stride

@@ -51,5 +51,5 @@ bool IsType(const std::string& s);
 /// Converts a string with name to ClusterType::Id.
 Id ToType(const std::string& s);
 
-} // namespace
-} // namespace
+} // namespace ClusterType
+} // namespace stride

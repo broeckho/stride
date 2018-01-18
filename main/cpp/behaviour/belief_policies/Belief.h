@@ -47,4 +47,4 @@ private:
         boost::property_tree::ptree m_pt; ///<
 };
 
-} // end_of_namespace
+} // namespace stride

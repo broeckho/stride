@@ -30,4 +30,4 @@ public:
         static void Update(Person* p1, Person* p2) {}
 };
 
-} // end_of_namespace
+} // namespace stride

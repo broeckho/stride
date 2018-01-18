@@ -37,4 +37,4 @@ public:
         virtual void Update(unsigned int timestep) {}
 };
 
-} // end_of_namespace
+} // namespace stride

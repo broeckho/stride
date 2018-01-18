@@ -77,5 +77,5 @@ private:
         trng::uniform01_dist<double> m_uniform_dist; ///< The random distribution.
 };
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

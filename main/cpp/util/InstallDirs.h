@@ -30,35 +30,39 @@ namespace util {
 class InstallDirs
 {
 public:
-        /// Ininitilize.
-        InstallDirs();
-
         /// Utility method: get path to bin directory.
-        boost::filesystem::path GetBinDir() const { return m_bin_dir; }
+        static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }
 
         /// Utility method: get path to the current directory.
-        boost::filesystem::path GetCurrentDir() const { return m_current_dir; }
+        static boost::filesystem::path GetCurrentDir() { return Get().m_current_dir; }
 
         /// Utility method: get path to the directory for data files.
-        boost::filesystem::path GetDataDir() const { return m_data_dir; }
+        static boost::filesystem::path GetDataDir() { return Get().m_data_dir; }
 
         /// Utility method: get name of executable.
-        boost::filesystem::path GetExecPath() const { return m_exec_path; }
+        static boost::filesystem::path GetExecPath() { return Get().m_exec_path; }
 
         /// Utility method: get application installation root directory.
-        boost::filesystem::path GetRootDir() const { return m_root_dir; }
+        static boost::filesystem::path GetRootDir() { return Get().m_root_dir; }
+
+private:
+        /// Using this to avoid global variables & their initialization.
+        struct Dirs
+        {
+                boost::filesystem::path m_bin_dir;
+                boost::filesystem::path m_current_dir;
+                boost::filesystem::path m_data_dir;
+                boost::filesystem::path m_exec_path;
+                boost::filesystem::path m_root_dir;
+        };
 
 private:
         /// Initialize all paths.
-        void Initialize();
+        static Dirs Initialize();
 
-private:
-        boost::filesystem::path m_bin_dir;
-        boost::filesystem::path m_current_dir;
-        boost::filesystem::path m_data_dir;
-        boost::filesystem::path m_exec_path;
-        boost::filesystem::path m_root_dir;
+        /// Return paths.
+        static Dirs& Get();
 };
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

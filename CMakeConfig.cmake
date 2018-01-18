@@ -22,6 +22,7 @@
 #============================================================================
 # Configuration for the CMake tool itself.
 #============================================================================
+set(CMAKE_ENABLE_COMPILE_COMMANDS      ON)
 set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS  TRUE)
 set(CMAKE_COLOR_MAKEFILE               ON)
 set(CMAKE_VERBOSE_MAKEFILE             OFF)

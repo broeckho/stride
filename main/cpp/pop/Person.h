@@ -124,4 +124,4 @@ private:
         Belief* m_belief; ///<
 };
 
-} // end_of_namespace
+} // namespace stride

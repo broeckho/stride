@@ -95,4 +95,4 @@ void Cluster::UpdateMemberPresence()
         }
 }
 
-} // end_of_namespace
+} // namespace stride

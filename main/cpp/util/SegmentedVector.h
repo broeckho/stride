@@ -280,5 +280,5 @@ private:
         size_t m_size;                ///< Index of first free chunk when indexed contiguously.
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

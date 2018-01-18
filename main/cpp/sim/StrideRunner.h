@@ -72,4 +72,4 @@ private:
         std::shared_ptr<Simulator> m_sim;
 };
 
-} // end_of_namespace
+} // namespace stride
