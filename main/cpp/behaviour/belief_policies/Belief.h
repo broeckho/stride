@@ -38,7 +38,7 @@ public:
         ///
         void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
 
-        bool HasAdopted() const { return false; } // TODO make virtual to override
+        virtual bool HasAdopted() const { return false; }
 
 private:
         boost::property_tree::ptree m_pt; ///<
