@@ -16,32 +16,26 @@
 
 /**
  * @file
- * Header file for Belief.
+ * Header file for Imitation belief policy.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include "behaviour/belief_policies/Belief.h"
 
 namespace stride {
 
-/**
- * Base class for all belief policies.
- */
-class Belief
+class Imitation: public Belief
 {
 public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) : m_pt(pt) {}
+	Imitation(const boost::property_tree::ptree& pt) : Belief(pt)
+	{
+		// TODO initialize belief variables through ptree
+	}
 
-        ///
-        boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
-
-private:
-        boost::property_tree::ptree m_pt; ///<
+	bool HasAdopted() const
+	{
+		return false;
+		// TODO make dependent on state of belief variables
+	}
 };
 
-} // end_of_namespace
+} // end-of-namespace
