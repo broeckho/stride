@@ -36,6 +36,12 @@ public:
 		return false;
 		// TODO make dependent on state of belief variables
 	}
+
+private:
+	double m_belief_strength;		///< The 'strength' of someone's belief, varying from -1 (very negative attitude to behaviour) to 1 (very positive attitude to behaviour).
+	double m_stickiness;				///< How likely the belief is to change
+	// TODO influence of belonging to same household?
+	// TODO awareness?
 };
 
 } // end-of-namespace

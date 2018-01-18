@@ -33,6 +33,9 @@ public:
         Belief(const boost::property_tree::ptree& pt) : m_pt(pt) {}
 
         ///
+        virtual ~Belief() {}
+
+        ///
         boost::property_tree::ptree Get() { return m_pt; }
 
         ///
