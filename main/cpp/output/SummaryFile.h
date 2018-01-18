@@ -50,5 +50,5 @@ private:
         std::ofstream m_fstream; ///< The file stream.
 };
 
-} // end of namespace
-} // end of namespace
+} // namespace output
+} // namespace stride

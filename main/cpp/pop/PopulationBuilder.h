@@ -49,4 +49,4 @@ private:
         static unsigned int Sample(util::Random& rng, const std::vector<double>& distribution);
 };
 
-} // end_of_namespace
+} // namespace stride

@@ -51,4 +51,4 @@ private:
         static void InitializeClusters(std::shared_ptr<Simulator> sim);
 };
 
-} // end_of_namespace
+} // namespace stride

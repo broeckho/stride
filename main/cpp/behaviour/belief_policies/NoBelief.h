@@ -29,4 +29,4 @@ public:
         NoBelief(const boost::property_tree::ptree& pt) : Belief(pt) {}
 };
 
-} // end_of_namespace
+} // namespace stride

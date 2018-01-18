@@ -78,4 +78,4 @@ void Person::Update(Person*)
         // TODO update beliefs
 }
 
-} // end_of_namespace
+} // namespace stride

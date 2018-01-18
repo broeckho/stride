@@ -223,5 +223,5 @@ private:
         bool IsDereferencable() { return m_c != nullptr && m_p < m_c->size(); }
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

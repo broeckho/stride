@@ -27,4 +27,4 @@ namespace stride {
 
 using ContactProfiles = std::array<ContactProfile, ClusterType::NumOfTypes()>;
 
-} // namespace
+} // namespace stride

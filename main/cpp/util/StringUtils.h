@@ -129,5 +129,5 @@ inline std::string Trim(std::string const& source, std::string const& t = " ")
         return TrimLeft(TrimRight(str, t), t);
 }
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

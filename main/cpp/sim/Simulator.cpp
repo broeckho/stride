@@ -131,4 +131,4 @@ void Simulator::UpdateClusters()
         }
 }
 
-} // end_of_namespace
+} // namespace stride

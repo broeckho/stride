@@ -59,4 +59,4 @@ private:
         util::Random m_rng; ///< Random number engine.
 };
 
-} // end_of_namespace
+} // namespace stride

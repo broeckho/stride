@@ -44,7 +44,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
-		std::cout << "Setup" << std::endl;
+        std::cout << "Setup" << std::endl;
         const auto pop = make_shared<Population>();
         Population& population = *pop;
 
@@ -174,4 +174,4 @@ unsigned int PopulationBuilder::Sample(util::Random& rng, const std::vector<doub
         return static_cast<unsigned int>(distribution.size());
 }
 
-} // end_of_namespace
+} // namespace stride

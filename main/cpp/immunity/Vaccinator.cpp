@@ -164,4 +164,4 @@ void Vaccinator::Apply(const string& s)
         cout << "Done building: " << s << " profile " << endl;
 }
 
-} // end_of_namespace
+} // namespace stride

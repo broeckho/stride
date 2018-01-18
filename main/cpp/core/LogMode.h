@@ -23,11 +23,11 @@
 
 namespace stride {
 /**
-* Enum specifiying the level of logging required:
-* \li none at all
-* \li only contacts where transmission occurs
-* \li all contacts.
-*/
+ * Enum specifiying the level of logging required:
+ * \li none at all
+ * \li only contacts where transmission occurs
+ * \li all contacts.
+ */
 namespace LogMode {
 
 enum class Id
@@ -47,5 +47,5 @@ bool IsLogMode(const std::string& s);
 /// Converts a string with name to LogMode value.
 LogMode::Id ToLogMode(const std::string& s);
 
-} // end_of_namespace
-} // end_of_namespace
+} // namespace LogMode
+} // namespace stride

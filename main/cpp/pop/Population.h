@@ -97,4 +97,4 @@ private:
         }
 };
 
-} // end_of_namespace
+} // namespace stride

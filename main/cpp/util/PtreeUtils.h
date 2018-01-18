@@ -47,5 +47,5 @@ public:
         }
 };
 
-} // end of namespace
-} // end of namespace
+} // namespace util
+} // namespace stride

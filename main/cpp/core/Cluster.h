@@ -85,4 +85,4 @@ private:
         const ContactProfile& m_profile;                 ///< Contact pattern.
 };
 
-} // end_of_namespace
+} // namespace stride

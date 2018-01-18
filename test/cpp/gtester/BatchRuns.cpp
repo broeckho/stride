@@ -217,7 +217,7 @@ unsigned int threads[]{1U, 4U, 8U};
 #else
 unsigned int threads[]{1U};
 #endif
-}
+} // namespace
 
 INSTANTIATE_TEST_CASE_P(Run_default, BatchDemos,
                         ::testing::Combine(::testing::Values(string("default")), ::testing::ValuesIn(threads)));
@@ -234,4 +234,4 @@ INSTANTIATE_TEST_CASE_P(Run_measles, BatchDemos,
 INSTANTIATE_TEST_CASE_P(Run_maximum, BatchDemos,
                         ::testing::Combine(::testing::Values(string("maximum")), ::testing::ValuesIn(threads)));
 
-} // end-of-namespace-Tests
+} // namespace Tests

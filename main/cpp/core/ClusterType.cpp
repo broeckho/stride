@@ -60,5 +60,5 @@ Id ToType(const string& s)
         return (cluster_ids.count(t) == 1) ? cluster_ids[t] : Id::Null;
 }
 
-} // end of namespace
-} // end of namespace
+} // namespace ClusterType
+} // namespace stride

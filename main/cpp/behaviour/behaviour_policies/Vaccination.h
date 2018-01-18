@@ -38,4 +38,4 @@ public:
         }
 };
 
-} // end of namespace
+} // namespace stride

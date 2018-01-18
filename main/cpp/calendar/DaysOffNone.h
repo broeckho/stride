@@ -39,4 +39,4 @@ public:
         bool IsSchoolOff() override { return false; }
 };
 
-} // end_of_namespace
+} // namespace stride

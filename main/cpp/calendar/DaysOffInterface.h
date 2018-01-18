@@ -37,4 +37,4 @@ public:
         virtual ~DaysOffInterface() {}
 };
 
-} // end_of_namespace
+} // namespace stride

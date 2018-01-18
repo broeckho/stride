@@ -45,4 +45,4 @@ private:
                                      /// adopted to adopt behaviour.
 };
 
-} // end_of_namespace
+} // namespace stride

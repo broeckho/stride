@@ -54,4 +54,4 @@ void DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
         }
 }
 
-} // end of namespace
+} // namespace stride

@@ -47,5 +47,5 @@ Id ToLogMode(const string& s)
         return (modes.count(t) == 1) ? modes[t] : Id::Null;
 }
 
-} // namespace
-} // namespace
+} // namespace LogMode
+} // namespace stride

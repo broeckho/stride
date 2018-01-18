@@ -53,4 +53,4 @@ private:
         static const double m_odds_ratio_benefit = 0;
         static const double m_odds_ratio_barriers = -0.4;
 };
-} // end_of_namespace
+} // namespace stride

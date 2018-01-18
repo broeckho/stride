@@ -34,7 +34,7 @@ template <bool TIC>
 class R0_POLICY
 {
 public:
-        static void Exec(Person *p) {}
+        static void Exec(Person* p) {}
 };
 
 /// Specialized R0_POLICY: track only the index case.
@@ -42,7 +42,7 @@ template <>
 class R0_POLICY<true>
 {
 public:
-        static void Exec(Person *p) { p->GetHealth().StopInfection(); }
+        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
 };
 
 /// Primary LOG_POLICY policy, implements LogMode::None.
@@ -68,12 +68,12 @@ class LOG_POLICY<LogMode::Id::Transmissions>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& environ)
         {
         }
 
         static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+                                 ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
                 logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ClusterType::ToString(cluster_type),
                              calendar->GetSimulationDay());
@@ -176,8 +176,8 @@ void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_p
 // Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <LogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, DiseaseProfile disease_profile,
-                                                       RngHandler& ch, shared_ptr<const Calendar> calendar)
+void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& ch,
+                                                       shared_ptr<const Calendar> calendar)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -246,4 +246,4 @@ template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
 template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
 template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
-} // end_of_namespace
+} // namespace stride

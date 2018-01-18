@@ -35,4 +35,4 @@ public:
         static bool PracticesVaccination(const typename belief_policy::Data& belief_data) { return false; }
 };
 
-} // end of namespace
+} // namespace stride

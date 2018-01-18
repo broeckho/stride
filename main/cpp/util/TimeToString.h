@@ -106,5 +106,5 @@ struct TimeToString
         }
 };
 
-} // end namespace
-} // end namespace
+} // namespace util
+} // namespace stride
