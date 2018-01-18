@@ -78,6 +78,7 @@ set(LIBS ${LIBS} trng)
 #----------------------------------------------------------------------------
 set(BOOST_ROOT ${STRIDE_BOOST_ROOT})
 set(Boost_NO_SYSTEM_PATHS ${STRIDE_BOOST_NO_SYSTEM_PATHS})
+message(status ${Boost_ROOT})
 find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 set(LIBS   ${LIBS} ${Boost_LIBRARIES})

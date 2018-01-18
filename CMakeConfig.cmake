@@ -46,7 +46,7 @@ set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
 set(STRIDE_FORCE_NO_HDF5	FALSE  
 	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
-set(STRIDE_VERBOSE_TESTING  TRUES  
+set(STRIDE_VERBOSE_TESTING  TRUE
 	CACHE BOOL "Run tests in verbose mode.")
 
 #============================================================================
