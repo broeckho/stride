@@ -158,7 +158,7 @@ TEST_P(BatchDemos, Run)
         pt_config.put("run.log_level", g_log_level);
         pt_config.put("run.local_information_policy", g_local_information_policy);
         pt_config.put("run.global_information_policy", g_global_information_policy);
-        pt_config.put("run.belief_policy", g_belief_policy);
+        pt_config.put("run.belief_policy.name", g_belief_policy);
         pt_config.put("run.behaviour_policy", g_behaviour_policy);
         bool track_index_case = false;
 
