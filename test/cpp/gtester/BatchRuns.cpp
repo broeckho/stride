@@ -80,6 +80,11 @@ protected:
         static const double g_transmission_rate_measles;
         static const double g_transmission_rate_maximum;
 
+        static const string g_local_information_policy;
+        static const string g_global_information_policy;
+        static const string g_belief_policy;
+        static const string g_behaviour_policy;
+
         static const map<string, unsigned int> g_results;
 };
 
@@ -102,6 +107,10 @@ const unsigned int BatchDemos::g_num_participants_survey = 10;
 const string BatchDemos::g_start_date = "2017-01-01";
 const string BatchDemos::g_age_contact_matrix_file = "contact_matrix_flanders_subpop.xml";
 const string BatchDemos::g_log_level = "None";
+const string BatchDemos::g_local_information_policy = "NoLocalInformation";
+const string BatchDemos::g_global_information_policy = "NoGlobalInformation";
+const string BatchDemos::g_belief_policy = "NoBelief";
+const string BatchDemos::g_behaviour_policy = "NoBehaviour";
 
 // Adapted values
 const double BatchDemos::g_seeding_rate_adapted = 0.0;
@@ -147,6 +156,10 @@ TEST_P(BatchDemos, Run)
         pt_config.put("run.holidays_file", g_holidays_file);
         pt_config.put("run.age_contact_matrix_file", g_age_contact_matrix_file);
         pt_config.put("run.log_level", g_log_level);
+        pt_config.put("run.local_information_policy", g_local_information_policy);
+        pt_config.put("run.global_information_policy", g_global_information_policy);
+        pt_config.put("run.belief_policy", g_belief_policy);
+        pt_config.put("run.behaviour_policy", g_behaviour_policy);
         bool track_index_case = false;
 
         // -----------------------------------------------------------------------------------------

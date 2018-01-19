@@ -65,13 +65,13 @@ public:
                           unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                           unsigned int start_infectiousness, unsigned int start_symptomatic,
                           unsigned int time_infectious, unsigned int time_symptomatic, double risk_averseness = 0,
-                          boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
+                          boost::property_tree::ptree pt_belief = boost::property_tree::ptree())
         {
                 std::string belief_policy = "NoBelief"; // TODO read this from belief_pt
                 if (belief_policy == "NoBelief") {
                         NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
                                             secondary_community_id, start_infectiousness, start_symptomatic,
-                                            time_infectious, time_symptomatic, risk_averseness, belief_pt);
+                                            time_infectious, time_symptomatic, risk_averseness, pt_belief);
                 } else { // TODO add other belief policies
                         throw std::runtime_error(std::string(__func__) + "No valid belief policy!");
                 }
@@ -83,10 +83,10 @@ private:
                        unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                        unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
                        unsigned int time_symptomatic, double risk_averseness = 0,
-                       boost::property_tree::ptree belief_pt = boost::property_tree::ptree())
+                       boost::property_tree::ptree pt_belief = boost::property_tree::ptree())
         {
                 static util::SegmentedVector<BeliefPolicy> beliefs_container;
-                const BeliefPolicy b(belief_pt);
+                const BeliefPolicy b(pt_belief);
 
                 assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
                 BeliefPolicy* bp = beliefs_container.emplace_back(b);

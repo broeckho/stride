@@ -89,6 +89,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         const auto distrib_time_infectious = PtreeUtils::GetDistribution(pt_disease, "disease.time_infectious");
         const auto distrib_time_symptomatic = PtreeUtils::GetDistribution(pt_disease, "disease.time_symptomatic");
 
+        const auto pt_belief = pt_config.get_child("run.belief_policy");
+
         string line;
         getline(pop_file, line); // step over file header
         unsigned int person_id = 0U;
@@ -112,7 +114,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
                                         secondary_community_id, start_infectiousness, start_symptomatic,
                                         time_infectious, time_symptomatic,
-                                        risk_averseness); // TODO add pt_belief
+                                        risk_averseness, pt_belief);
 
                 ++person_id;
         }
