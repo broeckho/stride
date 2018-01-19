@@ -47,10 +47,23 @@ set(LIB_SRC
     popgen/utils.cpp
     popgen/FamilyParser.cpp
 #---
+    popgen2/GrahamScan.cpp
+    popgen2/main.cpp
+    popgen2/SocietyCSVWriter.cpp
+    popgen2/SocietyGenerator.cpp
+	popgen2/data/City.cpp
+    popgen2/data/Community.cpp
+    popgen2/data/GeneratorPerson.cpp
+    popgen2/data/GeoGrid.cpp
+    popgen2/data/Geometry.cpp
+    popgen2/data/Household.cpp
+#---
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
 #---
+    util/CSV.cpp
+    util/File.cpp
 	util/InstallDirs.cpp
 	util/AliasDistribution.cpp
 )
