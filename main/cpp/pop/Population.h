@@ -18,7 +18,7 @@
  * @file
  * Header file for the core Population class
  */
-
+#include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
 #include "pop/Person.h"
 #include "util/SegmentedVector.h"
@@ -74,7 +74,11 @@ public:
                         NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
                                             secondary_community_id, start_infectiousness, start_symptomatic,
                                             time_infectious, time_symptomatic, risk_averseness, pt_belief);
-                } else { // TODO add other belief policies
+                } else if (belief_policy == "Imitation") {
+                			NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
+                								 secondary_community_id, start_infectiousness, start_symptomatic,
+											 time_infectious, time_symptomatic, risk_averseness, pt_belief);
+                } else {
                         throw std::runtime_error(std::string(__func__) + "No valid belief policy!");
                 }
         }

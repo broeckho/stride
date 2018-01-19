@@ -26,18 +26,29 @@ namespace stride {
 class Imitation: public Belief
 {
 public:
-	Imitation(const boost::property_tree::ptree& pt) : Belief(pt)
+	Imitation(const boost::property_tree::ptree& pt) : Belief(pt), m_accept(false)
 	{
-		// TODO initialize belief variables through ptree
+		double m_accept_threshold = pt.get<double>("accept_threshold");
+		double m_no_accept_threshold = pt.get<double>("no_accept_threshold");
+
+		// TODO belief strength
+		// TODO stickiness
+
 	}
 
 	bool HasAdopted() const
 	{
-		return false;
-		// TODO make dependent on state of belief variables
+		return m_accept;
 	}
 
+	// TODO update
+
 private:
+	double m_accept_threshold;
+	double m_no_accept_threshold;
+
+	bool m_accept;
+
 	double m_belief_strength;		///< The 'strength' of someone's belief, varying from -1 (very negative attitude to behaviour) to 1 (very positive attitude to behaviour).
 	double m_stickiness;				///< How likely the belief is to change
 	// TODO influence of belonging to same household?
