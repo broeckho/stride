@@ -43,20 +43,20 @@ set(LIB_SRC
     pop/Person.cpp
     pop/PopulationBuilder.cpp
 #---
-    popgen/PopulationGenerator.cpp
+	popgen/FamilyParser.cpp
+	popgen/PopulationGenerator.cpp
     popgen/utils.cpp
-    popgen/FamilyParser.cpp
 #---
-    popgen2/GrahamScan.cpp
-    popgen2/main.cpp
-    popgen2/SocietyCSVWriter.cpp
-    popgen2/SocietyGenerator.cpp
-	popgen2/data/City.cpp
-    popgen2/data/Community.cpp
-    popgen2/data/GeneratorPerson.cpp
-    popgen2/data/GeoGrid.cpp
-    popgen2/data/Geometry.cpp
-    popgen2/data/Household.cpp
+    popgen2/Community.cpp
+    popgen2/GeneratorPerson.cpp
+	popgen2/GrahamScan.cpp
+    popgen2/Household.cpp
+	popgen2/main.cpp
+	popgen2/SocietyCSVWriter.cpp
+	popgen2/SocietyGenerator.cpp
+	popgen2/geo/City.cpp
+	popgen2/geo/GeoGrid.cpp
+	popgen2/geo/Geometry.cpp
 #---
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp

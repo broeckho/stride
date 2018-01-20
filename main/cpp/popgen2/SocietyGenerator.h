@@ -12,6 +12,7 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2017, Draulans S, Van Leeuwen L
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -19,13 +20,13 @@
  * Header file for the SocietyGenerator class.
  */
 
-#include "data/City.h"
-#include "data/Community.h"
-#include "data/GeneratorPerson.h"
-#include "data/Geometry.h"
-#include "data/Household.h"
-#include "data/Society.h"
-#include "data/Village.h"
+#include "Community.h"
+#include "GeneratorPerson.h"
+#include "Household.h"
+#include "Society.h"
+#include "geo/City.h"
+#include "geo/Geometry.h"
+#include "geo/Village.h"
 #include "util/RRandom.h"
 
 #include <boost/filesystem/path.hpp>

@@ -19,10 +19,10 @@
  * The header for the Population class used by the Population Generator.
  */
 
-#include "City.h"
 #include "Community.h"
 #include "GeneratorPerson.h"
 #include "Household.h"
+#include "geo/City.h"
 #include "pop/Population.h"
 
 #include <iostream>

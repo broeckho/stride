@@ -20,7 +20,7 @@
  * Header file for the SocietyWriter class.
  */
 
-#include "data/Society.h"
+#include "Society.h"
 
 #include <ostream>
 

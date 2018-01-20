@@ -15,7 +15,7 @@
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
-#include "data/Geogrid.h"
+#include "geo/GeoGrid.h"
 
 #include <memory>
 #include <vector>
