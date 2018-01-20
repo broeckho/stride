@@ -18,9 +18,8 @@
 
 #include <cmath>
 
-#include "Geogrid.h"
+#include "GeoGrid.h"
 #include <iostream>
-#include <stdexcept>
 
 namespace stride {
 namespace generator {

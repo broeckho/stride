@@ -15,7 +15,7 @@
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
-#include "Geogrid.h"
+#include "GeoGrid.h"
 
 #include <cmath>
 #include <limits>
