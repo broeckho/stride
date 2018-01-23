@@ -42,19 +42,15 @@
 namespace stride {
 namespace config {
 
-/**
- * @function to create any kind of random number generator
- */
+/// @function to create any kind of random number generator
 template <typename RNG>
-std::shared_ptr<RNGInterface> createRNG()
+std::shared_ptr<stride::util::RNGInterface> createRNG()
 {
-        return std::make_shared<Random<RNG>>();
+        return std::make_shared<stride::util::Random<RNG>>();
 }
 
-/**
- * @class A map of rng name to an instance of the rng
- */
-class RNGMap : public std::map<std::string, std::shared_ptr<RNGInterface> (*)()>
+/// @class A map of rng name to an instance of the rng
+class RNGMap : public std::map<std::string, std::shared_ptr<stride::util::RNGInterface> (*)()>
 {
 public:
         RNGMap()
@@ -84,16 +80,9 @@ public:
 
 extern RNGMap rngMap;
 
-std::string RNGvalidate(const std::string& rng_value)
-{
-        if (rngMap.find(rng_value) != rngMap.end()) {
-                return rng_value;
-        } else {
-                throw std::runtime_error("Unknown RNG: " + rng_value);
-        }
-}
+std::string RNGvalidate(const std::string& id);
 
-std::shared_ptr<RNGInterface> RNGget(const std::string& rng_value) { return rngMap[rng_value](); }
+std::shared_ptr<stride::util::RNGInterface> RNGget(const std::string& id);
 
 } // namespace config
 } // namespace stride

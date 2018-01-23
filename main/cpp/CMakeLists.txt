@@ -62,10 +62,11 @@ set(LIB_SRC
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
 #---
+    util/AliasDistribution.cpp
     util/CSV.cpp
     util/File.cpp
 	util/InstallDirs.cpp
-	util/AliasDistribution.cpp
+    util/RNG.cpp
 )
 
 #============================================================================
@@ -89,6 +90,13 @@ install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 add_executable(popgen popgen/main.cpp)
 target_link_libraries(popgen ${LIBS} libstride)
 install(TARGETS popgen  DESTINATION   ${BIN_INSTALL_LOCATION})
+
+#============================================================================
+# Build and install the stride executable.
+#============================================================================
+add_executable(popgen2 popgen2/main.cpp)
+target_link_libraries(popgen2 ${LIBS} libstride)
+install(TARGETS popgen2  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Clean up.

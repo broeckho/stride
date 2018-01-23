@@ -28,7 +28,6 @@
 #include "util/RNG.h"
 #include "util/TimeStamp.h"
 
-//#include <boost/foreach.hpp>
 #include <boost/range/adaptor/map.hpp>
 #include <boost/range/algorithm/copy.hpp>
 #include <boost/spirit/include/qi.hpp>
@@ -71,15 +70,17 @@ void SocietyGenerator::ReadGenerateHouseholds()
         const auto hh_path = m_config.get<string>("household_profile");
         ptree pt;
         read_xml(hh_path, pt);
+        const ptree& hh_pt = pt.get_child("HouseholdProfile");
 
         vector<vector<unsigned int>> hh_profile;
-        for (auto hh : pt.get_child("householdProfile")) {
+        for (ptree::const_iterator it = hh_pt.begin(); it != hh_pt.end(); it++) {
                 vector<unsigned int> v;
-                for (auto a : hh.second) {
-                        v.push_back(a.second.get<unsigned int>("member_age"));
+                for (auto a : it->second) {
+                        v.emplace_back(a.second.get_value<unsigned int>());
                 }
-                hh_profile.push_back(v);
+                hh_profile.emplace_back(v);
         }
+
         const auto pop_size = m_config.get<unsigned int>("population_size");
         this->GenerateHouseholds(hh_profile, pop_size);
 }

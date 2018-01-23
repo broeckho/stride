@@ -40,6 +40,11 @@ int main(int argc, char* argv[])
 {
         int exit_status = EXIT_SUCCESS;
         try {
+                // -----------------------------------------------------------------------------------------
+                // Starting up ....
+                // -----------------------------------------------------------------------------------------
+                cout << "\n*************************************************************" << endl;
+                cout << "Starting up at:      " << TimeStamp().ToString() << endl << endl;
 
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
@@ -48,26 +53,14 @@ int main(int argc, char* argv[])
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_generator_default.xml",
                                                  "CONFIGURATION FILE", cmd);
                 cmd.parse(argc, argv);
-
                 string config_file_name = config_file_Arg.getValue();
 
                 // -----------------------------------------------------------------------------------------
-                // Print output to command line.
+                // Check exec environment and configuration file
                 // -----------------------------------------------------------------------------------------
-                cout << "\n*************************************************************" << endl;
-                cout << "Starting up at:      " << TimeStamp().ToString() << endl << endl;
-
-                // -----------------------------------------------------------------------------------------
-                // Check execution environment.
-                // -----------------------------------------------------------------------------------------
-                InstallDirs::Print();
+                InstallDirs::Print(cout);
                 InstallDirs::Check();
-
-                // -----------------------------------------------------------------------------------------
-                // Check configuration file
-                // -----------------------------------------------------------------------------------------
-                path file_path = InstallDirs::GetConfigDir() / path(config_file_name);
-                // const auto file_path = filesystem::canonical(system_complete(config_file_name));
+                const path file_path = InstallDirs::GetConfigDir() / path(config_file_name);
                 if (!is_regular_file(file_path)) {
                         throw runtime_error(string(__func__) + ">Config file " + file_path.string() +
                                             " not present. Aborting.");
@@ -97,10 +90,10 @@ int main(int argc, char* argv[])
                 // -----------------------------------------------------------------------------------------
                 // Write the population to CSV files
                 // -----------------------------------------------------------------------------------------
-                const path persons_path{InstallDirs::GetDataDir() / path("generated_population.csv")};
-                const path cities_path{InstallDirs::GetDataDir() / path("generated_cities.csv")};
-                const path communities_path{InstallDirs::GetDataDir() / path("generated_communities.csv")};
-                const path households_path{InstallDirs::GetDataDir() / path("generated_households.csv")};
+                const path persons_path = InstallDirs::GetDataDir() / path("generated_population.csv");
+                const path cities_path = InstallDirs::GetDataDir() / path("generated_cities.csv");
+                const path communities_path = InstallDirs::GetDataDir() / path("generated_communities.csv");
+                const path households_path = InstallDirs::GetDataDir() / path("generated_households.csv");
                 const auto p_use_xy{popgen.GetConfig().get<bool>("geoprofile.use_xy", false)};
 
                 SocietyCSVWriter popwriter(population, p_use_xy);

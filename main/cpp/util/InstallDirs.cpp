@@ -43,9 +43,29 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
+void InstallDirs::Print(ostream& os)
+{
+        os << "Local      directory:   " << InstallDirs::GetExecPath().string() << endl;
+        os << "Current    directory:   " << InstallDirs::GetCurrentDir().string() << endl;
+        os << "Install    directory:   " << InstallDirs::GetRootDir().string() << endl;
+        os << "Config     directory:   " << InstallDirs::GetConfigDir().string() << endl;
+        os << "Data       directory:   " << InstallDirs::GetDataDir().string() << endl;
+        os << "Checkpoint directory:   " << InstallDirs::GetCheckpointsDir().string() << endl;
+}
+
+void InstallDirs::Check()
+{
+        if (InstallDirs::GetCurrentDir().compare(InstallDirs::GetRootDir()) != 0) {
+                throw runtime_error(string(__func__) + "> Current directory is not install root! Aborting.");
+        }
+        if (InstallDirs::GetDataDir().empty()) {
+                throw runtime_error(string(__func__) + "> Data directory not present! Aborting.");
+        }
+}
+
 InstallDirs::Dirs& InstallDirs::Get()
 {
-        static Dirs dirs{Initialize()};
+        static Dirs dirs = Initialize();
         return dirs;
 }
 

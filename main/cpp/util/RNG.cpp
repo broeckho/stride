@@ -13,23 +13,25 @@
  *  Copyright 2017, De Pauw J, Draulans S, Leys T, Truyts T, Van Leeuwen L
  */
 
-#include "RNGProperty.h"
+#include "RNG.h"
 
 namespace stride {
 namespace config {
 
+using stride::util::RNGInterface;
+
 RNGMap rngMap;
 
-std::string RNGProperty::validate(const std::string& rng_value) const
+std::string RNGvalidate(const std::string& id)
 {
-        if (rngMap.find(rng_value) != rngMap.end()) {
-                return rng_value;
+        if (rngMap.find(id) != rngMap.end()) {
+                return id;
         } else {
-                throw std::runtime_error("Unknown RNG: " + rng_value);
+                throw std::runtime_error("Unknown RNG: " + id);
         }
 }
 
-std::shared_ptr<RNGInterface> RNGProperty::getRNG() { return rngMap[this->value](); }
+std::shared_ptr<RNGInterface> RNGget(const std::string& id) { return rngMap[id](); }
 
 } // namespace config
 } // namespace stride
