@@ -24,6 +24,7 @@ add_subdirectory(examples)
 # Build & install the Swig files for python environment.
 #============================================================================
 set(SWIG_IFACE
+	swig/clustertype.i
 	swig/health.i
 	swig/population.i
 	swig/simulator.i
