@@ -16,7 +16,7 @@
 
 /**
  * @file
- * The header for the Population class used by the Population Generator.
+ * The header for the Society class.
  */
 
 #include "Community.h"

@@ -22,17 +22,17 @@ class Village
 {
 public:
         ///
-        Village(double pop, unsigned int number) : m_population(pop), m_number(number) {}
+        Village(double pop, double number) : m_population(pop), m_number(number) {}
 
         ///
         double GetPopulation() const { return m_population; }
 
         ///
-        unsigned int GetNumber() { return m_number; }
+        double GetNumber() { return m_number; }
 
 public:
         double m_population;   ///< Population living in a village
-        unsigned int m_number; ///< Number of villages of size m_population
+        double m_number;       ///< Number of villages of size m_population (needs to be a double)
 };
 
 } // namespace generator

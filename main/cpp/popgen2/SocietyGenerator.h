@@ -51,9 +51,6 @@ public:
         /// Default constructor: initialize the number of threads
         SocietyGenerator() : m_num_threads(1U) {}
 
-        /// Create generator from config.
-        explicit SocietyGenerator(const boost::property_tree::ptree& config, unsigned int num_threads = 1U);
-
         /// Create generator from file.
         explicit SocietyGenerator(const boost::filesystem::path& config_path, unsigned int num_threads = 1U);
 
@@ -103,27 +100,16 @@ public:
         }
 
 private:
-        boost::property_tree::ptree m_config;             ///< Configuration
-        std::vector<Household> m_households;              ///< Vector of households
-        std::map<std::size_t, GeneratorPerson> m_persons; ///< Map of persons
-        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>>
-            m_communities;                    ///< Map of location to a map of CommunityType to a vector of communities.
-        std::map<std::size_t, City> m_cities; ///< Map of cities with its ID as key
-        unsigned int m_num_threads;           ///< Number of OpenMP threads
-        std::map<std::size_t, int> m_community_sizes; ///<
-        std::shared_ptr<util::RNGInterface> m_rng;    ///< Random number generator
-
-private:
-        /// Generate random coordinates
+        /// Generate random coordinates.
         Point2D GenerateRandomCoordinates(ConvexPolygonChecker checker, Polygon poly, PointType point_type);
 
         /// Checks if the coordinates are free, a.k.a., there is no other entity on these coordinates.
         bool IsFreePoint(Point2D coordinates);
 
         /// Determine the communities still free to assign to.
-        std::vector<std::size_t> DeterminePossibleCommunities(std::map<std::size_t, int> community_sizes,
-                                                              const CommunityType& community_type,
-                                                              Point2D household_location);
+        std::vector<std::size_t> PossibleCommunities(std::map<std::size_t, int> community_sizes,
+                                                     const CommunityType &community_type,
+                                                     Point2D household_location);
 
         ///
         std::size_t FindClosestCity(Point2D coordinates);
@@ -139,6 +125,33 @@ private:
 
         ///
         void ReadGenerateCities();
+
+private:
+        boost::property_tree::ptree             m_config;               ///< Configuration
+        std::vector<Household>                  m_households;           ///< Vector of households
+        std::map<std::size_t, GeneratorPerson>  m_persons;              ///< Map of persons
+        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>>
+                m_communities;                    ///< Location map of for communities.
+        std::map<std::size_t, City>             m_cities;               ///< Map of cities with its ID as key
+        unsigned int                            m_num_threads;          ///< Number of OpenMP threads
+        std::map<std::size_t, int>              m_community_sizes;      ///<
+        std::shared_ptr<util::RNGInterface>     m_rng;                  ///< Random number generator
+
+private:
+        unsigned int            m_comm_size;
+        double                  m_in_villages;
+        double                  m_population_size;
+        unsigned int            m_school_age_min;
+        unsigned int            m_school_age_max;
+        unsigned int            m_school_size;
+        unsigned int            m_univ_age_min;
+        unsigned int            m_univ_age_max;
+        double                  m_univ_fraction;
+        unsigned int            m_univ_size;
+        unsigned int            m_work_age_min;
+        unsigned int            m_work_age_max;
+        double                  m_work_fraction;
+        unsigned int            m_work_size;
 };
 
 } // namespace generator

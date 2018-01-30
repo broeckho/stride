@@ -48,18 +48,23 @@ SocietyGenerator::SocietyGenerator(const boost::filesystem::path& config_path, u
         m_num_threads = num_threads;
         ptree config;
         read_xml(config_path.string(), config);
-        m_config = config;
-        const auto p_rng = m_config.get<string>("rng.engine", "mrg2");
-        RNGvalidate(p_rng);
-        m_rng = RNGget(p_rng);
-        m_rng->Seed(m_config.get<unsigned long>("rng.seed", 1UL));
-}
+        m_config = config.get_child("GeneratorConfiguration");
 
-SocietyGenerator::SocietyGenerator(const ptree& config, unsigned int num_threads)
-{
-        m_num_threads = num_threads;
-        m_config = config;
-        const auto p_rng = m_config.get<string>("rng.engine", "mrg2");
+        m_comm_size             = m_config.get<unsigned int>("community.size");
+        m_population_size       = m_config.get<double>("population_size");
+        m_school_age_min        = m_config.get<unsigned int>("school.age.minimum");
+        m_school_age_max        = m_config.get<unsigned int>("school.age.maximum");
+        m_school_size           = m_config.get<unsigned int>("school.size");
+        m_univ_age_min          = m_config.get<unsigned int>("university.age.minimum");
+        m_univ_age_max          = m_config.get<unsigned int>("university.age.maximum");
+        m_univ_fraction         = m_config.get<double>("university.fraction");
+        m_univ_size             = m_config.get<unsigned int>("university.size");
+        m_work_age_min          = m_config.get<unsigned int>("work.age.minimum");
+        m_work_age_max          = m_config.get<unsigned int>("work.age.maximum");
+        m_work_fraction         = m_config.get<double>("work.fraction");
+        m_work_size             = m_config.get<unsigned int>("work.size");
+
+        const auto p_rng = m_config.get<string>("rng.engine", "trng/mrg2");
         RNGvalidate(p_rng);
         m_rng = RNGget(p_rng);
         m_rng->Seed(m_config.get<unsigned long>("rng.seed", 1UL));
@@ -102,22 +107,32 @@ Society SocietyGenerator::Generate()
         {
 #pragma omp section
                 {
+                        cerr << "Generating Households ..." << endl;
                         ReadGenerateHouseholds();
+                        cerr << "Done generating Households." << endl;
                 }
 #pragma omp section
                 {
+                        cerr << "Generating Cities ..." << endl;
                         ReadGenerateCities();
+                        cerr << "Done generating Cities." << endl;
                 }
         }
 
         // Place households in cities.
+        cerr << "Locating households ..." << endl;
         this->LocateHouseholds();
+        cerr << "Done Locating households." << endl;
 
         // Place school, universities, workplaces and communities in cities.
+        cerr << "Locating communities ..." << endl;
         this->LocateCommunity();
+        cerr << "Done locating communities." << endl;
 
         // Assign people to the different communities.
+        cerr << "Assigning to  communities ..." << endl;
         this->AssignToCommunity();
+        cerr << "Done assigning to  communities." << endl;
 
         // Create vector of persons
         vector<GeneratorPerson> persons;
@@ -138,7 +153,10 @@ Society SocietyGenerator::Generate()
         }
 
         // Create and return population
+        cerr << "Building society ..." << endl;
         Society population(persons, cities, communities, m_households);
+        cerr << "Done building society." << endl;
+
         return population;
 }
 
@@ -165,7 +183,7 @@ void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& Househol
                         h.AddMember(p.GetID());
                         m_persons[p.GetID()] = p;
                 }
-                m_households.push_back(h);
+                m_households.emplace_back(h);
         }
 }
 
@@ -213,8 +231,7 @@ void SocietyGenerator::GenerateVillages(vector<Point2D> simulation_area, vector<
                         }
 
                         size_t closest_city_id = this->FindClosestCity(coordinates);
-                        const auto p_population_size = m_config.get<double>("population_size");
-                        double population = v.GetPopulation() / p_population_size;
+                        double population = v.GetPopulation() / m_population_size;
                         City village(population, m_cities[closest_city_id].GetName() + "_VILLAGE",
                                      m_cities[closest_city_id].GetProvince(), coordinates,
                                      Point2D(0, 0, PointType::Null));
@@ -255,33 +272,33 @@ vector<Point2D> SocietyGenerator::LoadCities(const boost::filesystem::path citie
 
 vector<Village> SocietyGenerator::LoadVillages(const boost::filesystem::path villages)
 {
-        vector<Village> output;
-
-        // Determine the remaining population size after filling all cities
-        const auto p_population_size = m_config.get<double>("population_size");
-        const auto p_in_villages = m_config.get<double>("geoprofile.in_villages");
-        long int size_remaining = p_population_size * p_in_villages;
-
         // Load the villages from the csv file
+        vector<Village> output;
         double sum_frequencies = 0;
         double sum_size = 0;
         CSV reader(villages);
         for (CSVRow& row : reader) {
                 const auto number = row.getValue<double>("number");
                 const auto size = row.getValue<double>("size");
-                output.emplace_back(Village(size, static_cast<unsigned int>(number)));
+                output.emplace_back(Village(size, number));
                 sum_frequencies += number;
                 sum_size += size;
+        }
+
+        for (auto v : output) {
+                cerr << v.m_population << " == " << v.m_number << endl;
         }
 
         // Normalise the frequencies and determine the size of the villages
         unsigned int size_villages = 0;
         for (unsigned int i = 0; i < output.size(); i++) {
                 output[i].m_number /= sum_frequencies;
-                output[i].m_population = ceil(output[i].m_population / sum_size * p_population_size);
+                output[i].m_population = ceil(output[i].m_population / sum_size * m_population_size);
                 size_villages += ceil(output[i].m_number * output[i].m_population);
         }
 
+        // Determine the remaining population size after filling all cities
+        const long int size_remaining = m_population_size * m_in_villages;
         // Update the number of villages of each size
         for (unsigned int i = 0; i < output.size(); i++) {
                 output[i].m_number = ceil(output[i].m_number * (size_remaining / size_villages));
@@ -296,10 +313,9 @@ void SocietyGenerator::LocateHouseholds()
         const auto p_rng_seed = m_config.get<unsigned long>("rng.seed", 1UL);
         AliasMethod<size_t> city_sampler(p_rng_seed);
         map<size_t, long int> city_populations;
-        const auto p_population_size = m_config.get<double>("population_size");
         for (auto c : m_cities) {
                 city_sampler.Add(c.first, c.second.GetPopulation());
-                city_populations[c.second.GetID()] = c.second.GetPopulation() * p_population_size;
+                city_populations[c.second.GetID()] = c.second.GetPopulation() * m_population_size;
         }
         city_sampler.BuildSampler();
 
@@ -334,20 +350,13 @@ void SocietyGenerator::LocateCommunity()
         // Get the number of people in the age interval in the total population and per city.
         map<CommunityType, unsigned long int> of_age;
         map<size_t, map<CommunityType, unsigned long int>> of_age_cities;
-        const auto p_school_age_min = m_config.get<unsigned int>("school.age.minimum");
-        const auto p_school_age_max = m_config.get<unsigned int>("school.age.maximum");
-        const auto p_univ_age_min = m_config.get<unsigned int>("university.age.minimum");
-        const auto p_univ_age_max = m_config.get<unsigned int>("university.age.maximum");
-        const auto p_work_age_min = m_config.get<unsigned int>("work.age.minimum");
-        const auto p_work_age_max = m_config.get<unsigned int>("work.age.maximum");
-
         for (const auto& p : m_persons) {
-                if (p.second.GetAge() >= p_school_age_min && p.second.GetAge() <= p_school_age_max) {
+                if (p.second.GetAge() >= m_school_age_min && p.second.GetAge() <= m_school_age_max) {
                         of_age[CommunityType::School] += 1;
                         of_age_cities[p.second.GetCityID()][CommunityType::School] += 1;
-                } else if (p.second.GetAge() >= p_univ_age_min && p.second.GetAge() <= p_univ_age_max) {
+                } else if (p.second.GetAge() >= m_univ_age_min && p.second.GetAge() <= m_univ_age_max) {
                         of_age[CommunityType::University] += 1;
-                } else if (p.second.GetAge() >= p_work_age_min && p.second.GetAge() <= p_work_age_max) {
+                } else if (p.second.GetAge() >= m_work_age_min && p.second.GetAge() <= m_work_age_max) {
                         of_age[CommunityType::Work] += 1;
                         of_age_cities[p.second.GetCityID()][CommunityType::Work] += 1;
                 }
@@ -360,36 +369,31 @@ void SocietyGenerator::LocateCommunity()
         // Determine the number of communities and their sizes.
         map<CommunityType, unsigned int> number_of_communities;
         map<CommunityType, unsigned int> community_size;
-        const auto p_school_size = m_config.get<unsigned int>("school.size");
-        const auto p_univ_size = m_config.get<unsigned int>("universty.size");
-        const auto p_work_size = m_config.get<unsigned int>("work.size");
-        const auto p_comm_size = m_config.get<unsigned int>("community.size");
-
         for (auto comm : of_age) {
                 switch (comm.first) {
                 case CommunityType::School: {
-                        number_of_communities[comm.first] = ceil(comm.second / (double)p_school_size);
-                        community_size[comm.first] = p_school_size;
+                        number_of_communities[comm.first] = ceil(comm.second / (double)m_school_size);
+                        community_size[comm.first] = m_school_size;
                         break;
                 }
                 case CommunityType::University: {
-                        number_of_communities[comm.first] = ceil(comm.second / (double)p_univ_size);
-                        community_size[comm.first] = p_univ_size;
+                        number_of_communities[comm.first] = ceil(comm.second / (double)m_univ_size);
+                        community_size[comm.first] = m_univ_size;
                         break;
                 }
                 case CommunityType::Work: {
-                        number_of_communities[comm.first] = ceil(comm.second / (double)p_work_size);
-                        community_size[comm.first] = p_work_size;
+                        number_of_communities[comm.first] = ceil(comm.second / (double)m_work_size);
+                        community_size[comm.first] = m_work_size;
                         break;
                 }
                 case CommunityType::Primary: {
-                        number_of_communities[comm.first] = ceil(comm.second / (double)p_comm_size);
-                        community_size[comm.first] = p_comm_size;
+                        number_of_communities[comm.first] = ceil(comm.second / (double)m_comm_size);
+                        community_size[comm.first] = m_comm_size;
                         break;
                 }
                 case CommunityType::Secondary: {
-                        number_of_communities[comm.first] = ceil(comm.second / (double)p_comm_size);
-                        community_size[comm.first] = p_comm_size;
+                        number_of_communities[comm.first] = ceil(comm.second / (double)m_comm_size);
+                        community_size[comm.first] = m_comm_size;
                         break;
                 }
                 default: {
@@ -467,9 +471,9 @@ void SocietyGenerator::AssignToCommunity()
         }
 }
 
-vector<size_t> SocietyGenerator::DeterminePossibleCommunities(map<size_t, int> community_sizes,
-                                                              const CommunityType& community_type,
-                                                              Point2D household_location)
+vector<size_t> SocietyGenerator::PossibleCommunities(map<size_t, int> community_sizes,
+                                                     const CommunityType &community_type,
+                                                     Point2D household_location)
 {
         double distance = 10;
         vector<size_t> possible_communities;
@@ -588,19 +592,19 @@ void SocietyGenerator::AssignHouseholdToCommunity(size_t i)
 
         // Determine the closest communities for this household location.
         vector<size_t> possible_communities_primary =
-            this->DeterminePossibleCommunities(m_community_sizes, CommunityType::Primary, household_location);
+                this->PossibleCommunities(m_community_sizes, CommunityType::Primary, household_location);
 
         vector<size_t> possible_communities_secondary =
-            this->DeterminePossibleCommunities(m_community_sizes, CommunityType::Secondary, household_location);
+                this->PossibleCommunities(m_community_sizes, CommunityType::Secondary, household_location);
 
         vector<size_t> possible_communities_school =
-            this->DeterminePossibleCommunities(m_community_sizes, CommunityType::School, household_location);
+                this->PossibleCommunities(m_community_sizes, CommunityType::School, household_location);
 
         vector<size_t> possible_communities_university =
-            this->DeterminePossibleCommunities(m_community_sizes, CommunityType::University, household_location);
+                this->PossibleCommunities(m_community_sizes, CommunityType::University, household_location);
 
         vector<size_t> possible_communities_work =
-            this->DeterminePossibleCommunities(m_community_sizes, CommunityType::Work, household_location);
+                this->PossibleCommunities(m_community_sizes, CommunityType::Work, household_location);
 
         // Alternative mechanism to add the complete household to a primary and secondary community
         size_t primary_community = 0, secondary_community = 0;
@@ -618,15 +622,6 @@ void SocietyGenerator::AssignHouseholdToCommunity(size_t i)
                 secondary_community = possible_communities_secondary[r];
                 m_community_sizes[possible_communities_secondary[r]] -= members.size();
         }
-
-        const auto p_school_age_min = m_config.get<unsigned int>("school.age.minimum");
-        const auto p_school_age_max = m_config.get<unsigned int>("school.age.maximum");
-        const auto p_univ_age_min = m_config.get<unsigned int>("university.age.minimum");
-        const auto p_univ_age_max = m_config.get<unsigned int>("university.age.maximum");
-        const auto p_work_age_min = m_config.get<unsigned int>("work.age.minimum");
-        const auto p_work_age_max = m_config.get<unsigned int>("work.age.maximum");
-        const auto p_univ_fraction = m_config.get<unsigned int>("university.fraction");
-        const auto p_work_fraction = m_config.get<unsigned int>("work.fraction");
 
         for (size_t j = 0; j < members.size(); j++) {
                 size_t person_id = members[j];
@@ -651,25 +646,25 @@ void SocietyGenerator::AssignHouseholdToCommunity(size_t i)
                 m_persons[person_id].SetSecondaryCommunityID(secondary_community);
 
                 // School
-                if (person.GetAge() >= p_school_age_min && person.GetAge() <= p_school_age_max) {
+                if (person.GetAge() >= m_school_age_min && person.GetAge() <= m_school_age_max) {
 
                         unsigned int r = m_rng->operator()(possible_communities_school.size() - 1);
                         m_persons[person_id].SetSchoolID(possible_communities_school[r]);
                 }
                 // University
-                if (person.GetAge() >= p_univ_age_min && person.GetAge() <= p_univ_age_max) {
+                if (person.GetAge() >= m_univ_age_min && person.GetAge() <= m_univ_age_max) {
                         unsigned int r = m_rng->operator()(100);
-                        if (r < p_univ_fraction * 100) {
+                        if (r < m_univ_fraction * 100) {
                                 r = m_rng->operator()(possible_communities_university.size() - 1);
                                 m_persons[person_id].SetUniversityID(possible_communities_university[r]);
                                 m_community_sizes[possible_communities_university[r]] -= 1;
                         }
                 }
                 // Workplace
-                if (person.GetAge() >= p_work_age_min && person.GetAge() <= p_work_age_max) {
+                if (person.GetAge() >= m_work_age_min && person.GetAge() <= m_work_age_max) {
 
                         unsigned int r = m_rng->operator()(100);
-                        if (r < p_work_fraction * 100) {
+                        if (r < m_work_fraction * 100) {
                                 r = m_rng->operator()(possible_communities_work.size() - 1);
                                 m_persons[person_id].SetWorkID(possible_communities_work[r]);
                                 m_community_sizes[possible_communities_work[r]] -= 1;
