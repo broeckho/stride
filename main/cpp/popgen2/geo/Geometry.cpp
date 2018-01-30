@@ -52,8 +52,10 @@ unsigned int Polygon::AddLine(unsigned int p0, unsigned int p1)
 
 double Polygon::GetLineHeight(unsigned int lineIndex, double x)
 {
-        double x0 = m_points[m_lines[lineIndex].m_p0].m_x, y0 = m_points[m_lines[lineIndex].m_p0].m_y;
-        double x1 = m_points[m_lines[lineIndex].m_p1].m_x, y1 = m_points[m_lines[lineIndex].m_p1].m_y;
+        double x0 = m_points[m_lines[lineIndex].m_p0].m_x;
+        double y0 = m_points[m_lines[lineIndex].m_p0].m_y;
+        double x1 = m_points[m_lines[lineIndex].m_p1].m_x;
+        double y1 = m_points[m_lines[lineIndex].m_p1].m_y;
         return y0 + (x - x0) * (y1 - y0) / (x1 - x0);
 }
 
@@ -144,20 +146,17 @@ ConvexPolygonChecker::ConvexPolygonChecker(Polygon& poly)
 
 bool ConvexPolygonChecker::IsPointInPolygon(double x, double y)
 {
-        if (x < m_min_x || x > m_max_x || y < m_min_y || y > m_max_y) {
-                return false;
-        } else {
+        auto status = false;
+        if (!(x < m_min_x || x > m_max_x || y < m_min_y || y > m_max_y)) {
                 // Binary search-ish for columns
-                bool found = false;
-                unsigned int left = 0;
-                unsigned int right = static_cast<unsigned int>(m_columns.size());
+                auto left = 0U;
+                auto right = static_cast<unsigned int>(m_columns.size());
                 unsigned int middle;
-                while (!found) {
+                while (true) {
                         // Check if in middle
                         middle = (left + right) / 2;
                         Column& col = m_columns[middle];
                         if (col.IsInside(x)) {
-                                found = true;
                                 break;
                         } else if (x > col.m_end_x) {
                                 left = middle + 1;
@@ -167,12 +166,10 @@ bool ConvexPolygonChecker::IsPointInPolygon(double x, double y)
                 }
 
                 // Middle should now contain the column number to check, so check top & bottom of this column.
-                if (m_poly->GetLineHeight(m_columns[middle].m_top, x) >= y &&
-                    m_poly->GetLineHeight(m_columns[middle].m_bottom, x) <= y) {
-                        return true;
-                }
-                return false;
+                status = (m_poly->GetLineHeight(m_columns[middle].m_top, x) >= y &&
+                          m_poly->GetLineHeight(m_columns[middle].m_bottom, x) <= y);
         }
+        return status;
 }
 
 bool ConvexPolygonChecker::IsPointInPolygon(Point2D point) { return IsPointInPolygon(point.m_x, point.m_y); }

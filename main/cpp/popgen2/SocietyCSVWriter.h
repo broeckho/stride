@@ -20,7 +20,7 @@
  * Header file for the PopulationCSVWriter class.
  */
 
-#include "SocietyWriter.h"
+#include "Society.h"
 #include "util/CSV.h"
 
 #include <boost/filesystem/path.hpp>
@@ -32,12 +32,12 @@ namespace generator {
 /**
  * Write a population to CSV
  */
-class SocietyCSVWriter : public SocietyWriter
+class SocietyCSVWriter
 {
 public:
-        explicit SocietyCSVWriter(const Society& population, bool use_xy = false) : SocietyWriter(population, use_xy) {}
+        explicit SocietyCSVWriter(const Society& society, bool use_xy = false) : m_society(society), m_use_xy(use_xy) {}
 
-        ~SocietyCSVWriter() final = default;
+        ~SocietyCSVWriter() = default;
 
         /// Write the persons of the population to a CSV file.
         stride::config::CSV WritePersons(const boost::filesystem::path& out);
@@ -51,11 +51,9 @@ public:
         /// Write the households of the population to a CSV file.
         stride::config::CSV WriteHouseholds(const boost::filesystem::path& out);
 
-        /// Write everything to CSV files.
-        void WriteSociety(const boost::filesystem::path& person_file = "pop_generated.csv",
-                          const boost::filesystem::path& cities_file = "cities_generated.csv",
-                          const boost::filesystem::path& communities_file = "communities_generated.csv",
-                          const boost::filesystem::path& households_file = "households_generated.csv");
+private:
+        const Society& m_society; ///< The society
+        const bool m_use_xy;      ///< Whether to use cartesian or polar coordinates.
 };
 
 } // namespace generator

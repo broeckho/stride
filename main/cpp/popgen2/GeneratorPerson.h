@@ -37,7 +37,7 @@ public:
         GeneratorPerson();
 
         ///
-        GeneratorPerson(std::size_t id);
+        explicit GeneratorPerson(std::size_t id);
 
         ///
         GeneratorPerson(std::size_t id, unsigned int age, std::size_t household_id, std::size_t school_id,
@@ -45,13 +45,23 @@ public:
                         std::size_t secondary_community);
 
         ///
-        operator Person() const
+        explicit operator Person() const
         {
                 size_t school_id = m_school_id;
-                if (school_id == 0)
+                if (school_id == 0) {
                         school_id = m_university_id;
-                return Person(m_id, m_age, m_household_id, school_id, m_work_id, m_primary_community,
-                              m_secondary_community, 0, 0, 0, 0);
+                }
+                return {static_cast<unsigned int>(m_id),
+                        static_cast<double>(m_age),
+                        static_cast<unsigned int>(m_household_id),
+                        static_cast<unsigned int>(school_id),
+                        static_cast<unsigned int>(m_work_id),
+                        static_cast<unsigned int>(m_primary_community),
+                        static_cast<unsigned int>(m_secondary_community),
+                        0,
+                        0,
+                        0,
+                        0};
         }
 
         ///
@@ -109,15 +119,17 @@ public:
         std::size_t GetCityID() const { return m_city_id; }
 
 private:
-        std::size_t m_id;                  ///< A unique ID for the person
-        unsigned int m_age;                ///< The person's age
+        std::size_t m_id;   ///< A unique ID for the person
+        unsigned int m_age; ///< The person's age
+
         std::size_t m_household_id;        ///< The household ID to which the person belongs
         std::size_t m_school_id;           ///< The school ID which the person attends. Default 0.
         std::size_t m_university_id;       ///< The university ID which the person attends. Default 0.
         std::size_t m_work_id;             ///< The work ID which the person attends. Default 0.
         std::size_t m_primary_community;   ///< The primary community ID which the person attends. Default 0.
         std::size_t m_secondary_community; ///< The secondary community ID which the person attends. Default 0.
-        std::size_t m_city_id;             ///< The city ID in which the person lives.
+
+        std::size_t m_city_id; ///< The city ID in which the person lives.
 };
 
 } // namespace generator

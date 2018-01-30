@@ -13,16 +13,15 @@
  *  Copyright 2017, Draulans S, Van Leeuwen L
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
-#define _USE_MATH_DEFINES
-#define EARTH_RADIUS 6371
-
-#include <cmath>
 
 #include "GeoGrid.h"
+#include <cmath>
 #include <iostream>
 
 namespace stride {
 namespace generator {
+
+const double EARTH_RADIUS = 6371.0; // in km.
 
 bool Point2D::operator==(const Point2D& other) const
 {
@@ -45,24 +44,24 @@ Point2D DegToRad(Point2D degrees)
 {
         double rad_x = degrees.m_x * M_PI / 180.0;
         double rad_y = degrees.m_y * M_PI / 180.0;
-        return Point2D(rad_x, rad_y, degrees.m_point_type);
+        return {rad_x, rad_y, degrees.m_point_type};
 }
 
 Point2D RadToDeg(Point2D radians)
 {
         double deg_x = 180.0 * radians.m_x / M_PI;
         double deg_y = 180.0 * radians.m_y / M_PI;
-        return Point2D(deg_x, deg_y, radians.m_point_type);
+        return {deg_x, deg_y, radians.m_point_type};
 }
 
 std::tuple<Point2D, Point2D> BoundingBox(Point2D origin, double distance)
 {
         origin = DegToRad(origin);
 
-        double lat_min = origin.m_y - (distance / (double)EARTH_RADIUS);
-        double lat_max = origin.m_y + (distance / (double)EARTH_RADIUS);
-        double lon_min = origin.m_x - (distance / (double)EARTH_RADIUS / std::cos(lat_min));
-        double lon_max = origin.m_x + (distance / (double)EARTH_RADIUS / std::cos(lat_max));
+        double lat_min = origin.m_y - (distance / EARTH_RADIUS);
+        double lat_max = origin.m_y + (distance / EARTH_RADIUS);
+        double lon_min = origin.m_x - (distance / EARTH_RADIUS / std::cos(lat_min));
+        double lon_max = origin.m_x + (distance / EARTH_RADIUS / std::cos(lat_max));
 
         Point2D lon_lat_min = RadToDeg(Point2D(lon_min, lat_min, PointType::LONGLAT));
         Point2D lon_lat_max = RadToDeg(Point2D(lon_max, lat_max, PointType::LONGLAT));
@@ -75,7 +74,7 @@ bool AscendingXCoord(const Point2D& lhs, const Point2D& rhs) { return lhs.m_x <=
 double distance(const Point2D& lhs, const Point2D& rhs)
 {
         if (lhs.m_point_type != rhs.m_point_type)
-                throw std::invalid_argument("Wrong point types");
+                throw std::invalid_argument("stride::generator::distance> Wrong point types");
 
         double result = 0;
 
@@ -95,7 +94,7 @@ double distance(const Point2D& lhs, const Point2D& rhs)
                 double d = EARTH_RADIUS * c; // Distance in km
                 result = d * 1000;           // Distance in meters
         } else {
-                throw std::invalid_argument("No distance for PointType::Null");
+                throw std::invalid_argument("stride::generator::distance> No distance for PointType::Null");
         }
 
         return result;

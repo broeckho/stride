@@ -28,7 +28,7 @@ class GrahamScan
 public:
         /// Initializing constructor.
         /// \param points       cloud of points.
-        GrahamScan(std::vector<Point2D> points) : m_points(points) {}
+        GrahamScan(std::vector<Point2D> points) : m_points(std::move(points)) {}
 
         /// Scan the points and return a vector of points which form the border of the points.
         std::vector<Point2D> Scan();

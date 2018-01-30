@@ -46,7 +46,7 @@ CSV SocietyCSVWriter::WriteCities(const path& out)
         CSV csv{"city_id", "city_name", "province", "population", "x_coord", "y_coord", "latitude", "longitude"};
 
         vector<vector<string>> rows;
-        for (City c : m_society.GetCities()) {
+        for (const auto& c : m_society.GetCities()) {
                 string dummy_x = "NA", dummy_y = "NA";
                 if (c.GetDummyLocation().m_point_type != PointType::Null) {
                         dummy_x = to_string(c.GetDummyLocation().m_x);
@@ -108,15 +108,6 @@ CSV SocietyCSVWriter::WriteHouseholds(const path& out)
         csv.addRows(rows);
         csv.write(out);
         return csv;
-}
-
-void SocietyCSVWriter::WriteSociety(const path& person_file, const path& cities_file, const path& communities_file,
-                                    const path& households_file)
-{
-        WritePersons(person_file);
-        WriteCities(cities_file);
-        WriteCommunities(communities_file);
-        WriteHouseholds(households_file);
 }
 
 } // namespace generator

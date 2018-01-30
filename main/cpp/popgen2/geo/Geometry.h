@@ -53,7 +53,7 @@ class ConvexPolygonChecker
 {
 public:
         /// Builds a table to check if a point falls within the polygon
-        ConvexPolygonChecker(Polygon& poly);
+        explicit ConvexPolygonChecker(Polygon& poly);
 
         /// Check if a point is located in the polygon
         bool IsPointInPolygon(Point2D);

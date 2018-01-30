@@ -31,6 +31,7 @@
 namespace stride {
 namespace generator {
 
+/// Society differs from Population clas in that it also has geographical info.
 class Society
 {
 public:
@@ -38,43 +39,26 @@ public:
         Society() = default;
 
         ///
-        Society(std::vector<GeneratorPerson> persons, std::vector<City> cities, std::vector<Community> communities,
-                std::vector<Household> households)
+        Society(const std::vector<GeneratorPerson>& persons, const std::vector<City>& cities,
+                const std::vector<Community>& communities, const std::vector<Household>& households)
             : m_persons(persons), m_cities(cities), m_communities(communities), m_households(households)
         {
         }
 
+        /*
         ///
-        bool operator==(const Society& other) const
+        Society(std::vector<GeneratorPerson>&& persons, std::vector<City>&& cities,
+                std::vector<Community>&& communities, std::vector<Household>&& households)
+            : m_persons(persons), m_cities(cities), m_communities(communities), m_households(households)
         {
-                return m_persons == other.GetPersons() && m_cities == other.GetCities();
         }
+        */
 
         ///
-        void SetPersons(std::vector<GeneratorPerson> persons) { m_persons = persons; }
-
-        ///
-        void SetCities(std::vector<City> cities) { m_cities = cities; }
-
-        ///
-        void SetCommunities(std::vector<Community> communities) { m_communities = communities; }
-
-        ///
-        void SetHouseholds(std::vector<Household> households) { m_households = households; }
+        bool operator==(const Society& other) const;
 
         ///
         const std::vector<GeneratorPerson>& GetPersons() const { return m_persons; }
-
-        ///
-        stride::Population GetStridePopulation() const
-        {
-                stride::Population population;
-                population.reserve(m_persons.size());
-                for (auto& p : m_persons) {
-                        population.push_back(p);
-                }
-                return population;
-        }
 
         ///
         const std::vector<City>& GetCities() const { return m_cities; }

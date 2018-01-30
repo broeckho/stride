@@ -52,6 +52,7 @@ set(LIB_SRC
 	popgen2/GrahamScan.cpp
     popgen2/Household.cpp
 	popgen2/main.cpp
+	popgen2/Society.cpp
 	popgen2/SocietyCSVWriter.cpp
 	popgen2/SocietyGenerator.cpp
 	popgen2/geo/City.cpp

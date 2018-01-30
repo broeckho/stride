@@ -32,6 +32,7 @@
 #include <boost/range/algorithm/copy.hpp>
 #include <boost/spirit/include/qi.hpp>
 #include <boost/tokenizer.hpp>
+#include <utility>
 
 using namespace std;
 using namespace stride::config;
@@ -50,19 +51,19 @@ SocietyGenerator::SocietyGenerator(const boost::filesystem::path& config_path, u
         read_xml(config_path.string(), config);
         m_config = config.get_child("GeneratorConfiguration");
 
-        m_comm_size             = m_config.get<unsigned int>("community.size");
-        m_population_size       = m_config.get<double>("population_size");
-        m_school_age_min        = m_config.get<unsigned int>("school.age.minimum");
-        m_school_age_max        = m_config.get<unsigned int>("school.age.maximum");
-        m_school_size           = m_config.get<unsigned int>("school.size");
-        m_univ_age_min          = m_config.get<unsigned int>("university.age.minimum");
-        m_univ_age_max          = m_config.get<unsigned int>("university.age.maximum");
-        m_univ_fraction         = m_config.get<double>("university.fraction");
-        m_univ_size             = m_config.get<unsigned int>("university.size");
-        m_work_age_min          = m_config.get<unsigned int>("work.age.minimum");
-        m_work_age_max          = m_config.get<unsigned int>("work.age.maximum");
-        m_work_fraction         = m_config.get<double>("work.fraction");
-        m_work_size             = m_config.get<unsigned int>("work.size");
+        m_comm_size = m_config.get<unsigned int>("community.size");
+        m_population_size = m_config.get<double>("population_size");
+        m_school_age_min = m_config.get<unsigned int>("school.age.minimum");
+        m_school_age_max = m_config.get<unsigned int>("school.age.maximum");
+        m_school_size = m_config.get<unsigned int>("school.size");
+        m_univ_age_min = m_config.get<unsigned int>("university.age.minimum");
+        m_univ_age_max = m_config.get<unsigned int>("university.age.maximum");
+        m_univ_fraction = m_config.get<double>("university.fraction");
+        m_univ_size = m_config.get<unsigned int>("university.size");
+        m_work_age_min = m_config.get<unsigned int>("work.age.minimum");
+        m_work_age_max = m_config.get<unsigned int>("work.age.maximum");
+        m_work_fraction = m_config.get<double>("work.fraction");
+        m_work_size = m_config.get<unsigned int>("work.size");
 
         const auto p_rng = m_config.get<string>("rng.engine", "trng/mrg2");
         RNGvalidate(p_rng);
@@ -152,12 +153,9 @@ Society SocietyGenerator::Generate()
                 }
         }
 
-        // Create and return population
-        cerr << "Building society ..." << endl;
-        Society population(persons, cities, communities, m_households);
-        cerr << "Done building society." << endl;
-
-        return population;
+        // Return society
+        // return Society(std::move(persons), std::move(cities), communities, m_households);
+        return Society(persons, cities, communities, m_households);
 }
 
 void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& HouseholdProfile, unsigned int maxPersons)
@@ -166,7 +164,7 @@ void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& Househol
         const auto p_rng_seed = m_config.get<unsigned long>("rng.seed", 1UL);
         AliasMethod<vector<unsigned int>> household_age_sampler(p_rng_seed);
 
-        for (vector<unsigned int> household : HouseholdProfile) {
+        for (const auto& household : HouseholdProfile) {
                 household_age_sampler.Add(household, 1);
         }
 
@@ -187,19 +185,19 @@ void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& Househol
         }
 }
 
-void SocietyGenerator::GenerateVillages(vector<Point2D> simulation_area, vector<Village> villages)
+void SocietyGenerator::GenerateVillages(const vector<Point2D>& simulation_area, const vector<Village>& villages)
 {
 
         // Determine the borders of the simulation area.
-        GrahamScan graham = GrahamScan(simulation_area);
+        GrahamScan graham(simulation_area);
         vector<Point2D> borders = graham.Scan();
         borders = this->ExpandSimulationArea(borders);
 
         // Create a polygon of the borders of the simulation area.
         Polygon borders_simulation_area;
         vector<unsigned int> indices;
-        for (unsigned int i = 0; i < borders.size(); i++) {
-                indices.push_back(borders_simulation_area.AddPoint(borders[i]));
+        for (const auto& b : borders) {
+                indices.push_back(borders_simulation_area.AddPoint(b));
         }
         for (unsigned int i = 0; i < indices.size(); i++) {
                 if (i == indices.size() - 1)
@@ -246,12 +244,14 @@ vector<Point2D> SocietyGenerator::LoadCities(const boost::filesystem::path citie
 
         CSV reader(cities_path);
         for (CSVRow& row : reader) {
-                unsigned int id = row.getValue<unsigned int>("city_id");
-                double population = row.getValue<double>("population");
-                string name = row.getValue<string>("city_name");
-                unsigned int province = row.getValue<unsigned int>("province");
-                Point2D location, dummy;
+                const auto id = row.getValue<unsigned int>("city_id");
+                const auto population = row.getValue<double>("population");
+                const auto name = row.getValue<string>("city_name");
+                const auto province = row.getValue<unsigned int>("province");
                 const auto p_use_xy = m_config.get<bool>("geoprofile.use_xy");
+                Point2D location;
+                Point2D dummy;
+
                 if (p_use_xy) {
                         location =
                             Point2D(row.getValue<double>("x_coord"), row.getValue<double>("y_coord"), PointType::XY);
@@ -264,7 +264,7 @@ vector<Point2D> SocietyGenerator::LoadCities(const boost::filesystem::path citie
                             Point2D(row.getValue<double>("x_coord"), row.getValue<double>("y_coord"), PointType::XY);
                 }
                 m_cities[id] = City(id, population, name, province, location, dummy);
-                output.push_back(location);
+                output.emplace_back(location);
         }
 
         return output;
@@ -291,17 +291,17 @@ vector<Village> SocietyGenerator::LoadVillages(const boost::filesystem::path vil
 
         // Normalise the frequencies and determine the size of the villages
         unsigned int size_villages = 0;
-        for (unsigned int i = 0; i < output.size(); i++) {
-                output[i].m_number /= sum_frequencies;
-                output[i].m_population = ceil(output[i].m_population / sum_size * m_population_size);
-                size_villages += ceil(output[i].m_number * output[i].m_population);
+        for (auto& out : output) {
+                out.m_number /= sum_frequencies;
+                out.m_population = ceil(out.m_population / sum_size * m_population_size);
+                size_villages += ceil(out.m_number * out.m_population);
         }
 
         // Determine the remaining population size after filling all cities
         const long int size_remaining = m_population_size * m_in_villages;
         // Update the number of villages of each size
-        for (unsigned int i = 0; i < output.size(); i++) {
-                output[i].m_number = ceil(output[i].m_number * (size_remaining / size_villages));
+        for (auto& out : output) {
+                out.m_number = ceil(out.m_number * (size_remaining / size_villages));
         }
 
         return output;
@@ -320,10 +320,10 @@ void SocietyGenerator::LocateHouseholds()
         city_sampler.BuildSampler();
 
         // Sample from the cities until all households are assigned
-        for (unsigned int i = 0; i < m_households.size(); i++) {
-                Household& household = m_households[i];
-                const auto& household_members = household.GetMembers();
-                size_t household_size = household.GetSize();
+        for (auto& hh : m_households) {
+                // Household& household = m_households[i];
+                const auto& hh_members = hh.GetMembers();
+                size_t hh_size = hh.GetSize();
 
                 tuple<unsigned int, size_t> sample = city_sampler.SampleIndexValue();
                 size_t sample_city_id = get<1>(sample);
@@ -336,12 +336,12 @@ void SocietyGenerator::LocateHouseholds()
                         sample_city_id = get<1>(sample);
                 }
 
-                for (unsigned int j = 0; j < household_size; j++) {
-                        unsigned int person_id = household_members[j];
+                for (unsigned int j = 0; j < hh_size; j++) {
+                        auto person_id = static_cast<unsigned int>(hh_members[j]);
                         m_persons[person_id].SetCityID(sample_city_id);
                 }
-                m_households[i].SetCityID(sample_city_id);
-                city_populations[sample_city_id] -= household_size;
+                hh.SetCityID(sample_city_id);
+                city_populations[sample_city_id] -= hh_size;
         }
 }
 
@@ -472,8 +472,7 @@ void SocietyGenerator::AssignToCommunity()
 }
 
 vector<size_t> SocietyGenerator::PossibleCommunities(map<size_t, int> community_sizes,
-                                                     const CommunityType &community_type,
-                                                     Point2D household_location)
+                                                     const CommunityType& community_type, Point2D household_location)
 {
         double distance = 10;
         vector<size_t> possible_communities;
@@ -504,10 +503,6 @@ vector<size_t> SocietyGenerator::PossibleCommunities(map<size_t, int> community_
 
         return possible_communities;
 }
-
-unsigned int SocietyGenerator::GetHouseholdsNumber() { return m_households.size(); }
-
-unsigned int SocietyGenerator::GetPopulationNumber() { return m_persons.size(); }
 
 Point2D SocietyGenerator::GenerateRandomCoordinates(ConvexPolygonChecker checker, Polygon poly, PointType point_type)
 {
@@ -592,19 +587,19 @@ void SocietyGenerator::AssignHouseholdToCommunity(size_t i)
 
         // Determine the closest communities for this household location.
         vector<size_t> possible_communities_primary =
-                this->PossibleCommunities(m_community_sizes, CommunityType::Primary, household_location);
+            this->PossibleCommunities(m_community_sizes, CommunityType::Primary, household_location);
 
         vector<size_t> possible_communities_secondary =
-                this->PossibleCommunities(m_community_sizes, CommunityType::Secondary, household_location);
+            this->PossibleCommunities(m_community_sizes, CommunityType::Secondary, household_location);
 
         vector<size_t> possible_communities_school =
-                this->PossibleCommunities(m_community_sizes, CommunityType::School, household_location);
+            this->PossibleCommunities(m_community_sizes, CommunityType::School, household_location);
 
         vector<size_t> possible_communities_university =
-                this->PossibleCommunities(m_community_sizes, CommunityType::University, household_location);
+            this->PossibleCommunities(m_community_sizes, CommunityType::University, household_location);
 
         vector<size_t> possible_communities_work =
-                this->PossibleCommunities(m_community_sizes, CommunityType::Work, household_location);
+            this->PossibleCommunities(m_community_sizes, CommunityType::Work, household_location);
 
         // Alternative mechanism to add the complete household to a primary and secondary community
         size_t primary_community = 0, secondary_community = 0;

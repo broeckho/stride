@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -12,35 +11,22 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2017, Draulans S, Van Leeuwen L
- *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Header file for the SocietyWriter class.
+ * The header for the Society class.
  */
 
 #include "Society.h"
 
-#include <ostream>
-
 namespace stride {
 namespace generator {
-/**
- * Abstract class to write a society to an output stream.
- */
-class SocietyWriter
+
+bool Society::operator==(const Society& other) const
 {
-public:
-        /// Initializing constructor.
-        SocietyWriter(const Society& society, bool use_xy = false) : m_society(society), m_use_xy(use_xy) {}
-
-        virtual ~SocietyWriter() = default;
-
-protected:
-        const Society& m_society; ///< The society
-        const bool m_use_xy;      ///< Whether to use cartesian or polar coordinates.
-};
+        return m_persons == other.GetPersons() && m_cities == other.GetCities();
+}
 
 } // namespace generator
 } // namespace stride

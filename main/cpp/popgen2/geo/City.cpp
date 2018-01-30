@@ -22,14 +22,15 @@ namespace generator {
 std::size_t City::g_id_generator = 1;
 
 City::City(std::size_t id, double population, std::string name, std::size_t province, Point2D location, Point2D dummy)
-    : m_id(id), m_population(population), m_name(name), m_province(province), m_location(location),
+    : m_id(id), m_population(population), m_name(std::move(name)), m_province(province), m_location(location),
       m_dummy_location(dummy)
 {
         g_id_generator = std::max(m_id, g_id_generator) + 1;
 }
 
 City::City(double population, std::string name, std::size_t province, Point2D location, Point2D dummy)
-    : m_population(population), m_name(name), m_province(province), m_location(location), m_dummy_location(dummy)
+    : m_population(population), m_name(std::move(name)), m_province(province), m_location(location),
+      m_dummy_location(dummy)
 {
         m_id = g_id_generator;
         g_id_generator++;

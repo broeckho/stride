@@ -16,7 +16,7 @@
 
 /*
  * @file
- * Main program for the population generator.
+ * Main program for the society generator.
  */
 
 #include "SocietyCSVWriter.h"
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
                 CmdLine cmd("stride", ' ', "1.0", false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_generator_default.xml",
                                                  "CONFIGURATION FILE", cmd);
-                cmd.parse(argc, argv);
+                cmd.parse(argc, static_cast<const char* const*>(argv));
                 string config_file_name = config_file_Arg.getValue();
 
                 // -----------------------------------------------------------------------------------------
@@ -81,11 +81,11 @@ int main(int argc, char* argv[])
                 }
 
                 // -----------------------------------------------------------------------------------------
-                // Run population generator
+                // Run society generator
                 // -----------------------------------------------------------------------------------------
                 cout << "\nGenerating population\n";
                 SocietyGenerator popgen(file_path, num_threads);
-                Society population = popgen.Generate();
+                Society gen_society = popgen.Generate();
 
                 // -----------------------------------------------------------------------------------------
                 // Write the population to CSV files
@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
                 const path households_path = InstallDirs::GetDataDir() / path("generated_households.csv");
                 const auto p_use_xy{popgen.GetConfig().get<bool>("geoprofile.use_xy", false)};
 
-                SocietyCSVWriter popwriter(population, p_use_xy);
+                SocietyCSVWriter popwriter(gen_society, p_use_xy);
                 popwriter.WritePersons(persons_path);
                 popwriter.WriteCities(cities_path);
                 popwriter.WriteCommunities(communities_path);

@@ -27,10 +27,8 @@ class City
 public:
         static std::size_t g_id_generator;
 
-        City() = default;
-
-        City(std::size_t id, double population, std::string name, std::size_t province, Point2D location,
-             Point2D dummy);
+        City(std::size_t id = 0, double population = 0.0, std::string name = "", std::size_t province = 0,
+             Point2D location = Point2D(), Point2D dummy = Point2D());
 
         City(double population, std::string name, std::size_t province, Point2D location, Point2D dummy);
 
@@ -44,10 +42,10 @@ public:
         Point2D GetLocation() const { return m_location; }
 
 private:
-        std::size_t m_id;    ///< ID of the city
-        double m_population; ///< Fraction of the population living in this city
-        std::string m_name;
-        std::size_t m_province;
+        std::size_t m_id;         ///< ID of the city
+        double m_population;      ///< Fraction of the population living in this city
+        std::string m_name;       ///<
+        std::size_t m_province;   ///<
         Point2D m_location;       ///< The Location of the city in longitude and latitude
         Point2D m_dummy_location; ///< The location of the city in x and y coordinates
 };

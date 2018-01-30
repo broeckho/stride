@@ -31,8 +31,8 @@ public:
         double GetNumber() { return m_number; }
 
 public:
-        double m_population;   ///< Population living in a village
-        double m_number;       ///< Number of villages of size m_population (needs to be a double)
+        double m_population; ///< Population living in a village
+        double m_number;     ///< Number of villages of size m_population (needs to be a double)
 };
 
 } // namespace generator
