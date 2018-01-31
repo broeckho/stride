@@ -9,8 +9,9 @@ def getSusceptibleContactsGraph(logfile):
     with open(logfile) as f:
         for line in f:
             linedata = line.split(' ')
-            p1_id = int(linedata[1])
-            p2_id = int(linedata[2])
-            G.add_nodes_from([p1_id, p2_id])
-            G.add_edge(p1_id, p2_id)
+            if linedata[0] == '[CONT]':
+                p1_id = int(linedata[1])
+                p2_id = int(linedata[2])
+                G.add_nodes_from([p1_id, p2_id])
+                G.add_edge(p1_id, p2_id)
     return G

@@ -154,38 +154,43 @@ void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_p
                         auto p1 = c_members[i_person1].first;
                         const double c_rate = cluster.GetContactRate(p1);
                         // loop over possible contacts (contacts can be initiated by each member)
-                        for (const auto& member : c_members) {
-                                // check if member is present today
-                                if (member.second) {
-                                        auto p2 = member.first;
-                                        // check for contact
-                                        if (contact_handler.HasContact(c_rate)) {
-                                                // log contact, if person 1 is participating in survey
-                                                if (p1->IsParticipatingInSurvey()) {
-                                                        LP::Contact(logger, p1, p2, c_type, calendar);
-                                                }
-                                                // log contact, if person 2 is participating in survey
-                                                if (p2->IsParticipatingInSurvey()) {
-                                                        LP::Contact(logger, p2, p1, c_type, calendar);
-                                                }
-                                                // exchange information about health state & beliefs
-                                                LIP::Update(p1, p2);
-                                                // transmission & insfection.
-                                                if (contact_handler.HasTransmission(t_rate)) {
-                                                        if (p1->GetHealth().IsInfectious() &&
-                                                            p2->GetHealth().IsSusceptible()) {
-                                                                LP::Transmission(logger, p1, p2, c_type, calendar);
-                                                                p2->GetHealth().StartInfection();
-                                                                RP::Exec(p2);
-                                                        } else if (p2->GetHealth().IsInfectious() &&
-                                                                   p1->GetHealth().IsSusceptible()) {
-                                                                LP::Transmission(logger, p2, p1, c_type, calendar);
-                                                                p1->GetHealth().StartInfection();
-                                                                RP::Exec(p1);
-                                                        }
-                                                }
-                                        }
-                                }
+                        for (size_t i_person2 = 0; i_person2 < c_members.size(); i_person2++) {
+                        		// check if not the same person
+                        		if (i_person1 != i_person2) {
+                        			// check if member is present today
+                        			if (c_members[i_person2].second) {
+                        				auto p2 = c_members[i_person2].first;
+                        				// check for contact
+                        				if (contact_handler.HasContact(c_rate)) {
+                        					// log contact if person 1 is participating in survey
+                        					if (p1->IsParticipatingInSurvey()) {
+                        						LP::Contact(logger, p1, p2, c_type, calendar);
+                        					}
+                        					// log contact if person 2 is participating in survey
+                        					if (p2->IsParticipatingInSurvey()) {
+                        						LP::Contact(logger, p2, p1, c_type, calendar);
+                        					}
+
+                        					// exchange info about health state & beliefs
+                        					LIP::Update(p1, p2);
+
+                        					// transmission & infection.
+                        					if (contact_handler.HasTransmission(t_rate)) {
+                        						if (p1->GetHealth().IsInfectious() &&
+                        						 	p2->GetHealth().IsSusceptible()) {
+                        							LP::Transmission(logger, p1, p2, c_type, calendar);
+                                                 p2->GetHealth().StartInfection();
+                                                 RP::Exec(p2);
+                        						} else if (p2->GetHealth().IsInfectious() &&
+                        								   p1->GetHealth().IsSusceptible()) {
+                                                 LP::Transmission(logger, p2, p1, c_type, calendar);
+                                                 p1->GetHealth().StartInfection();
+                                                 RP::Exec(p1);
+                        						}
+                        					}
+                        				}
+                        			}
+                        		}
                         }
                 }
         }

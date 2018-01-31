@@ -79,7 +79,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                                                    bool track_index_case)
 {
         auto sim = make_shared<Simulator>();
-        std::cout << "Getting logger" << std::endl;
         const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
 
         sim->m_pt_config = pt_config;                       // Initialize config ptree.
