@@ -108,6 +108,23 @@ public:
         }
 };
 
+/// Specialized LOG_POLICY policy LogMode::SusceptibleContacts.
+template<>
+class LOG_POLICY<LogMode::Id::SusceptibleContacts>
+{
+public:
+    static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                        ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+    {
+    		logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
+    }
+
+    static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+    {
+    }
+};
+
 //-------------------------------------------------------------------------------------------------
 // Definition for primary template covers the situation for LogMode::None & LogMode::Transmissions,
 // both with track_index_case false and true.
