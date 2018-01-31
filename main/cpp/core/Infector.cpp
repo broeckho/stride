@@ -265,4 +265,9 @@ template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
 template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
 template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
+template class Infector<LogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
+template class Infector<LogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
+template class Infector<LogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
+template class Infector<LogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+
 } // namespace stride

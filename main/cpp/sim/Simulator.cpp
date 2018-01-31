@@ -59,6 +59,7 @@ void Simulator::TimeStep()
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
+                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, true>(); break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, NoLocalInformation, true>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, NoLocalInformation, true>(); break;
                         case Id::None: UpdateClusters<Id::None, NoLocalInformation, true>(); break;
@@ -66,6 +67,7 @@ void Simulator::TimeStep()
                         }
                 } else {
                         switch (m_log_level) {
+                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, false>(); break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, NoLocalInformation, false>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, NoLocalInformation, false>(); break;
                         case Id::None: UpdateClusters<Id::None, NoLocalInformation, false>(); break;
@@ -75,6 +77,7 @@ void Simulator::TimeStep()
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
+                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, true>(); break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, LocalDiscussion, true>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, LocalDiscussion, true>(); break;
                         case Id::None: UpdateClusters<Id::None, LocalDiscussion, true>(); break;
@@ -82,6 +85,7 @@ void Simulator::TimeStep()
                         }
                 } else {
                         switch (m_log_level) {
+                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, false>(); break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, LocalDiscussion, false>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, LocalDiscussion, false>(); break;
                         case Id::None: UpdateClusters<Id::None, LocalDiscussion, false>(); break;

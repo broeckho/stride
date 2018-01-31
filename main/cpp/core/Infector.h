@@ -96,4 +96,9 @@ extern template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
 extern template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
 extern template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
 
+extern template class Infector<LogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
+extern template class Infector<LogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
+extern template class Infector<LogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
+extern template class Infector<LogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+
 } // namespace stride

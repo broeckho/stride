@@ -105,7 +105,7 @@ sim.loadRunConfig("config/common.xml")
 
 # Set parameters that are the same for all baseline simulations
 sim.runConfig.setParameter("output_prefix", "Baseline")
-sim.runConfig.setParameter("seeding_rate", 0.002)
+sim.runConfig.setParameter("seeding_rate", 0)
 sim.runConfig.setParameter("local_information_policy", "NoLocalInformation")
 sim.runConfig.setParameter("global_information_policy", "NoGlobalInformation")
 sim.runConfig.setParameter("belief_policy/name", "NoBelief")
@@ -114,8 +114,10 @@ sim.runConfig.setParameter("behaviour_policy", "NoBehaviour")
 # TODO have common natural immunity rate?
 # From what age to what age and what percentage?
 
-seeds = list(range(10))
-vaccs = [0.6, 0.7, 0.8, 0.9]
+sim.runConfig.setParameter("num_days", 1)
+
+seeds = [1]
+vaccs = [0.97]
 
 # Create forks with varying seed & vaccination coverage
 for seed, vac_cov in list(itertools.product(seeds, vaccs)):
@@ -125,7 +127,7 @@ for seed, vac_cov in list(itertools.product(seeds, vaccs)):
     fork.runConfig.setParameter("immunity_rate", vac_cov)
     fork.runConfig.setParameter("vaccine_rate", vac_cov)
     # Register callback function
-    fork.registerCallback(countImmune)
+    # fork.registerCallback(countImmune)
 
 # Run all forks
 sim.runForks()
