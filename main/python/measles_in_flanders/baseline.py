@@ -11,7 +11,7 @@ import pystride
 from pystride.stride.stride import Id_Household, Id_School, Id_Work, Id_PrimaryCommunity, Id_SecondaryCommunity
 from pystride.Simulation import Simulation
 
-
+'''
 def countImmune(sim, timestep):
     if timestep == 0:
         print("Determining pocket sizes of non-immunized individuals")
@@ -37,7 +37,7 @@ def countImmune(sim, timestep):
                 addPerson(communities1, person.GetClusterId(Id_PrimaryCommunity), False)
                 addPerson(communities2, person.GetClusterId(Id_SecondaryCommunity), False)
 
-        # Distribution of susceptibles by cluster type
+        # Distribution of susceptibles by cluster type'''
         '''bins = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         household_results = toHist(toFractions(households), bins)
         school_results = toHist(toFractions(schools), bins)
@@ -54,7 +54,7 @@ def countImmune(sim, timestep):
         ax.bar([x + (3* width) for x in bins], comm1_results, width, color='orange')
         ax.bar([x + (4* width) for x in bins], comm2_results, width, color='black')
         plt.show()'''
-
+        '''
         # Overall distribution of susceptibles
         bins = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         all_fractions = toFractions(households) + toFractions(schools) + toFractions(workplaces) + toFractions(communities1) + toFractions(communities2)
@@ -62,8 +62,9 @@ def countImmune(sim, timestep):
         plt.ylim([0,1])
         plt.legend(['Baseline'])
         plt.bar(bins, all_results, width=0.08)
-        plt.savefig('baseline')
+        plt.savefig('baseline')'''
 
+'''
 def toHist(fractions, bins):
     ys = [0] * len(bins)
     for frac in fractions:
@@ -97,7 +98,7 @@ def addPerson(dictionary, cluster_id, susceptible):
             dictionary[cluster_id]['susceptible'] += 1
         else:
             dictionary[cluster_id]['other'] += 1
-
+'''
 
 sim = Simulation()
 # Load configuration common to all simulations for this study
@@ -114,7 +115,7 @@ sim.runConfig.setParameter("behaviour_policy", "NoBehaviour")
 # TODO have common natural immunity rate?
 # From what age to what age and what percentage?
 
-sim.runConfig.setParameter("num_days", 1)
+sim.runConfig.setParameter("num_days", 10)
 
 seeds = [1]
 vaccs = [0.97]
