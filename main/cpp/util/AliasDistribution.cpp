@@ -61,23 +61,3 @@ AliasDistribution::AliasDistribution(const vector<double>& _probs)
 }
 
 uniform_real_distribution<double> AliasDistribution::g_coinflip = uniform_real_distribution<double>(0, 1);
-
-template <typename K, typename V>
-vector<V> map_values(const map<K, V>& m)
-{
-        vector<V> v;
-        v.reserve(m.size());
-        for (const auto& it : m) {
-                v.push_back(it.second);
-        }
-        return v;
-};
-
-MappedAliasDistribution::MappedAliasDistribution(const map<unsigned int, double>& m) : AliasDistribution(map_values(m))
-{
-        unsigned int k = 0;
-        for (const auto& it : m) {
-                m_translation[k] = it.first;
-                k++;
-        }
-}

@@ -51,5 +51,6 @@ bool operator==(const GeoCoordinate& coord1, const GeoCoordinate& coord2);
 bool operator<(const GeoCoordinate& coord1, const GeoCoordinate& coord2);
 
 std::ostream& operator<<(std::ostream& os, const GeoCoordinate& g);
+
 }
 } // namespace stride

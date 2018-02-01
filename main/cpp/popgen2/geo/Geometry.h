@@ -69,7 +69,7 @@ public:
                 unsigned int m_top = 0U;
                 unsigned int m_bottom = 0U;
                 bool assignedTop = false;
-                bool IsInside(double x) { return x >= m_begin_x && x <= m_end_x; }
+                bool IsInside(double x) const { return x >= m_begin_x && x <= m_end_x; }
         };
 
         ///

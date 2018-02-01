@@ -15,12 +15,8 @@
  *  Copyright 2017, De Pauw J, Draulans S, Leys T, Truyts T, Van Leeuwen L
  */
 
-#include "util/RRandom.h"
 
-#include <trng/lagfib2plus.hpp>
-#include <trng/lagfib2xor.hpp>
-#include <trng/lagfib4plus.hpp>
-#include <trng/lagfib4xor.hpp>
+// Engines
 #include <trng/lcg64.hpp>
 #include <trng/lcg64_shift.hpp>
 #include <trng/mrg2.hpp>
@@ -35,54 +31,70 @@
 #include <trng/yarn4.hpp>
 #include <trng/yarn5.hpp>
 #include <trng/yarn5s.hpp>
+
+// Distributions
+#include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
+
 #include <map>
 #include <memory>
 #include <string>
 
 namespace stride {
-namespace config {
+namespace util {
 
-/// @function to create any kind of random number generator
-template <typename RNG>
-std::shared_ptr<stride::util::RNGInterface> createRNG()
-{
-        return std::make_shared<stride::util::Random<RNG>>();
-}
-
-/// @class A map of rng name to an instance of the rng
-class RNGMap : public std::map<std::string, std::shared_ptr<stride::util::RNGInterface> (*)()>
+///
+class RNGInterface
 {
 public:
-        RNGMap()
-        {
-                (*this)["trng/lcg64"] = &createRNG<trng::lcg64>;
-                (*this)["trng/lcg64_shift"] = &createRNG<trng::lcg64_shift>;
-                (*this)["trng/mrg2"] = &createRNG<trng::mrg2>;
-                (*this)["trng/mrg3"] = &createRNG<trng::mrg3>;
-                (*this)["trng/mrg4"] = &createRNG<trng::mrg4>;
-                (*this)["trng/mrg5"] = &createRNG<trng::mrg5>;
-                (*this)["trng/mrg3s"] = &createRNG<trng::mrg3s>;
-                (*this)["trng/mrg5s"] = &createRNG<trng::mrg5s>;
-                (*this)["trng/yarn2"] = &createRNG<trng::yarn2>;
-                (*this)["trng/yarn3"] = &createRNG<trng::yarn3>;
-                (*this)["trng/yarn4"] = &createRNG<trng::yarn4>;
-                (*this)["trng/yarn5"] = &createRNG<trng::yarn5>;
-                (*this)["trng/yarn3s"] = &createRNG<trng::yarn3s>;
-                (*this)["trng/yarn5s"] = &createRNG<trng::yarn5s>;
-                /*
-                (*this)["trng/lagfib2xor"] = &createRNG<trng::lagfib2xor>;
-                (*this)["trng/lagfib4xor"] = &createRNG<trng::lagfib4xor>;
-                (*this)["trng/lagfib2plus"] = &createRNG<trng::lagfib2plus>;
-                (*this)["trng/lagfib4plus"] = &createRNG<trng::lagfib4plus>;
-                 */
-        }
+        virtual void Seed(unsigned long seed) = 0;
+        virtual unsigned int operator()(unsigned int max) = 0;
 };
 
-extern RNGMap rngMap;
+/// The random number generator.
+template <typename ENGINE>
+class RNG : public RNGInterface
+{
+public:
+        /// Initialize the random number engine and distribution.
+        RNG(unsigned long seed = 0)
+        {
+                m_engine.seed(seed);
+                m_uniform_dist = trng::uniform01_dist<double>();
+        }
+
+        ///
+        RNG(ENGINE& engine)
+        {
+                m_engine = engine;
+                m_uniform_dist = trng::uniform01_dist<double>();
+        }
+
+        ///
+        void Seed(const unsigned long seed) final { m_engine.seed(seed); }
+
+        /// Get random double.
+        double NextDouble() { return m_uniform_dist(m_engine); }
+
+        /// Get random unsigned int from [0, max[.
+        virtual unsigned int operator()(unsigned int max)
+        {
+                trng::uniform_int_dist dis(0, max);
+                return dis(m_engine);
+        }
+
+        /// Split random engines e. g. stream 0 1 2 3 4 5...
+        /// => stream A: 0 2 4... => stream B: 1 3 5...
+        void Split(unsigned int total, unsigned int id) { m_engine.split(total, id); }
+
+private:
+        ENGINE m_engine;                               ///< The random number engine.
+        trng::uniform01_dist<double> m_uniform_dist;   ///< The random distribution.
+};
 
 std::string RNGvalidate(const std::string& id);
 
 std::shared_ptr<stride::util::RNGInterface> RNGget(const std::string& id);
 
-} // namespace config
+} // namespace util
 } // namespace stride

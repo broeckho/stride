@@ -19,7 +19,7 @@
  * Calculate geographic coordinates.
  */
 
-#include "geo/GeoCoordinate.h"
+#include "GeoCoordinate.h"
 
 #include <cmath>
 #include <iostream>

@@ -32,32 +32,32 @@ public:
         ///
         Household();
 
-        ///
-        static std::size_t g_id_generator;
-
         /// Add a member to the household.
         void AddMember(std::size_t member_id);
 
-        ///
+        /// Id of city where housholds lives.
+        std::size_t GetCityID() const { return m_city_id; }
+
+        /// Household Id.
+        std::size_t GetID() const { return m_id; }
+
+        /// Id's of members of household.
+        std::vector<std::size_t> GetMemberIDs() const { return m_members; }
+
+        /// Number of members of the household.
+        std::size_t GetSize() const { return m_members.size(); }
+
+        /// Set Id for city where household lives.
         void SetCityID(std::size_t city_id);
 
-        ///
-        std::vector<std::size_t> GetMembers() { return m_members; }
-
-        ///
-        std::size_t GetID() { return m_id; }
-
-        ///
-        std::size_t GetSize() { return m_size; }
-
-        ///
-        std::size_t GetCityID() { return m_city_id; }
+private:
+        ///Id generator.
+        static std::size_t g_id_generator;
 
 private:
-        std::size_t m_id;                   ///< A unique ID of the household
-        std::size_t m_size;                 ///< The size of the household a.k.a. the number of members.
-        std::vector<std::size_t> m_members; ///< A vector of ID's referring to the ID of a person.
-        std::size_t m_city_id;              ///< The ID of the city in which the household is located.
+        std::size_t m_id;                      ///< A unique ID of the household
+        std::vector<std::size_t> m_members;    ///< A vector of ID's referring to the ID of a person.
+        std::size_t m_city_id;                 ///< The ID of the city in which the household is located.
 };
 
 } // namespace generator

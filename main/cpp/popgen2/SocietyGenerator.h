@@ -27,7 +27,7 @@
 #include "geo/City.h"
 #include "geo/Geometry.h"
 #include "geo/Village.h"
-#include "util/RRandom.h"
+#include "util/RNG.h"
 
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
@@ -113,11 +113,11 @@ private:
         std::vector<Household> m_households;              ///< Vector of households
         std::map<std::size_t, GeneratorPerson> m_persons; ///< Map of persons
         std::map<std::size_t, std::map<CommunityType, std::vector<Community>>>
-            m_communities;                            ///< Location map of for communities.
-        std::map<std::size_t, City> m_cities;         ///< Map of cities with its ID as key
-        unsigned int m_num_threads;                   ///< Number of OpenMP threads
-        std::map<std::size_t, int> m_community_sizes; ///<
-        std::shared_ptr<util::RNGInterface> m_rng;    ///< Random number generator
+            m_communities;                                ///< Location map of for communities.
+        std::map<std::size_t, City> m_cities_map;             ///< Map of cities with its ID as key
+        unsigned int m_num_threads;                       ///< Number of OpenMP threads
+        std::map<std::size_t, int> m_community_sizes;     ///<
+        std::shared_ptr<util::RNGInterface> m_rng;        ///< Random number generator
 
 private:
         unsigned int m_comm_size;

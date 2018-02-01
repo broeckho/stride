@@ -51,30 +51,24 @@ public:
                 return dis(m_engine);
         }
 
-        /**
-         * Split random engines
-         * E. g. stream 0 1 2 3 4 5...
-         * => stream A: 0 2 4...
-         * => stream B: 1 3 5...
-         */
+        /// Split random engines e. g. stream 0 1 2 3 4 5...
+        /// => stream A: 0 2 4..., => stream B: 1 3 5...
         void Split(unsigned int total, unsigned int id) { m_engine.split(total, id); }
 
+        ///
         std::vector<unsigned int> GetRandomIndices(unsigned int size)
         {
-
                 std::vector<unsigned int> indices;
                 for (unsigned int i = 0; i < size; i++) {
                         indices.push_back(i);
                 }
-
                 std::random_shuffle(indices.begin(), indices.end(), m_engine);
-
                 return indices;
         }
 
 private:
-        trng::mrg2 m_engine;                         ///< The random number engine.
-        trng::uniform01_dist<double> m_uniform_dist; ///< The random distribution.
+        trng::mrg2 m_engine;                              ///< The random number engine.
+        trng::uniform01_dist<double> m_uniform_dist;      ///< The random distribution.
 };
 
 } // namespace util

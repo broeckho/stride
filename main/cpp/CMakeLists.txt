@@ -30,9 +30,6 @@ set(LIB_SRC
     core/Infector.cpp
     core/LogMode.cpp
 #---
-    geo/GeoCoordinate.cpp
-    geo/GeoCoordCalculator.cpp
-#---
 	immunity/Vaccinator.cpp
 #---
 	output/AdoptedFile.cpp
@@ -46,7 +43,10 @@ set(LIB_SRC
 	popgen/FamilyParser.cpp
 	popgen/PopulationGenerator.cpp
     popgen/utils.cpp
+	popgen/geo/GeoCoordinate.cpp
+	popgen/geo/GeoCoordCalculator.cpp
 #---
+	popgen2/AliasMethod.cpp
     popgen2/Community.cpp
     popgen2/GeneratorPerson.cpp
 	popgen2/GrahamScan.cpp

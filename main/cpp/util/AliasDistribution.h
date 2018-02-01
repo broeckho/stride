@@ -65,27 +65,5 @@ protected:
         static uniform_real_distribution<double> g_coinflip;
 };
 
-class MappedAliasDistribution : public AliasDistribution
-{
-public:
-        MappedAliasDistribution(const map<unsigned int, double>& m);
-
-        MappedAliasDistribution() = default;
-
-        /**
-         * @param gen		A random generator conforming the standard operator() usage
-         * @return			A random (weighted) integer, chosen from the maps keys
-         */
-        template <typename RNG>
-        unsigned int operator()(RNG& gen)
-        {
-                unsigned int i = AliasDistribution::operator()(gen);
-                return m_translation[i];
-        }
-
-private:
-        map<unsigned int, unsigned int> m_translation;
-};
-
 } // namespace util
 } // namespace stride
