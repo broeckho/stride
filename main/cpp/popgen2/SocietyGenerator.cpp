@@ -13,7 +13,6 @@
  *  Copyright 2017, Draulans S, Van Leeuwen L
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
-
 /**
  * @file
  * Header file for the PopulationGenerator class.
@@ -29,11 +28,8 @@
 
 #include <boost/range/adaptor/map.hpp>
 #include <boost/range/algorithm/copy.hpp>
-#include <boost/spirit/include/qi.hpp>
-#include <boost/tokenizer.hpp>
 
 using namespace std;
-using namespace stride::config;
 using namespace stride::generator;
 using namespace stride::util;
 using namespace boost::filesystem;
@@ -297,7 +293,8 @@ vector<Village> SocietyGenerator::LoadVillages(const boost::filesystem::path vil
         }
 
         // Determine the remaining population size after filling all cities
-        const long int size_remaining = m_population_size * m_in_villages;
+        const auto size_remaining = static_cast<long int>(m_population_size * m_in_villages);
+
         // Update the number of villages of each size
         for (auto& out : output) {
                 out.m_number = ceil(out.m_number * (size_remaining / size_villages));
@@ -315,7 +312,7 @@ void SocietyGenerator::LocateHouseholds()
         for (const auto& c : m_cities_map) {
                 const double p = c.second.GetPopulation();
                 city_sampler.Add(c.first, p);
-                city_populations[c.first] = p * m_population_size;
+                city_populations[c.first] = static_cast<long int>(p * m_population_size);
         }
         city_sampler.BuildSampler();
 
@@ -367,36 +364,30 @@ void SocietyGenerator::LocateCommunity()
         map<CommunityType, unsigned int> community_counts;
         map<CommunityType, unsigned int> community_sizes;
         for (auto comm : of_age) {
+                unsigned int size = 1U;
                 switch (comm.first) {
                 case CommunityType::School: {
-                        community_counts[comm.first] = ceil(comm.second / (double)m_school_size);
-                        community_sizes[comm.first] = m_school_size;
-                        break;
+                        size = m_school_size; break;
                 }
                 case CommunityType::University: {
-                        community_counts[comm.first] = ceil(comm.second / (double)m_univ_size);
-                        community_sizes[comm.first] = m_univ_size;
-                        break;
+                        size = m_univ_size; break;
                 }
                 case CommunityType::Work: {
-                        community_counts[comm.first] = ceil(comm.second / (double)m_work_size);
-                        community_sizes[comm.first] = m_work_size;
-                        break;
+                        size = m_work_size; break;
                 }
                 case CommunityType::Primary: {
-                        community_counts[comm.first] = ceil(comm.second / (double)m_comm_size);
-                        community_sizes[comm.first] = m_comm_size;
-                        break;
+                        size = m_comm_size; break;
                 }
                 case CommunityType::Secondary: {
-                        community_counts[comm.first] = ceil(comm.second / (double)m_comm_size);
-                        community_sizes[comm.first] = m_comm_size;
+                        size = m_comm_size;
                         break;
                 }
                 default: {
                         // What about Null?
                 }
                 }
+                community_counts[comm.first] = static_cast<unsigned int>(ceil(comm.second / (double)size));
+                community_sizes[comm.first] = size;
         }
 
         // Create the sampler to decide in which city a community will be.
@@ -575,87 +566,87 @@ vector<Point2D> SocietyGenerator::ExpandSimulationArea(vector<Point2D> simulatio
 void SocietyGenerator::AssignHouseholdToCommunity(size_t i)
 {
         Household h = m_households[i];
-        vector<size_t> members = h.GetMemberIDs();
+        vector<size_t> member_ids = h.GetMemberIDs();
         Point2D household_location = m_cities_map[h.GetCityID()].GetLocation();
 
         // Determine the closest communities for this household location.
-        vector<size_t> possible_communities_primary =
+        const vector<size_t> pc_primary =
             this->PossibleCommunities(m_community_sizes, CommunityType::Primary, household_location);
+        const auto pc_primary_size = static_cast<unsigned int>(pc_primary.size());
 
-        vector<size_t> possible_communities_secondary =
+        const vector<size_t> pc_secondary =
             this->PossibleCommunities(m_community_sizes, CommunityType::Secondary, household_location);
+        const auto pc_secondary_size = static_cast<unsigned int>(pc_secondary.size());
 
-        vector<size_t> possible_communities_school =
+        const vector<size_t> pc_school =
             this->PossibleCommunities(m_community_sizes, CommunityType::School, household_location);
+        const auto pc_school_size = static_cast<unsigned int>(pc_school.size());
 
-        vector<size_t> possible_communities_university =
+        const vector<size_t> pc_university =
             this->PossibleCommunities(m_community_sizes, CommunityType::University, household_location);
+        const auto pc_university_size = static_cast<unsigned int>(pc_university.size());
 
-        vector<size_t> possible_communities_work =
+        const vector<size_t> pc_work =
             this->PossibleCommunities(m_community_sizes, CommunityType::Work, household_location);
+        const auto pc_work_size = static_cast<unsigned int>(pc_work.size());
 
-        // Alternative mechanism to add the complete household to a primary and secondary community
-        size_t primary_community = 0, secondary_community = 0;
+        size_t primary_community = 0;
+        size_t secondary_community = 0;
+        // For alternative mechanism (adding complete household to a primary and secondary community)
         const auto p_add_complete_household = m_config.get<bool>("community.add_complete_household");
-        if (p_add_complete_household ||
-            (possible_communities_primary.size() == 1 && possible_communities_secondary.size() == 1)) {
-
+        if (p_add_complete_household || (pc_primary.size() == 1 && pc_secondary.size() == 1)) {
                 // Primary community
-                unsigned int r = m_rng->operator()(possible_communities_primary.size() - 1);
-                primary_community = possible_communities_primary[r];
-                m_community_sizes[possible_communities_primary[r]] -= members.size();
-
+                unsigned int r = m_rng->operator()(pc_primary_size - 1);
+                primary_community = pc_primary[r];
+                m_community_sizes[pc_primary[r]] -= member_ids.size();
                 // Secondary community
-                r = m_rng->operator()(possible_communities_secondary.size() - 1);
-                secondary_community = possible_communities_secondary[r];
-                m_community_sizes[possible_communities_secondary[r]] -= members.size();
+                r = m_rng->operator()(pc_secondary_size - 1);
+                secondary_community = pc_secondary[r];
+                m_community_sizes[pc_secondary[r]] -= member_ids.size();
         }
 
-        for (size_t j = 0; j < members.size(); j++) {
-                size_t person_id = members[j];
-                const GeneratorPerson& person = m_persons[person_id];
+        for (const auto person_id : member_ids) {
+                GeneratorPerson& person = m_persons[person_id];
 
-                // Primary and secondary community
-                if (!(p_add_complete_household ||
-                      (possible_communities_primary.size() == 1 && possible_communities_secondary.size() == 1))) {
-
-                        // Original mechanism
+                // For original mechanism (adding individuals to primary and secondary community)
+                if (!(p_add_complete_household || (pc_primary.size() == 1 && pc_secondary.size() == 1))) {
                         // Primary community
-                        unsigned int r = m_rng->operator()(possible_communities_primary.size() - 1);
-                        primary_community = possible_communities_primary[r];
-                        m_community_sizes[possible_communities_primary[r]] -= 1;
-
+                        unsigned int r = m_rng->operator()(pc_primary_size - 1);
+                        primary_community = pc_primary[r];
+                        m_community_sizes[pc_primary[r]] -= 1;
                         // Secondary community
-                        r = m_rng->operator()(possible_communities_secondary.size() - 1);
-                        secondary_community = possible_communities_secondary[r];
-                        m_community_sizes[possible_communities_secondary[r]] -= 1;
+                        r = m_rng->operator()(pc_secondary_size - 1);
+                        secondary_community = pc_secondary[r];
+                        m_community_sizes[pc_secondary[r]] -= 1;
                 }
-                m_persons[person_id].SetPrimaryCommunityID(primary_community);
-                m_persons[person_id].SetSecondaryCommunityID(secondary_community);
+                person.SetPrimaryCommunityID(primary_community);
+                person.SetSecondaryCommunityID(secondary_community);
 
                 // School
                 if (person.GetAge() >= m_school_age_min && person.GetAge() <= m_school_age_max) {
 
-                        unsigned int r = m_rng->operator()(possible_communities_school.size() - 1);
-                        m_persons[person_id].SetSchoolID(possible_communities_school[r]);
+                        unsigned int r = m_rng->operator()(pc_school_size - 1);
+                        person.SetSchoolID(pc_school[r]);
                 }
+
                 // University
                 if (person.GetAge() >= m_univ_age_min && person.GetAge() <= m_univ_age_max) {
                         unsigned int r = m_rng->operator()(100);
                         if (r < m_univ_fraction * 100) {
-                                r = m_rng->operator()(possible_communities_university.size() - 1);
-                                m_persons[person_id].SetUniversityID(possible_communities_university[r]);
-                                m_community_sizes[possible_communities_university[r]] -= 1;
+                                r = m_rng->operator()(pc_university_size - 1);
+                                person.SetUniversityID(pc_university[r]);
+                                m_community_sizes[pc_university[r]] -= 1;
                         }
                 }
+
                 // Workplace
                 if (person.GetAge() >= m_work_age_min && person.GetAge() <= m_work_age_max) {
 
                         unsigned int r = m_rng->operator()(100);
                         if (r < m_work_fraction * 100) {
-                                r = m_rng->operator()(possible_communities_work.size() - 1);
-                                m_persons[person_id].SetWorkID(possible_communities_work[r]);
-                                m_community_sizes[possible_communities_work[r]] -= 1;
+                                r = m_rng->operator()(pc_work_size - 1);
+                                person.SetWorkID(pc_work[r]);
+                                m_community_sizes[pc_work[r]] -= 1;
                         }
                 }
         }

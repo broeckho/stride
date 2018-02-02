@@ -65,7 +65,8 @@ set(LIB_SRC
 #---
     util/AliasDistribution.cpp
     util/CSV.cpp
-    util/File.cpp
+	util/CSVRow.cpp
+    util/FileUtils.cpp
 	util/InstallDirs.cpp
     util/RNG.cpp
 )

@@ -32,9 +32,9 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <iostream>
+//#include <iostream>
 #include <map>
-#include <memory>
+//#include <memory>
 #include <string>
 #include <tuple>
 #include <vector>
@@ -48,26 +48,23 @@ namespace generator {
 class SocietyGenerator
 {
 public:
-        /// Default constructor: initialize the number of threads
-        SocietyGenerator() : m_num_threads(1U) {}
-
         /// Create generator from file.
         explicit SocietyGenerator(const boost::filesystem::path& config_path, unsigned int num_threads = 1U);
 
-        /// Generate a society
+        /// Generate a society.
         Society Generate();
 
-        ///
+        /// Return property tree with config info.
         boost::property_tree::ptree GetConfig() { return m_config; }
 
 private:
         /// Generate households based on the household profile and the population size.
         void GenerateHouseholds(std::vector<std::vector<unsigned int>>& hh_profile, unsigned int pop_size);
 
-        /// Generate villages based on the simulation area and the loaded villages
+        /// Generate villages based on the simulation area and the loaded villages.
         void GenerateVillages(const std::vector<Point2D>& simulation_area, const std::vector<Village>& villages);
 
-        /// Load the cities from the csv file into m_cities
+        /// Load the cities from the csv file into m_cities.
         std::vector<Point2D> LoadCities(boost::filesystem::path cities_path);
 
         /// Determine the number of villages to generate.
@@ -109,15 +106,15 @@ private:
         void ReadGenerateCities();
 
 private:
-        boost::property_tree::ptree m_config;             ///< Configuration
-        std::vector<Household> m_households;              ///< Vector of households
-        std::map<std::size_t, GeneratorPerson> m_persons; ///< Map of persons
-        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>>
-            m_communities;                                ///< Location map of for communities.
-        std::map<std::size_t, City> m_cities_map;             ///< Map of cities with its ID as key
-        unsigned int m_num_threads;                       ///< Number of OpenMP threads
-        std::map<std::size_t, int> m_community_sizes;     ///<
-        std::shared_ptr<util::RNGInterface> m_rng;        ///< Random number generator
+        std::map<std::size_t, City> m_cities_map;                                                ///< Location map.
+        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>> m_communities;    ///< Location map.
+        std::map<std::size_t, int> m_community_sizes;                                            ///< Coomunity sizes.
+        boost::property_tree::ptree m_config;                                                    ///< Configuration.
+        std::vector<Household> m_households;                                                     ///< Households.
+        std::map<std::size_t, GeneratorPerson> m_persons;                                        ///< Persons.
+        std::shared_ptr<util::RNGInterface> m_rng;                                               ///< RNG engine.
+private:
+        unsigned int m_num_threads;                                                              ///< OpenMP threads.
 
 private:
         unsigned int m_comm_size;

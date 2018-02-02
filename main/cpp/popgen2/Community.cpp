@@ -22,19 +22,26 @@
 namespace stride {
 namespace generator {
 
-std::size_t Community::g_id_generator = 1;
+using namespace std;
 
-Community::Community(CommunityType community_type, std::size_t city_id, unsigned int size)
+//size_t Community::g_id_generator = 1;
+
+Community::Community(CommunityType community_type, size_t city_id, unsigned int size)
     : m_community_type(community_type), m_city_id(city_id), m_size(size)
 {
-        m_community_id = g_id_generator;
-        g_id_generator++;
+        m_community_id = UIDgenerator();
+        UIDgenerator()++;
 }
 
-Community::Community(std::size_t id, CommunityType community_type, std::size_t city_id, unsigned int size)
+Community::Community(size_t id, CommunityType community_type, size_t city_id, unsigned int size)
     : m_community_id(id), m_community_type(community_type), m_city_id(city_id), m_size(size)
 {
-        g_id_generator = std::max(m_community_id, g_id_generator) + 1;
+        UIDgenerator() = max(m_community_id, UIDgenerator()) + 1;
+}
+size_t& Community::UIDgenerator()
+{
+        static size_t id = 1;  // First id is 1! Needs to be as 0 implies "absent from community".
+        return id;
 }
 
 } // namespace generator

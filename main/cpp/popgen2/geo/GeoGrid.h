@@ -27,13 +27,12 @@ enum PointType
         Null
 };
 
-struct Point2D
+class Point2D
 {
+public:
         ///
-        Point2D() = default;
-
-        ///
-        Point2D(double x, double y, PointType point_type = PointType::Null) : m_x(x), m_y(y), m_point_type(point_type)
+        Point2D(double x = 0.0, double y = 0.0, PointType point_type = PointType::Null) 
+                : m_x(x), m_y(y), m_point_type(point_type)
         {
         }
 

@@ -21,14 +21,14 @@ namespace generator {
 
 using namespace std;
 using boost::filesystem::path;
-using config::CSV;
+using util::CSV;
 
 CSV SocietyCSVWriter::WritePersons(const path& out)
 {
         CSV csv{"age", "household_id", "school_id", "work_id", "primary_community", "secondary_community"};
 
         vector<vector<string>> rows;
-        for (const GeneratorPerson& p : m_society.GetPersons()) {
+        for (const auto& p : m_society.GetPersons()) {
                 size_t school_id = (p.GetSchoolID() != 0) ? p.GetSchoolID() : p.GetUniversityID();
                 rows.emplace_back(vector<string>{to_string(p.GetAge()), to_string(p.GetHouseholdID()),
                                                  to_string(school_id), to_string(p.GetWorkID()),
@@ -75,7 +75,7 @@ CSV SocietyCSVWriter::WriteCommunities(const path& out)
 
         vector<vector<string>> rows;
         for (Community c : m_society.GetCommunities()) {
-                string type = "";
+                string type;
                 if (c.GetCommunityType() == CommunityType::School)
                         type = "school";
                 else if (c.GetCommunityType() == CommunityType::University)
@@ -100,7 +100,7 @@ CSV SocietyCSVWriter::WriteHouseholds(const path& out)
         CSV csv{"household_id", "size", "city_id"};
 
         vector<vector<string>> rows;
-        for (Household h : m_society.GetHouseholds()) {
+        for (const auto& h : m_society.GetHouseholds()) {
                 rows.emplace_back(
                     vector<string>{to_string(h.GetID()), to_string(h.GetSize()), to_string(h.GetCityID())});
         }

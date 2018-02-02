@@ -33,22 +33,35 @@ enum class CommunityType
 class Community
 {
 public:
-        static std::size_t g_id_generator;
-
+        ///
         Community() = default;
+
+        ///
         Community(CommunityType community_type, std::size_t city_id, unsigned int size);
+
+        ///
         Community(std::size_t id, CommunityType community_type, std::size_t city_id, unsigned int size);
 
-        std::size_t GetID() { return m_community_id; }
-        CommunityType GetCommunityType() { return m_community_type; }
+        ///
         std::size_t GetCityID() { return m_city_id; }
+
+        ///
+        CommunityType GetCommunityType() { return m_community_type; }
+
+        ///
+        std::size_t GetID() { return m_community_id; }
+
+        ///
         unsigned int GetSize() { return m_size; }
+
+private:
+        static std::size_t& UIDgenerator();
 
 private:
         std::size_t m_community_id;     ///< A unique ID for the community
         CommunityType m_community_type; ///< The type of community
         std::size_t m_city_id;          ///< The ID of the city in which the community is located
-        unsigned int m_size;            ///< The maximum number of people that can attend to this community.
+        unsigned int m_size;            ///< The maximum number of people that can part of this community.
 };
 
 } // namespace generator

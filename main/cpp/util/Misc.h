@@ -1,5 +1,4 @@
-#ifndef STRIDE_UTIL_MISC_H_INCLUDED
-#define STRIDE_UTIL_MISC_H_INCLUDED
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -26,17 +25,12 @@
 namespace stride {
 namespace util {
 
-bool IsFloat(const std::string& s)
+inline bool IsFloat(const std::string& s)
 {
         float a;
         std::stringstream ss(s);
-        if (ss >> a) {
-                return true;
-        }
-        return false;
+        return (ss >> a) ? true : false;
 }
 
 } // namespace util
 } // namespace stride
-
-#endif // end of include guard

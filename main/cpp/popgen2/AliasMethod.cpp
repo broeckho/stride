@@ -32,14 +32,7 @@ AliasMethod<T>::AliasMethod(unsigned long seed) : m_seed(seed)
 {
         m_rng = util::RNG<trng::mrg2>(m_seed);
 }
-/*
-template <typename T>
-void AliasMethod<T>::Seed(unsigned long seed)
-{
-        m_seed = seed;
-        m_rng = util::RNG<trng::mrg2>(m_seed);
-}
-*/
+
 template <typename T>
 void AliasMethod<T>::Add(T value, double probability)
 {
@@ -54,7 +47,7 @@ void AliasMethod<T>::Remove(unsigned int index)
         for (unsigned int i = index; i < m_original_table.size() - 1; i++) {
                 m_value_map[i] = m_value_map[i + 1];
         }
-        m_value_map.erase(m_original_table.size());
+        m_value_map.erase(static_cast<unsigned int>(m_original_table.size()));
         m_original_table.erase(m_original_table.begin() + index);
         m_was_built = false;
 }
@@ -67,7 +60,7 @@ void AliasMethod<T>::BuildSampler()
         m_was_built = true;
 
         // Step 1: Alias and Prob arrays of size n.
-        unsigned int table_size = m_original_table.size();
+        const auto table_size = m_original_table.size();
         m_prob_table.resize(table_size);
         if (m_original_table.size() == 1) { // There's only one thing to sample from.
                 m_prob_table[0] = 1;
@@ -90,13 +83,13 @@ void AliasMethod<T>::BuildSampler()
         // Find appropriate probabilities (& fix rounding errors in single pass)
         bool found_low = true;
         bool found_high = true;
-        unsigned int low_index = -1;
+        unsigned int low_index = 0;
         unsigned int high_index = 0;
         while (found_low && found_high) {
                 // Single pass find something beneath & find something above.
                 found_low = false;
                 found_high = false;
-                double eps = std::numeric_limits<double>::epsilon();
+                const double eps = std::numeric_limits<double>::epsilon();
                 for (unsigned int i = 0; i < table_size; ++i) {
                         if (m_prob_table[i] < 1 - eps && !has_alias_table[i]) {
                                 found_low = true;

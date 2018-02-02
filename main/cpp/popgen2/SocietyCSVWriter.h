@@ -40,16 +40,16 @@ public:
         ~SocietyCSVWriter() = default;
 
         /// Write the persons of the population to a CSV file.
-        stride::config::CSV WritePersons(const boost::filesystem::path& out);
+        stride::util::CSV WritePersons(const boost::filesystem::path& out);
 
         /// Write the cities of the population to a CSV file.
-        stride::config::CSV WriteCities(const boost::filesystem::path& out);
+        stride::util::CSV WriteCities(const boost::filesystem::path& out);
 
         /// Write the communities of the population to a CSV file.
-        stride::config::CSV WriteCommunities(const boost::filesystem::path& out);
+        stride::util::CSV WriteCommunities(const boost::filesystem::path& out);
 
         /// Write the households of the population to a CSV file.
-        stride::config::CSV WriteHouseholds(const boost::filesystem::path& out);
+        stride::util::CSV WriteHouseholds(const boost::filesystem::path& out);
 
 private:
         const Society& m_society;      ///< The society
