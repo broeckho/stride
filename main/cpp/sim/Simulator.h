@@ -27,6 +27,7 @@
 #include "core/RngHandler.h"
 #include "pop/Population.h"
 #include "sim/SimulatorObserver.h"
+#include "util/RNManager.h"
 #include "util/Subject.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -50,7 +51,7 @@ public:
         const DiseaseProfile GetDiseaseProfile() const { return m_disease_profile; }
 
         /// Check if the simulator is operational.
-        bool IsOperational() const { return GetDiseaseProfile().IsOperational(); }
+        bool IsOperational() const { return m_operational; }
 
         /// Change track_index_case setting.
         void SetTrackIndexCase(bool track_index_case) { m_track_index_case = track_index_case; }
@@ -74,7 +75,7 @@ private:
         std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
         LogMode::Id m_log_level;               ///< Specifies logging mode.
         std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
-
+        util::RNManager m_rnmanager;           ///< Random numbere generation management.
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
@@ -86,6 +87,7 @@ private:
 
         ContactProfiles m_contact_profiles; ///< Contact patterns.
         DiseaseProfile m_disease_profile;   ///< Profile of disease.
+        bool m_operational;                 ///< Gets to be false when invalid disease profile is specified.
 
         bool m_track_index_case; ///< General simulation or tracking index case.
 

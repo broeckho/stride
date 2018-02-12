@@ -28,30 +28,28 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-void DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
+bool DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
 {
         // Use a quadratic model, fitted to simulation data:
         // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
-        const auto r0{pt_config.get<double>("run.r0")};
-        const auto b0{pt_disease.get<double>("disease.transmission.b0")};
-        const auto b1{pt_disease.get<double>("disease.transmission.b1")};
-        const auto b2{pt_disease.get<double>("disease.transmission.b2")};
+        const auto r0 = pt_config.get<double>("run.r0");
+        const auto b0 = pt_disease.get<double>("disease.transmission.b0");
+        const auto b1 = pt_disease.get<double>("disease.transmission.b1");
+        const auto b2 = pt_disease.get<double>("disease.transmission.b2");
 
         // Find root
         const auto a = b2;
         const auto b = b1;
         const auto c = b0 - r0;
 
+        auto status = false;
         // To obtain a real values (instead of complex)
         if (r0 < (-(b * b) / (4 * a))) {
                 const double determ = (b * b) - 4 * a * c;
                 m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
-        } else {
-                cout << "ILLIGAL R0 VALUE" << endl;
-                cout << "MAX R0 VALUE: " << (-(b * b) / (4 * a)) << endl;
-                m_transmission_rate = 0;
-                m_is_operational = false;
+                status = true;
         }
+        return status;
 }
 
 } // namespace stride

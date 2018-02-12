@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -30,39 +29,41 @@ namespace util {
 
 using namespace std;
 
-struct AliasBlock
-{
-        double prob;
-        unsigned int alias;
-};
-
 /// Usage is very simple, construct with a vector of probabilities,
 /// then use as a distribution from the standard library (i.e. with operator()).
-class AliasDistribution
+class AliasSampler
 {
 public:
+        /// No default constructor.
+        AliasSampler() = delete;
+
         /// Construct the distribution using the method described here:
         /// http://keithschwarz.com/darts-dice-coins/
-        /// @param probs		A vector with length n.
-        AliasDistribution(const vector<double>& probs);
+        /// @param probabilities		A vector with length n.
+        explicit AliasSampler(const vector<double>& probabilities);
 
-        AliasDistribution() = delete;
-
-        ///
-        /// @param gen		A random generator conforming the standard operator() usage
+        /// Draw from the probability distribution.
+        /// @param gen		A random generator providing unsigned in and double01 draws.
         /// @return			A random (weighted) integer in [0, n)
-        template <typename RNG>
-        unsigned int operator()(RNG& gen)
+        template <typename RNG_ENGINE>
+        unsigned int operator()(RNG_ENGINE& gen)
         {
-                unsigned int i = m_diceroll(gen);
-                double c = g_coinflip(gen);
-                return c < m_blocks[i].prob ? i : m_blocks[i].alias;
+                const unsigned int i = m_diceroll(gen);
+                return m_coinflip(gen) < m_blocks[i].prob ? i : m_blocks[i].alias;
         }
 
-protected:
-        vector<AliasBlock> m_blocks;
-        uniform_int_distribution<unsigned int> m_diceroll;
-        static uniform_real_distribution<double> g_coinflip;
+private:
+        /// Structure used in the implementation.
+        struct AliasBlock
+        {
+                double prob;
+                unsigned int alias;
+        };
+
+private:
+        std::vector<AliasBlock> m_blocks;
+        std::uniform_int_distribution<unsigned int> m_diceroll;
+        std::uniform_real_distribution<double> m_coinflip;
 };
 
 } // namespace util

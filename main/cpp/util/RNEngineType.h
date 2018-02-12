@@ -11,36 +11,41 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Disease profile.
+ * Interface of RandomEngineType
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include <string>
 
 namespace stride {
+namespace RNEngineType {
 
-class DiseaseProfile
+/// Random number engine type ids. We use a subset of engines provided by the trng library.
+enum class Id
 {
-public:
-        /// Initialize.
-        DiseaseProfile() : m_transmission_rate(0.0), m_is_operational(true) {}
-
-        /// Return transmission rate.
-        double GetTransmissionRate() const { return m_transmission_rate; }
-
-        /// Check if the disease configuration was valid.
-        bool IsOperational() const { return m_is_operational; }
-
-        /// Initialize.
-        bool Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
-
-private:
-        double m_transmission_rate;
-        bool m_is_operational;
+        lcg64,
+        lcg64_shift,
+        mrg2,
+        mrg3,
+        yarn2,
+        yarn3,
 };
 
+/// Check whether type with name s exists.
+bool IsType(std::string s);
+
+/// Cast to size_t for indexing.
+inline std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
+
+/// Convert a type id to corresponding name.
+std::string ToString(Id b);
+
+/// Converts a string with name to Id.
+Id ToType(const std::string& s);
+
+} // namespace RNEngineType
 } // namespace stride

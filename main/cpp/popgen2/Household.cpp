@@ -32,10 +32,7 @@ Household::Household()
         g_id_generator++;
 }
 
-void Household::AddMember(std::size_t member_id)
-{
-        m_members.push_back(member_id);
-}
+void Household::AddMember(std::size_t member_id) { m_members.push_back(member_id); }
 
 void Household::SetCityID(std::size_t city_id) { m_city_id = city_id; }
 

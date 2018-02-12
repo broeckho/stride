@@ -39,8 +39,8 @@ public:
         Society() = default;
 
         ///
-        Society(std::vector<GeneratorPerson> persons, std::vector<City> cities,
-                std::vector<Community> communities, std::vector<Household> households)
+        Society(std::vector<GeneratorPerson> persons, std::vector<City> cities, std::vector<Community> communities,
+                std::vector<Household> households)
             : m_persons(std::move(persons)), m_cities(std::move(cities)), m_communities(std::move(communities)),
               m_households(std::move(households))
         {

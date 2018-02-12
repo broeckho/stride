@@ -169,7 +169,7 @@ void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& Househol
         size_t id_counter = 1;
         while (m_persons.size() < maxPersons) {
                 Household h;
-                for (unsigned int age : household_age_sampler.SampleCref()) {
+                for (unsigned int age : household_age_sampler.Sample()) {
                         GeneratorPerson p(id_counter++);
                         p.SetAge(age);
                         p.SetHouseholdID(h.GetID());
@@ -367,16 +367,20 @@ void SocietyGenerator::LocateCommunity()
                 unsigned int size = 1U;
                 switch (comm.first) {
                 case CommunityType::School: {
-                        size = m_school_size; break;
+                        size = m_school_size;
+                        break;
                 }
                 case CommunityType::University: {
-                        size = m_univ_size; break;
+                        size = m_univ_size;
+                        break;
                 }
                 case CommunityType::Work: {
-                        size = m_work_size; break;
+                        size = m_work_size;
+                        break;
                 }
                 case CommunityType::Primary: {
-                        size = m_comm_size; break;
+                        size = m_comm_size;
+                        break;
                 }
                 case CommunityType::Secondary: {
                         size = m_comm_size;

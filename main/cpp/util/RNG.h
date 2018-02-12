@@ -15,7 +15,6 @@
  *  Copyright 2017, De Pauw J, Draulans S, Leys T, Truyts T, Van Leeuwen L
  */
 
-
 // Engines
 #include <trng/lcg64.hpp>
 #include <trng/lcg64_shift.hpp>
@@ -60,21 +59,21 @@ public:
         RNG(unsigned long seed = 0)
         {
                 m_engine.seed(seed);
-                m_uniform_dist = trng::uniform01_dist<double>();
+                m_dist = trng::uniform01_dist<double>();
         }
 
         ///
         RNG(ENGINE& engine)
         {
                 m_engine = engine;
-                m_uniform_dist = trng::uniform01_dist<double>();
+                m_dist = trng::uniform01_dist<double>();
         }
 
         ///
         void Seed(const unsigned long seed) final { m_engine.seed(seed); }
 
-        /// Get random double.
-        double NextDouble() { return m_uniform_dist(m_engine); }
+        /// Get random double in [0.0, 1.0[.
+        double NextDouble01() { return m_dist(m_engine); }
 
         /// Get random unsigned int from [0, max[.
         virtual unsigned int operator()(unsigned int max)
@@ -88,8 +87,8 @@ public:
         void Split(unsigned int total, unsigned int id) { m_engine.split(total, id); }
 
 private:
-        ENGINE m_engine;                               ///< The random number engine.
-        trng::uniform01_dist<double> m_uniform_dist;   ///< The random distribution.
+        ENGINE m_engine;                     ///< The random number engine.
+        trng::uniform01_dist<double> m_dist; ///< The random distribution.
 };
 
 std::string RNGvalidate(const std::string& id);

@@ -52,8 +52,8 @@ public:
         stride::util::CSV WriteHouseholds(const boost::filesystem::path& out);
 
 private:
-        const Society& m_society;      ///< The society
-        const bool m_use_xy;           ///< Whether to use cartesian or polar coordinates.
+        const Society& m_society; ///< The society
+        const bool m_use_xy;      ///< Whether to use cartesian or polar coordinates.
 };
 
 } // namespace generator

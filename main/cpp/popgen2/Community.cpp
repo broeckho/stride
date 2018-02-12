@@ -24,7 +24,7 @@ namespace generator {
 
 using namespace std;
 
-//size_t Community::g_id_generator = 1;
+// size_t Community::g_id_generator = 1;
 
 Community::Community(CommunityType community_type, size_t city_id, unsigned int size)
     : m_community_type(community_type), m_city_id(city_id), m_size(size)
@@ -40,7 +40,7 @@ Community::Community(size_t id, CommunityType community_type, size_t city_id, un
 }
 size_t& Community::UIDgenerator()
 {
-        static size_t id = 1;  // First id is 1! Needs to be as 0 implies "absent from community".
+        static size_t id = 1; // First id is 1! Needs to be as 0 implies "absent from community".
         return id;
 }
 

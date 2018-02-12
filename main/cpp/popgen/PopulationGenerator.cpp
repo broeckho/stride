@@ -145,7 +145,7 @@ void PopulationGenerator<U>::writeCities(const string& target_cities)
                            "\"longitude\"\n";
 
                 uint provinces = m_props.get<uint>("population.<xmlattr>.provinces");
-                AliasDistribution dist{vector<double>(provinces, 1.0 / provinces)};
+                AliasSampler dist{vector<double>(provinces, 1.0 / provinces)};
 
                 auto printCityData = [&](const SimpleCity& to_print) {
                         my_file << to_print.m_current_size / total_pop << ",0,0," << to_print.m_coord.m_latitude << ","
@@ -232,12 +232,9 @@ void PopulationGenerator<U>::writeClusters(const string& target_clusters) const
         if (my_file.is_open()) {
                 my_file << "\"cluster_id\",\"cluster_type\",\"latitude\",\"longitude\"\n";
 
-                vector<ClusterType::Id> types{ClusterType::Id::Household,
-                                              ClusterType::Id::School,
-                                              ClusterType::Id::Work,
-                                              ClusterType::Id::PrimaryCommunity,
-                                              ClusterType::Id::SecondaryCommunity,
-                                              ClusterType::Id::Null};
+                vector<ClusterType::Id> types{ClusterType::Id::Household, ClusterType::Id::School,
+                                              ClusterType::Id::Work, ClusterType::Id::PrimaryCommunity,
+                                              ClusterType::Id::SecondaryCommunity};
 
                 for (auto& cluster_type : types) {
                         uint current_id = 1;
@@ -246,7 +243,6 @@ void PopulationGenerator<U>::writeClusters(const string& target_clusters) const
                                 my_file << current_id << "," << ToString(cluster_type) << ","
                                         << m_locations.at(make_pair(cluster_type, current_id)).m_latitude << ","
                                         << m_locations.at(make_pair(cluster_type, current_id)).m_longitude << endl;
-
                                 ++current_id;
                         }
                 }
@@ -464,7 +460,7 @@ void PopulationGenerator<U>::makeHouseholds()
         uint current_generated = 0;
 
         /// Uniformly choose between the given family configurations
-        AliasDistribution dist{vector<double>(family_config.size(), 1.0 / family_config.size())};
+        AliasSampler dist{vector<double>(family_config.size(), 1.0 / family_config.size())};
         while (current_generated < m_total) {
                 if (m_output)
                         cerr << "\rGenerating households ["
@@ -619,7 +615,7 @@ void PopulationGenerator<U>::makeVillages()
         }
 
         /// Depending on the relative occurrence of a village, choose this village
-        AliasDistribution village_type_dist{fractions};
+        AliasSampler village_type_dist{fractions};
         const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
         while (unassigned_population > 0) {
                 if (m_output)
@@ -632,7 +628,7 @@ void PopulationGenerator<U>::makeVillages()
                 MinMax village_pop = boundaries.at(village_type_index);
                 uint range_interval_size = village_pop.max - village_pop.min + 1;
 
-                AliasDistribution village_size_dist{vector<double>(range_interval_size, 1.0 / range_interval_size)};
+                AliasSampler village_size_dist{vector<double>(range_interval_size, 1.0 / range_interval_size)};
                 uint village_size = village_size_dist(m_rng) + village_pop.min;
 
                 SimpleCluster new_village;
@@ -679,7 +675,7 @@ void PopulationGenerator<U>::placeHouseholds()
                 fractions.push_back(double(village.m_max_size) / double(total_pop));
         }
 
-        AliasDistribution village_city_dist{fractions};
+        AliasSampler village_city_dist{fractions};
         int i = 0;
         for (SimpleHousehold& household : m_households) {
                 if (m_output)
@@ -927,11 +923,11 @@ void PopulationGenerator<U>::assignToSchools()
                                 current_radius *= factor;
                         }
 
-                        AliasDistribution cluster_dist{vector<double>(closest_clusters_indices.size(),
-                                                                      1.0 / double(closest_clusters_indices.size()))};
+                        AliasSampler cluster_dist{vector<double>(closest_clusters_indices.size(),
+                                                                 1.0 / double(closest_clusters_indices.size()))};
                         uint index = closest_clusters_indices.at(cluster_dist(m_rng));
 
-                        AliasDistribution inner_cluster_dist{
+                        AliasSampler inner_cluster_dist{
                             vector<double>(m_mandatory_schools_clusters.at(index).size(),
                                            1.0 / m_mandatory_schools_clusters.at(index).size())};
                         uint index2 = inner_cluster_dist(m_rng);
@@ -955,8 +951,8 @@ void PopulationGenerator<U>::assignToUniversities()
         double commute_fraction = university_config.get<double>("far.<xmlattr>.fraction") / 100.0;
         double radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
 
-        AliasDistribution commute_dist{{commute_fraction, 1.0 - commute_fraction}};
-        AliasDistribution student_dist{{student_fraction, 1.0 - student_fraction}};
+        AliasSampler commute_dist{{commute_fraction, 1.0 - commute_fraction}};
+        AliasSampler student_dist{{student_fraction, 1.0 - student_fraction}};
 
         uint total = 0;
         uint total_placed = 0;
@@ -1089,7 +1085,7 @@ void PopulationGenerator<U>::assignCloseStudent(SimplePerson& person, double sta
                 closest_clusters_indices = getClustersWithinRange(current_radius, distance_map, person.m_coord);
 
                 if (closest_clusters_indices.size() != 0) {
-                        AliasDistribution dist{
+                        AliasSampler dist{
                             vector<double>(closest_clusters_indices.size(), 1.0 / closest_clusters_indices.size())};
 
                         uint index = dist(m_rng);
@@ -1129,8 +1125,8 @@ void PopulationGenerator<U>::assignToWork()
         double commute_fraction = work_config.get<double>("far.<xmlattr>.fraction") / 100.0;
         double radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
 
-        AliasDistribution unemployment_dist{{unemployment_rate, 1.0 - unemployment_rate}};
-        AliasDistribution commute_dist{{commute_fraction, 1.0 - commute_fraction}};
+        AliasSampler unemployment_dist{{unemployment_rate, 1.0 - unemployment_rate}};
+        AliasSampler commute_dist{{commute_fraction, 1.0 - commute_fraction}};
 
         uint total = 0;
         uint total_placed = 0;
@@ -1213,7 +1209,7 @@ bool PopulationGenerator<U>::assignCloseEmployee(SimplePerson& person, double st
                 current_radius *= factor;
         }
 
-        AliasDistribution dist{
+        AliasSampler dist{
             vector<double>(closest_clusters_indices.size(), 1.0 / double(closest_clusters_indices.size()))};
         uint rnd = dist(m_rng);
         auto index = closest_clusters_indices.at(rnd);
@@ -1258,7 +1254,7 @@ void PopulationGenerator<U>::assignToCommunities(vector<pair<GeoCoordinate, map<
                         current_radius *= factor;
                 }
 
-                AliasDistribution dist{
+                AliasSampler dist{
                     vector<double>(closest_clusters_indices.size(), 1.0 / double(closest_clusters_indices.size()))};
                 uint index = closest_clusters_indices.at(dist(m_rng));
                 SimpleCluster& community = clusters.at(index);

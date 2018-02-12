@@ -118,7 +118,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         v.Apply("vaccine");
 
         // Initialize disease profile.
-        sim->m_disease_profile.Initialize(pt_config, pt_disease);
+        sim->m_operational = sim->m_disease_profile.Initialize(pt_config, pt_disease);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -145,12 +145,18 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                 sim->m_rng_handler.emplace_back(RngHandler(new_seed, sim->m_num_threads, static_cast<unsigned int>(i)));
         }
 
+        // Initialize RNManager.
+        const auto rng_seed = pt_config.get<unsigned long>("run.rng_seed", 1UL);
+        const auto rng_type = pt_config.get<string>("run.rng_type", "mrg2");
+        const RNManager::Info info{rng_seed, "", sim->m_num_threads, rng_type};
+        sim->m_rnmanager.Initialize(info);
+
         // Done.
         return sim;
 }
 
 /// Initialize the clusters.
-void SimulatorBuilder::InitializeClusters(shared_ptr<Simulator> sim)
+void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
 {
         // Determine the number of clusters.
         unsigned int max_id_households{0U};

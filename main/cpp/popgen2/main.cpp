@@ -19,6 +19,7 @@
  * Main program for the society generator.
  */
 
+#include "AliasMethod.h"
 #include "SocietyCSVWriter.h"
 #include "SocietyGenerator.h"
 #include "util/ConfigInfo.h"

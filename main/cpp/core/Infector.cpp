@@ -114,7 +114,7 @@ public:
 // And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
 template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_profile, ContactHandler contact_handler,
                                       shared_ptr<const Calendar> calendar)
 {
         using LP = LOG_POLICY<LL>;
@@ -176,8 +176,8 @@ void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_p
 // Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <LogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& ch,
-                                                       shared_ptr<const Calendar> calendar)
+void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, DiseaseProfile disease_profile,
+                                                       ContactHandler ch, shared_ptr<const Calendar> calendar)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;

@@ -32,9 +32,7 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-//#include <iostream>
 #include <map>
-//#include <memory>
 #include <string>
 #include <tuple>
 #include <vector>
@@ -106,15 +104,15 @@ private:
         void ReadGenerateCities();
 
 private:
-        std::map<std::size_t, City> m_cities_map;                                                ///< Location map.
-        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>> m_communities;    ///< Location map.
-        std::map<std::size_t, int> m_community_sizes;                                            ///< Coomunity sizes.
-        boost::property_tree::ptree m_config;                                                    ///< Configuration.
-        std::vector<Household> m_households;                                                     ///< Households.
-        std::map<std::size_t, GeneratorPerson> m_persons;                                        ///< Persons.
-        std::shared_ptr<util::RNGInterface> m_rng;                                               ///< RNG engine.
+        std::map<std::size_t, City> m_cities_map;                                             ///< Location map.
+        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>> m_communities; ///< Location map.
+        std::map<std::size_t, int> m_community_sizes;                                         ///< Coomunity sizes.
+        boost::property_tree::ptree m_config;                                                 ///< Configuration.
+        std::vector<Household> m_households;                                                  ///< Households.
+        std::map<std::size_t, GeneratorPerson> m_persons;                                     ///< Persons.
+        std::shared_ptr<util::RNGInterface> m_rng;                                            ///< RNG engine.
 private:
-        unsigned int m_num_threads;                                                              ///< OpenMP threads.
+        unsigned int m_num_threads; ///< OpenMP threads.
 
 private:
         unsigned int m_comm_size;

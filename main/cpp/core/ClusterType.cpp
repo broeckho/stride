@@ -29,35 +29,44 @@ namespace ClusterType {
 using namespace std;
 using boost::to_upper;
 
-string ToString(Id c)
+bool IsType(const string& s)
 {
-
-        map<Id, string> cluster_names{
-            make_pair(Id::Household, "household"),
-            make_pair(Id::School, "school"),
-            make_pair(Id::Work, "work"),
-            make_pair(Id::PrimaryCommunity, "primary_community"),
-            make_pair(Id::SecondaryCommunity, "secondary_community"),
-        };
-        return (cluster_names.count(c) == 1) ? cluster_names[c] : "null";
-}
-
-bool IsType(const string& s) { return (ToType(s) != Id::Null); }
-
-Id ToType(const string& s)
-{
-
-        static map<string, Id> cluster_ids{
+        static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
             make_pair("SCHOOL", Id::School),
             make_pair("WORK", Id::Work),
             make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
             make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
         };
-
-        std::string t{s};
+        string t{s};
         to_upper(t);
-        return (cluster_ids.count(t) == 1) ? cluster_ids[t] : Id::Null;
+        return (ids.count(t) == 1);
+}
+
+string ToString(Id c)
+{
+        static map<Id, string> names{
+            make_pair(Id::Household, "household"),
+            make_pair(Id::School, "school"),
+            make_pair(Id::Work, "work"),
+            make_pair(Id::PrimaryCommunity, "primary_community"),
+            make_pair(Id::SecondaryCommunity, "secondary_community"),
+        };
+        return (names.count(c) == 1) ? names[c] : "null";
+}
+
+Id ToType(const string& s)
+{
+        static map<string, Id> ids{
+            make_pair("HOUSEHOLD", Id::Household),
+            make_pair("SCHOOL", Id::School),
+            make_pair("WORK", Id::Work),
+            make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
+            make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
+        };
+        string t{s};
+        to_upper(t);
+        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ClusterType::ToString> not available:" + t);
 }
 
 } // namespace ClusterType

@@ -55,8 +55,8 @@ public:
         /// Samples an index from the AliasMethod. Indices are assigned in order of addition to the table.
         unsigned int SampleIndex();
 
-        /// Samples from the AliasMethod and returns a const reference to the sampled item.
-        const T& SampleCref();
+        /// Sample and return a const reference to the sampled item.
+        const T& Sample();
 
         /// Samples from the AliasMethod and returns a copy of the sampled item.
         T SampleValue();
@@ -64,16 +64,13 @@ public:
         ///
         std::tuple<unsigned int, T> SampleIndexValue();
 
-        // TODO: Move this.
-        /// Utility value.
-        const static double RAND_MAX_double;
-
 private:
-        /// Random int in [0, n)
-        inline unsigned int RandomIndex() { return m_rng(static_cast<unsigned int>(m_original_table.size())); }
+public:
+        /// Random unsigned int in [0, n)
+        unsigned int RandomIndex() { return m_rng(static_cast<unsigned int>(m_original_table.size())); }
 
         /// Random double in [0, 1]
-        inline double RandomFraction() { return m_rng.NextDouble() / RAND_MAX_double; }
+        double Random01() { return m_rng.NextDouble01(); }
 
 private:
         unsigned long m_seed;                            ///< RNG seed.

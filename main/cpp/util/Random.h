@@ -31,6 +31,7 @@ namespace util {
 /**
  * The random number generator.
  */
+
 class Random
 {
 public:
@@ -67,8 +68,8 @@ public:
         }
 
 private:
-        trng::mrg2 m_engine;                              ///< The random number engine.
-        trng::uniform01_dist<double> m_uniform_dist;      ///< The random distribution.
+        trng::mrg2 m_engine;                         ///< The random number engine.
+        trng::uniform01_dist<double> m_uniform_dist; ///< The random distribution.
 };
 
 } // namespace util

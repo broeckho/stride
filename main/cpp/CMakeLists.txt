@@ -41,7 +41,6 @@ set(LIB_SRC
     pop/PopulationBuilder.cpp
 #---
 	popgen/FamilyParser.cpp
-	popgen/PopulationGenerator.cpp
     popgen/utils.cpp
 	popgen/geo/GeoCoordinate.cpp
 	popgen/geo/GeoCoordCalculator.cpp
@@ -63,12 +62,14 @@ set(LIB_SRC
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
 #---
-    util/AliasDistribution.cpp
+    util/AliasSampler.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileUtils.cpp
 	util/InstallDirs.cpp
     util/RNG.cpp
+    util/RNManager.cpp
+    util/RNEngineType.cpp
 )
 
 #============================================================================

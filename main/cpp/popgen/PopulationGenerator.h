@@ -22,7 +22,7 @@
 #include "core/ClusterType.h"
 #include "geo/GeoCoordCalculator.h"
 #include "popgen/utils.h"
-#include "util/AliasDistribution.h"
+#include "util/AliasSampler.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -110,12 +110,10 @@ private:
                                                                                const vector<T>& clusters) const
         {
                 vector<pair<GeoCoordinate, map<double, vector<uint>>>> distance_map;
-
                 const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
 
                 if (m_output)
                         cerr << "Building distance map for the next cluster type [0%]";
-
                 uint done = 0;
                 uint total = m_cities.size() + m_villages.size();
 
@@ -123,15 +121,11 @@ private:
                         if (m_output)
                                 cerr << "\rBuilding distance map for the next cluster type [" << done / total << "%]";
                         ++done;
-
                         double current_radius = radius;
                         uint used_clusters = 0;
                         vector<bool> clusters_used = vector<bool>(clusters.size(), false);
-
                         distance_map.push_back(make_pair(city.m_coord, map<double, vector<uint>>()));
-
                         while (used_clusters != clusters.size()) {
-
                                 for (uint i = 0; i < clusters.size(); ++i) {
                                         if ((!clusters_used.at(i)) &&
                                             calc.getDistance(city.m_coord, clusters.at(i).m_coord) <= current_radius) {
@@ -140,7 +134,6 @@ private:
                                                 ++used_clusters;
                                         }
                                 }
-
                                 current_radius *= factor;
                         }
                 }
@@ -149,15 +142,11 @@ private:
                         if (m_output)
                                 cerr << "\rBuilding distance map for the next cluster type [" << done / total << "%]";
                         ++done;
-
                         double current_radius = radius;
                         uint used_clusters = 0;
                         vector<bool> clusters_used = vector<bool>(clusters.size(), false);
-
                         distance_map.push_back(make_pair(village.m_coord, map<double, vector<uint>>()));
-
                         while (used_clusters != clusters.size()) {
-
                                 for (uint i = 0; i < clusters.size(); ++i) {
                                         if (!clusters_used.at(i) &&
                                             calc.getDistance(village.m_coord, clusters.at(i).m_coord) <=
@@ -167,7 +156,6 @@ private:
                                                 ++used_clusters;
                                         }
                                 }
-
                                 current_radius *= factor;
                         }
                 }
@@ -185,19 +173,13 @@ private:
                                                                                const vector<vector<T>>& clusters) const
         {
                 vector<pair<GeoCoordinate, map<double, vector<uint>>>> distance_map;
-
                 const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
-
                 for (auto& city : m_cities) {
-
                         double current_radius = radius;
                         uint used_clusters = 0;
                         vector<bool> clusters_used = vector<bool>(clusters.size(), false);
-
                         distance_map.push_back(make_pair(city.m_coord, map<double, vector<uint>>()));
-
                         while (used_clusters != clusters.size()) {
-
                                 for (uint i = 0; i < clusters.size(); ++i) {
                                         if ((!clusters_used.at(i)) &&
                                             calc.getDistance(city.m_coord, clusters.at(i).front().m_coord) <=
@@ -207,19 +189,15 @@ private:
                                                 ++used_clusters;
                                         }
                                 }
-
                                 current_radius *= factor;
                         }
                 }
 
                 for (auto& village : m_villages) {
-
                         double current_radius = radius;
                         uint used_clusters = 0;
                         vector<bool> clusters_used = vector<bool>(clusters.size(), false);
-
                         distance_map.push_back(make_pair(village.m_coord, map<double, vector<uint>>()));
-
                         while (used_clusters != clusters.size()) {
 
                                 for (uint i = 0; i < clusters.size(); ++i) {
@@ -231,7 +209,6 @@ private:
                                                 ++used_clusters;
                                         }
                                 }
-
                                 current_radius *= factor;
                         }
                 }
@@ -249,13 +226,11 @@ private:
                 for (auto& coord_map_pair : distance_map) {
                         if (coord_map_pair.first == coordinate) {
                                 vector<uint> result;
-
                                 for (auto it = coord_map_pair.second.begin(); it != coord_map_pair.second.end(); ++it) {
                                         if (it->first <= radius) {
                                                 result.insert(result.end(), it->second.begin(), it->second.end());
                                         }
                                 }
-
                                 return result;
                         }
                 }
@@ -285,7 +260,6 @@ private:
                 }
 
                 people = ceil(fraction * people);
-
                 uint needed_clusters = ceil(double(people) / size);
                 uint city_village_size = getCityPopulation() + getVillagePopulation();
 
@@ -301,7 +275,7 @@ private:
                         fractions.push_back(double(village.m_max_size) / double(city_village_size));
                 }
 
-                AliasDistribution dist{fractions};
+                AliasSampler dist{fractions};
                 for (uint i = 0; i < needed_clusters; i++) {
                         if (m_output)
                                 cerr << "\rPlacing " << cluster_name << " ["
@@ -354,21 +328,6 @@ private:
 
         /// Make the communities
         void makeCommunities();
-
-        /// Get all clusters within a certain radius of the given point, choose those clusters from the given vector of
-        /// clusters
-        template <typename T>
-        vector<uint> getClusters(GeoCoordinate coord, double radius, const vector<T>& clusters) const
-        {
-                vector<uint> result;
-                const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
-                for (uint i = 0; i < clusters.size(); i++) {
-                        if (calc.getDistance(coord, clusters.at(i).m_coord) <= radius) {
-                                result.push_back(i);
-                        }
-                }
-                return result;
-        }
 
         /// Put children in mandatory schools
         void assignToSchools();
@@ -431,7 +390,6 @@ private:
         uint m_next_id; /// > The next id for the next cluster/school/... ID's are supposed to be unique
 
         /// Data for visualisation
-        // TODO: population density still missing, not sure what to expect
         map<uint, uint> m_age_distribution; /// > The age distribution (histogram)
         map<uint, uint> m_household_size;   /// > The household size (histogram)
         map<uint, uint> m_work_size;        /// > The size of workplaces (histogram)

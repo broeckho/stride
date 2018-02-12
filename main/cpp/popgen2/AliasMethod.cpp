@@ -24,8 +24,7 @@
 namespace stride {
 namespace generator {
 
-template <typename T>
-const double AliasMethod<T>::RAND_MAX_double = static_cast<double>(RAND_MAX);
+using namespace std;
 
 template <typename T>
 AliasMethod<T>::AliasMethod(unsigned long seed) : m_seed(seed)
@@ -67,7 +66,6 @@ void AliasMethod<T>::BuildSampler()
                 return;
         }
         m_alias_table.resize(table_size);
-
 
         std::vector<bool> has_alias_table(table_size, false);
 
@@ -112,13 +110,12 @@ void AliasMethod<T>::BuildSampler()
 template <typename T>
 unsigned int AliasMethod<T>::SampleIndex()
 {
-        assert(m_was_built);
-        unsigned int index = RandomIndex();
-        return RandomFraction() < m_prob_table[index] ? index : m_alias_table[index];
+        const unsigned int index = RandomIndex();
+        return Random01() < m_prob_table[index] ? index : m_alias_table[index];
 }
 
 template <typename T>
-const T& AliasMethod<T>::SampleCref()
+const T& AliasMethod<T>::Sample()
 {
         return m_value_map[SampleIndex()];
 }
@@ -130,14 +127,14 @@ T AliasMethod<T>::SampleValue()
 }
 
 template <typename T>
-std::tuple<unsigned int, T> AliasMethod<T>::SampleIndexValue()
+tuple<unsigned int, T> AliasMethod<T>::SampleIndexValue()
 {
         unsigned int index = SampleIndex();
         T value = m_value_map[index];
         return std::make_tuple(index, value);
 }
 
-template class AliasMethod<std::vector<unsigned int, std::allocator<unsigned int>>>;
+template class AliasMethod<std::vector<unsigned int>>;
 template class AliasMethod<size_t>;
 
 } // namespace generator

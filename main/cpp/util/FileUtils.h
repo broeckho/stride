@@ -46,4 +46,3 @@ const boost::filesystem::path checkFile(const boost::filesystem::path& filename,
 
 } // namespace util
 } // namespace stride
-
