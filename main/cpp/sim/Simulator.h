@@ -20,7 +20,7 @@
  */
 
 #include "calendar/Calendar.h"
-#include "core/Cluster.h"
+#include "core/ContactPool.h"
 #include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
@@ -77,11 +77,11 @@ private:
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
-        std::vector<Cluster> m_households;          ///< Container with household Clusters.
-        std::vector<Cluster> m_school_clusters;     ///< Container with school Clusters.
-        std::vector<Cluster> m_work_clusters;       ///< Container with work Clusters.
-        std::vector<Cluster> m_primary_community;   ///< Container with primary community Clusters.
-        std::vector<Cluster> m_secondary_community; ///< Container with secondary community  Clusters.
+        std::vector<ContactPool> m_households;          ///< Container with household Clusters.
+        std::vector<ContactPool> m_school_clusters;     ///< Container with school Clusters.
+        std::vector<ContactPool> m_work_clusters;       ///< Container with work Clusters.
+        std::vector<ContactPool> m_primary_community;   ///< Container with primary community Clusters.
+        std::vector<ContactPool> m_secondary_community; ///< Container with secondary community  Clusters.
 
         ContactProfiles m_contact_profiles; ///< Contact patterns.
         DiseaseProfile  m_disease_profile;  ///< Profile of disease.

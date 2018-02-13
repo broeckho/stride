@@ -19,7 +19,7 @@
  * Population generaton header.
  */
 
-#include "core/ClusterType.h"
+#include "core/ContactPoolType.h"
 #include "geo/GeoCoordCalculator.h"
 #include "popgen/utils.h"
 #include "util/AliasSampler.h"
@@ -247,7 +247,7 @@ private:
         /// minimum/maximum age)
         template <typename C>
         void placeClusters(uint size, uint min_age, uint max_age, double fraction, C& clusters, string cluster_name,
-                           ClusterType::Id cluster_type, bool add_location = true)
+                           ContactPoolType::Id cluster_type, bool add_location = true)
         {
                 uint people = 0;
 
@@ -394,9 +394,9 @@ private:
         map<uint, uint> m_household_size;   /// > The household size (histogram)
         map<uint, uint> m_work_size;        /// > The size of workplaces (histogram)
 
-        map<pair<ClusterType::Id, uint>, GeoCoordinate> m_locations; /// > The locations of clusters (a cluster is
-                                                                     /// identified by a type and an ID that is unique
-                                                                     /// within this type)
+        map<pair<ContactPoolType::Id, uint>, GeoCoordinate> m_locations; /// > The locations of clusters (a cluster is
+                                                                         /// identified by a type and an ID that is
+                                                                         /// unique within this type)
 };
 
 } // namespace popgen

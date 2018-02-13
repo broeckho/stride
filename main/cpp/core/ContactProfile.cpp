@@ -25,10 +25,10 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-ContactProfile::ContactProfile(ClusterType::Id cluster_type, const ptree& pt_contacts)
+ContactProfile::ContactProfile(ContactPoolType::Id cluster_type, const ptree& pt_contacts)
     : std::array<double, MaximumAge() + 1>()
 {
-        const string key{string("matrices.").append(ClusterType::ToString(cluster_type))};
+        const string key{string("matrices.").append(ContactPoolType::ToString(cluster_type))};
         unsigned int i = 0U;
         for (const auto& participant : pt_contacts.get_child(key)) {
                 double total_contacts = 0;

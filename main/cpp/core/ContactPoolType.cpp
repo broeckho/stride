@@ -18,13 +18,13 @@
  * Implementation of ClusterType.
  */
 
-#include "ClusterType.h"
+#include "ContactPoolType.h"
 
 #include <boost/algorithm/string.hpp>
 #include <map>
 
 namespace stride {
-namespace ClusterType {
+namespace ContactPoolType {
 
 using namespace std;
 using boost::to_upper;
@@ -66,8 +66,8 @@ Id ToType(const string& s)
         };
         string t{s};
         to_upper(t);
-        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ClusterType::ToString> not available:" + t);
+        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToString> not available:" + t);
 }
 
-} // namespace ClusterType
+} // namespace ContactPoolType
 } // namespace stride

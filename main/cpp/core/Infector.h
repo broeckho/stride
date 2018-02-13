@@ -30,7 +30,7 @@
 
 namespace stride {
 
-class Cluster;
+class ContactPool;
 
 /// Indicates whether optimized implementation may be used.
 /// \tparam LL          LogLevel
@@ -64,7 +64,7 @@ class Infector
 {
 public:
         ///
-        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, ContactHandler contact_handler,
+        static void Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
                          std::shared_ptr<const Calendar> calendar);
 };
 
@@ -76,7 +76,7 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, ContactHandler contact_handler,
+        static void Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
                          std::shared_ptr<const Calendar> calendar);
 };
 

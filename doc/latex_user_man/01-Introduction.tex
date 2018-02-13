@@ -27,13 +27,13 @@ and a possible workplace or school.
 
 
 We use a $Simulator$ class to organize the activities from the people in an $Area$. 
-The Area class has a $Population$, different $Cluster$ objects and a $Contact
+The Area class has a $Population$, different $ContactPool$ objects and a $Contact
 Handler$.
 The $Contact Handler$ performs Bernoulli trials to decide whether a contact
 between an infectious and susceptible person leads to disease transmission. 
 People transit through Susceptible-Exposed-Infected-Recovered states,
 similar to an influenza-like disease.
-Each $Cluster$ contains a link to its members and the $Population$ stores all personal
+Each $ContactPool$ contains a link to its members and the $Population$ stores all personal
 data, with $Person$ objects.
 The implementation is based on the open source model from Grefenstette et al. \cite{grefenstette2013}. 
 The household, workplace and school clusters are handled separately from the

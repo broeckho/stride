@@ -154,8 +154,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                                 p.ParticipateInSurvey();
                                 logger->info("[PART] {}", p.GetId());
                                 logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetClusterId(ClusterType::Id::School),
-                                             p.GetClusterId(ClusterType::Id::Work));
+                                             p.GetClusterId(ContactPoolType::Id::School),
+                                             p.GetClusterId(ContactPoolType::Id::Work));
                                 num_samples++;
                         }
                 }

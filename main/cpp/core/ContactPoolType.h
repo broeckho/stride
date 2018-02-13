@@ -23,7 +23,7 @@
 #include <string>
 
 namespace stride {
-namespace ClusterType {
+namespace ContactPoolType {
 
 /// Enumerates the cluster types.
 enum class Id
@@ -50,5 +50,5 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
-} // namespace ClusterType
+} // namespace ContactPoolType
 } // namespace stride

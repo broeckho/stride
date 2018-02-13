@@ -19,7 +19,7 @@
  * Contact profile.
  */
 
-#include "core/ClusterType.h"
+#include "core/ContactPoolType.h"
 #include "pop/Age.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -34,7 +34,7 @@ public:
         ContactProfile() = default;
 
         /// Explicitly initialize
-        ContactProfile(ClusterType::Id cluster_type, const boost::property_tree::ptree& pt_contacts);
+        ContactProfile(ContactPoolType::Id cluster_type, const boost::property_tree::ptree& pt_contacts);
 };
 
 } // namespace stride

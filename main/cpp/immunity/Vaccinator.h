@@ -19,7 +19,7 @@
  * Header for the Vaccinator class.
  */
 
-#include "core/Cluster.h"
+#include "core/ContactPool.h"
 #include "sim/Simulator.h"
 #include "util/RNManager.h"
 

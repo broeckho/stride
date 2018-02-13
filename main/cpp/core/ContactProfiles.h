@@ -19,12 +19,12 @@
  * Contact profiles stored in simulator.
  */
 
-#include "core/ClusterType.h"
+#include "core/ContactPoolType.h"
 #include "core/ContactProfile.h"
 #include <array>
 
 namespace stride {
 
-using ContactProfiles = std::array<ContactProfile, ClusterType::NumOfTypes()>;
+using ContactProfiles = std::array<ContactProfile, ContactPoolType::NumOfTypes()>;
 
 } // namespace stride

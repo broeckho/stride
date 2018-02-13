@@ -18,7 +18,7 @@
   }
 }
 
-%include "./clustertype.i";
+%include "./contactpooltype.i";
 %include "./health.i";
 %include "./population.i";
 %include "./simulatorobserver.i";

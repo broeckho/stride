@@ -57,7 +57,7 @@ public:
         {
                 std::cout << "Applying cocoon immunity profile" << std::endl;
                 /*
-                 * void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immunity_rate, double
+                 * void Vaccinator::AdministerCocoon(const vector<ContactPool>& clusters, double immunity_rate, double
 adult_age_min, double adult_age_max, double child_age_min, double child_age_max)
 {
         // Sampler for double in [0.0, 1.0).
@@ -121,7 +121,7 @@ void Vaccinator::Administer(std::string immunity_type, std::string immunization_
 } // namespace stride
 
 /*
-void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& immunity_distribution,
+void Vaccinator::Administer(const vector<ContactPool>& clusters, vector<double>& immunity_distribution,
                             double immunity_link_probability)
 {
         // Initialize a vector to count the population per age class [0-100].
@@ -159,7 +159,7 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
         // Sample susceptible individuals, until all age-dependent quota are reached.
         while (total_num_susceptible > 0) {
                 // random cluster, random order of members
-                const Cluster& p_cluster = clusters[int_generator()];
+                const ContactPool& p_cluster = clusters[int_generator()];
                 const auto size = static_cast<unsigned int>(p_cluster.GetSize());
                 vector<unsigned int> indices(size);
                 for (size_t i =0; i < size; i++) {
@@ -191,9 +191,9 @@ void Vaccinator::Apply(const string& s)
                 const double immunity_link_probability =
                     ((profile == "Cocoon") ? 1 : m_config.get<double>("run." + ToLower(s) + "_link_probability"));
 
-                vector<Cluster>* immunity_clusters = &m_sim->m_households; ///< The default case.
+                vector<ContactPool>* immunity_clusters = &m_sim->m_households; ///< The default case.
                 if (immunity_link_probability > 0) {
-                        using namespace ClusterType;
+                        using namespace ContactPoolType;
                         Id c_type = ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
                         switch (c_type) {
                         case Id::Household: immunity_clusters = &m_sim->m_households; break;

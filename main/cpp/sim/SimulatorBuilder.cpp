@@ -110,7 +110,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, sim->m_rn_manager);
 
         // Initialize contact profiles.
-        using Id                                                 = ClusterType::Id;
+        using Id                                                 = ContactPoolType::Id;
         sim->m_contact_profiles[ToSizeT(Id::Household)]          = ContactProfile(Id::Household, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::School)]             = ContactProfile(Id::School, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::Work)]               = ContactProfile(Id::Work, pt_contact);
@@ -163,7 +163,7 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
         unsigned int max_id_secondary_community{0U};
 
         Population& population{*sim->m_population};
-        using Id = ClusterType::Id;
+        using Id = ContactPoolType::Id;
 
         for (const auto& p : population) {
                 max_id_households          = max(max_id_households, p.GetClusterId(Id::Household));
@@ -177,27 +177,28 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
         unsigned int c_id = 1;
 
         for (size_t i = 0; i <= max_id_households; i++) {
-                sim->m_households.emplace_back(Cluster(c_id, Id::Household, sim->m_contact_profiles));
+                sim->m_households.emplace_back(ContactPool(c_id, Id::Household, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_school_clusters; i++) {
-                sim->m_school_clusters.emplace_back(Cluster(c_id, Id::School, sim->m_contact_profiles));
+                sim->m_school_clusters.emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_work_clusters; i++) {
-                sim->m_work_clusters.emplace_back(Cluster(c_id, Id::Work, sim->m_contact_profiles));
+                sim->m_work_clusters.emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_primary_community; i++) {
-                sim->m_primary_community.emplace_back(Cluster(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
+                sim->m_primary_community.emplace_back(ContactPool(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_secondary_community; i++) {
-                sim->m_secondary_community.emplace_back(Cluster(c_id, Id::SecondaryCommunity, sim->m_contact_profiles));
+                sim->m_secondary_community.emplace_back(
+                    ContactPool(c_id, Id::SecondaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
 
-        // Cluster id '0' means "not present in any cluster of that type".
+        // ContactPool id '0' means "not present in any cluster of that type".
         for (auto& p : population) {
                 const auto hh_id = p.GetClusterId(Id::Household);
                 if (hh_id > 0) {
