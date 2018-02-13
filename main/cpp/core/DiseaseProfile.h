@@ -40,7 +40,7 @@ public:
 
 private:
         double m_transmission_rate;
-        bool m_is_operational;
+        bool   m_is_operational;
 };
 
 } // namespace stride

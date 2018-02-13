@@ -88,10 +88,10 @@ public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
         {
-                const auto home = (cluster_type == ClusterType::Id::Household);
-                const auto work = (cluster_type == ClusterType::Id::Work);
-                const auto school = (cluster_type == ClusterType::Id::School);
-                const auto primary_community = (cluster_type == ClusterType::Id::PrimaryCommunity);
+                const auto home                = (cluster_type == ClusterType::Id::Household);
+                const auto work                = (cluster_type == ClusterType::Id::Work);
+                const auto school              = (cluster_type == ClusterType::Id::School);
+                const auto primary_community   = (cluster_type == ClusterType::Id::PrimaryCommunity);
                 const auto secundary_community = (cluster_type == ClusterType::Id::SecondaryCommunity);
 
                 logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
@@ -109,22 +109,22 @@ public:
 };
 
 /// Specialized LOG_POLICY policy LogMode::SusceptibleContacts.
-template<>
+template <>
 class LOG_POLICY<LogMode::Id::SusceptibleContacts>
 {
 public:
-    static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                        ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
-    {
-    		if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
-     		logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
-    		}
-    }
+        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                            ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+        {
+                if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
+                        logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
+                }
+        }
 
-    static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                             ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
-    {
-    }
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+                                 ClusterType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+        {
+        }
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -142,55 +142,57 @@ void Infector<LL, TIC, LIP, TO>::Exec(Cluster& cluster, DiseaseProfile disease_p
         cluster.UpdateMemberPresence();
 
         // set up some stuff
-        auto logger = spdlog::get("contact_logger");
-        const auto c_type = cluster.m_cluster_type;
+        auto        logger    = spdlog::get("contact_logger");
+        const auto  c_type    = cluster.m_cluster_type;
         const auto& c_members = cluster.m_members;
-        const auto t_rate = disease_profile.GetTransmissionRate();
+        const auto  t_rate    = disease_profile.GetTransmissionRate();
 
         // check all contacts
         for (size_t i_person1 = 0; i_person1 < c_members.size(); i_person1++) {
                 // check if member is present today
                 if (c_members[i_person1].second) {
-                        auto p1 = c_members[i_person1].first;
+                        auto         p1     = c_members[i_person1].first;
                         const double c_rate = cluster.GetContactRate(p1);
                         // loop over possible contacts (contacts can be initiated by each member)
                         for (size_t i_person2 = 0; i_person2 < c_members.size(); i_person2++) {
-                        		// check if not the same person
-                        		if (i_person1 != i_person2) {
-                        			// check if member is present today
-                        			if (c_members[i_person2].second) {
-                        				auto p2 = c_members[i_person2].first;
-                        				// check for contact
-                        				if (contact_handler.HasContact(c_rate)) {
-                        					// log contact if person 1 is participating in survey
-                        					if (p1->IsParticipatingInSurvey()) {
-                        						LP::Contact(logger, p1, p2, c_type, calendar);
-                        					}
-                        					// log contact if person 2 is participating in survey
-                        					if (p2->IsParticipatingInSurvey()) {
-                        						LP::Contact(logger, p2, p1, c_type, calendar);
-                        					}
+                                // check if not the same person
+                                if (i_person1 != i_person2) {
+                                        // check if member is present today
+                                        if (c_members[i_person2].second) {
+                                                auto p2 = c_members[i_person2].first;
+                                                // check for contact
+                                                if (contact_handler.HasContact(c_rate)) {
+                                                        // log contact if person 1 is participating in survey
+                                                        if (p1->IsParticipatingInSurvey()) {
+                                                                LP::Contact(logger, p1, p2, c_type, calendar);
+                                                        }
+                                                        // log contact if person 2 is participating in survey
+                                                        if (p2->IsParticipatingInSurvey()) {
+                                                                LP::Contact(logger, p2, p1, c_type, calendar);
+                                                        }
 
-                        					// exchange info about health state & beliefs
-                        					LIP::Update(p1, p2);
+                                                        // exchange info about health state & beliefs
+                                                        LIP::Update(p1, p2);
 
-                        					// transmission & infection.
-                        					if (contact_handler.HasTransmission(t_rate)) {
-                        						if (p1->GetHealth().IsInfectious() &&
-                        						 	p2->GetHealth().IsSusceptible()) {
-                        							LP::Transmission(logger, p1, p2, c_type, calendar);
-                                                 p2->GetHealth().StartInfection();
-                                                 RP::Exec(p2);
-                        						} else if (p2->GetHealth().IsInfectious() &&
-                        								   p1->GetHealth().IsSusceptible()) {
-                                                 LP::Transmission(logger, p2, p1, c_type, calendar);
-                                                 p1->GetHealth().StartInfection();
-                                                 RP::Exec(p1);
-                        						}
-                        					}
-                        				}
-                        			}
-                        		}
+                                                        // transmission & infection.
+                                                        if (contact_handler.HasTransmission(t_rate)) {
+                                                                if (p1->GetHealth().IsInfectious() &&
+                                                                    p2->GetHealth().IsSusceptible()) {
+                                                                        LP::Transmission(logger, p1, p2, c_type,
+                                                                                         calendar);
+                                                                        p2->GetHealth().StartInfection();
+                                                                        RP::Exec(p2);
+                                                                } else if (p2->GetHealth().IsInfectious() &&
+                                                                           p1->GetHealth().IsSusceptible()) {
+                                                                        LP::Transmission(logger, p2, p1, c_type,
+                                                                                         calendar);
+                                                                        p1->GetHealth().StartInfection();
+                                                                        RP::Exec(p1);
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
                         }
                 }
         }
@@ -207,7 +209,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, Disease
         using RP = R0_POLICY<TIC>;
 
         // check if the cluster has infected members and sort
-        bool infectious_cases;
+        bool   infectious_cases;
         size_t num_cases;
         tie(infectious_cases, num_cases) = cluster.SortMembers();
 
@@ -215,11 +217,11 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, Disease
                 cluster.UpdateMemberPresence();
 
                 // set up some stuff
-                auto logger = spdlog::get("contact_logger");
-                const auto c_type = cluster.m_cluster_type;
-                const auto c_immune = cluster.m_index_immune;
+                auto        logger    = spdlog::get("contact_logger");
+                const auto  c_type    = cluster.m_cluster_type;
+                const auto  c_immune  = cluster.m_index_immune;
                 const auto& c_members = cluster.m_members;
-                const auto t_rate = disease_profile.GetTransmissionRate();
+                const auto  t_rate    = disease_profile.GetTransmissionRate();
 
                 // match infectious and susceptible members, skip last part (immune members)
                 for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {
@@ -232,7 +234,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(Cluster& cluster, Disease
                                         for (size_t i_contact = num_cases; i_contact < c_immune; i_contact++) {
                                                 // check if member is present today
                                                 if (c_members[i_contact].second) {
-                                                        auto p2 = c_members[i_contact].first;
+                                                        auto         p2        = c_members[i_contact].first;
                                                         const double c_rate_p2 = cluster.GetContactRate(p2);
                                                         if (ch.HasContactAndTransmission(c_rate_p1, t_rate) ||
                                                             ch.HasContactAndTransmission(c_rate_p2, t_rate)) {

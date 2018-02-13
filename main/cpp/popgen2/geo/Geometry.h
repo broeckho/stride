@@ -34,7 +34,7 @@ struct Line2D
 struct Polygon
 {
         std::vector<Point2D> m_points;
-        std::vector<Line2D> m_lines;
+        std::vector<Line2D>  m_lines;
 
         /// Determine the height of a line.
         double GetLineHeight(unsigned int lineIndex, double x);
@@ -64,12 +64,12 @@ public:
         ///
         struct Column
         {
-                double m_begin_x = 0.0;
-                double m_end_x = 0.0;
-                unsigned int m_top = 0U;
-                unsigned int m_bottom = 0U;
-                bool assignedTop = false;
-                bool IsInside(double x) const { return x >= m_begin_x && x <= m_end_x; }
+                double       m_begin_x   = 0.0;
+                double       m_end_x     = 0.0;
+                unsigned int m_top       = 0U;
+                unsigned int m_bottom    = 0U;
+                bool         assignedTop = false;
+                bool         IsInside(double x) const { return x >= m_begin_x && x <= m_end_x; }
         };
 
         ///
@@ -81,7 +81,7 @@ public:
         double m_max_y;
 
 private:
-        Polygon* m_poly = nullptr;
+        Polygon*            m_poly = nullptr;
         std::vector<Column> m_columns;
 };
 

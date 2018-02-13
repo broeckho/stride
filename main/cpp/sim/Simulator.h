@@ -70,10 +70,10 @@ private:
         std::string m_local_information_policy; ///<
 
 private:
-        unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
-        LogMode::Id m_log_level;               ///< Specifies logging mode.
-        std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
-        util::RNManager m_rn_manager;          ///< Random numbere generation management.
+        unsigned int              m_num_threads; ///< The number of (OpenMP) threads.
+        LogMode::Id               m_log_level;   ///< Specifies logging mode.
+        std::shared_ptr<Calendar> m_calendar;    ///< Management of calendar.
+        util::RNManager           m_rn_manager;  ///< Random numbere generation management.
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
@@ -84,8 +84,8 @@ private:
         std::vector<Cluster> m_secondary_community; ///< Container with secondary community  Clusters.
 
         ContactProfiles m_contact_profiles; ///< Contact patterns.
-        DiseaseProfile m_disease_profile;   ///< Profile of disease.
-        bool m_operational;                 ///< Gets to be false when invalid disease profile is specified.
+        DiseaseProfile  m_disease_profile;  ///< Profile of disease.
+        bool            m_operational;      ///< Gets to be false when invalid disease profile is specified.
 
         bool m_track_index_case; ///< General simulation or tracking index case.
 

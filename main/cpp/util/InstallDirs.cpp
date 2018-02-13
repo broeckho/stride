@@ -75,7 +75,7 @@ InstallDirs::Dirs InstallDirs::Initialize()
         //------- Retrieving path of executable
         {
 #if defined(WIN32)
-                char exePath[MAX_PATH];
+                char    exePath[MAX_PATH];
                 HMODULE hModule = GetModuleHandle(NULL);
                 if (GetModuleFileName(NULL, exePath, sizeof(exePath)) != 0)
                         ;
@@ -83,14 +83,14 @@ InstallDirs::Dirs InstallDirs::Initialize()
                         dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__linux__)
-                char exePath[PATH_MAX];
+                char   exePath[PATH_MAX];
                 size_t size = ::readlink("/proc/self/exe", exePath, sizeof(exePath));
                 if (size > 0 && size < sizeof(exePath)) {
-                        exePath[size] = '\0';
+                        exePath[size]    = '\0';
                         dirs.m_exec_path = canonical(system_complete(exePath));
                 }
 #elif defined(__APPLE__)
-                char exePath[PATH_MAX];
+                char     exePath[PATH_MAX];
                 uint32_t size = sizeof(exePath);
                 if (_NSGetExecutablePath(exePath, &size) == 0) {
                         dirs.m_exec_path = canonical(system_complete(exePath));
@@ -108,7 +108,7 @@ InstallDirs::Dirs InstallDirs::Initialize()
                                 //      -Contents               <-Root Path
                                 //              -MacOS
                                 //                   -executables
-                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_bin_dir  = exec_dir;
                                 dirs.m_root_dir = exec_dir.parent_path();
                         } else
 #endif
@@ -118,13 +118,13 @@ InstallDirs::Dirs InstallDirs::Initialize()
                                 //      -bin
                                 //              -release/debug
                                 //                      -executables
-                                dirs.m_bin_dir = exec_dir.parent_path();
+                                dirs.m_bin_dir  = exec_dir.parent_path();
                                 dirs.m_root_dir = exec_dir.parent_path().parent_path();
                         } else
 #if (WIN32)
                             if (exec_dir.filename().string() != "bin") {
                                 // Executables in root folder
-                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_bin_dir  = exec_dir;
                                 dirs.m_root_dir = exec_dir;
                         } else
 #endif
@@ -132,7 +132,7 @@ InstallDirs::Dirs InstallDirs::Initialize()
                                 // x/exec                <-Root Path
                                 //      -bin
                                 //              -executables
-                                dirs.m_bin_dir = exec_dir;
+                                dirs.m_bin_dir  = exec_dir;
                                 dirs.m_root_dir = exec_dir.parent_path();
                         }
                 }

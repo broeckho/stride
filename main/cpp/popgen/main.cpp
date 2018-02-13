@@ -38,7 +38,7 @@ int main(int argc, char** argv)
                 ValueArg<string> sourceArg("i", "input", "Input xml file for the configuration of the generator", true,
                                            "data/happy_day.xml", "string", cmd);
                 ValueArg<string> outputPrefixArg("o", "output", "Output prefix", true, "pop", "string", cmd);
-                string options = "The random generator (one of the following): ";
+                string           options = "The random generator (one of the following): ";
                 options += "default_random_engine - mt19937 - mt19937_64 - minstd_rand0 - minstd_rand - ranlux24_base "
                            "- ranlux48_base - ranlux24 - ranlux48 - knuth_b";
                 ValueArg<string> rngArg("r", "randomgenerator", options, false, "mt19937", "string", cmd);
@@ -52,9 +52,9 @@ int main(int argc, char** argv)
 
                 // Get the value parsed by each argument
                 string sourceXml = sourceArg.getValue();
-                string prefix = outputPrefixArg.getValue();
-                string rng = rngArg.getValue();
-                int seed = seedArg.getValue();
+                string prefix    = outputPrefixArg.getValue();
+                string rng       = rngArg.getValue();
+                int    seed      = seedArg.getValue();
 
                 cerr << "Starting...\n";
                 if (rng == "default_random_engine") {

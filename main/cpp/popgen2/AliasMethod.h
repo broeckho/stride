@@ -73,13 +73,13 @@ public:
         double Random01() { return m_rng.NextDouble01(); }
 
 private:
-        unsigned long m_seed;                            ///< RNG seed.
-        util::RNG<trng::mrg2> m_rng;                     ///< RNG.
-        bool m_was_built = false;                        ///< Tracks table built status.
-        std::unordered_map<unsigned int, T> m_value_map; ///< Maps indices to items.
-        std::vector<double> m_original_table;            ///< Table things get added to.
-        std::vector<double> m_prob_table;                ///< Probability table (after being built)
-        std::vector<unsigned int> m_alias_table;         ///< Alias table (after being built)
+        unsigned long                       m_seed;              ///< RNG seed.
+        util::RNG<trng::mrg2>               m_rng;               ///< RNG.
+        bool                                m_was_built = false; ///< Tracks table built status.
+        std::unordered_map<unsigned int, T> m_value_map;         ///< Maps indices to items.
+        std::vector<double>                 m_original_table;    ///< Table things get added to.
+        std::vector<double>                 m_prob_table;        ///< Probability table (after being built)
+        std::vector<unsigned int>           m_alias_table;       ///< Alias table (after being built)
 };
 
 extern template class AliasMethod<std::vector<unsigned int>>;

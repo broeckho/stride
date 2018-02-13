@@ -58,10 +58,10 @@ private:
         static std::size_t& UIDgenerator();
 
 private:
-        std::size_t m_community_id;     ///< A unique ID for the community
+        std::size_t   m_community_id;   ///< A unique ID for the community
         CommunityType m_community_type; ///< The type of community
-        std::size_t m_city_id;          ///< The ID of the city in which the community is located
-        unsigned int m_size;            ///< The maximum number of people that can part of this community.
+        std::size_t   m_city_id;        ///< The ID of the city in which the community is located
+        unsigned int  m_size;           ///< The maximum number of people that can part of this community.
 };
 
 } // namespace generator

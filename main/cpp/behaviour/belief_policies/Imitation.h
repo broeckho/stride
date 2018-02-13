@@ -28,7 +28,7 @@ class Imitation : public Belief
 public:
         Imitation(const boost::property_tree::ptree& pt) : Belief(pt), m_accept(false)
         {
-                m_accept_threshold = pt.get<double>("accept_threshold");
+                m_accept_threshold    = pt.get<double>("accept_threshold");
                 m_no_accept_threshold = pt.get<double>("no_accept_threshold");
 
                 // TODO belief strength

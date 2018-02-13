@@ -37,7 +37,7 @@ class CSVRow
 {
 private:
 protected:
-        const CSV* parent;
+        const CSV*               parent;
         std::vector<std::string> values;
 
 public:

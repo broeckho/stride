@@ -107,30 +107,30 @@ private:
         /// Maps city id's to city data objects.
         std::map<std::size_t, City> m_cities_map;
 
-        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>> m_communities; ///< Location map.
-        std::map<std::size_t, int> m_community_sizes;                                         ///< Community sizes.
-        boost::property_tree::ptree m_config;                                                 ///< Configuration.
-        std::vector<Household> m_households;                                                  ///< Households.
-        std::map<std::size_t, GeneratorPerson> m_persons;                                     ///< Persons.
-        std::shared_ptr<util::RNGInterface> m_rng;                                            ///< RNG engine.
+        std::map<std::size_t, std::map<CommunityType, std::vector<Community>>> m_communities;     ///< Location map.
+        std::map<std::size_t, int>                                             m_community_sizes; ///< Community sizes.
+        boost::property_tree::ptree                                            m_config;          ///< Configuration.
+        std::vector<Household>                                                 m_households;      ///< Households.
+        std::map<std::size_t, GeneratorPerson>                                 m_persons;         ///< Persons.
+        std::shared_ptr<util::RNGInterface>                                    m_rng;             ///< RNG engine.
 
 private:
         unsigned int m_num_threads; ///< OpenMP threads.
 
 private:
         unsigned int m_comm_size;
-        double m_in_villages;
-        double m_population_size;
+        double       m_in_villages;
+        double       m_population_size;
         unsigned int m_school_age_min;
         unsigned int m_school_age_max;
         unsigned int m_school_size;
         unsigned int m_univ_age_min;
         unsigned int m_univ_age_max;
-        double m_univ_fraction;
+        double       m_univ_fraction;
         unsigned int m_univ_size;
         unsigned int m_work_age_min;
         unsigned int m_work_age_max;
-        double m_work_fraction;
+        double       m_work_fraction;
         unsigned int m_work_size;
 };
 

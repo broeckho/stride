@@ -81,7 +81,7 @@ double distance(const Point2D& lhs, const Point2D& rhs)
         if (lhs.m_point_type == PointType::XY) {
                 result = std::sqrt(std::pow(lhs.m_x - rhs.m_x, 2) + std::pow(lhs.m_y - rhs.m_y, 2));
         } else if (lhs.m_point_type == PointType::LONGLAT) {
-                Point2D me = DegToRad(lhs);
+                Point2D me  = DegToRad(lhs);
                 Point2D you = DegToRad(rhs);
 
                 double d_lat = me.m_y - you.m_y;
@@ -92,7 +92,7 @@ double distance(const Point2D& lhs, const Point2D& rhs)
                            std::cos(me.m_y) * std::cos(you.m_y) * std::sin(d_lon / 2) * std::sin(d_lon / 2);
                 double c = 2 * std::atan2(std::sqrt(a), std::sqrt(1 - a));
                 double d = EARTH_RADIUS * c; // Distance in km
-                result = d * 1000;           // Distance in meters
+                result   = d * 1000;         // Distance in meters
         } else {
                 throw std::invalid_argument("stride::generator::distance> No distance for PointType::Null");
         }

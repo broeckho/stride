@@ -68,7 +68,7 @@ RNManager::RNManager(const Info& info) { Initialize(info); }
 
 RNManager::Info RNManager::GetInfo() const
 {
-        Info info;
+        Info         info;
         stringstream ss;
 
         switch (m_type_id) {
@@ -80,18 +80,18 @@ RNManager::Info RNManager::GetInfo() const
         case Id::yarn3: para_info(ss, m_yarn3); break;
         }
 
-        info.m_seed = m_seed;
-        info.m_state = ss.str();
+        info.m_seed         = m_seed;
+        info.m_state        = ss.str();
         info.m_stream_count = m_stream_count;
-        info.m_type = ToString(m_type_id);
+        info.m_type         = ToString(m_type_id);
         return info;
 }
 
 void RNManager::Initialize(const Info& info)
 {
-        m_seed = info.m_seed;
+        m_seed         = info.m_seed;
         m_stream_count = info.m_stream_count;
-        m_type_id = ToType(info.m_type);
+        m_type_id      = ToType(info.m_type);
 
         if (info.m_state.empty()) {
                 switch (m_type_id) {

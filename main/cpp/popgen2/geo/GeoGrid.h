@@ -45,7 +45,7 @@ public:
         ///
         bool operator<(const Point2D& other) const;
 
-        double m_x, m_y;
+        double    m_x, m_y;
         PointType m_point_type;
 };
 

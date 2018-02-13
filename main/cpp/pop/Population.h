@@ -54,7 +54,7 @@ public:
         {
                 unsigned int total{0U};
                 for (const auto& p : *this) {
-                        auto belief = p.GetBelief();
+                        auto belief  = p.GetBelief();
                         bool adopted = belief->HasAdopted();
                         if (adopted) {
                                 total++;
@@ -92,7 +92,7 @@ private:
                        boost::property_tree::ptree pt_belief = boost::property_tree::ptree())
         {
                 static util::SegmentedVector<BeliefPolicy> beliefs_container;
-                const BeliefPolicy b(pt_belief);
+                const BeliefPolicy                         b(pt_belief);
 
                 assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
                 BeliefPolicy* bp = beliefs_container.emplace_back(b);

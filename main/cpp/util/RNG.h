@@ -46,7 +46,7 @@ namespace util {
 class RNGInterface
 {
 public:
-        virtual void Seed(unsigned long seed) = 0;
+        virtual void         Seed(unsigned long seed)     = 0;
         virtual unsigned int operator()(unsigned int max) = 0;
 };
 
@@ -66,7 +66,7 @@ public:
         RNG(ENGINE& engine)
         {
                 m_engine = engine;
-                m_dist = trng::uniform01_dist<double>();
+                m_dist   = trng::uniform01_dist<double>();
         }
 
         ///
@@ -87,8 +87,8 @@ public:
         void Split(unsigned int total, unsigned int id) { m_engine.split(total, id); }
 
 private:
-        ENGINE m_engine;                     ///< The random number engine.
-        trng::uniform01_dist<double> m_dist; ///< The random distribution.
+        ENGINE                       m_engine; ///< The random number engine.
+        trng::uniform01_dist<double> m_dist;   ///< The random distribution.
 };
 
 std::string RNGvalidate(const std::string& id);

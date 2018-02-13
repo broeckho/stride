@@ -35,7 +35,7 @@ template <typename T>
 inline T FromString(std::string const& s)
 {
         std::stringstream ss(s);
-        T t;
+        T                 t;
         ss >> t;
         return t;
 }
@@ -93,7 +93,7 @@ inline std::string ToString(T const& value, int width, char fill = ' ')
 /// Builds a string with lower case characters only.
 inline std::string ToLower(std::string const& source)
 {
-        auto lower = [](int c) -> int { return std::tolower(c); };
+        auto        lower = [](int c) -> int { return std::tolower(c); };
         std::string copy;
         std::transform(source.begin(), source.end(), std::back_inserter(copy), lower);
         return copy;
@@ -102,7 +102,7 @@ inline std::string ToLower(std::string const& source)
 /// Builds a string with upper case characters only.
 inline std::string ToUpper(std::string const& source)
 {
-        auto upper = [](int c) -> int { return std::toupper(c); };
+        auto        upper = [](int c) -> int { return std::toupper(c); };
         std::string copy;
         std::transform(source.begin(), source.end(), std::back_inserter(copy), upper);
         return copy;

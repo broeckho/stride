@@ -50,10 +50,10 @@ public:
                      unsigned int stream_count = 1U)
                     : m_seed(seed), m_state(state), m_stream_count(stream_count), m_type(type){};
 
-                unsigned long m_seed;        ///< Seed for the engine.
-                std::string m_state;         ///< Long string reperesting current state.
-                unsigned int m_stream_count; ///< Number of streams set up with the engine.
-                std::string m_type;          ///< Type id (see RNEngineType).
+                unsigned long m_seed;         ///< Seed for the engine.
+                std::string   m_state;        ///< Long string reperesting current state.
+                unsigned int  m_stream_count; ///< Number of streams set up with the engine.
+                std::string   m_type;         ///< Type id (see RNEngineType).
         };
 
 public:
@@ -73,12 +73,12 @@ public:
                 using namespace RNEngineType;
                 std::function<typename D::result_type()> gen;
                 switch (m_type_id) {
-                        case Id::lcg64: gen = std::bind(d, std::ref(m_lcg64[i])); break;
-                        case Id::lcg64_shift: gen = std::bind(d, std::ref(m_lcg64_shift[i])); break;
-                        case Id::mrg2: gen = std::bind(d, std::ref(m_mrg2[i])); break;
-                        case Id::mrg3: gen = std::bind(d, std::ref(m_mrg3[i])); break;
-                        case Id::yarn2: gen = std::bind(d, std::ref(m_yarn2[i])); break;
-                        case Id::yarn3: gen = std::bind(d, std::ref(m_yarn3[i])); break;
+                case Id::lcg64: gen = std::bind(d, std::ref(m_lcg64[i])); break;
+                case Id::lcg64_shift: gen = std::bind(d, std::ref(m_lcg64_shift[i])); break;
+                case Id::mrg2: gen = std::bind(d, std::ref(m_mrg2[i])); break;
+                case Id::mrg3: gen = std::bind(d, std::ref(m_mrg3[i])); break;
+                case Id::yarn2: gen = std::bind(d, std::ref(m_yarn2[i])); break;
+                case Id::yarn3: gen = std::bind(d, std::ref(m_yarn3[i])); break;
                 }
                 return gen;
         }
@@ -87,17 +87,17 @@ public:
         /// \param first
         /// \param last
         /// \return
-        template<typename RandomIt>
+        template <typename RandomIt>
         void RandomShuffle(RandomIt first, RandomIt last, size_t i = 0)
         {
                 using namespace RNEngineType;
                 switch (m_type_id) {
-                        case Id::lcg64: std::random_shuffle(first, last, m_lcg64[i]); break;
-                        case Id::lcg64_shift: std::random_shuffle(first, last, m_lcg64_shift[i]); break;
-                        case Id::mrg2: std::random_shuffle(first, last, m_mrg2[i]); break;
-                        case Id::mrg3: std::random_shuffle(first, last, m_mrg3[i]); break;
-                        case Id::yarn2: std::random_shuffle(first, last, m_yarn2[i]); break;
-                        case Id::yarn3: std::random_shuffle(first, last, m_yarn3[i]); break;
+                case Id::lcg64: std::random_shuffle(first, last, m_lcg64[i]); break;
+                case Id::lcg64_shift: std::random_shuffle(first, last, m_lcg64_shift[i]); break;
+                case Id::mrg2: std::random_shuffle(first, last, m_mrg2[i]); break;
+                case Id::mrg3: std::random_shuffle(first, last, m_mrg3[i]); break;
+                case Id::yarn2: std::random_shuffle(first, last, m_yarn2[i]); break;
+                case Id::yarn3: std::random_shuffle(first, last, m_yarn3[i]); break;
                 }
         }
 
@@ -105,17 +105,17 @@ public:
         void Initialize(const Info& info = Info());
 
 private:
-        unsigned long m_seed;        ///< Actual seed used with random engine.
-        unsigned int m_stream_count; ///< Number of streams set up with the engine.
-        RNEngineType::Id m_type_id;  ///< Identifies type of random engine.
+        unsigned long    m_seed;         ///< Actual seed used with random engine.
+        unsigned int     m_stream_count; ///< Number of streams set up with the engine.
+        RNEngineType::Id m_type_id;      ///< Identifies type of random engine.
 
 private:
-        std::vector<trng::lcg64> m_lcg64;
+        std::vector<trng::lcg64>       m_lcg64;
         std::vector<trng::lcg64_shift> m_lcg64_shift;
-        std::vector<trng::mrg2> m_mrg2;
-        std::vector<trng::mrg3> m_mrg3;
-        std::vector<trng::yarn2> m_yarn2;
-        std::vector<trng::yarn3> m_yarn3;
+        std::vector<trng::mrg2>        m_mrg2;
+        std::vector<trng::mrg3>        m_mrg3;
+        std::vector<trng::yarn2>       m_yarn2;
+        std::vector<trng::yarn3>       m_yarn3;
 };
 
 } // namespace util

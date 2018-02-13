@@ -49,26 +49,26 @@ public:
         template <class U>
         friend class PopulationGenerator;
 
-        uint m_age = 0;
-        uint m_household_id = 0;
-        uint m_school_id = 0;
-        uint m_work_id = 0;
-        uint m_primary_community = 0;
-        uint m_secondary_community = 0;
+        uint                m_age                 = 0;
+        uint                m_household_id        = 0;
+        uint                m_school_id           = 0;
+        uint                m_work_id             = 0;
+        uint                m_primary_community   = 0;
+        uint                m_secondary_community = 0;
         util::GeoCoordinate m_coord;
 };
 
 struct SimpleHousehold
 {
-        uint m_id = 0;
+        uint              m_id = 0;
         std::vector<uint> m_indices;
 };
 
 struct SimpleCluster
 {
-        uint m_current_size = 0;
-        uint m_max_size = 0;
-        uint m_id = 0;
+        uint                m_current_size = 0;
+        uint                m_max_size     = 0;
+        uint                m_id           = 0;
         util::GeoCoordinate m_coord;
 };
 
@@ -78,16 +78,16 @@ struct SimpleCity
         SimpleCity(uint current_size, uint max_size, uint id, std::string name, util::GeoCoordinate coordinate)
         {
                 m_current_size = current_size;
-                m_max_size = max_size;
-                m_id = id;
-                m_name = name;
-                m_coord = coordinate;
+                m_max_size     = max_size;
+                m_id           = id;
+                m_name         = name;
+                m_coord        = coordinate;
         }
 
-        uint m_current_size = 0;
-        uint m_max_size = 0;
-        uint m_id = 0;
-        std::string m_name = "";
+        uint                m_current_size = 0;
+        uint                m_max_size     = 0;
+        uint                m_id           = 0;
+        std::string         m_name         = "";
         util::GeoCoordinate m_coord;
 };
 

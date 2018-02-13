@@ -24,9 +24,9 @@
 #include "util/RNManager.h"
 #include "util/StringUtils.h"
 
-#include <spdlog/spdlog.h>
-#include <trng/uniform_int_dist.hpp>
 #include <trng/uniform01_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -48,11 +48,11 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
-        const auto pop = make_shared<Population>();
+        const auto  pop        = make_shared<Population>();
         Population& population = *pop;
 
-        const auto seeding_rate = pt_config.get<double>("run.seeding_rate");
-        const string disease_config_file = pt_config.get<string>("run.disease_config_file");
+        const auto         seeding_rate        = pt_config.get<double>("run.seeding_rate");
+        const string       disease_config_file = pt_config.get<string>("run.disease_config_file");
         function<double()> uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
         // ------------------------------------------------
@@ -87,8 +87,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         const auto distrib_start_infectiousness =
             PtreeUtils::GetDistribution(pt_disease, "disease.start_infectiousness");
         const auto distrib_start_symptomatic = PtreeUtils::GetDistribution(pt_disease, "disease.start_symptomatic");
-        const auto distrib_time_infectious = PtreeUtils::GetDistribution(pt_disease, "disease.time_infectious");
-        const auto distrib_time_symptomatic = PtreeUtils::GetDistribution(pt_disease, "disease.time_symptomatic");
+        const auto distrib_time_infectious   = PtreeUtils::GetDistribution(pt_disease, "disease.time_infectious");
+        const auto distrib_time_symptomatic  = PtreeUtils::GetDistribution(pt_disease, "disease.time_symptomatic");
 
         const auto pt_belief = pt_config.get_child("run.belief_policy");
 
@@ -99,26 +99,26 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         while (getline(pop_file, line)) {
                 // Make use of stochastic disease characteristics.
                 const auto start_infectiousness = Sample(uniform01_generator, distrib_start_infectiousness);
-                assert(start_infectiousness < distrib_start_infectiousness.size()
-                      && "PopulationBuilder::Build> error sampling distrib_start_infectiousness");
+                assert(start_infectiousness < distrib_start_infectiousness.size() &&
+                       "PopulationBuilder::Build> error sampling distrib_start_infectiousness");
                 const auto start_symptomatic = Sample(uniform01_generator, distrib_start_symptomatic);
-                assert(start_symptomatic < distrib_start_symptomatic.size()
-                       && "PopulationBuilder::Build> error sampling distrib_start_symptomatic");
+                assert(start_symptomatic < distrib_start_symptomatic.size() &&
+                       "PopulationBuilder::Build> error sampling distrib_start_symptomatic");
                 const auto time_infectious = Sample(uniform01_generator, distrib_time_infectious);
-                assert(time_infectious < distrib_time_infectious.size()
-                       && "PopulationBuilder::Build> error sampling distrib_time_infectious");
+                assert(time_infectious < distrib_time_infectious.size() &&
+                       "PopulationBuilder::Build> error sampling distrib_time_infectious");
                 const auto time_symptomatic = Sample(uniform01_generator, distrib_time_symptomatic);
-                assert(time_symptomatic < distrib_time_infectious.size()
-                       && "PopulationBuilder::Build> error sampling distrib_time_symptomatic");
+                assert(time_symptomatic < distrib_time_infectious.size() &&
+                       "PopulationBuilder::Build> error sampling distrib_time_symptomatic");
 
-                const auto values = Split(line, ",");
-                const auto risk_averseness = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
-                auto age = FromString<unsigned int>(values[0]);
-                auto household_id = FromString<unsigned int>(values[1]);
-                auto school_id = FromString<unsigned int>(values[2]);
-                auto work_id = FromString<unsigned int>(values[3]);
-                auto primary_community_id = FromString<unsigned int>(values[4]);
-                auto secondary_community_id = FromString<unsigned int>(values[5]);
+                const auto values                 = Split(line, ",");
+                const auto risk_averseness        = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
+                auto       age                    = FromString<unsigned int>(values[0]);
+                auto       household_id           = FromString<unsigned int>(values[1]);
+                auto       school_id              = FromString<unsigned int>(values[2]);
+                auto       work_id                = FromString<unsigned int>(values[3]);
+                auto       primary_community_id   = FromString<unsigned int>(values[4]);
+                auto       secondary_community_id = FromString<unsigned int>(values[5]);
 
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
                                         secondary_community_id, start_infectiousness, start_symptomatic,
@@ -135,7 +135,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
 
         // Sampler for int in [0, clusters.size())
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
-        assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size." );
+        assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size.");
         auto pop_index_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
         const string log_level = pt_config.get<string>("run.log_level", "None");
@@ -171,7 +171,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
 unsigned int PopulationBuilder::Sample(std::function<double()>& rn_generator, const std::vector<double>& distribution)
 {
         const auto random01 = rn_generator();
-        auto j = static_cast<unsigned int>(distribution.size());
+        auto       j        = static_cast<unsigned int>(distribution.size());
         for (unsigned int i = 0; i < distribution.size(); i++) {
                 if (random01 <= distribution[i]) {
                         j = i;

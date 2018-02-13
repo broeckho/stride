@@ -27,7 +27,7 @@ namespace util {
 
 inline bool IsFloat(const std::string& s)
 {
-        float a;
+        float             a;
         std::stringstream ss(s);
         return (ss >> a) ? true : false;
 }

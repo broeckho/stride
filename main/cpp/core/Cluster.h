@@ -78,11 +78,11 @@ private:
         void UpdateMemberPresence();
 
 private:
-        std::size_t m_cluster_id;                        ///< The ID of the Cluster (for logging purposes).
-        ClusterType::Id m_cluster_type;                  ///< The type of the Cluster (for logging purposes).
-        std::size_t m_index_immune;                      ///< Index of the first immune member in the Cluster.
-        std::vector<std::pair<Person*, bool>> m_members; ///< Container with pointers to Cluster members.
-        const ContactProfile& m_profile;                 ///< Contact pattern.
+        std::size_t                           m_cluster_id;   ///< The ID of the Cluster (for logging purposes).
+        ClusterType::Id                       m_cluster_type; ///< The type of the Cluster (for logging purposes).
+        std::size_t                           m_index_immune; ///< Index of the first immune member in the Cluster.
+        std::vector<std::pair<Person*, bool>> m_members;      ///< Container with pointers to Cluster members.
+        const ContactProfile&                 m_profile;      ///< Contact pattern.
 };
 
 } // namespace stride

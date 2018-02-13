@@ -93,29 +93,29 @@ ConvexPolygonChecker::ConvexPolygonChecker(Polygon& poly)
 
                 Column col;
                 col.m_begin_x = std::min(p0->m_x, p1->m_x);
-                col.m_end_x = std::max(p0->m_x, p1->m_x);
+                col.m_end_x   = std::max(p0->m_x, p1->m_x);
                 m_columns.push_back(col);
         }
 
         // Now for every line check which columns are intersected by it.
         for (unsigned int lineId = 0; lineId < poly.m_lines.size(); lineId++) {
-                Line2D& line = poly.m_lines[lineId];
-                double leftmost = std::min(poly.m_points[line.m_p0].m_x, poly.m_points[line.m_p1].m_x);
-                double rightmost = std::max(poly.m_points[line.m_p0].m_x, poly.m_points[line.m_p1].m_x);
+                Line2D& line      = poly.m_lines[lineId];
+                double  leftmost  = std::min(poly.m_points[line.m_p0].m_x, poly.m_points[line.m_p1].m_x);
+                double  rightmost = std::max(poly.m_points[line.m_p0].m_x, poly.m_points[line.m_p1].m_x);
 
                 for (Column& col : m_columns) {
                         if (leftmost <= col.m_begin_x && rightmost >= col.m_end_x) {
                                 // If the line crosses our column, it must be part of this column's check.
                                 if (!col.assignedTop) {
                                         // No line has been assigned yet, so we can safely assign this one.
-                                        col.m_top = lineId;
+                                        col.m_top       = lineId;
                                         col.assignedTop = true;
                                 } else {
-                                        double& top_y0 = poly.m_points[poly.m_lines[col.m_top].m_p0].m_y;
-                                        double& top_y1 = poly.m_points[poly.m_lines[col.m_top].m_p1].m_y;
-                                        double top_y_max = std::max(top_y0, top_y1);
-                                        double top_y_min = std::min(top_y0, top_y1);
-                                        double y_max =
+                                        double& top_y0    = poly.m_points[poly.m_lines[col.m_top].m_p0].m_y;
+                                        double& top_y1    = poly.m_points[poly.m_lines[col.m_top].m_p1].m_y;
+                                        double  top_y_max = std::max(top_y0, top_y1);
+                                        double  top_y_min = std::min(top_y0, top_y1);
+                                        double  y_max =
                                             std::max(poly.m_points[line.m_p0].m_y, poly.m_points[line.m_p1].m_y);
                                         double y_min =
                                             std::min(poly.m_points[line.m_p0].m_y, poly.m_points[line.m_p1].m_y);
@@ -130,7 +130,7 @@ ConvexPolygonChecker::ConvexPolygonChecker(Polygon& poly)
                                                 // The previously assigned line wasn't the top one. Move it to the
                                                 // bottom & put this one as the top one.
                                                 col.m_bottom = col.m_top;
-                                                col.m_top = lineId;
+                                                col.m_top    = lineId;
                                         } else {
                                                 // Panic.
                                                 throw std::runtime_error("Internal error while building convex polygon "
@@ -149,12 +149,12 @@ bool ConvexPolygonChecker::IsPointInPolygon(double x, double y)
         auto status = false;
         if (!(x < m_min_x || x > m_max_x || y < m_min_y || y > m_max_y)) {
                 // Binary search-ish for columns
-                auto left = 0U;
-                auto right = static_cast<unsigned int>(m_columns.size());
+                auto         left  = 0U;
+                auto         right = static_cast<unsigned int>(m_columns.size());
                 unsigned int middle;
                 while (true) {
                         // Check if in middle
-                        middle = (left + right) / 2;
+                        middle      = (left + right) / 2;
                         Column& col = m_columns[middle];
                         if (col.IsInside(x)) {
                                 break;

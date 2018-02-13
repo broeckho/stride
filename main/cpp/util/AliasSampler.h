@@ -56,14 +56,14 @@ private:
         /// Structure used in the implementation.
         struct AliasBlock
         {
-                double prob;
+                double       prob;
                 unsigned int alias;
         };
 
 private:
-        std::vector<AliasBlock> m_blocks;
+        std::vector<AliasBlock>                     m_blocks;
         std::uniform_int_distribution<unsigned int> m_diceroll;
-        std::uniform_real_distribution<double> m_coinflip;
+        std::uniform_real_distribution<double>      m_coinflip;
 };
 
 } // namespace util

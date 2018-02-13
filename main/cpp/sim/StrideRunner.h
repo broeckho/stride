@@ -64,12 +64,12 @@ private:
                                  unsigned int run_time, unsigned int total_time);
 
 private:
-        bool m_is_running;
-        bool m_operational;
-        std::string m_output_prefix;
+        bool                        m_is_running;
+        bool                        m_operational;
+        std::string                 m_output_prefix;
         boost::property_tree::ptree m_pt_config;
-        util::Stopwatch<> m_clock;
-        std::shared_ptr<Simulator> m_sim;
+        util::Stopwatch<>           m_clock;
+        std::shared_ptr<Simulator>  m_sim;
 };
 
 } // namespace stride

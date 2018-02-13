@@ -52,20 +52,20 @@ public:
 
                 double max_delta_latitude = asin(sqrt(temp1)) * 360.0 / PI;
 
-                double my_cos = cos(coord.m_latitude * PI / 180.0);
-                double my_pow = pow(my_cos, 2);
+                double my_cos              = cos(coord.m_latitude * PI / 180.0);
+                double my_pow              = pow(my_cos, 2);
                 double max_delta_longitude = asin(sqrt(temp1 / my_pow)) * 360.0 / PI;
 
                 std::uniform_real_distribution<double> dist_longitude(-max_delta_longitude, max_delta_longitude);
                 std::uniform_real_distribution<double> dist_latitude(-max_delta_latitude, max_delta_latitude);
-                GeoCoordinate random_coordinate;
+                GeoCoordinate                          random_coordinate;
 
                 do {
                         double new_longitude = coord.m_longitude + dist_longitude(rng);
-                        double new_latitude = coord.m_latitude + dist_latitude(rng);
+                        double new_latitude  = coord.m_latitude + dist_latitude(rng);
 
                         random_coordinate.m_longitude = new_longitude;
-                        random_coordinate.m_latitude = new_latitude;
+                        random_coordinate.m_latitude  = new_latitude;
                         this->convertToRegularCoordinates(new_latitude, new_longitude);
 
                 } while (getDistance(coord, random_coordinate) > radius);
@@ -84,8 +84,8 @@ public:
                 double lat2_rad = coord2.m_latitude * PI / 180;
 
                 double lon_diff = lon2_rad - lon1_rad;
-                double x = cos(lat2_rad) * cos(lon_diff);
-                double y = cos(lat2_rad) * sin(lon_diff);
+                double x        = cos(lat2_rad) * cos(lon_diff);
+                double y        = cos(lat2_rad) * sin(lon_diff);
 
                 double center_lat =
                     atan2(sin(lat1_rad) + sin(lat2_rad), sqrt((cos(lat1_rad) + x) * (cos(lat1_rad) + x) + y * y));

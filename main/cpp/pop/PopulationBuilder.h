@@ -41,7 +41,7 @@ public:
         /// @return              Pointer to the initialized population.
         static std::shared_ptr<Population> Build(const boost::property_tree::ptree& pt_config,
                                                  const boost::property_tree::ptree& pt_disease,
-                                                 util::RNManager& rn_manager);
+                                                 util::RNManager&                   rn_manager);
 
 private:
         /// Sample form a cumulative distribution.

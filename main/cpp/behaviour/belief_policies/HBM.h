@@ -23,7 +23,7 @@ namespace stride {
 
 enum class VariableState
 {
-        Low = 0U,
+        Low  = 0U,
         High = 1U
 };
 
@@ -47,10 +47,10 @@ private:
         VariableState m_perceived_barriers;
 
 private:
-        static const double m_odds_ratio_0 = -1;
-        static const double m_odds_ratio_severity = 0.626;
+        static const double m_odds_ratio_0              = -1;
+        static const double m_odds_ratio_severity       = 0.626;
         static const double m_odds_ratio_susceptibility = 1.07;
-        static const double m_odds_ratio_benefit = 0;
-        static const double m_odds_ratio_barriers = -0.4;
+        static const double m_odds_ratio_benefit        = 0;
+        static const double m_odds_ratio_barriers       = -0.4;
 };
 } // namespace stride

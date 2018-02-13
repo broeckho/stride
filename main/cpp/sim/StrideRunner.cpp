@@ -134,9 +134,9 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         spdlog::set_async_mode(1048576);
         boost::filesystem::path logfile_path = m_output_prefix;
         if (use_install_dirs) {
-        		logfile_path += "_logfile";
+                logfile_path += "_logfile";
         } else {
-        		logfile_path /= "logfile";
+                logfile_path /= "logfile";
         }
 
         auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
@@ -172,7 +172,7 @@ void StrideRunner::Run()
         Stopwatch<> run_clock("run_clock");
         if (m_operational) {
                 m_is_running = true;
-                const auto num_days{m_pt_config.get<unsigned int>("run.num_days")};
+                const auto           num_days{m_pt_config.get<unsigned int>("run.num_days")};
                 vector<unsigned int> cases(num_days);
                 vector<unsigned int> adopted(num_days);
                 for (unsigned int i = 0; i < num_days; i++) {
@@ -188,7 +188,7 @@ void StrideRunner::Run()
 
                         cout << "     Done, infected count: ";
 
-                        cases[i] = m_sim->GetPopulation()->GetInfectedCount();
+                        cases[i]   = m_sim->GetPopulation()->GetInfectedCount();
                         adopted[i] = m_sim->GetPopulation()->GetAdoptedCount();
 
                         cout << setw(7) << cases[i] << "     Adopters count: " << setw(7) << adopted[i];

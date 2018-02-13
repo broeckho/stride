@@ -55,9 +55,9 @@ private:
         static std::size_t g_id_generator;
 
 private:
-        std::size_t m_id;                   ///< A unique ID of the household
+        std::size_t              m_id;      ///< A unique ID of the household
         std::vector<std::size_t> m_members; ///< A vector of ID's referring to the ID of a person.
-        std::size_t m_city_id;              ///< The ID of the city in which the household is located.
+        std::size_t              m_city_id; ///< The ID of the city in which the household is located.
 };
 
 } // namespace generator

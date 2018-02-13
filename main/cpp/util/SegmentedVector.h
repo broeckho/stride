@@ -52,10 +52,10 @@ public:
         // ==================================================================
         // Member types
         // ==================================================================
-        using value_type = T;
-        using size_type = std::size_t;
-        using self_type = SegmentedVector<T, N>;
-        using iterator = SVIterator<T, N, T*, T&, false>;
+        using value_type     = T;
+        using size_type      = std::size_t;
+        using self_type      = SegmentedVector<T, N>;
+        using iterator       = SVIterator<T, N, T*, T&, false>;
         using const_iterator = SVIterator<T, N>;
 
         // ==================================================================
@@ -277,7 +277,7 @@ private:
 
 private:
         std::vector<Chunk*> m_blocks; ///< Vector registers pointers to blocks of chunks.
-        size_t m_size;                ///< Index of first free chunk when indexed contiguously.
+        size_t              m_size;   ///< Index of first free chunk when indexed contiguously.
 };
 
 } // namespace util

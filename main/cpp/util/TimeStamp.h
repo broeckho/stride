@@ -42,7 +42,7 @@ public:
         /// Returns string with the time stamp after eliminating newline.
         std::string ToString() const
         {
-                std::time_t t = std::chrono::system_clock::to_time_t(m_tp);
+                std::time_t t   = std::chrono::system_clock::to_time_t(m_tp);
                 std::string str = std::ctime(&t);
                 // str[str.length() - 1] = ' ';
                 return str.substr(0, str.length() - 1);
@@ -59,9 +59,9 @@ public:
                 // ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
                 // return ss.str();
 
-                time_t now = time(NULL);
+                time_t    now = time(NULL);
                 struct tm tstruct;
-                char buf[80];
+                char      buf[80];
                 tstruct = *localtime(&now);
                 strftime(buf, sizeof(buf), "%Y%m%d_%H%M%S", &tstruct);
                 return buf;

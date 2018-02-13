@@ -119,7 +119,7 @@ public:
         std::size_t GetCityID() const { return m_city_id; }
 
 private:
-        std::size_t m_id;   ///< A unique ID for the person
+        std::size_t  m_id;  ///< A unique ID for the person
         unsigned int m_age; ///< The person's age
 
         std::size_t m_household_id;        ///< The household ID to which the person belongs

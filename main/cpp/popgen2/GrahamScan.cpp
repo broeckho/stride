@@ -38,8 +38,8 @@ std::vector<Point2D> GrahamScan::Scan()
         m_pivot = m_points[index];
 
         // Swap the pivot with the first point.
-        Point2D temp = m_points[0];
-        m_points[0] = m_points[index];
+        Point2D temp    = m_points[0];
+        m_points[0]     = m_points[index];
         m_points[index] = temp;
 
         // Sort the remaining points according to polar order.

@@ -31,7 +31,7 @@ namespace util {
 CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : columnCount(0)
 {
         try {
-                boost::filesystem::path full_path = util::checkFile(path);
+                boost::filesystem::path     full_path = util::checkFile(path);
                 boost::filesystem::ifstream file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
@@ -64,7 +64,7 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                 if (optLabels.size() == 0) {
                         throw error;
                 } else {
-                        labels = optLabels;
+                        labels      = optLabels;
                         columnCount = labels.size();
                 }
         }

@@ -71,10 +71,10 @@ public:
         const std::vector<Household>& GetHouseholds() const { return m_households; }
 
 private:
-        std::vector<GeneratorPerson> m_persons; ///< The persons in the population
-        std::vector<City> m_cities;             ///< The cities in the population
-        std::vector<Community> m_communities;   ///< The communities in the population
-        std::vector<Household> m_households;    ///< The households in the population
+        std::vector<GeneratorPerson> m_persons;     ///< The persons in the population
+        std::vector<City>            m_cities;      ///< The cities in the population
+        std::vector<Community>       m_communities; ///< The communities in the population
+        std::vector<Household>       m_households;  ///< The households in the population
 };
 
 } // namespace generator

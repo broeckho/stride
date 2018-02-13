@@ -26,7 +26,7 @@
 namespace stride {
 namespace popgen {
 
-using uint = unsigned int;
+using uint         = unsigned int;
 using FamilyConfig = std::vector<uint>;
 
 class FamilyParser

@@ -99,9 +99,9 @@ public:
         void Update(Person* p);
 
 private:
-        unsigned int m_id; ///< The id.
-        double m_age;      ///< The age.
-        char m_gender;     ///< The gender.
+        unsigned int m_id;     ///< The id.
+        double       m_age;    ///< The age.
+        char         m_gender; ///< The gender.
 
         unsigned int m_household_id;           ///< The household id.
         unsigned int m_school_id;              ///< The school cluster id

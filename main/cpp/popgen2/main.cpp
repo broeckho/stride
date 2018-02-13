@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine cmd("stride", ' ', "1.0", false);
+                CmdLine          cmd("stride", ' ', "1.0", false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_generator_default.xml",
                                                  "CONFIGURATION FILE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
@@ -86,15 +86,15 @@ int main(int argc, char* argv[])
                 // -----------------------------------------------------------------------------------------
                 cout << "\nGenerating population\n";
                 SocietyGenerator popgen(file_path, num_threads);
-                Society gen_society = popgen.Generate();
+                Society          gen_society = popgen.Generate();
 
                 // -----------------------------------------------------------------------------------------
                 // Write the population to CSV files
                 // -----------------------------------------------------------------------------------------
-                const path persons_path = InstallDirs::GetDataDir() / path("generated_population.csv");
-                const path cities_path = InstallDirs::GetDataDir() / path("generated_cities.csv");
+                const path persons_path     = InstallDirs::GetDataDir() / path("generated_population.csv");
+                const path cities_path      = InstallDirs::GetDataDir() / path("generated_cities.csv");
                 const path communities_path = InstallDirs::GetDataDir() / path("generated_communities.csv");
-                const path households_path = InstallDirs::GetDataDir() / path("generated_households.csv");
+                const path households_path  = InstallDirs::GetDataDir() / path("generated_households.csv");
                 const auto p_use_xy{popgen.GetConfig().get<bool>("geoprofile.use_xy", false)};
 
                 SocietyCSVWriter popwriter(gen_society, p_use_xy);

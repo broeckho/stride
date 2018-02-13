@@ -22,23 +22,23 @@ namespace generator {
 
 GeneratorPerson::GeneratorPerson()
 {
-        m_id = 0;
-        m_household_id = 0;
-        m_school_id = 0;
-        m_university_id = 0;
-        m_work_id = 0;
-        m_primary_community = 0;
+        m_id                  = 0;
+        m_household_id        = 0;
+        m_school_id           = 0;
+        m_university_id       = 0;
+        m_work_id             = 0;
+        m_primary_community   = 0;
         m_secondary_community = 0;
 }
 
 GeneratorPerson::GeneratorPerson(std::size_t id)
 {
-        m_id = id;
-        m_household_id = 0;
-        m_school_id = 0;
-        m_university_id = 0;
-        m_work_id = 0;
-        m_primary_community = 0;
+        m_id                  = id;
+        m_household_id        = 0;
+        m_school_id           = 0;
+        m_university_id       = 0;
+        m_work_id             = 0;
+        m_primary_community   = 0;
         m_secondary_community = 0;
 }
 

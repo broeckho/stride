@@ -26,8 +26,8 @@
 #include "core/ContactHandler.h"
 #include "core/Infector.h"
 
-#include <omp.h>
 #include <trng/uniform01_dist.hpp>
+#include <omp.h>
 
 namespace stride {
 
@@ -52,8 +52,8 @@ void Simulator::TimeStep()
         // what kind of DaysOff scheme you apply. If we want to make this cluster
         // dependent then the days_off object has to be passed into the Update
         // function.
-        days_off = std::make_shared<DaysOffStandard>(m_calendar);
-        const bool is_work_off = days_off->IsWorkOff();
+        days_off                 = std::make_shared<DaysOffStandard>(m_calendar);
+        const bool is_work_off   = days_off->IsWorkOff();
         const bool is_school_off = days_off->IsSchoolOff();
 
         // Update individual's health status & presence in clusters.
@@ -65,7 +65,9 @@ void Simulator::TimeStep()
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, true>(); break;
+                        case Id::SusceptibleContacts:
+                                UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, true>();
+                                break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, NoLocalInformation, true>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, NoLocalInformation, true>(); break;
                         case Id::None: UpdateClusters<Id::None, NoLocalInformation, true>(); break;
@@ -73,7 +75,9 @@ void Simulator::TimeStep()
                         }
                 } else {
                         switch (m_log_level) {
-                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, false>(); break;
+                        case Id::SusceptibleContacts:
+                                UpdateClusters<Id::SusceptibleContacts, NoLocalInformation, false>();
+                                break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, NoLocalInformation, false>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, NoLocalInformation, false>(); break;
                         case Id::None: UpdateClusters<Id::None, NoLocalInformation, false>(); break;
@@ -83,7 +87,9 @@ void Simulator::TimeStep()
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
                         switch (m_log_level) {
-                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, true>(); break;
+                        case Id::SusceptibleContacts:
+                                UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, true>();
+                                break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, LocalDiscussion, true>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, LocalDiscussion, true>(); break;
                         case Id::None: UpdateClusters<Id::None, LocalDiscussion, true>(); break;
@@ -91,7 +97,9 @@ void Simulator::TimeStep()
                         }
                 } else {
                         switch (m_log_level) {
-                        case Id::SusceptibleContacts: UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, false>(); break;
+                        case Id::SusceptibleContacts:
+                                UpdateClusters<Id::SusceptibleContacts, LocalDiscussion, false>();
+                                break;
                         case Id::Contacts: UpdateClusters<Id::Contacts, LocalDiscussion, false>(); break;
                         case Id::Transmissions: UpdateClusters<Id::Transmissions, LocalDiscussion, false>(); break;
                         case Id::None: UpdateClusters<Id::None, LocalDiscussion, false>(); break;

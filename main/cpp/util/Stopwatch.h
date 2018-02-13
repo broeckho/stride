@@ -49,7 +49,7 @@ public:
         Stopwatch& Start()
         {
                 if (!m_running) {
-                        m_running = true;
+                        m_running    = true;
                         m_last_start = T::now();
                 }
                 return *this;
@@ -70,7 +70,7 @@ public:
         Stopwatch& Reset()
         {
                 m_accumulated = T::duration::zero();
-                m_running = false;
+                m_running     = false;
                 return *this;
         }
 
@@ -96,26 +96,26 @@ public:
                 using namespace std;
                 using namespace std::chrono;
 
-                string colon_string;
+                string                          colon_string;
                 typedef typename TClock::period TPeriod;
                 if (ratio_less_equal<TPeriod, micro>::value) {
                         microseconds d = duration_cast<microseconds>(Get());
-                        colon_string = TimeToString::ToColonString(d);
+                        colon_string   = TimeToString::ToColonString(d);
                 } else if (ratio_less_equal<TPeriod, milli>::value) {
                         milliseconds d = duration_cast<milliseconds>(Get());
-                        colon_string = TimeToString::ToColonString(d);
+                        colon_string   = TimeToString::ToColonString(d);
                 } else {
-                        seconds d = duration_cast<seconds>(Get());
+                        seconds d    = duration_cast<seconds>(Get());
                         colon_string = TimeToString::ToColonString(d);
                 }
                 return colon_string;
         }
 
 private:
-        typename T::duration m_accumulated;
+        typename T::duration   m_accumulated;
         typename T::time_point m_last_start;
-        std::string m_name;
-        bool m_running;
+        std::string            m_name;
+        bool                   m_running;
 };
 
 /**

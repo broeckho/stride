@@ -47,7 +47,7 @@ bool DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
         if (r0 < (-(b * b) / (4 * a))) {
                 const double determ = (b * b) - 4 * a * c;
                 m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
-                status = true;
+                status              = true;
         }
         return status;
 }

@@ -30,27 +30,30 @@ namespace stride {
 
 enum class ImmunizationProfile
 {
-        None = 0U,
-        	Random = 1U,
-		Cocoon = 2U,
+        None   = 0U,
+        Random = 1U,
+        Cocoon = 2U,
         Null
 };
 
 /**
  * Apply the natural immunity and/or vaccination strategy specified in the configuration file.
  */
-class Vaccinator {
+class Vaccinator
+{
 public:
-	Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
+        Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
 
-	/// Apply the strategies specified in the configuration file
-	void Apply(std::shared_ptr<Simulator> sim);
+        /// Apply the strategies specified in the configuration file
+        void Apply(std::shared_ptr<Simulator> sim);
+
 private:
-	///
-	void Administer(std::string immunity_type, std::string immunization_profile, std::shared_ptr<Simulator> sim);
+        ///
+        void Administer(std::string immunity_type, std::string immunization_profile, std::shared_ptr<Simulator> sim);
+
 private:
-	const boost::property_tree::ptree& m_pt_config;
-	util::RNManager& m_rn_manager;
+        const boost::property_tree::ptree& m_pt_config;
+        util::RNManager&                   m_rn_manager;
 };
 
-} // end-of-namespace
+} // namespace stride

@@ -110,20 +110,20 @@ private:
                                                                                const vector<T>& clusters) const
         {
                 vector<pair<GeoCoordinate, map<double, vector<uint>>>> distance_map;
-                const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
+                const GeoCoordCalculator&                              calc = GeoCoordCalculator::getInstance();
 
                 if (m_output)
                         cerr << "Building distance map for the next cluster type [0%]";
-                uint done = 0;
+                uint done  = 0;
                 uint total = m_cities.size() + m_villages.size();
 
                 for (auto& city : m_cities) {
                         if (m_output)
                                 cerr << "\rBuilding distance map for the next cluster type [" << done / total << "%]";
                         ++done;
-                        double current_radius = radius;
-                        uint used_clusters = 0;
-                        vector<bool> clusters_used = vector<bool>(clusters.size(), false);
+                        double       current_radius = radius;
+                        uint         used_clusters  = 0;
+                        vector<bool> clusters_used  = vector<bool>(clusters.size(), false);
                         distance_map.push_back(make_pair(city.m_coord, map<double, vector<uint>>()));
                         while (used_clusters != clusters.size()) {
                                 for (uint i = 0; i < clusters.size(); ++i) {
@@ -142,9 +142,9 @@ private:
                         if (m_output)
                                 cerr << "\rBuilding distance map for the next cluster type [" << done / total << "%]";
                         ++done;
-                        double current_radius = radius;
-                        uint used_clusters = 0;
-                        vector<bool> clusters_used = vector<bool>(clusters.size(), false);
+                        double       current_radius = radius;
+                        uint         used_clusters  = 0;
+                        vector<bool> clusters_used  = vector<bool>(clusters.size(), false);
                         distance_map.push_back(make_pair(village.m_coord, map<double, vector<uint>>()));
                         while (used_clusters != clusters.size()) {
                                 for (uint i = 0; i < clusters.size(); ++i) {
@@ -173,11 +173,11 @@ private:
                                                                                const vector<vector<T>>& clusters) const
         {
                 vector<pair<GeoCoordinate, map<double, vector<uint>>>> distance_map;
-                const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
+                const GeoCoordCalculator&                              calc = GeoCoordCalculator::getInstance();
                 for (auto& city : m_cities) {
-                        double current_radius = radius;
-                        uint used_clusters = 0;
-                        vector<bool> clusters_used = vector<bool>(clusters.size(), false);
+                        double       current_radius = radius;
+                        uint         used_clusters  = 0;
+                        vector<bool> clusters_used  = vector<bool>(clusters.size(), false);
                         distance_map.push_back(make_pair(city.m_coord, map<double, vector<uint>>()));
                         while (used_clusters != clusters.size()) {
                                 for (uint i = 0; i < clusters.size(); ++i) {
@@ -194,9 +194,9 @@ private:
                 }
 
                 for (auto& village : m_villages) {
-                        double current_radius = radius;
-                        uint used_clusters = 0;
-                        vector<bool> clusters_used = vector<bool>(clusters.size(), false);
+                        double       current_radius = radius;
+                        uint         used_clusters  = 0;
+                        vector<bool> clusters_used  = vector<bool>(clusters.size(), false);
                         distance_map.push_back(make_pair(village.m_coord, map<double, vector<uint>>()));
                         while (used_clusters != clusters.size()) {
 
@@ -219,7 +219,7 @@ private:
         /// Get the clusters that are within the range of a certain coordinate and radius (both given as an argument)
         /// The distances are precomputed by PopulationGenerator::makeDistanceMap and the result of that function has to
         /// be passed as an argument to this function
-        vector<uint> getClustersWithinRange(double radius,
+        vector<uint> getClustersWithinRange(double                                                        radius,
                                             const vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map,
                                             GeoCoordinate coordinate) const
         {
@@ -259,8 +259,8 @@ private:
                         }
                 }
 
-                people = ceil(fraction * people);
-                uint needed_clusters = ceil(double(people) / size);
+                people                 = ceil(fraction * people);
+                uint needed_clusters   = ceil(double(people) / size);
                 uint city_village_size = getCityPopulation() + getVillagePopulation();
 
                 /// Get the relative occurrences of both the villages and cities => randomly choose an index in this
@@ -286,8 +286,8 @@ private:
                                 /// Add to a city
                                 SimpleCluster new_cluster;
                                 new_cluster.m_max_size = size;
-                                new_cluster.m_coord = m_cities.at(village_city_index).m_coord;
-                                new_cluster.m_id = m_next_id;
+                                new_cluster.m_coord    = m_cities.at(village_city_index).m_coord;
+                                new_cluster.m_id       = m_next_id;
                                 m_next_id++;
                                 clusters.push_back(new_cluster);
 
@@ -298,8 +298,8 @@ private:
                                 /// Add to a village
                                 SimpleCluster new_cluster;
                                 new_cluster.m_max_size = size;
-                                new_cluster.m_coord = m_villages.at(village_city_index - m_cities.size()).m_coord;
-                                new_cluster.m_id = m_next_id;
+                                new_cluster.m_coord    = m_villages.at(village_city_index - m_cities.size()).m_coord;
+                                new_cluster.m_id       = m_next_id;
                                 m_next_id++;
                                 clusters.push_back(new_cluster);
 
@@ -344,7 +344,7 @@ private:
         bool removeFromMap(vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map, uint index) const;
 
         /// Put one student in a university according to the rules of commuting students
-        void assignCommutingStudent(SimplePerson& person,
+        void assignCommutingStudent(SimplePerson&                                           person,
                                     vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map);
 
         /// Put one student in a university according to the rules of students that study close to their home
@@ -355,7 +355,7 @@ private:
         void assignToWork();
 
         /// Assign one person to a workplace according to the rule of commuting workers
-        bool assignCommutingEmployee(SimplePerson& person,
+        bool assignCommutingEmployee(SimplePerson&                                           person,
                                      vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map);
 
         /// Assign one person to a workplace according to the rule of workers that work close to their home
@@ -366,18 +366,18 @@ private:
         void assignToCommunities(vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map,
                                  vector<SimpleCluster>& clusters, uint SimplePerson::*member, const string& name = "");
 
-        boost::property_tree::ptree m_props;              /// > The content of the xml file
-        U m_rng;                                          /// > The random generator
-        uint m_total;                                     /// > Number of people to be generated (according to the xml)
-        vector<SimplePerson> m_people;                    /// > All the people
-        vector<SimpleHousehold> m_households;             /// > The households
-        vector<SimpleCity> m_cities;                      /// > The cities
-        vector<SimpleCluster> m_villages;                 /// > The villages
-        vector<SimpleCluster> m_workplaces;               /// > The workplaces
-        vector<SimpleCluster> m_primary_communities;      /// > The primary communities
-        vector<SimpleCluster> m_secondary_communities;    /// > The secondary communities
-        vector<SimpleCluster> m_mandatory_schools;        /// > Mandatory schools (Not divided in clusters!!!)
-        vector<vector<SimpleCluster>> m_optional_schools; /// > The universities: One univ is a vector of clusters,
+        boost::property_tree::ptree   m_props;      /// > The content of the xml file
+        U                             m_rng;        /// > The random generator
+        uint                          m_total;      /// > Number of people to be generated (according to the xml)
+        vector<SimplePerson>          m_people;     /// > All the people
+        vector<SimpleHousehold>       m_households; /// > The households
+        vector<SimpleCity>            m_cities;     /// > The cities
+        vector<SimpleCluster>         m_villages;   /// > The villages
+        vector<SimpleCluster>         m_workplaces; /// > The workplaces
+        vector<SimpleCluster>         m_primary_communities;   /// > The primary communities
+        vector<SimpleCluster>         m_secondary_communities; /// > The secondary communities
+        vector<SimpleCluster>         m_mandatory_schools;     /// > Mandatory schools (Not divided in clusters!!!)
+        vector<vector<SimpleCluster>> m_optional_schools;      /// > The universities: One univ is a vector of clusters,
                                                           /// ordering is the same as the cities they belong to (using
                                                           /// modulo of course)
 

@@ -28,7 +28,7 @@ AliasSampler::AliasSampler(const vector<double>& probabilities)
 {
         const double factor = 1.0 / std::accumulate(probabilities.begin(), probabilities.end(), 0.0);
 
-        const auto n = probabilities.size();
+        const auto     n = probabilities.size();
         vector<double> probs(n);
         for (unsigned int i = 0; i < n; i++)
                 probs[i] = probabilities[i] * factor * n;
@@ -45,9 +45,9 @@ AliasSampler::AliasSampler(const vector<double>& probabilities)
                 const unsigned int g = *large.begin();
                 large.pop_front();
 
-                m_blocks[l].prob = probs[l];
+                m_blocks[l].prob  = probs[l];
                 m_blocks[l].alias = g;
-                probs[g] = (probs[g] + probs[l]) - 1;
+                probs[g]          = (probs[g] + probs[l]) - 1;
                 (probs[g] < 1.0 ? small : large).push_back(g);
         }
 

@@ -30,14 +30,13 @@ class LocalDiscussion
 public:
         static void Update(Person* p1, Person* p2)
         {
-        		// TODO discussion chance
-        		// TODO if discussion: update p1
-        		// TODO if discussion: update p2
+                // TODO discussion chance
+                // TODO if discussion: update p1
+                // TODO if discussion: update p2
         }
 
 private:
         static double m_discussion_chance;
-
 };
 
 } // namespace stride

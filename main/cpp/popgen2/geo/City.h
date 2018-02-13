@@ -35,19 +35,19 @@ public:
         bool operator==(const City& other) const;
 
         std::size_t GetID() const { return m_id; }
-        double GetPopulation() const { return m_population; }
+        double      GetPopulation() const { return m_population; }
         std::string GetName() const { return m_name; }
         std::size_t GetProvince() const { return m_province; }
-        Point2D GetDummyLocation() const { return m_dummy_location; }
-        Point2D GetLocation() const { return m_location; }
+        Point2D     GetDummyLocation() const { return m_dummy_location; }
+        Point2D     GetLocation() const { return m_location; }
 
 private:
-        std::size_t m_id;         ///< ID of the city
-        double m_population;      ///< Fraction of the population living in this city
-        std::string m_name;       ///<
-        std::size_t m_province;   ///<
-        Point2D m_location;       ///< The Location of the city in longitude and latitude
-        Point2D m_dummy_location; ///< The location of the city in x and y coordinates
+        std::size_t m_id;             ///< ID of the city
+        double      m_population;     ///< Fraction of the population living in this city
+        std::string m_name;           ///<
+        std::size_t m_province;       ///<
+        Point2D     m_location;       ///< The Location of the city in longitude and latitude
+        Point2D     m_dummy_location; ///< The location of the city in x and y coordinates
 };
 
 } // namespace generator

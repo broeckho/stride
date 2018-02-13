@@ -21,13 +21,13 @@ namespace stride {
  */
 enum class HealthStatus
 {
-        Susceptible = 0U,
-        Exposed = 1U,
-        Infectious = 2U,
-        Symptomatic = 3U,
+        Susceptible              = 0U,
+        Exposed                  = 1U,
+        Infectious               = 2U,
+        Symptomatic              = 3U,
         InfectiousAndSymptomatic = 4U,
-        Recovered = 5U,
-        Immune = 6U,
+        Recovered                = 5U,
+        Immune                   = 6U,
         Null
 };
 

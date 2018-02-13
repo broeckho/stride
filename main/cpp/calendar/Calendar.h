@@ -75,8 +75,8 @@ private:
         void InitializeHolidays(const boost::property_tree::ptree& pt_config);
 
 private:
-        std::size_t m_day;                                     ///< The current simulation day
-        boost::gregorian::date m_date;                         ///< The current simulated day
+        std::size_t                         m_day;             ///< The current simulation day
+        boost::gregorian::date              m_date;            ///< The current simulated day
         std::vector<boost::gregorian::date> m_holidays;        ///< Vector of general holidays
         std::vector<boost::gregorian::date> m_school_holidays; ///< Vector of school holidays
 };

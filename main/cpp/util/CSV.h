@@ -37,7 +37,7 @@ class CSV : protected std::vector<CSVRow>
 {
 protected:
         std::vector<std::string> labels;
-        size_t columnCount = 0;
+        size_t                   columnCount = 0;
 
 public:
         /// Initialize from file. If optLabels not specied, the file is required. Otherwise initialize like second

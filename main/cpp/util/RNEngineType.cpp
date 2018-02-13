@@ -34,7 +34,7 @@ bool IsType(const string& s)
         static map<string, Id> ids{make_pair("lcg64", Id::lcg64), make_pair("lcg64_shift", Id::lcg64_shift),
                                    make_pair("mrg2", Id::mrg2),   make_pair("mrg3", Id::mrg3),
                                    make_pair("yarn2", Id::yarn2), make_pair("yarn3", Id::yarn3)};
-        std::string t{s};
+        std::string            t{s};
         to_lower(t);
         return (ids.count(t) == 1);
 }
@@ -52,7 +52,7 @@ Id ToType(const string& s)
         static map<string, Id> ids{make_pair("lcg64", Id::lcg64), make_pair("lcg64_shift", Id::lcg64_shift),
                                    make_pair("mrg2", Id::mrg2),   make_pair("mrg3", Id::mrg3),
                                    make_pair("yarn2", Id::yarn2), make_pair("yarn3", Id::yarn3)};
-        std::string t{s};
+        std::string            t{s};
         to_lower(t);
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("RNEngineType::ToString> not available:" + t);
 }

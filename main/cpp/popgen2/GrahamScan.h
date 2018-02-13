@@ -37,7 +37,7 @@ public:
         struct PolarOrder
         {
                 PolarOrder(const GrahamScan& g) : m_graham_scan(g) {}
-                bool operator()(const Point2D& p1, const Point2D& p2);
+                bool              operator()(const Point2D& p1, const Point2D& p2);
                 const GrahamScan& m_graham_scan;
         };
 
@@ -50,7 +50,7 @@ private:
 
 private:
         std::vector<Point2D> m_points; ///< A cloud of points
-        Point2D m_pivot;               ///< A point used as pivot in the Scan
+        Point2D              m_pivot;  ///< A point used as pivot in the Scan
 };
 
 } // namespace generator

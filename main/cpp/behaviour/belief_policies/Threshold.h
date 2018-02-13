@@ -33,7 +33,7 @@ public:
         }
 
 private:
-        bool m_is_aware;                      ///< Whether the person is aware of the current epidemic.
+        bool         m_is_aware;              ///< Whether the person is aware of the current epidemic.
         unsigned int m_num_contacts;          ///< The total number of contacts the person has had.
         unsigned int m_num_contacts_infected; ///< Number of contacts that is symptomatic.
         unsigned int m_num_contacts_adopted;  ///< Number of contacts that have adopted

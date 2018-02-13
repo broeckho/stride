@@ -34,7 +34,7 @@ const GeoCoordCalculator& GeoCoordCalculator::getInstance()
 
 double GeoCoordCalculator::getDistance(const GeoCoordinate& coord1, const GeoCoordinate& coord2) const
 {
-        double delta_latitude = coord2.m_latitude - coord1.m_latitude;
+        double delta_latitude  = coord2.m_latitude - coord1.m_latitude;
         double delta_longitude = coord2.m_longitude - coord1.m_longitude;
 
         double temp1 = sin(delta_latitude * PI / 360.0) * sin(delta_latitude * PI / 360.0) +

@@ -53,7 +53,7 @@ public:
 
 private:
         const Society& m_society; ///< The society
-        const bool m_use_xy;      ///< Whether to use cartesian or polar coordinates.
+        const bool     m_use_xy;  ///< Whether to use cartesian or polar coordinates.
 };
 
 } // namespace generator

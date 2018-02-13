@@ -63,8 +63,8 @@ PopulationGenerator<U>::PopulationGenerator(const string& filename, const int& s
         }
 
         m_next_id = 1;
-        m_output = output;
-        m_rng = U(seed);
+        m_output  = output;
+        m_rng     = U(seed);
 
         checkForValidXML();
 }
@@ -88,7 +88,7 @@ void PopulationGenerator<U>::generate(const string& prefix)
         assignToWork();
 
         auto start_radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
-        auto factor = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
+        auto factor       = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
 
         vector<pair<GeoCoordinate, map<double, vector<uint>>>> distance_map =
             makeDistanceMap(start_radius, factor, m_primary_communities);
@@ -103,11 +103,11 @@ void PopulationGenerator<U>::generate(const string& prefix)
         if (m_output)
                 cerr << "Generated " << m_people.size() << " people\n";
 
-        string target_cities = prefix + "_districts.csv";
-        string target_pop = prefix + "_people.csv";
+        string target_cities     = prefix + "_districts.csv";
+        string target_pop        = prefix + "_people.csv";
         string target_households = prefix + "_households.csv";
-        string target_clusters = prefix + "_clusters.csv";
-        string target_summary = prefix + ".xml";
+        string target_clusters   = prefix + "_clusters.csv";
+        string target_summary    = prefix + ".xml";
 
         writeCities(target_cities);
         writePop(target_pop);
@@ -130,7 +130,7 @@ template <class U>
 void PopulationGenerator<U>::writeCities(const string& target_cities)
 {
         ofstream my_file{(InstallDirs::GetDataDir() /= target_cities).string()};
-        double total_pop = 0.0;
+        double   total_pop = 0.0;
 
         for (const SimpleCity& city : m_cities) {
                 total_pop += city.m_current_size;
@@ -144,7 +144,7 @@ void PopulationGenerator<U>::writeCities(const string& target_cities)
                 my_file << "\"city_id\",\"city_name\",\"province\",\"population\",\"x_coord\",\"y_coord\",\"latitude\","
                            "\"longitude\"\n";
 
-                uint provinces = m_props.get<uint>("population.<xmlattr>.provinces");
+                uint         provinces = m_props.get<uint>("population.<xmlattr>.provinces");
                 AliasSampler dist{vector<double>(provinces, 1.0 / provinces)};
 
                 auto printCityData = [&](const SimpleCity& to_print) {
@@ -281,16 +281,16 @@ void PopulationGenerator<U>::checkForValidXML() const
         /// Cities: unique location
         if (m_output)
                 cerr << "\rChecking for valid XML [0%]";
-        int total_size = 0;
-        bool has_no_cities = true;
-        auto cities_config = pop_config.get_child("cities");
+        int                   total_size    = 0;
+        bool                  has_no_cities = true;
+        auto                  cities_config = pop_config.get_child("cities");
         vector<GeoCoordinate> current_locations;
         for (auto it = cities_config.begin(); it != cities_config.end(); it++) {
                 if (it->first == "city") {
                         has_no_cities = false;
                         it->second.get<string>("<xmlattr>.name");
                         total_size += it->second.get<int>("<xmlattr>.pop");
-                        double latitude = it->second.get<double>("<xmlattr>.lat");
+                        double latitude  = it->second.get<double>("<xmlattr>.lat");
                         double longitude = it->second.get<double>("<xmlattr>.lon");
 
                         if (abs(latitude) > 90 || abs(longitude) > 180) {
@@ -319,7 +319,7 @@ void PopulationGenerator<U>::checkForValidXML() const
         /// Check for valid villages
         if (m_output)
                 cerr << "\rChecking for valid XML [18%]";
-        auto village_config = pop_config.get_child("villages");
+        auto   village_config        = pop_config.get_child("villages");
         double village_radius_factor = village_config.get<double>("<xmlattr>.radius");
 
         bool has_no_villages = true;
@@ -328,8 +328,8 @@ void PopulationGenerator<U>::checkForValidXML() const
         for (auto it = village_config.begin(); it != village_config.end(); it++) {
                 if (it->first == "village") {
                         has_no_villages = false;
-                        int minimum = it->second.get<int>("<xmlattr>.min");
-                        int max = it->second.get<int>("<xmlattr>.max");
+                        int minimum     = it->second.get<int>("<xmlattr>.min");
+                        int max         = it->second.get<int>("<xmlattr>.max");
                         fraction += it->second.get<double>("<xmlattr>.fraction") / 100.0;
 
                         if (fraction < 0) {
@@ -357,12 +357,12 @@ void PopulationGenerator<U>::checkForValidXML() const
         /// Mandatory education
         if (m_output)
                 cerr << "\rChecking for valid XML [36%]";
-        auto education_config = pop_config.get_child("education");
+        auto education_config   = pop_config.get_child("education");
         auto school_work_config = pop_config.get_child("school_work_profile");
-        total_size = education_config.get<int>("mandatory.<xmlattr>.total_size");
-        int cluster_size = education_config.get<int>("mandatory.<xmlattr>.cluster_size");
-        int mandatory_min = school_work_config.get<int>("mandatory.<xmlattr>.min");
-        int mandatory_max = school_work_config.get<int>("mandatory.<xmlattr>.max");
+        total_size              = education_config.get<int>("mandatory.<xmlattr>.total_size");
+        int cluster_size        = education_config.get<int>("mandatory.<xmlattr>.cluster_size");
+        int mandatory_min       = school_work_config.get<int>("mandatory.<xmlattr>.min");
+        int mandatory_max       = school_work_config.get<int>("mandatory.<xmlattr>.max");
 
         if (mandatory_min > mandatory_max || mandatory_min < 0 || mandatory_max < 0) {
                 throw invalid_argument("In PopulationGenerator: Numerical error in min/max pair.");
@@ -376,11 +376,11 @@ void PopulationGenerator<U>::checkForValidXML() const
         if (m_output)
                 cerr << "\rChecking for valid XML [42%]";
         school_work_config = pop_config.get_child("school_work_profile.employable.young_employee");
-        int minimum = school_work_config.get<int>("<xmlattr>.min");
-        int max = school_work_config.get<int>("<xmlattr>.max");
-        cluster_size = education_config.get<int>("optional.<xmlattr>.cluster_size");
-        fraction = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
-        total_size = education_config.get<uint>("optional.<xmlattr>.total_size");
+        int minimum        = school_work_config.get<int>("<xmlattr>.min");
+        int max            = school_work_config.get<int>("<xmlattr>.max");
+        cluster_size       = education_config.get<int>("optional.<xmlattr>.cluster_size");
+        fraction           = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        total_size         = education_config.get<uint>("optional.<xmlattr>.total_size");
 
         if (minimum > max || minimum < 0 || max < 0) {
                 throw invalid_argument("In PopulationGenerator: Numerical error in min/max pair.");
@@ -404,12 +404,12 @@ void PopulationGenerator<U>::checkForValidXML() const
         if (m_output)
                 cerr << "\rChecking for valid XML [68%]";
         school_work_config = pop_config.get_child("school_work_profile.employable");
-        auto work_config = pop_config.get_child("work");
+        auto work_config   = pop_config.get_child("work");
 
         total_size = work_config.get<int>("<xmlattr>.size");
-        minimum = school_work_config.get<int>("employee.<xmlattr>.min");
-        max = school_work_config.get<int>("employee.<xmlattr>.max");
-        fraction = school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        minimum    = school_work_config.get<int>("employee.<xmlattr>.min");
+        max        = school_work_config.get<int>("employee.<xmlattr>.max");
+        fraction   = school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
 
         if (minimum > max || minimum < 0 || max < 0) {
                 throw invalid_argument("In PopulationGenerator: Numerical error in min/max pair.");
@@ -450,7 +450,7 @@ void PopulationGenerator<U>::checkForValidXML() const
 template <class U>
 void PopulationGenerator<U>::makeHouseholds()
 {
-        m_next_id = 1;
+        m_next_id        = 1;
         string file_name = m_props.get<string>("population.family.<xmlattr>.file");
 
         FamilyParser parser;
@@ -467,8 +467,8 @@ void PopulationGenerator<U>::makeHouseholds()
                              << min(uint(double(current_generated) / m_total * 100), 100U) << "%]";
 
                 /// Get the family configuration
-                uint family_index = dist(m_rng);
-                FamilyConfig& new_config = family_config.at(family_index);
+                uint          family_index = dist(m_rng);
+                FamilyConfig& new_config   = family_config.at(family_index);
 
                 /// Make the configuration into reality
                 SimpleHousehold new_household;
@@ -498,19 +498,19 @@ template <class U>
 void PopulationGenerator<U>::makeCities()
 {
         ptree cities_config = m_props.get_child("population.cities");
-        m_next_id = 1;
-        uint size_check = 0;
+        m_next_id           = 1;
+        uint size_check     = 0;
 
-        uint generated = 0;
+        uint generated   = 0;
         uint to_generate = distance(cities_config.begin(), cities_config.end());
         for (auto it = cities_config.begin(); it != cities_config.end(); it++) {
                 if (m_output)
                         cerr << "\rGenerating cities [" << min(uint(double(generated) / to_generate * 100), 100U)
                              << "%]";
                 if (it->first == "city") {
-                        string name = it->second.get<string>("<xmlattr>.name");
-                        int size = it->second.get<int>("<xmlattr>.pop");
-                        double latitude = it->second.get<double>("<xmlattr>.lat");
+                        string name      = it->second.get<string>("<xmlattr>.name");
+                        int    size      = it->second.get<int>("<xmlattr>.pop");
+                        double latitude  = it->second.get<double>("<xmlattr>.lat");
                         double longitude = it->second.get<double>("<xmlattr>.lon");
                         size_check += size;
 
@@ -532,7 +532,7 @@ void PopulationGenerator<U>::makeCities()
 template <class U>
 GeoCoordinate PopulationGenerator<U>::getCityMiddle() const
 {
-        double latitude_middle = 0.0;
+        double latitude_middle  = 0.0;
         double longitude_middle = 0.0;
         for (const SimpleCity& city : m_cities) {
                 latitude_middle += city.m_coord.m_latitude;
@@ -542,7 +542,7 @@ GeoCoordinate PopulationGenerator<U>::getCityMiddle() const
         longitude_middle /= m_cities.size();
 
         GeoCoordinate result;
-        result.m_latitude = latitude_middle;
+        result.m_latitude  = latitude_middle;
         result.m_longitude = longitude_middle;
         return result;
 }
@@ -591,21 +591,21 @@ template <class U>
 void PopulationGenerator<U>::makeVillages()
 {
         // Do NOT reset the id counter (cities and villages will be treated as one)
-        ptree village_config = m_props.get_child("population.villages");
-        double village_radius_factor = village_config.get<double>("<xmlattr>.radius");
-        GeoCoordinate middle = getCityMiddle();
-        double radius = getCityRadius(middle);
-        uint city_population = getCityPopulation();
-        int unassigned_population = m_people.size() - city_population;
-        int unassigned_population_progress = unassigned_population;
+        ptree         village_config                 = m_props.get_child("population.villages");
+        double        village_radius_factor          = village_config.get<double>("<xmlattr>.radius");
+        GeoCoordinate middle                         = getCityMiddle();
+        double        radius                         = getCityRadius(middle);
+        uint          city_population                = getCityPopulation();
+        int           unassigned_population          = m_people.size() - city_population;
+        int           unassigned_population_progress = unassigned_population;
 
         /// Get the configuration of the villages (relative occurrence, minimum and maximum population)
         vector<double> fractions;
         vector<MinMax> boundaries;
         for (auto it = village_config.begin(); it != village_config.end(); it++) {
                 if (it->first == "village") {
-                        uint min = it->second.get<uint>("<xmlattr>.min");
-                        uint max = it->second.get<uint>("<xmlattr>.max");
+                        uint   min      = it->second.get<uint>("<xmlattr>.min");
+                        uint   max      = it->second.get<uint>("<xmlattr>.max");
                         double fraction = it->second.get<double>("<xmlattr>.fraction") / 100.0;
                         MinMax min_max{min, max};
 
@@ -615,7 +615,7 @@ void PopulationGenerator<U>::makeVillages()
         }
 
         /// Depending on the relative occurrence of a village, choose this village
-        AliasSampler village_type_dist{fractions};
+        AliasSampler              village_type_dist{fractions};
         const GeoCoordCalculator& calc = GeoCoordCalculator::getInstance();
         while (unassigned_population > 0) {
                 if (m_output)
@@ -624,16 +624,16 @@ void PopulationGenerator<U>::makeVillages()
                                          unassigned_population_progress * 100),
                                     100U)
                              << "%]";
-                uint village_type_index = village_type_dist(m_rng);
-                MinMax village_pop = boundaries.at(village_type_index);
-                uint range_interval_size = village_pop.max - village_pop.min + 1;
+                uint   village_type_index  = village_type_dist(m_rng);
+                MinMax village_pop         = boundaries.at(village_type_index);
+                uint   range_interval_size = village_pop.max - village_pop.min + 1;
 
                 AliasSampler village_size_dist{vector<double>(range_interval_size, 1.0 / range_interval_size)};
-                uint village_size = village_size_dist(m_rng) + village_pop.min;
+                uint         village_size = village_size_dist(m_rng) + village_pop.min;
 
                 SimpleCluster new_village;
                 new_village.m_max_size = village_size;
-                new_village.m_id = m_next_id;
+                new_village.m_id       = m_next_id;
                 m_next_id++;
                 new_village.m_coord = calc.generateRandomCoord(middle, radius * village_radius_factor, m_rng);
 
@@ -644,7 +644,7 @@ void PopulationGenerator<U>::makeVillages()
                 auto same_coordinate_city = [&](const SimpleCity& cl) { return cl.m_coord == new_village.m_coord; };
 
                 auto it_villages = find_if(m_villages.begin(), m_villages.end(), same_coordinate_village);
-                auto it_cities = find_if(m_cities.begin(), m_cities.end(), same_coordinate_city);
+                auto it_cities   = find_if(m_cities.begin(), m_cities.end(), same_coordinate_city);
 
                 if (it_villages == m_villages.end() && it_cities == m_cities.end()) {
                         m_villages.push_back(new_village);
@@ -658,7 +658,7 @@ void PopulationGenerator<U>::makeVillages()
 template <class U>
 void PopulationGenerator<U>::placeHouseholds()
 {
-        uint city_pop = getCityPopulation();
+        uint city_pop    = getCityPopulation();
         uint village_pop = getVillagePopulation();
         uint total_pop =
             village_pop + city_pop; /// Note that this number may slightly differ from other "total pop" numbers
@@ -676,7 +676,7 @@ void PopulationGenerator<U>::placeHouseholds()
         }
 
         AliasSampler village_city_dist{fractions};
-        int i = 0;
+        int          i = 0;
         for (SimpleHousehold& household : m_households) {
                 if (m_output)
                         cerr << "\rPlacing households [" << min(uint(double(i) / m_households.size() * 100), 100U)
@@ -710,13 +710,13 @@ template <class U>
 void PopulationGenerator<U>::makeSchools()
 {
         /// Note: schools are "assigned" to villages and cities
-        m_next_id = 1;
-        ptree education_config = m_props.get_child("population.education");
+        m_next_id                = 1;
+        ptree education_config   = m_props.get_child("population.education");
         ptree school_work_config = m_props.get_child("population.school_work_profile.mandatory");
-        uint school_size = education_config.get<uint>("mandatory.<xmlattr>.total_size");
-        uint min_age = school_work_config.get<uint>("<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("<xmlattr>.max");
-        uint cluster_size = education_config.get<uint>("mandatory.<xmlattr>.cluster_size");
+        uint  school_size        = education_config.get<uint>("mandatory.<xmlattr>.total_size");
+        uint  min_age            = school_work_config.get<uint>("<xmlattr>.min");
+        uint  max_age            = school_work_config.get<uint>("<xmlattr>.max");
+        uint  cluster_size       = education_config.get<uint>("mandatory.<xmlattr>.cluster_size");
 
         placeClusters(school_size, min_age, max_age, 1.0, m_mandatory_schools, "schools", ClusterType::Id::School,
                       false);
@@ -731,7 +731,7 @@ void PopulationGenerator<U>::makeSchools()
                         current_size += cluster_size;
                         SimpleCluster new_cluster;
                         new_cluster.m_max_size = cluster_size;
-                        new_cluster.m_id = m_next_id;
+                        new_cluster.m_id       = m_next_id;
                         m_next_id++;
                         new_cluster.m_coord = cluster.m_coord;
                         m_mandatory_schools_clusters.back().push_back(new_cluster);
@@ -745,13 +745,13 @@ void PopulationGenerator<U>::makeUniversities()
 {
         // Note: don't reset the next_id, the universities are also "schools", and the previously handled function was
         // "makeSchools"
-        ptree school_work_config = m_props.get_child("population.school_work_profile.employable.young_employee");
-        ptree university_config = m_props.get_child("population.education.optional");
-        uint min_age = school_work_config.get<uint>("<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("<xmlattr>.max");
-        double fraction = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
-        uint size = university_config.get<uint>("<xmlattr>.total_size");
-        uint cluster_size = university_config.get<uint>("<xmlattr>.cluster_size");
+        ptree  school_work_config = m_props.get_child("population.school_work_profile.employable.young_employee");
+        ptree  university_config  = m_props.get_child("population.education.optional");
+        uint   min_age            = school_work_config.get<uint>("<xmlattr>.min");
+        uint   max_age            = school_work_config.get<uint>("<xmlattr>.max");
+        double fraction           = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        uint   size               = university_config.get<uint>("<xmlattr>.total_size");
+        uint   cluster_size       = university_config.get<uint>("<xmlattr>.cluster_size");
 
         uint intellectual_pop = 0;
         for (uint i = min_age; i <= max_age; i++) {
@@ -777,9 +777,9 @@ void PopulationGenerator<U>::makeUniversities()
                 vector<SimpleCluster> univ;
                 for (uint i = 0; i < clusters_per_univ; i++) {
                         SimpleCluster univ_cluster;
-                        univ_cluster.m_id = m_next_id;
+                        univ_cluster.m_id       = m_next_id;
                         univ_cluster.m_max_size = cluster_size;
-                        univ_cluster.m_coord = m_cities.at(placed_universities % m_cities.size()).m_coord;
+                        univ_cluster.m_coord    = m_cities.at(placed_universities % m_cities.size()).m_coord;
                         m_next_id++;
                         univ.push_back(univ_cluster);
 
@@ -789,9 +789,9 @@ void PopulationGenerator<U>::makeUniversities()
                 if (left_over_cluster_size > 0) {
                         /// Because the last cluster might not fit in the university, this cluster is smaller
                         SimpleCluster univ_cluster;
-                        univ_cluster.m_id = m_next_id;
+                        univ_cluster.m_id       = m_next_id;
                         univ_cluster.m_max_size = left_over_cluster_size;
-                        univ_cluster.m_coord = m_cities.at(placed_universities % m_cities.size()).m_coord;
+                        univ_cluster.m_coord    = m_cities.at(placed_universities % m_cities.size()).m_coord;
                         m_next_id++;
                         univ.push_back(univ_cluster);
 
@@ -831,20 +831,20 @@ void PopulationGenerator<U>::sortWorkplaces()
 template <class U>
 void PopulationGenerator<U>::makeWork()
 {
-        m_next_id = 1;
+        m_next_id                = 1;
         ptree school_work_config = m_props.get_child("population.school_work_profile.employable");
-        ptree work_config = m_props.get_child("population.work");
+        ptree work_config        = m_props.get_child("population.work");
 
-        uint size = work_config.get<uint>("<xmlattr>.size");
-        uint min_age = school_work_config.get<uint>("employee.<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("employee.<xmlattr>.max");
-        uint young_min_age = school_work_config.get<uint>("young_employee.<xmlattr>.min");
-        uint young_max_age = school_work_config.get<uint>("young_employee.<xmlattr>.max");
+        uint   size           = work_config.get<uint>("<xmlattr>.size");
+        uint   min_age        = school_work_config.get<uint>("employee.<xmlattr>.min");
+        uint   max_age        = school_work_config.get<uint>("employee.<xmlattr>.max");
+        uint   young_min_age  = school_work_config.get<uint>("young_employee.<xmlattr>.min");
+        uint   young_max_age  = school_work_config.get<uint>("young_employee.<xmlattr>.max");
         double young_fraction = school_work_config.get<double>("young_employee.<xmlattr>.fraction") / 100.0;
-        double fraction = school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        double fraction       = school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
 
         uint possible_students = 0;
-        uint total_old = 0;
+        uint total_old         = 0;
         for (SimplePerson& person : m_people) {
                 if (person.m_age >= young_min_age && person.m_age <= young_max_age) {
                         possible_students++;
@@ -858,7 +858,7 @@ void PopulationGenerator<U>::makeWork()
         uint total_of_age = possible_students + total_old;
         // Subtract actual students
         uint total_working = total_of_age - ceil(possible_students * (1.0 - young_fraction));
-        total_working = ceil(total_working * fraction);
+        total_working      = ceil(total_working * fraction);
 
         // Calculate the actual fraction of people between young_min_age and max_age who are working
         double actual_fraction = double(total_working) / total_of_age;
@@ -874,9 +874,9 @@ void PopulationGenerator<U>::makeCommunities()
 {
         /// TODO? Currently not doing the thing with the average communities per person, right now, everyone gets two
         /// communities
-        m_next_id = 1;
+        m_next_id              = 1;
         ptree community_config = m_props.get_child("population.community");
-        uint size = community_config.get<uint>("<xmlattr>.size");
+        uint  size             = community_config.get<uint>("<xmlattr>.size");
 
         placeClusters(size, 0, 0, 1.0, m_primary_communities, "primary communities", ClusterType::Id::PrimaryCommunity);
         m_next_id = 1;
@@ -887,18 +887,18 @@ void PopulationGenerator<U>::makeCommunities()
 template <class U>
 void PopulationGenerator<U>::assignToSchools()
 {
-        m_next_id = 1;
-        ptree education_config = m_props.get_child("population.education.mandatory");
-        ptree school_work_config = m_props.get_child("population.school_work_profile.mandatory");
-        uint min_age = school_work_config.get<uint>("<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("<xmlattr>.max");
-        double start_radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
+        m_next_id                 = 1;
+        ptree  education_config   = m_props.get_child("population.education.mandatory");
+        ptree  school_work_config = m_props.get_child("population.school_work_profile.mandatory");
+        uint   min_age            = school_work_config.get<uint>("<xmlattr>.min");
+        uint   max_age            = school_work_config.get<uint>("<xmlattr>.max");
+        double start_radius       = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
 
         double factor = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
 
         double current_radius = start_radius;
 
-        uint total = 0;
+        uint total        = 0;
         uint total_placed = 0;
 
         for (uint i = min_age; i <= max_age; i++) {
@@ -925,7 +925,7 @@ void PopulationGenerator<U>::assignToSchools()
 
                         AliasSampler cluster_dist{vector<double>(closest_clusters_indices.size(),
                                                                  1.0 / double(closest_clusters_indices.size()))};
-                        uint index = closest_clusters_indices.at(cluster_dist(m_rng));
+                        uint         index = closest_clusters_indices.at(cluster_dist(m_rng));
 
                         AliasSampler inner_cluster_dist{
                             vector<double>(m_mandatory_schools_clusters.at(index).size(),
@@ -943,18 +943,18 @@ void PopulationGenerator<U>::assignToSchools()
 template <class U>
 void PopulationGenerator<U>::assignToUniversities()
 {
-        ptree school_work_config = m_props.get_child("population.school_work_profile.employable.young_employee");
-        ptree university_config = m_props.get_child("population.education.optional");
-        uint min_age = school_work_config.get<uint>("<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("<xmlattr>.max");
-        double student_fraction = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
-        double commute_fraction = university_config.get<double>("far.<xmlattr>.fraction") / 100.0;
-        double radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
+        ptree  school_work_config = m_props.get_child("population.school_work_profile.employable.young_employee");
+        ptree  university_config  = m_props.get_child("population.education.optional");
+        uint   min_age            = school_work_config.get<uint>("<xmlattr>.min");
+        uint   max_age            = school_work_config.get<uint>("<xmlattr>.max");
+        double student_fraction   = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        double commute_fraction   = university_config.get<double>("far.<xmlattr>.fraction") / 100.0;
+        double radius             = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
 
         AliasSampler commute_dist{{commute_fraction, 1.0 - commute_fraction}};
         AliasSampler student_dist{{student_fraction, 1.0 - student_fraction}};
 
-        uint total = 0;
+        uint total        = 0;
         uint total_placed = 0;
 
         for (uint i = min_age; i <= max_age; i++) {
@@ -985,7 +985,7 @@ void PopulationGenerator<U>::assignToUniversities()
 
 template <class U>
 void PopulationGenerator<U>::removeFromUniMap(vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map,
-                                              uint index) const
+                                              uint                                                    index) const
 {
         bool full_capacity = true;
 
@@ -1019,7 +1019,7 @@ void PopulationGenerator<U>::removeFromUniMap(vector<pair<GeoCoordinate, map<dou
 
 template <class U>
 bool PopulationGenerator<U>::removeFromMap(vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map,
-                                           uint index) const
+                                           uint                                                    index) const
 {
 
         // Remove this cluster from the distance map
@@ -1046,7 +1046,7 @@ void PopulationGenerator<U>::assignCommutingStudent(
     SimplePerson& person, vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map)
 {
         uint current_city = 0;
-        bool added = false;
+        bool added        = false;
 
         while (current_city < m_cities.size() && !added) {
                 uint current_univ = current_city;
@@ -1056,7 +1056,7 @@ void PopulationGenerator<U>::assignCommutingStudent(
                                 if (univ_cluster.m_current_size < univ_cluster.m_max_size) {
                                         univ_cluster.m_current_size++;
                                         person.m_school_id = univ_cluster.m_id;
-                                        added = true;
+                                        added              = true;
 
                                         removeFromUniMap(distance_map, current_city);
                                         break;
@@ -1072,9 +1072,9 @@ template <class U>
 void PopulationGenerator<U>::assignCloseStudent(SimplePerson& person, double start_radius,
                                                 vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map)
 {
-        double factor = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
-        double current_radius = start_radius;
-        bool added = false;
+        double       factor         = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
+        double       current_radius = start_radius;
+        bool         added          = false;
         vector<uint> closest_clusters_indices;
 
         while (!added) {
@@ -1096,7 +1096,7 @@ void PopulationGenerator<U>::assignCloseStudent(SimplePerson& person, double sta
                                         if (univ_cluster.m_current_size < univ_cluster.m_max_size) {
                                                 univ_cluster.m_current_size++;
                                                 person.m_school_id = univ_cluster.m_id;
-                                                added = true;
+                                                added              = true;
 
                                                 removeFromUniMap(distance_map, index);
                                                 break;
@@ -1117,20 +1117,20 @@ void PopulationGenerator<U>::assignCloseStudent(SimplePerson& person, double sta
 template <class U>
 void PopulationGenerator<U>::assignToWork()
 {
-        ptree school_work_config = m_props.get_child("population.school_work_profile.employable");
-        ptree work_config = m_props.get_child("population.work");
-        uint min_age = school_work_config.get<uint>("young_employee.<xmlattr>.min");
-        uint max_age = school_work_config.get<uint>("employee.<xmlattr>.max");
-        double unemployment_rate = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
-        double commute_fraction = work_config.get<double>("far.<xmlattr>.fraction") / 100.0;
-        double radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
+        ptree  school_work_config = m_props.get_child("population.school_work_profile.employable");
+        ptree  work_config        = m_props.get_child("population.work");
+        uint   min_age            = school_work_config.get<uint>("young_employee.<xmlattr>.min");
+        uint   max_age            = school_work_config.get<uint>("employee.<xmlattr>.max");
+        double unemployment_rate  = 1.0 - school_work_config.get<double>("<xmlattr>.fraction") / 100.0;
+        double commute_fraction   = work_config.get<double>("far.<xmlattr>.fraction") / 100.0;
+        double radius             = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
 
         AliasSampler unemployment_dist{{unemployment_rate, 1.0 - unemployment_rate}};
         AliasSampler commute_dist{{commute_fraction, 1.0 - commute_fraction}};
 
-        uint total = 0;
+        uint total        = 0;
         uint total_placed = 0;
-        uint amount_full = 0;
+        uint amount_full  = 0;
 
         for (uint i = min_age; i <= max_age; i++) {
                 total += m_age_distribution[i];
@@ -1199,7 +1199,7 @@ template <class U>
 bool PopulationGenerator<U>::assignCloseEmployee(SimplePerson& person, double start_radius,
                                                  vector<pair<GeoCoordinate, map<double, vector<uint>>>>& distance_map)
 {
-        double factor = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
+        double factor         = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
         double current_radius = start_radius;
 
         vector<uint> closest_clusters_indices;
@@ -1211,8 +1211,8 @@ bool PopulationGenerator<U>::assignCloseEmployee(SimplePerson& person, double st
 
         AliasSampler dist{
             vector<double>(closest_clusters_indices.size(), 1.0 / double(closest_clusters_indices.size()))};
-        uint rnd = dist(m_rng);
-        auto index = closest_clusters_indices.at(rnd);
+        uint           rnd       = dist(m_rng);
+        auto           index     = closest_clusters_indices.at(rnd);
         SimpleCluster& workplace = m_workplaces.at(index);
 
         person.m_work_id = workplace.m_id;
@@ -1233,9 +1233,9 @@ void PopulationGenerator<U>::assignToCommunities(vector<pair<GeoCoordinate, map<
 {
 
         double start_radius = m_props.get<double>("population.commutingdata.<xmlattr>.start_radius");
-        double factor = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
+        double factor       = m_props.get<double>("population.commutingdata.<xmlattr>.factor");
 
-        uint total = m_households.size();
+        uint total        = m_households.size();
         uint total_placed = 0;
 
         for (SimpleHousehold& household : m_households) {
@@ -1244,7 +1244,7 @@ void PopulationGenerator<U>::assignToCommunities(vector<pair<GeoCoordinate, map<
                              << min(uint(double(total_placed) / total * 100), 100U) << "%]";
                 total_placed++;
 
-                double current_radius = start_radius;
+                double       current_radius = start_radius;
                 vector<uint> closest_clusters_indices;
 
                 // TODO make sure merge didn't screw this up
@@ -1256,11 +1256,11 @@ void PopulationGenerator<U>::assignToCommunities(vector<pair<GeoCoordinate, map<
 
                 AliasSampler dist{
                     vector<double>(closest_clusters_indices.size(), 1.0 / double(closest_clusters_indices.size()))};
-                uint index = closest_clusters_indices.at(dist(m_rng));
+                uint           index     = closest_clusters_indices.at(dist(m_rng));
                 SimpleCluster& community = clusters.at(index);
                 for (uint& person_index : household.m_indices) {
                         SimplePerson& person = m_people.at(person_index);
-                        person.*member = community.m_id;
+                        person.*member       = community.m_id;
                         community.m_current_size++;
                 }
 

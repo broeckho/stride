@@ -55,21 +55,21 @@ void Person::Update(bool is_work_off, bool is_school_off)
 
         // Update presence in clusters.
         if (m_health.IsSymptomatic()) {
-                m_at_school = false;
-                m_at_work = false;
+                m_at_school              = false;
+                m_at_work                = false;
                 m_at_secondary_community = false;
-                m_at_primary_community = false;
+                m_at_primary_community   = false;
                 // TODO set at_home_due_to_illness?
         } else if (is_work_off || (m_age <= MinAdultAge() && is_school_off)) {
-                m_at_school = false;
-                m_at_work = false;
+                m_at_school              = false;
+                m_at_work                = false;
                 m_at_secondary_community = false;
-                m_at_primary_community = true;
+                m_at_primary_community   = true;
         } else {
-                m_at_school = true;
-                m_at_work = true;
+                m_at_school              = true;
+                m_at_work                = true;
                 m_at_secondary_community = true;
-                m_at_primary_community = false;
+                m_at_primary_community   = false;
         }
 }
 

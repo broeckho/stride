@@ -79,14 +79,14 @@ void AliasMethod<T>::BuildSampler()
         }
 
         // Find appropriate probabilities (& fix rounding errors in single pass)
-        bool found_low = true;
-        bool found_high = true;
-        unsigned int low_index = 0;
+        bool         found_low  = true;
+        bool         found_high = true;
+        unsigned int low_index  = 0;
         unsigned int high_index = 0;
         while (found_low && found_high) {
                 // Single pass find something beneath & find something above.
-                found_low = false;
-                found_high = false;
+                found_low        = false;
+                found_high       = false;
                 const double eps = std::numeric_limits<double>::epsilon();
                 for (unsigned int i = 0; i < table_size; ++i) {
                         if (m_prob_table[i] < 1 - eps && !has_alias_table[i]) {
@@ -99,7 +99,7 @@ void AliasMethod<T>::BuildSampler()
                         if (found_low && found_high) {
                                 // Switch things up
                                 has_alias_table[low_index] = true;
-                                m_alias_table[low_index] = high_index;
+                                m_alias_table[low_index]   = high_index;
                                 m_prob_table[high_index] -= (1.0l - m_prob_table[low_index]);
                                 break;
                         }
@@ -130,7 +130,7 @@ template <typename T>
 tuple<unsigned int, T> AliasMethod<T>::SampleIndexValue()
 {
         unsigned int index = SampleIndex();
-        T value = m_value_map[index];
+        T            value = m_value_map[index];
         return std::make_tuple(index, value);
 }
 
