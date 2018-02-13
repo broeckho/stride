@@ -15,7 +15,7 @@
  */
 /**
  * @file
- * Implementation of RandomEngineType.
+ * Implementation of Random Engine Type.
  */
 
 #include "RNEngineType.h"
@@ -24,7 +24,7 @@
 #include <map>
 
 using namespace std;
-using boost::to_lower;
+using boost::to_lower_copy;
 
 namespace stride {
 namespace RNEngineType {
@@ -34,9 +34,7 @@ bool IsType(const string& s)
         static map<string, Id> ids{make_pair("lcg64", Id::lcg64), make_pair("lcg64_shift", Id::lcg64_shift),
                                    make_pair("mrg2", Id::mrg2),   make_pair("mrg3", Id::mrg3),
                                    make_pair("yarn2", Id::yarn2), make_pair("yarn3", Id::yarn3)};
-        std::string            t{s};
-        to_lower(t);
-        return (ids.count(t) == 1);
+        return (ids.find(to_lower_copy(s)) != ids.end());
 }
 
 string ToString(Id c)
@@ -44,7 +42,8 @@ string ToString(Id c)
         static map<Id, string> names{make_pair(Id::lcg64, "lcg64"), make_pair(Id::lcg64_shift, "lcg64_shift"),
                                      make_pair(Id::mrg2, "mrg2"),   make_pair(Id::mrg3, "mrg3"),
                                      make_pair(Id::yarn2, "yarn2"), make_pair(Id::yarn3, "yarn3")};
-        return (names.count(c) == 1) ? names[c] : "null";
+        const auto it = names.find(c);
+        return (it != names.end()) ? it->second : "null";
 }
 
 Id ToType(const string& s)
@@ -52,9 +51,8 @@ Id ToType(const string& s)
         static map<string, Id> ids{make_pair("lcg64", Id::lcg64), make_pair("lcg64_shift", Id::lcg64_shift),
                                    make_pair("mrg2", Id::mrg2),   make_pair("mrg3", Id::mrg3),
                                    make_pair("yarn2", Id::yarn2), make_pair("yarn3", Id::yarn3)};
-        std::string            t{s};
-        to_lower(t);
-        return (ids.count(t) == 1) ? ids[t] : throw runtime_error("RNEngineType::ToString> not available:" + t);
+        const auto it = ids.find(to_lower_copy(s));
+        return (it != ids.end()) ? it->second : throw runtime_error("RNEngineType::ToString> not available:" + s);
 }
 
 } // namespace RNEngineType

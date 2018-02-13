@@ -23,11 +23,11 @@
 #include "Community.h"
 #include "GeneratorPerson.h"
 #include "Household.h"
+#include "RNG.h"
 #include "Society.h"
 #include "geo/City.h"
 #include "geo/Geometry.h"
 #include "geo/Village.h"
-#include "util/RNG.h"
 
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>

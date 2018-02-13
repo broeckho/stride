@@ -24,8 +24,6 @@ namespace generator {
 
 using namespace std;
 
-// size_t Community::g_id_generator = 1;
-
 Community::Community(CommunityType community_type, size_t city_id, unsigned int size)
     : m_community_type(community_type), m_city_id(city_id), m_size(size)
 {

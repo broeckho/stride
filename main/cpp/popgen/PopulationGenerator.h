@@ -19,10 +19,10 @@
  * Population generaton header.
  */
 
+#include "AliasSampler.h"
 #include "core/ContactPoolType.h"
 #include "geo/GeoCoordCalculator.h"
 #include "popgen/utils.h"
-#include "util/AliasSampler.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>

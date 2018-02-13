@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Interface of RandomEngineType
+ * Interface of Random Engine Type
  */
 
 #include <string>

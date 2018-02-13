@@ -20,7 +20,7 @@
  * Header file for the AliasMethod class template.
  */
 
-#include "util/RNG.h"
+#include "RNG.h"
 
 #include <unordered_map>
 #include <vector>

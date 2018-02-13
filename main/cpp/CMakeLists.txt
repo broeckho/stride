@@ -40,6 +40,7 @@ set(LIB_SRC
     pop/Person.cpp
     pop/PopulationBuilder.cpp
 #---
+	popgen/AliasSampler.cpp
 	popgen/FamilyParser.cpp
     popgen/utils.cpp
 	popgen/geo/GeoCoordinate.cpp
@@ -51,6 +52,7 @@ set(LIB_SRC
 	popgen2/GrahamScan.cpp
     popgen2/Household.cpp
 	popgen2/main.cpp
+    popgen2/RNG.cpp
 	popgen2/Society.cpp
 	popgen2/SocietyCSVWriter.cpp
 	popgen2/SocietyGenerator.cpp
@@ -62,14 +64,12 @@ set(LIB_SRC
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
 #---
-    util/AliasSampler.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileUtils.cpp
 	util/InstallDirs.cpp
-    util/RNG.cpp
-    util/RNManager.cpp
     util/RNEngineType.cpp
+    util/RNManager.cpp
 )
 
 #============================================================================

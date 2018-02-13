@@ -46,9 +46,9 @@ public:
         /// seed is implied. If a state is available, the seed is disregarded.
         struct Info
         {
-                Info(const std::string& type = "mrg2", unsigned long seed = 1UL, const std::string& state = "",
+                Info(std::string type = "mrg2", unsigned long seed = 1UL, std::string state = "",
                      unsigned int stream_count = 1U)
-                    : m_seed(seed), m_state(state), m_stream_count(stream_count), m_type(type){};
+                    : m_seed(seed), m_state(std::move(state)), m_stream_count(stream_count), m_type(std::move(type)){};
 
                 unsigned long m_seed;         ///< Seed for the engine.
                 std::string   m_state;        ///< Long string reperesting current state.
@@ -83,7 +83,7 @@ public:
                 return gen;
         }
 
-        /// Randomly shuufle item bewteen iterators using i-th stream of the random engine.
+        /// Randomly shuffle items between iterators using i-th stream of the random engine.
         /// \param first
         /// \param last
         /// \return
