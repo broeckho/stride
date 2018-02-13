@@ -49,7 +49,7 @@ StrideRunner::StrideRunner()
 {
 }
 
-void StrideRunner::RegisterObserver(shared_ptr<python::SimulatorObserver>& observer) { m_sim->Register(observer); }
+void StrideRunner::RegisterObserver(std::shared_ptr<python::SimulatorObserver>& observer) { m_sim->Register(observer); }
 
 void StrideRunner::Setup(bool track_index_case, const string& config_file_name, bool use_install_dirs)
 {

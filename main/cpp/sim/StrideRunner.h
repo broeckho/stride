@@ -42,7 +42,7 @@ public:
         /// Destructor
         virtual ~StrideRunner() = default;
 
-        /// Register observer
+        /// Register observer (method used by the python environment).
         void RegisterObserver(std::shared_ptr<python::SimulatorObserver>& observer);
 
         ///
@@ -54,7 +54,7 @@ public:
         ///
         void Stop();
 
-        /// Get the simulator
+        /// Get the simulator (method used by the python environment).
         std::shared_ptr<Simulator> GetSimulator() { return m_sim; }
 
 private:

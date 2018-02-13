@@ -138,7 +138,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Sampler for int in [0, clusters.size())
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
-        assert((max_population_index < 1U) && "PopulationBuilder::Build> Problem with population size." );
+        assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size." );
         auto pop_index_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
         std::cout << "Survey" << std::endl;
