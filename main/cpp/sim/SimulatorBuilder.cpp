@@ -112,9 +112,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         InitializeClusters(sim);
 
         // Initialize population immunity
-        Vaccinator v(sim, pt_config, pt_disease, rng);
-        v.Apply("immunity");
-        v.Apply("vaccine");
+        Vaccinator v(pt_config, rng);
+        v.Apply(sim->GetPopulation());
 
         // Initialize disease profile.
         sim->m_disease_profile.Initialize(pt_config, pt_disease);

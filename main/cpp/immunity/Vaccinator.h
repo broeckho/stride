@@ -19,44 +19,37 @@
  * Header for the Vaccinator class.
  */
 
-#include "core/Cluster.h"
-#include "sim/Simulator.h"
+#include "pop/Population.h"
 #include "util/Random.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <string>
-#include <vector>
 
 namespace stride {
 
-/**
- * Apply the immunization strategy in the configuration file to the Simulator object.
- */
-class Vaccinator
+enum class ImmunizationProfile
 {
-public:
-        Vaccinator(std::shared_ptr<Simulator> sim, const boost::property_tree::ptree& pt_config,
-                   const boost::property_tree::ptree& pt_disease, util::Random& rng);
-
-        /// Apply the immunization strategy in the configuration file to the Simulator object.
-        void Apply(const std::string& s);
-
-private:
-        /// Initiate the given immunity distribution in the population, according the given link probability.
-        void Administer(const std::vector<Cluster>& clusters, std::vector<double>& immunity_distribution,
-                        double immunity_link_probability);
-
-        /// Administer cocoon immunization for the given rate and target ages [min-max] to protect connected
-        /// individuals of the given age class [min-max].
-        void AdministerCocoon(const std::vector<Cluster>& clusters, double immunity_rate, double adult_age_min,
-                              double adult_age_max, double child_age_min, double child_age_max);
-
-private:
-        const boost::property_tree::ptree& m_config;
-        const boost::property_tree::ptree& m_disease;
-        std::shared_ptr<Simulator> m_sim;
-        util::Random& m_rng;
+        None = 0U,
+        	Random = 1U,
+		Cocoon = 2U,
+        Null
 };
 
-} // namespace stride
+/**
+ * Apply the natural immunity and/or vaccination strategy specified in the configuration file.
+ */
+class Vaccinator {
+public:
+	Vaccinator(const boost::property_tree::ptree& pt_config, util::Random& rng);
+
+	/// Apply the strategies specified in the configuration file
+	void Apply(std::shared_ptr<Population> pop);
+private:
+	///
+	void Administer(std::string immunization_profile, std::shared_ptr<Population> pop);
+private:
+	const boost::property_tree::ptree& m_pt_config;
+	util::Random& m_rng;
+};
+
+} // end-of-namespace
