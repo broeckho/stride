@@ -77,7 +77,7 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
                 // random cluster, random order of members
                 const Cluster& p_cluster = clusters[int_generator()];
                 const auto size = static_cast<unsigned int>(p_cluster.GetSize());
-                vector<unsigned int> indices;
+                vector<unsigned int> indices(size);
                 for (size_t i =0; i < size; i++) {
                         indices[i] = static_cast<unsigned int>(i);
                 }
