@@ -24,7 +24,6 @@
 #include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
-#include "core/RngHandler.h"
 #include "pop/Population.h"
 #include "sim/SimulatorObserver.h"
 #include "util/RNManager.h"
@@ -72,10 +71,9 @@ private:
 
 private:
         unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
-        std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
         LogMode::Id m_log_level;               ///< Specifies logging mode.
         std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
-        util::RNManager m_rnmanager;           ///< Random numbere generation management.
+        util::RNManager m_rn_manager;          ///< Random numbere generation management.
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 

@@ -149,7 +149,6 @@ Society SocietyGenerator::Generate()
         }
 
         // Return society
-        // return Society(std::move(persons), std::move(cities), communities, m_households);
         return Society(persons, cities, communities, m_households);
 }
 
@@ -182,7 +181,6 @@ void SocietyGenerator::GenerateHouseholds(vector<vector<unsigned int>>& Househol
 
 void SocietyGenerator::GenerateVillages(const vector<Point2D>& simulation_area, const vector<Village>& villages)
 {
-
         // Determine the borders of the simulation area.
         GrahamScan graham(simulation_area);
         vector<Point2D> borders = graham.Scan();
@@ -212,17 +210,14 @@ void SocietyGenerator::GenerateVillages(const vector<Point2D>& simulation_area, 
         for (Village v : villages) {
                 for (unsigned int i = 0; i < v.GetNumber(); i++) {
                         ConvexPolygonChecker checker(borders_simulation_area);
-
                         // Generate random coordinates
                         Point2D coordinates =
                             this->GenerateRandomCoordinates(checker, borders_simulation_area, borders[0].m_point_type);
-
                         // Check if the new coordinates lie in the simulation area
                         while (!checker.IsPointInPolygon(coordinates) or !this->IsFreePoint(coordinates)) {
                                 coordinates = this->GenerateRandomCoordinates(checker, borders_simulation_area,
                                                                               borders[0].m_point_type);
                         }
-
                         size_t closest_city_id = this->FindClosestCity(coordinates);
                         double population = v.GetPopulation() / m_population_size;
                         City village(population, m_cities_map[closest_city_id].GetName() + "_VILLAGE",

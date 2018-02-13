@@ -46,8 +46,8 @@ public:
         /// seed is implied. If a state is available, the seed is disregarded.
         struct Info
         {
-                Info(unsigned long seed = 1UL, const std::string& state = "", unsigned int stream_count = 1U,
-                     const std::string& type = "mrg2")
+                Info(const std::string& type = "mrg2", unsigned long seed = 1UL, const std::string& state = "",
+                     unsigned int stream_count = 1U)
                     : m_seed(seed), m_state(state), m_stream_count(stream_count), m_type(type){};
 
                 unsigned long m_seed;        ///< Seed for the engine.

@@ -25,14 +25,10 @@
 namespace stride {
 namespace util {
 
-/**
- * Template for Subject/Observer (or Publish/Subscribe). Offers flexibility
- * in defining event types.
- * Despite the shared_ptrs in the Register/Unregister, the Subject takes no
- * ownership
- * of the observer object and only stores a weak_ptr.
- */
-// TODO reinstate the weak ptrs
+/// Template for Subject/Observer (or Publish/Subscribe). Offers flexibility in defining event types.
+/// Despite the shared_ptrs in the Register/Unregister, the Subject takes no ownership
+/// of the observer object and only stores a weak_ptr.
+
 template <typename E, typename U>
 class Subject
 {

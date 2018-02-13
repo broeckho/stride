@@ -22,6 +22,8 @@
 
 #include "util/PtreeUtils.h"
 #include "util/StringUtils.h"
+#include <trng/uniform_int_dist.hpp>
+#include <trng/uniform01_dist.hpp>
 
 namespace stride {
 
@@ -30,8 +32,8 @@ using namespace util;
 using boost::property_tree::ptree;
 
 Vaccinator::Vaccinator(std::shared_ptr<Simulator> sim, const boost::property_tree::ptree& pt_config,
-                       const boost::property_tree::ptree& pt_disease, util::Random& rng)
-    : m_config(pt_config), m_disease(pt_disease), m_sim(sim), m_rng(rng)
+                       const boost::property_tree::ptree& pt_disease, util::RNManager& rn_manager)
+    : m_config(pt_config), m_disease(pt_disease), m_sim(std::move(sim)), m_rn_manager(rn_manager)
 {
 }
 
@@ -55,6 +57,13 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
                 }
         }
 
+        // Sampler for int in [0, clusters.size())
+        const auto clusters_size = static_cast<int>(clusters.size());
+        auto int_generator = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, clusters_size));
+
+        // Sampler for double in [0.0, 1.0).
+        auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+
         // Calculate the number of susceptible individuals per age class.
         unsigned int total_num_susceptible = 0;
         for (unsigned int index_age = 0; index_age < 100; index_age++) {
@@ -65,25 +74,26 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
 
         // Sample susceptible individuals, until all age-dependent quota are reached.
         while (total_num_susceptible > 0) {
-                // sample cluster
-                const Cluster& p_cluster = clusters[static_cast<unsigned int>(m_rng(clusters.size()))];
+                // random cluster, random order of members
+                const Cluster& p_cluster = clusters[int_generator()];
                 const auto size = static_cast<unsigned int>(p_cluster.GetSize());
-                vector<unsigned int> indices = m_rng.GetRandomIndices(size);
+                vector<unsigned int> indices;
+                for (size_t i =0; i < size; i++) {
+                        indices[i] = static_cast<unsigned int>(i);
+                }
+                m_rn_manager.RandomShuffle(indices.begin(), indices.end());
 
                 // loop over cluster members, in random order
                 for (unsigned int i_p = 0; i_p < size && total_num_susceptible > 0; i_p++) {
                         Person& p = *p_cluster.GetMember(indices[i_p]);
-
-                        // if individual is immune and his/her age class has not reached the quota
-                        // => make
-                        // susceptible
+                        // if p is immune and his/her age class has not reached the quota => make  susceptible
                         if (p.GetHealth().IsImmune() && population_count_age[p.GetAge()] > 0) {
                                 p.GetHealth().SetSusceptible();
                                 population_count_age[p.GetAge()]--;
                                 total_num_susceptible--;
                         }
                         // random draw to continue in this cluster or to sample a new one
-                        if (m_rng.NextDouble() < (1 - immunity_link_probability)) {
+                        if (uniform01_generator() < (1 - immunity_link_probability)) {
                                 break;
                         }
                 }
@@ -93,6 +103,8 @@ void Vaccinator::Administer(const vector<Cluster>& clusters, vector<double>& imm
 void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immunity_rate, double adult_age_min,
                                   double adult_age_max, double child_age_min, double child_age_max)
 {
+        // Sampler for double in [0.0, 1.0).
+        auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
         for (const auto& c : clusters) {
                 for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
                         Person& p = *c.GetMember(i_p);
@@ -106,7 +118,7 @@ void Vaccinator::AdministerCocoon(const vector<Cluster>& clusters, double immuni
                                                 is_connected_to_target_age = true;
                                         }
                                 }
-                                if (is_connected_to_target_age && m_rng.NextDouble() < immunity_rate) {
+                                if (is_connected_to_target_age && uniform01_generator() < immunity_rate) {
                                         p.GetHealth().SetImmune();
                                 }
                         }
@@ -135,7 +147,6 @@ void Vaccinator::Apply(const string& s)
                         case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;
                         case Id::PrimaryCommunity: immunity_clusters = &m_sim->m_primary_community; break;
                         case Id::SecondaryCommunity: immunity_clusters = &m_sim->m_secondary_community; break;
-                        default: throw runtime_error(string(__func__) + "Link cluster type screwed up!");
                         }
                 }
                 if (profile == "Cocoon") {
@@ -145,7 +156,6 @@ void Vaccinator::Apply(const string& s)
                         const auto adult_age_max = m_config.get<double>("run." + ToLower(s) + "_adult_age_max");
                         const auto child_age_min = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
                         const auto child_age_max = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
-
                         AdministerCocoon(*immunity_clusters, immunity_rate, adult_age_min, adult_age_max, child_age_min,
                                          child_age_max);
                 } else {

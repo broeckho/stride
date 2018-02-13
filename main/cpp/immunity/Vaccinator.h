@@ -21,7 +21,7 @@
 
 #include "core/Cluster.h"
 #include "sim/Simulator.h"
-#include "util/Random.h"
+#include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -36,8 +36,9 @@ namespace stride {
 class Vaccinator
 {
 public:
+        //Initialize vaccinator algorithm.
         Vaccinator(std::shared_ptr<Simulator> sim, const boost::property_tree::ptree& pt_config,
-                   const boost::property_tree::ptree& pt_disease, util::Random& rng);
+                   const boost::property_tree::ptree& pt_disease, util::RNManager& rn_manager);
 
         /// Apply the immunization strategy in the configuration file to the Simulator object.
         void Apply(const std::string& s);
@@ -56,7 +57,7 @@ private:
         const boost::property_tree::ptree& m_config;
         const boost::property_tree::ptree& m_disease;
         std::shared_ptr<Simulator> m_sim;
-        util::Random& m_rng;
+        util::RNManager& m_rn_manager;
 };
 
 } // namespace stride

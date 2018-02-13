@@ -27,6 +27,7 @@
 #include "core/Infector.h"
 
 #include <omp.h>
+#include <trng/uniform01_dist.hpp>
 
 namespace stride {
 
@@ -52,8 +53,8 @@ void Simulator::TimeStep()
         // dependent then the days_off object has to be passed into the Update
         // function.
         days_off = std::make_shared<DaysOffStandard>(m_calendar);
-        const bool is_work_off{days_off->IsWorkOff()};
-        const bool is_school_off{days_off->IsSchoolOff()};
+        const bool is_work_off = days_off->IsWorkOff();
+        const bool is_school_off = days_off->IsSchoolOff();
 
         // Update individual's health status & presence in clusters.
         for (auto& p : *m_population) {
@@ -110,7 +111,7 @@ void Simulator::UpdateClusters()
         vector<ContactHandler> handlers;
         for (size_t i = 0; i < m_num_threads; i++) {
                 // RN generators with double in [0.0, 1.0) each bound to a different stream.
-                auto gen = m_rnmanager.GetGenerator(trng::uniform01_dist<double>(), i);
+                auto gen = m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
                 handlers.emplace_back(ContactHandler(gen));
         }
 
