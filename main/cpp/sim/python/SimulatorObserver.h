@@ -19,22 +19,19 @@
  * Header for the SimulatorObserver class.
  */
 
-#include <iostream>
-#include <memory>
 
 namespace stride {
+namespace python {
 
-/**
- *
- */
-class SimulatorObserver
-{
-public:
+/// Hook to allow python environment to get simulator state.
+    class SimulatorObserver {
+    public:
         SimulatorObserver() {}
 
         virtual ~SimulatorObserver() {}
 
         virtual void Update(unsigned int timestep) {}
-};
+    };
 
+} // namespace python
 } // namespace stride

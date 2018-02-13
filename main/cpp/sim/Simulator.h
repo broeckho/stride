@@ -25,9 +25,9 @@
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
 #include "pop/Population.h"
-#include "sim/SimulatorObserver.h"
+#include "sim/python/SimulatorObserver.h"
+#include "sim/python/Subject.h"
 #include "util/RNManager.h"
-#include "util/Subject.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <array>
@@ -37,7 +37,7 @@ namespace stride {
 /**
  * Main class that contains and direct the virtual world.
  */
-class Simulator : public util::Subject<unsigned int, SimulatorObserver>
+class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
 {
 public:
         /// Default constructor for empty Simulator.
