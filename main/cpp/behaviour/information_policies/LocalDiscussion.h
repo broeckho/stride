@@ -15,7 +15,7 @@
  */
 
 #include "pop/Person.h"
-#include "util/Random.h"
+#include "util/RNManager.h"
 
 namespace stride {
 

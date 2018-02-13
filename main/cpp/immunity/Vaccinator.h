@@ -19,8 +19,10 @@
  * Header for the Vaccinator class.
  */
 
+#include "core/Cluster.h"
 #include "pop/Population.h"
-#include "util/Random.h"
+//#include "sim/Simulator.h"
+#include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -40,7 +42,7 @@ enum class ImmunizationProfile
  */
 class Vaccinator {
 public:
-	Vaccinator(const boost::property_tree::ptree& pt_config, util::Random& rng);
+	Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
 
 	/// Apply the strategies specified in the configuration file
 	void Apply(std::shared_ptr<Population> pop);
@@ -49,7 +51,7 @@ private:
 	void Administer(std::string immunization_profile, std::shared_ptr<Population> pop);
 private:
 	const boost::property_tree::ptree& m_pt_config;
-	util::Random& m_rng;
+	util::RNManager& m_rn_manager;
 };
 
 } // end-of-namespace

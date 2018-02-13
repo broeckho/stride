@@ -24,10 +24,10 @@
 #include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
-#include "core/RngHandler.h"
 #include "pop/Population.h"
-#include "sim/SimulatorObserver.h"
-#include "util/Subject.h"
+#include "sim/python/SimulatorObserver.h"
+#include "sim/python/Subject.h"
+#include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <array>
@@ -37,7 +37,7 @@ namespace stride {
 /**
  * Main class that contains and direct the virtual world.
  */
-class Simulator : public util::Subject<unsigned int, SimulatorObserver>
+class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
 {
 public:
         /// Default constructor for empty Simulator.
@@ -50,7 +50,7 @@ public:
         const DiseaseProfile GetDiseaseProfile() const { return m_disease_profile; }
 
         /// Check if the simulator is operational.
-        bool IsOperational() const { return GetDiseaseProfile().IsOperational(); }
+        bool IsOperational() const { return m_operational; }
 
         /// Change track_index_case setting.
         void SetTrackIndexCase(bool track_index_case) { m_track_index_case = track_index_case; }
@@ -71,10 +71,9 @@ private:
 
 private:
         unsigned int m_num_threads;            ///< The number of (OpenMP) threads.
-        std::vector<RngHandler> m_rng_handler; ///< Pointer to the RngHandlers.
         LogMode::Id m_log_level;               ///< Specifies logging mode.
         std::shared_ptr<Calendar> m_calendar;  ///< Management of calendar.
-
+        util::RNManager m_rn_manager;          ///< Random numbere generation management.
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
@@ -86,6 +85,7 @@ private:
 
         ContactProfiles m_contact_profiles; ///< Contact patterns.
         DiseaseProfile m_disease_profile;   ///< Profile of disease.
+        bool m_operational;                 ///< Gets to be false when invalid disease profile is specified.
 
         bool m_track_index_case; ///< General simulation or tracking index case.
 

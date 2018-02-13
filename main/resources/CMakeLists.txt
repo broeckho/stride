@@ -21,7 +21,6 @@
 file(GLOB DEPLOY_FILES "data/*")
 INSTALL( FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
 
-
 #============================================================================
 # Copy all files from config/* to ${CONFIG_INSTALL_LOCATION}
 #============================================================================

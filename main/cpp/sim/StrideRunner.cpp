@@ -49,7 +49,7 @@ StrideRunner::StrideRunner()
 {
 }
 
-void StrideRunner::RegisterObserver(shared_ptr<SimulatorObserver>& observer) { m_sim->Register(observer); }
+void StrideRunner::RegisterObserver(std::shared_ptr<python::SimulatorObserver>& observer) { m_sim->Register(observer); }
 
 void StrideRunner::Setup(bool track_index_case, const string& config_file_name, bool use_install_dirs)
 {
@@ -81,12 +81,10 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         // Configuration.
         // -----------------------------------------------------------------------------------------
         const auto file_path = canonical(system_complete(config_file_name));
-
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">Config file " + file_path.string() +
                                     " not present. Aborting.");
         }
-
         read_xml(file_path.string(), m_pt_config);
         cout << "Configuration file:  " << file_path.string() << endl;
 

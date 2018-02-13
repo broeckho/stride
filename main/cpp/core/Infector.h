@@ -22,9 +22,9 @@
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
+#include "core/ContactHandler.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
-#include "core/RngHandler.h"
 
 #include <memory>
 
@@ -64,7 +64,7 @@ class Infector
 {
 public:
         ///
-        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, ContactHandler contact_handler,
                          std::shared_ptr<const Calendar> calendar);
 };
 
@@ -76,7 +76,7 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, RngHandler& contact_handler,
+        static void Exec(Cluster& cluster, DiseaseProfile disease_profile, ContactHandler contact_handler,
                          std::shared_ptr<const Calendar> calendar);
 };
 

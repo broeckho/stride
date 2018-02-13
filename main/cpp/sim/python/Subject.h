@@ -23,16 +23,9 @@
 #include <memory>
 
 namespace stride {
-namespace util {
+namespace python {
 
-/**
- * Template for Subject/Observer (or Publish/Subscribe). Offers flexibility
- * in defining event types.
- * Despite the shared_ptrs in the Register/Unregister, the Subject takes no
- * ownership
- * of the observer object and only stores a weak_ptr.
- */
-// TODO reinstate the weak ptrs
+/// Template for Subject/Observer. Offers flexibility in defining event types.
 template <typename E, typename U>
 class Subject
 {
@@ -84,5 +77,5 @@ void Subject<E, U>::Notify(const E& e)
         }
 }
 
-} // namespace util
+} // namespace python
 } // namespace stride

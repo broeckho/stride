@@ -20,6 +20,7 @@
  */
 
 #include <boost/filesystem.hpp>
+#include <iostream>
 
 namespace stride {
 namespace util {
@@ -45,6 +46,20 @@ public:
         /// Utility method: get application installation root directory.
         static boost::filesystem::path GetRootDir() { return Get().m_root_dir; }
 
+        /// Utility method: get path to checkpoints directory
+        static boost::filesystem::path GetCheckpointsDir() { return Get().m_checkpoints_dir; }
+
+        /// Utility method: get path to test data directory
+        static boost::filesystem::path GetTestsDir() { return Get().m_tests_dir; }
+
+        static boost::filesystem::path GetConfigDir() { return Get().m_config_dir; }
+
+        /// Utility method: print all configured directories
+        static void Print(std::ostream& os);
+
+        /// Verifies that all required directories exists. Throws runtime_error if not valid.
+        static void Check();
+
 private:
         /// Using this to avoid global variables & their initialization.
         struct Dirs
@@ -54,6 +69,9 @@ private:
                 boost::filesystem::path m_data_dir;
                 boost::filesystem::path m_exec_path;
                 boost::filesystem::path m_root_dir;
+                boost::filesystem::path m_checkpoints_dir;
+                boost::filesystem::path m_tests_dir;
+                boost::filesystem::path m_config_dir;
         };
 
 private:

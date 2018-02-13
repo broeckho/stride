@@ -20,7 +20,7 @@
  */
 
 #include "sim/Simulator.h"
-#include "sim/SimulatorObserver.h"
+#include "sim/python/SimulatorObserver.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -42,8 +42,8 @@ public:
         /// Destructor
         virtual ~StrideRunner() = default;
 
-        /// Register observer
-        void RegisterObserver(std::shared_ptr<SimulatorObserver>& observer);
+        /// Register observer (method used by the python environment).
+        void RegisterObserver(std::shared_ptr<python::SimulatorObserver>& observer);
 
         ///
         void Setup(bool track_index_case, const std::string& config_file_name, bool use_install_dirs = false);
@@ -54,7 +54,7 @@ public:
         ///
         void Stop();
 
-        /// Get the simulator
+        /// Get the simulator (method used by the python environment).
         std::shared_ptr<Simulator> GetSimulator() { return m_sim; }
 
 private:

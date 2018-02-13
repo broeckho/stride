@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -20,9 +20,10 @@
  */
 
 #include "pop/Population.h"
-#include "util/Random.h"
+#include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <functional>
 #include <memory>
 #include <vector>
 
@@ -34,19 +35,20 @@ namespace stride {
 class PopulationBuilder
 {
 public:
-        /**
-         * Initializes a Population: add persons, set immunity, seed infection.
-         *
-         * @param pt_config     Property_tree with general configuration settings.
-         * @param pt_disease    Property_tree with disease configuration settings.
-         * @return              Pointer to the initialized population.
-         */
+        /// Initializes a Population: add persons, set immunity, seed infection.
+        /// @param pt_config     Property_tree with general configuration settings.
+        /// @param pt_disease    Property_tree with disease configuration settings.
+        /// @return              Pointer to the initialized population.
         static std::shared_ptr<Population> Build(const boost::property_tree::ptree& pt_config,
-                                                 const boost::property_tree::ptree& pt_disease, util::Random& rng);
+                                                 const boost::property_tree::ptree& pt_disease,
+                                                 util::RNManager& rn_manager);
 
 private:
-        /// Sample from the distribution.
-        static unsigned int Sample(util::Random& rng, const std::vector<double>& distribution);
+        /// Sample form a cumulative distribution.
+        /// \param generator    generator for doubles in [0.0, 1.0).
+        /// \param distrib      cumulative distribution tat gets sampled.
+        /// \return             sample index.
+        static unsigned int Sample(std::function<double()>& generator, const std::vector<double>& distrib);
 };
 
 } // namespace stride

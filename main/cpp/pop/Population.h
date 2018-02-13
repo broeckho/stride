@@ -69,15 +69,15 @@ public:
                           unsigned int time_infectious, unsigned int time_symptomatic, double risk_averseness = 0,
                           boost::property_tree::ptree pt_belief = boost::property_tree::ptree())
         {
-        			std::string belief_policy = pt_belief.get<std::string>("name"); // TODO default?
+                std::string belief_policy = pt_belief.get<std::string>("name"); // TODO default?
                 if (belief_policy == "NoBelief") {
                         NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
                                             secondary_community_id, start_infectiousness, start_symptomatic,
                                             time_infectious, time_symptomatic, risk_averseness, pt_belief);
                 } else if (belief_policy == "Imitation") {
-                			NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
-                								 secondary_community_id, start_infectiousness, start_symptomatic,
-											 time_infectious, time_symptomatic, risk_averseness, pt_belief);
+                        NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
+                                             secondary_community_id, start_infectiousness, start_symptomatic,
+                                             time_infectious, time_symptomatic, risk_averseness, pt_belief);
                 } else {
                         throw std::runtime_error(std::string(__func__) + "No valid belief policy!");
                 }

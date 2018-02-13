@@ -36,7 +36,7 @@ public:
         bool IsOperational() const { return m_is_operational; }
 
         /// Initialize.
-        void Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
+        bool Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
 
 private:
         double m_transmission_rate;

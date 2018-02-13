@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -13,28 +12,32 @@
  *
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
-
 /**
  * @file
- * Header for the SimulatorObserver class.
+ * Implementation of file utils.
  */
 
-#include <iostream>
-#include <memory>
+#include "FileUtils.h"
+
+using namespace boost;
 
 namespace stride {
+namespace util {
 
-/**
- *
- */
-class SimulatorObserver
+const filesystem::path completePath(const filesystem::path& filename, const filesystem::path& root)
 {
-public:
-        SimulatorObserver() {}
+        return complete(filename, root);
+}
 
-        virtual ~SimulatorObserver() {}
+const filesystem::path checkFile(const filesystem::path& filename, const filesystem::path& root)
+{
+        const boost::filesystem::path file_path = canonical(completePath(filename, root));
+        if (!is_regular_file(file_path)) {
+                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
+                                         " not present. Aborting.");
+        }
+        return file_path;
+}
 
-        virtual void Update(unsigned int timestep) {}
-};
-
+} // namespace util
 } // namespace stride

@@ -24,6 +24,7 @@
 #include "pop/PopulationBuilder.h"
 #include "util/InstallDirs.h"
 
+#include <trng/uniform_int_dist.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <spdlog/spdlog.h>
 
@@ -78,15 +79,24 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                                                    const ptree& pt_contact, unsigned int num_threads,
                                                    bool track_index_case)
 {
+        // Uninitialized simulator object.
         auto sim = make_shared<Simulator>();
-        const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
 
+        // Initialize variuous ptrees.
         sim->m_pt_config = pt_config;                       // Initialize config ptree.
         sim->m_track_index_case = track_index_case;         // Initialize track_index_case policy
         sim->m_num_threads = num_threads;                   // Initialize number of threads.
         sim->m_calendar = make_shared<Calendar>(pt_config); // Initialize calendar.
 
-        // Get log level.
+        // Initialize RNManager for random number engine management.
+        const auto rng_seed = pt_config.get<unsigned long>("run.rng_seed", 1UL);
+        const auto rng_type = pt_config.get<string>("run.rng_type", "mrg2");
+        const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
+        sim->m_rn_manager.Initialize(info);
+
+        // Logging related initialization..
+        std::cout << "Getting logger" << std::endl;
+        const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
         const string l = pt_config.get<string>("run.log_level", "None");
         sim->m_log_level = LogMode::IsLogMode(l)
                                ? LogMode::ToLogMode(l)
@@ -97,8 +107,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
 
         // Build population.
-        Random rng(static_cast<unsigned long>(pt_config.get<double>("run.rng_seed")));
-        sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, rng);
+        sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, sim->m_rn_manager);
 
         // Initialize contact profiles.
         using Id = ClusterType::Id;
@@ -112,11 +121,11 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         InitializeClusters(sim);
 
         // Initialize population immunity
-        Vaccinator v(pt_config, rng);
+        Vaccinator v(pt_config, sim->m_rn_manager);
         v.Apply(sim->GetPopulation());
 
         // Initialize disease profile.
-        sim->m_disease_profile.Initialize(pt_config, pt_disease);
+        sim->m_operational = sim->m_disease_profile.Initialize(pt_config, pt_disease);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -124,11 +133,13 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         const auto seeding_rate = pt_config.get<double>("run.seeding_rate");
         const auto seeding_age_min = pt_config.get<double>("run.seeding_age_min", 1);
         const auto seeding_age_max = pt_config.get<double>("run.seeding_age_max", 99);
-        const auto max_population_index = static_cast<unsigned int>(sim->m_population->size() - 1);
-        auto num_infected =
-            static_cast<unsigned int>(floor(static_cast<double>(sim->m_population->size()) * seeding_rate));
+        const auto pop_size = sim->m_population->size() - 1;
+        const auto max_population_index = static_cast<unsigned int>(pop_size);
+        auto int_generator = sim->m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
+
+        auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
-                Person& p = sim->m_population->at(rng(max_population_index));
+                Person& p = sim->m_population->at(int_generator());
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
                     (p.GetAge() <= seeding_age_max)) {
                         p.GetHealth().StartInfection();
@@ -137,18 +148,12 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                 }
         }
 
-        // Initialize Rng handlers
-        unsigned int new_seed = rng(numeric_limits<unsigned int>::max());
-        for (size_t i = 0; i < sim->m_num_threads; i++) {
-                sim->m_rng_handler.emplace_back(RngHandler(new_seed, sim->m_num_threads, static_cast<unsigned int>(i)));
-        }
-
         // Done.
         return sim;
 }
 
 /// Initialize the clusters.
-void SimulatorBuilder::InitializeClusters(shared_ptr<Simulator> sim)
+void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
 {
         // Determine the number of clusters.
         unsigned int max_id_households{0U};
