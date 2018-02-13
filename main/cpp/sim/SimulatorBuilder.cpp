@@ -139,7 +139,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
 
         auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
-                Person& p = sim->m_population->at(int_generator());
+                Person& p = sim->m_population->at(static_cast<size_t>(int_generator()));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
                     (p.GetAge() <= seeding_age_max)) {
                         p.GetHealth().StartInfection();

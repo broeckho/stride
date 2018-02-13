@@ -52,9 +52,6 @@ public:
         /// Check if the simulator is operational.
         bool IsOperational() const { return m_operational; }
 
-        /// Change track_index_case setting.
-        void SetTrackIndexCase(bool track_index_case) { m_track_index_case = track_index_case; }
-
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 

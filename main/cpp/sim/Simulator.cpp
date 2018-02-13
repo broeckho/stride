@@ -132,25 +132,25 @@ void Simulator::UpdateClusters()
                 const auto thread = static_cast<unsigned int>(omp_get_thread_num());
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_households.size(); i++) {
+                for (size_t i = 0; i < m_households.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_households[i], m_disease_profile, handlers[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_school_clusters.size(); i++) {
+                for (size_t i = 0; i < m_school_clusters.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_school_clusters[i], m_disease_profile, handlers[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_work_clusters.size(); i++) {
+                for (size_t i = 0; i < m_work_clusters.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_work_clusters[i], m_disease_profile, handlers[thread], m_calendar);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_secondary_community.size(); i++) {
+                for (size_t i = 0; i < m_secondary_community.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar);
                 }

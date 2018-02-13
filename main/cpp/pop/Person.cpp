@@ -33,7 +33,6 @@ unsigned int Person::GetClusterId(const ContactPoolType::Id& cluster_type) const
         case ContactPoolType::Id::Work: return m_work_id;
         case ContactPoolType::Id::PrimaryCommunity: return m_primary_community_id;
         case ContactPoolType::Id::SecondaryCommunity: return m_secondary_community_id;
-        default: throw runtime_error(string(__func__) + "> Should not reach default.");
         }
 }
 
@@ -45,7 +44,6 @@ bool Person::IsInCluster(const ContactPoolType::Id& c) const
         case ContactPoolType::Id::Work: return m_at_work;
         case ContactPoolType::Id::PrimaryCommunity: return m_at_primary_community;
         case ContactPoolType::Id::SecondaryCommunity: return m_at_secondary_community;
-        default: throw runtime_error(string(__func__) + "> Should not reach default.");
         }
 }
 

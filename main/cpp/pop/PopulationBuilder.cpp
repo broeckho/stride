@@ -21,7 +21,6 @@
 #include "PopulationBuilder.h"
 #include "util/InstallDirs.h"
 #include "util/PtreeUtils.h"
-#include "util/RNManager.h"
 #include "util/StringUtils.h"
 
 #include <trng/uniform01_dist.hpp>
