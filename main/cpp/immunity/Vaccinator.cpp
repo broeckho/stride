@@ -33,7 +33,7 @@ namespace stride {
 template<ImmunizationProfile profile>
 class Immunizer {
 public:
-	static void Administer(std::shared_ptr<Population> pop)
+	static void Administer(std::shared_ptr<Simulator> sim)
 	{}
 };
 
@@ -42,7 +42,7 @@ template<>
 class Immunizer<ImmunizationProfile::Random>
 {
 public:
-	static void Administer(std::shared_ptr<Population> pop)
+	static void Administer(std::shared_ptr<Simulator> sim)
 	{
 		std::cout << "Applying random immunity profile" << std::endl;
 	}
@@ -53,7 +53,7 @@ template<>
 class Immunizer<ImmunizationProfile::Cocoon>
 {
 public:
-	static void Administer(std::shared_ptr<Population> pop)
+	static void Administer(std::shared_ptr<Simulator> sim)
 	{
 		std::cout << "Applying cocoon immunity profile" << std::endl;
 		/*
@@ -91,7 +91,7 @@ Vaccinator::Vaccinator(const boost::property_tree::ptree& pt_config, util::RNMan
 	: m_pt_config(pt_config), m_rn_manager(rn_manager)
 {}
 
-void Vaccinator::Apply(std::shared_ptr<Population> pop)
+void Vaccinator::Apply(std::shared_ptr<Simulator> sim)
 {
 	// Get immunity and vaccination profiles
 	std::string immunity_profile = m_pt_config.get<std::string>("run.immunity_profile");
@@ -99,19 +99,21 @@ void Vaccinator::Apply(std::shared_ptr<Population> pop)
 
 	// Apply natural immunity in the population
 	std::cout << "Applying natural immunity to population ..." << std::endl;
-	Administer(immunity_profile, pop);
+	Administer("immunity", immunity_profile, sim);
 
 	// Apply vaccination in the population
 	std::cout << "Applying vaccination strategy to population ..." << std::endl;
-	Administer(vaccination_profile, pop);
+	Administer("vaccination", vaccination_profile, sim);
 }
 
-void Vaccinator::Administer(std::string immunization_profile, std::shared_ptr<Population> pop)
+void Vaccinator::Administer(std::string immunity_type, std::string immunization_profile, std::shared_ptr<Simulator> sim)
 {
 	if (immunization_profile == "Random") {
-		Immunizer<ImmunizationProfile::Random>::Administer(pop);
+		Immunizer<ImmunizationProfile::Random>::Administer(sim);
+	} else if (immunization_profile == "Cocoon") {
+		Immunizer<ImmunizationProfile::Cocoon>::Administer(sim);
 	} else {
-		Immunizer<ImmunizationProfile::None>::Administer(pop);
+		Immunizer<ImmunizationProfile::None>::Administer(sim);
 	}
 }
 
@@ -202,14 +204,6 @@ void Vaccinator::Apply(const string& s)
                         }
                 }
                 if (profile == "Cocoon") {
-                        cout << "cocoon" << endl;
-                        const auto immunity_rate = m_config.get<double>("run." + ToLower(s) + "_rate");
-                        const auto adult_age_min = m_config.get<double>("run." + ToLower(s) + "_adult_age_min");
-                        const auto adult_age_max = m_config.get<double>("run." + ToLower(s) + "_adult_age_max");
-                        const auto child_age_min = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
-                        const auto child_age_max = m_config.get<double>("run." + ToLower(s) + "_child_age_max");
-                        AdministerCocoon(*immunity_clusters, immunity_rate, adult_age_min, adult_age_max, child_age_min,
-                                         child_age_max);
                 } else {
                         if (profile == "Random") {
                                 const auto immunity_rate = m_config.get<double>("run." + ToLower(s) + "_rate");

@@ -122,7 +122,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
 
         // Initialize population immunity
         Vaccinator v(pt_config, sim->m_rn_manager);
-        v.Apply(sim->GetPopulation());
+        v.Apply(sim);
 
         // Initialize disease profile.
         sim->m_operational = sim->m_disease_profile.Initialize(pt_config, pt_disease);

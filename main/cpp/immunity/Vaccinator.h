@@ -20,8 +20,7 @@
  */
 
 #include "core/Cluster.h"
-#include "pop/Population.h"
-//#include "sim/Simulator.h"
+#include "sim/Simulator.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -45,10 +44,10 @@ public:
 	Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
 
 	/// Apply the strategies specified in the configuration file
-	void Apply(std::shared_ptr<Population> pop);
+	void Apply(std::shared_ptr<Simulator> sim);
 private:
 	///
-	void Administer(std::string immunization_profile, std::shared_ptr<Population> pop);
+	void Administer(std::string immunity_type, std::string immunization_profile, std::shared_ptr<Simulator> sim);
 private:
 	const boost::property_tree::ptree& m_pt_config;
 	util::RNManager& m_rn_manager;
