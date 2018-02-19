@@ -119,7 +119,10 @@ all: configure
 install:
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
-distclean clean:
+clean:
+	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean
+
+distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
 test installcheck: install
