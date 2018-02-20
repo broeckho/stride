@@ -90,7 +90,7 @@ class Simulation:
         configPath = os.path.join(self.getOutputDirectory(), self.getLabel() + ".xml")
         try:
             self.runner.Setup(trackIndexCase, configPath)
-            self.runner.RegisterObserver(self.observer)
+            #self.runner.RegisterObserver(self.observer)
             self.runner.Run()
         except:
             print("Exception while running the simulator. Closing down.")

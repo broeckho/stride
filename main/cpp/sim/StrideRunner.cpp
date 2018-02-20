@@ -166,6 +166,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
 /// Run the simulator with config information provided.
 void StrideRunner::Run()
 {
+	std::cout << "Starting the run" << std::endl;
         // -----------------------------------------------------------------------------------------
         // Run the simulation (if operational).
         // -----------------------------------------------------------------------------------------
