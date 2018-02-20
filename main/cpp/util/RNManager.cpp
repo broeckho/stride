@@ -20,6 +20,8 @@
 
 #include "RNManager.h"
 
+#include <sstream>
+
 using namespace std;
 using namespace stride::util;
 using namespace stride::RNEngineType;
