@@ -56,21 +56,21 @@ before_install:
 install:
   # Check for presence of boost cache, otherwise build boost
   - |
-    # if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
+    if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
     # Download & unpack
     sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
     sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
     # Move into source directory
     cd boost_1_64_0/
     # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-    sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0_cache --with-libraries=atomic,chrono,date_time,filesystem,iostreams,locale,log,regex,system,thread,serialization,mpi
+    sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
     # Build boost
     sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
     # Move out of boost source directory
     cd ..
-    # else
-    #  echo "Already have boost in cache"
-    #fi
+    else
+    echo "Already have boost in cache"
+    fi
 
 script:
   # Install stride
