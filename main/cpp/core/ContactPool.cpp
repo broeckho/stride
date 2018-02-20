@@ -56,6 +56,8 @@ unsigned int ContactPool::GetSize() const { return m_members.size(); }
 
 Person* ContactPool::GetMember(unsigned int index) const { return m_members[index].first; }
 
+const std::vector<std::pair<Person*, bool>>& ContactPool::GetPool() const { return m_members; }
+
 std::tuple<bool, size_t> ContactPool::SortMembers()
 {
         bool   infectious_cases = false;

@@ -36,18 +36,18 @@ template <ImmunizationProfile profile>
 class Immunizer
 {
 public:
-        static void Administer(const std::vector<ContactPool>& clusters, std::vector<double>& immunity_distribution,
+        static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
                                double immunity_link_probability, util::RNManager& rn_manager)
         {
         }
 };
 
-/// Random immunization profile
+// Random immunization profile
 template <>
 class Immunizer<ImmunizationProfile::Random>
 {
 public:
-        static void Administer(const std::vector<ContactPool>& clusters, std::vector<double>& immunity_distribution,
+        static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
                                double immunity_link_probability, util::RNManager& rn_manager)
         {
                 std::cout << "Applying random immunity profile" << std::endl;
@@ -58,9 +58,9 @@ public:
                 // note: focusing on measles, we expect the number of susceptible individuals
                 // to be less compared to the number of immune.
                 // TODO but this is a generic simulator
-                for (auto& c : clusters) {
-                        for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
-                                Person& p = *c.GetMember(i_p);
+                for (const auto& c : pools) {
+                        for (const auto& m : c.GetPool()) {
+                                Person& p = *(m.first);
                                 if (p.GetHealth().IsSusceptible()) {
                                         p.GetHealth().SetImmune();
                                         population_count_age[p.GetAge()]++;
@@ -68,8 +68,8 @@ public:
                         }
                 }
 
-                // Sampler for int in [0, clusters.size())
-                const auto clusters_size = static_cast<int>(clusters.size());
+                // Sampler for int in [0, pools.size())
+                const auto clusters_size = static_cast<int>(pools.size());
                 auto       int_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, clusters_size));
                 // Sampler for double in [0.0, 1.0).
                 auto uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
@@ -85,8 +85,8 @@ public:
                 // Sample susceptible individuals, until all age-dependent quota are reached.
                 while (total_num_susceptible > 0) {
                         // random cluster, random order of members
-                        const ContactPool&        p_cluster = clusters[int_generator()];
-                        const auto                size      = p_cluster.GetSize();
+                        const ContactPool&        p_pool = pools[int_generator()];
+                        const auto                size      = p_pool.GetSize();
                         std::vector<unsigned int> indices(size);
                         for (size_t i = 0; i < size; i++) {
                                 indices[i] = static_cast<unsigned int>(i); // TODO why not just loop over unsigned ints?
@@ -95,7 +95,7 @@ public:
 
                         // loop over cluster members, in random order
                         for (unsigned int i_p = 0; i_p < size && total_num_susceptible > 0; i_p++) {
-                                Person& p = *p_cluster.GetMember(indices[i_p]);
+                                Person& p = *p_pool.GetMember(indices[i_p]);
                                 // if p is immune and his/her age class has not reached the quota => make susceptible
                                 if (p.GetHealth().IsImmune() && population_count_age[p.GetAge()] > 0) {
                                         p.GetHealth().SetSusceptible();
@@ -116,7 +116,7 @@ template <>
 class Immunizer<ImmunizationProfile::Cocoon>
 {
 public:
-        static void Administer(const std::vector<ContactPool>& clusters, std::vector<double>& immunity_distribution,
+        static void Administer(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
                                double immunity_link_probability, util::RNManager& rn_manager)
         {
                 std::cout << "Applying cocoon immunity profile" << std::endl;
