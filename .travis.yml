@@ -31,12 +31,22 @@ matrix:
       addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
 
     - os: linux
+      compiler: gcc
+      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
+      addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
+
+    - os: linux
       compiler: clang
       env: CXX_COMPILER_NAME='clang++-4.0' CXX_COMPILER_ID=CLANG
       addons: { apt: { packages: [*default_packages, clang++-4.0, libstdc++-6-dev], sources:  [*default_sources, llvm-toolchain-trusty-4.0] } }
 
     - os: osx
       osx_image: xcode8.3
+      compiler: clang
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+
+    - os: osx
+      osx_image: xcode9.2
       compiler: clang
       env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
 
