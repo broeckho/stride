@@ -76,6 +76,8 @@ install:
       sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
       # Move out of boost source directory
       cd ..
+    else
+      echo "Already have boost in cache"
     fi
 
 script:
