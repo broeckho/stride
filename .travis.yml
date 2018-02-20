@@ -9,8 +9,9 @@ env:
   global:
     - MAKEFLAGS="-j 2"
 
-cache: ccache
-# directories:
+cache:
+  directories:
+    - $(HOME)/.ccache
 #    - $HOME/boost_1_64_0/
 
 addons:
@@ -54,13 +55,14 @@ before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew update; brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache && export PATH="/usr/local/opt/ccache/libexec:$PATH"; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache; fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
 
 install:
   # Download & unpack boost
   - sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
+  - mkdir $CXX_COMPILER_ID && cd $CXX_COMPILER_ID
   - sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
   # Move into boost directory
   - cd boost_1_64_0/
@@ -70,12 +72,12 @@ install:
   - sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0 --with-libraries=atomic,chrono,date_time,filesystem,iostreams,locale,log,regex,system,thread,serialization,mpi
   # Build boost
   - sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
-  - cd ..
+  - cd ../..
 
 script:
   # Install stride
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/boost_1_64_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/$CXX_COMPILER_ID/boost_1_64_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - PARALLEL_MAKE=-j2 make install
   - make test
