@@ -52,13 +52,13 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        virtual ~BatchDemos() {}
+        ~BatchDemos() override {}
 
         /// Set up for the test fixture
-        virtual void SetUp() {}
+        void SetUp() override {}
 
         /// Tearing down the test fixture
-        virtual void TearDown() {}
+        void TearDown() override  {}
 };
 
 TEST_P(BatchDemos, Run)
@@ -151,7 +151,7 @@ TEST_P(BatchDemos, Run)
         spdlog::drop_all();
 
         // -----------------------------------------------------------------------------------------
-        // Round up.
+        // Check resuts against reference reseults.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = sim->GetPopulation()->GetInfectedCount();
         EXPECT_NEAR(res, ReferenceResults().at(test_tag), ReferenceResults().at(test_tag) * 0.1)
