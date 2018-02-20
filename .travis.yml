@@ -62,17 +62,17 @@ before_install:
 install:
   # Download & unpack boost
   - sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
-  - mkdir $CXX_COMPILER_ID && cd $CXX_COMPILER_ID
   - sudo tar xf ../boost_1_64_0.tar.gz > /dev/null 2>&1
+  - mkdir -p $CXX_COMPILER_ID/boost_1_64_0
   # Move into boost directory
   - cd boost_1_64_0/
   # Configure boost build
   #			--prefix: make sure boost is built in correct directory, so that cmake can later find it there
   #			--with-libraries: only build libraries that we actually need
-  - sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0 --with-libraries=atomic,chrono,date_time,filesystem,iostreams,locale,log,regex,system,thread,serialization,mpi
+  - sudo ./bootstrap.sh --prefix=$HOME/$CXX_COMPILER_ID/boost_1_64_0 --with-libraries=atomic,chrono,date_time,filesystem,iostreams,locale,log,regex,system,thread,serialization,mpi
   # Build boost
   - sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
-  - cd ../..
+  - cd ..
 
 script:
   # Install stride
