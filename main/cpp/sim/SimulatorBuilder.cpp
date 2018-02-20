@@ -118,7 +118,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
 
         // Initialize clusters.
-        InitializeClusters(sim);
+        InitializeContactPools(sim);
 
         // Initialize population immunity
         Vaccinator v(pt_config, sim->m_rn_manager);
@@ -153,12 +153,12 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
 }
 
 /// Initialize the clusters.
-void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
+void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
 {
         // Determine the number of clusters.
         unsigned int max_id_households{0U};
-        unsigned int max_id_school_clusters{0U};
-        unsigned int max_id_work_clusters{0U};
+        unsigned int max_id_school_pools{0U};
+        unsigned int max_id_work_pools{0U};
         unsigned int max_id_primary_community{0U};
         unsigned int max_id_secondary_community{0U};
 
@@ -166,11 +166,11 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
         using Id = ContactPoolType::Id;
 
         for (const auto& p : population) {
-                max_id_households          = max(max_id_households, p.GetClusterId(Id::Household));
-                max_id_school_clusters     = max(max_id_school_clusters, p.GetClusterId(Id::School));
-                max_id_work_clusters       = max(max_id_work_clusters, p.GetClusterId(Id::Work));
-                max_id_primary_community   = max(max_id_primary_community, p.GetClusterId(Id::PrimaryCommunity));
-                max_id_secondary_community = max(max_id_secondary_community, p.GetClusterId(Id::SecondaryCommunity));
+                max_id_households          = max(max_id_households, p.GetContactPoolId(Id::Household));
+                max_id_school_pools     = max(max_id_school_pools, p.GetContactPoolId(Id::School));
+                max_id_work_pools       = max(max_id_work_pools, p.GetContactPoolId(Id::Work));
+                max_id_primary_community   = max(max_id_primary_community, p.GetContactPoolId(Id::PrimaryCommunity));
+                max_id_secondary_community = max(max_id_secondary_community, p.GetContactPoolId(Id::SecondaryCommunity));
         }
 
         // Keep separate id counter to provide a unique id for every cluster.
@@ -180,12 +180,12 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
                 sim->m_households.emplace_back(ContactPool(c_id, Id::Household, sim->m_contact_profiles));
                 c_id++;
         }
-        for (size_t i = 0; i <= max_id_school_clusters; i++) {
-                sim->m_school_clusters.emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
+        for (size_t i = 0; i <= max_id_school_pools; i++) {
+                sim->m_school_pools.emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
                 c_id++;
         }
-        for (size_t i = 0; i <= max_id_work_clusters; i++) {
-                sim->m_work_clusters.emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
+        for (size_t i = 0; i <= max_id_work_pools; i++) {
+                sim->m_work_pools.emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_primary_community; i++) {
@@ -200,23 +200,23 @@ void SimulatorBuilder::InitializeClusters(std::shared_ptr<Simulator> sim)
 
         // ContactPool id '0' means "not present in any cluster of that type".
         for (auto& p : population) {
-                const auto hh_id = p.GetClusterId(Id::Household);
+                const auto hh_id = p.GetContactPoolId(Id::Household);
                 if (hh_id > 0) {
                         sim->m_households[hh_id].AddMember(&p);
                 }
-                const auto sc_id = p.GetClusterId(Id::School);
+                const auto sc_id = p.GetContactPoolId(Id::School);
                 if (sc_id > 0) {
-                        sim->m_school_clusters[sc_id].AddMember(&p);
+                        sim->m_school_pools[sc_id].AddMember(&p);
                 }
-                const auto wo_id = p.GetClusterId(Id::Work);
+                const auto wo_id = p.GetContactPoolId(Id::Work);
                 if (wo_id > 0) {
-                        sim->m_work_clusters[wo_id].AddMember(&p);
+                        sim->m_work_pools[wo_id].AddMember(&p);
                 }
-                const auto primCom_id = p.GetClusterId(Id::PrimaryCommunity);
+                const auto primCom_id = p.GetContactPoolId(Id::PrimaryCommunity);
                 if (primCom_id > 0) {
                         sim->m_primary_community[primCom_id].AddMember(&p);
                 }
-                const auto secCom_id = p.GetClusterId(Id::SecondaryCommunity);
+                const auto secCom_id = p.GetContactPoolId(Id::SecondaryCommunity);
                 if (secCom_id > 0) {
                         sim->m_secondary_community[secCom_id].AddMember(&p);
                 }

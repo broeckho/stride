@@ -52,7 +52,7 @@ double ContactPool::GetContactRate(const Person* p) const
         return individual_contact_rate;
 }
 
-unsigned int ContactPool::GetSize() const { return m_members.size(); }
+size_t ContactPool::GetSize() const { return m_members.size(); }
 
 Person* ContactPool::GetMember(unsigned int index) const { return m_members[index].first; }
 
@@ -96,7 +96,7 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
 void ContactPool::UpdateMemberPresence()
 {
         for (auto& member : m_members) {
-                member.second = member.first->IsInCluster(m_pool_type);
+                member.second = member.first->IsInContactPool(m_pool_type);
         }
 }
 

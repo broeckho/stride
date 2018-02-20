@@ -60,9 +60,9 @@ public:
 
         /// Get member at index
         const std::vector<std::pair<Person*, bool>>& GetPool() const;
-        
+
         /// Get size
-        unsigned int GetSize() const;
+        std::size_t GetSize() const;
 
 private:
         /// Sort members w.r.t. health status.
@@ -77,10 +77,10 @@ private:
         void UpdateMemberPresence();
 
 private:
-        std::size_t                           m_pool_id;      ///< The ID of the Cluster (for logging purposes).
-        ContactPoolType::Id                   m_pool_type;    ///< The type of the Cluster (for logging purposes).
+        std::size_t                           m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        ContactPoolType::Id                   m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t                           m_index_immune; ///< Index of the first immune member in the Cluster.
-        std::vector<std::pair<Person*, bool>> m_members;      ///< Container with pointers to Cluster members.
+        std::vector<std::pair<Person*, bool>> m_members;      ///< Container with pointers to contactpool members.
         const ContactProfile&                 m_profile;      ///< Contact pattern.
 };
 

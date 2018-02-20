@@ -132,7 +132,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // Set participants in social contact survey.
         //------------------------------------------------
 
-        // Sampler for int in [0, clusters.size())
+        // Sampler for int in [0, population.size())
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
         assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size.");
         auto pop_index_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
@@ -153,8 +153,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                                 p.ParticipateInSurvey();
                                 logger->info("[PART] {}", p.GetId());
                                 logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetClusterId(ContactPoolType::Id::School),
-                                             p.GetClusterId(ContactPoolType::Id::Work));
+                                             p.GetContactPoolId(ContactPoolType::Id::School),
+                                             p.GetContactPoolId(ContactPoolType::Id::Work));
                                 num_samples++;
                         }
                 }

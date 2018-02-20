@@ -25,7 +25,7 @@ namespace stride {
 
 using namespace std;
 
-unsigned int Person::GetClusterId(const ContactPoolType::Id& cluster_type) const
+unsigned int Person::GetContactPoolId(const ContactPoolType::Id &cluster_type) const
 {
         unsigned int ret;
         switch (cluster_type) {
@@ -38,7 +38,7 @@ unsigned int Person::GetClusterId(const ContactPoolType::Id& cluster_type) const
         return ret;
 }
 
-bool Person::IsInCluster(const ContactPoolType::Id& c) const
+bool Person::IsInContactPool(const ContactPoolType::Id &c) const
 {
         bool ret;
         switch (c) {

@@ -48,7 +48,7 @@ public:
 
 private:
         /// Initialize the clusters.
-        static void InitializeClusters(std::shared_ptr<Simulator> sim);
+        static void InitializeContactPools(std::shared_ptr<Simulator> sim);
 };
 
 } // namespace stride
