@@ -42,7 +42,7 @@ string ToString(Id c)
         static map<Id, string> names{make_pair(Id::lcg64, "lcg64"), make_pair(Id::lcg64_shift, "lcg64_shift"),
                                      make_pair(Id::mrg2, "mrg2"),   make_pair(Id::mrg3, "mrg3"),
                                      make_pair(Id::yarn2, "yarn2"), make_pair(Id::yarn3, "yarn3")};
-        const auto it = names.find(c);
+        const auto             it = names.find(c);
         return (it != names.end()) ? it->second : "null";
 }
 
@@ -51,7 +51,7 @@ Id ToType(const string& s)
         static map<string, Id> ids{make_pair("lcg64", Id::lcg64), make_pair("lcg64_shift", Id::lcg64_shift),
                                    make_pair("mrg2", Id::mrg2),   make_pair("mrg3", Id::mrg3),
                                    make_pair("yarn2", Id::yarn2), make_pair("yarn3", Id::yarn3)};
-        const auto it = ids.find(to_lower_copy(s));
+        const auto             it = ids.find(to_lower_copy(s));
         return (it != ids.end()) ? it->second : throw runtime_error("RNEngineType::ToString> not available:" + s);
 }
 

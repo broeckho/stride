@@ -47,7 +47,7 @@ public:
         struct Info
         {
                 explicit Info(std::string type = "mrg2", unsigned long seed = 1UL, std::string state = "",
-                     unsigned int stream_count = 1U)
+                              unsigned int stream_count = 1U)
                     : m_seed(seed), m_state(std::move(state)), m_stream_count(stream_count), m_type(std::move(type)){};
 
                 unsigned long m_seed;         ///< Seed for the engine.

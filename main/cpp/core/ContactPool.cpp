@@ -52,13 +52,9 @@ double ContactPool::GetContactRate(const Person* p) const
         return individual_contact_rate;
 }
 
-unsigned int ContactPool::GetSize() const {
-	return m_members.size();
-}
+unsigned int ContactPool::GetSize() const { return m_members.size(); }
 
-Person* ContactPool::GetMember(unsigned int index) const {
-	return m_members[index].first;
-}
+Person* ContactPool::GetMember(unsigned int index) const { return m_members[index].first; }
 
 std::tuple<bool, size_t> ContactPool::SortMembers()
 {
