@@ -28,18 +28,12 @@ matrix:
     - os: linux
       compiler: gcc
       env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
-      addons:
-        apt:
-          sources:  [*default_sources]
-          packages: [*default_packages, g++-6]
+      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
 
     - os: linux
       compiler: clang
       env: CXX_COMPILER_NAME='clang++-4.0' CXX_COMPILER_ID=CLANG
-      addons:
-        apt:
-          sources:  [*default_sources, llvm-toolchain-trusty-4.0]
-          packages: [*default_packages, clang++-4.0, libstdc++-6-dev]
+      addons: { apt: { packages: [*default_packages, clang++-4.0, libstdc++-6-dev], sources:  [*default_sources, llvm-toolchain-trusty-4.0] } }
 
     - os: osx
       osx_image: xcode8.3
@@ -62,9 +56,7 @@ before_install:
 install:
   # Check for presence of boost cache, otherwise build boost
   - |
-    if [[ ! -d $HOME/boost_1_64_0_cache ]]; then
-      # Make dir
-      mkdir -p $HOME/boost_1_64_0_cache
+    if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
       # Download & unpack
       sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
       sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
