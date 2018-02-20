@@ -6,7 +6,7 @@
 %}
 
 %include <std_shared_ptr.i>
-%shared_ptr(stride::pyhton::SimulatorObserver)
+%shared_ptr(stride::python::SimulatorObserver)
 
 %feature("director") stride::python::SimulatorObserver;
 %include "sim/python/SimulatorObserver.h";
