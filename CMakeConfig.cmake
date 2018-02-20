@@ -37,7 +37,15 @@ set(CMAKE_BUILD_TYPE          "Release"
         CACHE STRING "Build type: None Debug Release RelWithDebInfo MinSizeRel.")
 set(CMAKE_PROGRAM_PATH  "/opt/local/bin;/usr/texbin;/usr/local/bin;/usr/bin"
 		CACHE PATH "Where to look with find_program." )
-	
+
+#============================================================================
+# Using CCache if available.
+#============================================================================
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM AND NOT FORCE_NO_CCHACHE)
+	set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+endif()
+
 #============================================================================
 # Stride specific variables:
 #============================================================================
