@@ -5,9 +5,12 @@
 language: cpp
 dist: trusty
 
-#cache:
-#  directories:
-#    # Cache the boost install
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+
+cache: ccache
+# directories:
 #    - $HOME/boost_1_64_0/
 
 addons:
@@ -23,7 +26,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6'
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
       addons:
         apt:
           sources:  [*default_sources]
@@ -31,15 +34,7 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-3.8'
-      addons:
-        apt:
-          sources:  [*default_sources, llvm-toolchain-trusty]
-          packages: [*default_packages, clang++-3.8, libstdc++-6-dev]
-
-    - os: linux
-      compiler: clang
-      env: CXX_COMPILER_NAME='clang++-4.0'
+      env: CXX_COMPILER_NAME='clang++-4.0' CXX_COMPILER_ID=CLANG
       addons:
         apt:
           sources:  [*default_sources, llvm-toolchain-trusty-4.0]
@@ -48,17 +43,18 @@ matrix:
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CLANGSOURCE=APPLE
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.8' CLANGSOURCE=LLVM
+      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.8' CXX_COMPILER_ID=LLVM
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CLANGSOURCE" == "LLVM" ]]; then brew update; brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew update; brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache && export PATH="/usr/local/opt/ccache/libexec:$PATH"; fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
 
