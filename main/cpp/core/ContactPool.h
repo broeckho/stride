@@ -54,6 +54,12 @@ public:
         /// Get basic contact rate.
         double GetContactRate(const Person* p) const;
 
+        /// Get size
+        unsigned int GetSize() const;
+
+        /// Get member at index
+        Person* GetMember(unsigned int index) const;
+
 private:
         /// Sort members w.r.t. health status.
         /// Sort order: exposed/infected/recovered, susceptible, immune).
