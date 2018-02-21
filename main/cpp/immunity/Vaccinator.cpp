@@ -59,6 +59,19 @@ public:
                 // to be less compared to the number of immune.
                 // TODO but this is a generic simulator
                 for (const auto& c : pools) {
+
+                        for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
+                                Person& p = *c.GetMember(i_p);
+                                if (p.GetHealth().IsSusceptible()) {
+                                        p.GetHealth().SetImmune();
+                                        population_count_age[p.GetAge()]++;
+                                }
+                        }
+
+
+
+
+                        /*
                         for (const auto& m : c.GetPool()) {
                                 Person& p = *(m.first);
                                 if (p.GetHealth().IsSusceptible()) {
@@ -66,6 +79,7 @@ public:
                                         population_count_age[p.GetAge()]++;
                                 }
                         }
+                         */
                 }
 
                 // Sampler for int in [0, pools.size())
