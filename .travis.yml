@@ -19,7 +19,7 @@ addons:
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
-      - libhdf5-dev
+      # - libhdf5-dev
 
 matrix:
   include:
@@ -85,5 +85,5 @@ script:
   # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/boost_1_64_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_64_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - make test
