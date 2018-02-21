@@ -31,12 +31,6 @@ install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME  ${EXEC}_default 
-		WORKING_DIRECTORY  ${TESTS_DIR}
-		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
-			--gtest_filter=*default*  --gtest_output=xml:gtester_default.xml
-)
-
 add_test( NAME  ${EXEC}_all 		
         WORKING_DIRECTORY  ${TESTS_DIR}
 		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
