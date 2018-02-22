@@ -57,7 +57,6 @@ public:
         /// Get member at index
         Person* GetMember(unsigned int index) const;
 
-
         /// Get member at index
         const std::vector<std::pair<Person*, bool>>& GetPool() const;
 

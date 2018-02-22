@@ -68,9 +68,6 @@ public:
                                 }
                         }
 
-
-
-
                         /*
                         for (const auto& m : c.GetPool()) {
                                 Person& p = *(m.first);
@@ -100,7 +97,7 @@ public:
                 while (total_num_susceptible > 0) {
                         // random cluster, random order of members
                         const ContactPool&        p_pool = pools[int_generator()];
-                        const auto                size      = p_pool.GetSize();
+                        const auto                size   = p_pool.GetSize();
                         std::vector<unsigned int> indices(size);
                         for (size_t i = 0; i < size; i++) {
                                 indices[i] = static_cast<unsigned int>(i); // TODO why not just loop over unsigned ints?

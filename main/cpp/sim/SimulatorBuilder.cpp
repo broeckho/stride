@@ -166,11 +166,12 @@ void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
         using Id = ContactPoolType::Id;
 
         for (const auto& p : population) {
-                max_id_households          = max(max_id_households, p.GetContactPoolId(Id::Household));
-                max_id_school_pools     = max(max_id_school_pools, p.GetContactPoolId(Id::School));
-                max_id_work_pools       = max(max_id_work_pools, p.GetContactPoolId(Id::Work));
-                max_id_primary_community   = max(max_id_primary_community, p.GetContactPoolId(Id::PrimaryCommunity));
-                max_id_secondary_community = max(max_id_secondary_community, p.GetContactPoolId(Id::SecondaryCommunity));
+                max_id_households        = max(max_id_households, p.GetContactPoolId(Id::Household));
+                max_id_school_pools      = max(max_id_school_pools, p.GetContactPoolId(Id::School));
+                max_id_work_pools        = max(max_id_work_pools, p.GetContactPoolId(Id::Work));
+                max_id_primary_community = max(max_id_primary_community, p.GetContactPoolId(Id::PrimaryCommunity));
+                max_id_secondary_community =
+                    max(max_id_secondary_community, p.GetContactPoolId(Id::SecondaryCommunity));
         }
 
         // Keep separate id counter to provide a unique id for every cluster.

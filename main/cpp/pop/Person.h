@@ -69,7 +69,7 @@ public:
         Belief const* GetBelief() const { return m_belief; }
 
         /// Get cluster ID of cluster_type
-        unsigned int GetContactPoolId(const ContactPoolType::Id &cluster_type) const;
+        unsigned int GetContactPoolId(const ContactPoolType::Id& cluster_type) const;
 
         /// Return person's gender.
         char GetGender() const { return m_gender; }
@@ -84,7 +84,7 @@ public:
         unsigned int GetId() const { return m_id; }
 
         /// Check if a person is present today in a given cluster
-        bool IsInContactPool(const ContactPoolType::Id &c) const;
+        bool IsInContactPool(const ContactPoolType::Id& c) const;
 
         /// Does this person participates in the social contact study?
         bool IsParticipatingInSurvey() const { return m_is_participant; }
