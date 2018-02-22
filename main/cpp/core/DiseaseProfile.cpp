@@ -20,9 +20,6 @@
 
 #include "DiseaseProfile.h"
 
-#include <cmath>
-#include <iostream>
-
 namespace stride {
 
 using namespace std;

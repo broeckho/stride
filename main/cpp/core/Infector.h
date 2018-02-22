@@ -55,7 +55,7 @@ struct UseOptimizedInfector<LogMode::Id::Transmissions, NoLocalInformation>
         static constexpr bool value = true;
 };
 
-/// Actual contacts and transmission in cluster (primary template).
+/// Actual contacts and transmission in contactpool (primary template).
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
 /// \tparam LIP         LocalInformationPolicy

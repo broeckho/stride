@@ -80,8 +80,8 @@ public:
                 }
 
                 // Sampler for int in [0, pools.size())
-                const auto clusters_size = static_cast<int>(pools.size());
-                auto       int_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, clusters_size));
+                const auto pools_size    = static_cast<int>(pools.size());
+                auto       int_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, pools_size));
                 // Sampler for double in [0.0, 1.0).
                 auto uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
@@ -95,7 +95,7 @@ public:
 
                 // Sample susceptible individuals, until all age-dependent quota are reached.
                 while (total_num_susceptible > 0) {
-                        // random cluster, random order of members
+                        // random pool, random order of members
                         const ContactPool&        p_pool = pools[int_generator()];
                         const auto                size   = p_pool.GetSize();
                         std::vector<unsigned int> indices(size);
@@ -104,7 +104,7 @@ public:
                         }
                         rn_manager.RandomShuffle(indices.begin(), indices.end());
 
-                        // loop over cluster members, in random order
+                        // loop over members, in random order
                         for (unsigned int i_p = 0; i_p < size && total_num_susceptible > 0; i_p++) {
                                 Person& p = *p_pool.GetMember(indices[i_p]);
                                 // if p is immune and his/her age class has not reached the quota => make susceptible
@@ -113,7 +113,7 @@ public:
                                         population_count_age[p.GetAge()]--;
                                         total_num_susceptible--;
                                 }
-                                // random draw to continue in this cluster or to sample a new one
+                                // random draw to continue in this pool or to sample a new one
                                 if (uniform01_generator() < (1 - immunity_link_probability)) {
                                         break;
                                 }
@@ -132,12 +132,12 @@ public:
         {
                 std::cout << "Applying cocoon immunity profile" << std::endl;
                 /*
-                 * void Vaccinator::AdministerCocoon(const vector<ContactPool>& clusters, double immunity_rate, double
+                 * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double
 adult_age_min, double adult_age_max, double child_age_min, double child_age_max)
 {
         // Sampler for double in [0.0, 1.0).
         auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
-        for (const auto& c : clusters) {
+        for (const auto& c : pools) {
                 for (unsigned int i_p = 0; i_p < c.GetSize(); i_p++) {
                         Person& p = *c.GetMember(i_p);
                         if (p.GetHealth().IsSusceptible() && p.GetAge() >= adult_age_min &&
@@ -188,18 +188,18 @@ void Vaccinator::Administer(std::string immunity_type, std::string immunization_
         const double        immunity_link_probability = 0;
         // const double immunity_link_probability = ((immunization_profile == "Cocoon") ? 1 :
         // m_pt_config.get<double>("run." + ToLower(immunity_type) + "_link_probability"));
-        std::vector<ContactPool>* immunity_clusters = &sim->m_households; ///< The default case.
+        std::vector<ContactPool>* immunity_pools = &sim->m_households; ///< The default case.
 
         /*
          *                 if (immunity_link_probability > 0) {
                         using namespace ContactPoolType;
-                        Id c_type = ToType(m_config.get<string>("run." + ToLower(s) + "_link_clustertype"));
+                        Id c_type = ToType(m_config.get<string>("run." + ToLower(s) + "_link_pooltype"));
                         switch (c_type) {
-                        case Id::Household: immunity_clusters = &m_sim->m_households; break;
-                        case Id::School: immunity_clusters = &m_sim->m_school_clusters; break;
-                        case Id::Work: immunity_clusters = &m_sim->m_work_clusters; break;
-                        case Id::PrimaryCommunity: immunity_clusters = &m_sim->m_primary_community; break;
-                        case Id::SecondaryCommunity: immunity_clusters = &m_sim->m_secondary_community; break;
+                        case Id::Household: immunity_pools = &m_sim->m_households; break;
+                        case Id::School: immunity_pools = &m_sim->m_school_pools; break;
+                        case Id::Work: immunity_pools = &m_sim->m_work_pools; break;
+                        case Id::PrimaryCommunity: immunity_pools = &m_sim->m_primary_community; break;
+                        case Id::SecondaryCommunity: immunity_pools = &m_sim->m_secondary_community; break;
                         }
                 }
          */
@@ -208,13 +208,13 @@ void Vaccinator::Administer(std::string immunity_type, std::string immunization_
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
                         immunity_distribution.push_back(immunity_rate);
                 }
-                Immunizer<ImmunizationProfile::Random>::Administer(*immunity_clusters, immunity_distribution,
+                Immunizer<ImmunizationProfile::Random>::Administer(*immunity_pools, immunity_distribution,
                                                                    immunity_link_probability, m_rn_manager);
         } else if (immunization_profile == "Cocoon") {
-                Immunizer<ImmunizationProfile::Cocoon>::Administer(*immunity_clusters, immunity_distribution,
+                Immunizer<ImmunizationProfile::Cocoon>::Administer(*immunity_pools, immunity_distribution,
                                                                    immunity_link_probability, m_rn_manager);
         } else {
-                Immunizer<ImmunizationProfile::None>::Administer(*immunity_clusters, immunity_distribution,
+                Immunizer<ImmunizationProfile::None>::Administer(*immunity_pools, immunity_distribution,
                                                                  immunity_link_probability, m_rn_manager);
         }
 }

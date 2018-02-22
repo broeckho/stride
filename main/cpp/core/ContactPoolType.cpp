@@ -15,13 +15,12 @@
 
 /**
  * @file
- * Implementation of ClusterType.
+ * Implementation of ContactPoolType.
  */
 
 #include "ContactPoolType.h"
 
 #include <boost/algorithm/string.hpp>
-#include <map>
 
 namespace stride {
 namespace ContactPoolType {

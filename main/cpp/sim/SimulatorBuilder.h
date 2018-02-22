@@ -47,7 +47,7 @@ public:
                                                 unsigned int num_threads = 1U, bool track_index_case = false);
 
 private:
-        /// Initialize the clusters.
+        /// Initialize the contactpoolss.
         static void InitializeContactPools(std::shared_ptr<Simulator> sim);
 };
 

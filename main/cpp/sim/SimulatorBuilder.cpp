@@ -117,7 +117,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)]   = ContactProfile(Id::PrimaryCommunity, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
 
-        // Initialize clusters.
+        // Initialize contactpools.
         InitializeContactPools(sim);
 
         // Initialize population immunity
@@ -152,10 +152,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         return sim;
 }
 
-/// Initialize the clusters.
 void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
 {
-        // Determine the number of clusters.
+        // Determine the number of contactpools.
         unsigned int max_id_households{0U};
         unsigned int max_id_school_pools{0U};
         unsigned int max_id_work_pools{0U};
@@ -174,7 +173,7 @@ void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
                     max(max_id_secondary_community, p.GetContactPoolId(Id::SecondaryCommunity));
         }
 
-        // Keep separate id counter to provide a unique id for every cluster.
+        // Keep separate id counter to provide a unique id for every contactpool.
         unsigned int c_id = 1;
 
         for (size_t i = 0; i <= max_id_households; i++) {
@@ -199,7 +198,7 @@ void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
                 c_id++;
         }
 
-        // ContactPool id '0' means "not present in any cluster of that type".
+        // Having contactpool id '0' means "not present in any contactpool of that type".
         for (auto& p : population) {
                 const auto hh_id = p.GetContactPoolId(Id::Household);
                 if (hh_id > 0) {
