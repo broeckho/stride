@@ -72,11 +72,12 @@ public:
                 return pt_config;
         }
 
-        /// Scenario config and test target number.
-        static tuple<ptree, unsigned int> ScenarioData(const string& tag)
+        /// Scenario config and test target number and margin of tolerance in percent (of target value).
+        static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
         {
                 ptree        pt     = BasicConfig();
                 unsigned int target = 0U;
+                double       margin = 0.1;
 
                 if (tag == "influenza_a") {
                         target = 2000U;
@@ -100,7 +101,7 @@ public:
                         pt.put("run.r0", 60U);
                         target = 600000U;
                 }
-                return make_tuple(pt, target);
+                return make_tuple(pt, target, margin);
         };
 
 protected:
@@ -132,6 +133,7 @@ TEST_P(BatchRuns, Run)
         const auto d         = ScenarioData(test_tag);
         const auto pt_config = get<0>(d);
         const auto target    = get<1>(d);
+        const auto margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Initialize the logger.
@@ -162,7 +164,7 @@ TEST_P(BatchRuns, Run)
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = sim->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(res, target, target * 0.1) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
+        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
 }
 
 namespace {
