@@ -6,7 +6,7 @@ pystride.workspace = "simulations"
 
 # Configure simulation
 simulation = Simulation()
-simulation.loadRunConfig("config/run_default.xml")
+simulation.loadRunConfig("../config/run_default.xml")
 simulation.runConfig.setParameter("num_days", 10)
 
 # Create 5 identical forks except for the seed

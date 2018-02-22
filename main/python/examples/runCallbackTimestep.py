@@ -10,7 +10,7 @@ def vaccinate(sim, timestep):
 
 # Build simulation
 simulation = Simulation()
-simulation.loadRunConfig("config/run_default.xml")
+simulation.loadRunConfig("../config/run_default.xml")
 
 # Register the "vaccinate" callback
 simulation.registerCallback(vaccinate)

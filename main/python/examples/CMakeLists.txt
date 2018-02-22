@@ -33,13 +33,6 @@ SET(PYTHON_EXAMPLES
 # Copy Python scripts to the bin folder.
 #================================================================================================
 
-
-file(GLOB DEPLOY_FILES "data/*")
-INSTALL( FILES ${DEPLOY_FILES} DESTINATION ${BIN_INSTALL_LOCATION}/data )
-
-file(GLOB DEPLOY_FILES "config/*")
-INSTALL( FILES ${DEPLOY_FILES} DESTINATION ${BIN_INSTALL_LOCATION}/config )
-
 INSTALL ( FILES
 		  ${PYTHON_EXAMPLES}
 		  DESTINATION ${BIN_INSTALL_LOCATION}
