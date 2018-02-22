@@ -30,6 +30,7 @@ set(LIB_SRC
     core/Infector.cpp
     core/LogMode.cpp
 #---
+	immunity/Immunizer.cpp
 	immunity/Vaccinator.cpp
 #---
 	output/AdoptedFile.cpp

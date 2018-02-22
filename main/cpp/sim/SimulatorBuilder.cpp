@@ -79,26 +79,33 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                                                    const ptree& pt_contact, unsigned int num_threads,
                                                    bool track_index_case)
 {
+        // --------------------------------------------------------------
         // Uninitialized simulator object.
+        // --------------------------------------------------------------
         auto sim = make_shared<Simulator>();
 
-        // Initialize variuous ptrees.
+        // --------------------------------------------------------------
+        // Config info.
+        // --------------------------------------------------------------
         sim->m_pt_config        = pt_config;                        // Initialize config ptree.
         sim->m_track_index_case = track_index_case;                 // Initialize track_index_case policy
         sim->m_num_threads      = num_threads;                      // Initialize number of threads.
         sim->m_calendar         = make_shared<Calendar>(pt_config); // Initialize calendar.
 
+        // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
+        // --------------------------------------------------------------
         const auto            rng_seed = pt_config.get<unsigned long>("run.rng_seed", 1UL);
         const auto            rng_type = pt_config.get<string>("run.rng_type", "mrg2");
         const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
         sim->m_rn_manager.Initialize(info);
 
-        // Logging related initialization..
-        std::cout << "Getting logger" << std::endl;
-        const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
-        const string                     l      = pt_config.get<string>("run.log_level", "None");
-        sim->m_log_level                        = LogMode::IsLogMode(l)
+        // --------------------------------------------------------------
+        // Logging related initialization.
+        // --------------------------------------------------------------
+        const auto   logger = spdlog::get("contact_logger");
+        const string l      = pt_config.get<string>("run.log_level", "None");
+        sim->m_log_level    = LogMode::IsLogMode(l)
                                ? LogMode::ToLogMode(l)
                                : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
 
@@ -106,25 +113,34 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         const string loc_info_policy    = pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
 
+        // --------------------------------------------------------------
         // Build population.
+        // --------------------------------------------------------------
         sim->m_population = PopulationBuilder::Build(pt_config, pt_disease, sim->m_rn_manager);
 
-        // Initialize contact profiles.
+        // --------------------------------------------------------------
+        // Contact profiles & initilize contactpools.
+        // --------------------------------------------------------------
         using Id                                                 = ContactPoolType::Id;
         sim->m_contact_profiles[ToSizeT(Id::Household)]          = ContactProfile(Id::Household, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::School)]             = ContactProfile(Id::School, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::Work)]               = ContactProfile(Id::Work, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)]   = ContactProfile(Id::PrimaryCommunity, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
-
-        // Initialize contactpools.
         InitializeContactPools(sim);
 
-        // Initialize population immunity
+        // --------------------------------------------------------------
+        // Population immunity (natural immunity & vaccination).
+        // --------------------------------------------------------------
         Vaccinator v(pt_config, sim->m_rn_manager);
-        v.Apply(sim);
+        const auto immunity_profile = pt_config.get<std::string>("run.immunity_profile");
+        v.Administer("immunity", immunity_profile, sim);
+        const auto vaccination_profile = pt_config.get<std::string>("run.vaccine_profile");
+        v.Administer("vaccine", vaccination_profile, sim);
 
+        // --------------------------------------------------------------
         // Initialize disease profile.
+        // --------------------------------------------------------------
         sim->m_operational = sim->m_disease_profile.Initialize(pt_config, pt_disease);
 
         // --------------------------------------------------------------
@@ -148,7 +164,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                 }
         }
 
+        // --------------------------------------------------------------
         // Done.
+        // --------------------------------------------------------------
         return sim;
 }
 

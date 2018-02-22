@@ -21,7 +21,7 @@
 #include "ContactPoolType.h"
 
 #include <boost/algorithm/string.hpp>
-
+#include <map>
 namespace stride {
 namespace ContactPoolType {
 

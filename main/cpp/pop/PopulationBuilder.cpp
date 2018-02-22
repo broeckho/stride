@@ -131,7 +131,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Set participants in social contact survey.
         //------------------------------------------------
-
         // Sampler for int in [0, population.size())
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
         assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size.");
@@ -143,8 +142,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                     static_cast<unsigned int>(pt_config.get<double>("run.num_participants_survey"))};
 
                 // use a while-loop to obtain 'num_participant' unique participants (default
-                // sampling is with
-                // replacement)
+                // sampling is with replacement)
                 // A for loop will not do because we might draw the same person twice.
                 unsigned int num_samples{0};
                 while (num_samples < num_participants) {
