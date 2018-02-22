@@ -21,7 +21,7 @@ namespace stride {
 
 /**
  * Class for local information policy 'LocalDiscussion'.
- * Upon contact, members of a cluster discuss their beliefs/health status/...
+ * Upon contact, members of a contactpool discuss their beliefs/health status/...
  * with each other with a certain probability.
  * TODO make this probability configurable
  */
@@ -30,7 +30,7 @@ class LocalDiscussion
 public:
         static void Update(Person* p1, Person* p2)
         {
-                // TODO discussion chance
+                // TODO discussion probability
                 // TODO if discussion: update p1
                 // TODO if discussion: update p2
         }

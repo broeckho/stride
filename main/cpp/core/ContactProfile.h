@@ -34,7 +34,7 @@ public:
         ContactProfile() = default;
 
         /// Explicitly initialize
-        ContactProfile(ContactPoolType::Id cluster_type, const boost::property_tree::ptree& pt_contacts);
+        ContactProfile(ContactPoolType::Id pool_type, const boost::property_tree::ptree& pt_contacts);
 };
 
 } // namespace stride

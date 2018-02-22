@@ -25,13 +25,11 @@
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
 
-#include <iostream>
-
 namespace stride {
 
 using namespace util;
 
-/// Primary immunization profile: do nothing
+// Primary immunization profile: do nothing
 template <ImmunizationProfile profile>
 class Immunizer
 {

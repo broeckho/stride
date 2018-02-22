@@ -33,7 +33,6 @@ enum class ImmunizationProfile
         None   = 0U,
         Random = 1U,
         Cocoon = 2U,
-        Null
 };
 
 /**
