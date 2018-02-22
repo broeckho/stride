@@ -5,81 +5,85 @@
 language: cpp
 dist: trusty
 
-#cache:
-#  directories:
-#    # Cache the boost install
-#    - $HOME/boost_1_64_0/
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+
+cache:
+  directories:
+    - $HOME/.ccache
+    - $HOME/boost_1_64_0_cache
 
 addons:
   apt:
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
-      - libboost-all-dev
-      - libhdf5-dev
+      # - libhdf5-dev
 
 matrix:
   include:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6'
-      addons:
-        apt:
-          sources:  [*default_sources]
-          packages: [*default_packages, g++-6]
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
+      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
+
+    - os: linux
+      compiler: gcc
+      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
+      addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-3.8'
-      addons:
-        apt:
-          sources:  [*default_sources, llvm-toolchain-trusty]
-          packages: [*default_packages, clang++-3.8, libstdc++-6-dev]
-
-    - os: linux
-      compiler: clang
-      env: CXX_COMPILER_NAME='clang++-4.0'
-      addons:
-        apt:
-          sources:  [*default_sources, llvm-toolchain-trusty-4.0]
-          packages: [*default_packages, clang++-4.0, libstdc++-6-dev]
+      env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG
+      addons: { apt: { packages: [*default_packages, clang-5.0], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CLANGSOURCE=APPLE
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+
+    - os: osx
+      osx_image: xcode9.2
+      compiler: clang
+      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.8' CLANGSOURCE=LLVM
+      env: CXX_COMPILER_NAME='/usr/local/bin/clang++-3.8' CXX_COMPILER_ID=LLVM
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CLANGSOURCE" == "LLVM" ]]; then brew update; brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm38 && brew link --force --overwrite llvm38; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache; fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
 
 install:
-  # Download & unpack boost
-  - sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
-  - sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
-  # Move into boost directory
-  - cd boost_1_64_0/
-  # Configure boost build
-  #			--prefix: make sure boost is built in correct directory, so that cmake can later find it there
-  #			--with-libraries: only build libraries that we actually need
-  - sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0 --with-libraries=atomic,chrono,date_time,filesystem,iostreams,locale,log,regex,system,thread,serialization,mpi
-  # Build boost
-  - sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
-  - cd ..
+  # Check for presence of boost cache, otherwise build boost
+  - |
+    if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
+      # Download & unpack
+      sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
+      sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
+      # Move into source directory
+      cd boost_1_64_0/
+      # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
+      sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      # Build boost
+      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
+      # Move out of boost source directory
+      cd ..
+    else
+      echo "Already have boost cache"
+    fi
 
 script:
-  # Install stride
+  # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - PARALLEL_MAKE=-j2 STRIDE_BOOST_ROOT=$HOME/boost_1_64_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-  - PARALLEL_MAKE=-j2 make install
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_64_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - make test

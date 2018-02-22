@@ -34,7 +34,7 @@ class SimulatorBuilder
 public:
         ///
         static std::shared_ptr<Simulator> Build(const std::string& config_file_name, unsigned int num_threads,
-                                                bool track_index_case);
+                                                bool track_index_case = false);
 
         /// Build the simulator.
         static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config, unsigned int num_threads,
@@ -48,7 +48,7 @@ public:
 
 private:
         /// Initialize the clusters.
-        static void InitializeClusters(std::shared_ptr<Simulator> sim);
+        static void InitializeContactPools(std::shared_ptr<Simulator> sim);
 };
 
 } // namespace stride

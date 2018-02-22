@@ -58,7 +58,7 @@ public:
 private:
         /// Update the contacts in the given clusters.
         template <LogMode::Id log_level, typename local_information_policy, bool track_index_case = false>
-        void UpdateClusters();
+        void UpdateContactPools();
 
 private:
         boost::property_tree::ptree m_pt_config; ///< Configuration property tree
@@ -74,11 +74,11 @@ private:
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
-        std::vector<ContactPool> m_households;          ///< Container with household Clusters.
-        std::vector<ContactPool> m_school_clusters;     ///< Container with school Clusters.
-        std::vector<ContactPool> m_work_clusters;       ///< Container with work Clusters.
-        std::vector<ContactPool> m_primary_community;   ///< Container with primary community Clusters.
-        std::vector<ContactPool> m_secondary_community; ///< Container with secondary community  Clusters.
+        std::vector<ContactPool> m_households;          ///< Container with household ContactPools.
+        std::vector<ContactPool> m_school_pools;        ///< Container with school ContactPools.
+        std::vector<ContactPool> m_work_pools;          ///< Container with work ContactPools.
+        std::vector<ContactPool> m_primary_community;   ///< Container with primary community ContactPools.
+        std::vector<ContactPool> m_secondary_community; ///< Container with secondary community ContactPools.
 
         ContactProfiles m_contact_profiles; ///< Contact patterns.
         DiseaseProfile  m_disease_profile;  ///< Profile of disease.

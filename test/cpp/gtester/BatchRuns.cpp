@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
+ *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
  */
 
 /**
@@ -20,21 +20,19 @@
 
 #include "sim/SimulatorBuilder.h"
 
-#include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
-#include <map>
 #include <omp.h>
 #include <spdlog/spdlog.h>
-#include <string>
 #include <tuple>
 
 using namespace std;
 using namespace stride;
 using namespace ::testing;
+using boost::property_tree::ptree;
 
 namespace Tests {
 
-class BatchDemos : public ::testing::TestWithParam<tuple<string, unsigned int>>
+class BatchRuns : public ::testing::TestWithParam<tuple<const char*, unsigned int>>
 {
 public:
         /// TestCase set up.
@@ -43,208 +41,147 @@ public:
         /// Tearing down TestCase
         static void TearDownTestCase() {}
 
+        /// Basic config, gets modified for the various scenarios.
+        static ptree BasicConfig()
+        {
+                static ptree pt_config;
+                if (pt_config.empty()) {
+                        pt_config.put("run.rng_seed", 2015U);
+                        pt_config.put("run.r0", 3.0);
+                        pt_config.put("run.seeding_rate", 0.0009);
+                        pt_config.put("run.seeding_age_min", 1);
+                        pt_config.put("run.seeding_age_max", 99);
+                        pt_config.put("run.immunity_profile", "Random");
+                        pt_config.put("run.immunity_rate", 0.0);
+                        pt_config.put("run.immunity_link_probability", 0);
+                        pt_config.put("run.vaccine_profile", "None");
+                        pt_config.put("run.population_file", "pop_flanders600.csv");
+                        pt_config.put("run.num_days", 30U);
+                        pt_config.put("run.output_prefix", "test");
+                        pt_config.put("run.disease_config_file", "disease_influenza.xml");
+                        pt_config.put("run.num_participants_survey", 10);
+                        pt_config.put("run.start_date", "2017-01-01");
+                        pt_config.put("run.holidays_file", "holidays_none.json");
+                        pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
+                        pt_config.put("run.log_level", "None");
+                        pt_config.put("run.local_information_policy", "NoLocalInformation");
+                        pt_config.put("run.global_information_policy", "NoGlobalInformation");
+                        pt_config.put("run.belief_policy.name", "NoBelief");
+                        pt_config.put("run.behaviour_policy", "NoBehaviour");
+                }
+                return pt_config;
+        }
+
+        /// Scenario config and test target number and margin of tolerance in percent (of target value).
+        static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
+        {
+                ptree        pt     = BasicConfig();
+                unsigned int target = 0U;
+                double       margin = 0.1;
+
+                if (tag == "influenza_a") {
+                        target = 2000U;
+                }
+                if (tag == "influenza_b") {
+                        pt.put("run.seeding_rate", 0.0);
+                        target = 0U;
+                }
+                if (tag == "influenza_c") {
+                        pt.put("run.seeding_rate", (1 - 0.9991) / 100);
+                        pt.put("run.immunity_rate", 0.9991);
+                        target = 5U;
+                }
+                if (tag == "measles_16") {
+                        pt.put("run.disease_config_file", "disease_measles.xml");
+                        pt.put("run.r0", 16U);
+                        target = 599900U;
+                }
+                if (tag == "measles_60") {
+                        pt.put("run.disease_config_file", "disease_measles.xml");
+                        pt.put("run.r0", 60U);
+                        target = 600000U;
+                }
+                return make_tuple(pt, target, margin);
+        };
+
 protected:
         /// Destructor has to be virtual.
-        virtual ~BatchDemos() {}
+        ~BatchRuns() override {}
 
         /// Set up for the test fixture
-        virtual void SetUp() {}
+        void SetUp() override {}
 
         /// Tearing down the test fixture
-        virtual void TearDown() {}
-
-        // Data members of the test fixture
-        static const string       g_population_file;
-        static const double       g_r0;
-        static const unsigned int g_num_days;
-        static const unsigned int g_rng_seed;
-        static const double       g_seeding_rate;
-        static const double       g_seeding_age_min;
-        static const double       g_seeding_age_max;
-        static const string       g_immunity_profile;
-        static const double       g_immunity_rate;
-        static const double       g_immunity_link_probability;
-        static const string       g_vaccine_profile;
-        static const string       g_disease_config_file;
-        static const string       g_output_prefix;
-        static const string       g_holidays_file;
-        static const unsigned int g_num_participants_survey;
-        static const string       g_start_date;
-        static const string       g_age_contact_matrix_file;
-        static const string       g_log_level;
-
-        static const unsigned int g_rng_seed_adapted;
-        static const double       g_seeding_rate_adapted;
-        static const double       g_immunity_rate_adapted;
-        static const string       g_disease_config_file_adapted;
-        static const double       g_transmission_rate_measles;
-        static const double       g_transmission_rate_maximum;
-
-        static const string g_local_information_policy;
-        static const string g_global_information_policy;
-        static const string g_belief_policy;
-        static const string g_behaviour_policy;
-
-        static const map<string, unsigned int> g_results;
+        void TearDown() override {}
 };
 
-// Default values
-const string       BatchDemos::g_population_file           = "pop_flanders600.csv";
-const double       BatchDemos::g_r0                        = 2.0;
-const unsigned int BatchDemos::g_num_days                  = 30U;
-const unsigned int BatchDemos::g_rng_seed                  = 2015U;
-const double       BatchDemos::g_seeding_rate              = 0.0009;
-const double       BatchDemos::g_seeding_age_min           = 1;
-const double       BatchDemos::g_seeding_age_max           = 99;
-const string       BatchDemos::g_immunity_profile          = "Random";
-const double       BatchDemos::g_immunity_rate             = 0.0;
-const double       BatchDemos::g_immunity_link_probability = 0;
-const string       BatchDemos::g_vaccine_profile           = "None";
-const string       BatchDemos::g_disease_config_file       = "disease_influenza.xml";
-const string       BatchDemos::g_output_prefix             = "test";
-const string       BatchDemos::g_holidays_file             = "holidays_none.json";
-const unsigned int BatchDemos::g_num_participants_survey   = 10;
-const string       BatchDemos::g_start_date                = "2017-01-01";
-const string       BatchDemos::g_age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml";
-const string       BatchDemos::g_log_level                 = "None";
-const string       BatchDemos::g_local_information_policy  = "NoLocalInformation";
-const string       BatchDemos::g_global_information_policy = "NoGlobalInformation";
-const string       BatchDemos::g_belief_policy             = "NoBelief";
-const string       BatchDemos::g_behaviour_policy          = "NoBehaviour";
-
-// Adapted values
-const double BatchDemos::g_seeding_rate_adapted        = 0.0;
-const double BatchDemos::g_immunity_rate_adapted       = 0.9991;
-const string BatchDemos::g_disease_config_file_adapted = "disease_measles.xml";
-const double BatchDemos::g_transmission_rate_measles   = 16U;
-const double BatchDemos::g_transmission_rate_maximum   = 60U;
-
-const map<string, unsigned int> BatchDemos::g_results{make_pair("default", 829), make_pair("seeding_rate", 0),
-                                                      make_pair("immunity_rate", 5), make_pair("measles", 346093),
-                                                      make_pair("maximum", 600000)};
-
-TEST_P(BatchDemos, Run)
+TEST_P(BatchRuns, Run)
 {
+        tuple<const char*, unsigned int> t(GetParam());
+
         // -----------------------------------------------------------------------------------------
         // Prepare test configuration.
         // -----------------------------------------------------------------------------------------
-        tuple<string, unsigned int> t(GetParam());
-        const string                test_tag    = get<0>(t);
-        const unsigned int          num_threads = get<1>(t);
+        const string test_tag{get<0>(t)};
+        const auto   num_threads = get<1>(t);
         omp_set_num_threads(num_threads);
         omp_set_schedule(omp_sched_static, 1);
 
         // -----------------------------------------------------------------------------------------
-        // Setup configuration.
+        // Scenario configuration and target number.
         // -----------------------------------------------------------------------------------------
-        boost::property_tree::ptree pt_config;
-        pt_config.put("run.rng_seed", g_rng_seed);
-        pt_config.put("run.r0", g_r0);
-        pt_config.put("run.seeding_rate", g_seeding_rate);
-        pt_config.put("run.seeding_age_min", g_seeding_age_min);
-        pt_config.put("run.seeding_age_max", g_seeding_age_max);
-        pt_config.put("run.immunity_profile", g_immunity_profile);
-        pt_config.put("run.immunity_rate", g_immunity_rate);
-        pt_config.put("run.immunity_link_probability", g_immunity_link_probability);
-        pt_config.put("run.vaccine_profile", g_vaccine_profile);
-        pt_config.put("run.population_file", g_population_file);
-        pt_config.put("run.num_days", g_num_days);
-        pt_config.put("run.output_prefix", g_output_prefix);
-        pt_config.put("run.disease_config_file", g_disease_config_file);
-        pt_config.put("run.num_participants_survey", g_num_participants_survey);
-        pt_config.put("run.start_date", g_start_date);
-        pt_config.put("run.holidays_file", g_holidays_file);
-        pt_config.put("run.age_contact_matrix_file", g_age_contact_matrix_file);
-        pt_config.put("run.log_level", g_log_level);
-        pt_config.put("run.local_information_policy", g_local_information_policy);
-        pt_config.put("run.global_information_policy", g_global_information_policy);
-        pt_config.put("run.belief_policy.name", g_belief_policy);
-        pt_config.put("run.behaviour_policy", g_behaviour_policy);
-        bool track_index_case = false;
-
-        // -----------------------------------------------------------------------------------------
-        // Override scenario settings.
-        // -----------------------------------------------------------------------------------------
-        if (test_tag == "default") {
-                // do nothing
-        }
-        if (test_tag == "seeding_rate") {
-                pt_config.put("run.seeding_rate", g_seeding_rate_adapted);
-        }
-        if (test_tag == "immunity_rate") {
-                pt_config.put("run.seeding_rate", (1 - g_immunity_rate_adapted) / 100);
-                pt_config.put("run.immunity_rate", g_immunity_rate_adapted);
-        }
-        if (test_tag == "measles") {
-                pt_config.put("run.disease_config_file", g_disease_config_file_adapted);
-                pt_config.put("run.r0", g_transmission_rate_measles);
-        }
-        if (test_tag == "maximum") {
-                pt_config.put("run.disease_config_file", g_disease_config_file_adapted);
-                pt_config.put("run.r0", g_transmission_rate_maximum);
-        }
+        const auto d         = ScenarioData(test_tag);
+        const auto pt_config = get<0>(d);
+        const auto target    = get<1>(d);
+        const auto margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Initialize the logger.
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
-        auto file_logger =
-            spdlog::rotating_logger_mt("contact_logger", g_output_prefix + "_logfile",
-                                       std::numeric_limits<size_t>::max(), std::numeric_limits<size_t>::max());
+        auto file_logger = spdlog::rotating_logger_mt("contact_logger", "test_logfile", numeric_limits<size_t>::max(),
+                                                      numeric_limits<size_t>::max());
         file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // -----------------------------------------------------------------------------------------
-        // Initialize the simulation.
+        // Initialize the simulator.
         // -----------------------------------------------------------------------------------------
         cout << "Building the simulator. " << endl;
-        auto sim = SimulatorBuilder::Build(pt_config, num_threads, track_index_case);
-        cout << "Done building the simulator. " << endl << endl;
+        cout << " ----> test_tag: " << test_tag << endl << " ----> threadcount:  " << num_threads << endl;
+        auto sim = SimulatorBuilder::Build(pt_config, num_threads);
+        cout << "Done building the simulator" << endl;
 
         // -----------------------------------------------------------------------------------------
-        // Run the simulation.
+        // Run the simulation and release logger.
         // -----------------------------------------------------------------------------------------
         const unsigned int num_days = pt_config.get<unsigned int>("run.num_days");
         for (unsigned int i = 0; i < num_days; i++) {
                 sim->TimeStep();
         }
-
-        // -----------------------------------------------------------------------------------------
-        // Release and close logger.
-        // -----------------------------------------------------------------------------------------
         spdlog::drop_all();
 
         // -----------------------------------------------------------------------------------------
-        // Round up.
+        // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
-        const unsigned int num_cases = sim->GetPopulation()->GetInfectedCount();
-        // ASSERT_NEAR(val1, val2, abs_error)
-        ASSERT_NEAR(num_cases, g_results.at(test_tag), g_results.at(test_tag) * 0.5) << "!! CHANGED !!";
+        const unsigned int res = sim->GetPopulation()->GetInfectedCount();
+        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
 }
 
 namespace {
 
-string scenarios[]{"default", "seeding_rate", "immunity_rate", "measles", "maximum"};
+const char* tags_influenza[] = {"influenza_a", "influenza_b", "influenza_c"};
+
+const char* tags_measles[] = {"measles_16", "measles_60"};
 
 #ifdef _OPENMP
-unsigned int threads[]{1U, 4U, 8U};
+unsigned int threads[]{1U, 4U};
 #else
 unsigned int threads[]{1U};
 #endif
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(Run_default, BatchDemos,
-                        ::testing::Combine(::testing::Values(string("default")), ::testing::ValuesIn(threads)));
+INSTANTIATE_TEST_CASE_P(Run_influenza, BatchRuns, Combine(ValuesIn(tags_influenza), ValuesIn(threads)));
 
-INSTANTIATE_TEST_CASE_P(Run_seeding_rate, BatchDemos,
-                        ::testing::Combine(::testing::Values(string("seeding_rate")), ::testing::ValuesIn(threads)));
-
-INSTANTIATE_TEST_CASE_P(Run_immunity_rate, BatchDemos,
-                        ::testing::Combine(::testing::Values(string("immunity_rate")), ::testing::ValuesIn(threads)));
-
-INSTANTIATE_TEST_CASE_P(Run_measles, BatchDemos,
-                        ::testing::Combine(::testing::Values(string("measles")), ::testing::ValuesIn(threads)));
-
-INSTANTIATE_TEST_CASE_P(Run_maximum, BatchDemos,
-                        ::testing::Combine(::testing::Values(string("maximum")), ::testing::ValuesIn(threads)));
+INSTANTIATE_TEST_CASE_P(Run_measles, BatchRuns, Combine(ValuesIn(tags_measles), ValuesIn(threads)));
 
 } // namespace Tests

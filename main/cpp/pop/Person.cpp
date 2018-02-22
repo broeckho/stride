@@ -25,26 +25,30 @@ namespace stride {
 
 using namespace std;
 
-unsigned int Person::GetClusterId(const ContactPoolType::Id& cluster_type) const
+unsigned int Person::GetContactPoolId(const ContactPoolType::Id& cluster_type) const
 {
+        unsigned int ret;
         switch (cluster_type) {
-        case ContactPoolType::Id::Household: return m_household_id;
-        case ContactPoolType::Id::School: return m_school_id;
-        case ContactPoolType::Id::Work: return m_work_id;
-        case ContactPoolType::Id::PrimaryCommunity: return m_primary_community_id;
-        case ContactPoolType::Id::SecondaryCommunity: return m_secondary_community_id;
+        case ContactPoolType::Id::Household: ret = m_household_id; break;
+        case ContactPoolType::Id::School: ret = m_school_id; break;
+        case ContactPoolType::Id::Work: ret = m_work_id; break;
+        case ContactPoolType::Id::PrimaryCommunity: ret = m_primary_community_id; break;
+        case ContactPoolType::Id::SecondaryCommunity: ret = m_secondary_community_id; break;
         }
+        return ret;
 }
 
-bool Person::IsInCluster(const ContactPoolType::Id& c) const
+bool Person::IsInContactPool(const ContactPoolType::Id& c) const
 {
+        bool ret;
         switch (c) {
-        case ContactPoolType::Id::Household: return m_at_household;
-        case ContactPoolType::Id::School: return m_at_school;
-        case ContactPoolType::Id::Work: return m_at_work;
-        case ContactPoolType::Id::PrimaryCommunity: return m_at_primary_community;
-        case ContactPoolType::Id::SecondaryCommunity: return m_at_secondary_community;
+        case ContactPoolType::Id::Household: ret = m_at_household; break;
+        case ContactPoolType::Id::School: ret = m_at_school; break;
+        case ContactPoolType::Id::Work: ret = m_at_work; break;
+        case ContactPoolType::Id::PrimaryCommunity: ret = m_at_primary_community; break;
+        case ContactPoolType::Id::SecondaryCommunity: ret = m_at_secondary_community; break;
         }
+        return ret;
 }
 
 void Person::Update(bool is_work_off, bool is_school_off)

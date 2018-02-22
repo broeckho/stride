@@ -32,8 +32,7 @@ install(DIRECTORY DESTINATION  ${TESTS_DIR} )
 # Top level custom target for instactive use through make:
 #============================================================================
 add_custom_target( run_ctest
-	COMMAND ctest --tests-regex default ${CTEST_VERBOSE_OPTION} 
-				-O ${TESTS_DIR}/ctests_default.txt
+	COMMAND ctest ${CTEST_VERBOSE_OPTION} -O ${TESTS_DIR}/ctests.txt
 )
 
 #============================================================================
