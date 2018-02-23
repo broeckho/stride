@@ -27,8 +27,7 @@ enum class HealthStatus
         Symptomatic              = 3U,
         InfectiousAndSymptomatic = 4U,
         Recovered                = 5U,
-        Immune                   = 6U,
-        Null
+        Immune                   = 6U
 };
 
 /*
@@ -40,9 +39,6 @@ public:
         ///
         Health(unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
                unsigned int time_symptomatic);
-
-        ///
-        HealthStatus GetHealthStatus() const { return m_status; }
 
         ///
         unsigned int GetEndInfectiousness() const { return m_end_infectiousness; }

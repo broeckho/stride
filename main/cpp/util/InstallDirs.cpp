@@ -33,7 +33,7 @@
 #include <limits.h>
 #include <unistd.h>
 #elif defined(__APPLE__)
-#include <limits.h>
+#include <climits>
 #include <mach-o/dyld.h>
 #endif
 

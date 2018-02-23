@@ -47,16 +47,15 @@ void Simulator::TimeStep()
 {
         std::shared_ptr<DaysOffInterface> days_off{nullptr};
 
-        // Logic where you compute (on the basis of input/config for initial day
-        // or on the basis of number of sick persons, duration of epidemic etc)
-        // what kind of DaysOff scheme you apply. If we want to make this cluster
-        // dependent then the days_off object has to be passed into the Update
-        // function.
+        // Logic where you compute (on the basis of input/config for initial day or on the basis of
+        // number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you apply.
+        // If we want to make this independent of contacpools, then the days_off object has to be
+        // passed into the Update function.
         days_off                 = std::make_shared<DaysOffStandard>(m_calendar);
         const bool is_work_off   = days_off->IsWorkOff();
         const bool is_school_off = days_off->IsSchoolOff();
 
-        // Update individual's health status & presence in clusters.
+        // Update individual's health status & presence in contactpools.
         for (auto& p : *m_population) {
                 p.Update(is_work_off, is_school_off);
         }

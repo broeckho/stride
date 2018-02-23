@@ -126,7 +126,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
 
         // -----------------------------------------------------------------------------------------
         // Create logger
-        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <clusterID>
+        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <contactpoolID>
         // <day>
         // General contacts:  [CNT] <person1ID> <person1AGE> <person2AGE>  <at_home>
         // <at_work> <at_school> <at_other>

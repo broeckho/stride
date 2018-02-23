@@ -56,7 +56,7 @@ public:
         void TimeStep();
 
 private:
-        /// Update the contacts in the given clusters.
+        /// Update the contacts in the given contactpools.
         template <LogMode::Id log_level, typename local_information_policy, bool track_index_case = false>
         void UpdateContactPools();
 

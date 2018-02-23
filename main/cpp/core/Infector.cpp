@@ -114,7 +114,7 @@ class LOG_POLICY<LogMode::Id::SusceptibleContacts>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                            ContactPoolType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+                            ContactPoolType::Id pool_type, const shared_ptr<const Calendar>& calendar)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
@@ -122,7 +122,7 @@ public:
         }
 
         static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                                 ContactPoolType::Id cluster_type, const shared_ptr<const Calendar>& calendar)
+                                 ContactPoolType::Id pool_type, const shared_ptr<const Calendar>& calendar)
         {
         }
 };

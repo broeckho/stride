@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Definition of ClusterType.
+ * Definition of ContactPoolType.
  */
 
 #include <cstddef>
@@ -25,7 +25,7 @@
 namespace stride {
 namespace ContactPoolType {
 
-/// Enumerates the cluster types.
+/// Enumerates the ContactPool types.
 enum class Id
 {
         Household,
@@ -35,16 +35,16 @@ enum class Id
         SecondaryCommunity,
 };
 
-/// Number of Cluster types.
+/// Number of ContactPool types.
 inline constexpr unsigned int NumOfTypes() { return 5U; }
 
-/// Check whether string is name of a ClusterType::Id.
+/// Check whether string is name of a ContactPoolType::Id.
 bool IsType(const std::string& s);
 
 /// Cast to size_t for indexing.
 inline std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
 
-/// Converts a ClusterType::Id value to corresponding name.
+/// Converts a ContactPoolType::Id value to corresponding name.
 std::string ToString(Id w);
 
 /// Converts a string with name to Id.
