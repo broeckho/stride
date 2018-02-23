@@ -9,44 +9,42 @@
 #  GNU General Public License for more details.
 #  You should have received a copy of the GNU General Public License,
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
-#  see http://www.gnu.org/licenses/.
+#  see http://www.gnu.org/licenses/
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
-# Test verbosity:
+# Install the python test scripts.
 #============================================================================
-unset( CTEST_VERBOSE_OPTION )
-if( STRIDE_VERBOSE_TESTING )
-	set( CTEST_VERBOSE_OPTION "-V" )
-endif()
 
-#============================================================================
-# Meke test directory in install tree:
-#============================================================================
-set( TESTS_DIR ${CMAKE_INSTALL_PREFIX}/${TESTS_INSTALL_LOCATION} )
-install(DIRECTORY DESTINATION  ${TESTS_DIR} )
+set ( SCRIPTS
+	testSimple.py
+)
 
-#============================================================================
-# Top level custom target for instactive use through make:
-#============================================================================
-add_custom_target( run_ctest
-	COMMAND ctest ${CTEST_VERBOSE_OPTION} -O ${TESTS_DIR}/ctests.txt
+INSTALL ( FILES
+	${SCRIPTS}
+	DESTINATION ${BIN_INSTALL_LOCATION}
 )
 
 #============================================================================
-# Config related to using Google test (src in resources/lib/gtest) for cpp
+# Define tests.
 #============================================================================
-set( GTEST_RESOURCE_DIR	   ${CMAKE_SOURCE_DIR}/test/resources/lib/gtest/ )
-include_directories( ${GTEST_RESOURCE_DIR} )
-add_definitions( -DGTEST_LANG_CXX11 )
+
+add_test( NAME python_environment
+	WORKING_DIRECTORY ${TESTS_DIR}
+	COMMAND python3.6 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
+)
+
+#add_test( NAME  ${EXEC}_all 		
+#        WORKING_DIRECTORY  ${TESTS_DIR}
+#		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
+#		         --gtest_output=xml:gtester_all.xml
+#)
 
 #============================================================================
-# Add subdirectories:
+# Clean up.
 #============================================================================
-add_subdirectory( cpp       )
-add_subdirectory( python    )
-add_subdirectory( resources )
+unset( SCRIPTS   )
 
 #############################################################################
