@@ -17,7 +17,6 @@
 #============================================================================
 # Install the python test scripts.
 #============================================================================
-
 set ( SCRIPTS
 	testSimple.py
 )
@@ -30,17 +29,10 @@ INSTALL ( FILES
 #============================================================================
 # Define tests.
 #============================================================================
-
 add_test( NAME python_environment
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND python3.6 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
 )
-
-#add_test( NAME  ${EXEC}_all 		
-#        WORKING_DIRECTORY  ${TESTS_DIR}
-#		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
-#		         --gtest_output=xml:gtester_all.xml
-#)
 
 #============================================================================
 # Clean up.
