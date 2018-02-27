@@ -66,25 +66,28 @@ before_install:
 install:
   # Check for presence of boost cache, otherwise build boost
   - |
-    if [[ -z "$(ls -A $HOME/boost_1_64_0_cache)" ]]; then
+    if [[ -z "$(ls -A $HOME/boost_1_66_0_cache)" ]]; then
       # Download & unpack
-      sudo wget -O boost_1_64_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.64.0/boost_1_64_0.tar.gz/download -q
-      sudo tar xf boost_1_64_0.tar.gz > /dev/null 2>&1
+      sudo wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
+      sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       # Move into source directory
-      cd boost_1_64_0/
+      cd boost_1_66_0/
       # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-      sudo ./bootstrap.sh --prefix=$HOME/boost_1_64_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      sudo ./bootstrap.sh --prefix=$HOME/boost_1_66_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       # Build boost
-      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" link=static threading=multi install
+      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       # Move out of boost source directory
       cd ..
     else
       echo "Already have boost cache"
     fi
+    export LD_LIBRARY_PATH=$HOME/boost_1_66_0_cache/lib
+    sudo rm -f /usr/local/lib/libboost*.dylib*
+    sudo ln -s $HOME/boost_1_66_0_cache/lib/*.{so,dylib}* /usr/local/lib
 
 script:
   # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - STRIDE_BOOST_ROOT=$HOME/boost_1_64_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
   - make test
