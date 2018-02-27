@@ -44,6 +44,7 @@ set( SRC
 
 add_library( trng ${SRC} )
 #target_compile_options(trng PUBLIC "-flto")
+set_property(TARGET trng PROPERTY POSITION_INDEPENDENT_CODE ON)
 unset( SRC )	
 
 #############################################################################
