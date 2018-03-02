@@ -22,6 +22,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <spdlog/spdlog.h>
 #include <string>
+#include <tuple>
 #include <utility>
 
 namespace stride {
@@ -30,10 +31,11 @@ class CliController
 {
 public:
         /// Straight initialization.
-        CliController(bool track_index_case, std::string config_file, bool silent_mode = false,
-                      bool use_install_dirs = false)
-            : m_track_index_case(track_index_case), m_config_file(std::move(config_file)),
-              m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs) {};
+        CliController(bool track_index_case, std::string config_file,
+                      std::vector<std::tuple<std::string, std::string>> p_overrides, bool silent_mode = false,
+                      bool use_install_dirs = true)
+            : m_track_index_case(track_index_case), m_config_file(std::move(config_file)), m_max_num_threads(1U),
+              m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs){};
 
         /// Actually setup the run of the simulator.
         bool Go();
@@ -45,20 +47,21 @@ public:
         bool SetupNullLogger();
 
 private:
-        /// Check and patch (if necessary) main configuration file.
-        bool CheckConfig();
-
         /// Check install environment.
         bool CheckEnv();
 
         /// Check the OpenMP environment.
         bool CheckOpenMP();
 
+        /// Setup and patch run configuration file.
+        bool SetupConfig();
 private:
-        bool        m_track_index_case;
-        std::string m_config_file;
-        bool        m_silent_mode;
-        bool        m_use_install_dirs;
+        bool                                              m_track_index_case;
+        std::string                                       m_config_file;
+        unsigned int                                      m_max_num_threads;
+        std::vector<std::tuple<std::string, std::string>> m_p_overrides;
+        bool                                              m_silent_mode;
+        bool                                              m_use_install_dirs;
 
         std::shared_ptr<spdlog::logger> m_logger;
         boost::property_tree::ptree     m_config_pt;

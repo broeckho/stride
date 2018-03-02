@@ -19,9 +19,12 @@
  */
 
 #include "sim/CliController.h"
+#include "util/StringUtils.h"
 
 #include <tclap/CmdLine.h>
-#include <spdlog/spdlog.h>
+#include <string>
+#include <tuple>
+#include <vector>
 
 using namespace std;
 using namespace stride;
@@ -41,14 +44,29 @@ int main(int argc, char** argv)
                 SwitchArg        silent_mode_Arg("s", "silent", "silent mode", cmd, false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "./config/run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
+                MultiArg<string> params_override_Arg("p", "param_override", "Config Parameter Override", false,
+                                                     "parameter assignemnet", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
+
+                // -----------------------------------------------------------------------------------------
+                // Parse commandline config parameter overrides (if any).
+                // -----------------------------------------------------------------------------------------
+                vector<tuple<string, string>> p_overrides;
+                const auto                    p_vec = params_override_Arg.getValue();
+                for (const auto& p_assignment : p_vec) {
+                        const auto v = util::Tokenize(p_assignment, "=");
+                        p_overrides.push_back(make_tuple(v[0], v[1]));
+                }
+                // For now
+                bool use_install_dirs = true;
 
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), silent_mode_Arg.getValue(),
-                                    true);
+                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
+                                    silent_mode_Arg.getValue(), use_install_dirs);
                 cntrl.Go();
+
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

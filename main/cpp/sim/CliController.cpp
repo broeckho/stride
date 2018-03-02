@@ -28,8 +28,9 @@
 #include "util/TimeStamp.h"
 #include "viewers/CliViewer.h"
 
-#include <boost/property_tree/xml_parser.hpp>
 #include "spdlog/sinks/null_sink.h"
+#include <boost/property_tree/xml_parser.hpp>
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -41,28 +42,50 @@ using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 
+bool CliController::CheckEnv()
+{
+        bool        status = true;
+        InstallDirs dirs;
+        m_logger->info("Executing:           {}", dirs.GetExecPath().string());
+        m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
+        if (m_use_install_dirs) {
+                m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
+                m_logger->info("Data    directory:   {}", dirs.GetDataDir().string());
+                if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
+                        m_logger->critical("Current working dir not install root! Aborting.");
+                        status = false;
+                }
+        }
+        return status;
+}
+
+bool CliController::CheckOpenMP()
+{
+        m_max_num_threads = ConfigInfo::NumberAvailableThreads();
+        if (ConfigInfo::HaveOpenMP()) {
+                m_logger->info("Max number OpenMP threads in this environment: {}", m_max_num_threads);
+        } else {
+                m_logger->info("Not using OpenMP threads.");
+        }
+        return true;
+}
+
 bool CliController::Go()
 {
         // Intro
-        bool status = m_silent_mode ?  SetupNullLogger() : SetupLogger();
-
+        bool status = m_silent_mode ? SetupNullLogger() : SetupLogger();
         if (status) {
                 m_logger->info("\n*************************************************************");
                 m_logger->info("Starting up at:      {}", TimeStamp().ToString());
-        }
-        // Preliminary checks, untill status no good.
-        if (status & m_use_install_dirs) {
-                status = CheckEnv();
-        }
-        if (status) {
-                status = CheckConfig() && CheckOpenMP();
-        }
 
-        // Run iff everything OK
+                // Checks && setup, order important and relies on C++'s short circuit evaluation.
+                status = CheckEnv() && CheckOpenMP() && SetupConfig();
+        }
         if (status) {
-                // Setup simultaion run
+                // Setup simulation run
+                m_logger->info("\n\nSetting up the simulation runner.");
                 SimRunner runner;
-                runner.Setup(m_config_pt, m_logger, m_use_install_dirs);
+                runner.Setup(m_config_pt, m_logger);
 
                 // Register viewers
                 auto c_v = make_shared<viewers::CliViewer>(true);
@@ -78,41 +101,7 @@ bool CliController::Go()
         return status;
 }
 
-bool CliController::SetupLogger()
-{
-        bool status = true;
-        spdlog::set_async_mode(1048576);
-        try {
-                vector<spdlog::sink_ptr> sinks;
-                auto color_sink = make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
-                sinks.push_back(color_sink);
-                const string fn = string("stride_log_").append(TimeStamp().ToTag()).append(".txt");
-                sinks.push_back(make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
-                m_logger = make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
-                spdlog::register_logger(m_logger);
-        } catch (const spdlog::spdlog_ex& e) {
-                cerr << "Stride logger initialization failed: " << e.what() << endl;
-                status = false;
-        }
-        return status;
-}
-
-bool CliController::SetupNullLogger()
-{
-        bool status = true;
-        spdlog::set_async_mode(1048576);
-        try {
-                auto null_sink = make_shared<spdlog::sinks::null_sink_st> ();
-                m_logger = make_shared<spdlog::logger>("stride_logger", null_sink);
-                spdlog::register_logger(m_logger);
-        } catch (const spdlog::spdlog_ex& e) {
-                cerr << "Stride null logger initialization failed: " << e.what() << endl;
-                status = false;
-        }
-        return status;
-}
-
-bool CliController::CheckConfig()
+bool CliController::SetupConfig()
 {
         bool       status    = true;
         const auto file_path = canonical(system_complete(m_config_file));
@@ -138,38 +127,56 @@ bool CliController::CheckConfig()
                 if (!m_config_pt.get_optional<bool>("run.num_participants_survey")) {
                         m_config_pt.put("run.num_participants_survey", 1);
                 }
-                m_config_pt.put("track_index_case", m_track_index_case);
-                m_logger->info("Setting for track_index_case:  {}", m_track_index_case);
+                m_config_pt.put("run.track_index_case", m_track_index_case);
+                m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
+                m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
+                m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
+                for (const auto& p : m_p_overrides) {
+                        m_config_pt.put("run." + get<0>(p), get<1>(p));
+                        m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
+                }
+                if (!m_config_pt.get_optional<bool>("run.num_threads")) {
+                        m_config_pt.put("run.num_threads", m_max_num_threads);
+                        m_logger->info("Defaulting for run.num_threads:  {}", m_max_num_threads);
+                }
         }
+        write_xml("lalala", m_config_pt);
+
         return status;
 }
 
-bool CliController::CheckEnv()
+bool CliController::SetupLogger()
 {
-        bool        status = true;
-        InstallDirs dirs;
-        m_logger->info("Executing:           {}", dirs.GetExecPath().string());
-        m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
-        m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
-        m_logger->info("Data    directory:   {}", dirs.GetDataDir().string());
-
-        if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
-                m_logger->critical("Current working dir not install root! Aborting.");
+        bool status = true;
+        spdlog::set_async_mode(1048576);
+        try {
+                vector<spdlog::sink_ptr> sinks;
+                auto                     color_sink = make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
+                sinks.push_back(color_sink);
+                const string fn = string("stride_log_").append(TimeStamp().ToTag()).append(".txt");
+                sinks.push_back(make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
+                m_logger = make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
+                spdlog::register_logger(m_logger);
+        } catch (const spdlog::spdlog_ex& e) {
+                cerr << "Stride logger initialization failed: " << e.what() << endl;
                 status = false;
         }
         return status;
 }
 
-bool CliController::CheckOpenMP()
+bool CliController::SetupNullLogger()
 {
-        const auto num_threads = ConfigInfo::NumberAvailableThreads();
-        if (ConfigInfo::HaveOpenMP()) {
-                m_logger->info("Number OpenMP threads available in this environment: {}", num_threads);
-        } else {
-                m_logger->info("Not using OpenMP threads.");
+        bool status = true;
+        spdlog::set_async_mode(1048576);
+        try {
+                auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
+                m_logger       = make_shared<spdlog::logger>("stride_logger", null_sink);
+                spdlog::register_logger(m_logger);
+        } catch (const spdlog::spdlog_ex& e) {
+                cerr << "Stride null logger initialization failed: " << e.what() << endl;
+                status = false;
         }
-        m_config_pt.put("num_threads", num_threads);
-        return true;
+        return status;
 }
 
 } // namespace stride

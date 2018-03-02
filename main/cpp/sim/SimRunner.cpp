@@ -53,10 +53,10 @@ SimRunner::SimRunner()
 {
 }
 
-bool SimRunner::Setup(const ptree& config_pt, shared_ptr<spdlog::logger> logger, bool use_install_dirs)
+bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> logger)
 {
         bool status = true;
-        m_pt_config = config_pt;
+        m_pt_config = run_config_pt;
         m_logger    = logger;
 
         // -----------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ bool SimRunner::Setup(const ptree& config_pt, shared_ptr<spdlog::logger> logger,
         if (m_output_prefix.length() == 0) {
                 m_output_prefix = TimeStamp().ToTag();
         }
-        m_logger->info("Project output tag:  {}", m_output_prefix);
+        m_logger->info("Run output prefix:  {}", m_output_prefix);
 
         // -----------------------------------------------------------------------------------------
         // Create logger
@@ -77,7 +77,7 @@ bool SimRunner::Setup(const ptree& config_pt, shared_ptr<spdlog::logger> logger,
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
         boost::filesystem::path logfile_path = m_output_prefix;
-        if (use_install_dirs) {
+        if (run_config_pt.get<bool>("run.use_install_dirs")) {
                 logfile_path += "_logfile";
         } else {
                 logfile_path /= "logfile";
@@ -89,8 +89,8 @@ bool SimRunner::Setup(const ptree& config_pt, shared_ptr<spdlog::logger> logger,
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
-        const auto track_index_case = m_pt_config.get<bool>("track_index_case");
-        const auto num_threads      = m_pt_config.get<unsigned int>("num_threads");
+        const auto track_index_case = m_pt_config.get<bool>("run.track_index_case");
+        const auto num_threads      = m_pt_config.get<unsigned int>("run.num_threads");
         m_clock.Start();
         m_logger->info("Building the simulator.");
         m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
@@ -143,7 +143,7 @@ void SimRunner::Run()
         // -----------------------------------------------------------------------------------------
         // Final.
         // -----------------------------------------------------------------------------------------
-        m_logger->info("\n\n Run finished  run_time: {} -- total time: {}", run_clock.ToString(), m_clock.ToString());
+        m_logger->info("\n\nRun finished  run_time: {} -- total time: {}", run_clock.ToString(), m_clock.ToString());
 }
 
 /// Generate output files (at the end of the simulation).

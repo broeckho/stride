@@ -46,12 +46,12 @@ public:
         virtual ~SimRunner() = default;
 
         /// Actually setup de run of the simulator
-        /// \param track_index_case     whether only tracking index case or doing a full simulation.
-        /// \param config_file_name     name of the configuration file for this run
-        /// \param use_install_dirs     where to use the files in the install directory
-        /// \param logger               general logger for this run
-        bool Setup(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger,
-                   bool use_install_dirs = false);
+
+        ///
+        /// \param run_config_pt        config info for run and for config of simulator
+        /// \param logger               generela logger
+        /// \return                     status value
+        bool Setup(const boost::property_tree::ptree& run_config_pt, std::shared_ptr<spdlog::logger> logger);
 
         /// Run the simulator with config information provided.
         void Run();
