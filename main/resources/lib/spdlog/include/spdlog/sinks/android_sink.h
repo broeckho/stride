@@ -1,73 +1,62 @@
-/*************************************************************************/
-/* spdlog - an extremely fast and easy to use c++11 logging library.     */
-/* Copyright (c) 2014 Gabi Melman.                                       */
-/* Copyright (c) 2015 Ruslan Baratov.                                    */
-/*                                                                       */
-/* Permission is hereby granted, free of charge, to any person obtaining */
-/* a copy of this software and associated documentation files (the       */
-/* "Software"), to deal in the Software without restriction, including   */
-/* without limitation the rights to use, copy, modify, merge, publish,   */
-/* distribute, sublicense, and/or sell copies of the Software, and to    */
-/* permit persons to whom the Software is furnished to do so, subject to */
-/* the following conditions:                                             */
-/*                                                                       */
-/* The above copyright notice and this permission notice shall be        */
-/* included in all copies or substantial portions of the Software.       */
-/*                                                                       */
-/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
+//
+// Copyright(c) 2015 Gabi Melman.
+// Distributed under the MIT License (http://opensource.org/licenses/MIT)
+//
 
 #pragma once
 
 #if defined(__ANDROID__)
 
-#include <mutex>
-#include "base_sink.h"
-#include "../details/null_mutex.h"
+#include "sink.h"
+#include "../details/os.h"
 
+#include <mutex>
+#include <string>
 #include <android/log.h>
+#include <thread>
+#include <chrono>
+
+#if !defined(SPDLOG_ANDROID_RETRIES)
+#define SPDLOG_ANDROID_RETRIES 2
+#endif
 
 namespace spdlog
 {
 namespace sinks
 {
+
 /*
 * Android sink (logging using __android_log_write)
+* __android_log_write is thread-safe. No lock is needed.
 */
-template<class Mutex>
-class base_android_sink : public base_sink < Mutex >
+class android_sink : public sink
 {
 public:
-    explicit base_android_sink(std::string tag="spdlog"): _tag(tag)
+    explicit android_sink(const std::string& tag = "spdlog", bool use_raw_msg = false): _tag(tag), _use_raw_msg(use_raw_msg) {}
+
+    void log(const details::log_msg& msg) override
     {
+        const android_LogPriority priority = convert_to_android(msg.level);
+        const char *msg_output = (_use_raw_msg ? msg.raw.c_str() : msg.formatted.c_str());
+
+        // See system/core/liblog/logger_write.c for explanation of return value
+        int ret = __android_log_write(priority, _tag.c_str(), msg_output);
+        int retry_count = 0;
+        while ((ret == -11/*EAGAIN*/) && (retry_count < SPDLOG_ANDROID_RETRIES))
+        {
+            details::os::sleep_for_millis(5);
+            ret = __android_log_write(priority, _tag.c_str(), msg_output);
+            retry_count++;
+        }
+
+        if (ret < 0)
+        {
+            throw spdlog_ex("__android_log_write() failed", ret);
+        }
     }
 
     void flush() override
     {
-    }
-
-protected:
-    void _sink_it(const details::log_msg& msg) override
-    {
-        const android_LogPriority priority = convert_to_android(msg.level);
-        const int expected_size = msg.formatted.size();
-        const int size = __android_log_write(
-            priority, _tag.c_str(), msg.formatted.c_str()
-        );
-        if (size > expected_size)
-        {
-            // Will write a little bit more than original message
-        }
-        else
-        {
-            throw spdlog_ex("Send to Android logcat failed");
-        }
     }
 
 private:
@@ -75,24 +64,26 @@ private:
     {
         switch(level)
         {
-            case spdlog::level::trace: return ANDROID_LOG_VERBOSE;
-            case spdlog::level::debug: return ANDROID_LOG_DEBUG;
-            case spdlog::level::info: return ANDROID_LOG_INFO;
-            case spdlog::level::notice: return ANDROID_LOG_INFO;
-            case spdlog::level::warn: return ANDROID_LOG_WARN;
-            case spdlog::level::err: return ANDROID_LOG_ERROR;
-            case spdlog::level::critical: return ANDROID_LOG_FATAL;
-            case spdlog::level::alert: return ANDROID_LOG_FATAL;
-            case spdlog::level::emerg: return ANDROID_LOG_FATAL;
-            default: throw spdlog_ex("Incorrect level value");
+        case spdlog::level::trace:
+            return ANDROID_LOG_VERBOSE;
+        case spdlog::level::debug:
+            return ANDROID_LOG_DEBUG;
+        case spdlog::level::info:
+            return ANDROID_LOG_INFO;
+        case spdlog::level::warn:
+            return ANDROID_LOG_WARN;
+        case spdlog::level::err:
+            return ANDROID_LOG_ERROR;
+        case spdlog::level::critical:
+            return ANDROID_LOG_FATAL;
+        default:
+            return ANDROID_LOG_DEFAULT;
         }
     }
 
     std::string _tag;
+    bool _use_raw_msg;
 };
-
-typedef base_android_sink<std::mutex> android_sink_mt;
-typedef base_android_sink<details::null_mutex> android_sink_st;
 
 }
 }

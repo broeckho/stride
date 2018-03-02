@@ -18,9 +18,10 @@
  * Main program: command line handling.
  */
 
-#include "sim/StrideRunner.h"
+#include "sim/CliController.h"
 
 #include <tclap/CmdLine.h>
+#include <spdlog/spdlog.h>
 
 using namespace std;
 using namespace stride;
@@ -44,9 +45,8 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                StrideRunner runner;
-                runner.Setup(index_case_Arg.getValue(), config_file_Arg.getValue(), true);
-                runner.Run();
+                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), true);
+                cntrl.Go();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

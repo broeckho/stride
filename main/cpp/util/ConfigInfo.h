@@ -19,6 +19,7 @@
  * Info on configuration through compile time constants i.o. macros.
  */
 
+#include <omp.h>
 #include <string>
 
 namespace stride {
@@ -38,6 +39,17 @@ public:
 #else
                 return false;
 #endif
+        }
+
+        ///
+        static unsigned int NumberAvailableThreads()
+        {
+                unsigned int i = 1U;
+#pragma omp parallel
+                {
+                        i = static_cast<unsigned int>(omp_get_num_threads());
+                }
+                return i;
         }
 };
 

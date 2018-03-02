@@ -58,11 +58,6 @@ include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 set(LIBS   ${LIBS}   m)
 
 #----------------------------------------------------------------------------
-# TCLAP Library (command line processing)
-#----------------------------------------------------------------------------
-include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
-
-#----------------------------------------------------------------------------
 # Spdlog Library (logging)
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/include)

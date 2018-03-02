@@ -41,29 +41,13 @@ set(LIB_SRC
     pop/Person.cpp
     pop/PopulationBuilder.cpp
 #---
-	#popgen/AliasSampler.cpp
-	#popgen/FamilyParser.cpp
-    #popgen/utils.cpp
-	#popgen/geo/GeoCoordinate.cpp
-	#popgen/geo/GeoCoordCalculator.cpp
-#---
-	#popgen2/AliasMethod.cpp
-    #popgen2/Community.cpp
-    #popgen2/GeneratorPerson.cpp
-	#popgen2/GrahamScan.cpp
-    #popgen2/Household.cpp
-	#popgen2/main.cpp
-    #popgen2/RNG.cpp
-	#popgen2/Society.cpp
-	#popgen2/SocietyCSVWriter.cpp
-	#popgen2/SocietyGenerator.cpp
-	#popgen2/geo/City.cpp
-	#popgen2/geo/GeoGrid.cpp
-	#popgen2/geo/Geometry.cpp
-#---
+    sim/CliController.cpp
+	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
 	sim/StrideRunner.cpp
+    sim/event/Id.cpp
+	sim/event/Subject.cpp
 #---
     util/CSV.cpp
 	util/CSVRow.cpp
@@ -71,6 +55,8 @@ set(LIB_SRC
 	util/InstallDirs.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
+#---
+    viewers/CliViewer.cpp
 )
 
 #============================================================================
@@ -85,22 +71,10 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 # Build and install the stride executable.
 #============================================================================
 add_executable(stride sim/main.cpp)
+target_include_directories(stride PUBLIC
+	${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
-
-#============================================================================
-# Build and install the stride executable.
-#============================================================================
-#add_executable(popgen popgen/main.cpp)
-#target_link_libraries(popgen ${LIBS} libstride)
-#install(TARGETS popgen  DESTINATION   ${BIN_INSTALL_LOCATION})
-
-#============================================================================
-# Build and install the stride executable.
-#============================================================================
-#add_executable(popgen2 popgen2/main.cpp)
-#target_link_libraries(popgen2 ${LIBS} libstride)
-#install(TARGETS popgen2  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Clean up.

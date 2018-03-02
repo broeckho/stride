@@ -39,23 +39,23 @@ public:
         using CallbackType = std::function<void(const EventType&)>;
 
 public:
-        virtual ~Subject() { unregisterAll(); }
+        virtual ~Subject() { UnregisterAll(); }
 
         template <typename U>
-        void registerObserver(const std::shared_ptr<U>& u, CallbackType f)
+        void Register(const std::shared_ptr<U>& u, CallbackType f)
         {
                 m_observers.insert(make_pair(std::static_pointer_cast<const void>(u), f));
         }
 
         template <typename U>
-        void unregister(const std::shared_ptr<U>& u)
+        void Unregister(const std::shared_ptr<U>& u)
         {
                 m_observers.erase(std::static_pointer_cast<const void>(u));
         }
 
-        void unregisterAll() { m_observers.clear(); }
+        void UnregisterAll() { m_observers.clear(); }
 
-        void notify(const EventType& e)
+        void Notify(const EventType& e)
         {
                 for (const auto& o : m_observers) {
                         const auto spt = o.first.lock();
