@@ -172,7 +172,9 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
                                                         }
 
                                                         // exchange info about health state & beliefs
-                                                        LIP::Update(p1, p2);
+                                                        //if (contact_handler.HasDiscussion(LIP::GetDiscussionChance())) {
+                                                        	LIP::Update(p1, p2);
+                                                        //}
 
                                                         // transmission & infection.
                                                         if (contact_handler.HasTransmission(t_rate)) {

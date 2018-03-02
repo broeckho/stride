@@ -75,9 +75,4 @@ void Person::Update(bool is_work_off, bool is_school_off)
         }
 }
 
-void Person::Update(Person*)
-{
-        // TODO update beliefs
-}
-
 } // namespace stride

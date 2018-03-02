@@ -49,6 +49,12 @@ public:
                 return m_uniform01_generator() < RateToProbability(transmission_rate);
         }
 
+        /// Check if discussion about disease occurs
+        bool HasDiscussion(double discussion_probability)
+        {
+        		return m_uniform01_generator() < discussion_probability;
+        }
+
 private:
         /// Convert rate into probability
         double RateToProbability(double rate) { return 1 - exp(-rate); }

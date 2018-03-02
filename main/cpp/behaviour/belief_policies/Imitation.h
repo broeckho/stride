@@ -37,8 +37,10 @@ public:
 
         bool HasAdopted() const { return m_accept; }
 
-        // TODO update
-
+        void Update(const Belief* other_person )
+        {
+        		// TODO implement this...
+        }
 private:
         double m_accept_threshold;
         double m_no_accept_threshold;

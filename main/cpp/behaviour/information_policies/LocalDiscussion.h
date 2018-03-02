@@ -14,6 +14,11 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Header file for LocalDiscussion.
+ */
+
 #include "pop/Person.h"
 #include "util/RNManager.h"
 
@@ -28,15 +33,20 @@ namespace stride {
 class LocalDiscussion
 {
 public:
-        static void Update(Person* p1, Person* p2)
-        {
-                // TODO discussion probability
-                // TODO if discussion: update p1
-                // TODO if discussion: update p2
-        }
+	/// Default constructor
+	LocalDiscussion() {}
 
+	/// Default destructor
+	virtual ~LocalDiscussion() {}
+
+	/// Update when discussion occurs
+	/// TODO decide whether discussion occurs in this function? !! GET correct rng for thread
+	static void Update(Person* p1, Person* p2);
+
+	/// Get discussion chance
+	static double GetDiscussionChance();
 private:
-        static double m_discussion_chance;
+	static double		m_discussion_chance;
 };
 
-} // namespace stride
+} // end-of-namespace

@@ -20,6 +20,8 @@
 #============================================================================
 set(LIB_SRC
 #---
+	behaviour/information_policies/LocalDiscussion.cpp
+#---
     calendar/Calendar.cpp
 #---
 	core/ContactPool.cpp

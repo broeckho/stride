@@ -95,9 +95,6 @@ public:
         /// Update the health status and presence in contactpools.
         void Update(bool is_work_off, bool is_school_off);
 
-        ///
-        void Update(Person* p);
-
 private:
         unsigned int m_id;     ///< The id.
         double       m_age;    ///< The age.

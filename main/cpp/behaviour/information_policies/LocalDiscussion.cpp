@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -16,37 +15,24 @@
 
 /**
  * @file
- * Header file for Belief.
+ * Implementation file for LocalDiscussion.
  */
 
-#include <boost/property_tree/ptree.hpp>
+#include "LocalDiscussion.h"
 
 namespace stride {
 
-/**
- * Base class for all belief policies.
- */
-class Belief
+double LocalDiscussion::m_discussion_chance = 0.01;
+
+void LocalDiscussion::Update(Person* p1, Person* p2)
 {
-public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) : m_pt(pt) {}
+	p1->GetBelief()->Update(p2->GetBelief());
+	p2->GetBelief()->Update(p1->GetBelief());
+}
 
-        ///
-        virtual ~Belief() {}
+double LocalDiscussion::GetDiscussionChance()
+{
+	return m_discussion_chance;
+}
 
-        ///
-        boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
-
-        virtual void Update(const Belief* other_person ) {}
-
-private:
-        boost::property_tree::ptree m_pt; ///<
-};
-
-} // namespace stride
+} // end-of-namespace
