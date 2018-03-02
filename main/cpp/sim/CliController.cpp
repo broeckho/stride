@@ -29,6 +29,7 @@
 #include "viewers/CliViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include "spdlog/sinks/null_sink.h"
 #include <memory>
 #include <vector>
 
@@ -43,16 +44,19 @@ namespace stride {
 bool CliController::Go()
 {
         // Intro
-        bool status = true;
-        status      = SetupLogger();
-        m_logger->info("\n*************************************************************");
-        m_logger->info("Starting up at:      {}", TimeStamp().ToString());
+        bool status = m_silent_mode ?  SetupNullLogger() : SetupLogger();
 
-        // Preliminary checks.
-        if (m_use_install_dirs) {
+        if (status) {
+                m_logger->info("\n*************************************************************");
+                m_logger->info("Starting up at:      {}", TimeStamp().ToString());
+        }
+        // Preliminary checks, untill status no good.
+        if (status & m_use_install_dirs) {
                 status = CheckEnv();
         }
-        status = CheckConfig() && CheckOpenMP();
+        if (status) {
+                status = CheckConfig() && CheckOpenMP();
+        }
 
         // Run iff everything OK
         if (status) {
@@ -61,10 +65,8 @@ bool CliController::Go()
                 runner.Setup(m_config_pt, m_logger, m_use_install_dirs);
 
                 // Register viewers
-                auto                                           cli = std::make_shared<viewers::CliViewer>(true);
-                std::function<void(const sim_event::Payload&)> f =
-                    std::bind(&viewers::CliViewer::update, cli, std::placeholders::_1);
-                runner.stride::util::Subject<stride::sim_event::Payload>::Register(cli, f);
+                auto c_v = make_shared<viewers::CliViewer>(true);
+                runner.Register(c_v, bind(&viewers::CliViewer::update, c_v, placeholders::_1));
 
                 // Execute run
                 runner.Run();
@@ -81,16 +83,30 @@ bool CliController::SetupLogger()
         bool status = true;
         spdlog::set_async_mode(1048576);
         try {
-                std::vector<spdlog::sink_ptr> sinks;
-                // auto stdout_sink = spdlog::sinks::stdout_sink_st::instance();
-                auto color_sink = std::make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
+                vector<spdlog::sink_ptr> sinks;
+                auto color_sink = make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
                 sinks.push_back(color_sink);
                 const string fn = string("stride_log_").append(TimeStamp().ToTag()).append(".txt");
-                sinks.push_back(std::make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
-                m_logger = std::make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
+                sinks.push_back(make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
+                m_logger = make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
                 spdlog::register_logger(m_logger);
         } catch (const spdlog::spdlog_ex& e) {
-                std::cerr << "Log initialization failed: " << e.what() << std::endl;
+                cerr << "Stride logger initialization failed: " << e.what() << endl;
+                status = false;
+        }
+        return status;
+}
+
+bool CliController::SetupNullLogger()
+{
+        bool status = true;
+        spdlog::set_async_mode(1048576);
+        try {
+                auto null_sink = make_shared<spdlog::sinks::null_sink_st> ();
+                m_logger = make_shared<spdlog::logger>("stride_logger", null_sink);
+                spdlog::register_logger(m_logger);
+        } catch (const spdlog::spdlog_ex& e) {
+                cerr << "Stride null logger initialization failed: " << e.what() << endl;
                 status = false;
         }
         return status;

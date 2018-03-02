@@ -38,6 +38,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 CmdLine          cmd("stride", ' ', "1.0", false);
                 SwitchArg        index_case_Arg("r", "r0", "R0 only", cmd, false);
+                SwitchArg        silent_mode_Arg("s", "silent", "silent mode", cmd, false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "./config/run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
@@ -45,7 +46,8 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), true);
+                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), silent_mode_Arg.getValue(),
+                                    true);
                 cntrl.Go();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;

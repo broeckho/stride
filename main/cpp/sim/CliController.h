@@ -30,15 +30,19 @@ class CliController
 {
 public:
         /// Straight initialization.
-        CliController(bool track_index_case, std::string config_file, bool use_install_dirs = false)
+        CliController(bool track_index_case, std::string config_file, bool silent_mode = false,
+                      bool use_install_dirs = false)
             : m_track_index_case(track_index_case), m_config_file(std::move(config_file)),
-              m_use_install_dirs(use_install_dirs){};
+              m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs) {};
 
         /// Actually setup the run of the simulator.
         bool Go();
 
-        /// Acquire logger.
+        /// Acquire logger for normal mode.
         bool SetupLogger();
+
+        /// Acquire null logger for silent mode.
+        bool SetupNullLogger();
 
 private:
         /// Check and patch (if necessary) main configuration file.
@@ -53,6 +57,7 @@ private:
 private:
         bool        m_track_index_case;
         std::string m_config_file;
+        bool        m_silent_mode;
         bool        m_use_install_dirs;
 
         std::shared_ptr<spdlog::logger> m_logger;
