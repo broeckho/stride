@@ -34,7 +34,7 @@ CasesFile::~CasesFile() { m_fstream.close(); }
 void CasesFile::Initialize(const std::string& output_dir)
 {
         boost::filesystem::path pathname(output_dir);
-        pathname /= "cases.csv";
+        pathname += "_cases.csv";
         m_fstream.open(pathname.c_str());
 }
 

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -16,29 +15,29 @@
 
 /**
  * @file
- * Observer for SimEvents for commandline interface usage.
+ * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "sim/event/Payload.h"
+#include "CasesViewer.h"
+#include "sim/Simulator.h"
+#include "sim/event/Id.h"
 
-#include <spdlog/spdlog.h>
+#include <cassert>
+
+using namespace std;
+using namespace stride::sim_event;
 
 namespace stride {
 namespace viewers {
 
-/// Viewer of Simulator for commandline interface.
-class CliViewer
+void CasesViewer::update(const sim_event::Payload& p)
 {
-public:
-        /// Instantiate cli viewer.
-        CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {}
-
-        /// Let viewer perform update.
-        void update(const sim_event::Payload& p);
-
-private:
-        std::shared_ptr<spdlog::logger> m_logger;
-};
+        switch (p.m_event_id) {
+        case Id::AtStart: m_cases.push_back(p.m_sim->GetPopulation()->GetInfectedCount()); break;
+        case Id::Stepped: m_cases.push_back(p.m_sim->GetPopulation()->GetInfectedCount()); break;
+        case Id::Finished: m_cases_file.Print(m_cases); break;
+        }
+}
 
 } // namespace viewers
 } // namespace stride

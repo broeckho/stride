@@ -28,7 +28,7 @@ namespace sim_event {
 /// Enumerates the event.
 enum class Id
 {
-        Started,
+        AtStart,
         Stepped,
         Finished
 };

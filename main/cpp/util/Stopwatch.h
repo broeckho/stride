@@ -34,7 +34,7 @@ template <typename T = std::chrono::system_clock>
 class Stopwatch
 {
 public:
-        typedef T TClock;
+        using TClock = T;
 
         /// Constructor initializes stopwatch.
         Stopwatch(std::string name = "stopwatch", bool running = false)
@@ -65,8 +65,7 @@ public:
                 return *this;
         }
 
-        /// Resets stopwatch i.e. stopwatch is stopped and time accumulator is
-        /// cleared.
+        /// Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared.
         Stopwatch& Reset()
         {
                 m_accumulated = T::duration::zero();

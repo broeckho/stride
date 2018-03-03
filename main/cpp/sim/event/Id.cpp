@@ -31,7 +31,7 @@ using boost::to_upper;
 
 bool IsType(const string& s)
 {
-        static map<string, Id> ids{make_pair("STARTED", Id::Started), make_pair("STEPPED", Id::Stepped),
+        static map<string, Id> ids{make_pair("ATSTART", Id::AtStart), make_pair("STEPPED", Id::Stepped),
                                    make_pair("FINISHED", Id::Finished)};
         string                 t{s};
         to_upper(t);
@@ -40,14 +40,14 @@ bool IsType(const string& s)
 
 string ToString(Id c)
 {
-        static map<Id, string> names{make_pair(Id::Started, "started"), make_pair(Id::Stepped, "stepped"),
+        static map<Id, string> names{make_pair(Id::AtStart, "atstart"), make_pair(Id::Stepped, "stepped"),
                                      make_pair(Id::Finished, "finished")};
         return (names.count(c) == 1) ? names[c] : "null";
 }
 
 Id ToType(const string& s)
 {
-        static map<string, Id> ids{make_pair("STARTED", Id::Started), make_pair("STEPPED", Id::Stepped),
+        static map<string, Id> ids{make_pair("ATSTART", Id::AtStart), make_pair("STEPPED", Id::Stepped),
                                    make_pair("FINISHED", Id::Finished)};
         string                 t{s};
         to_upper(t);

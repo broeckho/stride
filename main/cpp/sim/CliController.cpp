@@ -26,6 +26,7 @@
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
+#include "viewers/CasesViewer.h"
 #include "viewers/CliViewer.h"
 
 #include "spdlog/sinks/null_sink.h"
@@ -50,7 +51,7 @@ bool CliController::CheckEnv()
         m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
 
         if (m_use_install_dirs) {
-                auto log = [l=this->m_logger](const string& s) -> void { l->critical(s); };
+                auto log = [l = this->m_logger](const string& s)->void { l->critical(s); };
                 status   = FileSys::CheckInstallEnv(log);
                 m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
                 m_logger->info("Config  directory:   {}", dirs.GetConfigDir().string());
@@ -72,32 +73,45 @@ bool CliController::CheckOpenMP()
 
 bool CliController::Go()
 {
-        // Intro
+        // -----------------------------------------------------------------------------------------
+        // Intor
+        // -----------------------------------------------------------------------------------------
         bool status = m_silent_mode ? SetupNullLogger() : SetupLogger();
         if (status) {
-                m_logger->info("\n*************************************************************");
+                m_logger->info("CliController into action:");
                 m_logger->info("Starting up at:      {}", TimeStamp().ToString());
 
                 // Checks && setup, order important and relies on C++'s short circuit evaluation.
                 status = CheckEnv() && CheckOpenMP() && SetupConfig();
         }
+
+        // -----------------------------------------------------------------------------------------
+        // SimRunner setup & run.
+        // -----------------------------------------------------------------------------------------
         if (status) {
                 // Setup simulation run
-                m_logger->info("\n\nSetting up the simulation runner.");
+                m_logger->info("Handing over to SimRunner.");
                 SimRunner runner;
                 runner.Setup(m_config_pt, m_logger);
 
-                // Register viewers
-                auto c_v = make_shared<viewers::CliViewer>(true);
-                runner.Register(c_v, bind(&viewers::CliViewer::update, c_v, placeholders::_1));
+                // Register command line viewer
+                auto cli_v = make_shared<viewers::CliViewer>(m_logger);
+                runner.Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
+
+                // Register cases viewer
+                auto cas_v = make_shared<viewers::CasesViewer>(m_output_prefix);
+                runner.Register(cas_v, bind(&viewers::CasesViewer::update, cas_v, placeholders::_1));
 
                 // Execute run
                 runner.Run();
+                m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
         }
 
-        // Clean up
+        // -----------------------------------------------------------------------------------------
+        // Done.
+        // -----------------------------------------------------------------------------------------
         spdlog::drop_all();
-
+        m_logger->info("CliController signing off.");
         return status;
 }
 
@@ -107,7 +121,7 @@ bool CliController::SetupConfig()
         const auto file_path = canonical(system_complete(m_config_file));
 
         if (!is_regular_file(file_path)) {
-                m_logger->critical("Config file {} ot present! Aborting.", file_path.string());
+                m_logger->critical("Config file {} ot present! Quitting.", file_path.string());
                 status = false;
         } else {
                 m_logger->info("Configuration file:  {}", file_path.string());
@@ -120,23 +134,39 @@ bool CliController::SetupConfig()
         }
 
         // -----------------------------------------------------------------------------------------
-        // Fix + commandline overrides of configuration .
+        // Patch the configuration + commandline overrides of configuration.
         // -----------------------------------------------------------------------------------------
         if (status) {
+                // num_participants_survey
                 if (!m_config_pt.get_optional<bool>("run.num_participants_survey")) {
                         m_config_pt.put("run.num_participants_survey", 1);
                 }
+
+                // track_index_case
                 m_config_pt.put("run.track_index_case", m_track_index_case);
                 m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
+
+                // use_install_dirs
                 m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
                 m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
+
+                // output_prefix
+                m_config_pt.put("run.output_prefix", m_output_prefix);
+                m_logger->info("Setting for run.output_prefix:  {}", m_output_prefix);
+
+                // parameter overrides on commandline
                 for (const auto& p : m_p_overrides) {
                         m_config_pt.put("run." + get<0>(p), get<1>(p));
                         m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
                 }
-                if (!m_config_pt.get_optional<bool>("run.num_threads")) {
+
+                // default for num_threads if not specified in config or commandline
+                const auto opt_num = m_config_pt.get_optional<bool>("run.num_threads");
+                if (!opt_num) {
                         m_config_pt.put("run.num_threads", m_max_num_threads);
                         m_logger->info("Defaulting for run.num_threads:  {}", m_max_num_threads);
+                } else {
+                        m_logger->info("Specification for run.num_threads:  {}", *opt_num);
                 }
         }
 
@@ -151,7 +181,7 @@ bool CliController::SetupLogger()
                 vector<spdlog::sink_ptr> sinks;
                 auto                     color_sink = make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
                 sinks.push_back(color_sink);
-                const string fn = string("stride_log_").append(TimeStamp().ToTag()).append(".txt");
+                const string fn = m_output_prefix + "_stride_log.txt";
                 sinks.push_back(make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
                 m_logger = make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
                 spdlog::register_logger(m_logger);

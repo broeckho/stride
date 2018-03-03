@@ -45,11 +45,9 @@ public:
         /// Destructor
         virtual ~SimRunner() = default;
 
-        /// Actually setup de run of the simulator
-
-        ///
+        /// Setup the context for the simulation run.
         /// \param run_config_pt        config info for run and for config of simulator
-        /// \param logger               generela logger
+        /// \param logger               generel logger
         /// \return                     status value
         bool Setup(const boost::property_tree::ptree& run_config_pt, std::shared_ptr<spdlog::logger> logger);
 
@@ -67,9 +65,8 @@ private:
         bool                            m_operational;   ///< Input config is OK to be run
         std::string                     m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
-        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
         std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
-        std::shared_ptr<spdlog::logger> m_logger;
+        std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
 };
 
 } // namespace stride

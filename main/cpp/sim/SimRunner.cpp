@@ -42,31 +42,27 @@ namespace stride {
 
 using namespace output;
 using namespace util;
+using namespace sim_event;
 using namespace boost::filesystem;
 using namespace boost::property_tree;
 using namespace std;
 using namespace std::chrono;
 
 SimRunner::SimRunner()
-    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"),
-      m_sim(make_shared<Simulator>()), m_logger(nullptr)
+    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(make_shared<Simulator>()),
+      m_logger(nullptr)
 {
 }
 
 bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> logger)
 {
-        bool status = true;
-        m_pt_config = run_config_pt;
-        m_logger    = logger;
-
         // -----------------------------------------------------------------------------------------
-        // Set output path prefix.
+        // Intro.
         // -----------------------------------------------------------------------------------------
+        bool status     = true;
+        m_pt_config     = run_config_pt;
+        m_logger        = logger;
         m_output_prefix = m_pt_config.get<string>("run.output_prefix", "");
-        if (m_output_prefix.length() == 0) {
-                m_output_prefix = TimeStamp().ToTag();
-        }
-        m_logger->info("Run output prefix:  {}", m_output_prefix);
 
         // -----------------------------------------------------------------------------------------
         // Create logger
@@ -91,7 +87,6 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         //------------------------------------------------------------------------------
         const auto track_index_case = m_pt_config.get<bool>("run.track_index_case");
         const auto num_threads      = m_pt_config.get<unsigned int>("run.num_threads");
-        m_clock.Start();
         m_logger->info("Building the simulator.");
         m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
         m_logger->info("Done building the simulator.");
@@ -112,38 +107,31 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
 void SimRunner::Run()
 {
         // -----------------------------------------------------------------------------------------
-        // Intro.
-        // -----------------------------------------------------------------------------------------
-        m_logger->info("\n\n Starting the run");
-
-        // -----------------------------------------------------------------------------------------
         // Run the simulator.
         // -----------------------------------------------------------------------------------------
-        Stopwatch<>          run_clock("run_clock");
         const auto           num_days{m_pt_config.get<unsigned int>("run.num_days")};
         vector<unsigned int> cases(num_days);
         vector<unsigned int> adopted(num_days);
+        Notify({m_sim, Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
-                run_clock.Start();
                 m_sim->TimeStep();
-                run_clock.Stop();
-                cases[i]   = m_sim->GetPopulation()->GetInfectedCount();
-                adopted[i] = m_sim->GetPopulation()->GetAdoptedCount();
-                m_logger->info("     Simulated day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", i,
-                               cases[i], adopted[i]);
+                Notify({m_sim, Id::Stepped});
+                // cases[i]   = m_sim->GetPopulation()->GetInfectedCount();
+                // adopted[i] = m_sim->GetPopulation()->GetAdoptedCount();
+                // m_logger->info("     Simulated day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", i,
+                //               cases[i], adopted[i]);
         }
+        Notify({m_sim, Id::Finished});
 
         // -----------------------------------------------------------------------------------------
         // Generate output files.
         // -----------------------------------------------------------------------------------------
+        /*
         GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config,
-                            static_cast<unsigned int>(duration_cast<milliseconds>(run_clock.Get()).count()),
-                            static_cast<unsigned int>(duration_cast<milliseconds>(m_clock.Get()).count()));
-
-        // -----------------------------------------------------------------------------------------
-        // Final.
-        // -----------------------------------------------------------------------------------------
-        m_logger->info("\n\nRun finished  run_time: {} -- total time: {}", run_clock.ToString(), m_clock.ToString());
+                    static_cast<unsigned int>(duration_cast<milliseconds>(m_total_clock.Get()).count()),
+                    static_cast<unsigned int>(duration_cast<milliseconds>(m_total_clock.Get()).count()));
+        */
+        GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config, 0, 0);
 }
 
 /// Generate output files (at the end of the simulation).
@@ -151,10 +139,6 @@ void SimRunner::GenerateOutputFiles(const string& output_prefix, const vector<un
                                     const vector<unsigned int>& adopted, const ptree& pt_config, unsigned int run_time,
                                     unsigned int total_time)
 {
-        // Cases
-        CasesFile cases_file(output_prefix);
-        cases_file.Print(cases);
-
         // Adopted
         AdoptedFile adopted_file(output_prefix);
         adopted_file.Print(adopted);

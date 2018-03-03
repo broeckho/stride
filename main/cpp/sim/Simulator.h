@@ -43,14 +43,18 @@ public:
         /// Default constructor for empty Simulator.
         Simulator();
 
-        /// Get the population.
-        std::shared_ptr<Population> GetPopulation() { return m_population; }
-
-        /// Get the disease profile.
-        const DiseaseProfile GetDiseaseProfile() const { return m_disease_profile; }
-
         /// Check if the simulator is operational.
         bool IsOperational() const { return m_operational; }
+
+        /// Caledar associated with simulated world. Represents date/simulated day of
+        /// last TimeStep completed (it is incremented at the very end of TimeStep).
+        std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
+
+        /// Get the disease profile.
+        const DiseaseProfile& GetDiseaseProfile() const { return m_disease_profile; }
+
+        /// Get the population.
+        std::shared_ptr<Population> GetPopulation() { return m_population; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
@@ -61,16 +65,22 @@ private:
         void UpdateContactPools();
 
 private:
-        boost::property_tree::ptree m_pt_config; ///< Configuration property tree
+        boost::property_tree::ptree m_pt_config;        ///< Configuration property tree
+        ContactProfiles             m_contact_profiles; ///< Contact patterns.
+        DiseaseProfile              m_disease_profile;  ///< Profile of disease.
+        bool                        m_track_index_case; ///< General simulation or tracking index case.
+        unsigned int                m_num_threads;      ///< The number of (OpenMP) threads.
+        LogMode::Id                 m_log_level;        ///< Specifies logging mode.
 
-private:
-        std::string m_local_information_policy; ///<
-
-private:
-        unsigned int              m_num_threads; ///< The number of (OpenMP) threads.
-        LogMode::Id               m_log_level;   ///< Specifies logging mode.
         std::shared_ptr<Calendar> m_calendar;    ///< Management of calendar.
         util::RNManager           m_rn_manager;  ///< Random numbere generation management.
+        bool                      m_operational; ///< False when invalid disease profile is specified.
+
+private:
+        ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is incremented at the
+        ///< beginning of TimeStep and should be used with coution inside TimeStep.
+        unsigned int m_sim_day;
+
 private:
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
@@ -80,11 +90,7 @@ private:
         std::vector<ContactPool> m_primary_community;   ///< Container with primary community ContactPools.
         std::vector<ContactPool> m_secondary_community; ///< Container with secondary community ContactPools.
 
-        ContactProfiles m_contact_profiles; ///< Contact patterns.
-        DiseaseProfile  m_disease_profile;  ///< Profile of disease.
-        bool            m_operational;      ///< Gets to be false when invalid disease profile is specified.
-
-        bool m_track_index_case; ///< General simulation or tracking index case.
+        std::string m_local_information_policy; ///<
 
 private:
         friend class SimulatorBuilder;

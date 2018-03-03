@@ -20,27 +20,39 @@
 
 #include "CliViewer.h"
 #include "sim/Simulator.h"
+#include "sim/event/Id.h"
 
-#include <iomanip>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
+using namespace stride::sim_event;
 
 namespace stride {
 namespace viewers {
 
 void CliViewer::update(const sim_event::Payload& p)
 {
-        if (m_verbose) {
-                cout << "stride>     step completed. ";
+        assert(m_logger && "CliViewer has nullptr to logger!");
+        switch (p.m_event_id) {
+        case Id::AtStart: {
+                m_logger->info("     Simulation at start.");
+                const auto day     = p.m_sim->GetCalendar()->GetSimulationDay();
+                const auto cases   = p.m_sim->GetPopulation()->GetInfectedCount();
+                const auto adopted = p.m_sim->GetPopulation()->GetAdoptedCount();
+                m_logger->info("     Day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", day, cases,
+                               adopted);
+                break;
         }
-
-        auto&      sim     = p.m_sim;
-        const auto cases   = sim->GetPopulation()->GetInfectedCount();
-        const auto adopted = sim->GetPopulation()->GetAdoptedCount();
-
-        cout << "stride>         infected count: " << setw(7) << cases << "     Adopters count: " << setw(7) << adopted;
-        cout << endl;
+        case Id::Stepped: {
+                const auto day     = p.m_sim->GetCalendar()->GetSimulationDay();
+                const auto cases   = p.m_sim->GetPopulation()->GetInfectedCount();
+                const auto adopted = p.m_sim->GetPopulation()->GetAdoptedCount();
+                m_logger->info("     Day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", day, cases,
+                               adopted);
+                break;
+        }
+        case Id::Finished: m_logger->info("     Simulation finished."); break;
+        }
 }
 
 } // namespace viewers

@@ -37,8 +37,8 @@ using namespace util;
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    : m_pt_config(), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_population(nullptr), m_disease_profile(),
-      m_track_index_case(false)
+    : m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_sim_day(0U), m_population(nullptr)
+
 {
 }
 

@@ -16,28 +16,31 @@
 
 /**
  * @file
- * Observer for SimEvents for commandline interface usage.
+ * Observer for Cases output.
  */
 
+#include "output/CasesFile.h"
 #include "sim/event/Payload.h"
 
+#include <iostream>
 #include <spdlog/spdlog.h>
 
 namespace stride {
 namespace viewers {
 
-/// Viewer of Simulator for commandline interface.
-class CliViewer
+/// Viewer of Simulator for cases output.
+class CasesViewer
 {
 public:
-        /// Instantiate cli viewer.
-        CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {}
+        /// Instantiate cases viewer.
+        CasesViewer(const std::string& output_prefix) : m_cases_file(output_prefix) {}
 
         /// Let viewer perform update.
         void update(const sim_event::Payload& p);
 
 private:
-        std::shared_ptr<spdlog::logger> m_logger;
+        std::vector<unsigned int> m_cases;
+        output::CasesFile         m_cases_file;
 };
 
 } // namespace viewers

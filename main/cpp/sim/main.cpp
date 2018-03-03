@@ -20,6 +20,7 @@
 
 #include "sim/CliController.h"
 #include "util/StringUtils.h"
+#include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>
 #include <string>
@@ -28,6 +29,7 @@
 
 using namespace std;
 using namespace stride;
+using namespace stride::util;
 using namespace TCLAP;
 
 /// Main program of the stride simulator.
@@ -44,6 +46,8 @@ int main(int argc, char** argv)
                 SwitchArg        silent_mode_Arg("s", "silent", "silent mode", cmd, false);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "./config/run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
+                ValueArg<string> output_prefix_Arg("o", "output_prefix", "prefix for output files", false,
+                                                   TimeStamp().ToTag(), "a prefix string", cmd);
                 MultiArg<string> params_override_Arg("p", "param_override", "Config Parameter Override", false,
                                                      "parameter assignemnet", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
@@ -63,8 +67,8 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
-                                    silent_mode_Arg.getValue(), use_install_dirs);
+                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), output_prefix_Arg.getValue(),
+                                    p_overrides, silent_mode_Arg.getValue(), use_install_dirs);
                 cntrl.Go();
 
         } catch (exception& e) {
