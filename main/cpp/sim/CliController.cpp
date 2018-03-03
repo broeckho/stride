@@ -107,15 +107,14 @@ bool CliController::SetupConfig()
         const auto file_path = canonical(system_complete(m_config_file));
 
         if (!is_regular_file(file_path)) {
-                string s = string("Config file ") + file_path.string() + " not present! Aborting.";
-                m_logger->critical("Config file ", file_path.string(), " not present! Aborting.");
+                m_logger->critical("Config file {} ot present! Aborting.", file_path.string());
                 status = false;
         } else {
                 m_logger->info("Configuration file:  {}", file_path.string());
                 try {
                         read_xml(file_path.string(), m_config_pt);
                 } catch (xml_parser_error& e) {
-                        m_logger->critical("Error reading", file_path.string(), "\n", e.what());
+                        m_logger->critical("Error reading {} \n Exception: {}", file_path.string(), e.what());
                         status = false;
                 }
         }
