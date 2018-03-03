@@ -23,7 +23,7 @@
 #include "event/Subject.h"
 #include "sim/SimRunner.h"
 #include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 #include "viewers/CliViewer.h"
@@ -45,18 +45,16 @@ namespace stride {
 bool CliController::CheckEnv()
 {
         bool        status = true;
-        InstallDirs dirs;
+        FileSys dirs;
         m_logger->info("Executing:           {}", dirs.GetExecPath().string());
         m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
 
         if (m_use_install_dirs) {
+                status = FileSys::CheckInstallEnv(m_logger);
                 m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
                 m_logger->info("Config  directory:   {}", dirs.GetConfigDir().string());
                 m_logger->info("Data    directory:   {}", dirs.GetDataDir().string());
-                if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
-                        m_logger->critical("Current working dir not install root! Aborting.");
-                        status = false;
-                }
+
         }
         return status;
 }
@@ -141,7 +139,6 @@ bool CliController::SetupConfig()
                         m_logger->info("Defaulting for run.num_threads:  {}", m_max_num_threads);
                 }
         }
-        write_xml("lalala", m_config_pt);
 
         return status;
 }

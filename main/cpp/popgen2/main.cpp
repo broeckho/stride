@@ -23,7 +23,7 @@
 #include "SocietyCSVWriter.h"
 #include "SocietyGenerator.h"
 #include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>

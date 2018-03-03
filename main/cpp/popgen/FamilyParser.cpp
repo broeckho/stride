@@ -19,7 +19,7 @@
  */
 
 #include "FamilyParser.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 
 using namespace stride;
 using namespace popgen;

@@ -20,7 +20,7 @@
 
 #include "PopulationGenerator.h"
 #include "FamilyParser.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/TimeStamp.h"
 
 #include <boost/property_tree/xml_parser.hpp>

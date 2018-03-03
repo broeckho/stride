@@ -26,7 +26,7 @@
 #include "output/SummaryFile.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 
@@ -60,7 +60,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         cout << "Starting up at:      " << TimeStamp().ToString() << endl;
 
         if (use_install_dirs) {
-                InstallDirs dirs;
+                FileSys dirs;
                 cout << "Executing:           " << dirs.GetExecPath().string() << endl;
                 cout << "Current directory:   " << dirs.GetCurrentDir().string() << endl;
                 cout << "Install directory:   " << dirs.GetRootDir().string() << endl;

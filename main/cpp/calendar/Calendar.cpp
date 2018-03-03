@@ -20,7 +20,7 @@
 
 #include "Calendar.h"
 
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 
 #include <boost/property_tree/json_parser.hpp>
 
@@ -53,7 +53,7 @@ void Calendar::InitializeHolidays(const boost::property_tree::ptree& pt_config)
         boost::property_tree::ptree pt_holidays;
         {
                 const string file_name{pt_config.get<string>("run.holidays_file", "holidays_flanders_2016.json")};
-                const path   file_path{InstallDirs().GetDataDir() /= file_name};
+                const path   file_path{FileSys().GetDataDir() /= file_name};
                 if (!is_regular_file(file_path)) {
                         throw runtime_error(string(__func__) + "Holidays file " + file_path.string() + " not present.");
                 }

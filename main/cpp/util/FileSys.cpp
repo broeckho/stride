@@ -15,10 +15,10 @@
 
 /**
  * @file
- * Interface for install directory queries.
+ * Utilities for interaction with filesystem.
  */
 
-#include "InstallDirs.h"
+#include "FileSys.h"
 
 #include "util/StringUtils.h"
 
@@ -43,13 +43,40 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
-InstallDirs::Dirs& InstallDirs::Get()
+bool FileSys::CheckInstallEnv(std::shared_ptr<spdlog::logger> logger)
+{
+        bool status = true;
+
+        // Current working dir has to be install root dir.
+        if (GetCurrentDir().compare(GetRootDir()) != 0) {
+                if (logger) logger->critical("Current working dir not install root!");
+                status = false;
+        }
+        /// There has to be a config dir in the install root dir.
+        if (GetConfigDir().empty()) {
+                if (logger) logger->critical("Config dir not present in install root!");
+                status = false;
+        }
+        /// There has to be a data dir in the install root dir.
+        if (GetDataDir().empty()) {
+                if (logger) logger->critical("Data dir not present in install root!");
+                status = false;
+        }
+        /// There has to be a data dir in the install root dir.
+        if (GetTestsDir().empty()) {
+                if (logger) logger->critical("Tests dir not present in install root!");
+                status = false;
+        }
+        return status;
+}
+
+FileSys::Dirs& FileSys::Get()
 {
         static Dirs dirs = Initialize();
         return dirs;
 }
 
-InstallDirs::Dirs InstallDirs::Initialize()
+FileSys::Dirs FileSys::Initialize()
 {
         Dirs dirs;
         //------- Retrieving path of executable

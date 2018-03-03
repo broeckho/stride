@@ -23,7 +23,7 @@
 #include "AliasMethod.h"
 #include "GrahamScan.h"
 #include "util/CSV.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/TimeStamp.h"
 
 #include <boost/range/adaptor/map.hpp>

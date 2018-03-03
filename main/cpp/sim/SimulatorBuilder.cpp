@@ -22,7 +22,7 @@
 
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -38,7 +38,7 @@ using namespace util;
 std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_name, unsigned int num_threads,
                                                    bool track_index_case)
 {
-        const auto file_path = InstallDirs::GetCurrentDir() /= config_file_name;
+        const auto file_path = FileSys::GetCurrentDir() /= config_file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">Config file " + file_path.string() +
                                     " not present. Aborting.");
@@ -54,7 +54,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
                                                    bool track_index_case)
 {
         const auto file_name_d{pt_config.get<string>("run.disease_config_file")};
-        const auto file_path_d{InstallDirs::GetDataDir() /= file_name_d};
+        const auto file_path_d{FileSys::GetDataDir() /= file_name_d};
         if (!is_regular_file(file_path_d)) {
                 throw runtime_error(std::string(__func__) + "> No file " + file_path_d.string());
         }
@@ -63,7 +63,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsig
         read_xml(file_path_d.string(), pt_disease);
 
         const auto file_name_c{pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml")};
-        const auto file_path_c{InstallDirs::GetDataDir() /= file_name_c};
+        const auto file_path_c{FileSys::GetDataDir() /= file_name_c};
         if (!is_regular_file(file_path_c)) {
                 throw runtime_error(string(__func__) + "> No file " + file_path_c.string());
         }

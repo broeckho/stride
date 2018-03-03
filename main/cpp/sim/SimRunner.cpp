@@ -28,7 +28,7 @@
 #include "sim/event/Id.h"
 #include "sim/event/Payload.h"
 #include "util/ConfigInfo.h"
-#include "util/InstallDirs.h"
+#include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 #include "viewers/CliViewer.h"

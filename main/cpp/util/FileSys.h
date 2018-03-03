@@ -20,15 +20,16 @@
  */
 
 #include <boost/filesystem.hpp>
+#include <spdlog/spdlog.h>
 #include <iostream>
 
 namespace stride {
 namespace util {
 
 /**
- * Install directories.
+ * Utilities for interaction with filesystem.
  */
-class InstallDirs
+class FileSys
 {
 public:
         /// Get path to the current directory.
@@ -38,6 +39,9 @@ public:
         static boost::filesystem::path GetExecPath() { return Get().m_exec_path; }
 
 public:
+        /// Verify that current dir is root dir and all install dirs are present.
+        static bool CheckInstallEnv(std::shared_ptr<spdlog::logger> logger = nullptr);
+
         /// Return bin dir (only relevant when use_install_dirs mode is active)
         static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }
 
