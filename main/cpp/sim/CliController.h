@@ -55,6 +55,7 @@ private:
 
         /// Setup and patch run configuration file.
         bool SetupConfig();
+
 private:
         bool                                              m_track_index_case;
         std::string                                       m_config_file;

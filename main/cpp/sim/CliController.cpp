@@ -48,8 +48,10 @@ bool CliController::CheckEnv()
         InstallDirs dirs;
         m_logger->info("Executing:           {}", dirs.GetExecPath().string());
         m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
+
         if (m_use_install_dirs) {
                 m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
+                m_logger->info("Config  directory:   {}", dirs.GetConfigDir().string());
                 m_logger->info("Data    directory:   {}", dirs.GetDataDir().string());
                 if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
                         m_logger->critical("Current working dir not install root! Aborting.");

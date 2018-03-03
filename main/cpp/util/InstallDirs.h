@@ -31,47 +31,41 @@ namespace util {
 class InstallDirs
 {
 public:
-        /// Utility method: get path to bin directory.
-        static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }
-
-        /// Utility method: get path to the current directory.
+        /// Get path to the current directory.
         static boost::filesystem::path GetCurrentDir() { return Get().m_current_dir; }
 
-        /// Utility method: get path to the directory for data files.
-        static boost::filesystem::path GetDataDir() { return Get().m_data_dir; }
-
-        /// Utility method: get name of executable.
+        /// Get path of the executable.
         static boost::filesystem::path GetExecPath() { return Get().m_exec_path; }
 
-        /// Utility method: get application installation root directory.
-        static boost::filesystem::path GetRootDir() { return Get().m_root_dir; }
+public:
+        /// Return bin dir (only relevant when use_install_dirs mode is active)
+        static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }
 
-        /// Utility method: get path to checkpoints directory
-        static boost::filesystem::path GetCheckpointsDir() { return Get().m_checkpoints_dir; }
-
-        /// Utility method: get path to test data directory
-        static boost::filesystem::path GetTestsDir() { return Get().m_tests_dir; }
-
+        /// Return config dir (only relevant when use_install_dirs mode is active)
         static boost::filesystem::path GetConfigDir() { return Get().m_config_dir; }
 
-        /// Utility method: print all configured directories
-        static void Print(std::ostream& os);
+        /// /// Return data dir (only relevant when use_install_dirs mode is active)
+        static boost::filesystem::path GetDataDir() { return Get().m_data_dir; }
 
-        /// Verifies that all required directories exists. Throws runtime_error if not valid.
-        static void Check();
+        /// Return install root dir (only relevant when use_install_dirs mode is active)
+        static boost::filesystem::path GetRootDir() { return Get().m_root_dir; }
+
+        /// Return tests dir (only relevant when use_install_dirs mode is active)
+        static boost::filesystem::path GetTestsDir() { return Get().m_tests_dir; }
 
 private:
         /// Using this to avoid global variables & their initialization.
         struct Dirs
         {
-                boost::filesystem::path m_bin_dir;
                 boost::filesystem::path m_current_dir;
-                boost::filesystem::path m_data_dir;
                 boost::filesystem::path m_exec_path;
-                boost::filesystem::path m_root_dir;
-                boost::filesystem::path m_checkpoints_dir;
-                boost::filesystem::path m_tests_dir;
+
+                // only relevant when use_install_dirs mode is active
+                boost::filesystem::path m_bin_dir;
                 boost::filesystem::path m_config_dir;
+                boost::filesystem::path m_data_dir;
+                boost::filesystem::path m_root_dir;
+                boost::filesystem::path m_tests_dir;
         };
 
 private:
