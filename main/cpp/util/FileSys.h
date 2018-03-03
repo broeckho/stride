@@ -20,8 +20,8 @@
  */
 
 #include <boost/filesystem.hpp>
-#include <spdlog/spdlog.h>
-#include <iostream>
+#include <functional>
+#include <string>
 
 namespace stride {
 namespace util {
@@ -40,7 +40,10 @@ public:
 
 public:
         /// Verify that current dir is root dir and all install dirs are present.
-        static bool CheckInstallEnv(std::shared_ptr<spdlog::logger> logger = nullptr);
+        /// \param logger       logger verification finds failures; defaults to no-op.
+        /// \return             staus true iff everything verifies ok.
+        static bool CheckInstallEnv(
+            std::function<void(const std::string&)> logger = std::function<void(const std::string&)>());
 
         /// Return bin dir (only relevant when use_install_dirs mode is active)
         static boost::filesystem::path GetBinDir() { return Get().m_bin_dir; }

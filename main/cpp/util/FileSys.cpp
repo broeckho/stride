@@ -43,28 +43,32 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
-bool FileSys::CheckInstallEnv(std::shared_ptr<spdlog::logger> logger)
+bool FileSys::CheckInstallEnv(function<void(const string&)> logger)
 {
         bool status = true;
 
         // Current working dir has to be install root dir.
         if (GetCurrentDir().compare(GetRootDir()) != 0) {
-                if (logger) logger->critical("Current working dir not install root!");
+                if (logger)
+                        logger("Current working dir not install root!");
                 status = false;
         }
         /// There has to be a config dir in the install root dir.
         if (GetConfigDir().empty()) {
-                if (logger) logger->critical("Config dir not present in install root!");
+                if (logger)
+                        logger("Config dir not present in install root!");
                 status = false;
         }
         /// There has to be a data dir in the install root dir.
         if (GetDataDir().empty()) {
-                if (logger) logger->critical("Data dir not present in install root!");
+                if (logger)
+                        logger("Data dir not present in install root!");
                 status = false;
         }
         /// There has to be a data dir in the install root dir.
         if (GetTestsDir().empty()) {
-                if (logger) logger->critical("Tests dir not present in install root!");
+                if (logger)
+                        logger("Tests dir not present in install root!");
                 status = false;
         }
         return status;

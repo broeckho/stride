@@ -44,17 +44,17 @@ namespace stride {
 
 bool CliController::CheckEnv()
 {
-        bool        status = true;
+        bool    status = true;
         FileSys dirs;
         m_logger->info("Executing:           {}", dirs.GetExecPath().string());
         m_logger->info("Current directory:   {}", dirs.GetCurrentDir().string());
 
         if (m_use_install_dirs) {
-                status = FileSys::CheckInstallEnv(m_logger);
+                auto log = [l=this->m_logger](const string& s) -> void { l->critical(s); };
+                status   = FileSys::CheckInstallEnv(log);
                 m_logger->info("Install directory:   {}", dirs.GetRootDir().string());
                 m_logger->info("Config  directory:   {}", dirs.GetConfigDir().string());
                 m_logger->info("Data    directory:   {}", dirs.GetDataDir().string());
-
         }
         return status;
 }
