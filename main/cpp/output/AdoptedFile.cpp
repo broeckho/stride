@@ -14,15 +14,15 @@
  */
 
 #include "AdoptedFile.h"
-
-#include <boost/filesystem.hpp>
+#include "util/FileSys.h"
 
 namespace stride {
 namespace output {
 
 using namespace std;
+using namespace stride::util;
 
-AdoptedFile::AdoptedFile(const string& output_dir) { Initialize(output_dir); }
+AdoptedFile::AdoptedFile(const string& output_prefix) { Initialize(output_prefix); }
 
 AdoptedFile::~AdoptedFile() { m_fstream.close(); }
 
@@ -34,11 +34,10 @@ void AdoptedFile::Print(const vector<unsigned int>& adopters)
         m_fstream << adopters[adopters.size() - 1] << std::endl;
 }
 
-void AdoptedFile::Initialize(const string& output_dir)
+void AdoptedFile::Initialize(const string& output_prefix)
 {
-        boost::filesystem::path pathname(output_dir);
-        pathname += "_adopted.csv";
-        m_fstream.open(pathname.c_str());
+        const auto p = FileSys::BuildPath(output_prefix, "adopted.csv");
+        m_fstream.open(p.c_str());
 }
 
 } // namespace output

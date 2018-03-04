@@ -43,6 +43,19 @@ namespace util {
 using namespace std;
 using namespace boost::filesystem;
 
+boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const std::string& filename)
+{
+        boost::filesystem::path p = output_prefix;
+        if (FileSys::IsDirectoryString(output_prefix)) {
+                // file <filename> in dircetor <output_prefix>
+                p /= filename;
+        } else {
+                // full name is <output_prefix>_<filename>
+                p += ("_" + filename);
+        }
+        return p;
+}
+
 bool FileSys::CheckInstallEnv(function<void(const string&)> logger)
 {
         bool status = true;
@@ -169,6 +182,12 @@ FileSys::Dirs FileSys::Initialize()
         }
 
         return dirs;
+}
+
+bool FileSys::IsDirectoryString(const string& s)
+{
+        const auto n = s.find('/');
+        return n != string::npos;
 }
 
 } // namespace util

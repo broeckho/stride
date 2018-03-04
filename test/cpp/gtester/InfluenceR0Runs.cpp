@@ -70,6 +70,7 @@ public:
                         pt_config.put("run.global_information_policy", "NoGlobalInformation");
                         pt_config.put("run.belief_policy.name", "NoBelief");
                         pt_config.put("run.behaviour_policy", "NoBehaviour");
+                        pt_config.put("run.use_install_dirs", true);
                 }
                 return pt_config;
         }

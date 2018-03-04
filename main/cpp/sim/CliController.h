@@ -34,21 +34,18 @@ class CliController
 {
 public:
         /// Straight initialization.
-        CliController(bool track_index_case, std::string config_file, std::string output_prefix,
+        CliController(bool track_index_case, std::string config_file,
                       std::vector<std::tuple<std::string, std::string>> p_overrides, bool silent_mode = false,
                       bool use_install_dirs = true)
-            : m_config_file(std::move(config_file)), m_track_index_case(track_index_case),
-              m_output_prefix(std::move(output_prefix)), m_max_num_threads(1U), m_p_overrides(std::move(p_overrides)),
-              m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs), m_run_clock("run_clock", true){};
+            : m_config_file(std::move(config_file)), m_track_index_case(track_index_case), m_max_num_threads(1U),
+              m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs),
+              m_run_clock("run_clock", true){};
 
-        /// Actually setup the run of the simulator.
-        bool Go();
+        /// Actual run of the simulator.
+        void Go();
 
-        /// Acquire logger for normal mode.
-        bool SetupLogger();
-
-        /// Acquire null logger for silent mode.
-        bool SetupNullLogger();
+        /// Setup the controller.
+        bool Setup();
 
 private:
         /// Check install environment.
@@ -60,10 +57,15 @@ private:
         /// Setup and patch run configuration file.
         bool SetupConfig();
 
+        /// Acquire logger for normal mode.
+        bool SetupLogger();
+
+        /// Acquire null logger for silent mode.
+        bool SetupNullLogger();
+
 private:
         std::string                                       m_config_file;
         bool                                              m_track_index_case;
-        std::string                                       m_output_prefix; ///< Prefix for output file names.
         unsigned int                                      m_max_num_threads;
         std::vector<std::tuple<std::string, std::string>> m_p_overrides;
         bool                                              m_silent_mode;

@@ -23,7 +23,7 @@ if( STRIDE_VERBOSE_TESTING )
 endif()
 
 #============================================================================
-# Meke test directory in install tree:
+# Make test directory in install tree:
 #============================================================================
 set( TESTS_DIR ${CMAKE_INSTALL_PREFIX}/${TESTS_INSTALL_LOCATION} )
 install(DIRECTORY DESTINATION  ${TESTS_DIR} )

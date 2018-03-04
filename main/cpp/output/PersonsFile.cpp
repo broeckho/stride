@@ -20,24 +20,23 @@
 
 #include "PersonsFile.h"
 #include "pop/Population.h"
-#include <boost/filesystem.hpp>
+#include "util/FileSys.h"
 
 namespace stride {
 namespace output {
 
 using namespace std;
 using namespace boost::filesystem;
+using namespace stride::util;
 
-PersonsFile::PersonsFile(const string& output_dir) { Initialize(output_dir); }
+PersonsFile::PersonsFile(const string& output_prefix) { Initialize(output_prefix); }
 
 PersonsFile::~PersonsFile() { m_fstream.close(); }
 
-void PersonsFile::Initialize(const string& output_dir)
+void PersonsFile::Initialize(const string& output_prefix)
 {
-        path pathname(output_dir);
-        pathname += "_persons.csv";
-        m_fstream.open(pathname.c_str());
-
+        const auto p = FileSys::BuildPath(output_prefix, "persons.csv");
+        m_fstream.open(p.c_str());
         // add header
         m_fstream << "id,age,is_recovered,is_immune,start_infectiousness,"
                   << "end_infectiousness,start_symptomatic,end_symptomatic" << endl;

@@ -20,11 +20,9 @@
 
 #include "sim/CliController.h"
 #include "util/StringUtils.h"
-#include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>
 #include <string>
-#include <tuple>
 #include <vector>
 
 using namespace std;
@@ -41,15 +39,15 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine          cmd("stride", ' ', "1.0", false);
-                SwitchArg        index_case_Arg("r", "r0", "R0 only", cmd, false);
-                SwitchArg        silent_mode_Arg("s", "silent", "silent mode", cmd, false);
-                ValueArg<string> config_file_Arg("c", "config", "Config File", false, "./config/run_default.xml",
-                                                 "CONFIGURATION FILE", cmd);
-                ValueArg<string> output_prefix_Arg("o", "output_prefix", "prefix for output files", false,
-                                                   TimeStamp().ToTag(), "a prefix string", cmd);
+                CmdLine   cmd("stride", ' ', "1.0", false);
                 MultiArg<string> params_override_Arg("p", "param_override", "Config Parameter Override", false,
-                                                     "parameter assignemnet", cmd);
+                                                     "parameter assignment", cmd);
+                ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_config_default.xml",
+                                                 "CONFIGURATION FILE", cmd);
+                SwitchArg index_case_Arg("r", "r0", "R0 only", cmd, false);
+                SwitchArg working_dir_Arg("w", "working_dir", "Use working dir to find files i.o install dirs.", cmd,
+                                          false);
+                SwitchArg silent_mode_Arg("s", "silent", "silent mode", cmd, false);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
@@ -61,15 +59,17 @@ int main(int argc, char** argv)
                         const auto v = util::Tokenize(p_assignment, "=");
                         p_overrides.push_back(make_tuple(v[0], v[1]));
                 }
-                // For now
-                bool use_install_dirs = true;
 
                 // -----------------------------------------------------------------------------------------
                 // Run the Stride simulator.
                 // -----------------------------------------------------------------------------------------
-                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), output_prefix_Arg.getValue(),
-                                    p_overrides, silent_mode_Arg.getValue(), use_install_dirs);
-                cntrl.Go();
+                // We have been using use_installdirs for a while, so ..
+                const bool    use_install_dirs = !working_dir_Arg.getValue();
+                CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
+                                    silent_mode_Arg.getValue(), use_install_dirs);
+                if (cntrl.Setup()) {
+                        cntrl.Go();
+                }
 
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;

@@ -73,128 +73,182 @@ bool CliController::CheckOpenMP()
         return true;
 }
 
-bool CliController::Go()
+void CliController::Go()
 {
         // -----------------------------------------------------------------------------------------
-        // Intor
+        // Instantiate SimRunner & register viewers & setup+execute the run.
         // -----------------------------------------------------------------------------------------
-        bool status = m_silent_mode ? SetupNullLogger() : SetupLogger();
-        if (status) {
-                m_logger->info("CliController into action:");
-                m_logger->info("Starting up at:      {}", TimeStamp().ToString());
+        // Necessary (i.o. local variable) because (quote) a precondition of shared_from_this(),
+        // namely that at least one shared_ptr must already have been created (and still exist)
+        // pointing to this. Shared_from_this is used in viewer notification mechanism.
+        auto runner = make_shared<SimRunner>();
 
-                // Checks && setup, order important and relies on C++'s short circuit evaluation.
-                status = CheckEnv() && CheckOpenMP() && SetupConfig();
+        // -----------------------------------------------------------------------------------------
+        // Register viewers.
+        // -----------------------------------------------------------------------------------------
+        m_logger->info("Registering viewers.");
+        const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
+
+        // Command line viewer
+        auto cli_v = make_shared<viewers::CliViewer>(m_logger);
+        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
+
+        // Adopted viewer
+        if (m_config_pt.get<bool>("run.output_adopted", false)) {
+                m_logger->info("Setting for output of adopted: true");
+                auto v = make_shared<viewers::AdoptedViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of adopted: false");
+        }
+
+        // Cases viewer
+        if (m_config_pt.get<bool>("run.output_cases", false)) {
+                m_logger->info("Setting for output of cases: true");
+                auto v = make_shared<viewers::CasesViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of cases: false");
+        }
+
+        // Persons viewer
+        if (m_config_pt.get<bool>("run.output_persons", false)) {
+                m_logger->info("Setting for output of persons: true");
+                auto v = make_shared<viewers::PersonsViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of cases: false");
         }
 
         // -----------------------------------------------------------------------------------------
-        // Instatiate SimRunner & register viewers & setup+execute the run.
+        // Setup runner + execute the run.
         // -----------------------------------------------------------------------------------------
-        if (status) {
-                // Necessary (i.o. local variable) because (quoate) a precondition of shared_from_this(),
-                // namely that at least one shared_ptr must already have been created (and still exist)
-                // pointing to this. Shared_from_this is used in viewer notification mechanism.
-                auto runner = make_shared<SimRunner>();
-                m_logger->info("Registering viewers.");
-                // Command line viewer
-                auto cli_v = make_shared<viewers::CliViewer>(m_logger);
-                runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
-
-                // Adopted viewer
-                if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                        m_logger->info("Setting for output of adopted: true");
-                        auto v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
-                        runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
-                } else {
-                        m_logger->info("Setting for output of adopted: false");
-                }
-
-                // Cases viewer
-                if (m_config_pt.get<bool>("run.output_cases", false)) {
-                        m_logger->info("Setting for output of cases: true");
-                        auto v = make_shared<viewers::CasesViewer>(m_output_prefix);
-                        runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
-                } else {
-                        m_logger->info("Setting for output of cases: false");
-                }
-
-                // Persons viewer
-                if (m_config_pt.get<bool>("run.output_persons", false)) {
-                        m_logger->info("Setting for output of persons: true");
-                        auto v = make_shared<viewers::PersonsViewer>(m_output_prefix);
-                        runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
-                } else {
-                        m_logger->info("Setting for output of cases: false");
-                }
-
-                m_logger->info("Handing over to SimRunner.");
-                runner->Setup(m_config_pt, m_logger);
-                runner->Run();
-                m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
-        }
+        m_logger->info("Handing over to SimRunner.");
+        // TODO for now to check up things
+        const auto p = FileSys::BuildPath(output_prefix, "run_config.xml");
+        write_xml(p.string(), m_config_pt, std::locale(),
+                  xml_parser::xml_writer_make_settings<ptree::key_type>(' ', 8));
+        runner->Setup(m_config_pt, m_logger);
+        runner->Run();
+        m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
 
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
         spdlog::drop_all();
         m_logger->info("CliController signing off.");
+}
+
+bool CliController::Setup()
+{
+        // -----------------------------------------------------------------------------------------
+        // Intro
+        // -----------------------------------------------------------------------------------------
+        bool status = m_silent_mode ? SetupNullLogger() : SetupLogger();
+        if (status) {
+                m_logger->info("CliController setup:");
+                m_logger->info("Starting up at:      {}", TimeStamp().ToString());
+
+                // Checks && setup, order important and relies on C++'s short circuit evaluation.
+                status = CheckEnv() && CheckOpenMP() && SetupConfig();
+        }
         return status;
 }
 
 bool CliController::SetupConfig()
 {
-        bool       status    = true;
-        const auto file_path = canonical(system_complete(m_config_file));
+        bool status = true;
 
-        if (!is_regular_file(file_path)) {
-                m_logger->critical("Config file {} ot present! Quitting.", file_path.string());
+        // -----------------------------------------------------------------------------------------
+        // Read the config file.
+        // -----------------------------------------------------------------------------------------
+        const auto file_path =
+            (m_use_install_dirs) ? FileSys().GetConfigDir() /= m_config_file : system_complete(m_config_file);
+        if (!exists(file_path) || !is_regular_file(file_path)) {
+                m_logger->critical("Configuration file {} not present! Quitting.", file_path.string());
                 status = false;
         } else {
                 m_logger->info("Configuration file:  {}", file_path.string());
                 try {
-                        read_xml(file_path.string(), m_config_pt);
+                        read_xml(canonical(file_path).string(), m_config_pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        m_logger->critical("Error reading {} \n Exception: {}", file_path.string(), e.what());
+                        m_logger->critical("Error reading {}\nException: {}", canonical(file_path).string(), e.what());
                         status = false;
                 }
         }
 
         // -----------------------------------------------------------------------------------------
-        // Patch the configuration + commandline overrides of configuration.
+        // Overrides/additions for configuration (using -p <param>=<value>) on commandline.
         // -----------------------------------------------------------------------------------------
         if (status) {
-                // num_participants_survey
-                if (!m_config_pt.get_optional<bool>("run.num_participants_survey")) {
-                        m_config_pt.put("run.num_participants_survey", 1);
-                }
-
-                // track_index_case
-                m_config_pt.put("run.track_index_case", m_track_index_case);
-                m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
-
-                // use_install_dirs
-                m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
-                m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
-
-                // output_prefix
-                m_config_pt.put("run.output_prefix", m_output_prefix);
-                m_logger->info("Setting for run.output_prefix:  {}", m_output_prefix);
-
                 // parameter overrides on commandline
                 for (const auto& p : m_p_overrides) {
                         m_config_pt.put("run." + get<0>(p), get<1>(p));
                         m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
                 }
+        }
 
-                // default for num_threads if not specified in config or commandline
-                const auto opt_num = m_config_pt.get_optional<bool>("run.num_threads");
+        // -----------------------------------------------------------------------------------------
+        // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
+        // -----------------------------------------------------------------------------------------
+        if (status) {
+                // track_index_case (-r switch on commandline)
+                m_config_pt.put("run.track_index_case", m_track_index_case);
+                m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
+
+                // silent_mode (-s switch on commandline)
+                m_config_pt.put("run.silent_mode", m_silent_mode);
+                m_logger->info("Setting for run.silent_mode:  {}", m_silent_mode);
+
+                // use_install_dirs (-w or --working_dir switch on commandline)
+                m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
+                m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
+        }
+
+        // -----------------------------------------------------------------------------------------
+        // Config item that is often defaulted: num_threads.
+        // -----------------------------------------------------------------------------------------
+        if (status) {
+                // Handling num_threads
+                const auto opt_num = m_config_pt.get_optional<unsigned int>("run.num_threads");
                 if (!opt_num) {
+                        // default for num_threads if not specified in config or commandline
                         m_config_pt.put("run.num_threads", m_max_num_threads);
-                        m_logger->info("Defaulting for run.num_threads:  {}", m_max_num_threads);
+                        m_logger->info("Default for run.num_threads:  {}", m_max_num_threads);
                 } else {
                         m_logger->info("Specification for run.num_threads:  {}", *opt_num);
                 }
         }
+
+        // -----------------------------------------------------------------------------------------
+        // Config item that are is defaulted: output_prefix.
+        // -----------------------------------------------------------------------------------------
+        if (status) {
+                // Handling output_prefix
+                auto output_prefix = m_config_pt.get<string>("run.output_prefix", "");
+                if (output_prefix.length() == 0) {
+                        // Not specified with (-p output_prefix=<prefix>) or in config, so default
+                        output_prefix = TimeStamp().ToTag() + "/";
+                        m_config_pt.put("run.output_prefix", output_prefix);
+                        m_logger->info("Default for run.output_prefix:  {}", output_prefix);
+                } else {
+                        m_logger->info("Specification for run.output_prefix:  {}", output_prefix);
+                }
+
+                // If it's a string not containing any / it gets interpreted as a filename prefix.
+                // Otherwise we 'll see to it that the corresponding directory exists.
+                if (FileSys::IsDirectoryString(output_prefix)) {
+                        boost::filesystem::path out_dir = output_prefix;
+                        try {
+                                m_logger->info("Creating dirs:  {}", out_dir.string());
+                                create_directories(out_dir);
+                        } catch(std::exception& e) {
+                                m_logger->info("Exception while creating output directory:  {}", e.what());
+                        }
+                        m_logger->info("Dir created:  {}", out_dir.string());
+                }
+        }
+
 
         return status;
 }

@@ -22,6 +22,7 @@
 
 #include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
+#include "util/FileSys.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -48,23 +49,23 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         bool status     = true;
         m_pt_config     = run_config_pt;
         m_logger        = std::move(logger);
-        m_output_prefix = m_pt_config.get<string>("run.output_prefix", "");
+        m_output_prefix = m_pt_config.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
-        // Create logger
-        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <contactpoolID>
-        // <day>
-        // General contacts:  [CNT] <person1ID> <person1AGE> <person2AGE>  <at_home>
-        // <at_work> <at_school> <at_other>
+        // Create logger for use by the simulator during time step computations.
+        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
+        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
-        boost::filesystem::path logfile_path = m_output_prefix;
-        if (run_config_pt.get<bool>("run.use_install_dirs")) {
-                logfile_path += "_logfile";
+        auto log_path = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
+        /*
+        boost::filesystem::path log_path = m_output_prefix;
+        if (FileSys::IsDirectoryString(m_output_prefix)) {
+                log_path /= "contact_log.txt";
         } else {
-                logfile_path /= "logfile";
-        }
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
+                log_path += "_contact_log.txt";
+        }*/
+        auto file_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
                                                       numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
         file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
@@ -89,7 +90,6 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         return status;
 }
 
-/// Run the simulator with config information provided.
 void SimRunner::Run()
 {
         // -----------------------------------------------------------------------------------------

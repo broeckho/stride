@@ -19,23 +19,22 @@
  */
 
 #include "CasesFile.h"
-
-#include <boost/filesystem.hpp>
+#include "util/FileSys.h"
 
 namespace stride {
 namespace output {
 
 using namespace std;
+using namespace stride::util;
 
-CasesFile::CasesFile(const std::string& output_dir) { Initialize(output_dir); }
+CasesFile::CasesFile(const std::string& output_prefix) { Initialize(output_prefix); }
 
 CasesFile::~CasesFile() { m_fstream.close(); }
 
-void CasesFile::Initialize(const std::string& output_dir)
+void CasesFile::Initialize(const std::string& output_prefix)
 {
-        boost::filesystem::path pathname(output_dir);
-        pathname += "_cases.csv";
-        m_fstream.open(pathname.c_str());
+        const auto p = FileSys::BuildPath(output_prefix, "cases.csv");
+        m_fstream.open(p.c_str());
 }
 
 void CasesFile::Print(const vector<unsigned int>& cases)

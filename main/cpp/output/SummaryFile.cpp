@@ -20,23 +20,24 @@
 
 #include "SummaryFile.h"
 
-#include <boost/filesystem.hpp>
+#include "util/FileSys.h"
+
 #include <omp.h>
 
 namespace stride {
 namespace output {
 
 using namespace std;
+using namespace stride::util;
 
-SummaryFile::SummaryFile(const string& output_dir) { Initialize(output_dir); }
+SummaryFile::SummaryFile(const string& output_prefix) { Initialize(output_prefix); }
 
 SummaryFile::~SummaryFile() { m_fstream.close(); }
 
-void SummaryFile::Initialize(const string& output_dir)
+void SummaryFile::Initialize(const string& output_prefix)
 {
-        boost::filesystem::path pathname(output_dir);
-        pathname /= "summary.csv";
-        m_fstream.open(pathname.c_str());
+        const auto p = FileSys::BuildPath(output_prefix, "summary.csv");;
+        m_fstream.open(p.c_str());
 
         // add header
         m_fstream << "pop_file,num_days,pop_size,seeding_rate,R0,transmission_rate,"
