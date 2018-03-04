@@ -139,10 +139,6 @@ void SimRunner::GenerateOutputFiles(const string& output_prefix, const vector<un
                                     const vector<unsigned int>& adopted, const ptree& pt_config, unsigned int run_time,
                                     unsigned int total_time)
 {
-        // Adopted
-        AdoptedFile adopted_file(output_prefix);
-        adopted_file.Print(adopted);
-
         // Summary
         SummaryFile summary_file(output_prefix);
         summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),

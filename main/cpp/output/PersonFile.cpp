@@ -35,7 +35,7 @@ PersonFile::~PersonFile() { m_fstream.close(); }
 void PersonFile::Initialize(const string& output_dir)
 {
         path pathname(output_dir);
-        pathname /= "person.csv";
+        pathname += "_person.csv";
         m_fstream.open(pathname.c_str());
 
         // add header

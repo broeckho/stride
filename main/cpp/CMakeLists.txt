@@ -56,6 +56,7 @@ set(LIB_SRC
     util/RNEngineType.cpp
     util/RNManager.cpp
 #---
+	viewers/AdoptedViewer.cpp
 	viewers/CasesViewer.cpp
     viewers/CliViewer.cpp
 )

@@ -26,6 +26,7 @@
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
+#include "viewers/AdoptedViewer.h"
 #include "viewers/CasesViewer.h"
 #include "viewers/CliViewer.h"
 
@@ -92,17 +93,31 @@ bool CliController::Go()
                 // Setup simulation run
                 m_logger->info("Handing over to SimRunner.");
                 SimRunner runner;
-                runner.Setup(m_config_pt, m_logger);
 
                 // Register command line viewer
                 auto cli_v = make_shared<viewers::CliViewer>(m_logger);
                 runner.Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
 
-                // Register cases viewer
-                auto cas_v = make_shared<viewers::CasesViewer>(m_output_prefix);
-                runner.Register(cas_v, bind(&viewers::CasesViewer::update, cas_v, placeholders::_1));
+                // Register adopted viewer
+                if (m_config_pt.get<bool>("run.output_adopted", false)) {
+                        m_logger->info("Setting for output of adopted: true");
+                        auto ado_v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
+                        runner.Register(ado_v, bind(&viewers::AdoptedViewer::update, ado_v, placeholders::_1));
+                } else {
+                        m_logger->info("Setting for output of adopted: false");
+                }
 
-                // Execute run
+                // Register cases viewer
+                if (m_config_pt.get<bool>("run.output_cases", false)) {
+                        m_logger->info("Setting for output of cases: true");
+                        auto cas_v = make_shared<viewers::CasesViewer>(m_output_prefix);
+                        runner.Register(cas_v, bind(&viewers::CasesViewer::update, cas_v, placeholders::_1));
+                } else {
+                        m_logger->info("Setting for output of cases: false");
+                }
+
+                // setup and xecute run
+                runner.Setup(m_config_pt, m_logger);
                 runner.Run();
                 m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
         }
@@ -175,17 +190,19 @@ bool CliController::SetupConfig()
 
 bool CliController::SetupLogger()
 {
+        using namespace spdlog;
+
         bool status = true;
-        spdlog::set_async_mode(1048576);
+        set_async_mode(1048576);
         try {
-                vector<spdlog::sink_ptr> sinks;
-                auto                     color_sink = make_shared<spdlog::sinks::ansicolor_stdout_sink_st>();
+                vector<sink_ptr> sinks;
+                auto             color_sink = make_shared<sinks::ansicolor_stdout_sink_st>();
                 sinks.push_back(color_sink);
-                const string fn = m_output_prefix + "_stride_log.txt";
-                sinks.push_back(make_shared<spdlog::sinks::simple_file_sink_st>(fn.c_str()));
-                m_logger = make_shared<spdlog::logger>("stride_logger", begin(sinks), end(sinks));
-                spdlog::register_logger(m_logger);
-        } catch (const spdlog::spdlog_ex& e) {
+                const string fn = "stride_log.txt";
+                sinks.push_back(make_shared<sinks::simple_file_sink_st>(fn.c_str()));
+                m_logger = make_shared<logger>("stride_logger", begin(sinks), end(sinks));
+                register_logger(m_logger);
+        } catch (const spdlog_ex& e) {
                 cerr << "Stride logger initialization failed: " << e.what() << endl;
                 status = false;
         }
@@ -194,13 +211,15 @@ bool CliController::SetupLogger()
 
 bool CliController::SetupNullLogger()
 {
+        using namespace spdlog;
+
         bool status = true;
-        spdlog::set_async_mode(1048576);
+        set_async_mode(1048576);
         try {
-                auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
-                m_logger       = make_shared<spdlog::logger>("stride_logger", null_sink);
-                spdlog::register_logger(m_logger);
-        } catch (const spdlog::spdlog_ex& e) {
+                auto null_sink = make_shared<sinks::null_sink_st>();
+                m_logger       = make_shared<logger>("stride_logger", null_sink);
+                register_logger(m_logger);
+        } catch (const spdlog_ex& e) {
                 cerr << "Stride null logger initialization failed: " << e.what() << endl;
                 status = false;
         }
