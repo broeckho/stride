@@ -25,14 +25,14 @@
 
 namespace stride {
 
-class Simulator;
+class SimRunner;
 
 namespace sim_event {
 
 struct Payload
 {
-        Payload(std::shared_ptr<Simulator> s, sim_event::Id e) : m_sim(s), m_event_id(e){};
-        std::shared_ptr<Simulator> m_sim;
+        Payload(std::shared_ptr<SimRunner> s, sim_event::Id e) : m_runner(s), m_event_id(e){};
+        std::shared_ptr<SimRunner> m_runner;
         sim_event::Id              m_event_id;
 };
 

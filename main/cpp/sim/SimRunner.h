@@ -20,7 +20,6 @@
  */
 
 #include "event/Subject.h"
-#include "sim/Simulator.h"
 #include "sim/event/Payload.h"
 #include "sim/python/SimulatorObserver.h"
 #include "util/Stopwatch.h"
@@ -33,10 +32,12 @@
 
 namespace stride {
 
+class Simulator;
+
 /**
  * Managing a run of the simulator.
  */
-class SimRunner : public util::Subject<stride::sim_event::Payload>
+class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
 {
 public:
         /// Constructor
@@ -44,6 +45,12 @@ public:
 
         /// Destructor
         virtual ~SimRunner() = default;
+
+        /// Return the run & sim configuration.
+        const boost::property_tree::ptree& GetConfig() const { return m_pt_config; }
+
+        /// Return the Simulator.
+        std::shared_ptr<Simulator> GetSim() const { return m_sim; }
 
         /// Setup the context for the simulation run.
         /// \param run_config_pt        config info for run and for config of simulator

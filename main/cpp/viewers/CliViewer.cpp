@@ -19,6 +19,7 @@
  */
 
 #include "CliViewer.h"
+#include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 
 #include <cassert>
@@ -32,22 +33,18 @@ namespace viewers {
 void CliViewer::update(const sim_event::Payload& p)
 {
         assert(m_logger && "CliViewer has nullptr to logger!");
+        const auto sim = p.m_runner->GetSim();
+
         switch (p.m_event_id) {
         case Id::AtStart: {
                 m_logger->info("     Simulation at start.");
-                const auto day     = p.m_sim->GetCalendar()->GetSimulationDay();
-                const auto cases   = p.m_sim->GetPopulation()->GetInfectedCount();
-                const auto adopted = p.m_sim->GetPopulation()->GetAdoptedCount();
-                m_logger->info("     Day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", day, cases,
-                               adopted);
+                m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
+                               sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto day     = p.m_sim->GetCalendar()->GetSimulationDay();
-                const auto cases   = p.m_sim->GetPopulation()->GetInfectedCount();
-                const auto adopted = p.m_sim->GetPopulation()->GetAdoptedCount();
-                m_logger->info("     Day: {:4}  Done, infected count: {:7}      Adopters count: {:7}", day, cases,
-                               adopted);
+                m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
+                               sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Finished: m_logger->info("     Simulation finished."); break;

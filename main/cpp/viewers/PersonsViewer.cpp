@@ -19,6 +19,7 @@
  */
 
 #include "PersonsViewer.h"
+#include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 
 using namespace std;
@@ -32,7 +33,7 @@ void PersonsViewer::update(const sim_event::Payload& p)
         switch (p.m_event_id) {
         case Id::AtStart: break;
         case Id::Stepped: break;
-        case Id::Finished: m_persons_file.Print(p.m_sim->GetPopulation()); break;
+        case Id::Finished: m_persons_file.Print(p.m_runner->GetSim()->GetPopulation()); break;
         }
 }
 
