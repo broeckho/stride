@@ -11,30 +11,36 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Payload for Subject/Observer for SimEvents.
+ * Observer for Persons output.
  */
 
-#include "Id.h"
+#include "output/PersonsFile.h"
+#include "sim/event/Payload.h"
 
-#include <memory>
+#include <iostream>
+#include <spdlog/spdlog.h>
 
 namespace stride {
+namespace viewers {
 
-class Simulator;
-
-namespace sim_event {
-
-struct Payload
+/// Viewer of Simulator for cases output.
+class PersonsViewer
 {
-        Payload(std::shared_ptr<Simulator> s, sim_event::Id e) : m_sim(s), m_event_id(e){};
-        std::shared_ptr<Simulator> m_sim;
-        sim_event::Id              m_event_id;
+public:
+        /// Instantiate cases viewer.
+        PersonsViewer(const std::string& output_prefix) : m_persons_file(output_prefix) {}
+
+        /// Let viewer perform update.
+        void update(const sim_event::Payload& p);
+
+private:
+        output::PersonsFile m_persons_file;
 };
 
-} // namespace sim_event
+} // namespace viewers
 } // namespace stride

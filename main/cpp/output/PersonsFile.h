@@ -32,14 +32,14 @@ namespace output {
 /**
  * Produces a file with daily cases count.
  */
-class PersonFile
+class PersonsFile
 {
 public:
         /// Constructor: initialize.
-        explicit PersonFile(const std::string& output_dir = "output");
+        explicit PersonsFile(const std::string& output_dir = "output");
 
         /// Destructor: close the file stream.
-        ~PersonFile();
+        ~PersonsFile();
 
         /// Print the given cases with corresponding tag.
         void Print(std::shared_ptr<const Population> population);

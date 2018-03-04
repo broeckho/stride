@@ -18,7 +18,7 @@
  * Implementation of the CasesFile class.
  */
 
-#include "PersonFile.h"
+#include "PersonsFile.h"
 #include "pop/Population.h"
 #include <boost/filesystem.hpp>
 
@@ -28,14 +28,14 @@ namespace output {
 using namespace std;
 using namespace boost::filesystem;
 
-PersonFile::PersonFile(const string& output_dir) { Initialize(output_dir); }
+PersonsFile::PersonsFile(const string& output_dir) { Initialize(output_dir); }
 
-PersonFile::~PersonFile() { m_fstream.close(); }
+PersonsFile::~PersonsFile() { m_fstream.close(); }
 
-void PersonFile::Initialize(const string& output_dir)
+void PersonsFile::Initialize(const string& output_dir)
 {
         path pathname(output_dir);
-        pathname += "_person.csv";
+        pathname += "_persons.csv";
         m_fstream.open(pathname.c_str());
 
         // add header
@@ -43,7 +43,7 @@ void PersonFile::Initialize(const string& output_dir)
                   << "end_infectiousness,start_symptomatic,end_symptomatic" << endl;
 }
 
-void PersonFile::Print(std::shared_ptr<const Population> population)
+void PersonsFile::Print(std::shared_ptr<const Population> population)
 {
         for (const auto& p : *population) {
                 const auto& h = p.GetHealth();

@@ -22,7 +22,7 @@
 
 #include "output/AdoptedFile.h"
 #include "output/CasesFile.h"
-#include "output/PersonFile.h"
+#include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
@@ -240,7 +240,7 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
 
         // Persons
         if (pt_config.get<double>("run.generate_person_file") == 1) {
-                PersonFile person_file(output_prefix);
+                PersonsFile person_file(output_prefix);
                 person_file.Print(m_sim->GetPopulation());
         }
 }

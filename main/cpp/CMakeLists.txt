@@ -35,7 +35,7 @@ set(LIB_SRC
 #---
 	output/AdoptedFile.cpp
 	output/CasesFile.cpp
-	output/PersonFile.cpp
+    output/PersonsFile.cpp
 	output/SummaryFile.cpp
 #---	
     pop/Person.cpp
@@ -59,6 +59,7 @@ set(LIB_SRC
 	viewers/AdoptedViewer.cpp
 	viewers/CasesViewer.cpp
     viewers/CliViewer.cpp
+    viewers/PersonsViewer.cpp
 )
 
 #============================================================================

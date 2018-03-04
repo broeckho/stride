@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,30 +10,31 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Payload for Subject/Observer for SimEvents.
+ * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "Id.h"
+#include "PersonsViewer.h"
+#include "sim/Simulator.h"
 
-#include <memory>
+using namespace std;
+using namespace stride::sim_event;
 
 namespace stride {
+namespace viewers {
 
-class Simulator;
-
-namespace sim_event {
-
-struct Payload
+void PersonsViewer::update(const sim_event::Payload& p)
 {
-        Payload(std::shared_ptr<Simulator> s, sim_event::Id e) : m_sim(s), m_event_id(e){};
-        std::shared_ptr<Simulator> m_sim;
-        sim_event::Id              m_event_id;
-};
+        switch (p.m_event_id) {
+        case Id::AtStart: break;
+        case Id::Stepped: break;
+        case Id::Finished: m_persons_file.Print(p.m_sim->GetPopulation()); break;
+        }
+}
 
-} // namespace sim_event
+} // namespace viewers
 } // namespace stride

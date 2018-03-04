@@ -22,7 +22,7 @@
 
 #include "output/AdoptedFile.h"
 #include "output/CasesFile.h"
-#include "output/PersonFile.h"
+#include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "sim/SimulatorBuilder.h"
 #include "sim/event/Id.h"
@@ -122,34 +122,6 @@ void SimRunner::Run()
                 //               cases[i], adopted[i]);
         }
         Notify({m_sim, Id::Finished});
-
-        // -----------------------------------------------------------------------------------------
-        // Generate output files.
-        // -----------------------------------------------------------------------------------------
-        /*
-        GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config,
-                    static_cast<unsigned int>(duration_cast<milliseconds>(m_total_clock.Get()).count()),
-                    static_cast<unsigned int>(duration_cast<milliseconds>(m_total_clock.Get()).count()));
-        */
-        GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config, 0, 0);
-}
-
-/// Generate output files (at the end of the simulation).
-void SimRunner::GenerateOutputFiles(const string& output_prefix, const vector<unsigned int>& cases,
-                                    const vector<unsigned int>& adopted, const ptree& pt_config, unsigned int run_time,
-                                    unsigned int total_time)
-{
-        // Summary
-        SummaryFile summary_file(output_prefix);
-        summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetTransmissionRate(),
-                           run_time, total_time);
-
-        // Persons
-        if (pt_config.get<double>("run.generate_person_file") == 1) {
-                PersonFile person_file(output_prefix);
-                person_file.Print(m_sim->GetPopulation());
-        }
 }
 
 } // namespace stride

@@ -20,7 +20,6 @@
 
 #include "CliViewer.h"
 #include "sim/Simulator.h"
-#include "sim/event/Id.h"
 
 #include <cassert>
 

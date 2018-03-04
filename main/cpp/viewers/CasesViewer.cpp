@@ -20,9 +20,6 @@
 
 #include "CasesViewer.h"
 #include "sim/Simulator.h"
-#include "sim/event/Id.h"
-
-#include <cassert>
 
 using namespace std;
 using namespace stride::sim_event;

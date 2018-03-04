@@ -29,6 +29,7 @@
 #include "viewers/AdoptedViewer.h"
 #include "viewers/CasesViewer.h"
 #include "viewers/CliViewer.h"
+#include "viewers/PersonsViewer.h"
 
 #include "spdlog/sinks/null_sink.h"
 #include <boost/property_tree/xml_parser.hpp>
@@ -87,36 +88,44 @@ bool CliController::Go()
         }
 
         // -----------------------------------------------------------------------------------------
-        // SimRunner setup & run.
+        // Instatiate SimRunner & register viewers & setup+execute the run.
         // -----------------------------------------------------------------------------------------
         if (status) {
-                // Setup simulation run
-                m_logger->info("Handing over to SimRunner.");
+                m_logger->info("Registering viewers.");
                 SimRunner runner;
 
-                // Register command line viewer
+                // Command line viewer
                 auto cli_v = make_shared<viewers::CliViewer>(m_logger);
                 runner.Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
 
-                // Register adopted viewer
+                // Adopted viewer
                 if (m_config_pt.get<bool>("run.output_adopted", false)) {
                         m_logger->info("Setting for output of adopted: true");
-                        auto ado_v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
-                        runner.Register(ado_v, bind(&viewers::AdoptedViewer::update, ado_v, placeholders::_1));
+                        auto v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
+                        runner.Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
                 } else {
                         m_logger->info("Setting for output of adopted: false");
                 }
 
-                // Register cases viewer
+                // Cases viewer
                 if (m_config_pt.get<bool>("run.output_cases", false)) {
                         m_logger->info("Setting for output of cases: true");
-                        auto cas_v = make_shared<viewers::CasesViewer>(m_output_prefix);
-                        runner.Register(cas_v, bind(&viewers::CasesViewer::update, cas_v, placeholders::_1));
+                        auto v = make_shared<viewers::CasesViewer>(m_output_prefix);
+                        runner.Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
                 } else {
                         m_logger->info("Setting for output of cases: false");
                 }
 
-                // setup and xecute run
+                // Persons viewer
+                if (m_config_pt.get<bool>("run.output_persons", false)) {
+                        m_logger->info("Setting for output of persons: true");
+                        auto v = make_shared<viewers::PersonsViewer>(m_output_prefix);
+                        runner.Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
+                } else {
+                        m_logger->info("Setting for output of cases: false");
+                }
+
+                m_logger->info("Handing over to SimRunner.");
                 runner.Setup(m_config_pt, m_logger);
                 runner.Run();
                 m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
