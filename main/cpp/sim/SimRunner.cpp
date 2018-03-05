@@ -36,7 +36,7 @@ using namespace boost::property_tree;
 using namespace std;
 
 SimRunner::SimRunner()
-    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(nullptr), m_logger(nullptr)
+    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(nullptr)
 {
 }
 
@@ -45,6 +45,7 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         // -----------------------------------------------------------------------------------------
         // Intro.
         // -----------------------------------------------------------------------------------------
+        m_clock.Start();
         bool status     = true;
         m_pt_config     = run_config_pt;
         m_logger        = std::move(logger);
@@ -89,6 +90,11 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
                         status = false;
                 }
         }
+
+        // -----------------------------------------------------------------------------------------
+        // Done.
+        // -----------------------------------------------------------------------------------------
+        m_clock.Stop();
         return status;
 }
 
@@ -97,6 +103,7 @@ void SimRunner::Run()
         // -----------------------------------------------------------------------------------------
         // Run the simulator.
         // -----------------------------------------------------------------------------------------
+        m_clock.Start();
         const auto num_days = m_pt_config.get<unsigned int>("run.num_days");
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
@@ -104,6 +111,7 @@ void SimRunner::Run()
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});
+        m_clock.Stop();
 }
 
 } // namespace stride

@@ -47,6 +47,9 @@ public:
         virtual ~SimRunner() = default;
 
         /// Return the run & sim configuration.
+        const util::Stopwatch<>& GetClock() const { return m_clock; }
+
+        /// Return the run & sim configuration.
         const boost::property_tree::ptree& GetConfig() const { return m_pt_config; }
 
         /// Return the Simulator.
@@ -62,12 +65,13 @@ public:
         void Run();
 
 private:
-        bool                            m_is_running;    ///< Sim is running.
+        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
+        std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
         bool                            m_operational;   ///< Input config is OK to be run
         std::string                     m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
         std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
-        std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
+
 };
 
 } // namespace stride
