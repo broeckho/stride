@@ -33,22 +33,32 @@ namespace stride {
 class SimulatorBuilder
 {
 public:
-        ///
-        // static std::shared_ptr<Simulator> Build(const std::string& config_file_name);
+        /// Initializing SimulatorBuilder.
+        /// The nullptr default is accepted for bacward compatbility in use
+        /// in StrideRunner. It will be replaced by a null logger in the ctor.
+        SimulatorBuilder(const boost::property_tree::ptree& config_pt,
+                         std::shared_ptr<spdlog::logger>    logger = nullptr);
 
         /// Build the simulator.
-        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
-                                                std::shared_ptr<spdlog::logger>    logger = nullptr);
-
-        /// Build the simulator.
-        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
-                                                const boost::property_tree::ptree& pt_disease,
-                                                const boost::property_tree::ptree& pt_contact,
-                                                std::shared_ptr<spdlog::logger>    logger = nullptr);
+        std::shared_ptr<Simulator> Build();
 
 private:
+        /// Build the simulator.
+        std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_disease,
+                                         const boost::property_tree::ptree& pt_contact);
+
         /// Initialize the contactpoolss.
         static void InitializeContactPools(std::shared_ptr<Simulator> sim);
+
+        /// Get the contact configuration data.
+        boost::property_tree::ptree ReadContactPtree();
+
+        /// Get the disease configuration data.
+        boost::property_tree::ptree ReadDiseasePtree();
+
+private:
+        std::shared_ptr<spdlog::logger> m_logger;
+        boost::property_tree::ptree     m_pt_config;
 };
 
 } // namespace stride

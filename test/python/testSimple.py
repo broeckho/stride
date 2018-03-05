@@ -13,6 +13,11 @@ simulation = Simulation()
 simulation.loadRunConfig("../config/run_default.xml")
 simulation.runConfig.setParameter("output_prefix", "testSimple")
 simulation.runConfig.setParameter("use_install_dirs", "true")
+
+# Clean up leftover of previous failed  testrun
+if os.path.isdir("testSimple"):
+    rmtree("testSimple")
+
 # Run the simulation
 simulation.run()
 # Check output

@@ -36,8 +36,7 @@ using namespace boost::property_tree;
 using namespace std;
 
 SimRunner::SimRunner()
-    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(make_shared<Simulator>()),
-      m_logger(nullptr)
+    : m_is_running(false), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(nullptr), m_logger(nullptr)
 {
 }
 
@@ -57,26 +56,38 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
-        auto log_path    = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(), numeric_limits<size_t>::max(),
-                                                      numeric_limits<size_t>::max());
-        file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
+        const auto log_path       = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
+        auto       contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
+                                                         numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
+        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
-        // Create the simulator.
+        // Create the simulator builder.
+        //------------------------------------------------------------------------------
+        m_logger->info("Creating the simulator builder");
+        SimulatorBuilder builder(m_pt_config, m_logger);
+        m_logger->info("Done creating the simulator builder");
+
+        // ------------------------------------------------------------------------------
+        // Build simulator.
         //------------------------------------------------------------------------------
         m_logger->info("Building the simulator.");
-        m_sim = SimulatorBuilder::Build(m_pt_config);
+        m_sim = builder.Build();
         m_logger->info("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------
         // Check the simulator.
         // -----------------------------------------------------------------------------------------
-        if (m_sim->IsOperational()) {
-                m_logger->info("Done checking the simulator.");
-        } else {
-                m_logger->critical("Invalid configuration => terminate without output");
+        if (!m_sim) {
+                m_logger->critical("Simulation build failed!");
                 status = false;
+        } else {
+                if (m_sim->IsOperational()) {
+                        m_logger->info("Done checking the simulator. OK.");
+                } else {
+                        m_logger->critical("Invalid configuration => terminate without output");
+                        status = false;
+                }
         }
         return status;
 }

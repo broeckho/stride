@@ -160,7 +160,8 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        m_sim = SimulatorBuilder::Build(m_pt_config);
+        SimulatorBuilder builder(m_pt_config);
+        m_sim = builder.Build();
         cout << "Done building the simulator. " << endl;
 
         // -----------------------------------------------------------------------------------------

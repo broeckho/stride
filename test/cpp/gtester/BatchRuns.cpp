@@ -151,7 +151,8 @@ TEST_P(BatchRuns, Run)
         cout << "Building the simulator. " << endl;
         cout << " ----> test_tag: " << test_tag << endl << " ----> threadcount:  " << num_threads << endl;
         pt_config.put("run.num_threads", num_threads);
-        auto sim = SimulatorBuilder::Build(pt_config);
+        SimulatorBuilder builder(pt_config);
+        const auto sim = builder.Build();
         cout << "Done building the simulator" << endl;
 
         // -----------------------------------------------------------------------------------------

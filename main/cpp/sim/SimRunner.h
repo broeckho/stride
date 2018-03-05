@@ -54,7 +54,7 @@ public:
 
         /// Setup the context for the simulation run.
         /// \param run_config_pt        config info for run and for config of simulator
-        /// \param logger               generel logger
+        /// \param logger               general logger
         /// \return                     status value
         bool Setup(const boost::property_tree::ptree& run_config_pt, std::shared_ptr<spdlog::logger> logger);
 
