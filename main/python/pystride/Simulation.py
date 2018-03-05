@@ -38,7 +38,7 @@ class Simulation:
         return pystride.workspace
 
     def getOutputDirectory(self):
-        return os.path.join(self.getWorkingDirectory(), self.getLabel())
+        return os.path.join(self.getWorkingDirectory(), self.getLabel()+"/")
 
     def _linkData(self):
         dataDestDir = os.path.join(self.getOutputDirectory(), "data")
