@@ -84,11 +84,27 @@ void CliController::Go()
         auto runner = make_shared<SimRunner>();
 
         // -----------------------------------------------------------------------------------------
+        // Output_prefix..
+        // -----------------------------------------------------------------------------------------
+        const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
+        // If it's a string not containing any / it gets interpreted as a filename prefix.
+        // Otherwise we 'll see to it that the corresponding directory exists.
+        if (FileSys::IsDirectoryString(output_prefix)) {
+                boost::filesystem::path out_dir = output_prefix;
+                try {
+                        m_logger->info("Creating dir:  {}", out_dir.string());
+                        create_directories(out_dir);
+                } catch(std::exception& e) {
+                        m_logger->info("Exception while creating output directory:  {}", e.what());
+                }
+                m_logger->info("Dir created:  {}", out_dir.string());
+        }
+
+        // -----------------------------------------------------------------------------------------
         // Register viewers.
         // -----------------------------------------------------------------------------------------
         m_logger->info("Registering viewers.");
-        const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
-
+        
         // Command line viewer
         auto cli_v = make_shared<viewers::CliViewer>(m_logger);
         runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
@@ -234,21 +250,7 @@ bool CliController::SetupConfig()
                 } else {
                         m_logger->info("Specification for run.output_prefix:  {}", output_prefix);
                 }
-
-                // If it's a string not containing any / it gets interpreted as a filename prefix.
-                // Otherwise we 'll see to it that the corresponding directory exists.
-                if (FileSys::IsDirectoryString(output_prefix)) {
-                        boost::filesystem::path out_dir = output_prefix;
-                        try {
-                                m_logger->info("Creating dirs:  {}", out_dir.string());
-                                create_directories(out_dir);
-                        } catch(std::exception& e) {
-                                m_logger->info("Exception while creating output directory:  {}", e.what());
-                        }
-                        m_logger->info("Dir created:  {}", out_dir.string());
-                }
         }
-
 
         return status;
 }

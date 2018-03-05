@@ -50,8 +50,8 @@ boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, con
                 // file <filename> in dircetor <output_prefix>
                 p /= filename;
         } else {
-                // full name is <output_prefix>_<filename>
-                p += ("_" + filename);
+                // full name is <output_prefix><filename>
+                p += filename;
         }
         return p;
 }
