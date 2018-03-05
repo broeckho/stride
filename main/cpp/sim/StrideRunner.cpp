@@ -104,6 +104,18 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         }
 
         // -----------------------------------------------------------------------------------------
+        // Configuration.
+        // -----------------------------------------------------------------------------------------
+        // track_index_case (-r switch on commandline)
+        m_pt_config.put("run.track_index_case", track_index_case);
+
+        // use_install_dirs (-w or --working_dir switch on commandline)
+        m_pt_config.put("run.use_install_dirs", use_install_dirs);
+
+        // num_threads
+        m_pt_config.put("run.num_threads", num_threads);
+
+        // -----------------------------------------------------------------------------------------
         // Set output path prefix.
         // -----------------------------------------------------------------------------------------
         m_output_prefix = m_pt_config.get<string>("run.output_prefix", "");
@@ -148,7 +160,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
+        m_sim = SimulatorBuilder::Build(m_pt_config);
         cout << "Done building the simulator. " << endl;
 
         // -----------------------------------------------------------------------------------------

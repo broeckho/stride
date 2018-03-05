@@ -26,7 +26,6 @@
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -34,50 +33,60 @@ using namespace boost::property_tree;
 using namespace std;
 using namespace util;
 
-///
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const string& config_file_name, unsigned int num_threads,
-                                                   bool track_index_case)
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, std::shared_ptr<spdlog::logger> logger)
 {
-        const auto file_path = FileSys::GetCurrentDir() /= config_file_name;
-        if (!is_regular_file(file_path)) {
-                throw runtime_error(string(__func__) + ">Config file " + file_path.string() +
-                                    " not present. Aborting.");
-        }
+        bool       status           = true;
+        const auto use_install_dirs = pt_config.get<bool>("run.use_install_dirs");
 
-        ptree pt_config;
-        read_xml(file_path.string(), pt_config);
-        return Build(pt_config, num_threads, track_index_case);
+        ptree      pt_disease;
+        const auto fn_d = pt_config.get<string>("run.disease_config_file");
+        const auto fp_d = (use_install_dirs) ? FileSys::GetDataDir() /= fn_d : fn_d;
+        if (!exists(fp_d) || !is_regular_file(fp_d)) {
+                if (logger)
+                        logger->critical("Disease config file {} not present! Quitting.", fp_d.string());
+                status = false;
+        } else {
+                if (logger)
+                        logger->info("Disease config file:  {}", fp_d.string());
+                try {
+                        read_xml(canonical(fp_d).string(), pt_disease, xml_parser::trim_whitespace);
+                } catch (xml_parser_error& e) {
+                        if (logger)
+                                logger->critical("Error reading {}\nException: {}", canonical(fp_d).string(), e.what());
+                        status = false;
+                }
+        }
+        if (!status)
+                return nullptr;
+
+        ptree      pt_contact;
+        const auto file_name_c = pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml");
+        const auto file_path_c = (use_install_dirs) ? FileSys::GetDataDir() /= file_name_c : file_name_c;
+        if (!exists(file_path_c) || !is_regular_file(file_path_c)) {
+                if (logger)
+                        logger->critical("Configuration file {} not present! Quitting.", file_path_c.string());
+                status = false;
+        } else {
+                if (logger)
+                        logger->info("Configuration file:  {}", file_path_c.string());
+                try {
+                        read_xml(canonical(file_path_c).string(), pt_contact, xml_parser::trim_whitespace);
+                } catch (xml_parser_error& e) {
+                        if (logger)
+                                logger->critical("Error reading {}\nException: {}", canonical(file_path_c).string(),
+                                                 e.what());
+                        status = false;
+                }
+        }
+        if (!status)
+                return nullptr;
+
+        return Build(pt_config, pt_disease, pt_contact);
+        ;
 }
 
-/// Build the simulator.
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, unsigned int num_threads,
-                                                   bool track_index_case)
-{
-        const auto file_name_d{pt_config.get<string>("run.disease_config_file")};
-        const auto file_path_d{FileSys::GetDataDir() /= file_name_d};
-        if (!is_regular_file(file_path_d)) {
-                throw runtime_error(std::string(__func__) + "> No file " + file_path_d.string());
-        }
-
-        ptree pt_disease;
-        read_xml(file_path_d.string(), pt_disease);
-
-        const auto file_name_c{pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml")};
-        const auto file_path_c{FileSys::GetDataDir() /= file_name_c};
-        if (!is_regular_file(file_path_c)) {
-                throw runtime_error(string(__func__) + "> No file " + file_path_c.string());
-        }
-
-        ptree pt_contact;
-        read_xml(file_path_c.string(), pt_contact);
-
-        return Build(pt_config, pt_disease, pt_contact, num_threads, track_index_case);
-}
-
-/// Build the simulator.
 std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const ptree& pt_disease,
-                                                   const ptree& pt_contact, unsigned int num_threads,
-                                                   bool track_index_case)
+                                                   const ptree& pt_contact, std::shared_ptr<spdlog::logger> logger)
 {
         // --------------------------------------------------------------
         // Uninitialized simulator object.
@@ -87,10 +96,10 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         // --------------------------------------------------------------
         // Config info.
         // --------------------------------------------------------------
-        sim->m_pt_config        = pt_config;                        // Initialize config ptree.
-        sim->m_track_index_case = track_index_case;                 // Initialize track_index_case policy
-        sim->m_num_threads      = num_threads;                      // Initialize number of threads.
-        sim->m_calendar         = make_shared<Calendar>(pt_config); // Initialize calendar.
+        sim->m_pt_config        = pt_config;
+        sim->m_track_index_case = pt_config.get<bool>("run.track_index_case");
+        sim->m_num_threads      = pt_config.get<unsigned int>("run.num_threads");
+        sim->m_calendar         = make_shared<Calendar>(pt_config);
 
         // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
@@ -103,9 +112,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
         // --------------------------------------------------------------
         // Logging related initialization.
         // --------------------------------------------------------------
-        const auto   logger = spdlog::get("contact_logger");
-        const string l      = pt_config.get<string>("run.log_level", "None");
-        sim->m_log_level    = LogMode::IsLogMode(l)
+        const auto   contact_logger = spdlog::get("contact_logger");
+        const string l              = pt_config.get<string>("run.log_level", "None");
+        sim->m_log_level            = LogMode::IsLogMode(l)
                                ? LogMode::ToLogMode(l)
                                : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
 
@@ -160,7 +169,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_config, const
                     (p.GetAge() <= seeding_age_max)) {
                         p.GetHealth().StartInfection();
                         num_infected--;
-                        logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        contact_logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 

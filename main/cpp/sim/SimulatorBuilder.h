@@ -23,6 +23,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -33,18 +34,17 @@ class SimulatorBuilder
 {
 public:
         ///
-        static std::shared_ptr<Simulator> Build(const std::string& config_file_name, unsigned int num_threads,
-                                                bool track_index_case = false);
+        // static std::shared_ptr<Simulator> Build(const std::string& config_file_name);
 
         /// Build the simulator.
-        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config, unsigned int num_threads,
-                                                bool track_index_case = false);
+        static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
+                                                std::shared_ptr<spdlog::logger>    logger = nullptr);
 
         /// Build the simulator.
         static std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_config,
                                                 const boost::property_tree::ptree& pt_disease,
                                                 const boost::property_tree::ptree& pt_contact,
-                                                unsigned int num_threads = 1U, bool track_index_case = false);
+                                                std::shared_ptr<spdlog::logger>    logger = nullptr);
 
 private:
         /// Initialize the contactpoolss.

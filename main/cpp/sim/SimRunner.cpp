@@ -57,25 +57,16 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
         spdlog::set_async_mode(1048576);
-        auto log_path = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
-        /*
-        boost::filesystem::path log_path = m_output_prefix;
-        if (FileSys::IsDirectoryString(m_output_prefix)) {
-                log_path /= "contact_log.txt";
-        } else {
-                log_path += "_contact_log.txt";
-        }*/
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
-                                                      numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
+        auto log_path    = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
+        auto file_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(), numeric_limits<size_t>::max(),
+                                                      numeric_limits<size_t>::max());
         file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
-        const auto track_index_case = m_pt_config.get<bool>("run.track_index_case");
-        const auto num_threads      = m_pt_config.get<unsigned int>("run.num_threads");
         m_logger->info("Building the simulator.");
-        m_sim = SimulatorBuilder::Build(m_pt_config, num_threads, track_index_case);
+        m_sim = SimulatorBuilder::Build(m_pt_config);
         m_logger->info("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------

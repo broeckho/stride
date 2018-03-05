@@ -36,7 +36,7 @@ SummaryFile::~SummaryFile() { m_fstream.close(); }
 
 void SummaryFile::Initialize(const string& output_prefix)
 {
-        const auto p = FileSys::BuildPath(output_prefix, "summary.csv");;
+        const auto p = FileSys::BuildPath(output_prefix, "summary.csv");
         m_fstream.open(p.c_str());
 
         // add header

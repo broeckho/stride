@@ -35,10 +35,10 @@ public:
         /// String represents a directory path (relative or absolute) iff it contains
         /// at least one / (may be a trailing one).
         static bool IsDirectoryString(const std::string& s);
-        
+
         /// Interpret prefix (directory or filename prefix) and return appropriate path.
         static boost::filesystem::path BuildPath(const std::string& output_prefix, const std::string& filename);
-        
+
 public:
         /// Get path to the current directory.
         static boost::filesystem::path GetCurrentDir() { return Get().m_current_dir; }

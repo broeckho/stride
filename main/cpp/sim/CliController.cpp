@@ -94,7 +94,7 @@ void CliController::Go()
                 try {
                         m_logger->info("Creating dir:  {}", out_dir.string());
                         create_directories(out_dir);
-                } catch(std::exception& e) {
+                } catch (std::exception& e) {
                         m_logger->info("Exception while creating output directory:  {}", e.what());
                 }
                 m_logger->info("Dir created:  {}", out_dir.string());
@@ -104,7 +104,7 @@ void CliController::Go()
         // Register viewers.
         // -----------------------------------------------------------------------------------------
         m_logger->info("Registering viewers.");
-        
+
         // Command line viewer
         auto cli_v = make_shared<viewers::CliViewer>(m_logger);
         runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
