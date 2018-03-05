@@ -34,10 +34,7 @@ class SimulatorBuilder
 {
 public:
         /// Initializing SimulatorBuilder.
-        /// The nullptr default is accepted for bacward compatbility in use
-        /// in StrideRunner. It will be replaced by a null logger in the ctor.
-        SimulatorBuilder(const boost::property_tree::ptree& config_pt,
-                         std::shared_ptr<spdlog::logger>    logger = nullptr);
+        SimulatorBuilder(const boost::property_tree::ptree& config_pt);
 
         /// Build the simulator.
         std::shared_ptr<Simulator> Build();

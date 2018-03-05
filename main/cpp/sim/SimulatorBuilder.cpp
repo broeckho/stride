@@ -34,21 +34,16 @@ using namespace boost::property_tree;
 using namespace std;
 using namespace util;
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++
-// WARNING For backward compatibility with StrideRunner
-// the m_logger may be a nullptr
-// So all lo statemets to m_logger have to be guarded
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_logger(std::move(logger)), m_pt_config(config_pt)
+SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt)
+    : m_logger(nullptr), m_pt_config(config_pt)
 {
+        // If the execution context had created the stride_logger, use it.
+        // Otherwise we produce a null logger so as not to have to guard all log statements ...
+        m_logger = spdlog::get("stride_logger");
         if (!m_logger) {
                 const auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
                 m_logger             = make_shared<spdlog::logger>("SimBuilder_null_logger", null_sink);
         }
-        assert(!m_pt_config.empty() && "Initializing SimulatorBuilder with empty ptree!");
-        assert(m_logger != nullptr && "Initializing SimulatorBuilder with nullptr for logger!");
 }
 
 std::shared_ptr<Simulator> SimulatorBuilder::Build()

@@ -69,9 +69,8 @@ int main(int argc, char** argv)
                 const bool    use_install_dirs = !working_dir_Arg.getValue();
                 CliController cntrl(index_case_Arg.getValue(), config_file_Arg.getValue(), p_overrides,
                                     silent_mode_Arg.getValue(), use_install_dirs);
-                if (cntrl.Setup()) {
-                        cntrl.Go();
-                }
+                cntrl.Setup();
+                cntrl.Go();
 
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;

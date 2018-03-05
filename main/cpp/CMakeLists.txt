@@ -53,6 +53,7 @@ set(LIB_SRC
 	util/CSVRow.cpp
     util/FileUtils.cpp
     util/FileSys.cpp
+	util/LogUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
 #---

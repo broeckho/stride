@@ -59,7 +59,7 @@ public:
         /// \param run_config_pt        config info for run and for config of simulator
         /// \param logger               general logger
         /// \return                     status value
-        bool Setup(const boost::property_tree::ptree& run_config_pt, std::shared_ptr<spdlog::logger> logger);
+        bool Setup(const boost::property_tree::ptree& run_config_pt);
 
         /// Run the simulator with config information provided.
         void Run();
@@ -71,7 +71,6 @@ private:
         std::string                     m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
         std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
-
 };
 
 } // namespace stride

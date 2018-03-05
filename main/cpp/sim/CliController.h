@@ -46,26 +46,26 @@ public:
         void Go();
 
         /// Setup the controller.
-        bool Setup();
+        void Setup();
 
 private:
         /// Check install environment.
-        bool CheckEnv();
+        void CheckEnv();
 
         /// Check the OpenMP environment.
-        bool CheckOpenMP();
+        void CheckOpenMP();
 
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
 
         /// Setup and patch run configuration file.
-        bool SetupConfig();
+        void SetupConfig();
 
         /// Acquire logger for normal mode.
-        bool SetupLogger();
+        std::shared_ptr<spdlog::logger> SetupLogger();
 
         /// Acquire null logger for silent mode.
-        bool SetupNullLogger();
+        std::shared_ptr<spdlog::logger> SetupNullLogger();
 
 private:
         std::string                                       m_config_file;

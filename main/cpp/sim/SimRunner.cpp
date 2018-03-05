@@ -23,9 +23,11 @@
 #include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/FileSys.h"
+#include "util/LogUtils.h"
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
+#include <spdlog/sinks/null_sink.h>
 
 namespace stride {
 
@@ -33,22 +35,29 @@ using namespace sim_event;
 using namespace util;
 using namespace boost::filesystem;
 using namespace boost::property_tree;
+using namespace spdlog;
 using namespace std;
 
 SimRunner::SimRunner()
-    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(), m_sim(nullptr)
+    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(),
+      m_sim(nullptr)
 {
 }
 
-bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> logger)
+bool SimRunner::Setup(const ptree& run_config_pt)
 {
         // -----------------------------------------------------------------------------------------
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        bool status     = true;
-        m_pt_config     = run_config_pt;
-        m_logger        = std::move(logger);
+        bool status = true;
+        m_pt_config = run_config_pt;
+        m_logger    = spdlog::get("stride_logger");
+        if (!m_logger) {
+                m_logger = m_pt_config.get<bool>("run.silent_mode")
+                               ? LogUtils::GetNullLogger("stride_logger")
+                               : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
+        }
         m_output_prefix = m_pt_config.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
@@ -66,7 +75,7 @@ bool SimRunner::Setup(const ptree& run_config_pt, shared_ptr<spdlog::logger> log
         // Create the simulator builder.
         //------------------------------------------------------------------------------
         m_logger->info("Creating the simulator builder");
-        SimulatorBuilder builder(m_pt_config, m_logger);
+        SimulatorBuilder builder(m_pt_config);
         m_logger->info("Done creating the simulator builder");
 
         // ------------------------------------------------------------------------------
