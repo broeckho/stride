@@ -30,10 +30,10 @@
 #include "viewers/CasesViewer.h"
 #include "viewers/CliViewer.h"
 #include "viewers/PersonsViewer.h"
+#include "viewers/SummaryViewer.h"
 
 #include "spdlog/sinks/null_sink.h"
 #include <boost/property_tree/xml_parser.hpp>
-#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -103,47 +103,7 @@ void CliController::Go()
         // -----------------------------------------------------------------------------------------
         // Register viewers.
         // -----------------------------------------------------------------------------------------
-        m_logger->info("Registering viewers.");
-
-        // Command line viewer
-        auto cli_v = make_shared<viewers::CliViewer>(m_logger);
-        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
-
-        // Adopted viewer
-        if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_logger->info("Setting for output of adopted: true");
-                auto v = make_shared<viewers::AdoptedViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of adopted: false");
-        }
-
-        // Cases viewer
-        if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_logger->info("Setting for output of cases: true");
-                auto v = make_shared<viewers::CasesViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of cases: false");
-        }
-
-        // Persons viewer
-        if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_logger->info("Setting for output of persons: true");
-                auto v = make_shared<viewers::PersonsViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of persons: false");
-        }
-
-        // Summary viewer
-        if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_logger->info("Setting for output of summary: true");
-                auto v = make_shared<viewers::SummaryViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of summary: false");
-        }
+        RegisterViewers(runner, output_prefix);
 
         // -----------------------------------------------------------------------------------------
         // Setup runner + execute the run.
@@ -154,6 +114,7 @@ void CliController::Go()
         write_xml(p.string(), m_config_pt, std::locale(),
                   xml_parser::xml_writer_make_settings<ptree::key_type>(' ', 8));
         runner->Setup(m_config_pt, m_logger);
+
         runner->Run();
         m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
 
@@ -162,6 +123,52 @@ void CliController::Go()
         // -----------------------------------------------------------------------------------------
         spdlog::drop_all();
         m_logger->info("CliController signing off.");
+}
+
+
+void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& output_prefix)
+{
+        m_logger->info("Registering viewers.");
+
+        // Command line viewer
+        const auto cli_v = make_shared<viewers::CliViewer>(m_logger);
+        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
+
+        // Adopted viewer
+        if (m_config_pt.get<bool>("run.output_adopted", false)) {
+                m_logger->info("Setting for output of adopted: true");
+                const auto v = make_shared<viewers::AdoptedViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of adopted: false");
+        }
+
+        // Cases viewer
+        if (m_config_pt.get<bool>("run.output_cases", false)) {
+                m_logger->info("Setting for output of cases: true");
+                const auto v = make_shared<viewers::CasesViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of cases: false");
+        }
+
+        // Persons viewer
+        if (m_config_pt.get<bool>("run.output_persons", false)) {
+                m_logger->info("Setting for output of persons: true");
+                const auto v = make_shared<viewers::PersonsViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of persons: false");
+        }
+
+        // Summary viewer
+        if (m_config_pt.get<bool>("run.output_summary", false)) {
+                m_logger->info("Setting for output of summary: true");
+                const auto v = make_shared<viewers::SummaryViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of summary: false");
+        }
 }
 
 bool CliController::Setup()

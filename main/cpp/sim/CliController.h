@@ -22,13 +22,14 @@
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <iostream>
 #include <spdlog/spdlog.h>
 #include <string>
 #include <tuple>
 #include <utility>
 
 namespace stride {
+
+class SimRunner;
 
 class CliController
 {
@@ -53,6 +54,9 @@ private:
 
         /// Check the OpenMP environment.
         bool CheckOpenMP();
+
+        /// Register the viewers of the SimRunner.
+        void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
 
         /// Setup and patch run configuration file.
         bool SetupConfig();
