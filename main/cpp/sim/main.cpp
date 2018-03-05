@@ -44,10 +44,12 @@ int main(int argc, char** argv)
                                                      "parameter assignment", cmd);
                 ValueArg<string> config_file_Arg("c", "config", "Config File", false, "run_config_default.xml",
                                                  "CONFIGURATION FILE", cmd);
-                SwitchArg        index_case_Arg("r", "r0", "R0 only", cmd, false);
+
+                SwitchArg index_case_Arg("r", "r0", "R0 only", cmd, false);
                 SwitchArg working_dir_Arg("w", "working_dir", "Use working dir to find files i.o install dirs.", cmd,
                                           false);
                 SwitchArg silent_mode_Arg("s", "silent", "silent mode", cmd, false);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------

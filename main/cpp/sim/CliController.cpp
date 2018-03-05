@@ -84,7 +84,7 @@ void CliController::Go()
         auto runner = make_shared<SimRunner>();
 
         // -----------------------------------------------------------------------------------------
-        // Output_prefix..
+        // Output_prefix.
         // -----------------------------------------------------------------------------------------
         const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
         // If it's a string not containing any / it gets interpreted as a filename prefix.
@@ -133,7 +133,16 @@ void CliController::Go()
                 auto v = make_shared<viewers::PersonsViewer>(output_prefix);
                 runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
         } else {
-                m_logger->info("Setting for output of cases: false");
+                m_logger->info("Setting for output of persons: false");
+        }
+
+        // Summary viewer
+        if (m_config_pt.get<bool>("run.output_summary", false)) {
+                m_logger->info("Setting for output of summary: true");
+                auto v = make_shared<viewers::SummaryViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
+        } else {
+                m_logger->info("Setting for output of summary: false");
         }
 
         // -----------------------------------------------------------------------------------------
@@ -193,39 +202,30 @@ bool CliController::SetupConfig()
                 }
         }
 
-        // -----------------------------------------------------------------------------------------
-        // Overrides/additions for configuration (using -p <param>=<value>) on commandline.
-        // -----------------------------------------------------------------------------------------
         if (status) {
-                // parameter overrides on commandline
+                // -----------------------------------------------------------------------------------------
+                // Overrides/additions for configuration (using -p <param>=<value>) on commandline.
+                // -----------------------------------------------------------------------------------------
                 for (const auto& p : m_p_overrides) {
                         m_config_pt.put("run." + get<0>(p), get<1>(p));
                         m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
                 }
-        }
 
-        // -----------------------------------------------------------------------------------------
-        // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
-        // -----------------------------------------------------------------------------------------
-        if (status) {
-                // track_index_case (-r switch on commandline)
+                // -----------------------------------------------------------------------------------------
+                // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
+                // -----------------------------------------------------------------------------------------
                 m_config_pt.put("run.track_index_case", m_track_index_case);
                 m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
 
-                // silent_mode (-s switch on commandline)
                 m_config_pt.put("run.silent_mode", m_silent_mode);
                 m_logger->info("Setting for run.silent_mode:  {}", m_silent_mode);
 
-                // use_install_dirs (-w or --working_dir switch on commandline)
                 m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
                 m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
-        }
 
-        // -----------------------------------------------------------------------------------------
-        // Config item that is often defaulted: num_threads.
-        // -----------------------------------------------------------------------------------------
-        if (status) {
-                // Handling num_threads
+                // -----------------------------------------------------------------------------------------
+                // Config item that is often defaulted: num_threads.
+                // -----------------------------------------------------------------------------------------
                 const auto opt_num = m_config_pt.get_optional<unsigned int>("run.num_threads");
                 if (!opt_num) {
                         // default for num_threads if not specified in config or commandline
@@ -234,13 +234,10 @@ bool CliController::SetupConfig()
                 } else {
                         m_logger->info("Specification for run.num_threads:  {}", *opt_num);
                 }
-        }
 
-        // -----------------------------------------------------------------------------------------
-        // Config item that are is defaulted: output_prefix.
-        // -----------------------------------------------------------------------------------------
-        if (status) {
-                // Handling output_prefix
+                // -----------------------------------------------------------------------------------------
+                // Config item that is often defaulted: output_prefix.
+                // -----------------------------------------------------------------------------------------
                 auto output_prefix = m_config_pt.get<string>("run.output_prefix", "");
                 if (output_prefix.length() == 0) {
                         // Not specified with (-p output_prefix=<prefix>) or in config, so default

@@ -60,6 +60,7 @@ set(LIB_SRC
 	viewers/CasesViewer.cpp
     viewers/CliViewer.cpp
     viewers/PersonsViewer.cpp
+	viewers/SummaryViewer.cpp
 )
 
 #============================================================================

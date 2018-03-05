@@ -24,8 +24,8 @@
 #include "pop/PopulationBuilder.h"
 #include "util/FileSys.h"
 
-#include <boost/property_tree/xml_parser.hpp>
 #include "spdlog/sinks/null_sink.h"
+#include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 
 namespace stride {
@@ -33,7 +33,6 @@ namespace stride {
 using namespace boost::property_tree;
 using namespace std;
 using namespace util;
-
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++
 // WARNING For backward compatibility with StrideRunner
@@ -45,8 +44,8 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
     : m_logger(std::move(logger)), m_pt_config(config_pt)
 {
         if (!m_logger) {
-                const auto null_sink = make_shared<spdlog::sinks::null_sink_st> ();
-                m_logger = make_shared<spdlog::logger>("SimBuilder_null_logger", null_sink);
+                const auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
+                m_logger             = make_shared<spdlog::logger>("SimBuilder_null_logger", null_sink);
         }
         assert(!m_pt_config.empty() && "Initializing SimulatorBuilder with empty ptree!");
         assert(m_logger != nullptr && "Initializing SimulatorBuilder with nullptr for logger!");

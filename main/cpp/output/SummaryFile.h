@@ -33,7 +33,7 @@ class SummaryFile
 {
 public:
         /// Constructor: initialize.
-        explicit SummaryFile(const std::string& output_dir = "output");
+        explicit SummaryFile(const std::string& output_prefix = "output");
 
         /// Destructor: close the file stream.
         ~SummaryFile();

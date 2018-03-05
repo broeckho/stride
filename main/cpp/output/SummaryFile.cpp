@@ -52,18 +52,11 @@ void SummaryFile::Print(const boost::property_tree::ptree& pt_config, unsigned i
                         unsigned int num_cases, double transmission_rate, unsigned int run_time,
                         unsigned int total_time)
 {
-        unsigned int num_threads{0};
-
-#pragma omp parallel
-        {
-                num_threads = static_cast<unsigned int>(omp_get_num_threads());
-        }
-
         m_fstream << pt_config.get<string>("run.population_file") << "," << pt_config.get<unsigned int>("run.num_days")
                   << "," << population_size << "," << pt_config.get<double>("run.seeding_rate") << ","
                   << pt_config.get<double>("run.r0") << "," << transmission_rate << ","
-                  << pt_config.get<double>("run.immunity_rate") << "," << num_threads << ","
-                  << pt_config.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
+                  << pt_config.get<double>("run.immunity_rate") << "," << pt_config.get<unsigned int>("run.num_threads")
+                  << "," << pt_config.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
                   << num_cases << "," << static_cast<double>(num_cases) / population_size << ","
                   << pt_config.get<string>("run.output_prefix") << "," << pt_config.get<string>("run.start_date") << ","
                   << pt_config.get<string>("run.age_contact_matrix_file") << ","
