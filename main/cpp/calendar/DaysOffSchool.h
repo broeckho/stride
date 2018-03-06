@@ -36,7 +36,7 @@ public:
         bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
 
         /// See DaysOffInterface.
-        virtual bool IsSchoolOff() override { return true; }
+        bool IsSchoolOff() override { return true; }
 
 private:
         std::shared_ptr<Calendar> m_calendar; ///< Management of calendar.

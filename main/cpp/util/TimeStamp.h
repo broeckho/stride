@@ -62,7 +62,7 @@ public:
                 time_t    now = time(NULL);
                 struct tm tstruct;
                 char      buf[80];
-                tstruct = *localtime(&now);
+                tstruct = *localtime_r(&now, &tstruct);
                 strftime(buf, sizeof(buf), "%Y%m%d_%H%M%S", &tstruct);
                 return buf;
         }

@@ -39,7 +39,7 @@ public:
         bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }
 
         /// See DaysOffInterface.
-        virtual bool IsSchoolOff() override
+        bool IsSchoolOff() override
         {
                 return m_calendar->IsWeekend() || m_calendar->IsHoliday() || m_calendar->IsSchoolHoliday();
         }

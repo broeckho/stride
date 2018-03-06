@@ -215,7 +215,7 @@ public:
         T* emplace_back(Args&&... args)
         {
                 T* memory = this->get_chunk();
-                return new (memory) T(args...); // construct new object
+                return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
 
         /// Removes the last element.

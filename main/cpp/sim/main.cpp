@@ -71,7 +71,6 @@ int main(int argc, char** argv)
                                     silent_mode_Arg.getValue(), use_install_dirs);
                 cntrl.Setup();
                 cntrl.Go();
-
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;
