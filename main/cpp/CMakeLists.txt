@@ -39,6 +39,7 @@ set(LIB_SRC
 	output/SummaryFile.cpp
 #---	
     pop/Person.cpp
+    pop/Population.cpp
     pop/PopulationBuilder.cpp
 #---
     sim/CliController.cpp
@@ -54,6 +55,7 @@ set(LIB_SRC
     util/FileUtils.cpp
     util/FileSys.cpp
 	util/LogUtils.cpp
+	util/PtreeUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
 #---

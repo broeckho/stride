@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -13,38 +12,32 @@
  *
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
-
 /**
  * @file
- * Header file for Belief.
+ * Implementation of ptree utils.
  */
+
+#include "PtreeUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
 
+using namespace boost::property_tree;
+using namespace std;
+
 namespace stride {
+namespace util {
 
-/**
- * Base class for all belief policies.
- */
-class Belief
+// const boost::property_tree::ptree stride::util::PtreeUtils::emptyTree = boost::property_tree::ptree();
+
+vector<double> PtreeUtils::GetDistribution(const ptree& pt_root, const string& xml_tag)
 {
-public:
-        ///
-        Belief(const boost::property_tree::ptree& pt) {}
+        vector<double>              values;
+        boost::property_tree::ptree subtree = pt_root.get_child(xml_tag);
+        for (const auto& tree : subtree) {
+                values.push_back(tree.second.get<double>(""));
+        }
+        return values;
+}
 
-        ///
-        virtual ~Belief() {}
-
-        ///
-        //boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        //void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
-
-        virtual bool HasAdopted() const { return false; }
-
-private:
-        //boost::property_tree::ptree m_pt; ///<
-};
-
+} // namespace util
 } // namespace stride
