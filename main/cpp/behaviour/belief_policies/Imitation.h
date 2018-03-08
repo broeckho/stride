@@ -21,6 +21,8 @@
 
 #include "behaviour/belief_policies/Belief.h"
 
+#include <iostream>
+
 namespace stride {
 
 class Imitation : public Belief
@@ -40,6 +42,7 @@ public:
         void Update(const Belief* other_person )
         {
         		// TODO implement this...
+        	std::cout << "Updating imitation belief" << std::endl;
         }
 private:
         double m_accept_threshold;

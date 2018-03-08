@@ -39,19 +39,18 @@ def runBaseline():
     sim.runConfig.setParameter("num_participants_survey", 10000)
     sim.runConfig.setParameter("age_contact_matrix_file", "data/contact_matrix_flanders_subpop.xml")
     sim.runConfig.setParameter("log_level", "SusceptibleContacts")
-    sim.runConfig.setParameter("start_date", "2017-01-01")
+    sim.runConfig.setParameter("start_date", "2017-03-02")
     sim.runConfig.setParameter("holidays_file", "data/holidays_none.json")
-    
-    # immunity_profile
-    # vaccine_profile
-    # vaccine_link_probability
-    # immunity_rate
-    # vaccine_rate
+
+    # immunity_rate = 80%
+    # immunity_profile = Random for people above 35 years old
+
+    # vaccine_rate = 80%
+    # vaccine_profile = Random for people < 35 years old (or recreate actual vaccination distribution??)
+    # vaccine_link_probability = 0
 
     sim.runConfig.setParameter("local_information_policy", "NoLocalInformation")
-    sim.runConfig.setParameter("global_information_policy", "NoGlobalInformation")
     sim.runConfig.setParameter("belief_policy/name", "NoBelief")
-    sim.runConfig.setParameter("behaviour_policy", "NoBehaviour")
 
     sim.runConfig.setParameter("rng_seed", 1)
 
