@@ -46,9 +46,9 @@ set(LIB_SRC
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
-	sim/StrideRunner.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
+	sim/python/StrideRunner.cpp
 #---
     util/CSV.cpp
 	util/CSVRow.cpp

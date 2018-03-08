@@ -35,6 +35,7 @@
 #include <spdlog/spdlog.h>
 
 namespace stride {
+namespace python {
 
 using namespace output;
 using namespace util;
@@ -258,4 +259,5 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         }
 }
 
+} // namespace python
 } // namespace stride

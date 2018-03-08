@@ -29,6 +29,7 @@
 #include <vector>
 
 namespace stride {
+namespace python {
 
 /**
  * Class for setting up & managing a simulation.
@@ -75,4 +76,5 @@ private:
         std::shared_ptr<Simulator>  m_sim;           ///< Simulator object.
 };
 
+} // namespace python
 } // namespace stride

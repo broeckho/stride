@@ -35,7 +35,7 @@
 namespace stride {
 
 /**
- * Main class that contains and direct the virtual world.
+ * Simulator can time step and reveal some of the key data..
  */
 class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
 {
