@@ -90,7 +90,7 @@ public:
                 }
                 if (tag == "r0_4") {
                         pt.put("run.r0", 4.0);
-                        target = 22000U;
+                        target = 21000U;
                 }
                 if (tag == "r0_8") {
                         pt.put("run.r0", 8.0);
