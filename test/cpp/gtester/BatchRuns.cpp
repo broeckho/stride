@@ -82,7 +82,7 @@ public:
                 double       margin = 0.1;
 
                 if (tag == "influenza_a") {
-                        target = 2000U;
+                        target = 1085U;
                 }
                 if (tag == "influenza_b") {
                         pt.put("run.seeding_rate", 0.0);
@@ -168,7 +168,7 @@ TEST_P(BatchRuns, Run)
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int res = sim->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << "with threads: " << num_threads;
+        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << " with threads: " << num_threads;
 }
 
 namespace {
