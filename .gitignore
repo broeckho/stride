@@ -8,6 +8,7 @@
 *.out
 *.Release
 *~
+._*
 .\#*
 *.bak
 *.DS_Store
@@ -15,6 +16,7 @@
 *.directory
 *-eps-converted-to.pdf
 *.Rhistory
+Thumbs.db
 
 #------------------------------------
 # Local make config & build directory
@@ -32,22 +34,23 @@ build*/
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 #-----------------------------
 # User-specific stuff:
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
+#.idea/**/workspace.xml
+#.idea/**/tasks.xml
+#.idea/dictionaries
 
 # Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
+#.idea/**/dataSources/
+#.idea/**/dataSources.ids
+#.idea/**/dataSources.xml
+#.idea/**/dataSources.local.xml
+#.idea/**/sqlDataSources.xml
+#.idea/**/dynamic.xml
+#.idea/**/uiDesigner.xml
 
+# alle project definition & config files
+.idea/**
 # CMake
 cmake-build-*
-
 ## File-based project format:
 *.iws
 
@@ -65,14 +68,6 @@ cmake-build-*
 # Python stuff
 #------------------------------------
 .pydevproject
-
-#----------------
-# Random OS stuff
-#----------------
-.DS_Store
-Thumbs.db
-._*
-.directory
 
 #----------------
 # LaTeX build stuff
@@ -100,10 +95,3 @@ doc/doxygen/Doxyfile
 doc/doxygen/html
 doc/doxygen/latex
 doc/doxygen/tex
-
-#----------------
-# g3log stuff
-#----------------
-main/resources/lib/g3log/g3log-FATAL-*
-main/resources/lib/g3log/*.so
-main/resources/lib/g3log/scripts/
