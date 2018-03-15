@@ -32,7 +32,6 @@ using namespace std;
 
 namespace stride {
 
-
 unsigned int Population::GetInfectedCount() const
 {
         unsigned int total{0U};
@@ -59,9 +58,9 @@ unsigned int Population::GetAdoptedCount() const
 template <typename BeliefPolicy>
 void Population::NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                            unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                           unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-                           unsigned int time_symptomatic, const ptree& pt_belief, double risk_averseness
-                           )
+                           unsigned int start_infectiousness, unsigned int start_symptomatic,
+                           unsigned int time_infectious, unsigned int time_symptomatic, const ptree& pt_belief,
+                           double risk_averseness)
 {
         static util::SegmentedVector<BeliefPolicy> beliefs_container;
         const BeliefPolicy                         b(pt_belief);
@@ -70,28 +69,27 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
 
         BeliefPolicy* bp = beliefs_container.emplace_back(b);
         this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
-                                  secondary_community_id, start_infectiousness, start_symptomatic,
-                                  time_infectious, time_symptomatic, risk_averseness, bp));
+                                  secondary_community_id, start_infectiousness, start_symptomatic, time_infectious,
+                                  time_symptomatic, risk_averseness, bp));
 
         assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
 }
 
-
 void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                  unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                  unsigned int start_infectiousness, unsigned int start_symptomatic,
-                  unsigned int time_infectious, unsigned int time_symptomatic, const ptree& pt_belief, double risk_averseness
-                  )
+                              unsigned int work_id, unsigned int primary_community_id,
+                              unsigned int secondary_community_id, unsigned int start_infectiousness,
+                              unsigned int start_symptomatic, unsigned int time_infectious,
+                              unsigned int time_symptomatic, const ptree& pt_belief, double risk_averseness)
 {
         string belief_policy = pt_belief.get<string>("name");
         if (belief_policy == "NoBelief") {
                 NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
-                                    secondary_community_id, start_infectiousness, start_symptomatic,
-                                    time_infectious, time_symptomatic, pt_belief, risk_averseness);
+                                    secondary_community_id, start_infectiousness, start_symptomatic, time_infectious,
+                                    time_symptomatic, pt_belief, risk_averseness);
         } else if (belief_policy == "Imitation") {
                 NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
-                                     secondary_community_id, start_infectiousness, start_symptomatic,
-                                     time_infectious, time_symptomatic, pt_belief, risk_averseness);
+                                     secondary_community_id, start_infectiousness, start_symptomatic, time_infectious,
+                                     time_symptomatic, pt_belief, risk_averseness);
         } else {
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }

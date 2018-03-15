@@ -36,15 +36,15 @@ public:
         virtual ~Belief() {}
 
         ///
-        //boost::property_tree::ptree Get() { return m_pt; }
+        // boost::property_tree::ptree Get() { return m_pt; }
 
         ///
-        //void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
+        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
 
         virtual bool HasAdopted() const { return false; }
 
 private:
-        //boost::property_tree::ptree m_pt; ///<
+        // boost::property_tree::ptree m_pt; ///<
 };
 
 } // namespace stride

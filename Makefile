@@ -23,7 +23,7 @@
 #   Configuring Make invocations.
 #============================================================================
 ifeq ($(PARALLEL_MAKE),)
-	PARALLEL_MAKE = -j4
+	PARALLEL_MAKE = -j`getconf _NPROCESSORS_ONLN`
 endif
 #============================================================================
 # 	CMake command
@@ -110,6 +110,7 @@ help:
 	@ $(CMAKE) -E echo " "
 				
 configure:
+	echo $(PARALLEL_MAKE)
 	$(CMAKE) -E make_directory $(BUILD_DIR)
 	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
 

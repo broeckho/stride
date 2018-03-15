@@ -35,7 +35,6 @@ public:
         /// Create a vector with a distribution from a given property tree, based on an xml tag.
         static std::vector<double> GetDistribution(const boost::property_tree::ptree& pt_root,
                                                    const std::string&                 xml_tag);
-        
 };
 
 } // namespace util

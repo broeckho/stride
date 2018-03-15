@@ -25,8 +25,8 @@
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <spdlog/spdlog.h>
 #include <cassert>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -168,7 +168,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
 /// Sample from the distribution
 unsigned int PopulationBuilder::Sample(std::function<double()>& rn_generator, const std::vector<double>& distribution)
 {
-        assert((abs(distribution.back() -1.0) < 1.e-10) && "PopulationBUilder::Sample> Error in distribution!");
+        assert((abs(distribution.back() - 1.0) < 1.e-10) && "PopulationBUilder::Sample> Error in distribution!");
         const auto random01 = rn_generator();
         for (unsigned int i = 0; i < distribution.size(); i++) {
                 if (random01 <= distribution[i]) {
