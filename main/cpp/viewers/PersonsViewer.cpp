@@ -31,9 +31,8 @@ namespace viewers {
 void PersonsViewer::update(const sim_event::Payload& p)
 {
         switch (p.m_event_id) {
-        case Id::AtStart: break;
-        case Id::Stepped: break;
         case Id::Finished: m_persons_file.Print(p.m_runner->GetSim()->GetPopulation()); break;
+        default: break;
         }
 }
 

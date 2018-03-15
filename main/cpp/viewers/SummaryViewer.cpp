@@ -41,12 +41,12 @@ void SummaryViewer::update(const sim_event::Payload& p)
         const auto milli     = static_cast<unsigned int>(dur.count());
 
         switch (p.m_event_id) {
-        case Id::AtStart: break;
-        case Id::Stepped: break;
+
         case Id::Finished:
                 m_summary_file.Print(pt_config, pop->size(), pop->GetInfectedCount(),
                                      sim->GetDiseaseProfile().GetTransmissionRate(), milli, milli);
                 break;
+        default: break;
         }
 }
 

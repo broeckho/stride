@@ -32,7 +32,8 @@ using boost::to_upper;
 bool IsType(const string& s)
 {
         static map<string, Id> ids{make_pair("ATSTART", Id::AtStart), make_pair("STEPPED", Id::Stepped),
-                                   make_pair("FINISHED", Id::Finished)};
+                                   make_pair("FINISHED", Id::Finished), make_pair("SETUPBEGIN", Id::SetupBegin),
+                                   make_pair("SETUPEND", Id::SetupEnd)};
         string                 t{s};
         to_upper(t);
         return (ids.count(t) == 1);
@@ -41,14 +42,16 @@ bool IsType(const string& s)
 string ToString(Id c)
 {
         static map<Id, string> names{make_pair(Id::AtStart, "atstart"), make_pair(Id::Stepped, "stepped"),
-                                     make_pair(Id::Finished, "finished")};
+                                     make_pair(Id::Finished, "finished"), make_pair(Id::SetupBegin, "setupbegin"),
+                                     make_pair(Id::SetupEnd, "setupend")};
         return (names.count(c) == 1) ? names[c] : "null";
 }
 
 Id ToType(const string& s)
 {
         static map<string, Id> ids{make_pair("ATSTART", Id::AtStart), make_pair("STEPPED", Id::Stepped),
-                                   make_pair("FINISHED", Id::Finished)};
+                                   make_pair("FINISHED", Id::Finished), make_pair("SETUPBEGIN", Id::SetupBegin),
+                                   make_pair("SETUPEND", Id::SetupEnd)};
         string                 t{s};
         to_upper(t);
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("EventId::ToString> not available:" + t);

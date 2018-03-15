@@ -37,6 +37,7 @@ void CasesViewer::update(const sim_event::Payload& p)
         case Id::AtStart: m_cases.push_back(pop->GetInfectedCount()); break;
         case Id::Stepped: m_cases.push_back(pop->GetInfectedCount()); break;
         case Id::Finished: m_cases_file.Print(m_cases); break;
+        default: break;
         }
 }
 

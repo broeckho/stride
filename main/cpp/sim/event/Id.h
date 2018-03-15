@@ -30,7 +30,9 @@ enum class Id
 {
         AtStart,
         Stepped,
-        Finished
+        Finished,
+        SetupBegin,
+        SetupEnd
 };
 
 /// Number of ContactPool types.

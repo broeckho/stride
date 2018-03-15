@@ -37,6 +37,7 @@ void AdoptedViewer::update(const sim_event::Payload& p)
         case Id::AtStart: m_adopted.push_back(pop->GetAdoptedCount()); break;
         case Id::Stepped: m_adopted.push_back(pop->GetAdoptedCount()); break;
         case Id::Finished: m_adopted_file.Print(m_adopted); break;
+        default: break;
         }
 }
 
