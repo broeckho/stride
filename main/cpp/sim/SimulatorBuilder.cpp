@@ -22,6 +22,7 @@
 
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
+#include "util/LogUtils.h"
 #include "util/FileSys.h"
 
 #include "spdlog/sinks/null_sink.h"
@@ -43,6 +44,7 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt)
         if (!m_logger) {
                 const auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
                 m_logger             = make_shared<spdlog::logger>("SimBuilder_null_logger", null_sink);
+                // no need to register the logger
         }
 }
 
@@ -132,6 +134,26 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         sim->m_log_level = LogMode::IsLogMode(l)
                                ? LogMode::ToLogMode(l)
                                : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
+
+        // -----------------------------------------------------------------------------------------
+        // Create logger (unless it already exists) for use by the simulator during time step computations.
+        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
+        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
+        // -----------------------------------------------------------------------------------------
+        if (!spdlog::get("contact_logger")) {
+                const auto contact_outputfile = m_pt_config.get<bool>("run.contact_outputfile", true);
+                if (contact_outputfile) {
+                        const auto output_prefix = m_pt_config.get<string>("run.output_prefix");
+                        spdlog::set_async_mode(1048576);
+                        const auto log_path = FileSys::BuildPath(output_prefix, "contact_log.txt");
+                        auto contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
+                                                                         numeric_limits<size_t>::max(),
+                                                                         numeric_limits<size_t>::max());
+                        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
+                } else {
+                        LogUtils::GetNullLogger("contact_logger");
+                }
+        }
 
         // --------------------------------------------------------------
         // Set correct information policies.

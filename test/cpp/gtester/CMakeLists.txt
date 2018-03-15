@@ -22,7 +22,6 @@ set( EXEC       gtester     )
 set( SRC
 		main.cpp
 		BatchRuns.cpp
-		InfluenceR0Runs.cpp
 )
 
 add_executable(${EXEC}   ${SRC} )

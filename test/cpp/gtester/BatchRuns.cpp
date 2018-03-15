@@ -42,7 +42,7 @@ public:
         static void TearDownTestCase() {}
 
         /// Basic config, gets modified for the various scenarios.
-        static ptree BasicConfig()
+        static ptree BasicConfig1()
         {
                 static ptree pt_config;
                 if (pt_config.empty()) {
@@ -57,7 +57,7 @@ public:
                         pt_config.put("run.vaccine_profile", "None");
                         pt_config.put("run.population_file", "pop_flanders600.csv");
                         pt_config.put("run.num_days", 30U);
-                        pt_config.put("run.output_prefix", "test");
+                        pt_config.put("run.output_prefix", "test/BatchRuns");
                         pt_config.put("run.disease_config_file", "disease_influenza.xml");
                         pt_config.put("run.num_participants_survey", 10);
                         pt_config.put("run.start_date", "2017-01-01");
@@ -70,6 +70,43 @@ public:
                         pt_config.put("run.behaviour_policy", "NoBehaviour");
                         pt_config.put("run.use_install_dirs", true);
                         pt_config.put("run.track_index_case", false);
+                        pt_config.put("run.silent_mode", true);
+                        pt_config.put("run.contact_outputfile", false);
+                }
+                return pt_config;
+        }
+
+        /// Basic config, R0 will change over the various scenarios.
+        static ptree BasicConfig2()
+        {
+                static ptree pt_config;
+                if (pt_config.empty()) {
+                        pt_config.put("run.rng_seed", 1U);
+                        pt_config.put("run.seeding_rate", 0.002);
+                        pt_config.put("run.seeding_age_min", 1);
+                        pt_config.put("run.seeding_age_max", 99);
+                        pt_config.put("run.immunity_rate", 0.8);
+                        pt_config.put("run.immunity_profile", "None");
+                        pt_config.put("run.vaccine_rate", 0.8);
+                        pt_config.put("run.vaccine_profile", "Random");
+                        pt_config.put("run.vaccine_link_probability", 0);
+                        pt_config.put("run.population_file", "pop_flanders600.csv");
+                        pt_config.put("run.num_days", 50U);
+                        pt_config.put("run.output_prefix", "test/BatchRuns");
+                        pt_config.put("run.disease_config_file", "disease_measles.xml");
+                        pt_config.put("run.num_participants_survey", 10);
+                        pt_config.put("run.start_date", "2017-01-01");
+                        pt_config.put("run.holidays_file", "holidays_none.json");
+                        pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
+                        pt_config.put("run.log_level", "Transmissions");
+                        pt_config.put("run.local_information_policy", "NoLocalInformation");
+                        pt_config.put("run.global_information_policy", "NoGlobalInformation");
+                        pt_config.put("run.belief_policy.name", "NoBelief");
+                        pt_config.put("run.behaviour_policy", "NoBehaviour");
+                        pt_config.put("run.use_install_dirs", true);
+                        pt_config.put("run.track_index_case", false);
+                        pt_config.put("run.silent_mode", true);
+                        pt_config.put("run.contact_outputfile", false);
                 }
                 return pt_config;
         }
@@ -77,10 +114,11 @@ public:
         /// Scenario config and test target number and margin of tolerance in percent (of target value).
         static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
         {
-                ptree        pt     = BasicConfig();
+                ptree        pt = tag.substr(0,2) != "r0" ? BasicConfig1() : BasicConfig2();
                 unsigned int target = 0U;
                 double       margin = 0.1;
 
+                // Influenza data
                 if (tag == "influenza_a") {
                         target = 1085U;
                 }
@@ -93,6 +131,8 @@ public:
                         pt.put("run.immunity_rate", 0.9991);
                         target = 5U;
                 }
+
+                // Measles data.
                 if (tag == "measles_16") {
                         pt.put("run.disease_config_file", "disease_measles.xml");
                         pt.put("run.r0", 16U);
@@ -103,6 +143,29 @@ public:
                         pt.put("run.r0", 60U);
                         target = 600000U;
                 }
+
+                // Run_r0 data
+                if (tag == "r0_0") {
+                        pt.put("run.r0", 0.0);
+                        target = 1200U;
+                }
+                if (tag == "r0_4") {
+                        pt.put("run.r0", 4.0);
+                        target = 21000U;
+                }
+                if (tag == "r0_8") {
+                        pt.put("run.r0", 8.0);
+                        target = 90354U;
+                }
+                if (tag == "r0_12") {
+                        pt.put("run.r0", 12.0);
+                        target = 110745U;
+                }
+                if (tag == "r0_16") {
+                        pt.put("run.r0", 16.0);
+                        target = 117153U;
+                }
+
                 return make_tuple(pt, target, margin);
         };
 
@@ -124,13 +187,13 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Prepare test configuration.
         // -----------------------------------------------------------------------------------------
-        const string test_tag{get<0>(t)};
+        const string test_tag = get<0>(t);
         const auto   num_threads = get<1>(t);
         omp_set_num_threads(num_threads);
         omp_set_schedule(omp_sched_static, 1);
 
         // -----------------------------------------------------------------------------------------
-        // Scenario configuration and target number.
+        // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
         const auto d         = ScenarioData(test_tag);
         auto       pt_config = get<0>(d);
@@ -138,27 +201,17 @@ TEST_P(BatchRuns, Run)
         const auto margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
-        // Initialize the logger.
-        // -----------------------------------------------------------------------------------------
-        spdlog::set_async_mode(1048576);
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", "test_logfile", numeric_limits<size_t>::max(),
-                                                      numeric_limits<size_t>::max());
-        file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
-
-        // -----------------------------------------------------------------------------------------
         // Initialize the simulator.
         // -----------------------------------------------------------------------------------------
-        cout << "Building the simulator. " << endl;
         cout << " ----> test_tag: " << test_tag << endl << " ----> threadcount:  " << num_threads << endl;
         pt_config.put("run.num_threads", num_threads);
         SimulatorBuilder builder(pt_config);
         const auto       sim = builder.Build();
-        cout << "Done building the simulator" << endl;
 
         // -----------------------------------------------------------------------------------------
-        // Run the simulation and release logger.
+        // Run the simulation and release loggers.
         // -----------------------------------------------------------------------------------------
-        const unsigned int num_days = pt_config.get<unsigned int>("run.num_days");
+        const auto num_days = pt_config.get<unsigned int>("run.num_days");
         for (unsigned int i = 0; i < num_days; i++) {
                 sim->TimeStep();
         }
@@ -167,8 +220,8 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
-        const unsigned int res = sim->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(res, target, target * margin) << "!! CHANGES for " << test_tag << " with threads: " << num_threads;
+        const unsigned int result = sim->GetPopulation()->GetInfectedCount();
+        EXPECT_NEAR(result, target, target * margin) << "!! CHANGES:" << test_tag << " with threads: " << num_threads;
 }
 
 namespace {
@@ -176,6 +229,8 @@ namespace {
 const char* tags_influenza[] = {"influenza_a", "influenza_b", "influenza_c"};
 
 const char* tags_measles[] = {"measles_16", "measles_60"};
+
+const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 #ifdef _OPENMP
 unsigned int threads[]{1U, 4U};
@@ -187,5 +242,7 @@ unsigned int threads[]{1U};
 INSTANTIATE_TEST_CASE_P(Run_influenza, BatchRuns, Combine(ValuesIn(tags_influenza), ValuesIn(threads)));
 
 INSTANTIATE_TEST_CASE_P(Run_measles, BatchRuns, Combine(ValuesIn(tags_measles), ValuesIn(threads)));
+
+INSTANTIATE_TEST_CASE_P(Run_r0, BatchRuns, Combine(ValuesIn(tags_r0), ValuesIn(threads)));
 
 } // namespace Tests

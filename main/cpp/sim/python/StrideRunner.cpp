@@ -137,25 +137,6 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         // -----------------------------------------------------------------------------------------
         cout << "Setting for track_index_case:  " << boolalpha << track_index_case << endl;
 
-        // -----------------------------------------------------------------------------------------
-        // Create logger
-        // Transmissions:     [TRANSMISSION] <infecterID> <infectedID> <contactpoolID>
-        // <day>
-        // General contacts:  [CNT] <person1ID> <person1AGE> <person2AGE>  <at_home>
-        // <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        spdlog::set_async_mode(1048576);
-        boost::filesystem::path logfile_path = m_output_prefix;
-        if (use_install_dirs) {
-                logfile_path += "_logfile";
-        } else {
-                logfile_path /= "logfile";
-        }
-
-        auto file_logger = spdlog::rotating_logger_mt("contact_logger", logfile_path.c_str(),
-                                                      numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
-        file_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
-
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
@@ -172,8 +153,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         if (m_operational) {
                 cout << "Done checking the simulator. " << endl << endl;
         } else {
-                file_logger->info("[ERROR] Invalid configuration");
-                cout << "Invalid configuration => terminate without output" << endl << endl;
+                cerr << "Invalid configuration => terminate without output" << endl << endl;
         }
 }
 

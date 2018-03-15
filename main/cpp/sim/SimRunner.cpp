@@ -58,18 +58,6 @@ bool SimRunner::Setup(const ptree& run_config_pt)
                                ? LogUtils::GetNullLogger("stride_logger")
                                : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
         }
-        m_output_prefix = m_pt_config.get<string>("run.output_prefix");
-
-        // -----------------------------------------------------------------------------------------
-        // Create logger for use by the simulator during time step computations.
-        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
-        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        spdlog::set_async_mode(1048576);
-        const auto log_path       = FileSys::BuildPath(m_output_prefix, "contact_log.txt");
-        auto       contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
-                                                         numeric_limits<size_t>::max(), numeric_limits<size_t>::max());
-        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
 
         // ------------------------------------------------------------------------------
         // Create the simulator builder.
@@ -114,12 +102,17 @@ void SimRunner::Run()
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
         const auto num_days = m_pt_config.get<unsigned int>("run.num_days");
+        m_logger->info("SimRunner ready to run for {} days:", num_days);
+
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
                 m_sim->TimeStep();
+                m_logger->info("Time step starting at day {} done.", i);
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});
+
+        m_logger->info("SimRunner completed run.");
         m_clock.Stop();
 }
 
