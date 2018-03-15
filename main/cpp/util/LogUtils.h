@@ -32,16 +32,19 @@ namespace util {
 class LogUtils
 {
 public:
-        ///
-        /// \param logger_name
-        /// \param file_name
-        /// \return
-        static std::shared_ptr<spdlog::logger> GetCliLogger(const std::string& logger_name,
-                                                            const std::string& file_name);
+        /// Return a (not-yet-registered) commandline logger, without registering it.
+        /// Throws iff logger already registered or if spdlog throws.
+        static std::shared_ptr<spdlog::logger> CreateCliLogger(const std::string &logger_name,
+                                                               const std::string &file_name);
 
-        /// \param logger_name
-        /// \return
-        static std::shared_ptr<spdlog::logger> GetNullLogger(const std::string& logger_name);
+        /// Return a (not-yet-registered) null logger, without registering it.
+        /// Throws iff logger already registered or if spdlog throws.
+        static std::shared_ptr<spdlog::logger> CreateNullLogger(const std::string &logger_name);
+
+        /// Return a (not-yet-registered) rotating logger, without registering it.
+        /// Throws iff logger already registered or if spdlog throws.
+        static std::shared_ptr<spdlog::logger> CreateRotatingLogger(const std::string& logger_name,
+                                                                 const std::string& file_name);
 };
 
 } // namespace util

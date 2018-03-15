@@ -28,24 +28,25 @@
 namespace stride {
 namespace util {
 
-CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels) : columnCount(0)
+using namespace std;
+
+CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels) : columnCount(0)
 {
         try {
                 boost::filesystem::path     full_path = util::checkFile(path);
                 boost::filesystem::ifstream file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
-                        throw std::runtime_error("Error opening csv file: " + full_path.string());
+                        throw runtime_error("Error opening csv file: " + full_path.string());
                 }
-
-                std::string line;
+                string line;
 
                 // header
                 getline(file, line);
                 line = Trim(line);
-                std::vector<std::string> headerLabels =
-                    Split(line, ","); // Split is bad! There is no option to escape ",".
-                for (const std::string& label : headerLabels) {
+                // Split is bad! There is no option to escape ",".
+                vector<string> headerLabels = Split(line, ",");
+                for (const string& label : headerLabels) {
                         labels.push_back(Trim(label, "\""));
                 }
                 columnCount = labels.size();
@@ -54,12 +55,12 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
                 while (getline(file, line)) {
                         line = Trim(line);
                         if (!line.empty()) {
-                                std::vector<std::string> values =
-                                    Split(line, ","); // Split is bad! There is no option to escape ",".
+                                // Split is bad! There is no option to escape ",".
+                                vector<string> values = Split(line, ",");
                                 addRow(values);
                         }
                 }
-        } catch (std::runtime_error& error) {
+        } catch (runtime_error& error) {
                 // thrown by util::checkFile
                 if (optLabels.size() == 0) {
                         throw error;
@@ -70,28 +71,28 @@ CSV::CSV(const boost::filesystem::path& path, std::initializer_list<std::string>
         }
 }
 
-CSV::CSV(std::initializer_list<std::string> labels) : labels(labels), columnCount(labels.size()) {}
+CSV::CSV(initializer_list<string> labels) : labels(labels), columnCount(labels.size()) {}
 
-void CSV::addRow(std::vector<std::string> values)
+void CSV::addRow(vector<string> values)
 {
         CSVRow csvRow(this, values);
         this->push_back(csvRow);
 }
 
-void stride::util::CSV::addRows(std::vector<std::vector<std::string>>& rows)
+void stride::util::CSV::addRows(vector<vector<string>>& rows)
 {
-        for (const std::vector<std::string>& row : rows) {
+        for (const vector<string>& row : rows) {
                 addRow(row);
         }
 }
 
-size_t CSV::getIndexForLabel(const std::string& label) const
+size_t CSV::getIndexForLabel(const string& label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {
                 if (labels.at(index) == label)
                         return index;
         }
-        throw std::runtime_error("Label: " + label + " not found in CSV");
+        throw runtime_error("Label: " + label + " not found in CSV");
 }
 
 void stride::util::CSV::write(const boost::filesystem::path& path) const
@@ -99,28 +100,28 @@ void stride::util::CSV::write(const boost::filesystem::path& path) const
         boost::filesystem::ofstream file;
         file.open(path.string());
         if (!file.is_open()) {
-                throw std::runtime_error("Error opening csv file: " + path.string());
+                throw runtime_error("Error opening csv file: " + path.string());
         }
 
         for (unsigned int i = 0; i < labels.size(); ++i) {
-                const std::string& label = labels.at(i);
+                const string& label = labels.at(i);
                 file << "\"" << label << "\"";
                 if (i != labels.size() - 1) {
                         file << ",";
                 } else {
-                        file << std::endl;
+                        file << endl;
                 }
         }
 
         for (const CSVRow& row : *this) {
-                file << row << std::endl;
+                file << row << endl;
         }
         file.close();
 }
 
 bool CSV::operator==(const CSV& other) const
 {
-        return labels == other.labels && (const std::vector<CSVRow>&)*this == (const std::vector<CSVRow>&)other;
+        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
 } // namespace util

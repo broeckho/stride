@@ -175,8 +175,8 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& 
 
 void CliController::Setup()
 {
-        m_logger = m_silent_mode ? LogUtils::GetNullLogger("stride_logger")
-                                 : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
+        m_logger = m_silent_mode ? LogUtils::CreateNullLogger("stride_logger")
+                                 : LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
         m_logger->info("CliController setup:");
         m_logger->info("Starting up at:      {}", TimeStamp().ToString());
         CheckEnv();

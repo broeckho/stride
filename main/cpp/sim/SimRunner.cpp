@@ -55,8 +55,8 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         m_logger    = spdlog::get("stride_logger");
         if (!m_logger) {
                 m_logger = m_pt_config.get<bool>("run.silent_mode")
-                               ? LogUtils::GetNullLogger("stride_logger")
-                               : LogUtils::GetCliLogger("stride_logger", "stride_log.txt");
+                               ? LogUtils::CreateNullLogger("stride_logger")
+                               : LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
         }
 
         // ------------------------------------------------------------------------------

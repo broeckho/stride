@@ -140,18 +140,19 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
-        if (!spdlog::get("contact_logger")) {
+        auto contact_logger = spdlog::get("contact_logger");
+        if (!contact_logger) {
                 const auto contact_outputfile = m_pt_config.get<bool>("run.contact_outputfile", true);
                 if (contact_outputfile) {
                         const auto output_prefix = m_pt_config.get<string>("run.output_prefix");
                         spdlog::set_async_mode(1048576);
                         const auto log_path = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                        auto contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
+                        contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
                                                                          numeric_limits<size_t>::max(),
                                                                          numeric_limits<size_t>::max());
                         contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
                 } else {
-                        LogUtils::GetNullLogger("contact_logger");
+                        contact_logger = LogUtils::CreateNullLogger("contact_logger");
                 }
         }
 
@@ -159,7 +160,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // Set correct information policies.
         // --------------------------------------------------------------
         const string loc_info_policy    = m_pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
-        sim->m_local_information_policy = loc_info_policy; // TODO make this enum class like LogMode
+        sim->m_local_information_policy = loc_info_policy;
 
         // --------------------------------------------------------------
         // Build population.
@@ -201,7 +202,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         const auto max_population_index = static_cast<unsigned int>(pop_size);
         auto       int_generator = sim->m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
-        const auto contact_logger = spdlog::get("contact_logger");
         auto       num_infected   = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
                 Person& p = sim->m_population->at(static_cast<size_t>(int_generator()));

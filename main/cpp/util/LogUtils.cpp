@@ -30,42 +30,66 @@ using namespace std;
 namespace stride {
 namespace util {
 
-std::shared_ptr<spdlog::logger> LogUtils::GetCliLogger(const string& logger_name, const string& file_name)
+std::shared_ptr<spdlog::logger> LogUtils::CreateCliLogger(const string &logger_name, const string &file_name)
 {
-        using namespace spdlog;
-
         set_async_mode(1048576);
-        std::shared_ptr<spdlog::logger> stride_logger = nullptr;
+        auto lggr = get(logger_name);
+        if (lggr) {
+                throw runtime_error("LogUtils::CreateCliLogger> Creating already registered logger" + logger_name);
+        }
         try {
                 vector<sink_ptr> sinks;
-                const auto       color_sink = make_shared<sinks::ansicolor_stdout_sink_st>();
+                const auto       color_sink = make_shared<ansicolor_stdout_sink_st>();
                 sinks.push_back(color_sink);
-                sinks.push_back(make_shared<sinks::simple_file_sink_st>(file_name.c_str()));
-                stride_logger = make_shared<logger>(logger_name, begin(sinks), end(sinks));
-                register_logger(stride_logger);
+                sinks.push_back(make_shared<simple_file_sink_st>(file_name.c_str()));
+                lggr = make_shared<logger>(logger_name, begin(sinks), end(sinks));
+                register_logger(lggr);
         } catch (const spdlog_ex& e) {
-                cerr << "LogUtils::Setup> Stride logger initialization failed: " << e.what() << endl;
+                cerr << "LogUtils::CreateCliLogger> Stride logger initialization failed for "
+                        << logger_name << " and file: " << file_name << endl;
                 throw;
         }
-        return stride_logger;
+        return lggr;
 }
 
-std::shared_ptr<spdlog::logger> LogUtils::GetNullLogger(const string& logger_name)
+std::shared_ptr<logger> LogUtils::CreateNullLogger(const string &logger_name)
 {
-        using namespace spdlog;
-        ;
         set_async_mode(1048576);
-        std::shared_ptr<spdlog::logger> stride_logger = nullptr;
+        auto lggr = get(logger_name);
+        if (lggr) {
+                throw runtime_error("LogUtils::CreateNullLogger> Creating already registered logger" + logger_name);
+        }
         try {
-                const auto null_sink = make_shared<sinks::null_sink_st>();
-                stride_logger        = make_shared<logger>(logger_name, null_sink);
-                register_logger(stride_logger);
+                const auto null_sink = make_shared<null_sink_st>();
+                lggr        = make_shared<logger>(logger_name, null_sink);
+                register_logger(lggr);
         } catch (const spdlog_ex& e) {
-                cerr << "LogUtils::GetNullLogger> null logger initialization failed: " << e.what() << endl;
+                cerr << "LogUtils::CreateNullLogger> null logger initialization failed for " << logger_name << endl;
                 throw;
         }
-        return stride_logger;
+        return lggr;
 }
+
+std::shared_ptr<logger> LogUtils::CreateRotatingLogger(const string& logger_name, const string& file_name)
+{
+        set_async_mode(1048576);
+        auto lggr = get(logger_name);
+        if (lggr) {
+                throw runtime_error("LogUtils::CreateRotatingLogger> Creating already registered logger" + logger_name);
+        }
+        try {
+                auto rot = make_shared<rotating_file_sink_mt>(file_name, numeric_limits<size_t>::max(),
+                                                              numeric_limits<size_t>::max());
+                lggr = make_shared<logger>(logger_name, rot);
+                register_logger(lggr);
+        } catch (const spdlog_ex& e) {
+                cerr << "LogUtils::CreateRotatingLogger> Rotating logger initialization failed for "
+                     << logger_name << " and file: " << file_name << endl;
+                throw;
+        }
+        return lggr;
+}
+
 
 } // namespace util
 } // namespace stride
