@@ -52,7 +52,6 @@ set(LIB_SRC
 #---
     util/CSV.cpp
 	util/CSVRow.cpp
-    util/FileUtils.cpp
     util/FileSys.cpp
 	util/LogUtils.cpp
 	util/PtreeUtils.cpp

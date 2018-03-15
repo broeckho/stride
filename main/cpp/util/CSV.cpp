@@ -20,7 +20,6 @@
 
 #include "CSV.h"
 
-#include "util/FileUtils.h"
 #include "util/Misc.h"
 
 #include <boost/filesystem/fstream.hpp>
@@ -28,12 +27,13 @@
 namespace stride {
 namespace util {
 
+using namespace boost;
 using namespace std;
 
 CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels) : columnCount(0)
 {
         try {
-                boost::filesystem::path     full_path = util::checkFile(path);
+                boost::filesystem::path     full_path = check(path);
                 boost::filesystem::ifstream file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
@@ -61,7 +61,6 @@ CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels
                         }
                 }
         } catch (runtime_error& error) {
-                // thrown by util::checkFile
                 if (optLabels.size() == 0) {
                         throw error;
                 } else {
@@ -79,12 +78,22 @@ void CSV::addRow(vector<string> values)
         this->push_back(csvRow);
 }
 
-void stride::util::CSV::addRows(vector<vector<string>>& rows)
+void CSV::addRows(vector<vector<string>>& rows)
 {
         for (const vector<string>& row : rows) {
                 addRow(row);
         }
 }
+const filesystem::path check(const filesystem::path& filename, const filesystem::path& root)
+{
+        const filesystem::path file_path = canonical(complete(filename, root));
+        if (!is_regular_file(file_path)) {
+                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
+                                         " not present. Aborting.");
+        }
+        return file_path;
+}
+
 
 size_t CSV::getIndexForLabel(const string& label) const
 {
@@ -95,7 +104,7 @@ size_t CSV::getIndexForLabel(const string& label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void stride::util::CSV::write(const boost::filesystem::path& path) const
+void CSV::write(const boost::filesystem::path& path) const
 {
         boost::filesystem::ofstream file;
         file.open(path.string());
