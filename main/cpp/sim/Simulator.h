@@ -19,20 +19,24 @@
  * Header for the Simulator class.
  */
 
-#include "calendar/Calendar.h"
 #include "core/ContactPool.h"
 #include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "core/LogMode.h"
-#include "pop/Population.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <array>
+
+namespace spdlog {
+class logger;
+}
 
 namespace stride {
+
+class Calendar;
+class Population;
 
 /**
  * Simulator can time step and reveal some of the key data..
@@ -65,16 +69,16 @@ private:
         void UpdateContactPools();
 
 private:
-        boost::property_tree::ptree m_pt_config;        ///< Configuration property tree
-        ContactProfiles             m_contact_profiles; ///< Contact patterns.
-        DiseaseProfile              m_disease_profile;  ///< Profile of disease.
-        bool                        m_track_index_case; ///< General simulation or tracking index case.
-        unsigned int                m_num_threads;      ///< The number of (OpenMP) threads.
-        LogMode::Id                 m_log_level;        ///< Specifies logging mode.
-
-        std::shared_ptr<Calendar> m_calendar;    ///< Management of calendar.
-        util::RNManager           m_rn_manager;  ///< Random numbere generation management.
-        bool                      m_operational; ///< False when invalid disease profile is specified.
+        boost::property_tree::ptree     m_pt_config;        ///< Configuration property tree
+        ContactProfiles                 m_contact_profiles; ///< Contact patterns.
+        DiseaseProfile                  m_disease_profile;  ///< Profile of disease.
+        bool                            m_track_index_case; ///< General simulation or tracking index case.
+        unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
+        LogMode::Id                     m_log_level;        ///< Specifies contact/transmission logging mode.
+        std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
+        std::shared_ptr<Calendar>       m_calendar;         ///< Management of calendar.
+        util::RNManager                 m_rn_manager;       ///< Random numbere generation management.
+        bool                            m_operational;      ///< False when invalid disease profile is specified.
 
 private:
         ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is incremented at the

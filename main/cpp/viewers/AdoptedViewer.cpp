@@ -19,6 +19,8 @@
  */
 
 #include "AdoptedViewer.h"
+
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 

@@ -20,14 +20,17 @@
 
 #include "SimulatorBuilder.h"
 
+#include "calendar/Calendar.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
-#include "util/LogUtils.h"
+#include "sim/Simulator.h"
 #include "util/FileSys.h"
+#include "util/LogUtils.h"
 
-#include "spdlog/sinks/null_sink.h"
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <spdlog/sinks/null_sink.h>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -138,21 +141,21 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
-        auto contact_logger = spdlog::get("contact_logger");
-        if (!contact_logger) {
+        sim->m_contact_logger = spdlog::get("contact_logger");
+        if (!sim->m_contact_logger) {
                 const auto contact_outputfile = m_pt_config.get<bool>("run.contact_outputfile", true);
                 if (contact_outputfile) {
                         const auto output_prefix = m_pt_config.get<string>("run.output_prefix");
-                        const auto log_path = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                        contact_logger = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
+                        const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
+                        sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
                         // Remove meta data from log => time-stamp of logging
-                        contact_logger->set_pattern("%v");
+                        sim->m_contact_logger->set_pattern("%v");
                 } else {
-                        contact_logger = LogUtils::CreateNullLogger("contact_logger");
+                        sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
                 }
         }
         // For now this is necessary because we are note paasing it through sim to the Infectors.
-        spdlog::register_logger(contact_logger);
+        spdlog::register_logger(sim->m_contact_logger);
 
         // --------------------------------------------------------------
         // Set correct information policies.
@@ -200,14 +203,14 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         const auto max_population_index = static_cast<unsigned int>(pop_size);
         auto       int_generator = sim->m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
-        auto       num_infected   = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
+        auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
                 Person& p = sim->m_population->at(static_cast<size_t>(int_generator()));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
                     (p.GetAge() <= seeding_age_max)) {
                         p.GetHealth().StartInfection();
                         num_infected--;
-                        contact_logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        sim->m_contact_logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 

@@ -22,12 +22,15 @@
 
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
+#include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
 #include "core/ContactHandler.h"
 #include "core/Infector.h"
+#include "pop/Population.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -37,7 +40,8 @@ using namespace util;
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    : m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_sim_day(0U), m_population(nullptr)
+    : m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_contact_logger(nullptr),
+      m_sim_day(0U), m_population(nullptr)
 
 {
 }
@@ -137,31 +141,33 @@ void Simulator::UpdateContactPools()
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_households.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_households[i], m_disease_profile, handlers[thread], m_calendar);
+                            m_households[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_school_pools.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_school_pools[i], m_disease_profile, handlers[thread], m_calendar);
+                            m_school_pools[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_work_pools.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_work_pools[i], m_disease_profile, handlers[thread], m_calendar);
+                            m_work_pools[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 /*
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_primary_community.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                                m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar);
+                                m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar,
+                                m_contact_logger);
                 }
 */
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_secondary_community.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar);
+                            m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar,
+                            m_contact_logger);
                 }
         }
 }

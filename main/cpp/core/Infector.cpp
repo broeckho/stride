@@ -134,7 +134,7 @@ public:
 //-------------------------------------------------------------------------------------------------
 template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
 void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
-                                      shared_ptr<const Calendar> calendar)
+                                      shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -142,7 +142,6 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
         pool.UpdateMemberPresence();
 
         // set up some stuff
-        auto        logger    = spdlog::get("contact_logger");
         const auto  c_type    = pool.m_pool_type;
         const auto& c_members = pool.m_members;
         const auto  t_rate    = disease_profile.GetTransmissionRate();
@@ -203,7 +202,8 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
 //-------------------------------------------------------------------------------------------
 template <LogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, DiseaseProfile disease_profile,
-                                                       ContactHandler ch, shared_ptr<const Calendar> calendar)
+                                                       ContactHandler ch, shared_ptr<const Calendar> calendar,
+                                                       shared_ptr<spdlog::logger> logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -217,7 +217,6 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, Diseas
                 pool.UpdateMemberPresence();
 
                 // set up some stuff
-                auto        logger    = spdlog::get("contact_logger");
                 const auto  c_type    = pool.m_pool_type;
                 const auto  c_immune  = pool.m_index_immune;
                 const auto& c_members = pool.m_members;

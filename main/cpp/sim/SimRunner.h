@@ -26,9 +26,12 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 #include <string>
 #include <vector>
+
+namespace spdlog {
+class logger;
+}
 
 namespace stride {
 

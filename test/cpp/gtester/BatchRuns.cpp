@@ -18,6 +18,8 @@
  * Implementation of scenario tests running in batch mode.
  */
 
+#include "pop/Population.h"
+#include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 
 #include <gtest/gtest.h>
@@ -114,7 +116,7 @@ public:
         /// Scenario config and test target number and margin of tolerance in percent (of target value).
         static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
         {
-                ptree        pt = tag.substr(0,2) != "r0" ? BasicConfig1() : BasicConfig2();
+                ptree        pt     = tag.substr(0, 2) != "r0" ? BasicConfig1() : BasicConfig2();
                 unsigned int target = 0U;
                 double       margin = 0.1;
 
@@ -187,7 +189,7 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Prepare test configuration.
         // -----------------------------------------------------------------------------------------
-        const string test_tag = get<0>(t);
+        const string test_tag    = get<0>(t);
         const auto   num_threads = get<1>(t);
         omp_set_num_threads(num_threads);
         omp_set_schedule(omp_sched_static, 1);

@@ -19,7 +19,6 @@
  * Header for the StrideRunner class.
  */
 
-#include "sim/Simulator.h"
 #include "sim/python/SimulatorObserver.h"
 #include "util/Stopwatch.h"
 
@@ -29,6 +28,9 @@
 #include <vector>
 
 namespace stride {
+
+class Simulator;
+
 namespace python {
 
 /**

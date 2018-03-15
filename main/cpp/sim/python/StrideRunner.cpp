@@ -24,6 +24,8 @@
 #include "output/CasesFile.h"
 #include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
+#include "pop/Population.h"
+#include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"

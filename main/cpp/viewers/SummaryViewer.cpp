@@ -20,6 +20,7 @@
 
 #include "SummaryViewer.h"
 
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 #include "util/Stopwatch.h"

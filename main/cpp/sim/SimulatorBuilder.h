@@ -19,13 +19,16 @@
  * Header for the SimulatorBuilder class.
  */
 
-#include "sim/Simulator.h"
-
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
+
+namespace spdlog {
+class logger;
+}
 
 namespace stride {
+
+class Simulator;
 
 /**
  * Class to build the simulator.

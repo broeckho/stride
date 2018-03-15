@@ -22,10 +22,13 @@
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/spdlog.h>
 #include <string>
 #include <tuple>
 #include <utility>
+
+namespace spdlog {
+class logger;
+}
 
 namespace stride {
 

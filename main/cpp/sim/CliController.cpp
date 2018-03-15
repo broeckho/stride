@@ -36,6 +36,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <memory>
 #include <spdlog/sinks/null_sink.h>
+#include <spdlog/spdlog.h>
 #include <vector>
 
 using namespace std;

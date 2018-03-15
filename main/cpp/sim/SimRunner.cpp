@@ -28,15 +28,15 @@
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <spdlog/sinks/null_sink.h>
+#include <spdlog/spdlog.h>
 
-namespace stride {
-
-using namespace sim_event;
-using namespace util;
+using namespace stride::sim_event;
+using namespace stride::util;
 using namespace boost::filesystem;
 using namespace boost::property_tree;
-using namespace spdlog;
 using namespace std;
+
+namespace stride {
 
 SimRunner::SimRunner()
     : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(),
