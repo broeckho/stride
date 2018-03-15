@@ -22,8 +22,9 @@
 #============================================================================
 #   Configuring Make invocations.
 #============================================================================
+NCORES=`getconf _NPROCESSORS_ONLN`
 ifeq ($(PARALLEL_MAKE),)
-	PARALLEL_MAKE = -j`getconf _NPROCESSORS_ONLN`
+	PARALLEL_MAKE = -j$(NCORES)
 endif
 #============================================================================
 # 	CMake command
@@ -108,19 +109,21 @@ help:
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_HDF5          : " $(STRIDE_FORCE_NO_HDF5)
 
 	@ $(CMAKE) -E echo " "
-				
-configure:
-	echo $(PARALLEL_MAKE)
+
+cores:
+	@ echo "\nMake invocation using -j"$(NCORES) "\n"
+
+configure: cores
 	$(CMAKE) -E make_directory $(BUILD_DIR)
 	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
 
 all: configure
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) all
+	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all
 
-install:
+install: cores
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
-clean:
+clean: cores
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean
 
 distclean:
