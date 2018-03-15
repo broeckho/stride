@@ -107,14 +107,17 @@ void CliController::Go()
         // -----------------------------------------------------------------------------------------
         RegisterViewers(runner, output_prefix);
 
+
+        // -----------------------------------------------------------------------------------------
+        // Output run config.
+        // -----------------------------------------------------------------------------------------
+        const auto p = FileSys::BuildPath(output_prefix, "run_config.xml");
+        write_xml(p.string(), m_config_pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+
         // -----------------------------------------------------------------------------------------
         // Setup runner + execute the run.
         // -----------------------------------------------------------------------------------------
         m_logger->info("Handing over to SimRunner.");
-        // TODO for now to check up things
-        const auto p = FileSys::BuildPath(output_prefix, "run_config.xml");
-        write_xml(p.string(), m_config_pt, std::locale(),
-                  xml_parser::xml_writer_make_settings<ptree::key_type>(' ', 8));
         runner->Setup(m_config_pt);
         runner->Run();
         m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
