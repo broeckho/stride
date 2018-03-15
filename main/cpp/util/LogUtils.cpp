@@ -43,7 +43,6 @@ std::shared_ptr<spdlog::logger> LogUtils::CreateCliLogger(const string &logger_n
                 sinks.push_back(color_sink);
                 sinks.push_back(make_shared<simple_file_sink_st>(file_name.c_str()));
                 lggr = make_shared<logger>(logger_name, begin(sinks), end(sinks));
-                register_logger(lggr);
         } catch (const spdlog_ex& e) {
                 cerr << "LogUtils::CreateCliLogger> Stride logger initialization failed for "
                         << logger_name << " and file: " << file_name << endl;
@@ -62,7 +61,6 @@ std::shared_ptr<logger> LogUtils::CreateNullLogger(const string &logger_name)
         try {
                 const auto null_sink = make_shared<null_sink_st>();
                 lggr        = make_shared<logger>(logger_name, null_sink);
-                register_logger(lggr);
         } catch (const spdlog_ex& e) {
                 cerr << "LogUtils::CreateNullLogger> null logger initialization failed for " << logger_name << endl;
                 throw;
@@ -81,7 +79,6 @@ std::shared_ptr<logger> LogUtils::CreateRotatingLogger(const string& logger_name
                 auto rot = make_shared<rotating_file_sink_mt>(file_name, numeric_limits<size_t>::max(),
                                                               numeric_limits<size_t>::max());
                 lggr = make_shared<logger>(logger_name, rot);
-                register_logger(lggr);
         } catch (const spdlog_ex& e) {
                 cerr << "LogUtils::CreateRotatingLogger> Rotating logger initialization failed for "
                      << logger_name << " and file: " << file_name << endl;

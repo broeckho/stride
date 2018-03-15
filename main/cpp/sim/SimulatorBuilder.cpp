@@ -42,9 +42,7 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt)
         // Otherwise we produce a null logger so as not to have to guard all log statements ...
         m_logger = spdlog::get("stride_logger");
         if (!m_logger) {
-                const auto null_sink = make_shared<spdlog::sinks::null_sink_st>();
-                m_logger             = make_shared<spdlog::logger>("SimBuilder_null_logger", null_sink);
-                // no need to register the logger
+                m_logger = LogUtils::CreateNullLogger("SimBuilder_null_logger");
         }
 }
 
@@ -145,16 +143,16 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
                 const auto contact_outputfile = m_pt_config.get<bool>("run.contact_outputfile", true);
                 if (contact_outputfile) {
                         const auto output_prefix = m_pt_config.get<string>("run.output_prefix");
-                        spdlog::set_async_mode(1048576);
                         const auto log_path = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                        contact_logger = spdlog::rotating_logger_mt("contact_logger", log_path.c_str(),
-                                                                         numeric_limits<size_t>::max(),
-                                                                         numeric_limits<size_t>::max());
-                        contact_logger->set_pattern("%v"); // Remove meta data from log => time-stamp of logging
+                        contact_logger = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
+                        // Remove meta data from log => time-stamp of logging
+                        contact_logger->set_pattern("%v");
                 } else {
                         contact_logger = LogUtils::CreateNullLogger("contact_logger");
                 }
         }
+        // For now this is necessary because we are note paasing it through sim to the Infectors.
+        spdlog::register_logger(contact_logger);
 
         // --------------------------------------------------------------
         // Set correct information policies.

@@ -61,12 +61,6 @@ private:
         /// Setup and patch run configuration file.
         void SetupConfig();
 
-        /// Acquire logger for normal mode.
-        std::shared_ptr<spdlog::logger> SetupLogger();
-
-        /// Acquire null logger for silent mode.
-        std::shared_ptr<spdlog::logger> SetupNullLogger();
-
 private:
         std::string                                       m_config_file;
         bool                                              m_track_index_case;

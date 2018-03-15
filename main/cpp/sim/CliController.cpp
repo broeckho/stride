@@ -124,8 +124,8 @@ void CliController::Go()
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
-        spdlog::drop_all();
         m_logger->info("CliController signing off.");
+        spdlog::drop_all();
 }
 
 void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& output_prefix)
@@ -175,8 +175,16 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& 
 
 void CliController::Setup()
 {
+        // -----------------------------------------------------------------------------------------
+        // Create the appropriate logger and register it.
+        // -----------------------------------------------------------------------------------------
         m_logger = m_silent_mode ? LogUtils::CreateNullLogger("stride_logger")
                                  : LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+        spdlog::register_logger(m_logger);
+
+        // -----------------------------------------------------------------------------------------
+        // Do the setup.
+        // -----------------------------------------------------------------------------------------
         m_logger->info("CliController setup:");
         m_logger->info("Starting up at:      {}", TimeStamp().ToString());
         CheckEnv();
@@ -248,44 +256,6 @@ void CliController::SetupConfig()
         } else {
                 m_logger->info("Specification for run.output_prefix:  {}", output_prefix);
         }
-}
-
-std::shared_ptr<spdlog::logger> CliController::SetupLogger()
-{
-        using namespace spdlog;
-
-        set_async_mode(1048576);
-        std::shared_ptr<spdlog::logger> stride_logger = nullptr;
-        try {
-                vector<sink_ptr> sinks;
-                const auto       color_sink = make_shared<sinks::ansicolor_stdout_sink_st>();
-                sinks.push_back(color_sink);
-                const string fn = "stride_log.txt";
-                sinks.push_back(make_shared<sinks::simple_file_sink_st>(fn.c_str()));
-                stride_logger = make_shared<logger>("stride_logger", begin(sinks), end(sinks));
-                register_logger(stride_logger);
-        } catch (const spdlog_ex& e) {
-                cerr << "CliController> Stride logger initialization failed: " << e.what() << endl;
-                throw;
-        }
-        return stride_logger;
-}
-
-std::shared_ptr<spdlog::logger> CliController::SetupNullLogger()
-{
-        using namespace spdlog;
-        ;
-        set_async_mode(1048576);
-        std::shared_ptr<spdlog::logger> stride_logger = nullptr;
-        try {
-                const auto null_sink = make_shared<sinks::null_sink_st>();
-                stride_logger        = make_shared<logger>("stride_logger", null_sink);
-                register_logger(stride_logger);
-        } catch (const spdlog_ex& e) {
-                cerr << "CliController> Stride null logger initialization failed: " << e.what() << endl;
-                throw;
-        }
-        return stride_logger;
 }
 
 } // namespace stride
