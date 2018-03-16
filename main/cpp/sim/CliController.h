@@ -16,20 +16,19 @@
 
 /**
  * @file
- * Header for the commnad line controller.
+ * Header for the command line controller.
  */
 
 #include "util/Stopwatch.h"
 
+#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <spdlog/spdlog.h>
+#include <memory>
 #include <string>
 #include <tuple>
 #include <utility>
 #include <vector>
-
-namespace spdlog {
-class logger;
-}
 
 namespace stride {
 
@@ -43,6 +42,7 @@ public:
                       std::vector<std::tuple<std::string, std::string>> p_overrides, bool silent_mode = false,
                       bool use_install_dirs = true)
             : m_config_file(std::move(config_file)), m_track_index_case(track_index_case), m_max_num_threads(1U),
+              m_output_prefix(""),
               m_p_overrides(std::move(p_overrides)), m_silent_mode(silent_mode), m_use_install_dirs(use_install_dirs),
               m_run_clock("run_clock", true){};
 
@@ -59,6 +59,13 @@ private:
         /// Check the OpenMP environment.
         void CheckOpenMP();
 
+        // Output_prefix: if it's a string not containing any / it gets interpreted as a
+        // filename prefix; otherwise we 'll create the corresponding directory.
+        void CheckOutputPrefix();
+
+        /// Make the appropriate logger for cli environment and register as stride_logger.
+        void MakeLogger();
+
         /// Patch run configuration with cli overrides and defaults.
         void PatchConfig();
 
@@ -66,18 +73,20 @@ private:
         void ReadConfigFile();
 
         /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
+        void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 private:
         std::string                                       m_config_file;
         bool                                              m_track_index_case;
         unsigned int                                      m_max_num_threads;
+        std::string m_output_prefix;
         std::vector<std::tuple<std::string, std::string>> m_p_overrides;
         bool                                              m_silent_mode;
         bool                                              m_use_install_dirs;
 
         util::Stopwatch<>               m_run_clock; ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_logger;    ///< General logger.
+        boost::filesystem::path   m_config_path; ///< path to config file.
         boost::property_tree::ptree     m_config_pt; ///< Main configuration for run and sim.
 };
 
