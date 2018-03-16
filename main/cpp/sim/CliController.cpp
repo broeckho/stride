@@ -86,21 +86,18 @@ void CliController::Go()
         auto runner = make_shared<SimRunner>();
 
         // -----------------------------------------------------------------------------------------
-        // Output_prefix.
+        // Output_prefix: if it's a string not containing any / it gets interpreted as a
+        // filename prefix; otherwise we 'll create the corresponding directory.
         // -----------------------------------------------------------------------------------------
         const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
-        // If it's a string not containing any / it gets interpreted as a filename prefix.
-        // Otherwise we 'll see to it that the corresponding directory exists.
         if (FileSys::IsDirectoryString(output_prefix)) {
-                boost::filesystem::path out_dir = output_prefix;
                 try {
-                        m_logger->info("Creating dir:  {}", out_dir.string());
-                        create_directories(out_dir);
+                        m_logger->info("Creating dir:  {}", output_prefix);
+                        create_directories(output_prefix);
                 } catch (std::exception& e) {
-                        m_logger->info("CliController::Go> Exception while creating output directory:  {}", e.what());
+                        m_logger->critical("CliController::Go> Exception creating directory:  {}", output_prefix);
                         throw;
                 }
-                m_logger->info("Dir created:  {}", out_dir.string());
         }
 
         // -----------------------------------------------------------------------------------------
@@ -109,95 +106,57 @@ void CliController::Go()
         RegisterViewers(runner, output_prefix);
 
         // -----------------------------------------------------------------------------------------
-        // Output run config.
-        // -----------------------------------------------------------------------------------------
-        const auto p = FileSys::BuildPath(output_prefix, "run_config.xml");
-        write_xml(p.string(), m_config_pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
-
-        // -----------------------------------------------------------------------------------------
         // Setup runner + execute the run.
         // -----------------------------------------------------------------------------------------
-        m_logger->info("Handing over to SimRunner.");
         runner->Setup(m_config_pt);
         runner->Run();
-        m_logger->info("SimRun completed. Timing: {}", m_run_clock.ToString());
+        m_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
 
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
-        m_logger->info("CliController signing off.");
         spdlog::drop_all();
 }
 
-void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& output_prefix)
+void CliController::PatchConfig()
 {
-        m_logger->info("Registering viewers.");
-
-        // Command line viewer
-        const auto cli_v = make_shared<viewers::CliViewer>(m_logger);
-        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
-
-        // Adopted viewer
-        if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_logger->info("Setting for output of adopted: true");
-                const auto v = make_shared<viewers::AdoptedViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of adopted: false");
+        // -----------------------------------------------------------------------------------------
+        // Overrides/additions for configuration (using -p <param>=<value>) on commandline.
+        // -----------------------------------------------------------------------------------------
+        for (const auto& p : m_p_overrides) {
+                m_config_pt.put("run." + get<0>(p), get<1>(p));
+                m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
         }
 
-        // Cases viewer
-        if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_logger->info("Setting for output of cases: true");
-                const auto v = make_shared<viewers::CasesViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of cases: false");
+        // -----------------------------------------------------------------------------------------
+        // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
+        // -----------------------------------------------------------------------------------------
+        m_config_pt.put("run.track_index_case", m_track_index_case);
+        m_config_pt.put("run.silent_mode", m_silent_mode);
+        m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
+
+        // -----------------------------------------------------------------------------------------
+        // Config item that is often defaulted: num_threads.
+        // -----------------------------------------------------------------------------------------
+        const auto opt_num = m_config_pt.get_optional<unsigned int>("run.num_threads");
+        if (!opt_num) {
+                // default for num_threads if not specified in config or commandline
+                m_config_pt.put("run.num_threads", m_max_num_threads);
         }
 
-        // Persons viewer
-        if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_logger->info("Setting for output of persons: true");
-                const auto v = make_shared<viewers::PersonsViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of persons: false");
-        }
-
-        // Summary viewer
-        if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_logger->info("Setting for output of summary: true");
-                const auto v = make_shared<viewers::SummaryViewer>(output_prefix);
-                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
-        } else {
-                m_logger->info("Setting for output of summary: false");
+        // -----------------------------------------------------------------------------------------
+        // Config item that is often defaulted: output_prefix.
+        // -----------------------------------------------------------------------------------------
+        auto output_prefix = m_config_pt.get<string>("run.output_prefix", "");
+        if (output_prefix.length() == 0) {
+                // Not specified with (-p output_prefix=<prefix>) or in config, so default
+                output_prefix = TimeStamp().ToTag() + "/";
+                m_config_pt.put("run.output_prefix", output_prefix);
         }
 }
 
-void CliController::Setup()
+void CliController::ReadConfigFile()
 {
-        // -----------------------------------------------------------------------------------------
-        // Create the appropriate logger and register it.
-        // -----------------------------------------------------------------------------------------
-        m_logger = m_silent_mode ? LogUtils::CreateNullLogger("stride_logger")
-                                 : LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
-        spdlog::register_logger(m_logger);
-
-        // -----------------------------------------------------------------------------------------
-        // Do the setup.
-        // -----------------------------------------------------------------------------------------
-        m_logger->info("CliController setup:");
-        m_logger->info("Starting up at:      {}", TimeStamp().ToString());
-        CheckEnv();
-        CheckOpenMP();
-        SetupConfig();
-}
-
-void CliController::SetupConfig()
-{
-        // -----------------------------------------------------------------------------------------
-        // Read the config file.
-        // -----------------------------------------------------------------------------------------
         const auto file_path =
             (m_use_install_dirs) ? FileSys().GetConfigDir() /= m_config_file : system_complete(m_config_file);
         if (!exists(file_path) || !is_regular_file(file_path)) {
@@ -212,51 +171,62 @@ void CliController::SetupConfig()
                         throw;
                 }
         }
+}
 
-        // -----------------------------------------------------------------------------------------
-        // Overrides/additions for configuration (using -p <param>=<value>) on commandline.
-        // -----------------------------------------------------------------------------------------
-        for (const auto& p : m_p_overrides) {
-                m_config_pt.put("run." + get<0>(p), get<1>(p));
-                m_logger->info("Commanline override for run.{}:  {}", get<0>(p), get<1>(p));
+void CliController::RegisterViewers(shared_ptr<SimRunner> runner, const string& output_prefix)
+{
+        // Command line viewer
+        m_logger->info("Registering CliViewer");
+        const auto cli_v = make_shared<viewers::CliViewer>(m_logger);
+        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
+
+        // Adopted viewer
+        if (m_config_pt.get<bool>("run.output_adopted", false)) {
+                m_logger->info("registering AdoptedViewer,");
+                const auto v = make_shared<viewers::AdoptedViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
         }
 
-        // -----------------------------------------------------------------------------------------
-        // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
-        // -----------------------------------------------------------------------------------------
-        m_config_pt.put("run.track_index_case", m_track_index_case);
-        m_logger->info("Setting for run.track_index_case:  {}", m_track_index_case);
-
-        m_config_pt.put("run.silent_mode", m_silent_mode);
-        m_logger->info("Setting for run.silent_mode:  {}", m_silent_mode);
-
-        m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
-        m_logger->info("Setting for run.use_install_dirs:  {}", m_use_install_dirs);
-
-        // -----------------------------------------------------------------------------------------
-        // Config item that is often defaulted: num_threads.
-        // -----------------------------------------------------------------------------------------
-        const auto opt_num = m_config_pt.get_optional<unsigned int>("run.num_threads");
-        if (!opt_num) {
-                // default for num_threads if not specified in config or commandline
-                m_config_pt.put("run.num_threads", m_max_num_threads);
-                m_logger->info("Default for run.num_threads:  {}", m_max_num_threads);
-        } else {
-                m_logger->info("Specification for run.num_threads:  {}", *opt_num);
+        // Cases viewer
+        if (m_config_pt.get<bool>("run.output_cases", false)) {
+                m_logger->info("Registering CasesViewer");
+                const auto v = make_shared<viewers::CasesViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
         }
 
-        // -----------------------------------------------------------------------------------------
-        // Config item that is often defaulted: output_prefix.
-        // -----------------------------------------------------------------------------------------
-        auto output_prefix = m_config_pt.get<string>("run.output_prefix", "");
-        if (output_prefix.length() == 0) {
-                // Not specified with (-p output_prefix=<prefix>) or in config, so default
-                output_prefix = TimeStamp().ToTag() + "/";
-                m_config_pt.put("run.output_prefix", output_prefix);
-                m_logger->info("Default for run.output_prefix:  {}", output_prefix);
-        } else {
-                m_logger->info("Specification for run.output_prefix:  {}", output_prefix);
+        // Persons viewer
+        if (m_config_pt.get<bool>("run.output_persons", false)) {
+                m_logger->info("registering PersonsViewer.");
+                const auto v = make_shared<viewers::PersonsViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
         }
+
+        // Summary viewer
+        if (m_config_pt.get<bool>("run.output_summary", false)) {
+                m_logger->info("Registering SummaryViewer");
+                const auto v = make_shared<viewers::SummaryViewer>(output_prefix);
+                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
+        }
+}
+
+void CliController::Setup()
+{
+        // -----------------------------------------------------------------------------------------
+        // Create the appropriate logger and register it.
+        // -----------------------------------------------------------------------------------------
+        const string log_f = "/tmp/stride_log_" + TimeStamp().ToTag() + ".txt";
+        m_logger           = m_silent_mode ? LogUtils::CreateNullLogger("stride_logger")
+                                 : LogUtils::CreateCliLogger("stride_logger", log_f);
+        spdlog::register_logger(m_logger);
+
+        // -----------------------------------------------------------------------------------------
+        // Do the setup.
+        // -----------------------------------------------------------------------------------------
+        m_logger->info("CliController setup starting up at:      {}", TimeStamp().ToString());
+        CheckEnv();
+        CheckOpenMP();
+        ReadConfigFile();
+        PatchConfig();
 }
 
 } // namespace stride

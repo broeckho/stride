@@ -36,21 +36,26 @@ namespace viewers {
 void CliViewer::update(const sim_event::Payload& p)
 {
         assert(m_logger && "CliViewer has nullptr to logger!");
-        const auto sim = p.m_runner->GetSim();
 
         switch (p.m_event_id) {
         case Id::AtStart: {
+                const auto sim = p.m_runner->GetSim();
                 m_logger->info("     Simulation at start.");
                 m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
+                const auto sim = p.m_runner->GetSim();
                 m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
-        case Id::Finished: m_logger->info("     Simulation finished."); break;
+        case Id::Finished: {
+                m_logger->info("     Simulation finished.");
+                break;
+        }
+        default: break;
         }
 }
 

@@ -94,7 +94,6 @@ const filesystem::path check(const filesystem::path& filename, const filesystem:
         return file_path;
 }
 
-
 size_t CSV::getIndexForLabel(const string& label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {

@@ -25,6 +25,7 @@
 #include <string>
 #include <tuple>
 #include <utility>
+#include <vector>
 
 namespace spdlog {
 class logger;
@@ -58,11 +59,14 @@ private:
         /// Check the OpenMP environment.
         void CheckOpenMP();
 
+        /// Patch run configuration with cli overrides and defaults.
+        void PatchConfig();
+
+        /// Read configuration file.
+        void ReadConfigFile();
+
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner, const std::string& output_prefix);
-
-        /// Setup and patch run configuration file.
-        void SetupConfig();
 
 private:
         std::string                                       m_config_file;

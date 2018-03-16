@@ -29,6 +29,7 @@
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <cassert>
 #include <spdlog/sinks/null_sink.h>
 #include <spdlog/spdlog.h>
 
@@ -38,14 +39,14 @@ using namespace boost::property_tree;
 using namespace std;
 using namespace util;
 
-SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt)
-    : m_logger(nullptr), m_pt_config(config_pt)
+SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
+    : m_logger(logger), m_pt_config(config_pt)
 {
-        // If the execution context had created the stride_logger, use it.
-        // Otherwise we produce a null logger so as not to have to guard all log statements ...
-        m_logger = spdlog::get("stride_logger");
+        assert(m_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
+        assert(m_pt_config.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
+        // Hack for the benefilt of StrideRunner
         if (!m_logger) {
-                m_logger = LogUtils::CreateNullLogger("SimBuilder_null_logger");
+                m_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
         }
 }
 
