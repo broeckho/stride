@@ -41,8 +41,8 @@ using namespace std;
 namespace stride {
 
 SimRunner::SimRunner()
-    : m_clock("total_clock"), m_logger(nullptr), m_log_level("info"), m_operational(false), m_output_prefix(""), m_pt_config(),
-      m_sim(nullptr)
+    : m_clock("total_clock"), m_logger(nullptr), m_log_level("info"), m_operational(false), m_output_prefix(""),
+      m_config_pt(), m_sim(nullptr)
 {
 }
 
@@ -54,10 +54,10 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        bool status     = true;
-        m_pt_config     = run_config_pt;
-        //m_log_level     = m_pt_config.get<string>("run.log_level", "info");
-        m_output_prefix = m_pt_config.get<string>("run.output_prefix");
+        bool status = true;
+        m_config_pt = run_config_pt;
+        // m_log_level     = m_pt_config.get<string>("run.log_level", "info");
+        m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
         // Unless execution context has done so, create logger, do not register it.
@@ -66,8 +66,8 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         if (!m_logger) {
                 const auto l = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
                 m_logger     = LogUtils::CreateCliLogger("stride_logger", l.string());
-                //spdlog::register_logger(m_logger);
-                //m_logger->set_level(spdlog::level::from_str(m_log_level));
+                // spdlog::register_logger(m_logger);
+                // m_logger->set_level(spdlog::level::from_str(m_log_level));
         }
         m_logger->info("SimRunner starting up at:      {}", TimeStamp().ToString());
 
@@ -75,14 +75,14 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // Output the full run config.
         // -----------------------------------------------------------------------------------------
         const auto p = FileSys::BuildPath(m_output_prefix, "run_config.xml");
-        write_xml(p.string(), m_pt_config, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+        write_xml(p.string(), m_config_pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
         m_logger->info("Run config written to file {}", p.string());
 
         // ------------------------------------------------------------------------------
         // Build simulator.
         //------------------------------------------------------------------------------
         m_logger->info("Building the simulator.");
-        SimulatorBuilder builder(m_pt_config, m_logger);
+        SimulatorBuilder builder(m_config_pt, m_logger);
         m_sim = builder.Build();
         if (m_sim) {
                 m_logger->info("Done building the simulator.");
@@ -116,7 +116,7 @@ void SimRunner::Run()
         // Run the simulator.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        const auto num_days = m_pt_config.get<unsigned int>("run.num_days");
+        const auto num_days = m_config_pt.get<unsigned int>("run.num_days");
         m_logger->info("SimRunner ready to run for {} days:", num_days);
 
         Notify({shared_from_this(), Id::AtStart});

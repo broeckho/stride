@@ -23,8 +23,8 @@
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
 #include "core/ContactHandler.h"
+#include "core/ContactLogMode.h"
 #include "core/DiseaseProfile.h"
-#include "core/LogMode.h"
 
 #include <memory>
 #include <spdlog/spdlog.h>
@@ -36,7 +36,7 @@ class ContactPool;
 /// Indicates whether optimized implementation may be used.
 /// \tparam LL          LogLevel
 /// \tparam LIP         LocalInformationPolicy
-template <LogMode::Id LL, typename LIP>
+template <ContactLogMode::Id LL, typename LIP>
 struct UseOptimizedInfector
 {
         static constexpr bool value = false;
@@ -44,14 +44,14 @@ struct UseOptimizedInfector
 
 /// Indicates whether optimized implementation may be used.
 template <>
-struct UseOptimizedInfector<LogMode::Id::None, NoLocalInformation>
+struct UseOptimizedInfector<ContactLogMode::Id::None, NoLocalInformation>
 {
         static constexpr bool value = true;
 };
 
 /// Indicates whether optimized implementation may be used.
 template <>
-struct UseOptimizedInfector<LogMode::Id::Transmissions, NoLocalInformation>
+struct UseOptimizedInfector<ContactLogMode::Id::Transmissions, NoLocalInformation>
 {
         static constexpr bool value = true;
 };
@@ -60,7 +60,7 @@ struct UseOptimizedInfector<LogMode::Id::Transmissions, NoLocalInformation>
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
 /// \tparam LIP         LocalInformationPolicy
-template <LogMode::Id LL, bool TIC, typename LIP, bool TO = UseOptimizedInfector<LL, LIP>::value>
+template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO = UseOptimizedInfector<LL, LIP>::value>
 class Infector
 {
 public:
@@ -72,7 +72,7 @@ public:
 /// Time-optimized version (Only for NoLocalInformation policy and None || Transmission logging).
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
-template <LogMode::Id LL, bool TIC>
+template <ContactLogMode::Id LL, bool TIC>
 class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
@@ -82,24 +82,24 @@ public:
 };
 
 /// Explicit instantiations in cpp file.
-extern template class Infector<LogMode::Id::None, false, NoLocalInformation>;
-extern template class Infector<LogMode::Id::None, false, LocalDiscussion>;
-extern template class Infector<LogMode::Id::None, true, NoLocalInformation>;
-extern template class Infector<LogMode::Id::None, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::None, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::None, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::None, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::None, true, LocalDiscussion>;
 
-extern template class Infector<LogMode::Id::Transmissions, false, NoLocalInformation>;
-extern template class Infector<LogMode::Id::Transmissions, false, LocalDiscussion>;
-extern template class Infector<LogMode::Id::Transmissions, true, NoLocalInformation>;
-extern template class Infector<LogMode::Id::Transmissions, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Transmissions, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Transmissions, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
 
-extern template class Infector<LogMode::Id::Contacts, false, NoLocalInformation>;
-extern template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
-extern template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
-extern template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Contacts, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Contacts, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Contacts, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Contacts, true, LocalDiscussion>;
 
-extern template class Infector<LogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
-extern template class Infector<LogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
-extern template class Infector<LogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
-extern template class Infector<LogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
 
 } // namespace stride

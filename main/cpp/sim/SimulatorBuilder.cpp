@@ -40,10 +40,10 @@ using namespace std;
 using namespace util;
 
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_logger(logger), m_pt_config(config_pt)
+    : m_logger(logger), m_config_pt(config_pt)
 {
         assert(m_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
-        assert(m_pt_config.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
+        assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
         // Hack for the benefilt of StrideRunner
         if (!m_logger) {
                 m_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
@@ -64,10 +64,10 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build()
 
 ptree SimulatorBuilder::ReadContactPtree()
 {
-        const auto use_install_dirs = m_pt_config.get<bool>("run.use_install_dirs");
+        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 
         ptree      pt;
-        const auto fn = m_pt_config.get("run.age_contact_matrix_file", "contact_matrix.xml");
+        const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
                 m_logger->critical("Configuration file {} not present! Quitting.", fp.string());
@@ -86,10 +86,10 @@ ptree SimulatorBuilder::ReadContactPtree()
 
 ptree SimulatorBuilder::ReadDiseasePtree()
 {
-        const auto use_install_dirs = m_pt_config.get<bool>("run.use_install_dirs");
+        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 
         ptree      pt;
-        const auto fn = m_pt_config.get<string>("run.disease_config_file");
+        const auto fn = m_config_pt.get<string>("run.disease_config_file");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
                 m_logger->critical("Disease config file {} not present! Quitting.", fp.string());
@@ -116,26 +116,26 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Config info.
         // --------------------------------------------------------------
-        sim->m_pt_config        = m_pt_config;
-        sim->m_track_index_case = m_pt_config.get<bool>("run.track_index_case");
-        sim->m_num_threads      = m_pt_config.get<unsigned int>("run.num_threads");
-        sim->m_calendar         = make_shared<Calendar>(m_pt_config);
+        sim->m_config_pt        = m_config_pt;
+        sim->m_track_index_case = m_config_pt.get<bool>("run.track_index_case");
+        sim->m_num_threads      = m_config_pt.get<unsigned int>("run.num_threads");
+        sim->m_calendar         = make_shared<Calendar>(m_config_pt);
 
         // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
         // --------------------------------------------------------------
-        const auto            rng_seed = m_pt_config.get<unsigned long>("run.rng_seed", 1UL);
-        const auto            rng_type = m_pt_config.get<string>("run.rng_type", "mrg2");
+        const auto            rng_seed = m_config_pt.get<unsigned long>("run.rng_seed", 1UL);
+        const auto            rng_type = m_config_pt.get<string>("run.rng_type", "mrg2");
         const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
         sim->m_rn_manager.Initialize(info);
 
         // --------------------------------------------------------------
-        // LogMode related initialization.
+        // ContactLogMode related initialization.
         // --------------------------------------------------------------
-        const string l   = m_pt_config.get<string>("run.log_level", "None");
-        sim->m_log_level = LogMode::IsLogMode(l)
-                               ? LogMode::ToLogMode(l)
-                               : throw runtime_error(string(__func__) + "> Invalid input for LogMode.");
+        const string l           = m_config_pt.get<string>("run.contact_log_level", "None");
+        sim->m_contact_log_level = ContactLogMode::IsMode(l)
+                                       ? ContactLogMode::ToMode(l)
+                                       : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
 
         // -----------------------------------------------------------------------------------------
         // Create logger (unless it already exists) for use by the simulator during time step computations.
@@ -144,9 +144,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // -----------------------------------------------------------------------------------------
         sim->m_contact_logger = spdlog::get("contact_logger");
         if (!sim->m_contact_logger) {
-                const auto contact_outputfile = m_pt_config.get<bool>("run.contact_outputfile", true);
+                const auto contact_outputfile = m_config_pt.get<bool>("run.contact_outputfile", true);
                 if (contact_outputfile) {
-                        const auto output_prefix = m_pt_config.get<string>("run.output_prefix");
+                        const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
                         const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
                         sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
                         // Remove meta data from log => time-stamp of logging
@@ -161,13 +161,13 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Set correct information policies.
         // --------------------------------------------------------------
-        const string loc_info_policy    = m_pt_config.get<string>("run.local_information_policy", "NoLocalInformation");
+        const string loc_info_policy    = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_local_information_policy = loc_info_policy;
 
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_pt_config, pt_disease, sim->m_rn_manager);
+        sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager);
 
         // --------------------------------------------------------------
         // Contact profiles & initilize contactpools.
@@ -183,23 +183,23 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
-        Vaccinator v(m_pt_config, sim->m_rn_manager);
-        const auto immunity_profile = m_pt_config.get<std::string>("run.immunity_profile");
+        Vaccinator v(m_config_pt, sim->m_rn_manager);
+        const auto immunity_profile = m_config_pt.get<std::string>("run.immunity_profile");
         v.Administer("immunity", immunity_profile, sim);
-        const auto vaccination_profile = m_pt_config.get<std::string>("run.vaccine_profile");
+        const auto vaccination_profile = m_config_pt.get<std::string>("run.vaccine_profile");
         v.Administer("vaccine", vaccination_profile, sim);
 
         // --------------------------------------------------------------
         // Initialize disease profile.
         // --------------------------------------------------------------
-        sim->m_operational = sim->m_disease_profile.Initialize(m_pt_config, pt_disease);
+        sim->m_operational = sim->m_disease_profile.Initialize(m_config_pt, pt_disease);
 
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const auto seeding_rate         = m_pt_config.get<double>("run.seeding_rate");
-        const auto seeding_age_min      = m_pt_config.get<double>("run.seeding_age_min", 1);
-        const auto seeding_age_max      = m_pt_config.get<double>("run.seeding_age_max", 99);
+        const auto seeding_rate         = m_config_pt.get<double>("run.seeding_rate");
+        const auto seeding_age_min      = m_config_pt.get<double>("run.seeding_age_min", 1);
+        const auto seeding_age_max      = m_config_pt.get<double>("run.seeding_age_max", 99);
         const auto pop_size             = sim->m_population->size() - 1;
         const auto max_population_index = static_cast<unsigned int>(pop_size);
         auto       int_generator = sim->m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));

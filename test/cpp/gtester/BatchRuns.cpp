@@ -65,7 +65,7 @@ public:
                         pt_config.put("run.start_date", "2017-01-01");
                         pt_config.put("run.holidays_file", "holidays_none.json");
                         pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                        pt_config.put("run.log_level", "None");
+                        pt_config.put("run.contact_log_level", "None");
                         pt_config.put("run.local_information_policy", "NoLocalInformation");
                         pt_config.put("run.global_information_policy", "NoGlobalInformation");
                         pt_config.put("run.belief_policy.name", "NoBelief");
@@ -100,7 +100,7 @@ public:
                         pt_config.put("run.start_date", "2017-01-01");
                         pt_config.put("run.holidays_file", "holidays_none.json");
                         pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                        pt_config.put("run.log_level", "Transmissions");
+                        pt_config.put("run.contact_log_level", "Transmissions");
                         pt_config.put("run.local_information_policy", "NoLocalInformation");
                         pt_config.put("run.global_information_policy", "NoGlobalInformation");
                         pt_config.put("run.belief_policy.name", "NoBelief");

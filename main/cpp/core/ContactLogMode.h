@@ -28,7 +28,7 @@ namespace stride {
  * \li only contacts where transmission occurs
  * \li all contacts.
  */
-namespace LogMode {
+namespace ContactLogMode {
 
 enum class Id
 {
@@ -40,13 +40,13 @@ enum class Id
 };
 
 /// Converts a LogMode value to corresponding name.
-std::string ToString(LogMode::Id w);
+std::string ToString(ContactLogMode::Id w);
 
 /// Check whether string is name of LogMode value.
-bool IsLogMode(const std::string& s);
+bool IsMode(const std::string& s);
 
 /// Converts a string with name to LogMode value.
-LogMode::Id ToLogMode(const std::string& s);
+ContactLogMode::Id ToMode(const std::string& s);
 
-} // namespace LogMode
+} // namespace ContactLogMode
 } // namespace stride

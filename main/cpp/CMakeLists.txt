@@ -22,13 +22,13 @@ set(LIB_SRC
 #---
     calendar/Calendar.cpp
 #---
+	core/ContactLogMode.cpp
 	core/ContactPool.cpp
     core/ContactPoolType.cpp
     core/ContactProfile.cpp
     core/DiseaseProfile.cpp
     core/Health.cpp
     core/Infector.cpp
-    core/LogMode.cpp
 #---
 	immunity/Immunizer.cpp
 	immunity/Vaccinator.cpp

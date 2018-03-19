@@ -18,13 +18,13 @@
  * Implementation of LogMode.
  */
 
-#include "LogMode.h"
+#include "ContactLogMode.h"
 
 #include <boost/algorithm/string.hpp>
 #include <map>
 
 namespace stride {
-namespace LogMode {
+namespace ContactLogMode {
 
 using namespace std;
 using boost::to_upper;
@@ -37,9 +37,9 @@ string ToString(Id l)
         return (names.count(l) == 1) ? names[l] : "Null";
 }
 
-bool IsLogMode(const string& s) { return (ToLogMode(s) != Id::Null); }
+bool IsMode(const string& s) { return (ToMode(s) != Id::Null); }
 
-Id ToLogMode(const string& s)
+Id ToMode(const string& s)
 {
         static map<string, Id> modes{make_pair("NONE", Id::None), make_pair("TRANSMISSIONS", Id::Transmissions),
                                      make_pair("CONTACTS", Id::Contacts),
@@ -49,5 +49,5 @@ Id ToLogMode(const string& s)
         return (modes.count(t) == 1) ? modes[t] : Id::Null;
 }
 
-} // namespace LogMode
+} // namespace ContactLogMode
 } // namespace stride

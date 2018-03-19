@@ -19,10 +19,10 @@
  * Header for the core ContactPool class.
  */
 
+#include "core/ContactLogMode.h"
 #include "core/ContactPoolType.h"
 #include "core/ContactProfile.h"
 #include "core/ContactProfiles.h"
-#include "core/LogMode.h"
 #include "pop/Person.h"
 
 #include <array>
@@ -69,7 +69,7 @@ private:
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
-        template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
+        template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
         friend class Infector;
 
         /// Calculate which members are present on the current day.

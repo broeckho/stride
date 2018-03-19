@@ -40,8 +40,8 @@ using namespace util;
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    : m_track_index_case(false), m_num_threads(1U), m_log_level(LogMode::Id::Null), m_contact_logger(nullptr),
-      m_sim_day(0U), m_population(nullptr)
+    : m_track_index_case(false), m_num_threads(1U), m_contact_log_level(ContactLogMode::Id::Null),
+      m_contact_logger(nullptr), m_sim_day(0U), m_population(nullptr)
 
 {
 }
@@ -64,10 +64,10 @@ void Simulator::TimeStep()
                 p.Update(is_work_off, is_school_off);
         }
 
-        using Id = LogMode::Id;
+        using Id = ContactLogMode::Id;
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
-                        switch (m_log_level) {
+                        switch (m_contact_log_level) {
                         case Id::SusceptibleContacts:
                                 UpdateContactPools<Id::SusceptibleContacts, NoLocalInformation, true>();
                                 break;
@@ -79,7 +79,7 @@ void Simulator::TimeStep()
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
-                        switch (m_log_level) {
+                        switch (m_contact_log_level) {
                         case Id::SusceptibleContacts:
                                 UpdateContactPools<Id::SusceptibleContacts, NoLocalInformation, false>();
                                 break;
@@ -93,7 +93,7 @@ void Simulator::TimeStep()
                 }
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
-                        switch (m_log_level) {
+                        switch (m_contact_log_level) {
                         case Id::SusceptibleContacts:
                                 UpdateContactPools<Id::SusceptibleContacts, LocalDiscussion, true>();
                                 break;
@@ -103,7 +103,7 @@ void Simulator::TimeStep()
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
-                        switch (m_log_level) {
+                        switch (m_contact_log_level) {
                         case Id::SusceptibleContacts:
                                 UpdateContactPools<Id::SusceptibleContacts, LocalDiscussion, false>();
                                 break;
@@ -123,7 +123,7 @@ void Simulator::TimeStep()
 }
 
 /// Update the contacts in the given contactpools.
-template <LogMode::Id log_level, typename local_information_policy, bool track_index_case>
+template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
 void Simulator::UpdateContactPools()
 {
         // Contact handlers, each boud to a generator bound to a different random engine stream.

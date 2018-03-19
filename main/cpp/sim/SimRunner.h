@@ -53,7 +53,7 @@ public:
         const util::Stopwatch<>& GetClock() const { return m_clock; }
 
         /// Return the run & sim configuration.
-        const boost::property_tree::ptree& GetConfig() const { return m_pt_config; }
+        const boost::property_tree::ptree& GetConfig() const { return m_config_pt; }
 
         /// Return the Simulator.
         std::shared_ptr<Simulator> GetSim() const { return m_sim; }
@@ -73,7 +73,7 @@ private:
         std::string                     m_log_level;     ///< Log level (see spdlog::level in spdlog/common.h).
         bool                            m_operational;   ///< Input config is OK to be run
         std::string                     m_output_prefix; ///< Prefix for output data files.
-        boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.
+        boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
         std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
 };
 

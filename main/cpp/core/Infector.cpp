@@ -47,7 +47,7 @@ public:
 
 /// Primary LOG_POLICY policy, implements LogMode::None.
 /// \tparam LL
-template <LogMode::Id LL>
+template <ContactLogMode::Id LL>
 class LOG_POLICY
 {
 public:
@@ -64,7 +64,7 @@ public:
 
 /// Specialized LOG_POLICY policy LogMode::Transmissions.
 template <>
-class LOG_POLICY<LogMode::Id::Transmissions>
+class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id type,
@@ -82,7 +82,7 @@ public:
 
 /// Specialized LOG_POLICY policy LogMode::Contacts.
 template <>
-class LOG_POLICY<LogMode::Id::Contacts>
+class LOG_POLICY<ContactLogMode::Id::Contacts>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id type,
@@ -110,7 +110,7 @@ public:
 
 /// Specialized LOG_POLICY policy LogMode::SusceptibleContacts.
 template <>
-class LOG_POLICY<LogMode::Id::SusceptibleContacts>
+class LOG_POLICY<ContactLogMode::Id::SusceptibleContacts>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
@@ -128,11 +128,11 @@ public:
 };
 
 //-------------------------------------------------------------------------------------------------
-// Definition for primary template covers the situation for LogMode::None & LogMode::Transmissions,
+// Definition for primary template covers the situation for ContactLogMode::None & ContactLogMode::Transmissions,
 // both with track_index_case false and true.
 // And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
-template <LogMode::Id LL, bool TIC, typename LIP, bool TO>
+template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
 void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
                                       shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> logger)
 {
@@ -200,7 +200,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
 //-------------------------------------------------------------------------------------------
 // Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
-template <LogMode::Id LL, bool TIC>
+template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, DiseaseProfile disease_profile,
                                                        ContactHandler ch, shared_ptr<const Calendar> calendar,
                                                        shared_ptr<spdlog::logger> logger)
@@ -256,24 +256,24 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, Diseas
 //--------------------------------------------------------------------------
 // All explicit instantiations.
 //--------------------------------------------------------------------------
-template class Infector<LogMode::Id::None, false, NoLocalInformation>;
-template class Infector<LogMode::Id::None, false, LocalDiscussion>;
-template class Infector<LogMode::Id::None, true, NoLocalInformation>;
-template class Infector<LogMode::Id::None, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::None, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::None, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::None, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::None, true, LocalDiscussion>;
 
-template class Infector<LogMode::Id::Transmissions, false, NoLocalInformation>;
-template class Infector<LogMode::Id::Transmissions, false, LocalDiscussion>;
-template class Infector<LogMode::Id::Transmissions, true, NoLocalInformation>;
-template class Infector<LogMode::Id::Transmissions, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Transmissions, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Transmissions, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
 
-template class Infector<LogMode::Id::Contacts, false, NoLocalInformation>;
-template class Infector<LogMode::Id::Contacts, false, LocalDiscussion>;
-template class Infector<LogMode::Id::Contacts, true, NoLocalInformation>;
-template class Infector<LogMode::Id::Contacts, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Contacts, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Contacts, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Contacts, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Contacts, true, LocalDiscussion>;
 
-template class Infector<LogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
-template class Infector<LogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
-template class Infector<LogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
-template class Infector<LogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
 
 } // namespace stride

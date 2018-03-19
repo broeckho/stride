@@ -58,7 +58,7 @@ private:
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
-        boost::property_tree::ptree     m_pt_config;
+        boost::property_tree::ptree     m_config_pt;
 };
 
 } // namespace stride

@@ -120,7 +120,7 @@ void CliController::PatchConfig()
         // Config items that can ONLY specified with commandline options (-r, -l, -w NOT with -p)
         // -----------------------------------------------------------------------------------------
         m_config_pt.put("run.track_index_case", m_track_index_case);
-        //m_config_pt.put("run.log_level", m_log_level);
+        // m_config_pt.put("run.log_level", m_log_level);
         m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
 
         // -----------------------------------------------------------------------------------------
