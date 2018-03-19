@@ -28,6 +28,7 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
+#include <spdlog/common.h>
 #include <spdlog/sinks/null_sink.h>
 #include <spdlog/spdlog.h>
 
@@ -40,7 +41,7 @@ using namespace std;
 namespace stride {
 
 SimRunner::SimRunner()
-    : m_clock("total_clock"), m_logger(nullptr), m_operational(false), m_output_prefix(""), m_pt_config(),
+    : m_clock("total_clock"), m_logger(nullptr), m_log_level("info"), m_operational(false), m_output_prefix(""), m_pt_config(),
       m_sim(nullptr)
 {
 }
@@ -55,20 +56,23 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         m_clock.Start();
         bool status     = true;
         m_pt_config     = run_config_pt;
+        //m_log_level     = m_pt_config.get<string>("run.log_level", "info");
         m_output_prefix = m_pt_config.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
         // Unless execution context has done so, create logger, do not register it.
         // -----------------------------------------------------------------------------------------
-        m_logger = spdlog::get("run_logger");
+        m_logger = spdlog::get("stride_logger");
         if (!m_logger) {
-                const auto p = FileSys::BuildPath(m_output_prefix, "run_log.txt");
-                m_logger     = LogUtils::CreateFileLogger("run_logger", p.string());
+                const auto l = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+                m_logger     = LogUtils::CreateCliLogger("stride_logger", l.string());
+                //spdlog::register_logger(m_logger);
+                //m_logger->set_level(spdlog::level::from_str(m_log_level));
         }
         m_logger->info("SimRunner starting up at:      {}", TimeStamp().ToString());
 
         // -----------------------------------------------------------------------------------------
-        // Output run config.
+        // Output the full run config.
         // -----------------------------------------------------------------------------------------
         const auto p = FileSys::BuildPath(m_output_prefix, "run_config.xml");
         write_xml(p.string(), m_pt_config, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));

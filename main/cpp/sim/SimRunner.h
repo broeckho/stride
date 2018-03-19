@@ -70,6 +70,7 @@ public:
 private:
         util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_logger;        ///< General logger.
+        std::string                     m_log_level;     ///< Log level (see spdlog::level in spdlog/common.h).
         bool                            m_operational;   ///< Input config is OK to be run
         std::string                     m_output_prefix; ///< Prefix for output data files.
         boost::property_tree::ptree     m_pt_config;     ///< Ptree with configuration.

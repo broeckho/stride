@@ -60,7 +60,7 @@ std::shared_ptr<spdlog::logger> LogUtils::CreateFileLogger(const string& logger_
         }
         try {
                 const auto sink = make_shared<simple_file_sink_st>(file_name);
-                lggr = make_shared<logger>(logger_name, sink);
+                lggr            = make_shared<logger>(logger_name, sink);
         } catch (const spdlog_ex& e) {
                 cerr << "LogUtils::CreateFileLogger> Logger initialization failed for " << logger_name
                      << " and file: " << file_name << endl;

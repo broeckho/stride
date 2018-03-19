@@ -32,6 +32,7 @@
 #include "viewers/SummaryViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
+#include <spdlog/common.h>
 
 using namespace std;
 using namespace stride::util;
@@ -40,34 +41,35 @@ using namespace boost::property_tree;
 using namespace boost::property_tree::xml_parser;
 
 namespace stride {
+CliController::CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
+                             bool track_index_case, std::string log_level, bool use_install_dirs)
+    : m_config_file(std::move(config_file)), m_p_overrides(std::move(p_overrides)),
+      m_track_index_case(track_index_case), m_log_level(std::move(log_level)), m_use_install_dirs(use_install_dirs),
+      m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true){};
 
 void CliController::CheckEnv()
 {
         if (m_use_install_dirs) {
-                auto log = [](const string& s)->void { std::cerr << s << std::endl; };
+                auto log = [](const string& s) -> void { std::cerr << s << std::endl; };
                 if (!FileSys::CheckInstallEnv(log)) {
                         throw std::runtime_error("CliController::CheckEnv> Install dirs not OK.");
                 }
         }
 }
 
-void CliController::CheckOpenMP()
-{
-        m_max_num_threads = ConfigInfo::NumberAvailableThreads();
-}
+void CliController::CheckOpenMP() { m_max_num_threads = ConfigInfo::NumberAvailableThreads(); }
 
 void CliController::CheckOutputPrefix()
 {
         if (FileSys::IsDirectoryString(m_output_prefix)) {
                 try {
                         create_directories(m_output_prefix);
-                } catch (std::exception &e) {
+                } catch (std::exception& e) {
                         cerr << "CliController::Setup> Exception creating directory:  {}" << m_output_prefix << endl;
                         throw;
                 }
         }
 }
-
 
 void CliController::Go()
 {
@@ -100,9 +102,9 @@ void CliController::Go()
 void CliController::MakeLogger()
 {
         const auto l = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        m_logger = m_silent_mode ? LogUtils::CreateNullLogger("stride_logger")
-                                 : LogUtils::CreateCliLogger("stride_logger", l.string());
+        m_logger     = LogUtils::CreateCliLogger("stride_logger", l.string());
         spdlog::register_logger(m_logger);
+        m_logger->set_level(spdlog::level::from_str(m_log_level));
 }
 
 void CliController::PatchConfig()
@@ -115,10 +117,10 @@ void CliController::PatchConfig()
         }
 
         // -----------------------------------------------------------------------------------------
-        // Config items that can ONLY specified with commandline options (-r, -s, -w NOT with -p)
+        // Config items that can ONLY specified with commandline options (-r, -l, -w NOT with -p)
         // -----------------------------------------------------------------------------------------
         m_config_pt.put("run.track_index_case", m_track_index_case);
-        m_config_pt.put("run.silent_mode", m_silent_mode);
+        //m_config_pt.put("run.log_level", m_log_level);
         m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
 
         // -----------------------------------------------------------------------------------------
@@ -142,15 +144,15 @@ void CliController::PatchConfig()
 void CliController::ReadConfigFile()
 {
         if (!exists(m_config_path) || !is_regular_file(m_config_path)) {
-                cerr << "CliController::ReadConfigFile> Abort! File " << m_config_path.string()
-                     << " not present." << endl;
+                cerr << "CliController::ReadConfigFile> Abort! File " << m_config_path.string() << " not present."
+                     << endl;
                 throw;
         } else {
                 try {
                         read_xml(canonical(m_config_path).string(), m_config_pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        cerr << "CliController::ReadConfigFile> Abort! Error reading "
-                             << m_config_path.string() << endl;
+                        cerr << "CliController::ReadConfigFile> Abort! Error reading " << m_config_path.string()
+                             << endl;
                         throw;
                 }
         }
@@ -204,7 +206,7 @@ void CliController::Setup()
         // Read config and patch where necessary.
         // -----------------------------------------------------------------------------------------
         m_config_path =
-                (m_use_install_dirs) ? FileSys().GetConfigDir() /= m_config_file : system_complete(m_config_file);
+            (m_use_install_dirs) ? FileSys().GetConfigDir() /= m_config_file : system_complete(m_config_file);
         ReadConfigFile();
         PatchConfig();
 

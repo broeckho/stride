@@ -16,6 +16,7 @@
 #include <atomic>
 #include <exception>
 #include<functional>
+#include <unordered_map>
 
 #if defined(_WIN32) && defined(SPDLOG_WCHAR_FILENAMES)
 #include <codecvt>
@@ -102,6 +103,22 @@ inline const char* to_short_str(spdlog::level::level_enum l)
 {
     return short_level_names[l];
 }
+
+inline spdlog::level::level_enum from_str(const std::string &name)
+{
+    static std::unordered_map<std::string, level_enum> name_to_level = // map string->level
+            {{level_names[0], level::trace},                               // trace
+             {level_names[1], level::debug},                            // debug
+             {level_names[2], level::info},                             // info
+             {level_names[3], level::warn},                             // warn
+             {level_names[4], level::err},                              // err
+             {level_names[5], level::critical},                         // critical
+             {level_names[6], level::off}};                             // off
+
+    auto lvl_it = name_to_level.find(name);
+    return lvl_it != name_to_level.end() ? lvl_it->second : level::off;
+}
+
 using level_hasher = std::hash<int>;
 
 } //level

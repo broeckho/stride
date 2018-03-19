@@ -23,9 +23,9 @@
 #============================================================================
 # Define smoke test.
 #============================================================================
-add_test( NAME smoke_test
+add_test(NAME smoke_test
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND ${BIN_INSTALL_LOCATION}/stride -s -p output_prefix=tests/smoke_test
+    COMMAND sh -c "${BIN_INSTALL_LOCATION}/stride -p output_prefix=tests/smoke_test > /dev/null"
     )
 
 #============================================================================
