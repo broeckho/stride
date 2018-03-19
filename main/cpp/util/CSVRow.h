@@ -67,12 +67,14 @@ std::string CSVRow::getValue<std::string>(size_t index) const;
 template <>
 std::string CSVRow::getValue<std::string>(const std::string& label) const;
 
+///
 template <typename T>
 inline T CSVRow::getValue(size_t index) const
 {
         return FromString<T>(getValue<std::string>(index));
 }
 
+///
 template <typename T>
 inline T CSVRow::getValue(const std::string& label) const
 {

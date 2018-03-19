@@ -30,7 +30,7 @@ class Belief
 {
 public:
         ///
-        Belief(const boost::property_tree::ptree& pt) {}
+        Belief(const boost::property_tree::ptree&) {}
 
         ///
         virtual ~Belief() {}
