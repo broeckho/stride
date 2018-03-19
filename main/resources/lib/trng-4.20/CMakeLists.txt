@@ -12,12 +12,39 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#############################################################################
+#
+#  Build trng.
+#
 #############################################################################
 
 #============================================================================
-# Add subdirs:
+# Build TRNG lib (build only, no install)
 #============================================================================
-add_subdirectory(trng-4.20)
+set(SRC
+	src/lcg64.cc
+	src/lcg64_shift.cc
+	src/minstd.cc
+	src/mrg2.cc
+	src/mrg3.cc
+	src/mrg3s.cc
+	src/mrg4.cc
+	src/mrg5.cc
+	src/mrg5s.cc
+	src/mt19937.cc
+	src/mt19937_64.cc
+	src/yarn2.cc
+	src/yarn3.cc
+	src/yarn3s.cc
+	src/yarn4.cc
+	src/yarn5.cc
+	src/yarn5s.cc
+)
+
+add_library(trng ${SRC})
+#target_compile_options(trng PUBLIC "-flto")
+set_property(TARGET trng PROPERTY POSITION_INDEPENDENT_CODE ON)
+unset(SRC)
 
 #############################################################################
