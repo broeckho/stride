@@ -74,7 +74,7 @@ int main(int argc, char** argv)
                 CliController cntrl(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
                                     log_level.getValue(), use_install_dirs);
                 cntrl.Setup();
-                cntrl.Go();
+                cntrl.Execute();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

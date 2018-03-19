@@ -40,7 +40,7 @@ using namespace std;
 using namespace util;
 
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_logger(logger), m_config_pt(config_pt)
+    : m_config_pt(config_pt), m_logger(logger)
 {
         assert(m_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
         assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
@@ -155,7 +155,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
                         sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
                 }
         }
-        // For now this is necessary because we are note paasing it through sim to the Infectors.
+        // For now this is necessary because we are note passing it through sim to the Infectors.
         spdlog::register_logger(sim->m_contact_logger);
 
         // --------------------------------------------------------------

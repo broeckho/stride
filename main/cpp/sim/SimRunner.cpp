@@ -54,9 +54,9 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        bool status = true;
-        m_config_pt = run_config_pt;
-        // m_log_level     = m_pt_config.get<string>("run.log_level", "info");
+        bool status     = true;
+        m_config_pt     = run_config_pt;
+        m_log_level     = m_config_pt.get<string>("run.stride_log_level", "info");
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
@@ -66,8 +66,8 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         if (!m_logger) {
                 const auto l = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
                 m_logger     = LogUtils::CreateCliLogger("stride_logger", l.string());
-                // spdlog::register_logger(m_logger);
-                // m_logger->set_level(spdlog::level::from_str(m_log_level));
+                spdlog::register_logger(m_logger);
+                m_logger->set_level(spdlog::level::from_str(m_log_level));
         }
         m_logger->info("SimRunner starting up at:      {}", TimeStamp().ToString());
 
@@ -76,16 +76,16 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // -----------------------------------------------------------------------------------------
         const auto p = FileSys::BuildPath(m_output_prefix, "run_config.xml");
         write_xml(p.string(), m_config_pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
-        m_logger->info("Run config written to file {}", p.string());
+        m_logger->trace("Run config written to file {}", p.string());
 
         // ------------------------------------------------------------------------------
         // Build simulator.
         //------------------------------------------------------------------------------
-        m_logger->info("Building the simulator.");
+        m_logger->trace("Building the simulator.");
         SimulatorBuilder builder(m_config_pt, m_logger);
         m_sim = builder.Build();
         if (m_sim) {
-                m_logger->info("Done building the simulator.");
+                m_logger->trace("Done building the simulator.");
         } else {
                 m_logger->critical("Simulator build failed!");
                 throw("SimRunner::Setup> Simulator build failed!");
@@ -95,7 +95,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // Check the simulator.
         // -----------------------------------------------------------------------------------------
         if (m_sim->IsOperational()) {
-                m_logger->info("Simulator is operational.");
+                m_logger->trace("Simulator is operational.");
         } else {
                 m_logger->critical("Invalid configuration => terminate without output");
                 throw("SimRunner::Setup> Simulator not operational!");
@@ -128,7 +128,7 @@ void SimRunner::Run()
         Notify({shared_from_this(), Id::Finished});
 
         m_clock.Stop();
-        m_logger->info("elapsed time on this run; {}", m_clock.ToString());
+        m_logger->info("Elapsed time on this run; {}", m_clock.ToString());
         m_logger->info("SimRunner shutting down at:      {}", TimeStamp().ToString());
 }
 

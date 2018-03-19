@@ -38,7 +38,18 @@ namespace stride {
 class Simulator;
 
 /**
- * Managing a run of the simulator.
+ * The simulation runner build a simulator and then lets it step through
+ * untill the end of the simulation interval.
+ * The SimRunner setup
+ * \li accepts and configuration property tree from its controller
+ * \li makes a logger
+ * \li outputs the run configuration to file
+ * \li invokes the builder (@see SimulatorBuilder) for the simulator
+ * \li checks the simulator
+ * The SimRunner execution
+ * \li manages elapsed time clock
+ * \li manages time steps
+ * All the while SimRunner notifies viewers of its events (@see sim_event::Id)
  */
 class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
 {

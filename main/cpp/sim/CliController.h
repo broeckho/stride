@@ -34,6 +34,23 @@ namespace stride {
 
 class SimRunner;
 
+/**
+ * The CliController controls execution of a simulation run (@see SimRunner) from the
+ * command line interface (cli).
+ * The CliController setup
+ * \li accepts the commandline arguments
+ * \li checks the OpenMP environment
+ * \li checks the file system environment
+ * \li reads the config file specified on the cli
+ * \li effects cli overides of config parameters
+ * \li patches the config file for any remaing defaults
+ * \li interprets and executes the ouput prefix
+ * \li makes a stride logger
+ * The CliController execution
+ * \li creates a simulation runner (@see SimRunner)
+ * \li registers the appropriate viewers
+ * \li runs the simulation
+ */
 class CliController
 {
 public:
@@ -42,7 +59,7 @@ public:
                       bool track_index_case = false, std::string log_level = "info", bool use_install_dirs = true);
 
         /// Actual run of the simulator.
-        void Go();
+        void Execute();
 
         /// Setup the controller.
         void Setup();

@@ -31,7 +31,15 @@ namespace stride {
 class Simulator;
 
 /**
- * Class to build the simulator.
+ * Builds a simulator (@see Simulator) based a configuration property tree.
+ * It
+ * \li reads any additional configuration files (disease, contact, ...)
+ * \li initializes calendar and random number manager for the simulator
+ * \li builds a contact/transmission logger
+ * \li builds a population (vector of persons)
+ * \li initialize contactpools
+ * \li deals with initial immunity and infection in the population
+ * \li adds population members to their contact pools
  */
 class SimulatorBuilder
 {
@@ -57,8 +65,8 @@ private:
         boost::property_tree::ptree ReadDiseasePtree();
 
 private:
-        std::shared_ptr<spdlog::logger> m_logger;
         boost::property_tree::ptree     m_config_pt;
+        std::shared_ptr<spdlog::logger> m_logger;
 };
 
 } // namespace stride
