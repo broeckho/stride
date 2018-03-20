@@ -43,7 +43,7 @@ class SimRunner;
  * \li checks the file system environment
  * \li reads the config file specified on the cli
  * \li effects cli overides of config parameters
- * \li patches the config file for any remaing defaults
+ * \li patches the config file for any remaining defaults
  * \li interprets and executes the ouput prefix
  * \li makes a stride logger
  * The CliController execution
@@ -56,7 +56,8 @@ class CliController
 public:
         /// Straight initialization.
         CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
-                      bool track_index_case = false, std::string log_level = "info", bool use_install_dirs = true);
+                      bool track_index_case = false, std::string stride_log_level = "info",
+                      bool use_install_dirs = true);
 
         /// Actual run of the simulator.
         void Execute();
@@ -92,16 +93,16 @@ private:
         std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
         bool                                              m_track_index_case; /// Full calculation or track index case.
 
-        std::string m_log_level;        /// Log level (see spdlog::level in spdlog/common.h).
+        std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
         bool        m_use_install_dirs; /// Working dir or install dir mode.
 
         unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
         std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
         util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
 
-        boost::filesystem::path         m_config_path; ///< path to config file.
-        boost::property_tree::ptree     m_config_pt;   ///< Main configuration for run and sim.
-        std::shared_ptr<spdlog::logger> m_logger;      ///< General logger.
+        boost::filesystem::path         m_config_path;   ///< path to config file.
+        boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
 };
 
 } // namespace stride

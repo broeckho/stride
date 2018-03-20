@@ -40,8 +40,6 @@ using namespace util;
 
 /// Default constructor for empty Simulator.
 Simulator::Simulator()
-    //: m_track_index_case(false), m_num_threads(1U), m_contact_log_level(ContactLogMode::Id::Null),
-    //  m_contact_logger(nullptr), m_sim_day(0U), m_population(nullptr)
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::Null), m_contact_logger(nullptr), m_contact_profiles(),
       m_disease_profile(), m_num_threads(1U), m_track_index_case(false), m_calendar(), m_operational(), m_rn_manager(),
       m_sim_day(0U), m_population(nullptr), m_households(), m_school_pools(), m_work_pools(), m_primary_community(),

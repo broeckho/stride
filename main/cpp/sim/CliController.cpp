@@ -42,11 +42,11 @@ using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 CliController::CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
-                             bool track_index_case, std::string log_level, bool use_install_dirs)
+                             bool track_index_case, std::string stride_log_level, bool use_install_dirs)
     : m_config_file(std::move(config_file)), m_p_overrides(std::move(p_overrides)),
-      m_track_index_case(track_index_case), m_log_level(std::move(log_level)), m_use_install_dirs(use_install_dirs),
-      m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(),
-      m_logger(){};
+      m_track_index_case(track_index_case), m_stride_log_level(std::move(stride_log_level)),
+      m_use_install_dirs(use_install_dirs), m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true),
+      m_config_path(), m_config_pt(), m_stride_logger(nullptr){};
 
 void CliController::CheckEnv()
 {
@@ -92,7 +92,7 @@ void CliController::Execute()
         // -----------------------------------------------------------------------------------------
         runner->Setup(m_config_pt);
         runner->Run();
-        m_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
+        m_stride_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
 
         // -----------------------------------------------------------------------------------------
         // Done.
@@ -102,10 +102,10 @@ void CliController::Execute()
 
 void CliController::MakeLogger()
 {
-        const auto l = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        m_logger     = LogUtils::CreateCliLogger("stride_logger", l.string());
-        spdlog::register_logger(m_logger);
-        m_logger->set_level(spdlog::level::from_str(m_log_level));
+        const auto l    = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+        m_stride_logger = LogUtils::CreateCliLogger("stride_logger", l.string());
+        m_stride_logger->set_level(spdlog::level::from_str(m_stride_log_level));
+        m_stride_logger->flush_on(spdlog::level::err);
 }
 
 void CliController::PatchConfig()
@@ -121,7 +121,7 @@ void CliController::PatchConfig()
         // Config items that should be specified with commandline options (-r, -l, -w NOT with -p)
         // -----------------------------------------------------------------------------------------
         m_config_pt.put("run.track_index_case", m_track_index_case);
-        m_config_pt.put("run.stride_log_level", m_log_level);
+        m_config_pt.put("run.stride_log_level", m_stride_log_level);
         m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
 
         // -----------------------------------------------------------------------------------------
@@ -164,34 +164,34 @@ void CliController::ReadConfigFile()
 void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
 {
         // Command line viewer
-        m_logger->info("Registering CliViewer");
-        const auto cli_v = make_shared<viewers::CliViewer>(m_logger);
+        m_stride_logger->info("Registering CliViewer");
+        const auto cli_v = make_shared<viewers::CliViewer>(m_stride_logger);
         runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
 
         // Adopted viewer
         if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_logger->info("registering AdoptedViewer,");
+                m_stride_logger->info("registering AdoptedViewer,");
                 const auto v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
                 runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
         }
 
         // Cases viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_logger->info("Registering CasesViewer");
+                m_stride_logger->info("Registering CasesViewer");
                 const auto v = make_shared<viewers::CasesViewer>(m_output_prefix);
                 runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
         }
 
         // Persons viewer
         if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_logger->info("registering PersonsViewer.");
+                m_stride_logger->info("registering PersonsViewer.");
                 const auto v = make_shared<viewers::PersonsViewer>(m_output_prefix);
                 runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
         }
 
         // Summary viewer
         if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_logger->info("Registering SummaryViewer");
+                m_stride_logger->info("Registering SummaryViewer");
                 const auto v = make_shared<viewers::SummaryViewer>(m_output_prefix);
                 runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
         }
@@ -223,25 +223,27 @@ void CliController::Setup()
         // Create the appropriate logger and register it.
         // -----------------------------------------------------------------------------------------
         MakeLogger();
+        spdlog::register_logger(m_stride_logger);
 
         // -----------------------------------------------------------------------------------------
         // Log the setup.
         // -----------------------------------------------------------------------------------------
-        m_logger->info("CliController setup:");
-        m_logger->info("Using configuration file:  {}", m_config_path.string());
-        m_logger->info("Creating dir:  {}", m_output_prefix);
-        m_logger->info("Executing:           {}", FileSys::GetExecPath().string());
-        m_logger->info("Current directory:   {}", FileSys::GetCurrentDir().string());
+        m_stride_logger->info("CliController setup:");
+        m_stride_logger->info("Using configuration file:  {}", m_config_path.string());
+        m_stride_logger->info("Creating dir:  {}", m_output_prefix);
+        m_stride_logger->info("Executing:           {}", FileSys::GetExecPath().string());
+        m_stride_logger->info("Current directory:   {}", FileSys::GetCurrentDir().string());
         if (m_use_install_dirs) {
-                m_logger->info("Install directory:   {}", FileSys::GetRootDir().string());
-                m_logger->info("Config  directory:   {}", FileSys::GetConfigDir().string());
-                m_logger->info("Data    directory:   {}", FileSys::GetDataDir().string());
+                m_stride_logger->info("Install directory:   {}", FileSys::GetRootDir().string());
+                m_stride_logger->info("Config  directory:   {}", FileSys::GetConfigDir().string());
+                m_stride_logger->info("Data    directory:   {}", FileSys::GetDataDir().string());
         }
         if (ConfigInfo::HaveOpenMP()) {
-                m_logger->info("Max number OpenMP threads in this environment: {}", m_max_num_threads);
-                m_logger->info("Configured number of threads: {}", m_config_pt.get<unsigned int>("run.num_threads"));
+                m_stride_logger->info("Max number OpenMP threads in this environment: {}", m_max_num_threads);
+                m_stride_logger->info("Configured number of threads: {}",
+                                      m_config_pt.get<unsigned int>("run.num_threads"));
         } else {
-                m_logger->info("Not using OpenMP threads.");
+                m_stride_logger->info("Not using OpenMP threads.");
         }
 }
 

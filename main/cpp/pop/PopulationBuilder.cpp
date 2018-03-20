@@ -43,7 +43,8 @@ using namespace boost::property_tree;
  * @return              Pointer to the initialized population.
  */
 std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, const ptree& pt_disease,
-                                                     util::RNManager& rn_manager)
+                                                     util::RNManager&                rn_manager,
+                                                     std::shared_ptr<spdlog::logger> contact_logger)
 {
         // ------------------------------------------------
         // Setup.
@@ -54,11 +55,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         const auto         seeding_rate        = pt_config.get<double>("run.seeding_rate");
         const string       disease_config_file = pt_config.get<string>("run.disease_config_file");
         function<double()> uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
-
-        // ------------------------------------------------
-        // Logger.
-        // ------------------------------------------------
-        const shared_ptr<spdlog::logger> logger = spdlog::get("contact_logger");
 
         //------------------------------------------------
         // Check input.
@@ -150,10 +146,10 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                         Person& p = population[pop_index_generator()];
                         if (!p.IsParticipatingInSurvey()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {}", p.GetId());
-                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetContactPoolId(ContactPoolType::Id::School),
-                                             p.GetContactPoolId(ContactPoolType::Id::Work));
+                                contact_logger->info("[PART] {}", p.GetId());
+                                contact_logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
+                                                     p.GetContactPoolId(ContactPoolType::Id::School),
+                                                     p.GetContactPoolId(ContactPoolType::Id::Work));
                                 num_samples++;
                         }
                 }

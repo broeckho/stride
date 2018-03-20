@@ -65,8 +65,8 @@ private:
         boost::property_tree::ptree ReadDiseasePtree();
 
 private:
-        boost::property_tree::ptree     m_config_pt;
-        std::shared_ptr<spdlog::logger> m_logger;
+        boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).
 };
 
 } // namespace stride

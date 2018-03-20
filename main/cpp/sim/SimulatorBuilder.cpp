@@ -40,13 +40,13 @@ using namespace std;
 using namespace util;
 
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_config_pt(config_pt), m_logger(logger)
+    : m_config_pt(config_pt), m_stride_logger(logger)
 {
-        assert(m_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
+        assert(m_stride_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
         assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
         // Hack for the benefilt of StrideRunner
-        if (!m_logger) {
-                m_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
+        if (!m_stride_logger) {
+                m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
         }
 }
 
@@ -70,13 +70,13 @@ ptree SimulatorBuilder::ReadContactPtree()
         const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
-                m_logger->critical("Configuration file {} not present! Quitting.", fp.string());
+                m_stride_logger->critical("Configuration file {} not present! Quitting.", fp.string());
         } else {
-                m_logger->info("Configuration file:  {}", fp.string());
+                m_stride_logger->info("Configuration file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        m_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
+                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
                         pt.clear();
                 }
         }
@@ -92,13 +92,13 @@ ptree SimulatorBuilder::ReadDiseasePtree()
         const auto fn = m_config_pt.get<string>("run.disease_config_file");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
-                m_logger->critical("Disease config file {} not present! Quitting.", fp.string());
+                m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
         } else {
-                m_logger->info("Disease config file:  {}", fp.string());
+                m_stride_logger->info("Disease config file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        m_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
+                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
                         pt.clear();
                 }
         }
@@ -138,25 +138,20 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
                                       : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
 
         // -----------------------------------------------------------------------------------------
-        // Create logger (unless it already exists) for use by the simulator during time step computations.
+        // Create contact_logger for the simulator to log contacts/transmissions.Do NOT register it.
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
-        sim->m_contact_logger = spdlog::get("contact_logger");
-        if (!sim->m_contact_logger) {
-                const auto contact_output_file = m_config_pt.get<bool>("run.contact_output_file", true);
-                if (contact_output_file) {
-                        const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
-                        const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                        sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
-                        // Remove meta data from log => time-stamp of logging
-                        sim->m_contact_logger->set_pattern("%v");
-                } else {
-                        sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
-                }
+        const auto contact_output_file = m_config_pt.get<bool>("run.contact_output_file", true);
+        if (contact_output_file) {
+                const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
+                const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
+                sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
+                // Remove meta data from log => time-stamp of logging
+                sim->m_contact_logger->set_pattern("%v");
+        } else {
+                sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
         }
-        // For now this is necessary because we are note passing it through sim to the Infectors.
-        spdlog::register_logger(sim->m_contact_logger);
 
         // --------------------------------------------------------------
         // Set correct information policies.
@@ -167,7 +162,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager);
+        sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager, sim->m_contact_logger);
 
         // --------------------------------------------------------------
         // Contact profiles & initilize contactpools.

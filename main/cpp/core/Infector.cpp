@@ -72,11 +72,11 @@ public:
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
+        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
                                  ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
         {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ContactPoolType::ToString(type),
-                             calendar->GetSimulationDay());
+                contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ContactPoolType::ToString(type),
+                                     calendar->GetSimulationDay());
         }
 };
 
@@ -85,8 +85,8 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Contacts>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id type,
-                            const shared_ptr<const Calendar>& calendar)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
+                            ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
         {
                 const auto home                = (type == ContactPoolType::Id::Household);
                 const auto work                = (type == ContactPoolType::Id::Work);
@@ -94,10 +94,10 @@ public:
                 const auto primary_community   = (type == ContactPoolType::Id::PrimaryCommunity);
                 const auto secundary_community = (type == ContactPoolType::Id::SecondaryCommunity);
 
-                logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
-                             static_cast<unsigned int>(home), static_cast<unsigned int>(school),
-                             static_cast<unsigned int>(work), static_cast<unsigned int>(primary_community),
-                             static_cast<unsigned int>(secundary_community), calendar->GetSimulationDay());
+                contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
+                                     static_cast<unsigned int>(home), static_cast<unsigned int>(school),
+                                     static_cast<unsigned int>(work), static_cast<unsigned int>(primary_community),
+                                     static_cast<unsigned int>(secundary_community), calendar->GetSimulationDay());
         }
 
         static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
@@ -113,11 +113,11 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::SusceptibleContacts>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, ContactPoolType::Id,
-                            const shared_ptr<const Calendar>&)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
+                            ContactPoolType::Id, const shared_ptr<const Calendar>&)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
-                        logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
+                        contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
@@ -134,7 +134,7 @@ public:
 //-------------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
 void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
-                                      shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> logger)
+                                      shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> contact_logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -163,11 +163,11 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
                                                 if (contact_handler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
                                                         if (p1->IsParticipatingInSurvey()) {
-                                                                LP::Contact(logger, p1, p2, c_type, calendar);
+                                                                LP::Contact(contact_logger, p1, p2, c_type, calendar);
                                                         }
                                                         // log contact if person 2 is participating in survey
                                                         if (p2->IsParticipatingInSurvey()) {
-                                                                LP::Contact(logger, p2, p1, c_type, calendar);
+                                                                LP::Contact(contact_logger, p2, p1, c_type, calendar);
                                                         }
 
                                                         // exchange info about health state & beliefs
@@ -177,13 +177,13 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
                                                         if (contact_handler.HasTransmission(t_rate)) {
                                                                 if (p1->GetHealth().IsInfectious() &&
                                                                     p2->GetHealth().IsSusceptible()) {
-                                                                        LP::Transmission(logger, p1, p2, c_type,
+                                                                        LP::Transmission(contact_logger, p1, p2, c_type,
                                                                                          calendar);
                                                                         p2->GetHealth().StartInfection();
                                                                         RP::Exec(p2);
                                                                 } else if (p2->GetHealth().IsInfectious() &&
                                                                            p1->GetHealth().IsSusceptible()) {
-                                                                        LP::Transmission(logger, p2, p1, c_type,
+                                                                        LP::Transmission(contact_logger, p2, p1, c_type,
                                                                                          calendar);
                                                                         p1->GetHealth().StartInfection();
                                                                         RP::Exec(p1);
@@ -203,7 +203,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
 template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, DiseaseProfile disease_profile,
                                                        ContactHandler ch, shared_ptr<const Calendar> calendar,
-                                                       shared_ptr<spdlog::logger> logger)
+                                                       shared_ptr<spdlog::logger> contact_logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -241,7 +241,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, Diseas
                                                                     p2->GetHealth().IsSusceptible()) {
                                                                         p2->GetHealth().StartInfection();
                                                                         RP::Exec(p2);
-                                                                        LP::Transmission(logger, p1, p2, c_type,
+                                                                        LP::Transmission(contact_logger, p1, p2, c_type,
                                                                                          calendar);
                                                                 }
                                                         }
