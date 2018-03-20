@@ -132,10 +132,10 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // ContactLogMode related initialization.
         // --------------------------------------------------------------
-        const string l           = m_config_pt.get<string>("run.contact_log_level", "None");
-        sim->m_contact_log_level = ContactLogMode::IsMode(l)
-                                       ? ContactLogMode::ToMode(l)
-                                       : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
+        const string l          = m_config_pt.get<string>("run.contact_log_level", "None");
+        sim->m_contact_log_mode = ContactLogMode::IsMode(l)
+                                      ? ContactLogMode::ToMode(l)
+                                      : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
 
         // -----------------------------------------------------------------------------------------
         // Create logger (unless it already exists) for use by the simulator during time step computations.

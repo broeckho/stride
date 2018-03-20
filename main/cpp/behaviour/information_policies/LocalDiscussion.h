@@ -28,7 +28,7 @@ namespace stride {
 class LocalDiscussion
 {
 public:
-        static void Update(Person* p1, Person* p2)
+        static void Update(Person*, Person*)
         {
                 // TODO discussion probability
                 // TODO if discussion: update p1
@@ -36,7 +36,7 @@ public:
         }
 
 private:
-        static double m_discussion_chance;
+        static double m_discussion_probability;
 };
 
 } // namespace stride

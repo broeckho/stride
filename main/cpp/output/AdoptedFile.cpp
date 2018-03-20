@@ -22,7 +22,7 @@ namespace output {
 using namespace std;
 using namespace stride::util;
 
-AdoptedFile::AdoptedFile(const string& output_prefix) { Initialize(output_prefix); }
+AdoptedFile::AdoptedFile(const string& output_prefix) : m_fstream() { Initialize(output_prefix); }
 
 AdoptedFile::~AdoptedFile() { m_fstream.close(); }
 

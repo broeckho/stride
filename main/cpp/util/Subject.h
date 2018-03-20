@@ -39,6 +39,8 @@ public:
         using CallbackType = std::function<void(const EventType&)>;
 
 public:
+        Subject() = default;
+
         virtual ~Subject() { UnregisterAll(); }
 
         template <typename U>

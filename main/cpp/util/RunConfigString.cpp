@@ -46,6 +46,5 @@ string RunConfigString::CreateTestsBasic2()
         return ss.str();
 }
 
-
 } // namespace util
 } // namespace stride

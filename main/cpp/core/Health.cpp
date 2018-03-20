@@ -22,7 +22,7 @@ namespace stride {
 Health::Health(unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
                unsigned int time_symptomatic)
     : m_disease_counter(0U), m_status(HealthStatus::Susceptible), m_start_infectiousness(start_infectiousness),
-      m_start_symptomatic(start_symptomatic)
+      m_start_symptomatic(start_symptomatic), m_end_infectiousness(), m_end_symptomatic()
 {
         m_end_infectiousness = start_infectiousness + time_infectious;
         m_end_symptomatic    = start_symptomatic + time_symptomatic;

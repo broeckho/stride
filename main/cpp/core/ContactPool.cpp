@@ -25,7 +25,8 @@ namespace stride {
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type, const ContactProfiles& profiles)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_profile(profiles[static_cast<std::size_t>(type)])
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(),
+      m_profile(profiles[static_cast<std::size_t>(type)])
 {
 }
 

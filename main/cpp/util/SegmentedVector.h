@@ -63,7 +63,7 @@ public:
         // ==================================================================
 
         /// Construct
-        SegmentedVector() : m_size(0) {}
+        SegmentedVector() = default;
 
         /// Copy constructor
         SegmentedVector(const self_type& other) : m_size(0)

@@ -90,9 +90,10 @@ void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<Contac
         }
 }
 
-void Immunizer<ImmunizationProfile::Cocoon>::Administer(const std::vector<ContactPool>& pools,
-                                                        std::vector<double>&            immunity_distribution,
-                                                        double immunity_link_probability, util::RNManager& rn_manager)
+void Immunizer<ImmunizationProfile::Cocoon>::Administer(const std::vector<ContactPool>& /*pools*/,
+                                                        std::vector<double>& /*immunity_distribution*/,
+                                                        double /*immunity_link_probability*/,
+                                                        util::RNManager& /*rn_manager*/)
 {
         /*
          * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double

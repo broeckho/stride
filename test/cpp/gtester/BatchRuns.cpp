@@ -48,10 +48,10 @@ public:
         /// Scenario config and test target number and margin of tolerance in percent (of target value).
         static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
         {
-                //ptree        pt     = tag.substr(0, 2) != "r0" ? BasicConfig1() : BasicConfig2();
+                // ptree        pt     = tag.substr(0, 2) != "r0" ? BasicConfig1() : BasicConfig2();
 
-                ptree        pt     = tag.substr(0, 2) != "r0"
-                                      ? RunConfigPtree::CreateTestsBasic1() : RunConfigPtree::CreateTestsBasic2();
+                ptree pt = tag.substr(0, 2) != "r0" ? RunConfigPtree::CreateTestsBasic1()
+                                                    : RunConfigPtree::CreateTestsBasic2();
                 unsigned int target = 0U;
                 double       margin = 0.1;
 

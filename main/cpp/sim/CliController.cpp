@@ -45,7 +45,8 @@ CliController::CliController(std::string config_file, std::vector<std::tuple<std
                              bool track_index_case, std::string log_level, bool use_install_dirs)
     : m_config_file(std::move(config_file)), m_p_overrides(std::move(p_overrides)),
       m_track_index_case(track_index_case), m_log_level(std::move(log_level)), m_use_install_dirs(use_install_dirs),
-      m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true){};
+      m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(),
+      m_logger(){};
 
 void CliController::CheckEnv()
 {
@@ -139,7 +140,7 @@ void CliController::PatchConfig()
                 output_prefix = TimeStamp().ToTag() + "/";
                 m_config_pt.put("run.output_prefix", output_prefix);
         }
-        
+
         m_config_pt.sort();
 }
 

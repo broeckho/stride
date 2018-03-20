@@ -30,7 +30,8 @@ public:
 
         virtual ~SimulatorObserver() {}
 
-        virtual void Update(unsigned int timestep) {}
+        /// Update with time step as an argument.
+        virtual void Update(unsigned int) {}
 };
 
 } // namespace python

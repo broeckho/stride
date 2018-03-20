@@ -64,7 +64,11 @@ void para_seed(vector<T>& engines, unsigned int stream_count, const string& stat
         }
 }
 
-RNManager::RNManager(const Info& info) { Initialize(info); }
+RNManager::RNManager(const Info& info)
+    : m_seed(), m_stream_count(), m_type_id(), m_lcg64(), m_lcg64_shift(), m_mrg2(), m_mrg3(), m_yarn2(), m_yarn3()
+{
+        Initialize(info);
+}
 
 RNManager::Info RNManager::GetInfo() const
 {

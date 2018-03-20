@@ -30,7 +30,7 @@ namespace output {
 using namespace std;
 using namespace stride::util;
 
-SummaryFile::SummaryFile(const string& output_prefix) { Initialize(output_prefix); }
+SummaryFile::SummaryFile(const string& output_prefix) : m_fstream() { Initialize(output_prefix); }
 
 SummaryFile::~SummaryFile() { m_fstream.close(); }
 

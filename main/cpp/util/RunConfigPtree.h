@@ -21,7 +21,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-
 namespace stride {
 namespace util {
 

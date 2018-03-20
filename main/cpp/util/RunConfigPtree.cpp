@@ -93,6 +93,5 @@ const ptree& RunConfigPtree::CreateTestsBasic2()
         return pt_config;
 }
 
-
 } // namespace util
 } // namespace stride

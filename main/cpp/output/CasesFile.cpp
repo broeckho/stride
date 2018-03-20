@@ -27,7 +27,7 @@ namespace output {
 using namespace std;
 using namespace stride::util;
 
-CasesFile::CasesFile(const std::string& output_prefix) { Initialize(output_prefix); }
+CasesFile::CasesFile(const std::string& output_prefix) : m_fstream() { Initialize(output_prefix); }
 
 CasesFile::~CasesFile() { m_fstream.close(); }
 
