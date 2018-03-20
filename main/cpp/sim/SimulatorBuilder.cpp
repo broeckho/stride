@@ -144,8 +144,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // -----------------------------------------------------------------------------------------
         sim->m_contact_logger = spdlog::get("contact_logger");
         if (!sim->m_contact_logger) {
-                const auto contact_outputfile = m_config_pt.get<bool>("run.contact_outputfile", true);
-                if (contact_outputfile) {
+                const auto contact_output_file = m_config_pt.get<bool>("run.contact_output_file", true);
+                if (contact_output_file) {
                         const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
                         const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
                         sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());

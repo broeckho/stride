@@ -26,11 +26,9 @@
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
 
-#include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <spdlog/common.h>
-#include <spdlog/sinks/null_sink.h>
-#include <spdlog/spdlog.h>
+#include <sstream>
 
 using namespace stride::sim_event;
 using namespace stride::util;
@@ -74,9 +72,9 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // -----------------------------------------------------------------------------------------
         // Output the full run config.
         // -----------------------------------------------------------------------------------------
-        const auto p = FileSys::BuildPath(m_output_prefix, "run_config.xml");
-        write_xml(p.string(), m_config_pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
-        m_logger->trace("Run config written to file {}", p.string());
+        ostringstream ss;
+        write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
+        m_logger->info("Run config used:\n {}", ss.str());
 
         // ------------------------------------------------------------------------------
         // Build simulator.

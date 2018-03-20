@@ -57,6 +57,8 @@ set(LIB_SRC
 	util/PtreeUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
+	util/RunConfigPtree.cpp
+    util/RunConfigString.cpp
 #---
 	viewers/AdoptedViewer.cpp
 	viewers/CasesViewer.cpp

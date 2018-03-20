@@ -139,6 +139,8 @@ void CliController::PatchConfig()
                 output_prefix = TimeStamp().ToTag() + "/";
                 m_config_pt.put("run.output_prefix", output_prefix);
         }
+        
+        m_config_pt.sort();
 }
 
 void CliController::ReadConfigFile()

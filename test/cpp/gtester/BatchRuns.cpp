@@ -21,6 +21,7 @@
 #include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
+#include "util/RunConfigPtree.h"
 
 #include <gtest/gtest.h>
 #include <omp.h>
@@ -29,6 +30,7 @@
 
 using namespace std;
 using namespace stride;
+using namespace stride::util;
 using namespace ::testing;
 using boost::property_tree::ptree;
 
@@ -43,80 +45,13 @@ public:
         /// Tearing down TestCase
         static void TearDownTestCase() {}
 
-        /// Basic config, gets modified for the various scenarios.
-        static ptree BasicConfig1()
-        {
-                static ptree pt_config;
-                if (pt_config.empty()) {
-                        pt_config.put("run.rng_seed", 2015U);
-                        pt_config.put("run.r0", 3.0);
-                        pt_config.put("run.seeding_rate", 0.0009);
-                        pt_config.put("run.seeding_age_min", 1);
-                        pt_config.put("run.seeding_age_max", 99);
-                        pt_config.put("run.immunity_profile", "Random");
-                        pt_config.put("run.immunity_rate", 0.0);
-                        pt_config.put("run.immunity_link_probability", 0);
-                        pt_config.put("run.vaccine_profile", "None");
-                        pt_config.put("run.population_file", "pop_flanders600.csv");
-                        pt_config.put("run.num_days", 30U);
-                        pt_config.put("run.output_prefix", "test/BatchRuns");
-                        pt_config.put("run.disease_config_file", "disease_influenza.xml");
-                        pt_config.put("run.num_participants_survey", 10);
-                        pt_config.put("run.start_date", "2017-01-01");
-                        pt_config.put("run.holidays_file", "holidays_none.json");
-                        pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                        pt_config.put("run.contact_log_level", "None");
-                        pt_config.put("run.local_information_policy", "NoLocalInformation");
-                        pt_config.put("run.global_information_policy", "NoGlobalInformation");
-                        pt_config.put("run.belief_policy.name", "NoBelief");
-                        pt_config.put("run.behaviour_policy", "NoBehaviour");
-                        pt_config.put("run.use_install_dirs", true);
-                        pt_config.put("run.track_index_case", false);
-                        pt_config.put("run.silent_mode", true);
-                        pt_config.put("run.contact_outputfile", false);
-                }
-                return pt_config;
-        }
-
-        /// Basic config, R0 will change over the various scenarios.
-        static ptree BasicConfig2()
-        {
-                static ptree pt_config;
-                if (pt_config.empty()) {
-                        pt_config.put("run.rng_seed", 1U);
-                        pt_config.put("run.seeding_rate", 0.002);
-                        pt_config.put("run.seeding_age_min", 1);
-                        pt_config.put("run.seeding_age_max", 99);
-                        pt_config.put("run.immunity_rate", 0.8);
-                        pt_config.put("run.immunity_profile", "None");
-                        pt_config.put("run.vaccine_rate", 0.8);
-                        pt_config.put("run.vaccine_profile", "Random");
-                        pt_config.put("run.vaccine_link_probability", 0);
-                        pt_config.put("run.population_file", "pop_flanders600.csv");
-                        pt_config.put("run.num_days", 50U);
-                        pt_config.put("run.output_prefix", "test/BatchRuns");
-                        pt_config.put("run.disease_config_file", "disease_measles.xml");
-                        pt_config.put("run.num_participants_survey", 10);
-                        pt_config.put("run.start_date", "2017-01-01");
-                        pt_config.put("run.holidays_file", "holidays_none.json");
-                        pt_config.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                        pt_config.put("run.contact_log_level", "Transmissions");
-                        pt_config.put("run.local_information_policy", "NoLocalInformation");
-                        pt_config.put("run.global_information_policy", "NoGlobalInformation");
-                        pt_config.put("run.belief_policy.name", "NoBelief");
-                        pt_config.put("run.behaviour_policy", "NoBehaviour");
-                        pt_config.put("run.use_install_dirs", true);
-                        pt_config.put("run.track_index_case", false);
-                        pt_config.put("run.silent_mode", true);
-                        pt_config.put("run.contact_outputfile", false);
-                }
-                return pt_config;
-        }
-
         /// Scenario config and test target number and margin of tolerance in percent (of target value).
         static tuple<ptree, unsigned int, double> ScenarioData(const string& tag)
         {
-                ptree        pt     = tag.substr(0, 2) != "r0" ? BasicConfig1() : BasicConfig2();
+                //ptree        pt     = tag.substr(0, 2) != "r0" ? BasicConfig1() : BasicConfig2();
+
+                ptree        pt     = tag.substr(0, 2) != "r0"
+                                      ? RunConfigPtree::CreateTestsBasic1() : RunConfigPtree::CreateTestsBasic2();
                 unsigned int target = 0U;
                 double       margin = 0.1;
 
@@ -198,7 +133,7 @@ TEST_P(BatchRuns, Run)
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
         const auto d         = ScenarioData(test_tag);
-        auto       pt_config = get<0>(d);
+        auto       config_pt = get<0>(d);
         const auto target    = get<1>(d);
         const auto margin    = get<2>(d);
 
@@ -206,14 +141,14 @@ TEST_P(BatchRuns, Run)
         // Initialize the simulator.
         // -----------------------------------------------------------------------------------------
         cout << " ----> test_tag: " << test_tag << endl << " ----> threadcount:  " << num_threads << endl;
-        pt_config.put("run.num_threads", num_threads);
-        SimulatorBuilder builder(pt_config, nullptr);
+        config_pt.put("run.num_threads", num_threads);
+        SimulatorBuilder builder(config_pt, nullptr);
         const auto       sim = builder.Build();
 
         // -----------------------------------------------------------------------------------------
         // Run the simulation and release loggers.
         // -----------------------------------------------------------------------------------------
-        const auto num_days = pt_config.get<unsigned int>("run.num_days");
+        const auto num_days = config_pt.get<unsigned int>("run.num_days");
         for (unsigned int i = 0; i < num_days; i++) {
                 sim->TimeStep();
         }

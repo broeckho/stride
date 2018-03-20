@@ -43,11 +43,11 @@ int main(int argc, char** argv)
 
                 vector<string>           vals{"trace", "debug", "info", "warning", "error", "critical"};
                 ValuesConstraint<string> vc(vals);
-                ValueArg<string>         log_level("l", "loglevel", "stride logging level", false, "info", &vc, cmd);
+                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "info", &vc, cmd);
                 MultiArg<string>         params_override_Arg("p", "param_override",
                                                      "config parameter override -p <p_name>=<p_value>", false,
                                                      "parameter override", cmd);
-                ValueArg<string>         config_file_Arg("c", "config", "config file", false, "run_config_default.xml",
+                ValueArg<string>         config_file_Arg("c", "config", "config file", false, "run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
 
                 SwitchArg index_case_Arg("r", "r0", "R0 only i.e. track index case mode", cmd, false);
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
                 // We have been using use_installdirs for a while, so ..
                 const bool    use_install_dirs = !working_dir_Arg.getValue();
                 CliController cntrl(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
-                                    log_level.getValue(), use_install_dirs);
+                                    stride_log_level.getValue(), use_install_dirs);
                 cntrl.Setup();
                 cntrl.Execute();
         } catch (exception& e) {
