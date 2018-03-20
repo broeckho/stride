@@ -15,7 +15,7 @@ def checkFinished(sim, timestep):
 # Configure simulation
 simulation = Simulation()
 simulation.loadRunConfig("../config/run_default.xml")
-simulation.runConfig.setParameter("generate_person_file", 0)
+#simulation.runConfig.setParameter("output_persons", "false")
 simulation.registerCallback(checkFinished)
 
 simulation.run()

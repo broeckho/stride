@@ -235,7 +235,7 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
                            run_time, total_time);
 
         // Persons
-        if (pt_config.get<double>("run.generate_person_file") == 1) {
+        if (pt_config.get<bool>("run.output_persons", false)) {
                 PersonsFile person_file(output_prefix);
                 person_file.Print(m_sim->GetPopulation());
         }

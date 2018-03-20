@@ -33,11 +33,14 @@ import xml.etree.cElementTree as ET
 # --------------------------------
 # Function that runs the simulator.
 # --------------------------------
-def runSimulator(binary_command, num_days, rng_seed, seeding_rate, r0, population_file, immunity_rate, immunity_profile, immunity_link_probability, immunity_link_clustertype, vaccine_profile, vaccine_rate, vaccine_link_probability, vaccine_link_clustertype, output_prefix, disease_config_file, generate_person_file, num_participants_survey, start_date, holidays_file, age_contact_matrix_file, log_level,seeding_age_min, seeding_age_max,):
+def runSimulator(binary_command, num_days, rng_seed, seeding_rate, r0, population_file, immunity_rate, immunity_profile,
+                 immunity_link_probability, immunity_link_clustertype, vaccine_profile, vaccine_rate,
+                 vaccine_link_probability, vaccine_link_clustertype, output_prefix, disease_config_file,
+                 output_persons, num_participants_survey, start_date, holidays_file, age_contact_matrix_file,
+                 log_level,seeding_age_min, seeding_age_max,):
     
     # Write configuration file
     root = ET.Element("run")
-    
     ET.SubElement(root, "num_days").text = str(num_days)
     ET.SubElement(root, "rng_seed").text = str(rng_seed)
     ET.SubElement(root, "seeding_rate").text = str(seeding_rate)
@@ -55,9 +58,8 @@ def runSimulator(binary_command, num_days, rng_seed, seeding_rate, r0, populatio
     ET.SubElement(root, "vaccine_link_clustertype").text = str(vaccine_link_clustertype)
     ET.SubElement(root, "output_prefix").text = str(str(output_prefix))
     ET.SubElement(root, "disease_config_file").text = str(str(disease_config_file))
-    ET.SubElement(root, "generate_person_file").text = str(str(generate_person_file))
+    ET.SubElement(root, "output_persons").text = str(str(output_persons))
     ET.SubElement(root, "num_participants_survey").text = str(str(num_participants_survey))
-
     ET.SubElement(root, "start_date").text = str(str(start_date))
     ET.SubElement(root, "holidays_file").text = str(str(holidays_file))
     ET.SubElement(root, "age_contact_matrix_file").text = str(str(age_contact_matrix_file))
@@ -65,8 +67,7 @@ def runSimulator(binary_command, num_days, rng_seed, seeding_rate, r0, populatio
     
     tree = ET.ElementTree(root)
     tree.write(str(output_prefix)+ ".xml")
-    
-    
+
     # Execute the call
     cmd_stride = "".join([str(binary_command), " --config ", str(output_prefix)+ ".xml"])
     os.system(cmd_stride)
@@ -96,7 +97,6 @@ def processOutput(output_dir,file_tag):
     r_file.write('plot_results(data_tag)' + '\n')
     r_file.write('plot_social_contacts(data_tag,project_dir)' + '\n')
 
-
     r_file.close()
     
     # RUN Rscript
@@ -108,7 +108,8 @@ def main(argv):
     
     # Arguments parser
     parser = argparse.ArgumentParser(description='Script to execute multiple runs of the simulator.')
-    parser.add_argument('--config', help = 'A config file describing the experiments to run.', default = './config/wrapper_default.json', type=str)
+    parser.add_argument('--config', help = 'A config file describing the experiments to run.',
+                        default = './config/wrapper_default.json', type=str)
     
     args = vars(parser.parse_args())
     
@@ -116,7 +117,8 @@ def main(argv):
     config = json.load(open(args['config'], 'r'))
     
     # Load the experiment configurations from the json
-    experiments = [config['threads'], config['rng_seed'], config['seeding_rate'], config['r0'], config['population_file'],config['immunity_rate']]
+    experiments = [config['threads'], config['rng_seed'], config['seeding_rate'], config['r0'],
+                   config['population_file'],config['immunity_rate']]
     
     # Check the config 'output'... if not empty, use separator in names
     name_sep = ''
@@ -160,7 +162,13 @@ def main(argv):
         os.putenv('OMP_SCHEDULE' , str(config['omp_schedule']))
         
         # Run the simulator     ('experiment[0]' has been used for the OMP_NUM_THREADS)
-        runSimulator(config['binary_command'], config['num_days'], experiment[1], experiment[2], experiment[3], experiment[4], experiment[5], config['immunity_profile'], config['immunity_link_probability'],config['immunity_link_clustertype'], config['vaccine_profile'], config['vaccine_rate'], config['vaccine_link_probability'], config['vaccine_link_clustertype'], output_prefix, config['disease_config_file'],config['generate_person_file'],config['num_participants_survey'], config['start_date'], config['holidays_file'], config['age_contact_matrix_file'], config['log_level'], config['seeding_age_min'], config['seeding_age_max'])
+        runSimulator(config['binary_command'], config['num_days'], experiment[1], experiment[2], experiment[3],
+                     experiment[4], experiment[5], config['immunity_profile'], config['immunity_link_probability'],
+                     config['immunity_link_clustertype'], config['vaccine_profile'], config['vaccine_rate'],
+                     config['vaccine_link_probability'], config['vaccine_link_clustertype'], output_prefix,
+                     config['disease_config_file'],config['output_persons'],config['num_participants_survey'],
+                     config['start_date'], config['holidays_file'], config['age_contact_matrix_file'],
+                     config['log_level'], config['seeding_age_min'], config['seeding_age_max'])
                
         # Append the aggregated outputs
         if is_first:
@@ -192,8 +200,6 @@ def main(argv):
 
     ## process the output
     processOutput(output_dir, file_tag)
-
-
 
 if __name__ == "__main__":
     main(sys.argv)

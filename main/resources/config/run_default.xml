@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <run>
+    <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
+    <behaviour_policy>NoBehaviour</behaviour_policy>
+    <belief_policy>
+        <name>NoBelief</name>
+    </belief_policy>
+    <contact_log_level>Transmissions</contact_log_level>
+    <contact_outputfile>true</contact_outputfile>
+    <disease_config_file>disease_measles.xml</disease_config_file>
+    <global_information_policy>NoGlobalInformation</global_information_policy>
+    <holidays_file>holidays_none.json</holidays_file>
+    <immunity_profile>None</immunity_profile>
+    <immunity_rate>0.8</immunity_rate>
+    <local_information_policy>NoLocalInformation</local_information_policy>
+    <num_days>50</num_days>
+    <num_participants_survey>10</num_participants_survey>
+    <output_adopted>false</output_adopted>
+    <output_cases>true</output_cases>
+    <output_persons>false</output_persons>
+    <output_prefix></output_prefix>
+    <output_summary>false</output_summary>
+    <population_file>pop_flanders600.csv</population_file>
     <rng_seed>1</rng_seed>
     <r0>11</r0>
-    <seeding_rate>0.002</seeding_rate>
-    <seeding_age_min>1</seeding_age_min>
     <seeding_age_max>99</seeding_age_max>
-    <immunity_rate>0.8</immunity_rate>
-    <immunity_profile>None</immunity_profile>
+    <seeding_age_min>1</seeding_age_min>
+    <seeding_rate>0.002</seeding_rate>
+    <start_date>2017-01-01</start_date>
+    <stride_log_level>info</stride_log_level>
+    <vaccine_link_probability>0</vaccine_link_probability>
     <vaccine_profile>Random</vaccine_profile>
     <vaccine_rate>0.8</vaccine_rate>
-    <vaccine_link_probability>0</vaccine_link_probability>
-    <population_file>pop_flanders600.csv</population_file>
-    <num_days>50</num_days>
-    <output_prefix></output_prefix>
-    <output_adopted>true</output_adopted>
-    <output_cases>true</output_cases>
-    <output_summary>false</output_summary>
-    <output_persons>false</output_persons>
-    <disease_config_file>disease_measles.xml</disease_config_file>
-    <generate_person_file>1</generate_person_file>
-    <num_participants_survey>10</num_participants_survey>
-    <start_date>2017-01-01</start_date>
-    <holidays_file>holidays_none.json</holidays_file>
-    <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-    <log_level>Transmissions</log_level>
-    <local_information_policy>NoLocalInformation</local_information_policy>
-    <global_information_policy>NoGlobalInformation</global_information_policy>
-    <belief_policy>
-    		<name>NoBelief</name>
-    </belief_policy>
-    <behaviour_policy>NoBehaviour</behaviour_policy>
 </run>
