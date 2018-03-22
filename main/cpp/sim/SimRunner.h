@@ -54,8 +54,18 @@ class Simulator;
 class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
 {
 public:
-        /// Constructor
-        SimRunner();
+        /// The enable_shared_from_this make it so we need to instatiate a live shared_ptr
+        /// to use the object. To enforce this, the constructor has been made private.
+        static std::shared_ptr<SimRunner> Create()
+        {
+                // See discussion on make_shared and private constructor
+                // https://stackoverflow.com/questions/8147027/
+                // how-do-i-call-stdmake-shared-on-a-class-with-only-protected-or-private-const
+                struct make_shared_enabler : public SimRunner
+                {
+                };
+                return std::make_shared<make_shared_enabler>();
+        }
 
         /// Destructor
         virtual ~SimRunner() = default;
@@ -77,6 +87,10 @@ public:
 
         /// Run the simulator with config information provided.
         void Run();
+
+private:
+        /// Private constructor, @see Create.
+        SimRunner();
 
 private:
         util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.

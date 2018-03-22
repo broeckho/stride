@@ -22,10 +22,12 @@
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
+#include "util/ConfigInfo.h"
 #include "util/RunConfigPtree.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
+#include <omp.h>
 #include <tuple>
 
 using namespace std;
@@ -36,7 +38,7 @@ using boost::property_tree::ptree;
 
 namespace Tests {
 
-class BatchRuns : public ::testing::TestWithParam<const char*>
+class ParallelRuns : public ::testing::TestWithParam<const char*>
 {
 public:
         /// TestCase set up.
@@ -47,7 +49,7 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        ~BatchRuns() override {}
+        ~ParallelRuns() override {}
 
         /// Set up for the test fixture
         void SetUp() override {}
@@ -56,8 +58,20 @@ protected:
         void TearDown() override {}
 };
 
-TEST_P(BatchRuns, Run)
+TEST_P(ParallelRuns, Run)
 {
+        // -----------------------------------------------------------------------------------------
+        // Prepare test configuration.
+        // -----------------------------------------------------------------------------------------
+        const auto           max_num_threads = ConfigInfo::NumberAvailableThreads();
+        vector<unsigned int> num_threads;
+        if (max_num_threads >= 4) {
+                num_threads.push_back(static_cast<unsigned int>(max_num_threads / 2));
+                num_threads.push_back(max_num_threads);
+        } else {
+                num_threads.push_back(max_num_threads);
+        }
+
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
@@ -68,34 +82,34 @@ TEST_P(BatchRuns, Run)
         const auto   margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
-        // Actual simualtor run.
+        // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
-        cerr << "test tag: " << test_tag << endl;
-        auto runner = SimRunner::Create();
-        runner->Setup(config_pt);
-        runner->Run();
-
-        // -----------------------------------------------------------------------------------------
-        // Check resuts against target number.
-        // -----------------------------------------------------------------------------------------
-        const unsigned int result = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(result, target, target * margin) << "!! Failure:" << test_tag;
+        for (const auto n : num_threads) {
+                config_pt.put("num_threads", n);
+                cerr << "test tag: " << test_tag << " with #threads: " << n;
+                auto runner = SimRunner::Create();
+                runner->Setup(config_pt);
+                runner->Run();
+                const auto result = runner->GetSim()->GetPopulation()->GetInfectedCount();
+                EXPECT_NEAR(result, target, target * margin)
+                    << "!! CHANGES:" << test_tag << " with threads: " << n << endl;
+        }
 }
 
 namespace {
 
-const char* tags_influenza[] = {"influenza_a", "influenza_b", "influenza_c"};
+const char* tags_influenza[] = {"influenza_a", "influenza_c"};
 
-const char* tags_measles[] = {"measles_16", "measles_60"};
+const char* tags_measles[] = {"measles_16"};
 
 const char* tags_r0[] = {"r0_0", "r0_4", "r0_8", "r0_12", "r0_16"};
 
 } // namespace
 
-INSTANTIATE_TEST_CASE_P(Run_influenza, BatchRuns, ValuesIn(tags_influenza));
+INSTANTIATE_TEST_CASE_P(Run_influenza, ParallelRuns, ValuesIn(tags_influenza));
 
-INSTANTIATE_TEST_CASE_P(Run_measles, BatchRuns, ValuesIn(tags_measles));
+INSTANTIATE_TEST_CASE_P(Run_measles, ParallelRuns, ValuesIn(tags_measles));
 
-INSTANTIATE_TEST_CASE_P(Run_r0, BatchRuns, ValuesIn(tags_r0));
+INSTANTIATE_TEST_CASE_P(Run_r0, ParallelRuns, ValuesIn(tags_r0));
 
 } // namespace Tests

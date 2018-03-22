@@ -41,19 +41,18 @@ using namespace boost::property_tree;
 using namespace boost::property_tree::xml_parser;
 
 namespace stride {
-CliController::CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
-                             bool track_index_case, std::string stride_log_level, bool use_install_dirs)
-    : m_config_file(std::move(config_file)), m_p_overrides(std::move(p_overrides)),
-      m_track_index_case(track_index_case), m_stride_log_level(std::move(stride_log_level)),
-      m_use_install_dirs(use_install_dirs), m_max_num_threads(1U), m_output_prefix(""), m_run_clock("run_clock", true),
-      m_config_path(), m_config_pt(), m_stride_logger(nullptr){};
+CliController::CliController(string config_file, vector<tuple<string, string>> p_overrides, bool track_index_case,
+                             string stride_log_level, bool use_install_dirs)
+    : m_config_file(move(config_file)), m_p_overrides(move(p_overrides)), m_track_index_case(track_index_case),
+      m_stride_log_level(move(stride_log_level)), m_use_install_dirs(use_install_dirs), m_max_num_threads(1U),
+      m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(), m_stride_logger(nullptr){};
 
 void CliController::CheckEnv()
 {
         if (m_use_install_dirs) {
-                auto log = [](const string& s) -> void { std::cerr << s << std::endl; };
+                auto log = [](const string& s) -> void { cerr << s << endl; };
                 if (!FileSys::CheckInstallEnv(log)) {
-                        throw std::runtime_error("CliController::CheckEnv> Install dirs not OK.");
+                        throw runtime_error("CliController::CheckEnv> Install dirs not OK.");
                 }
         }
 }
@@ -65,7 +64,7 @@ void CliController::CheckOutputPrefix()
         if (FileSys::IsDirectoryString(m_output_prefix)) {
                 try {
                         create_directories(m_output_prefix);
-                } catch (std::exception& e) {
+                } catch (exception& e) {
                         cerr << "CliController::Setup> Exception creating directory:  {}" << m_output_prefix << endl;
                         throw;
                 }
@@ -80,7 +79,8 @@ void CliController::Execute()
         // Necessary (i.o. local variable) because (quote) a precondition of shared_from_this(),
         // namely that at least one shared_ptr must already have been created (and still exist)
         // pointing to this. Shared_from_this is used in viewer notification mechanism.
-        auto runner = make_shared<SimRunner>();
+        // auto runner = make_shared<SimRunner>();
+        auto runner = SimRunner::Create();
 
         // -----------------------------------------------------------------------------------------
         // Register viewers.
@@ -228,15 +228,15 @@ void CliController::Setup()
         // -----------------------------------------------------------------------------------------
         // Log the setup.
         // -----------------------------------------------------------------------------------------
-        m_stride_logger->info("CliController setup:");
+        m_stride_logger->info("CliController stating up at: {}", TimeStamp().ToString());
         m_stride_logger->info("Using configuration file:  {}", m_config_path.string());
-        m_stride_logger->info("Creating dir:  {}", m_output_prefix);
-        m_stride_logger->info("Executing:           {}", FileSys::GetExecPath().string());
-        m_stride_logger->info("Current directory:   {}", FileSys::GetCurrentDir().string());
+        m_stride_logger->debug("Creating dir:  {}", m_output_prefix);
+        m_stride_logger->debug("Executing:           {}", FileSys::GetExecPath().string());
+        m_stride_logger->debug("Current directory:   {}", FileSys::GetCurrentDir().string());
         if (m_use_install_dirs) {
-                m_stride_logger->info("Install directory:   {}", FileSys::GetRootDir().string());
-                m_stride_logger->info("Config  directory:   {}", FileSys::GetConfigDir().string());
-                m_stride_logger->info("Data    directory:   {}", FileSys::GetDataDir().string());
+                m_stride_logger->debug("Install directory:   {}", FileSys::GetRootDir().string());
+                m_stride_logger->debug("Config  directory:   {}", FileSys::GetConfigDir().string());
+                m_stride_logger->debug("Data    directory:   {}", FileSys::GetDataDir().string());
         }
         if (ConfigInfo::HaveOpenMP()) {
                 m_stride_logger->info("Max number OpenMP threads in this environment: {}", m_max_num_threads);

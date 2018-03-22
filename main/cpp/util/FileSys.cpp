@@ -47,11 +47,11 @@ boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, con
 {
         boost::filesystem::path p = output_prefix;
         if (FileSys::IsDirectoryString(output_prefix)) {
-                // file <filename> in dircetor <output_prefix>
+                // file <filename> in dircetory <output_prefix>
                 p /= filename;
         } else {
                 // full name is <output_prefix><filename>
-                p += filename;
+                p += "_" + filename;
         }
         return p;
 }

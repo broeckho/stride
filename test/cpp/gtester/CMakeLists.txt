@@ -18,11 +18,15 @@
 #============================================================================
 # Build & install the (OpenMP enabled if OpenMP available) executable.
 #============================================================================
-set( EXEC       gtester     )
-set( SRC
-		main.cpp
-		BatchRuns.cpp
+set(EXEC gtester)
+set(SRC
+    main.cpp
+    BatchRuns.cpp
+    ScenarioData.cpp
 )
+if (OPENMP_FOUND)
+    set(SRC ${SRC} ParallelRuns.cpp)
+endif()
 
 add_executable(${EXEC}   ${SRC} )
 target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride) 
@@ -31,16 +35,16 @@ install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME  ${EXEC}_all 		
-        WORKING_DIRECTORY  ${TESTS_DIR}
-		COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC} 
-		         --gtest_output=xml:gtester_all.xml
+add_test(NAME  ${EXEC}_all
+    WORKING_DIRECTORY  ${TESTS_DIR}
+    COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
+        --gtest_output=xml:gtester_all.xml
 )
 
 #============================================================================
 # Clean up.
 #============================================================================
-unset( EXEC      )
-unset( SRC       )
+unset(EXEC)
+unset(SRC)
 
 #############################################################################

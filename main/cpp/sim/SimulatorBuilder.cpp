@@ -52,6 +52,7 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
 
 std::shared_ptr<Simulator> SimulatorBuilder::Build()
 {
+        m_stride_logger->trace("Starting Simulator::Build.");
         const auto pt_contact = ReadContactPtree();
         const auto pt_disease = ReadDiseasePtree();
 
@@ -59,6 +60,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build()
         if (!pt_contact.empty() && !pt_disease.empty()) {
                 sim = Build(pt_disease, pt_contact);
         }
+
+        m_stride_logger->trace("Finished Simulator::Build.");
         return sim;
 }
 
@@ -70,9 +73,9 @@ ptree SimulatorBuilder::ReadContactPtree()
         const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Configuration file {} not present! Quitting.", fp.string());
+                m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
         } else {
-                m_stride_logger->info("Configuration file:  {}", fp.string());
+                m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
@@ -94,7 +97,7 @@ ptree SimulatorBuilder::ReadDiseasePtree()
         if (!exists(fp) || !is_regular_file(fp)) {
                 m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
         } else {
-                m_stride_logger->info("Disease config file:  {}", fp.string());
+                m_stride_logger->debug("Disease config file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
@@ -138,7 +141,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
                                       : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
 
         // -----------------------------------------------------------------------------------------
-        // Create contact_logger for the simulator to log contacts/transmissions.Do NOT register it.
+        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------

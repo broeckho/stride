@@ -44,7 +44,8 @@ const ptree& RunConfigPtree::CreateTestsBasic1()
                 pt_config.put("run.local_information_policy", "NoLocalInformation");
                 pt_config.put("run.num_days", 30U);
                 pt_config.put("run.num_participants_survey", 10);
-                pt_config.put("run.output_prefix", "test/BatchRuns");
+                pt_config.put("run.num_threads", 1U);
+                pt_config.put("run.output_prefix", "BatchRuns");
                 pt_config.put("run.population_file", "pop_flanders600.csv");
                 pt_config.put("run.rng_seed", 2015U);
                 pt_config.put("run.r0", 3.0);
@@ -52,9 +53,9 @@ const ptree& RunConfigPtree::CreateTestsBasic1()
                 pt_config.put("run.seeding_age_min", 1);
                 pt_config.put("run.seeding_age_max", 99);
                 pt_config.put("run.start_date", "2017-01-01");
-                pt_config.put("run.use_install_dirs", true);
+                pt_config.put("run.stride_log_level", "error");
                 pt_config.put("run.track_index_case", false);
-                pt_config.put("run.silent_mode", true);
+                pt_config.put("run.use_install_dirs", true);
                 pt_config.put("run.vaccine_profile", "None");
         }
         return pt_config;
@@ -77,13 +78,15 @@ const ptree& RunConfigPtree::CreateTestsBasic2()
                 pt_config.put("run.local_information_policy", "NoLocalInformation");
                 pt_config.put("run.num_days", 50U);
                 pt_config.put("run.num_participants_survey", 10);
-                pt_config.put("run.output_prefix", "test/BatchRuns");
+                pt_config.put("run.num_threads", 1U);
+                pt_config.put("run.output_prefix", "BatchRuns");
                 pt_config.put("run.population_file", "pop_flanders600.csv");
                 pt_config.put("run.rng_seed", 1U);
                 pt_config.put("run.seeding_age_max", 99);
                 pt_config.put("run.seeding_age_min", 1);
                 pt_config.put("run.seeding_rate", 0.002);
                 pt_config.put("run.start_date", "2017-01-01");
+                pt_config.put("run.stride_log_level", "error");
                 pt_config.put("run.track_index_case", false);
                 pt_config.put("run.use_install_dirs", true);
                 pt_config.put("run.vaccine_link_probability", 0);
