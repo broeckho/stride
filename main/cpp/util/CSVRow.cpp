@@ -20,7 +20,17 @@
 #include "CSVRow.h"
 
 #include "CSV.h"
-#include "util/Misc.h"
+
+namespace {
+
+inline bool IsFloat(const std::string& s)
+{
+        float             a;
+        std::stringstream ss(s);
+        return (ss >> a) ? true : false;
+}
+
+}
 
 namespace stride {
 namespace util {
@@ -60,11 +70,11 @@ std::ostream& operator<<(std::ostream& os, const CSVRow& row)
 {
         for (unsigned int i = 0; i < row.values.size(); ++i) {
                 const std::string& value = row.values.at(i);
-                if (!util::IsFloat(value)) {
+                if (!IsFloat(value)) {
                         os << "\"";
                 }
                 os << value;
-                if (!util::IsFloat(value)) {
+                if (!IsFloat(value)) {
                         os << "\"";
                 }
                 if (i != row.values.size() - 1) {

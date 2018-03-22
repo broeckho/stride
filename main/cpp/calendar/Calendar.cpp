@@ -30,8 +30,9 @@ using namespace std;
 using namespace boost::filesystem;
 using namespace boost::property_tree::json_parser;
 using namespace stride::util;
+using boost::property_tree::ptree;
 
-Calendar::Calendar(const boost::property_tree::ptree& pt_config)
+Calendar::Calendar(const ptree& pt_config)
     : m_date(), m_day(static_cast<size_t>(0)), m_holidays(), m_school_holidays()
 {
         // Set start date
@@ -48,10 +49,10 @@ void Calendar::AdvanceDay()
         m_date = m_date + boost::gregorian::date_duration(1);
 }
 
-void Calendar::InitializeHolidays(const boost::property_tree::ptree& pt_config)
+void Calendar::InitializeHolidays(const ptree& pt_config)
 {
         // Load json file
-        boost::property_tree::ptree pt_holidays;
+        ptree pt_holidays;
         {
                 const string file_name{pt_config.get<string>("run.holidays_file", "holidays_flanders_2016.json")};
                 const path   file_path{FileSys().GetDataDir() /= file_name};

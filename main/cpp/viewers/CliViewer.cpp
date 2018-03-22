@@ -25,8 +25,6 @@
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 
-#include <cassert>
-
 using namespace std;
 using namespace stride::sim_event;
 
@@ -35,8 +33,6 @@ namespace viewers {
 
 void CliViewer::update(const sim_event::Payload& p)
 {
-        assert(m_logger && "CliViewer has nullptr to logger!");
-
         switch (p.m_event_id) {
         case Id::AtStart: {
                 const auto sim = p.m_runner->GetSim();

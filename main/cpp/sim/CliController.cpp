@@ -32,7 +32,6 @@
 #include "viewers/SummaryViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
-#include <spdlog/common.h>
 
 using namespace std;
 using namespace stride::util;

@@ -22,8 +22,6 @@
 
 #include "core/ContactPool.h"
 
-#include <spdlog/spdlog.h>
-
 namespace stride {
 
 using namespace std;

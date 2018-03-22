@@ -23,7 +23,6 @@
 #include "calendar/Calendar.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
-#include "sim/Simulator.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 
@@ -40,7 +39,7 @@ using namespace std;
 using namespace util;
 
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_config_pt(config_pt), m_stride_logger(logger)
+    : m_config_pt(config_pt), m_stride_logger(std::move(logger))
 {
         assert(m_stride_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
         assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");

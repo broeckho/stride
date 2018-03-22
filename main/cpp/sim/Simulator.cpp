@@ -27,10 +27,8 @@
 #include "core/ContactHandler.h"
 #include "core/Infector.h"
 #include "pop/Population.h"
-
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 

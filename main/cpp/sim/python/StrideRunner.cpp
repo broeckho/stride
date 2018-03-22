@@ -33,7 +33,6 @@
 #include "util/TimeStamp.h"
 
 #include <boost/property_tree/xml_parser.hpp>
-#include <omp.h>
 #include <spdlog/spdlog.h>
 
 namespace stride {

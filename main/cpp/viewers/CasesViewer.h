@@ -33,7 +33,7 @@ class CasesViewer
 {
 public:
         /// Instantiate cases viewer.
-        CasesViewer(const std::string& output_prefix) : m_cases(), m_cases_file(output_prefix) {}
+        explicit CasesViewer(const std::string& output_prefix) : m_cases(), m_cases_file(output_prefix) {}
 
         /// Let viewer perform update.
         void update(const sim_event::Payload& p);

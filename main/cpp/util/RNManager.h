@@ -42,7 +42,7 @@ class RNManager
 {
 public:
         /// POD representation of the RNManager's state. If no state is available,
-        /// i.e. state is an empty sstring, the initial state corresponding to the
+        /// i.e. state is an empty string, the initial state corresponding to the
         /// seed is implied. If a state is available, the seed is disregarded.
         struct Info
         {

@@ -27,7 +27,6 @@
 #include "util/TimeStamp.h"
 
 #include <boost/property_tree/xml_parser.hpp>
-#include <spdlog/common.h>
 #include <sstream>
 
 using namespace stride::sim_event;

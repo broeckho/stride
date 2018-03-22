@@ -22,9 +22,7 @@
 
 #include "util/StringUtils.h"
 
-#include <boost/filesystem.hpp>
 #include <iostream>
-#include <string>
 
 #if defined(WIN32)
 #include <stdlib.h>
@@ -33,7 +31,6 @@
 #include <limits.h>
 #include <unistd.h>
 #elif defined(__APPLE__)
-#include <climits>
 #include <mach-o/dyld.h>
 #endif
 

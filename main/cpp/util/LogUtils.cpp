@@ -21,7 +21,6 @@
 
 #include <iostream>
 #include <spdlog/sinks/null_sink.h>
-#include <spdlog/spdlog.h>
 
 using namespace spdlog;
 using namespace spdlog::sinks;

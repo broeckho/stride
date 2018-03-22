@@ -23,7 +23,6 @@
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
-#include "util/Stopwatch.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -41,7 +40,7 @@ void SummaryViewer::update(const sim_event::Payload& p)
                 const auto pop       = p.m_runner->GetSim()->GetPopulation();
                 const auto dur       = duration_cast<milliseconds>(p.m_runner->GetClock().Get());
                 const auto milli     = static_cast<unsigned int>(dur.count());
-                m_summary_file.Print(pt_config, pop->size(), pop->GetInfectedCount(),
+                m_summary_file.Print(pt_config, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
                                      sim->GetDiseaseProfile().GetTransmissionRate(), milli, milli);
                 break;
         }

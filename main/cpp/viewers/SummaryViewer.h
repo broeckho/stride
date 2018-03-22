@@ -33,7 +33,7 @@ class SummaryViewer
 {
 public:
         /// Instantiate cases viewer.
-        SummaryViewer(const std::string& output_prefix) : m_summary_file(output_prefix) {}
+        explicit SummaryViewer(const std::string& output_prefix) : m_summary_file(output_prefix) {}
 
         /// Let viewer perform update.
         void update(const sim_event::Payload& p);

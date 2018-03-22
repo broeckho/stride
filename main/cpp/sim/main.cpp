@@ -22,7 +22,6 @@
 #include "util/StringUtils.h"
 
 #include <tclap/CmdLine.h>
-#include <string>
 #include <vector>
 
 using namespace std;

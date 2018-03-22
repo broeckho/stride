@@ -31,7 +31,7 @@ class CliViewer
 {
 public:
         /// Instantiate cli viewer.
-        CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {}
+        explicit CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(logger) {}
 
         /// Let viewer perform update.
         void update(const sim_event::Payload& p);
