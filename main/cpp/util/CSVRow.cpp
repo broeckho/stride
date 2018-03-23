@@ -30,7 +30,7 @@ inline bool IsFloat(const std::string& s)
         return (ss >> a) ? true : false;
 }
 
-}
+} // namespace
 
 namespace stride {
 namespace util {

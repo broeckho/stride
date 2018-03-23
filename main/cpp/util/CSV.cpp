@@ -22,11 +22,31 @@
 
 #include <boost/filesystem/fstream.hpp>
 
-namespace stride {
-namespace util {
-
 using namespace boost;
 using namespace std;
+
+namespace {
+
+/// Checks if there is a file with "filename" relative to the exectution path.
+/// @param filename filename to check.
+/// @param root root of the path.
+/// @return the full path to the file if it exists
+/// @throws runtime error if file doesn't exist
+const filesystem::path check(const filesystem::path& filename,
+                             const filesystem::path& root = boost::filesystem::current_path())
+{
+        const filesystem::path file_path = canonical(complete(filename, root));
+        if (!is_regular_file(file_path)) {
+                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
+                                         " not present. Aborting.");
+        }
+        return file_path;
+}
+
+} // namespace
+
+namespace stride {
+namespace util {
 
 CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels) : columnCount(0)
 {
@@ -81,15 +101,6 @@ void CSV::addRows(vector<vector<string>>& rows)
         for (const vector<string>& row : rows) {
                 addRow(row);
         }
-}
-const filesystem::path CSV::check(const filesystem::path& filename, const filesystem::path& root)
-{
-        const filesystem::path file_path = canonical(complete(filename, root));
-        if (!is_regular_file(file_path)) {
-                throw std::runtime_error(std::string(__func__) + ">File " + file_path.string() +
-                                         " not present. Aborting.");
-        }
-        return file_path;
 }
 
 size_t CSV::getIndexForLabel(const string& label) const

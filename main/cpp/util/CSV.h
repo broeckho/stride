@@ -77,15 +77,6 @@ public:
 protected:
         std::vector<std::string> labels;
         size_t                   columnCount = 0;
-
-private:
-        /// Checks if there is a file with "filename" relative to the exectution path.
-        /// @param filename filename to check.
-        /// @param root root of the path.
-        /// @return the full path to the file if it exists
-        /// @throws runtime error if file doesn't exist
-        const boost::filesystem::path check(const boost::filesystem::path& filename,
-                                            const boost::filesystem::path& root = boost::filesystem::current_path());
 };
 
 template <typename... T>
