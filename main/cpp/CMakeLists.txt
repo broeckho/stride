@@ -46,7 +46,6 @@ set(LIB_SRC
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
-	#sim/TestsController.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 	sim/python/StrideRunner.cpp

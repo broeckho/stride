@@ -82,7 +82,7 @@ void CSV::addRows(vector<vector<string>>& rows)
                 addRow(row);
         }
 }
-const filesystem::path check(const filesystem::path& filename, const filesystem::path& root)
+const filesystem::path CSV::check(const filesystem::path& filename, const filesystem::path& root)
 {
         const filesystem::path file_path = canonical(complete(filename, root));
         if (!is_regular_file(file_path)) {

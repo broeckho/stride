@@ -53,7 +53,7 @@ const ptree& RunConfigPtree::CreateTestsBasic1()
                 pt_config.put("run.seeding_age_min", 1);
                 pt_config.put("run.seeding_age_max", 99);
                 pt_config.put("run.start_date", "2017-01-01");
-                pt_config.put("run.stride_log_level", "error");
+                pt_config.put("run.stride_log_level", "info");
                 pt_config.put("run.track_index_case", false);
                 pt_config.put("run.use_install_dirs", true);
                 pt_config.put("run.vaccine_profile", "None");
@@ -86,7 +86,7 @@ const ptree& RunConfigPtree::CreateTestsBasic2()
                 pt_config.put("run.seeding_age_min", 1);
                 pt_config.put("run.seeding_rate", 0.002);
                 pt_config.put("run.start_date", "2017-01-01");
-                pt_config.put("run.stride_log_level", "error");
+                pt_config.put("run.stride_log_level", "info");
                 pt_config.put("run.track_index_case", false);
                 pt_config.put("run.use_install_dirs", true);
                 pt_config.put("run.vaccine_link_probability", 0);
