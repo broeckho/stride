@@ -1,9 +1,9 @@
 #!/usr/bin/python
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -90,7 +90,7 @@ def create_slider(districts_file, population_file, households_file, persons_file
         for row in reader:
             hh_id = int(row['id'])
             d_id = int(row['district_id'])
-            households[hh_id] = d_id 
+            households[hh_id] = d_id
 
     ########################################
     # Gather information about infections. #
@@ -222,7 +222,7 @@ def main(argv):
             create_slider(argv[0], argv[1], argv[2], argv[3], argv[4])
         except KeyError:
             print "Note that all .csv input files should have delimiter ';'."
-            
+
     else:
         print("Usage: python slider_maps.py <districts_file> <population_file> <households_file> <persons_file> <transmissions_log>")
 

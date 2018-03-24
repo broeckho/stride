@@ -41,7 +41,7 @@ def runBaseline():
     sim.runConfig.setParameter("log_level", "SusceptibleContacts")
     sim.runConfig.setParameter("start_date", "2017-01-01")
     sim.runConfig.setParameter("holidays_file", "data/holidays_none.json")
-    
+
     # immunity_profile
     # vaccine_profile
     # vaccine_link_probability

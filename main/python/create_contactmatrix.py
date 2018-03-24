@@ -1,9 +1,9 @@
 #!/usr/bin/python
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -45,10 +45,10 @@ def createFromCSV(household_file, work_file, school_file, prim_community_file, s
             cluster_file = prim_community_file
         else:
             cluster_file = sec_community_file
-    
+
         with open(cluster_file, 'r') as f:
             part_age = 0
-            
+
             reader = csv.DictReader(f, delimiter=';')
             for row in reader:
                 # make participant element
@@ -62,7 +62,7 @@ def createFromCSV(household_file, work_file, school_file, prim_community_file, s
                     # get number of contacts
                     key = "age" + str(cnt_age)
                     rate = float(row[key].replace(',','.'))
-                    
+
                     ET.SubElement(contact, "rate").text = str(rate)
                 part_age += 1
 

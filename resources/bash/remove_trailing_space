@@ -1,7 +1,10 @@
 #!/bin/bash
 #set -x
 
+#====================================================================================================
+# Utility functions:
 # see https://stackoverflow.com/questions/4438306/how-to-remove-trailing-whitespaces-with-sed/4438318
+#====================================================================================================
 
 function trim_trailing_space() {
   if [[ $# -eq 0 ]]; then
@@ -19,8 +22,6 @@ function trim_trailing_space() {
     sed -i  's/[[:space:]]*$//' $file
   fi
 }
-
-SRC_FILES_EXTENSIONS="js|ts|cpp|c|h|hpp|php|py|sh|cs|sql|json|ini|xml|conf"
 
 function find_source_files() {
   if [[ $# -eq 0 ]]; then
@@ -44,20 +45,31 @@ function find_source_files() {
 }
 
 function trim_trailing_space_all_source_files() {
-  for f in $(find_source_files .); do trim_trailing_space $f;done
+    local folder=$1
+    for f in $(find_source_files $folder); do trim_trailing_space $f;done
 }
 
-# FOR NOW:
+#====================================================================================================
+# Do the source files in main/cpp and test/cpp and main/python
+# Pyhons folks seem somewhat divided on "blanks" but the top answer in
+# https://stackoverflow.com/questions/2727988/python-indentation-in-empty-lines
+# clinches it for me.
+#====================================================================================================
 
-UNAME=$(uname)
-if [[ $UNAME == 'Darwin' ]]; then
-    find main/cpp test/cpp \( -name "*.h" -o -name "*.cpp" -o -name "*.txt" \) -type f \
-        -exec sed -E -i ''  's/[[:space:]]*$//' {} \; -exec echo {} \;
-    find . \( -name "*.txt" -o -name "*.cmake" -o -name "Makefile" \) -maxdepth 1 -type f \
+SRC_FILES_EXTENSIONS="cpp|h|hpp|py"
+
+for d in main/cpp test/cpp main/python
+do
+    trim_trailing_space_all_source_files $d
+    find $d -name "CMakeLists.txt" -type f -exec sed -E -i '' 's/[[:space:]]*$//' {} \; -exec echo {} \;
+done
+
+if [[ $(uname) == 'Darwin' ]]; then
+    find . -maxdepth 1 \( -name "*.txt" -o -name "*.cmake" -o -name "Makefile" \) -type f \
         -exec sed -E -i ''  's/[[:space:]]*$//' {} \; -exec echo {} \;
 else
-    find main/cpp test/cpp \( -name "*.h" -o -name "*.cpp" -o -name "*.txt" \) -type f \
-        -exec sed -i  's/[[:space:]]*$//' {} \; -exec echo {} \;
-    find . \( -name "*.txt" -o -name "*.cmake" -o -name "Makefile" \) -maxdepth 1 -type f \
+    find . -maxdepth 1 \( -name "*.txt" -o -name "*.cmake" -o -name "Makefile" \) -type f \
         -exec sed -i  's/[[:space:]]*$//' {} \; -exec echo {} \;
 fi
+
+#====================================================================================================

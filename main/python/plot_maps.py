@@ -1,9 +1,9 @@
 #!/usr/bin/python
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -64,7 +64,7 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
                 latitudes.append(latitude)
                 longitudes.append(longitude)
 
-    
+
     # Use Smopy to get map image for the given region (calculated from min/max latitudes/longitudes in districts file)
     region_map = smopy.Map((min(latitudes), min(longitudes), max(latitudes), max(longitudes)), z=9)
 
@@ -82,19 +82,19 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
 
     # For each person, fetch the household ID
     person_households = []
-    with open (pop_file, 'r') as pop_file:                             
+    with open (pop_file, 'r') as pop_file:
         reader = csv.DictReader(pop_file, delimiter=";")
         for row in reader:
             person_households.append(int(float(row['household_id'])))
-        
+
     # For each household, fetch the district it belongs to.
     households = {}
     with open(households_file, 'r') as hh_file:
         reader = csv.DictReader(hh_file, delimiter=';')
         for row in reader:
             hh_id = int(row['id'])
-            d_id = int(row['district_id'])                   
-            households[hh_id] = d_id                   
+            d_id = int(row['district_id'])
+            households[hh_id] = d_id
 
 
     ########################################
@@ -102,7 +102,7 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
     ########################################
 
     prepare_csv_transmissions(transmissions_log, "infections.csv")
-    
+
     infections = {}
     max_infect = 0
 
@@ -115,7 +115,7 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
                 district = households[hh_id]
                 start_infected = int(row['begin_infection'])
                 end_infected = start_infected + int(person_infectiousness[person_id])
-        
+
                 for day in range(start_infected, end_infected + 1):
                     if day in infections:
                         # add extra infection
@@ -138,7 +138,7 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
         ax = region_map.show_mpl()
 
         cases = False
-        if (day in infections): 
+        if (day in infections):
             cases = True
             day_infections = infections[day]
 
@@ -164,10 +164,10 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
             else:
                 circle_size = 32
 
-    
+
             # no infections -> districts are not shown
             # otherwise: spectrum from red (few infections) to yellow (lot of infections)
-    
+
             if (cases) and (i in day_infections):
                 num_infections = day_infections[i]
                 R = 1
@@ -177,7 +177,7 @@ def create_map(district_file, pop_file, households_file, persons_file, transmiss
                 B = 0
 
                 col = (R, G, B)
-        
+
                 ax.plot(x, y, marker='o', color=col, ms=circle_size, mew=1)
 
         #############################################
@@ -220,7 +220,7 @@ def main(argv):
             create_map(argv[0], argv[1], argv[2], argv[3], argv[4])
         except KeyError:
             print "Note that all .csv input files should have delimiter ';'."
-            
+
     else:
         print("Usage: python plot_maps.py <districts_file> <population_file> <households_file> <persons_file> <transmissions_log>")
 
@@ -228,4 +228,4 @@ def main(argv):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-    
+
