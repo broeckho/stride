@@ -1,8 +1,8 @@
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -21,7 +21,7 @@
 cmake_minimum_required(VERSION 3.8)
 include(CMakeConfig.cmake)
 include(CMakeLocal.cmake OPTIONAL)
-	
+
 #============================================================================
 # Configuration for CMake, for build & install.
 #============================================================================
@@ -57,8 +57,8 @@ if(GIT_FOUND)
 	GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
 else()
     # This is done to eliminate blank output of undefined CMake variables.
-    set(GIT_FOUND FALSE) 
-	set(STRIDE_WC_REVISION_HASH       "0000-0000-000")	
+    set(GIT_FOUND FALSE)
+	set(STRIDE_WC_REVISION_HASH       "0000-0000-000")
 	set(STRIDE_WC_LAST_CHANGED_DATE   "0000 0000 0000")
 endif()
 
@@ -66,7 +66,7 @@ endif()
 # Configuration for DOC: DOXYGEN
 #============================================================================
 if(STRIDE_INCLUDE_DOC)
-    find_package( Doxygen)	
+    find_package( Doxygen)
 endif()
 
 #============================================================================
@@ -76,7 +76,7 @@ add_subdirectory(main)
 add_subdirectory(test)
 if(STRIDE_INCLUDE_DOC)
 	add_subdirectory(doc)
-endif()	
+endif()
 
 #============================================================================
 # Overview report:
