@@ -62,7 +62,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         m_stride_logger = spdlog::get("stride_logger");
         if (!m_stride_logger) {
                 const auto l    = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-                m_stride_logger = LogUtils::CreateCliLogger("stride_logger", l.string());
+                m_stride_logger = LogUtils::CreateFileLogger("stride_logger", l.string());
                 m_stride_logger->set_level(spdlog::level::from_str(m_log_level));
                 m_stride_logger->flush_on(spdlog::level::err);
         }
@@ -125,7 +125,7 @@ void SimRunner::Run()
         Notify({shared_from_this(), Id::Finished});
 
         m_clock.Stop();
-        m_stride_logger->info("SimRunner finished after elapsed time: {}", m_clock.ToString());
+        m_stride_logger->info("SimRunner done after: {}", m_clock.ToString());
 }
 
 } // namespace stride
