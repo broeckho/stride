@@ -36,10 +36,9 @@ class Simulator;
  * \li reads any additional configuration files (disease, contact, ...)
  * \li initializes calendar and random number manager for the simulator
  * \li builds a contact/transmission logger
- * \li builds a population (vector of persons)
- * \li initialize contactpools
- * \li deals with initial immunity and infection in the population
- * \li adds population members to their contact pools
+ * \li builds a population (@see PopulationBuilder)
+ * \li adds population members to their contact pool (@see ContactPoolBuilder)
+ * \li deals with initial immunity and infection in the population (@see DiseaseBuilder)
  */
 class SimulatorBuilder
 {
@@ -54,9 +53,6 @@ private:
         /// Build the simulator.
         std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_disease,
                                          const boost::property_tree::ptree& pt_contact);
-
-        /// Initialize the contactpoolss.
-        static void InitializeContactPools(std::shared_ptr<Simulator> sim);
 
         /// Get the contact configuration data.
         boost::property_tree::ptree ReadContactPtree();

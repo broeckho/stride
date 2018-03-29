@@ -24,6 +24,7 @@
 #include "calendar/Calendar.h"
 #include "core/ContactHandler.h"
 #include "core/ContactLogMode.h"
+#include "core/ContactProfile.h"
 #include "core/DiseaseProfile.h"
 
 #include <memory>
@@ -65,8 +66,9 @@ class Infector
 {
 public:
         ///
-        static void Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
-                         std::shared_ptr<const Calendar> calendar, std::shared_ptr<spdlog::logger> contact_logger);
+        static void Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+                         ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
+                         std::shared_ptr<spdlog::logger> contact_logger);
 };
 
 /// Time-optimized version (Only for NoLocalInformation policy and None || Transmission logging).
@@ -77,8 +79,9 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
-                         std::shared_ptr<const Calendar> calendar, std::shared_ptr<spdlog::logger> contact_logger);
+        static void Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+                         ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
+                         std::shared_ptr<spdlog::logger> contact_logger);
 };
 
 /// Explicit instantiations in cpp file.

@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -20,7 +20,7 @@
  */
 
 #include "core/ContactLogMode.h"
-#include "core/ContactPool.h"
+#include "core/ContactPoolSys.h"
 #include "core/ContactProfiles.h"
 #include "core/DiseaseProfile.h"
 #include "sim/python/SimulatorObserver.h"
@@ -73,7 +73,7 @@ private:
         boost::property_tree::ptree     m_config_pt;        ///< Configuration property tree
         ContactLogMode::Id              m_contact_log_mode; ///< Specifies contact/transmission logging mode.
         std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
-        ContactProfiles                 m_contact_profiles; ///< Contact patterns.
+        ContactProfiles                 m_contact_profiles; ///< Contact profiles w.r.t age.
         DiseaseProfile                  m_disease_profile;  ///< Profile of disease.
         unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
         bool                            m_track_index_case; ///< General simulation or tracking index case.
@@ -83,24 +83,20 @@ private:
         util::RNManager           m_rn_manager;  ///< Random numbere generation management.
 
 private:
-        ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is incremented at the
-        ///< beginning of TimeStep and should be used with coution inside TimeStep.
+        ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is
+        ///< incremented at the beginning of TimeStep and should be used with coution inside TimeStep.
         unsigned int m_sim_day;
 
 private:
         std::shared_ptr<Population> m_population;               ///< Pointer to the Population.
-        std::vector<ContactPool>    m_households;               ///< Container with household ContactPools.
-        std::vector<ContactPool>    m_school_pools;             ///< Container with school ContactPools.
-        std::vector<ContactPool>    m_work_pools;               ///< Container with work ContactPools.
-        std::vector<ContactPool>    m_primary_community;        ///< Container with primary community ContactPools.
-        std::vector<ContactPool>    m_secondary_community;      ///< Container with secondary community ContactPools.
+        ContactPoolSys              m_pool_sys;                 ///< Holds vector of ContactPool of different types.
         std::string                 m_local_information_policy; ///< Local information name.
 
 private:
         friend class SimulatorBuilder;
-        friend class Vaccinator;
         friend class ContactPoolBuilder;
         friend class DiseaseBuilder;
+        friend class Vaccinator;
 };
 
 } // namespace stride

@@ -19,6 +19,8 @@
  * Header for the ContactPoolBuilder class.
  */
 
+#include "core/ContactPoolSys.h"
+
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 
@@ -31,37 +33,22 @@ namespace stride {
 class Simulator;
 
 /**
- * Builds a simulator (@see Simulator) based a configuration property tree.
- * It
- * \li reads any additional configuration files (disease, contact, ...)
- * \li initializes calendar and random number manager for the simulator
- * \li builds a contact/transmission logger
- * \li builds a population (vector of persons)
- * \li initialize contactpools
- * \li deals with initial immunity and infection in the population
- * \li adds population members to their contact pools
+ * Builds the contact pool system  for the simulator.
  */
 class ContactPoolBuilder
 {
 public:
         /// Initializing ContactPoolBuilder.
-        ContactPoolBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger);
+        explicit ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger);
 
-        /// Build the simulator.
-        void Build(std::shared_ptr<Simulator> sim);
-
-private:
-        /// Build the simulator.
+        /// Build the contact pool system.
         void Build(const boost::property_tree::ptree& pt_contact, std::shared_ptr<Simulator> sim);
 
+private:
         /// Initialize the contactpoolss.
-        static void InitializeContactPools(std::shared_ptr<Simulator> sim);
-
-        /// Get the contact configuration data.
-        boost::property_tree::ptree ReadContactPtree();
+        static void InitializeContactPools(ContactPoolSys& pool_sys, std::shared_ptr<Simulator> sim);
 
 private:
-        boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
         std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).
 };
 

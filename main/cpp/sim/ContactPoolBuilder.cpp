@@ -21,6 +21,7 @@
 #include "ContactPoolBuilder.h"
 
 #include "calendar/Calendar.h"
+#include "core/ContactPoolSys.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
 #include "util/FileSys.h"
@@ -40,54 +41,19 @@ using namespace boost::filesystem;
 using namespace std;
 using namespace util;
 
-ContactPoolBuilder::ContactPoolBuilder(const boost::property_tree::ptree& config_pt,
-                                       std::shared_ptr<spdlog::logger>    logger)
-    : m_config_pt(config_pt), m_stride_logger(std::move(logger))
+ContactPoolBuilder::ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger) : m_stride_logger(std::move(logger))
 {
         assert(m_stride_logger && "ContactPoolBuilder::ContactPoolBuilder> Nullptr for logger not acceptable!");
-        assert(m_config_pt.empty() && "ContactPoolBuilder::ContactPoolBuilder> Empty ptree not acceptable!");
-}
-
-void ContactPoolBuilder::Build(std::shared_ptr<Simulator> sim)
-{
-        m_stride_logger->trace("Starting ContactPoolBuilder::Build.");
-        const auto pt_contact = ReadContactPtree();
-
-        if (!pt_contact.empty()) {
-                Build(pt_contact, sim);
-        }
-
-        m_stride_logger->trace("Finished ContactPoolBuilder::Build.");
-}
-
-ptree ContactPoolBuilder::ReadContactPtree()
-{
-        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        ptree      pt;
-        const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
-        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
-        if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
-        } else {
-                m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
-                try {
-                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
-                } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
-                }
-        }
-
-        return pt;
 }
 
 void ContactPoolBuilder::Build(const ptree& pt_contact, std::shared_ptr<Simulator> sim)
 {
+        m_stride_logger->trace("Starting ContactPoolBuilder::Build.");
+        using Id = ContactPoolType::Id;
+
         // --------------------------------------------------------------
         // Contact profiles & initialize contactpools.
         // --------------------------------------------------------------
-        using Id                                                 = ContactPoolType::Id;
         sim->m_contact_profiles[ToSizeT(Id::Household)]          = ContactProfile(Id::Household, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::School)]             = ContactProfile(Id::School, pt_contact);
         sim->m_contact_profiles[ToSizeT(Id::Work)]               = ContactProfile(Id::Work, pt_contact);
@@ -97,12 +63,17 @@ void ContactPoolBuilder::Build(const ptree& pt_contact, std::shared_ptr<Simulato
         // --------------------------------------------------------------
         // Contact profiles & initialize contactpools.
         // --------------------------------------------------------------
-        InitializeContactPools(sim);
+        InitializeContactPools(sim->m_pool_sys, sim);
+
+        // --------------------------------------------------------------
+        // Done.
+        // --------------------------------------------------------------
+        m_stride_logger->trace("Finished ContactPoolBuilder::Build.");
 }
 
-void ContactPoolBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
+void ContactPoolBuilder::InitializeContactPools(ContactPoolSys& pool_sys, std::shared_ptr<Simulator> sim)
 {
-        // Determine the number of contactpools.
+        // Initilize ContactPoolSys and the number of contactpools.
         unsigned int max_id_households{0U};
         unsigned int max_id_school_pools{0U};
         unsigned int max_id_work_pools{0U};
@@ -125,23 +96,25 @@ void ContactPoolBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
         unsigned int c_id = 1;
 
         for (size_t i = 0; i <= max_id_households; i++) {
-                sim->m_households.emplace_back(ContactPool(c_id, Id::Household, sim->m_contact_profiles));
+                pool_sys[ToSizeT(Id::Household)].emplace_back(
+                    ContactPool(c_id, Id::Household, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_school_pools; i++) {
-                sim->m_school_pools.emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
+                pool_sys[ToSizeT(Id::School)].emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_work_pools; i++) {
-                sim->m_work_pools.emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
+                pool_sys[ToSizeT(Id::Work)].emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_primary_community; i++) {
-                sim->m_primary_community.emplace_back(ContactPool(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
+                pool_sys[ToSizeT(Id::PrimaryCommunity)].emplace_back(
+                    ContactPool(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
         for (size_t i = 0; i <= max_id_secondary_community; i++) {
-                sim->m_secondary_community.emplace_back(
+                pool_sys[ToSizeT(Id::SecondaryCommunity)].emplace_back(
                     ContactPool(c_id, Id::SecondaryCommunity, sim->m_contact_profiles));
                 c_id++;
         }
@@ -150,23 +123,23 @@ void ContactPoolBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
         for (auto& p : population) {
                 const auto hh_id = p.GetContactPoolId(Id::Household);
                 if (hh_id > 0) {
-                        sim->m_households[hh_id].AddMember(&p);
+                        pool_sys[ToSizeT(Id::Household)][hh_id].AddMember(&p);
                 }
                 const auto sc_id = p.GetContactPoolId(Id::School);
                 if (sc_id > 0) {
-                        sim->m_school_pools[sc_id].AddMember(&p);
+                        pool_sys[ToSizeT(Id::School)][sc_id].AddMember(&p);
                 }
                 const auto wo_id = p.GetContactPoolId(Id::Work);
                 if (wo_id > 0) {
-                        sim->m_work_pools[wo_id].AddMember(&p);
+                        pool_sys[ToSizeT(Id::Work)][wo_id].AddMember(&p);
                 }
                 const auto primCom_id = p.GetContactPoolId(Id::PrimaryCommunity);
                 if (primCom_id > 0) {
-                        sim->m_primary_community[primCom_id].AddMember(&p);
+                        pool_sys[ToSizeT(Id::PrimaryCommunity)][primCom_id].AddMember(&p);
                 }
                 const auto secCom_id = p.GetContactPoolId(Id::SecondaryCommunity);
                 if (secCom_id > 0) {
-                        sim->m_secondary_community[secCom_id].AddMember(&p);
+                        pool_sys[ToSizeT(Id::SecondaryCommunity)][secCom_id].AddMember(&p);
                 }
         }
 }

@@ -40,19 +40,19 @@ public:
         ContactPool(std::size_t pool_id, ContactPoolType::Id type, const ContactProfiles& profiles);
 
         /// No copying: too big.
-        ContactPool(const ContactPool&) = delete;
+        ContactPool(const ContactPool&) = default;
 
         /// Moving is ok.
         ContactPool(ContactPool&&) = default;
 
         // No assignment: too big.
-        ContactPool& operator=(const ContactPool&) = delete;
+        ContactPool& operator=(const ContactPool&) = default;
+
+        // Move assignment ok.
+        ContactPool& operator=(ContactPool&&) = default;
 
         /// Add the given Person.
         void AddMember(Person* p);
-
-        /// Get basic contact rate.
-        double GetContactRate(const Person* p) const;
 
         /// Get member at index
         Person* GetMember(unsigned int index) const;
@@ -80,7 +80,6 @@ private:
         ContactPoolType::Id                   m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t                           m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<std::pair<Person*, bool>> m_members;      ///< Container with pointers to contactpool members.
-        const ContactProfile&                 m_profile;      ///< Contact pattern.
 };
 
 } // namespace stride

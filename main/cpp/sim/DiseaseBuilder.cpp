@@ -40,45 +40,10 @@ using namespace boost::filesystem;
 using namespace std;
 using namespace util;
 
-DiseaseBuilder::DiseaseBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
+DiseaseBuilder::DiseaseBuilder(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))
 {
         assert(m_stride_logger && "DiseaseBuilder::DiseaseBuilder> Nullptr not acceptable!");
-        assert(m_config_pt.empty() && "DiseaseBuilder::DiseaseBuilder> Empty ptree not acceptable!");
-}
-
-void DiseaseBuilder::Build(std::shared_ptr<Simulator> sim)
-{
-        m_stride_logger->trace("Starting DiseaseBuilder::Build.");
-        const auto pt_disease = ReadDiseasePtree();
-
-        if (!pt_disease.empty()) {
-                Build(pt_disease, sim);
-        }
-
-        m_stride_logger->trace("Finished DiseaseBuilder::Build.");
-}
-
-ptree DiseaseBuilder::ReadDiseasePtree()
-{
-        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        ptree      pt;
-        const auto fn = m_config_pt.get<string>("run.disease_config_file");
-        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
-        if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
-        } else {
-                m_stride_logger->debug("Disease config file:  {}", fp.string());
-                try {
-                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
-                } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
-                }
-        }
-
-        return pt;
 }
 
 void DiseaseBuilder::Build(const ptree& pt_disease, std::shared_ptr<Simulator> sim)

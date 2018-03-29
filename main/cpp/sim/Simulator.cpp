@@ -25,9 +25,11 @@
 #include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
 #include "core/ContactHandler.h"
+#include "core/ContactPoolType.h"
 #include "core/Infector.h"
 #include "pop/Population.h"
 #include <trng/uniform01_dist.hpp>
+#include <core/ContactPoolType.h>
 #include <omp.h>
 
 namespace stride {
@@ -36,16 +38,13 @@ using namespace std;
 using namespace trng;
 using namespace util;
 
-/// Default constructor for empty Simulator.
 Simulator::Simulator()
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::Null), m_contact_logger(nullptr), m_contact_profiles(),
       m_disease_profile(), m_num_threads(1U), m_track_index_case(false), m_calendar(), m_operational(), m_rn_manager(),
-      m_sim_day(0U), m_population(nullptr), m_households(), m_school_pools(), m_work_pools(), m_primary_community(),
-      m_secondary_community(), m_local_information_policy()
+      m_sim_day(0U), m_population(nullptr), m_pool_sys(), m_local_information_policy()
 {
 }
 
-/// Run one time step, computing full simulation (default) or only index case.
 void Simulator::TimeStep()
 {
         std::shared_ptr<DaysOffInterface> days_off{nullptr};
@@ -121,10 +120,11 @@ void Simulator::TimeStep()
         m_calendar->AdvanceDay();
 }
 
-/// Update the contacts in the given contactpools.
 template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
 void Simulator::UpdateContactPools()
 {
+        using namespace stride::ContactPoolType;
+
         // Contact handlers, each boud to a generator bound to a different random engine stream.
         vector<ContactHandler> handlers;
         for (size_t i = 0; i < m_num_threads; i++) {
@@ -138,34 +138,40 @@ void Simulator::UpdateContactPools()
                 const auto thread = static_cast<unsigned int>(omp_get_thread_num());
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_households.size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::Household)].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_households[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[ToSizeT(Id::Household)][i], m_contact_profiles.at(ToSizeT(Id::Household)),
+                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_school_pools.size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::School)].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_school_pools[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[ToSizeT(Id::School)][i], m_contact_profiles.at(ToSizeT(Id::School)),
+                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_work_pools.size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::Work)].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_work_pools[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[ToSizeT(Id::Work)][i], m_contact_profiles.at(ToSizeT(Id::Work)),
+                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_primary_community.size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::PrimaryCommunity)].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_primary_community[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[ToSizeT(Id::PrimaryCommunity)][i],
+                            m_contact_profiles.at(ToSizeT(Id::PrimaryCommunity)), m_disease_profile, handlers[thread],
+                            m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_secondary_community.size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::SecondaryCommunity)].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar,
-                            m_contact_logger);
+                            m_pool_sys[ToSizeT(Id::SecondaryCommunity)][i],
+                            m_contact_profiles.at(ToSizeT(Id::SecondaryCommunity)), m_disease_profile, handlers[thread],
+                            m_calendar, m_contact_logger);
                 }
         }
 }

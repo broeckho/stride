@@ -34,14 +34,6 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-/**
- * Initializes a Population: add persons, set immunity, seed infection.
- *
- * @param pt_config     Property_tree with general configuration settings.
- * @param pt_disease    Property_tree with disease configuration settings.
- * @param rn_manager    Random number generation manager.
- * @return              Pointer to the initialized population.
- */
 std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, const ptree& pt_disease,
                                                      util::RNManager&                rn_manager,
                                                      std::shared_ptr<spdlog::logger> contact_logger)
@@ -69,7 +61,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         const auto file_name        = pt_config.get<string>("run.population_file");
         const auto use_install_dirs = pt_config.get<bool>("run.use_install_dirs");
-        const auto file_path        = (use_install_dirs) ? FileSys().GetDataDir() /= file_name : file_name;
+        const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
         }
@@ -95,17 +87,9 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         while (getline(pop_file, line)) {
                 // Make use of stochastic disease characteristics.
                 const auto start_infectiousness = Sample(uniform01_generator, distrib_start_infectiousness);
-                assert(start_infectiousness < distrib_start_infectiousness.size() &&
-                       "PopulationBuilder::Build> error sampling distrib_start_infectiousness");
-                const auto start_symptomatic = Sample(uniform01_generator, distrib_start_symptomatic);
-                assert(start_symptomatic < distrib_start_symptomatic.size() &&
-                       "PopulationBuilder::Build> error sampling distrib_start_symptomatic");
-                const auto time_infectious = Sample(uniform01_generator, distrib_time_infectious);
-                assert(time_infectious < distrib_time_infectious.size() &&
-                       "PopulationBuilder::Build> error sampling distrib_time_infectious");
-                const auto time_symptomatic = Sample(uniform01_generator, distrib_time_symptomatic);
-                assert(time_symptomatic < distrib_time_infectious.size() &&
-                       "PopulationBuilder::Build> error sampling distrib_time_symptomatic");
+                const auto start_symptomatic    = Sample(uniform01_generator, distrib_start_symptomatic);
+                const auto time_infectious      = Sample(uniform01_generator, distrib_time_infectious);
+                const auto time_symptomatic     = Sample(uniform01_generator, distrib_time_symptomatic);
 
                 const auto values                 = Split(line, ",");
                 const auto risk_averseness        = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
@@ -119,7 +103,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
                                         secondary_community_id, start_infectiousness, start_symptomatic,
                                         time_infectious, time_symptomatic, pt_belief, risk_averseness);
-
                 ++person_id;
         }
 
@@ -128,10 +111,8 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         //------------------------------------------------
         // Set participants in social contact survey.
         //------------------------------------------------
-        // Sampler for int in [0, population.size())
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
-        assert((max_population_index >= 1U) && "PopulationBuilder::Build> Problem with population size.");
-        auto pop_index_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
+        auto       pop_index_generator  = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
         const string log_level = pt_config.get<string>("run.log_level", "None");
         if (log_level == "Contacts" || log_level == "SusceptibleContacts") {
@@ -161,7 +142,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         return pop;
 }
 
-/// Sample from the distribution
 unsigned int PopulationBuilder::Sample(std::function<double()>& rn_generator, const std::vector<double>& distribution)
 {
         assert((abs(distribution.back() - 1.0) < 1.e-10) && "PopulationBUilder::Sample> Error in distribution!");

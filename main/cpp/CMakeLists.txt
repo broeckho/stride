@@ -16,16 +16,19 @@
 #############################################################################
 
 #============================================================================
-# Sources.
+# Sources. Includes headers to enable code insight by CLion.
 #============================================================================
 set(LIB_SRC
 #---
     calendar/Calendar.cpp
 #---
+    core/ContactHandler.h
 	core/ContactLogMode.cpp
 	core/ContactPool.cpp
+    core/ContactPoolSys.h
     core/ContactPoolType.cpp
     core/ContactProfile.cpp
+	core/ContactProfiles.h
     core/DiseaseProfile.cpp
     core/Health.cpp
     core/Infector.cpp
@@ -38,6 +41,7 @@ set(LIB_SRC
     output/PersonsFile.cpp
 	output/SummaryFile.cpp
 #---
+    pop/Age.h
     pop/Person.cpp
     pop/Population.cpp
     pop/PopulationBuilder.cpp
@@ -49,9 +53,11 @@ set(LIB_SRC
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp
     sim/event/Id.cpp
+    sim/event/Payload.h
 	sim/event/Subject.cpp
 	sim/python/StrideRunner.cpp
 #---
+    util/ConfigInfo.h
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
@@ -61,6 +67,13 @@ set(LIB_SRC
     util/RNManager.cpp
 	util/RunConfigPtree.cpp
     util/RunConfigString.cpp
+    util/SegmentedVector.h
+    util/Stopwatch.h
+    util/StringUtils.h
+    util/Subject.h
+    util/SVIterator.h
+    util/TimeStamp.h
+    util/TimeToString.h
 #---
 	viewers/AdoptedViewer.cpp
 	viewers/CasesViewer.cpp

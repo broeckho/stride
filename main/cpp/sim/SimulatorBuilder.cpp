@@ -32,8 +32,6 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
-#include <spdlog/sinks/null_sink.h>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -47,7 +45,7 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
 {
         assert(m_stride_logger && "SimulatorBuilder::SimulatorBuilder> Nullptr not acceptable!");
         assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
-        // Hack for the benefilt of StrideRunner
+        // So as not to have to guard all log statements
         if (!m_stride_logger) {
                 m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
         }
@@ -170,134 +168,22 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager, sim->m_contact_logger);
 
-        ContactPoolBuilder cp_builder(m_config_pt, m_stride_logger);
-        cp_builder.Build(sim);
+        // --------------------------------------------------------------
+        // Build the ContactPoolSystem of the simulator.
+        // --------------------------------------------------------------
+        ContactPoolBuilder cp_builder(m_stride_logger);
+        cp_builder.Build(pt_contact, sim);
+
+        // --------------------------------------------------------------
+        // Initialize disease status of the population.
+        // --------------------------------------------------------------
         DiseaseBuilder d_builder(m_config_pt, m_stride_logger);
-        d_builder.Build(sim);
-
-        /*
-        // --------------------------------------------------------------
-        // Contact profiles & initialize contactpools.
-        // --------------------------------------------------------------
-        using Id                                                 = ContactPoolType::Id;
-        sim->m_contact_profiles[ToSizeT(Id::Household)]          = ContactProfile(Id::Household, pt_contact);
-        sim->m_contact_profiles[ToSizeT(Id::School)]             = ContactProfile(Id::School, pt_contact);
-        sim->m_contact_profiles[ToSizeT(Id::Work)]               = ContactProfile(Id::Work, pt_contact);
-        sim->m_contact_profiles[ToSizeT(Id::PrimaryCommunity)]   = ContactProfile(Id::PrimaryCommunity, pt_contact);
-        sim->m_contact_profiles[ToSizeT(Id::SecondaryCommunity)] = ContactProfile(Id::SecondaryCommunity, pt_contact);
-        InitializeContactPools(sim);
-
-        // --------------------------------------------------------------
-        // Population immunity (natural immunity & vaccination).
-        // --------------------------------------------------------------
-        Vaccinator v(m_config_pt, sim->m_rn_manager);
-        const auto immunity_profile = m_config_pt.get<std::string>("run.immunity_profile");
-        v.Administer("immunity", immunity_profile, sim);
-        const auto vaccination_profile = m_config_pt.get<std::string>("run.vaccine_profile");
-        v.Administer("vaccine", vaccination_profile, sim);
-
-        // --------------------------------------------------------------
-        // Initialize disease profile.
-        // --------------------------------------------------------------
-        sim->m_operational = sim->m_disease_profile.Initialize(m_config_pt, pt_disease);
-
-        // --------------------------------------------------------------
-        // Seed infected persons.
-        // --------------------------------------------------------------
-        const auto seeding_rate         = m_config_pt.get<double>("run.seeding_rate");
-        const auto seeding_age_min      = m_config_pt.get<double>("run.seeding_age_min", 1);
-        const auto seeding_age_max      = m_config_pt.get<double>("run.seeding_age_max", 99);
-        const auto pop_size             = sim->m_population->size() - 1;
-        const auto max_population_index = static_cast<unsigned int>(pop_size);
-        auto       int_generator = sim->m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
-
-        auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
-        while (num_infected > 0) {
-                Person& p = sim->m_population->at(static_cast<size_t>(int_generator()));
-                if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
-                    (p.GetAge() <= seeding_age_max)) {
-                        p.GetHealth().StartInfection();
-                        num_infected--;
-                        sim->m_contact_logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
-                }
-        }
+        d_builder.Build(pt_disease, sim);
 
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-         */
         return sim;
-}
-
-void SimulatorBuilder::InitializeContactPools(std::shared_ptr<Simulator> sim)
-{
-        // Determine the number of contactpools.
-        unsigned int max_id_households{0U};
-        unsigned int max_id_school_pools{0U};
-        unsigned int max_id_work_pools{0U};
-        unsigned int max_id_primary_community{0U};
-        unsigned int max_id_secondary_community{0U};
-
-        Population& population{*sim->m_population};
-        using Id = ContactPoolType::Id;
-
-        for (const auto& p : population) {
-                max_id_households        = max(max_id_households, p.GetContactPoolId(Id::Household));
-                max_id_school_pools      = max(max_id_school_pools, p.GetContactPoolId(Id::School));
-                max_id_work_pools        = max(max_id_work_pools, p.GetContactPoolId(Id::Work));
-                max_id_primary_community = max(max_id_primary_community, p.GetContactPoolId(Id::PrimaryCommunity));
-                max_id_secondary_community =
-                    max(max_id_secondary_community, p.GetContactPoolId(Id::SecondaryCommunity));
-        }
-
-        // Keep separate id counter to provide a unique id for every contactpool.
-        unsigned int c_id = 1;
-
-        for (size_t i = 0; i <= max_id_households; i++) {
-                sim->m_households.emplace_back(ContactPool(c_id, Id::Household, sim->m_contact_profiles));
-                c_id++;
-        }
-        for (size_t i = 0; i <= max_id_school_pools; i++) {
-                sim->m_school_pools.emplace_back(ContactPool(c_id, Id::School, sim->m_contact_profiles));
-                c_id++;
-        }
-        for (size_t i = 0; i <= max_id_work_pools; i++) {
-                sim->m_work_pools.emplace_back(ContactPool(c_id, Id::Work, sim->m_contact_profiles));
-                c_id++;
-        }
-        for (size_t i = 0; i <= max_id_primary_community; i++) {
-                sim->m_primary_community.emplace_back(ContactPool(c_id, Id::PrimaryCommunity, sim->m_contact_profiles));
-                c_id++;
-        }
-        for (size_t i = 0; i <= max_id_secondary_community; i++) {
-                sim->m_secondary_community.emplace_back(
-                    ContactPool(c_id, Id::SecondaryCommunity, sim->m_contact_profiles));
-                c_id++;
-        }
-
-        // Having contactpool id '0' means "not present in any contactpool of that type".
-        for (auto& p : population) {
-                const auto hh_id = p.GetContactPoolId(Id::Household);
-                if (hh_id > 0) {
-                        sim->m_households[hh_id].AddMember(&p);
-                }
-                const auto sc_id = p.GetContactPoolId(Id::School);
-                if (sc_id > 0) {
-                        sim->m_school_pools[sc_id].AddMember(&p);
-                }
-                const auto wo_id = p.GetContactPoolId(Id::Work);
-                if (wo_id > 0) {
-                        sim->m_work_pools[wo_id].AddMember(&p);
-                }
-                const auto primCom_id = p.GetContactPoolId(Id::PrimaryCommunity);
-                if (primCom_id > 0) {
-                        sim->m_primary_community[primCom_id].AddMember(&p);
-                }
-                const auto secCom_id = p.GetContactPoolId(Id::SecondaryCommunity);
-                if (secCom_id > 0) {
-                        sim->m_secondary_community[secCom_id].AddMember(&p);
-                }
-        }
 }
 
 } // namespace stride

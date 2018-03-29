@@ -20,13 +20,14 @@
 
 #include "ContactPool.h"
 
+#include "pop/Age.h"
+
 namespace stride {
 
 using namespace std;
 
 ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type, const ContactProfiles& profiles)
-    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members(),
-      m_profile(profiles[static_cast<std::size_t>(type)])
+    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()
 {
 }
 
@@ -34,23 +35,6 @@ void ContactPool::AddMember(Person* p)
 {
         m_members.emplace_back(std::make_pair(p, true));
         m_index_immune++;
-}
-
-double ContactPool::GetContactRate(const Person* p) const
-{
-        const double reference_num_contacts{m_profile[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
-        const double potential_num_contacts{static_cast<double>(m_members.size() - 1)};
-
-        double individual_contact_rate = reference_num_contacts / potential_num_contacts;
-        if (individual_contact_rate >= 1) {
-                individual_contact_rate = 0.999;
-        }
-        // Contacts are reciprocal, so one needs to apply only half of the contacts here.
-        individual_contact_rate = individual_contact_rate / 2;
-        // Contacts are bi-directional: contact probability for 1=>2 and 2=>1 = indiv_cnt_rate*indiv_cnt_rate
-        individual_contact_rate += (individual_contact_rate * individual_contact_rate);
-
-        return individual_contact_rate;
 }
 
 size_t ContactPool::GetSize() const { return m_members.size(); }

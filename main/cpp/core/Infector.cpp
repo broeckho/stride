@@ -22,9 +22,32 @@
 
 #include "core/ContactPool.h"
 
-namespace stride {
-
 using namespace std;
+
+namespace {
+
+using namespace stride;
+
+inline double GetContactRate(const ContactProfile& profile, const Person* p, size_t pool_size)
+{
+        const double reference_num_contacts{profile[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
+        const double potential_num_contacts{static_cast<double>(pool_size - 1)};
+
+        double individual_contact_rate = reference_num_contacts / potential_num_contacts;
+        if (individual_contact_rate >= 1) {
+                individual_contact_rate = 0.999;
+        }
+        // Contacts are reciprocal, so one needs to apply only half of the contacts here.
+        individual_contact_rate = individual_contact_rate / 2;
+        // Contacts are bi-directional: contact probability for 1=>2 and 2=>1 = indiv_cnt_rate*indiv_cnt_rate
+        individual_contact_rate += (individual_contact_rate * individual_contact_rate);
+
+        return individual_contact_rate;
+}
+
+} // namespace
+
+namespace stride {
 
 /// Primary R0_POLICY: do nothing i.e. track all cases.
 /// \tparam TIC         TrackIndexCase
@@ -131,8 +154,9 @@ public:
 // And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_profile, ContactHandler contact_handler,
-                                      shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> contact_logger)
+void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+                                      ContactHandler contact_handler, shared_ptr<const Calendar> calendar,
+                                      shared_ptr<spdlog::logger> contact_logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -149,7 +173,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
                 // check if member is present today
                 if (c_members[i_person1].second) {
                         auto         p1     = c_members[i_person1].first;
-                        const double c_rate = pool.GetContactRate(p1);
+                        const double c_rate = GetContactRate(profile, p1, pool.m_members.size());
                         // loop over possible contacts (contacts can be initiated by each member)
                         for (size_t i_person2 = 0; i_person2 < c_members.size(); i_person2++) {
                                 // check if not the same person
@@ -199,8 +223,9 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, DiseaseProfile disease_
 // Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, DiseaseProfile disease_profile,
-                                                       ContactHandler ch, shared_ptr<const Calendar> calendar,
+void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, ContactProfile& profile,
+                                                       DiseaseProfile disease_profile, ContactHandler ch,
+                                                       shared_ptr<const Calendar> calendar,
                                                        shared_ptr<spdlog::logger> contact_logger)
 {
         using LP = LOG_POLICY<LL>;
@@ -226,13 +251,14 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, Diseas
                         if (c_members[i_infected].second) {
                                 const auto p1 = c_members[i_infected].first;
                                 if (p1->GetHealth().IsInfectious()) {
-                                        const double c_rate_p1 = pool.GetContactRate(p1);
+                                        const double c_rate_p1 = GetContactRate(profile, p1, pool.m_members.size());
                                         // loop over possible susceptible contacts
                                         for (size_t i_contact = num_cases; i_contact < c_immune; i_contact++) {
                                                 // check if member is present today
                                                 if (c_members[i_contact].second) {
-                                                        auto         p2        = c_members[i_contact].first;
-                                                        const double c_rate_p2 = pool.GetContactRate(p2);
+                                                        auto         p2 = c_members[i_contact].first;
+                                                        const double c_rate_p2 =
+                                                            GetContactRate(profile, p2, pool.m_members.size());
                                                         if (ch.HasContactAndTransmission(c_rate_p1, t_rate) ||
                                                             ch.HasContactAndTransmission(c_rate_p2, t_rate)) {
                                                                 if (p1->GetHealth().IsInfectious() &&

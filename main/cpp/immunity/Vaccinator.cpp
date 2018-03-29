@@ -21,7 +21,7 @@
 #include "Vaccinator.h"
 
 #include "Immunizer.h"
-//#include "util/PtreeUtils.h"
+#include "core/ContactPoolSys.h"
 #include "util/StringUtils.h"
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -29,6 +29,7 @@
 namespace stride {
 
 using namespace util;
+using namespace stride::ContactPoolType;
 
 Vaccinator::Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager)
     : m_pt_config(pt_config), m_rn_manager(rn_manager)
@@ -41,7 +42,7 @@ void Vaccinator::Administer(std::string immunity_type, std::string immunization_
         const double        immunity_link_probability = 0;
         // const double immunity_link_probability = ((immunization_profile == "Cocoon") ? 1 :
         // m_pt_config.get<double>("run." + ToLower(immunity_type) + "_link_probability"));
-        std::vector<ContactPool>* immunity_pools = &sim->m_households; ///< The default case.
+        std::vector<ContactPool>* immunity_pools = &sim->m_pool_sys[ToSizeT(Id::Household)]; ///< The default case.
 
         /*
          *                 if (immunity_link_probability > 0) {
