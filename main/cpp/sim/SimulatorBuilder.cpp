@@ -20,12 +20,15 @@
 
 #include "SimulatorBuilder.h"
 
+#include "ContactPoolBuilder.h"
+#include "DiseaseBuilder.h"
 #include "calendar/Calendar.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 
+#include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
@@ -35,6 +38,7 @@
 namespace stride {
 
 using namespace boost::property_tree;
+using namespace boost::filesystem;
 using namespace std;
 using namespace util;
 
@@ -51,7 +55,7 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
 
 std::shared_ptr<Simulator> SimulatorBuilder::Build()
 {
-        m_stride_logger->trace("Starting Simulator::Build.");
+        m_stride_logger->trace("Starting SimulatorBuilder::Build.");
         const auto pt_contact = ReadContactPtree();
         const auto pt_disease = ReadDiseasePtree();
 
@@ -60,7 +64,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build()
                 sim = Build(pt_disease, pt_contact);
         }
 
-        m_stride_logger->trace("Finished Simulator::Build.");
+        m_stride_logger->trace("Finished SimulatorBuilder::Build.");
         return sim;
 }
 
@@ -166,8 +170,14 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager, sim->m_contact_logger);
 
+        ContactPoolBuilder cp_builder(m_config_pt, m_stride_logger);
+        cp_builder.Build(sim);
+        DiseaseBuilder d_builder(m_config_pt, m_stride_logger);
+        d_builder.Build(sim);
+
+        /*
         // --------------------------------------------------------------
-        // Contact profiles & initilize contactpools.
+        // Contact profiles & initialize contactpools.
         // --------------------------------------------------------------
         using Id                                                 = ContactPoolType::Id;
         sim->m_contact_profiles[ToSizeT(Id::Household)]          = ContactProfile(Id::Household, pt_contact);
@@ -215,6 +225,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
+         */
         return sim;
 }
 

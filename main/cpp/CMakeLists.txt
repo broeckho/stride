@@ -42,7 +42,9 @@ set(LIB_SRC
     pop/Population.cpp
     pop/PopulationBuilder.cpp
 #---
+	sim/ContactPoolBuilder.cpp
     sim/CliController.cpp
+    sim/DiseaseBuilder.cpp
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp

@@ -99,6 +99,8 @@ private:
 private:
         friend class SimulatorBuilder;
         friend class Vaccinator;
+        friend class ContactPoolBuilder;
+        friend class DiseaseBuilder;
 };
 
 } // namespace stride
