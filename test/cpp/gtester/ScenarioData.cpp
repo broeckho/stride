@@ -37,7 +37,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
 
         // Influenza data
         if (tag == "influenza_a") {
-                target = 1400U;
+                target = 1232U;
         }
         if (tag == "influenza_b") {
                 pt.put("run.seeding_rate", 0.0);
@@ -68,19 +68,19 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
         }
         if (tag == "r0_4") {
                 pt.put("run.r0", 4.0);
-                target = 55400U;
+                target = 39080U;
         }
         if (tag == "r0_8") {
                 pt.put("run.r0", 8.0);
-                target = 115400U;
+                target = 110884U;
         }
         if (tag == "r0_12") {
                 pt.put("run.r0", 12.0);
-                target = 110745U;
+                target = 118342U;
         }
         if (tag == "r0_16") {
                 pt.put("run.r0", 16.0);
-                target = 117153U;
+                target = 119459;
         }
 
         return make_tuple(pt, target, margin);
