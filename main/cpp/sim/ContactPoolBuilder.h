@@ -23,13 +23,11 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-
-namespace spdlog {
-class logger;
-}
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
+class Population;
 class Simulator;
 
 /**
@@ -42,14 +40,10 @@ public:
         explicit ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger);
 
         /// Build the contact pool system.
-        void Build(const boost::property_tree::ptree& pt_contact, std::shared_ptr<Simulator> sim);
+        void Build(ContactPoolSys& pool_sys, const Population& population);
 
 private:
-        /// Initialize the contactpoolss.
-        static void InitializeContactPools(ContactPoolSys& pool_sys, std::shared_ptr<Simulator> sim);
-
-private:
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride

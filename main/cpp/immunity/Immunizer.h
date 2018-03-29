@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -19,20 +19,13 @@
  * Header for the Vaccinator class.
  */
 
+#include "ImmunizationProfile.h"
 #include "core/ContactPool.h"
 #include "util/RNManager.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <memory>
+#include <vector>
 
 namespace stride {
-
-enum class ImmunizationProfile
-{
-        None   = 0U,
-        Random = 1U,
-        Cocoon = 2U,
-};
 
 /// Primary immunization profile: do nothing
 template <ImmunizationProfile profile>

@@ -33,6 +33,7 @@ set(LIB_SRC
     core/Health.cpp
     core/Infector.cpp
 #---
+    immunity/ImmunizationProfile.h
 	immunity/Immunizer.cpp
 	immunity/Vaccinator.cpp
 #---

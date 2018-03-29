@@ -21,14 +21,13 @@
 
 #include "core/ContactLogMode.h"
 #include "core/ContactPoolType.h"
-#include "core/ContactProfile.h"
-#include "core/ContactProfiles.h"
-#include "pop/Person.h"
 
 #include <array>
 #include <vector>
 
 namespace stride {
+
+class Person;
 
 /**
  * Represents a group of Persons for potential contacts.
@@ -37,22 +36,10 @@ class ContactPool
 {
 public:
         /// Initializing constructor
-        ContactPool(std::size_t pool_id, ContactPoolType::Id type, const ContactProfiles& profiles);
-
-        /// No copying: too big.
-        ContactPool(const ContactPool&) = default;
-
-        /// Moving is ok.
-        ContactPool(ContactPool&&) = default;
-
-        // No assignment: too big.
-        ContactPool& operator=(const ContactPool&) = default;
-
-        // Move assignment ok.
-        ContactPool& operator=(ContactPool&&) = default;
+        ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
         /// Add the given Person.
-        void AddMember(Person* p);
+        void AddMember(const Person* p);
 
         /// Get member at index
         Person* GetMember(unsigned int index) const;

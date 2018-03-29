@@ -31,18 +31,18 @@ namespace stride {
 using namespace util;
 using namespace stride::ContactPoolType;
 
-Vaccinator::Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager)
-    : m_pt_config(pt_config), m_rn_manager(rn_manager)
+Vaccinator::Vaccinator(const boost::property_tree::ptree& config_pt, util::RNManager& rn_manager)
+    : m_config_pt(config_pt), m_rn_manager(rn_manager)
 {
 }
 
-void Vaccinator::Administer(std::string immunity_type, std::string immunization_profile, std::shared_ptr<Simulator> sim)
+void Vaccinator::Administer(const std::string& immunity_type, const std::string& immunization_profile, std::shared_ptr<Simulator> sim)
 {
         std::vector<double> immunity_distribution;
         const double        immunity_link_probability = 0;
         // const double immunity_link_probability = ((immunization_profile == "Cocoon") ? 1 :
         // m_pt_config.get<double>("run." + ToLower(immunity_type) + "_link_probability"));
-        std::vector<ContactPool>* immunity_pools = &sim->m_pool_sys[ToSizeT(Id::Household)]; ///< The default case.
+        std::vector<ContactPool>& immunity_pools = sim->m_pool_sys[ToSizeT(Id::Household)]; ///< The default case.
 
         /*
          *                 if (immunity_link_probability > 0) {
@@ -58,17 +58,17 @@ void Vaccinator::Administer(std::string immunity_type, std::string immunization_
                 }
          */
         if (immunization_profile == "Random") {
-                const auto immunity_rate = m_pt_config.get<double>("run." + ToLower(immunity_type) + "_rate");
+                const auto immunity_rate = m_config_pt.get<double>("run." + ToLower(immunity_type) + "_rate");
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
                         immunity_distribution.push_back(immunity_rate);
                 }
-                Immunizer<ImmunizationProfile::Random>::Administer(*immunity_pools, immunity_distribution,
+                Immunizer<ImmunizationProfile::Random>::Administer(immunity_pools, immunity_distribution,
                                                                    immunity_link_probability, m_rn_manager);
         } else if (immunization_profile == "Cocoon") {
-                Immunizer<ImmunizationProfile::Cocoon>::Administer(*immunity_pools, immunity_distribution,
+                Immunizer<ImmunizationProfile::Cocoon>::Administer(immunity_pools, immunity_distribution,
                                                                    immunity_link_probability, m_rn_manager);
         } else {
-                Immunizer<ImmunizationProfile::None>::Administer(*immunity_pools, immunity_distribution,
+                Immunizer<ImmunizationProfile::None>::Administer(immunity_pools, immunity_distribution,
                                                                  immunity_link_probability, m_rn_manager);
         }
 }

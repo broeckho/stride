@@ -23,8 +23,10 @@
 #include "ContactPoolBuilder.h"
 #include "DiseaseBuilder.h"
 #include "calendar/Calendar.h"
+#include "core/ContactPoolType.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
+#include "sim/Simulator.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 
@@ -39,6 +41,7 @@ using namespace boost::property_tree;
 using namespace boost::filesystem;
 using namespace std;
 using namespace util;
+using namespace ContactPoolType;
 
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))
@@ -169,10 +172,17 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager, sim->m_contact_logger);
 
         // --------------------------------------------------------------
+        // Initialize the age-related contact profiles.
+        // --------------------------------------------------------------
+        for (Id id : IdRange) {
+                sim->m_contact_profiles[ToSizeT(id)] = ContactProfile(id, pt_contact);
+        }
+
+        // --------------------------------------------------------------
         // Build the ContactPoolSystem of the simulator.
         // --------------------------------------------------------------
         ContactPoolBuilder cp_builder(m_stride_logger);
-        cp_builder.Build(pt_contact, sim);
+        cp_builder.Build(sim->m_pool_sys, *sim->m_population);
 
         // --------------------------------------------------------------
         // Initialize disease status of the population.

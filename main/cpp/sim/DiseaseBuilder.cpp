@@ -20,25 +20,16 @@
 
 #include "DiseaseBuilder.h"
 
-#include "calendar/Calendar.h"
 #include "immunity/Vaccinator.h"
-#include "pop/PopulationBuilder.h"
-#include "util/FileSys.h"
-#include "util/LogUtils.h"
+#include "pop/Population.h"
 
-#include <boost/filesystem.hpp>
-#include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
-#include <spdlog/sinks/null_sink.h>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
 using namespace boost::property_tree;
-using namespace boost::filesystem;
 using namespace std;
-using namespace util;
 
 DiseaseBuilder::DiseaseBuilder(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))

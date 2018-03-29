@@ -16,14 +16,16 @@
 
 /**
  * @file
- * Contact profiles stored in simulator.
+ * Header for the immunization profile.
  */
-
-#include "core/ContactPool.h"
-#include "core/ContactPoolType.h"
 
 namespace stride {
 
-using ContactPoolSys = std::array<std::vector<ContactPool>, ContactPoolType::NumOfTypes()>;
+enum class ImmunizationProfile
+{
+        None   = 0U,
+        Random = 1U,
+        Cocoon = 2U,
+};
 
 } // namespace stride

@@ -21,19 +21,20 @@
 #include "ContactPool.h"
 
 #include "pop/Age.h"
+#include "pop/Person.h"
 
 namespace stride {
 
 using namespace std;
 
-ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type, const ContactProfiles& profiles)
+ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
     : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()
 {
 }
 
-void ContactPool::AddMember(Person* p)
+void ContactPool::AddMember(const Person* p)
 {
-        m_members.emplace_back(std::make_pair(p, true));
+        m_members.emplace_back(std::make_pair(const_cast<Person*>(p), true));
         m_index_immune++;
 }
 

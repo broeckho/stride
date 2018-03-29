@@ -66,7 +66,7 @@ public:
         Belief* GetBelief() { return m_belief; }
 
         /// Return belief info.
-        Belief const* GetBelief() const { return m_belief; }
+        const Belief* GetBelief() const { return m_belief; }
 
         /// Get ID of contactpool_type
         unsigned int GetContactPoolId(const ContactPoolType::Id& pool_type) const;

@@ -22,6 +22,10 @@
 #include <cstddef>
 #include <string>
 
+#include <iostream>
+#include <iterator>
+#include <vector>
+
 namespace stride {
 namespace ContactPoolType {
 
@@ -49,6 +53,10 @@ std::string ToString(Id w);
 
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
+
+///
+const std::initializer_list<Id> IdRange{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
+                                        Id::SecondaryCommunity};
 
 } // namespace ContactPoolType
 } // namespace stride

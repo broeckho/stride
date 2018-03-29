@@ -20,7 +20,9 @@
 
 #include "Immunizer.h"
 
+#include "pop/Person.h"
 #include "util/StringUtils.h"
+
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
 
