@@ -21,7 +21,7 @@ if os.path.isdir("testSimple"):
 # Run the simulation
 simulation.run()
 # Check output
-targetCases = 106958
+targetCases = 118925
 summary_file = os.path.join("testSimple", "summary.csv")
 with open(summary_file) as csvfile:
     reader = csv.DictReader(csvfile)

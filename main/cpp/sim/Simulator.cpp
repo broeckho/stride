@@ -154,14 +154,14 @@ void Simulator::UpdateContactPools()
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                             m_work_pools[i], m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
-/*
+
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_primary_community.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
                                 m_secondary_community[i], m_disease_profile, handlers[thread], m_calendar,
                                 m_contact_logger);
                 }
-*/
+
 #pragma omp for schedule(runtime)
                 for (size_t i = 0; i < m_secondary_community.size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(

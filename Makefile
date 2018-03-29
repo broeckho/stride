@@ -132,8 +132,11 @@ distclean:
 test installcheck: install
 	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
 
+test_py: install
+	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest_py
+
 format:
-#	resources/bash/clang-format-all .
+	resources/bash/clang-format-all .
 	resources/bash/remove_trailing_space
 
 #############################################################################
