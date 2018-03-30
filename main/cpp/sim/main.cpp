@@ -62,7 +62,7 @@ int main(int argc, char** argv)
                 const auto                    p_vec = params_override_Arg.getValue();
                 for (const auto& p_assignment : p_vec) {
                         const auto v = util::Tokenize(p_assignment, "=");
-                        p_overrides.push_back(make_tuple(v[0], v[1]));
+                        p_overrides.emplace_back(make_tuple(v[0], v[1]));
                 }
 
                 // -----------------------------------------------------------------------------------------

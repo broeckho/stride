@@ -36,7 +36,7 @@ public:
         explicit PersonsViewer(const std::string& output_prefix) : m_persons_file(output_prefix) {}
 
         /// Let viewer perform update.
-        void update(const sim_event::Payload& p);
+        void Update(const sim_event::Payload& p);
 
 private:
         output::PersonsFile m_persons_file;

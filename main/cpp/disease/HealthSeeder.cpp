@@ -37,7 +37,7 @@ HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::
         GetDistribution(m_distrib_start_symptomatic, disease_pt, "disease.start_symptomatic");
         GetDistribution(m_distrib_time_infectious, disease_pt, "disease.time_infectious");
         GetDistribution(m_distrib_time_symptomatic, disease_pt, "disease.time_symptomatic");
-        m_uniform01_generator          = rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        m_uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
         assert((abs(m_distrib_start_infectiousness.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in start_infectiousness distribution!");
@@ -48,6 +48,7 @@ HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::
         assert((abs(m_distrib_time_symptomatic.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in time_symptomatic distribution!");
 }
+
 void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& root_pt, const string& xml_tag)
 {
         boost::property_tree::ptree subtree = root_pt.get_child(xml_tag);
@@ -55,7 +56,6 @@ void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& ro
                 distribution.push_back(tree.second.get<double>(""));
         }
 }
-
 
 Health HealthSeeder::Sample()
 {

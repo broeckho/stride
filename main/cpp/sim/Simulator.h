@@ -86,7 +86,7 @@ private:
         ContactLogMode::Id              m_contact_log_mode; ///< Specifies contact/transmission logging mode.
         std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
         ContactProfiles                 m_contact_profiles; ///< Contact profiles w.r.t age.
-        TransmissionProfile                  m_disease_profile;  ///< Profile of disease.
+        TransmissionProfile             m_disease_profile;  ///< Profile of disease.
         unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
         bool                            m_track_index_case; ///< General simulation or tracking index case.
 
@@ -107,8 +107,6 @@ private:
 private:
         friend class SimulatorBuilder;
         friend class ContactPoolBuilder;
-        // friend class DiseaseBuilder;
-        friend class Vaccinator;
 };
 
 } // namespace stride

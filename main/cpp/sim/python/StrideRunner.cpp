@@ -62,19 +62,18 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         cout << "Starting up at:      " << TimeStamp().ToString() << endl;
 
         if (use_install_dirs) {
-                FileSys dirs;
-                cout << "Executing:           " << dirs.GetExecPath().string() << endl;
-                cout << "Current directory:   " << dirs.GetCurrentDir().string() << endl;
-                cout << "Install directory:   " << dirs.GetRootDir().string() << endl;
-                cout << "Data    directory:   " << dirs.GetDataDir().string() << endl;
+                cout << "Executing:           " << FileSys::GetExecPath().string() << endl;
+                cout << "Current directory:   " << FileSys::GetCurrentDir().string() << endl;
+                cout << "Install directory:   " << FileSys::GetRootDir().string() << endl;
+                cout << "Data    directory:   " << FileSys::GetDataDir().string() << endl;
 
                 // -----------------------------------------------------------------------------------------
                 // Check execution environment.
                 // -----------------------------------------------------------------------------------------
-                if (dirs.GetCurrentDir().compare(dirs.GetRootDir()) != 0) {
+                if (FileSys::GetCurrentDir().compare(FileSys::GetRootDir()) != 0) {
                         throw runtime_error(string(__func__) + "> Current directory is not install root! Aborting.");
                 }
-                if (dirs.GetDataDir().empty()) {
+                if (FileSys::GetDataDir().empty()) {
                         throw runtime_error(string(__func__) + "> Data directory not present! Aborting.");
                 }
         }
@@ -230,8 +229,8 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         // Summary
         SummaryFile summary_file(output_prefix);
         summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetRate(),
-                           run_time, total_time);
+                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetRate(), run_time,
+                           total_time);
 
         // Persons
         if (pt_config.get<bool>("run.output_persons", false)) {

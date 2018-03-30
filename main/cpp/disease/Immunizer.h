@@ -25,25 +25,26 @@
 
 namespace stride {
 
-namespace util {class RNManager;}
+namespace util {
+class RNManager;
+}
 
 class Immunizer
 {
 public:
         ///
-        Immunizer(util::RNManager& rn_manager);
+        explicit Immunizer(util::RNManager& rn_manager);
 
-      /// Random immunization.
+        /// Random immunization.
         void Random(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability);
+                    double immunity_link_probability);
 
         /// Cocoon immunization.
         void Cocoon(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
-                               double immunity_link_probability);
+                    double immunity_link_probability);
 
 private:
-        util::RNManager&                   m_rn_manager; ///< Random number manager.
+        util::RNManager& m_rn_manager; ///< Random number manager.
 };
-
 
 } // namespace stride

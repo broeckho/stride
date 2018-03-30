@@ -43,7 +43,7 @@ class Health
 public:
         ///
         explicit Health(unsigned int start_infectiousness = 0U, unsigned int start_symptomatic = 0U,
-               unsigned int time_infectious = 0U, unsigned int time_symptomatic = 0U);
+                        unsigned int time_infectious = 0U, unsigned int time_symptomatic = 0U);
 
         ///
         unsigned int GetEndInfectiousness() const { return m_end_infectiousness; }

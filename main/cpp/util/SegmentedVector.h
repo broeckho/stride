@@ -77,13 +77,13 @@ public:
         }
 
         /// Move constructor
-        SegmentedVector(self_type&& other) : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
 
         /// Copy assignment
-        self_type& operator=(const self_type& other)
+        SegmentedVector& operator=(const self_type& other)
         {
                 if (this != &other) {
                         clear();
@@ -98,7 +98,7 @@ public:
         }
 
         /// Move assignment
-        self_type& operator=(self_type&& other)
+        SegmentedVector& operator=(self_type&& other) noexcept
         {
                 if (this != &other) {
                         clear();
@@ -268,7 +268,7 @@ private:
                 const size_t i = m_size % N; // Offset of chunk within its block
 
                 if (b == m_blocks.size()) { // Out of buffers, last buffer is full
-                        Chunk* chunk = new Chunk[N];
+                        auto chunk = new Chunk[N];
                         m_blocks.push_back(chunk);
                 }
                 ++m_size;

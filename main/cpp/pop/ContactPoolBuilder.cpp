@@ -39,7 +39,7 @@ void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& popul
         m_stride_logger->trace("Starting ContactPoolBuilder::Build.");
 
         // --------------------------------------------------------------
-        // Determine number of contact pools.
+        // Determine number of contact pools from ids in population.
         // --------------------------------------------------------------
         std::array<unsigned int, ContactPoolType::NumOfTypes()> max_ids = {0U};
         for (const auto& p : population) {

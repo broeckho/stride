@@ -106,7 +106,7 @@ public:
         }
 
         /// Post-increment (returns position prior to increment)
-        self_type operator++(int)
+        const self_type operator++(int)
         {
                 self_type tmp(*this);
                           operator++();
@@ -126,7 +126,7 @@ public:
         }
 
         /// Pre-increment (returns position after decrement)
-        self_type operator--(int)
+        const self_type operator--(int)
         {
                 self_type tmp(*this);
                           operator--();

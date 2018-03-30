@@ -165,34 +165,34 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
         // Command line viewer
         m_stride_logger->info("Registering CliViewer");
         const auto cli_v = make_shared<viewers::CliViewer>(m_stride_logger);
-        runner->Register(cli_v, bind(&viewers::CliViewer::update, cli_v, placeholders::_1));
+        runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
 
         // Adopted viewer
         if (m_config_pt.get<bool>("run.output_adopted", false)) {
                 m_stride_logger->info("registering AdoptedViewer,");
                 const auto v = make_shared<viewers::AdoptedViewer>(m_output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedViewer::update, v, placeholders::_1));
+                runner->Register(v, bind(&viewers::AdoptedViewer::Update, v, placeholders::_1));
         }
 
         // Cases viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {
                 m_stride_logger->info("Registering CasesViewer");
                 const auto v = make_shared<viewers::CasesViewer>(m_output_prefix);
-                runner->Register(v, bind(&viewers::CasesViewer::update, v, placeholders::_1));
+                runner->Register(v, bind(&viewers::CasesViewer::Update, v, placeholders::_1));
         }
 
         // Persons viewer
         if (m_config_pt.get<bool>("run.output_persons", false)) {
                 m_stride_logger->info("registering PersonsViewer.");
                 const auto v = make_shared<viewers::PersonsViewer>(m_output_prefix);
-                runner->Register(v, bind(&viewers::PersonsViewer::update, v, placeholders::_1));
+                runner->Register(v, bind(&viewers::PersonsViewer::Update, v, placeholders::_1));
         }
 
         // Summary viewer
         if (m_config_pt.get<bool>("run.output_summary", false)) {
                 m_stride_logger->info("Registering SummaryViewer");
                 const auto v = make_shared<viewers::SummaryViewer>(m_output_prefix);
-                runner->Register(v, bind(&viewers::SummaryViewer::update, v, placeholders::_1));
+                runner->Register(v, bind(&viewers::SummaryViewer::Update, v, placeholders::_1));
         }
 }
 
@@ -208,7 +208,7 @@ void CliController::Setup()
         // Read config and patch where necessary.
         // -----------------------------------------------------------------------------------------
         m_config_path =
-            (m_use_install_dirs) ? FileSys().GetConfigDir() /= m_config_file : system_complete(m_config_file);
+            (m_use_install_dirs) ? FileSys::GetConfigDir() /= m_config_file : system_complete(m_config_file);
         ReadConfigFile();
         PatchConfig();
 

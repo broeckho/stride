@@ -28,7 +28,7 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void PersonsViewer::update(const sim_event::Payload& p)
+void PersonsViewer::Update(const sim_event::Payload& p)
 {
         switch (p.m_event_id) {
         case Id::Finished: {

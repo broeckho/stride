@@ -37,8 +37,8 @@ public:
         using TClock = T;
 
         /// Constructor initializes stopwatch.
-        Stopwatch(std::string name = "stopwatch", bool running = false)
-            : m_accumulated(T::duration::zero()), m_name(name), m_running(running)
+        explicit Stopwatch(std::string name = "stopwatch", bool running = false)
+            : m_accumulated(T::duration::zero()), m_name(std::move(name)), m_running(running)
         {
                 if (m_running) {
                         m_last_start = T::now();

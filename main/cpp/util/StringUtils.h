@@ -32,7 +32,7 @@ namespace util {
 
 /// Builds a value of type T representation from a string.
 template <typename T>
-inline T FromString(std::string const& s)
+inline T FromString(const std::string& s)
 {
         std::stringstream ss(s);
         T                 t;
@@ -74,7 +74,7 @@ inline std::vector<std::string> Tokenize(const std::string& str, const std::stri
 
 /// Builds a string representation of a value of type T.
 template <typename T>
-inline std::string ToString(T const& value)
+inline std::string ToString(const T& value)
 {
         std::stringstream ss;
         ss << value;
@@ -83,7 +83,7 @@ inline std::string ToString(T const& value)
 
 /// Builds a string representation with minimum width of a value of type T.
 template <typename T>
-inline std::string ToString(T const& value, int width, char fill = ' ')
+inline std::string ToString(const T& value, int width, char fill = ' ')
 {
         std::stringstream ss;
         ss << std::setw(width) << std::setfill(fill) << value;
@@ -91,7 +91,7 @@ inline std::string ToString(T const& value, int width, char fill = ' ')
 }
 
 /// Builds a string with lower case characters only.
-inline std::string ToLower(std::string const& source)
+inline std::string ToLower(const std::string& source)
 {
         auto        lower = [](int c) -> int { return std::tolower(c); };
         std::string copy;
@@ -100,7 +100,7 @@ inline std::string ToLower(std::string const& source)
 }
 
 /// Builds a string with upper case characters only.
-inline std::string ToUpper(std::string const& source)
+inline std::string ToUpper(const std::string& source)
 {
         auto        upper = [](int c) -> int { return std::toupper(c); };
         std::string copy;
@@ -109,24 +109,23 @@ inline std::string ToUpper(std::string const& source)
 }
 
 /// Trim characters at right end of string.
-inline std::string TrimRight(std::string const& source, std::string const& t = " ")
+inline std::string TrimRight(const std::string& source, const std::string& t = " ")
 {
         std::string str = source;
         return str.erase(str.find_last_not_of(t) + 1);
 }
 
 /// Trim characters at left end of string.
-inline std::string TrimLeft(std::string const& source, std::string const& t = " ")
+inline std::string TrimLeft(const std::string& source, const std::string& t = " ")
 {
         std::string str = source;
         return str.erase(0, source.find_first_not_of(t));
 }
 
 /// Trim characters at both ends of string.
-inline std::string Trim(std::string const& source, std::string const& t = " ")
+inline std::string Trim(const std::string& source, const std::string& t = " ")
 {
-        std::string str = source;
-        return TrimLeft(TrimRight(str, t), t);
+        return TrimLeft(TrimRight(source, t), t);
 }
 
 } // namespace util

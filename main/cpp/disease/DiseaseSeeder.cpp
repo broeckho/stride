@@ -20,9 +20,9 @@
 
 #include "DiseaseSeeder.h"
 
-#include "pop/Population.h"
 #include "core/ContactPoolSys.h"
 #include "disease/Immunizer.h"
+#include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "util/StringUtils.h"
 
@@ -37,7 +37,9 @@ using namespace util;
 using namespace std;
 
 DiseaseSeeder::DiseaseSeeder(const ptree& config_pt, RNManager& rn_manager)
-        : m_config_pt(config_pt), m_rn_manager(rn_manager) {}
+    : m_config_pt(config_pt), m_rn_manager(rn_manager)
+{
+}
 
 void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
 {
@@ -77,7 +79,7 @@ void DiseaseSeeder::Vaccinate(const std::string& immunity_type, const std::strin
 {
         std::vector<double> immunity_distribution;
         const double        immunity_link_probability = 0;
-        Immunizer    immunizer(m_rn_manager);
+        Immunizer           immunizer(m_rn_manager);
 
         if (immunization_profile == "Random") {
                 const auto immunity_rate = m_config_pt.get<double>("run." + ToLower(immunity_type) + "_rate");
@@ -89,6 +91,5 @@ void DiseaseSeeder::Vaccinate(const std::string& immunity_type, const std::strin
                 immunizer.Cocoon(immunity_pools, immunity_distribution, immunity_link_probability);
         }
 }
-
 
 } // namespace stride
