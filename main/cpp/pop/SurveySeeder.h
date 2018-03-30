@@ -38,8 +38,8 @@ class SurveySeeder
 {
 public:
         ///
-        static void Seed(const boost::property_tree::ptree &config_pt, std::shared_ptr<Population> pop,
-                         util::RNManager &rn_manager, std::shared_ptr<spdlog::logger> contact_logger);
+        static void Seed(const boost::property_tree::ptree& config_pt, std::shared_ptr<Population> pop,
+                         util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> contact_logger);
 };
 
 } // namespace stride

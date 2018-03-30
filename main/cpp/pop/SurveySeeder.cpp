@@ -31,8 +31,8 @@ using namespace std;
 
 namespace stride {
 
-void SurveySeeder::Seed(const boost::property_tree::ptree& config_pt, shared_ptr<Population> pop,
-                        RNManager& rn_manager, std::shared_ptr<spdlog::logger> contact_logger)
+void SurveySeeder::Seed(const boost::property_tree::ptree& config_pt, shared_ptr<Population> pop, RNManager& rn_manager,
+                        std::shared_ptr<spdlog::logger> contact_logger)
 {
         const auto   max_pop_index = static_cast<unsigned int>(pop->size() - 1);
         auto         int_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_pop_index));

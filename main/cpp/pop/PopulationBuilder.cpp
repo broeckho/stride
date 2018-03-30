@@ -36,8 +36,7 @@ using namespace util;
 using namespace boost::property_tree;
 
 std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, const ptree& disease_pt,
-                                                     util::RNManager&                rn_manager,
-                                                     std::shared_ptr<spdlog::logger> contact_logger)
+                                                     util::RNManager& rn_manager)
 {
         // ------------------------------------------------
         // Setup.
@@ -92,11 +91,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, con
         }
 
         pop_file.close();
-
-        //------------------------------------------------
-        // Set participants in social contact survey.
-        //------------------------------------------------
-        SurveySeeder::Seed(config_pt, pop, rn_manager, contact_logger);
 
         //------------------------------------------------
         // Done

@@ -23,7 +23,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -41,8 +40,7 @@ public:
         /// @return              Pointer to the initialized population.
         static std::shared_ptr<Population> Build(const boost::property_tree::ptree& config_pt,
                                                  const boost::property_tree::ptree& disease_pt,
-                                                 util::RNManager&                   rn_manager,
-                                                 std::shared_ptr<spdlog::logger>    contact_logger);
+                                                 util::RNManager&                   rn_manager);
 };
 
 } // namespace stride

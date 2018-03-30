@@ -26,6 +26,7 @@
 #include "core/ContactPoolType.h"
 #include "immunity/Vaccinator.h"
 #include "pop/PopulationBuilder.h"
+#include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -169,7 +170,12 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, disease_pt, sim->m_rn_manager, sim->m_contact_logger);
+        sim->m_population = PopulationBuilder::Build(m_config_pt, disease_pt, sim->m_rn_manager);
+
+        //------------------------------------------------
+        // Set participants in social contact survey.
+        //------------------------------------------------
+        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager, sim->m_contact_logger);
 
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
