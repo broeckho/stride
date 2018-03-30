@@ -37,27 +37,11 @@ Vaccinator::Vaccinator(const boost::property_tree::ptree& config_pt, util::RNMan
 }
 
 void Vaccinator::Administer(const std::string& immunity_type, const std::string& immunization_profile,
-                            std::shared_ptr<Simulator> sim)
+                            std::vector<ContactPool>& immunity_pools)
 {
         std::vector<double> immunity_distribution;
         const double        immunity_link_probability = 0;
-        // const double immunity_link_probability = ((immunization_profile == "Cocoon") ? 1 :
-        // m_pt_config.get<double>("run." + ToLower(immunity_type) + "_link_probability"));
-        std::vector<ContactPool>& immunity_pools = sim->m_pool_sys[ToSizeT(Id::Household)]; ///< The default case.
 
-        /*
-         *                 if (immunity_link_probability > 0) {
-                        using namespace ContactPoolType;
-                        Id c_type = ToType(m_config.get<string>("run." + ToLower(s) + "_link_pooltype"));
-                        switch (c_type) {
-                        case Id::Household: immunity_pools = &m_sim->m_households; break;
-                        case Id::School: immunity_pools = &m_sim->m_school_pools; break;
-                        case Id::Work: immunity_pools = &m_sim->m_work_pools; break;
-                        case Id::PrimaryCommunity: immunity_pools = &m_sim->m_primary_community; break;
-                        case Id::SecondaryCommunity: immunity_pools = &m_sim->m_secondary_community; break;
-                        }
-                }
-         */
         if (immunization_profile == "Random") {
                 const auto immunity_rate = m_config_pt.get<double>("run." + ToLower(immunity_type) + "_rate");
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {

@@ -27,7 +27,7 @@ class DiseaseProfile
 {
 public:
         /// Initialize.
-        DiseaseProfile() : m_transmission_rate(0.0), m_is_operational(true) {}
+        DiseaseProfile() : m_transmission_rate(0.0), m_is_operational(false) {}
 
         /// Return transmission rate.
         double GetTransmissionRate() const { return m_transmission_rate; }
@@ -36,7 +36,7 @@ public:
         bool IsOperational() const { return m_is_operational; }
 
         /// Initialize.
-        bool Initialize(const boost::property_tree::ptree& pt_config, const boost::property_tree::ptree& pt_disease);
+        bool Initialize(const boost::property_tree::ptree& config_pt, const boost::property_tree::ptree& disease_pt);
 
 private:
         double m_transmission_rate;

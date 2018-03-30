@@ -38,9 +38,9 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, uti
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
-        const auto    pop        = make_shared<Population>();
-        Population&   population = *pop;
-        const auto    belief_pt  = config_pt.get_child("run.belief_policy");
+        const auto  pop        = make_shared<Population>();
+        Population& population = *pop;
+        const auto  belief_pt  = config_pt.get_child("run.belief_policy");
 
         //------------------------------------------------
         // Seeding rate.

@@ -34,14 +34,13 @@ class DiseaseBuilder
 {
 public:
         /// Initializing DiseaseBuilder.
-        DiseaseBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger);
+        DiseaseBuilder(const boost::property_tree::ptree& config_pt);
 
         /// Build the simulator.
-        void Build(const boost::property_tree::ptree& pt_disease, std::shared_ptr<Simulator> sim);
+        void Build(std::shared_ptr<Simulator> sim);
 
 private:
-        boost::property_tree::ptree     m_config_pt;     /// Run config (required by Vaccinator).
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).
+        boost::property_tree::ptree m_config_pt; /// Run config.
 };
 
 } // namespace stride

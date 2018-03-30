@@ -55,11 +55,23 @@ public:
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
 
+        /// Get the contact logger.
+        std::shared_ptr<spdlog::logger> GetContactLogger() { return m_contact_logger; }
+
+        /// The ContactPoolSys of the simulator.
+        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
+
+        /// The ContactPoolSys of the simulator.
+        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
+
         /// Get the disease profile.
         const DiseaseProfile& GetDiseaseProfile() const { return m_disease_profile; }
 
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
+
+        /// Get the random number manager.
+        util::RNManager& GetRNManager() { return m_rn_manager; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
@@ -95,7 +107,7 @@ private:
 private:
         friend class SimulatorBuilder;
         friend class ContactPoolBuilder;
-        friend class DiseaseBuilder;
+        // friend class DiseaseBuilder;
         friend class Vaccinator;
 };
 

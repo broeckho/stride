@@ -39,7 +39,7 @@ public:
 
         ///
         void Administer(const std::string& immunity_type, const std::string& immunization_profile,
-                        std::shared_ptr<Simulator> sim);
+                        std::vector<ContactPool>& immunity_pools);
 
 private:
         const boost::property_tree::ptree& m_config_pt;

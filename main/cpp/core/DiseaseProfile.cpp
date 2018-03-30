@@ -27,28 +27,27 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-bool DiseaseProfile::Initialize(const ptree& pt_config, const ptree& pt_disease)
+bool DiseaseProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
 {
         // Use a quadratic model, fitted to simulation data:
         // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
-        const auto r0 = pt_config.get<double>("run.r0");
-        const auto b0 = pt_disease.get<double>("disease.transmission.b0");
-        const auto b1 = pt_disease.get<double>("disease.transmission.b1");
-        const auto b2 = pt_disease.get<double>("disease.transmission.b2");
+        const auto r0 = config_pt.get<double>("run.r0");
+        const auto b0 = disease_pt.get<double>("disease.transmission.b0");
+        const auto b1 = disease_pt.get<double>("disease.transmission.b1");
+        const auto b2 = disease_pt.get<double>("disease.transmission.b2");
 
         // Find root
         const auto a = b2;
         const auto b = b1;
         const auto c = b0 - r0;
 
-        auto status = false;
         // To obtain a real values (instead of complex)
         if (r0 < (-(b * b) / (4 * a))) {
                 const double determ = (b * b) - 4 * a * c;
                 m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
-                status              = true;
+                m_is_operational    = true;
         }
-        return status;
+        return m_is_operational;
 }
 
 } // namespace stride
