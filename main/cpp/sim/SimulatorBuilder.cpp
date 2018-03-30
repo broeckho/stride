@@ -113,7 +113,7 @@ ptree SimulatorBuilder::ReadDiseasePtree()
         return pt;
 }
 
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, const ptree& pt_contact)
+std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, const ptree& contact_pt)
 {
         // --------------------------------------------------------------
         // Uninitialized simulator object.
@@ -169,13 +169,13 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, pt_disease, sim->m_rn_manager, sim->m_contact_logger);
+        sim->m_population = PopulationBuilder::Build(m_config_pt, disease_pt, sim->m_rn_manager, sim->m_contact_logger);
 
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
         // --------------------------------------------------------------
         for (Id id : IdRange) {
-                sim->m_contact_profiles[ToSizeT(id)] = ContactProfile(id, pt_contact);
+                sim->m_contact_profiles[ToSizeT(id)] = ContactProfile(id, contact_pt);
         }
 
         // --------------------------------------------------------------
@@ -188,7 +188,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& pt_disease, cons
         // Initialize disease status of the population.
         // --------------------------------------------------------------
         DiseaseBuilder d_builder(m_config_pt, m_stride_logger);
-        d_builder.Build(pt_disease, sim);
+        d_builder.Build(disease_pt, sim);
 
         // --------------------------------------------------------------
         // Done.

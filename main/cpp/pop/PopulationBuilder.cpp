@@ -23,6 +23,7 @@
 #include "core/Health.h"
 #include "pop/HealthSampler.h"
 #include "pop/Population.h"
+#include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
 
@@ -95,30 +96,7 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, con
         //------------------------------------------------
         // Set participants in social contact survey.
         //------------------------------------------------
-        const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
-        auto       pop_index_generator  = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
-
-        const string log_level = config_pt.get<string>("run.log_level", "None");
-        if (log_level == "Contacts" || log_level == "SusceptibleContacts") {
-                const unsigned int num_participants{
-                    static_cast<unsigned int>(config_pt.get<double>("run.num_participants_survey"))};
-
-                // use a while-loop to obtain 'num_participant' unique participants (default
-                // sampling is with replacement)
-                // A for loop will not do because we might draw the same person twice.
-                unsigned int num_samples{0};
-                while (num_samples < num_participants) {
-                        Person& p = population[pop_index_generator()];
-                        if (!p.IsParticipatingInSurvey()) {
-                                p.ParticipateInSurvey();
-                                contact_logger->info("[PART] {}", p.GetId());
-                                contact_logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                                     p.GetContactPoolId(ContactPoolType::Id::School),
-                                                     p.GetContactPoolId(ContactPoolType::Id::Work));
-                                num_samples++;
-                        }
-                }
-        }
+        SurveySeeder::Seed(config_pt, pop, rn_manager, contact_logger);
 
         //------------------------------------------------
         // Done

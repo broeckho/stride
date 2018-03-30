@@ -48,8 +48,8 @@ public:
 
 private:
         /// Build the simulator.
-        std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& pt_disease,
-                                         const boost::property_tree::ptree& pt_contact);
+        std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& disease_pt,
+                                         const boost::property_tree::ptree& contact_pt);
 
         /// Get the contact configuration data.
         boost::property_tree::ptree ReadContactPtree();

@@ -47,6 +47,7 @@ set(LIB_SRC
     pop/Person.cpp
     pop/Population.cpp
     pop/PopulationBuilder.cpp
+    pop/SurveySeeder.cpp
 #---
 	sim/ContactPoolBuilder.cpp
     sim/CliController.cpp
