@@ -35,19 +35,19 @@ class Person;
 class ContactPool
 {
 public:
-        /// Initializing constructor
+        /// Initializing constructor.
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
         /// Add the given Person.
         void AddMember(const Person* p);
 
-        /// Get member at index
+        /// Get member at index.
         Person* GetMember(unsigned int index) const;
 
-        /// Get member at index
+        /// Get the entire pool of members.
         const std::vector<std::pair<Person*, bool>>& GetPool() const;
 
-        /// Get size
+        /// Get size (number of members).
         std::size_t GetSize() const;
 
 private:

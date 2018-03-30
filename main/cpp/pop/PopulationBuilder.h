@@ -19,16 +19,15 @@
  * Initialize populations.
  */
 
-#include "pop/Population.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <functional>
 #include <memory>
 #include <spdlog/spdlog.h>
-#include <vector>
 
 namespace stride {
+
+class Population;
 
 /**
  * Initializes Population objects.
@@ -37,20 +36,13 @@ class PopulationBuilder
 {
 public:
         /// Initializes a Population: add persons, set immunity, seed infection.
-        /// @param pt_config     Property_tree with general configuration settings.
-        /// @param pt_disease    Property_tree with disease configuration settings.
+        /// @param config_pt     Property_tree with general configuration settings.
+        /// @param disease_pt    Property_tree with disease configuration settings.
         /// @return              Pointer to the initialized population.
-        static std::shared_ptr<Population> Build(const boost::property_tree::ptree& pt_config,
-                                                 const boost::property_tree::ptree& pt_disease,
+        static std::shared_ptr<Population> Build(const boost::property_tree::ptree& config_pt,
+                                                 const boost::property_tree::ptree& disease_pt,
                                                  util::RNManager&                   rn_manager,
                                                  std::shared_ptr<spdlog::logger>    contact_logger);
-
-private:
-        /// Sample form a cumulative distribution.
-        /// \param generator    generator for doubles in [0.0, 1.0).
-        /// \param distrib      cumulative distribution tat gets sampled.
-        /// \return             sample index.
-        static unsigned int Sample(std::function<double()>& generator, const std::vector<double>& distrib);
 };
 
 } // namespace stride

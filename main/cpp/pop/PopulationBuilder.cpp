@@ -19,14 +19,14 @@
  */
 
 #include "PopulationBuilder.h"
+
+#include "core/Health.h"
+#include "pop/HealthSampler.h"
+#include "pop/Population.h"
 #include "util/FileSys.h"
-#include "util/PtreeUtils.h"
 #include "util/StringUtils.h"
 
-#include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <cassert>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -34,33 +34,31 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, const ptree& pt_disease,
+std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, const ptree& disease_pt,
                                                      util::RNManager&                rn_manager,
                                                      std::shared_ptr<spdlog::logger> contact_logger)
 {
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
-        const auto  pop        = make_shared<Population>();
-        Population& population = *pop;
-
-        const auto         seeding_rate        = pt_config.get<double>("run.seeding_rate");
-        const string       disease_config_file = pt_config.get<string>("run.disease_config_file");
-        function<double()> uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        const auto    pop        = make_shared<Population>();
+        Population&   population = *pop;
+        const auto    belief_pt  = config_pt.get_child("run.belief_policy");
+        HealthSampler h_sampler(disease_pt, rn_manager);
 
         //------------------------------------------------
-        // Check input.
+        // Seeding rate.
         //------------------------------------------------
-        bool status = (seeding_rate <= 1);
-        if (!status) {
+        const auto seeding_rate = config_pt.get<double>("run.seeding_rate");
+        if (seeding_rate > 1.0) {
                 throw runtime_error(string(__func__) + "> Bad input data.");
         }
 
         //------------------------------------------------
-        // Add persons to population.
+        // Build population from file.
         //------------------------------------------------
-        const auto file_name        = pt_config.get<string>("run.population_file");
-        const auto use_install_dirs = pt_config.get<bool>("run.use_install_dirs");
+        const auto file_name        = config_pt.get<string>("run.population_file");
+        const auto use_install_dirs = config_pt.get<bool>("run.use_install_dirs");
         const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
@@ -72,37 +70,23 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
                 throw runtime_error(string(__func__) + "> Error opening population file " + file_path.string());
         }
 
-        const auto distrib_start_infectiousness =
-            PtreeUtils::GetDistribution(pt_disease, "disease.start_infectiousness");
-        const auto distrib_start_symptomatic = PtreeUtils::GetDistribution(pt_disease, "disease.start_symptomatic");
-        const auto distrib_time_infectious   = PtreeUtils::GetDistribution(pt_disease, "disease.time_infectious");
-        const auto distrib_time_symptomatic  = PtreeUtils::GetDistribution(pt_disease, "disease.time_symptomatic");
-
-        const auto pt_belief = pt_config.get_child("run.belief_policy");
-
         string line;
         getline(pop_file, line); // step over file header
         unsigned int person_id = 0U;
 
         while (getline(pop_file, line)) {
-                // Make use of stochastic disease characteristics.
-                const auto start_infectiousness = Sample(uniform01_generator, distrib_start_infectiousness);
-                const auto start_symptomatic    = Sample(uniform01_generator, distrib_start_symptomatic);
-                const auto time_infectious      = Sample(uniform01_generator, distrib_time_infectious);
-                const auto time_symptomatic     = Sample(uniform01_generator, distrib_time_symptomatic);
-
                 const auto values                 = Split(line, ",");
                 const auto risk_averseness        = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
-                auto       age                    = FromString<unsigned int>(values[0]);
-                auto       household_id           = FromString<unsigned int>(values[1]);
-                auto       school_id              = FromString<unsigned int>(values[2]);
-                auto       work_id                = FromString<unsigned int>(values[3]);
-                auto       primary_community_id   = FromString<unsigned int>(values[4]);
-                auto       secondary_community_id = FromString<unsigned int>(values[5]);
+                const auto age                    = FromString<unsigned int>(values[0]);
+                const auto household_id           = FromString<unsigned int>(values[1]);
+                const auto school_id              = FromString<unsigned int>(values[2]);
+                const auto work_id                = FromString<unsigned int>(values[3]);
+                const auto primary_community_id   = FromString<unsigned int>(values[4]);
+                const auto secondary_community_id = FromString<unsigned int>(values[5]);
+                const auto health                 = h_sampler.Sample();
 
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                        secondary_community_id, start_infectiousness, start_symptomatic,
-                                        time_infectious, time_symptomatic, pt_belief, risk_averseness);
+                                        secondary_community_id, health, belief_pt, risk_averseness);
                 ++person_id;
         }
 
@@ -114,10 +98,10 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         const auto max_population_index = static_cast<unsigned int>(population.size() - 1);
         auto       pop_index_generator  = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_population_index));
 
-        const string log_level = pt_config.get<string>("run.log_level", "None");
+        const string log_level = config_pt.get<string>("run.log_level", "None");
         if (log_level == "Contacts" || log_level == "SusceptibleContacts") {
                 const unsigned int num_participants{
-                    static_cast<unsigned int>(pt_config.get<double>("run.num_participants_survey"))};
+                    static_cast<unsigned int>(config_pt.get<double>("run.num_participants_survey"))};
 
                 // use a while-loop to obtain 'num_participant' unique participants (default
                 // sampling is with replacement)
@@ -140,18 +124,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& pt_config, con
         // Done
         //------------------------------------------------
         return pop;
-}
-
-unsigned int PopulationBuilder::Sample(std::function<double()>& rn_generator, const std::vector<double>& distribution)
-{
-        assert((abs(distribution.back() - 1.0) < 1.e-10) && "PopulationBUilder::Sample> Error in distribution!");
-        const auto random01 = rn_generator();
-        for (unsigned int i = 0; i < distribution.size(); i++) {
-                if (random01 <= distribution[i]) {
-                        return i;
-                }
-        }
-        return static_cast<unsigned int>(distribution.size());
 }
 
 } // namespace stride

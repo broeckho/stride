@@ -38,7 +38,8 @@ public:
         Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
 
         ///
-        void Administer(const std::string& immunity_type, const std::string& immunization_profile, std::shared_ptr<Simulator> sim);
+        void Administer(const std::string& immunity_type, const std::string& immunization_profile,
+                        std::shared_ptr<Simulator> sim);
 
 private:
         const boost::property_tree::ptree& m_config_pt;

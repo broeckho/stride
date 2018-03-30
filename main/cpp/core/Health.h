@@ -37,8 +37,8 @@ class Health
 {
 public:
         ///
-        Health(unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-               unsigned int time_symptomatic);
+        Health(unsigned int start_infectiousness = 0U, unsigned int start_symptomatic = 0U,
+               unsigned int time_infectious = 0U, unsigned int time_symptomatic = 0U);
 
         ///
         unsigned int GetEndInfectiousness() const { return m_end_infectiousness; }

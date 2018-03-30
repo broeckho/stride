@@ -43,6 +43,7 @@ set(LIB_SRC
 	output/SummaryFile.cpp
 #---
     pop/Age.h
+	pop/HealthSampler.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/PopulationBuilder.cpp

@@ -41,18 +41,14 @@ public:
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                           unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                          unsigned int start_infectiousness, unsigned int start_symptomatic,
-                          unsigned int time_infectious, unsigned int time_symptomatic,
-                          const boost::property_tree::ptree& pt_belief, double risk_averseness = 0);
+                          Health health, const boost::property_tree::ptree& pt_belief, double risk_averseness = 0);
 
 private:
         ///
         template <typename BeliefPolicy>
         void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                        unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                       unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-                       unsigned int time_symptomatic, const boost::property_tree::ptree& pt_belief,
-                       double risk_averseness = 0);
+                       Health health, const boost::property_tree::ptree& pt_belief, double risk_averseness = 0);
 };
 
 } // namespace stride

@@ -36,7 +36,8 @@ Vaccinator::Vaccinator(const boost::property_tree::ptree& config_pt, util::RNMan
 {
 }
 
-void Vaccinator::Administer(const std::string& immunity_type, const std::string& immunization_profile, std::shared_ptr<Simulator> sim)
+void Vaccinator::Administer(const std::string& immunity_type, const std::string& immunization_profile,
+                            std::shared_ptr<Simulator> sim)
 {
         std::vector<double> immunity_distribution;
         const double        immunity_link_probability = 0;

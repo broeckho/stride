@@ -38,21 +38,19 @@ public:
             : m_id(0), m_age(0.0), m_gender(' '), m_household_id(0), m_school_id(0), m_work_id(0),
               m_primary_community_id(0), m_secondary_community_id(0), m_at_household(false), m_at_school(false),
               m_at_work(false), m_at_primary_community(false), m_at_secondary_community(false), m_belief(nullptr),
-              m_health(0, 0, 0, 0), m_is_participant(false)
+              m_health(), m_is_participant(false)
         {
         }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
-               unsigned int primary_community_id, unsigned int secondary_community_id,
-               unsigned int start_infectiousness, unsigned int start_symptomatic, unsigned int time_infectious,
-               unsigned int time_symptomatic, double risk_averseness = 0, Belief* bp = nullptr)
+               unsigned int primary_community_id, unsigned int secondary_community_id, Health health = Health(),
+               double risk_averseness = 0, Belief* bp = nullptr)
             : m_id(id), m_age(age), m_gender('M'), m_household_id(household_id), m_school_id(school_id),
               m_work_id(work_id), m_primary_community_id(primary_community_id),
               m_secondary_community_id(secondary_community_id), m_at_household(true), m_at_school(true),
               m_at_work(true), m_at_primary_community(true), m_at_secondary_community(true), m_belief(bp),
-              m_health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic),
-              m_is_participant(false)
+              m_health(health), m_is_participant(false)
         {
         }
 
