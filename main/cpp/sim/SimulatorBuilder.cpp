@@ -24,7 +24,6 @@
 #include "DiseaseSeeder.h"
 #include "calendar/Calendar.h"
 #include "core/ContactPoolType.h"
-#include "immunity/Vaccinator.h"
 #include "pop/HealthSeeder.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"

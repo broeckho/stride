@@ -25,6 +25,7 @@
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <functional>
 #include <memory>
+#include <string>
 #include <vector>
 
 namespace stride {
@@ -49,6 +50,9 @@ public:
 private:
         /// Sample for each of the health data item individually.
         unsigned int Sample(const std::vector<double>& distribution);
+
+        /// Utility method to etract distribution from data in ptree.
+        void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& root_pt, const std::string& xml_tag);
 
 private:
         std::vector<double>     m_distrib_start_infectiousness;

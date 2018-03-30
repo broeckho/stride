@@ -43,12 +43,13 @@ public:
         void Seed(std::shared_ptr<Simulator> sim);
 
 private:
-        ///
+        /// Seed for vaccination/natural immunity.
         void Vaccinate(const std::string& immunity_type, const std::string& immunization_profile,
                         std::vector<ContactPool>& immunity_pools);
+
 private:
-        const boost::property_tree::ptree& m_config_pt; /// Run config.
-        util::RNManager&                   m_rn_manager;
+        const boost::property_tree::ptree& m_config_pt; ///< Run config.
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

@@ -21,7 +21,6 @@
 #include "HealthSeeder.h"
 
 #include "pop/Population.h"
-#include "util/PtreeUtils.h"
 #include "util/RNManager.h"
 
 #include <trng/uniform01_dist.hpp>
@@ -34,10 +33,10 @@ namespace stride {
 
 HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager)
 {
-        m_distrib_start_infectiousness = PtreeUtils::GetDistribution(disease_pt, "disease.start_infectiousness");
-        m_distrib_start_symptomatic    = PtreeUtils::GetDistribution(disease_pt, "disease.start_symptomatic");
-        m_distrib_time_infectious      = PtreeUtils::GetDistribution(disease_pt, "disease.time_infectious");
-        m_distrib_time_symptomatic     = PtreeUtils::GetDistribution(disease_pt, "disease.time_symptomatic");
+        GetDistribution(m_distrib_start_infectiousness, disease_pt, "disease.start_infectiousness");
+        GetDistribution(m_distrib_start_symptomatic, disease_pt, "disease.start_symptomatic");
+        GetDistribution(m_distrib_time_infectious, disease_pt, "disease.time_infectious");
+        GetDistribution(m_distrib_time_symptomatic, disease_pt, "disease.time_symptomatic");
         m_uniform01_generator          = rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
         assert((abs(m_distrib_start_infectiousness.back() - 1.0) < 1.e-10) &&
@@ -49,6 +48,14 @@ HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::
         assert((abs(m_distrib_time_symptomatic.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in time_symptomatic distribution!");
 }
+void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& root_pt, const string& xml_tag)
+{
+        boost::property_tree::ptree subtree = root_pt.get_child(xml_tag);
+        for (const auto& tree : subtree) {
+                distribution.push_back(tree.second.get<double>(""));
+        }
+}
+
 
 Health HealthSeeder::Sample()
 {
@@ -57,7 +64,7 @@ Health HealthSeeder::Sample()
         const auto time_infectious      = Sample(m_distrib_time_infectious);
         const auto time_symptomatic     = Sample(m_distrib_time_symptomatic);
 
-        return Health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic);
+        return {start_infectiousness, start_symptomatic, time_infectious, time_symptomatic};
 }
 
 unsigned int HealthSeeder::Sample(const vector<double>& distribution)

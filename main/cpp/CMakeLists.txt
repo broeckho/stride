@@ -64,7 +64,6 @@ set(LIB_SRC
 	util/CSVRow.cpp
     util/FileSys.cpp
 	util/LogUtils.cpp
-	util/PtreeUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
 	util/RunConfigPtree.cpp
