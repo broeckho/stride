@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header file for the SurveySampler
+ * Header file for the SurveySeeder class.
  */
 
 #include "util/RNManager.h"
@@ -32,7 +32,7 @@ namespace stride {
 class Population;
 
 /**
- * Container for persons in population.
+ * Seeds the population with survey participants.
  */
 class SurveySeeder
 {

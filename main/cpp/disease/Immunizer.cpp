@@ -15,13 +15,13 @@
 
 /**
  * @file
- * Implementation for the Vaccinator class.
+ * Implementation for the Immunizer class.
  */
 
 #include "Immunizer.h"
 
 #include "pop/Person.h"
-#include "util/StringUtils.h"
+#include "util/RNManager.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
@@ -30,9 +30,11 @@ namespace stride {
 
 using namespace util;
 
-void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<ContactPool>& pools,
+Immunizer::Immunizer(stride::util::RNManager& rn_manager)  : m_rn_manager(rn_manager){}
+
+void Immunizer::Random(const std::vector<ContactPool>& pools,
                                                         std::vector<double>&            immunity_distribution,
-                                                        double immunity_link_probability, RNManager& rn_manager)
+                                                        double immunity_link_probability)
 {
         // Initialize a vector to count the population per age class [0-100].
         std::vector<double> population_count_age(100, 0.0);
@@ -53,8 +55,8 @@ void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<Contac
 
         // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
         const auto pools_size          = static_cast<int>(pools.size());
-        auto       int_generator       = rn_manager.GetGenerator(trng::uniform_int_dist(0, pools_size));
-        auto       uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        auto       int_generator       = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, pools_size));
+        auto       uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
 
         // Calculate the number of susceptible individuals per age class.
         unsigned int total_num_susceptible = 0;
@@ -73,7 +75,7 @@ void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<Contac
                 for (size_t i = 0; i < size; i++) {
                         indices[i] = static_cast<unsigned int>(i); // TODO why not just loop over unsigned ints?
                 }
-                rn_manager.RandomShuffle(indices.begin(), indices.end());
+                m_rn_manager.RandomShuffle(indices.begin(), indices.end());
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && total_num_susceptible > 0; i_p++) {
@@ -92,10 +94,9 @@ void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<Contac
         }
 }
 
-void Immunizer<ImmunizationProfile::Cocoon>::Administer(const std::vector<ContactPool>& /*pools*/,
+void Immunizer::Cocoon(const std::vector<ContactPool>& /*pools*/,
                                                         std::vector<double>& /*immunity_distribution*/,
-                                                        double /*immunity_link_probability*/,
-                                                        util::RNManager& /*rn_manager*/)
+                                                        double /*immunity_link_probability*/)
 {
         /*
          * void Vaccinator::AdministerCocoon(const vector<ContactPool>& pools, double immunity_rate, double
@@ -126,8 +127,5 @@ for (const auto& c : pools) {
          *
          */
 }
-
-template class Immunizer<ImmunizationProfile::Random>;
-template class Immunizer<ImmunizationProfile::Cocoon>;
 
 } // namespace stride

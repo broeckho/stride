@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Core Population class
+ * Implementation for HelthSeeder class.
  */
 
 #include "HealthSeeder.h"
@@ -64,7 +64,7 @@ Health HealthSeeder::Sample()
         const auto time_infectious      = Sample(m_distrib_time_infectious);
         const auto time_symptomatic     = Sample(m_distrib_time_symptomatic);
 
-        return {start_infectiousness, start_symptomatic, time_infectious, time_symptomatic};
+        return Health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic);
 }
 
 unsigned int HealthSeeder::Sample(const vector<double>& distribution)

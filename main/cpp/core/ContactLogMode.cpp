@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation of LogMode.
+ * Implementation of ContactLogMode.
  */
 
 #include "ContactLogMode.h"

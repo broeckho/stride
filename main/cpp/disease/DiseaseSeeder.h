@@ -16,10 +16,11 @@
 
 /**
  * @file
- * Header for the ContactPoolBuilder class.
+ * Header for the DiseaseSeeder class.
  */
 
-#include "core/ContactPoolSys.h"
+#include "core/ContactPool.h"
+#include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -27,23 +28,28 @@
 
 namespace stride {
 
-class Population;
 class Simulator;
 
 /**
- * Builds the contact pool system  for the simulator.
+ * Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.
  */
-class ContactPoolBuilder
+class DiseaseSeeder
 {
 public:
-        /// Initializing ContactPoolBuilder.
-        explicit ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger);
+        /// Initializing DiseaseBuilder.
+        DiseaseSeeder(const boost::property_tree::ptree& config_pt, util::RNManager& rn_manager);
 
-        /// Build the contact pool system.
-        void Build(ContactPoolSys& pool_sys, const Population& population);
+        /// Build the simulator.
+        void Seed(std::shared_ptr<Simulator> sim);
 
 private:
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
+        /// Seed for vaccination/natural immunity.
+        void Vaccinate(const std::string& immunity_type, const std::string& immunization_profile,
+                        std::vector<ContactPool>& immunity_pools);
+
+private:
+        const boost::property_tree::ptree& m_config_pt; ///< Run config.
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

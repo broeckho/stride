@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header for the LogMode class.
+ * Header for the ContactLogMode class.
  */
 
 #include <string>

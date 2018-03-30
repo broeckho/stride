@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Core Population class
+ * Implementation for the SurveySeeder class.
  */
 
 #include "SurveySeeder.h"

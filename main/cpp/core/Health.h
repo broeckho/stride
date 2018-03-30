@@ -14,6 +14,11 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Header for the Health class.
+ */
+
 namespace stride {
 
 /*
@@ -37,7 +42,7 @@ class Health
 {
 public:
         ///
-        Health(unsigned int start_infectiousness = 0U, unsigned int start_symptomatic = 0U,
+        explicit Health(unsigned int start_infectiousness = 0U, unsigned int start_symptomatic = 0U,
                unsigned int time_infectious = 0U, unsigned int time_symptomatic = 0U);
 
         ///

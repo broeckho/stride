@@ -33,8 +33,9 @@ set(LIB_SRC
     core/Health.cpp
     core/Infector.cpp
 #---
-    immunity/ImmunizationProfile.h
-	immunity/Immunizer.cpp
+    disease/DiseaseSeeder.cpp
+    disease/HealthSeeder.cpp
+	disease/Immunizer.cpp
 #---
 	output/AdoptedFile.cpp
 	output/CasesFile.cpp
@@ -42,15 +43,13 @@ set(LIB_SRC
 	output/SummaryFile.cpp
 #---
     pop/Age.h
-    pop/HealthSeeder.cpp
+    pop/ContactPoolBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/PopulationBuilder.cpp
     pop/SurveySeeder.cpp
 #---
-	sim/ContactPoolBuilder.cpp
     sim/CliController.cpp
-    sim/DiseaseSeeder.cpp
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp

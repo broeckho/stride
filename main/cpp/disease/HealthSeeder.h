@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header file for the HealthSampler
+ * Header file for the HealthSeeder.
  */
 
 #include "core/Health.h"
@@ -33,7 +33,7 @@ namespace stride {
 class Population;
 
 /**
- * Container for persons in population.
+ * Seeds the population with Health data.
  */
 class HealthSeeder
 {

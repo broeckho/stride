@@ -13,6 +13,11 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Implementation for the Health class.
+ */
+
 #include "Health.h"
 
 #include <cassert>

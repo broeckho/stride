@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation for the core Cluster class.
+ * Implementation for the core ContcatPool class.
  */
 
 #include "ContactPool.h"

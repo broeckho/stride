@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Contact profiles stored in simulator.
+ * Container for the contact pools of various type (household, work, ...)..
  */
 
 #include "core/ContactPool.h"

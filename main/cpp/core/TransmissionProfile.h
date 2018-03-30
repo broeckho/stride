@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Transmission profile.
+ * Header for the TransmissionProfile class.
  */
 
 #include <boost/property_tree/ptree.hpp>

@@ -16,16 +16,34 @@
 
 /**
  * @file
- * Header for the immunization profile.
+ * Header for the Immunizer class.
  */
+
+#include "core/ContactPool.h"
+
+#include <vector>
 
 namespace stride {
 
-enum class ImmunizationProfile
+namespace util {class RNManager;}
+
+class Immunizer
 {
-        None   = 0U,
-        Random = 1U,
-        Cocoon = 2U,
+public:
+        ///
+        Immunizer(util::RNManager& rn_manager);
+
+      /// Random immunization.
+        void Random(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
+                               double immunity_link_probability);
+
+        /// Cocoon immunization.
+        void Cocoon(const std::vector<ContactPool>& pools, std::vector<double>& immunity_distribution,
+                               double immunity_link_probability);
+
+private:
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
+
 
 } // namespace stride

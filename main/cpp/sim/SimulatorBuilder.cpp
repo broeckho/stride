@@ -20,11 +20,11 @@
 
 #include "SimulatorBuilder.h"
 
-#include "ContactPoolBuilder.h"
-#include "DiseaseSeeder.h"
 #include "calendar/Calendar.h"
 #include "core/ContactPoolType.h"
-#include "pop/HealthSeeder.h"
+#include "disease/DiseaseSeeder.h"
+#include "disease/HealthSeeder.h"
+#include "pop/ContactPoolBuilder.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
