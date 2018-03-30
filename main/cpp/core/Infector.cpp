@@ -154,7 +154,7 @@ public:
 // And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
                                       ContactHandler contact_handler, shared_ptr<const Calendar> calendar,
                                       shared_ptr<spdlog::logger> contact_logger)
 {
@@ -166,7 +166,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile
         // set up some stuff
         const auto  c_type    = pool.m_pool_type;
         const auto& c_members = pool.m_members;
-        const auto  t_rate    = disease_profile.GetTransmissionRate();
+        const auto  t_rate    = disease_profile.GetRate();
 
         // check all contacts
         for (size_t i_person1 = 0; i_person1 < c_members.size(); i_person1++) {
@@ -224,7 +224,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, ContactProfile& profile,
-                                                       DiseaseProfile disease_profile, ContactHandler ch,
+                                                       TransmissionProfile disease_profile, ContactHandler ch,
                                                        shared_ptr<const Calendar> calendar,
                                                        shared_ptr<spdlog::logger> contact_logger)
 {
@@ -243,7 +243,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, Contac
                 const auto  c_type    = pool.m_pool_type;
                 const auto  c_immune  = pool.m_index_immune;
                 const auto& c_members = pool.m_members;
-                const auto  t_rate    = disease_profile.GetTransmissionRate();
+                const auto  t_rate    = disease_profile.GetRate();
 
                 // match infectious and susceptible members, skip last part (immune members)
                 for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {

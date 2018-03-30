@@ -60,6 +60,12 @@ public:
         /// Initializes to default engine( trng::mrg2 with seed 1).
         explicit RNManager(const Info& info = Info());
 
+        /// No copying.
+        RNManager(const RNManager&) = delete;
+
+        /// No copy assignement.
+        RNManager& operator=(const RNManager&) = delete;
+
         /// Return the state of the random engine.
         Info GetInfo() const;
 

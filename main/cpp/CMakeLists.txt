@@ -29,13 +29,12 @@ set(LIB_SRC
     core/ContactPoolType.cpp
     core/ContactProfile.cpp
 	core/ContactProfiles.h
-    core/DiseaseProfile.cpp
+    core/TransmissionProfile.cpp
     core/Health.cpp
     core/Infector.cpp
 #---
     immunity/ImmunizationProfile.h
 	immunity/Immunizer.cpp
-	immunity/Vaccinator.cpp
 #---
 	output/AdoptedFile.cpp
 	output/CasesFile.cpp
@@ -51,7 +50,7 @@ set(LIB_SRC
 #---
 	sim/ContactPoolBuilder.cpp
     sim/CliController.cpp
-    sim/DiseaseBuilder.cpp
+    sim/DiseaseSeeder.cpp
 	sim/SimRunner.cpp
 	sim/Simulator.cpp
 	sim/SimulatorBuilder.cpp

@@ -18,11 +18,17 @@
  * Implementation for the DiseaseBuilder class.
  */
 
-#include "DiseaseBuilder.h"
+#include "DiseaseSeeder.h"
 
-#include "core/ContactPoolSys.h"
-#include "immunity/Vaccinator.h"
+//#include "core/ContactPoolSys.h"
+//#include "immunity/Vaccinator.h"
 #include "pop/Population.h"
+#include "immunity/Immunizer.h"
+#include "core/ContactPoolSys.h"
+#include "sim/Simulator.h"
+#include "util/StringUtils.h"
+//#include <trng/uniform01_dist.hpp>
+//#include <trng/uniform_int_dist.hpp>
 
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
@@ -31,20 +37,22 @@ namespace stride {
 
 using namespace boost::property_tree;
 using namespace stride::ContactPoolType;
+using namespace util;
 using namespace std;
 
-DiseaseBuilder::DiseaseBuilder(const ptree& config_pt) : m_config_pt(config_pt) {}
+DiseaseSeeder::DiseaseSeeder(const ptree& config_pt, RNManager& rn_manager)
+        : m_config_pt(config_pt), m_rn_manager(rn_manager) {}
 
-void DiseaseBuilder::Build(std::shared_ptr<Simulator> sim)
+void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
 {
         // --------------------------------------------------------------
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
-        Vaccinator v(m_config_pt, sim->GetRNManager());
         const auto immunity_profile = m_config_pt.get<std::string>("run.immunity_profile");
-        v.Administer("immunity", immunity_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
+        Vaccinate("immunity", immunity_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
+
         const auto vaccination_profile = m_config_pt.get<std::string>("run.vaccine_profile");
-        v.Administer("vaccine", vaccination_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
+        Vaccinate("vaccine", vaccination_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -67,5 +75,28 @@ void DiseaseBuilder::Build(std::shared_ptr<Simulator> sim)
                 }
         }
 }
+
+void DiseaseSeeder::Vaccinate(const std::string& immunity_type, const std::string& immunization_profile,
+                              std::vector<ContactPool>& immunity_pools)
+{
+        std::vector<double> immunity_distribution;
+        const double        immunity_link_probability = 0;
+
+        if (immunization_profile == "Random") {
+                const auto immunity_rate = m_config_pt.get<double>("run." + ToLower(immunity_type) + "_rate");
+                for (unsigned int index_age = 0; index_age < 100; index_age++) {
+                        immunity_distribution.push_back(immunity_rate);
+                }
+                Immunizer<ImmunizationProfile::Random>::Administer(immunity_pools, immunity_distribution,
+                                                                   immunity_link_probability, m_rn_manager);
+        } else if (immunization_profile == "Cocoon") {
+                Immunizer<ImmunizationProfile::Cocoon>::Administer(immunity_pools, immunity_distribution,
+                                                                   immunity_link_probability, m_rn_manager);
+        } else {
+                Immunizer<ImmunizationProfile::None>::Administer(immunity_pools, immunity_distribution,
+                                                                 immunity_link_probability, m_rn_manager);
+        }
+}
+
 
 } // namespace stride

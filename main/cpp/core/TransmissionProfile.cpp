@@ -15,10 +15,10 @@
 
 /**
  * @file
- * Disease profile.
+ * Transmission profile.
  */
 
-#include "DiseaseProfile.h"
+#include "TransmissionProfile.h"
 
 #include <cmath>
 
@@ -27,7 +27,7 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-bool DiseaseProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
+bool TransmissionProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
 {
         // Use a quadratic model, fitted to simulation data:
         // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).

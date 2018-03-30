@@ -16,34 +16,31 @@
 
 /**
  * @file
- * Header for the Vaccinator class.
+ * Transmission profile.
  */
 
-#include "core/ContactPool.h"
-#include "sim/Simulator.h"
-#include "util/RNManager.h"
-
 #include <boost/property_tree/ptree.hpp>
-#include <memory>
 
 namespace stride {
 
-/**
- * Apply the natural immunity and/or vaccination strategy specified in the configuration file.
- */
-class Vaccinator
+class TransmissionProfile
 {
 public:
-        ///
-        Vaccinator(const boost::property_tree::ptree& pt_config, util::RNManager& rn_manager);
+        /// Initialize.
+        TransmissionProfile() : m_transmission_rate(0.0), m_is_operational(false) {}
 
-        ///
-        void Administer(const std::string& immunity_type, const std::string& immunization_profile,
-                        std::vector<ContactPool>& immunity_pools);
+        /// Return transmission rate.
+        double GetRate() const { return m_transmission_rate; }
+
+        /// Check if the disease configuration was valid.
+        bool IsOperational() const { return m_is_operational; }
+
+        /// Initialize.
+        bool Initialize(const boost::property_tree::ptree& config_pt, const boost::property_tree::ptree& disease_pt);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;
-        util::RNManager&                   m_rn_manager;
+        double m_transmission_rate;
+        bool   m_is_operational;
 };
 
 } // namespace stride

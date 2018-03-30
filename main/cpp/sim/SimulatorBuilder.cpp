@@ -21,7 +21,7 @@
 #include "SimulatorBuilder.h"
 
 #include "ContactPoolBuilder.h"
-#include "DiseaseBuilder.h"
+#include "DiseaseSeeder.h"
 #include "calendar/Calendar.h"
 #include "core/ContactPoolType.h"
 #include "immunity/Vaccinator.h"
@@ -198,15 +198,15 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         cp_builder.Build(sim->m_pool_sys, *sim->m_population);
 
         // --------------------------------------------------------------
-        // Initialize the disease profile (fixes transmission rates).
+        // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
         sim->m_operational = sim->m_disease_profile.Initialize(m_config_pt, disease_pt);
 
         // --------------------------------------------------------------
-        // Initialize disease status of the population.
+        // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
-        DiseaseBuilder d_builder(m_config_pt);
-        d_builder.Build(sim);
+        DiseaseSeeder d_builder(m_config_pt, sim->m_rn_manager);
+        d_builder.Seed(sim);
 
         // --------------------------------------------------------------
         // Done.

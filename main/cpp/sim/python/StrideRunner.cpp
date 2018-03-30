@@ -230,7 +230,7 @@ void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector
         // Summary
         SummaryFile summary_file(output_prefix);
         summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetTransmissionRate(),
+                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetDiseaseProfile().GetRate(),
                            run_time, total_time);
 
         // Persons

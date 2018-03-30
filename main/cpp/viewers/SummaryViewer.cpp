@@ -41,7 +41,7 @@ void SummaryViewer::update(const sim_event::Payload& p)
                 const auto dur       = duration_cast<milliseconds>(p.m_runner->GetClock().Get());
                 const auto milli     = static_cast<unsigned int>(dur.count());
                 m_summary_file.Print(pt_config, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
-                                     sim->GetDiseaseProfile().GetTransmissionRate(), milli, milli);
+                                     sim->GetDiseaseProfile().GetRate(), milli, milli);
                 break;
         }
         default: break;

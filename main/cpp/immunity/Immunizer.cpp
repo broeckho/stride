@@ -32,7 +32,7 @@ using namespace util;
 
 void Immunizer<ImmunizationProfile::Random>::Administer(const std::vector<ContactPool>& pools,
                                                         std::vector<double>&            immunity_distribution,
-                                                        double immunity_link_probability, util::RNManager& rn_manager)
+                                                        double immunity_link_probability, RNManager& rn_manager)
 {
         // Initialize a vector to count the population per age class [0-100].
         std::vector<double> population_count_age(100, 0.0);

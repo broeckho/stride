@@ -25,7 +25,7 @@
 #include "core/ContactHandler.h"
 #include "core/ContactLogMode.h"
 #include "core/ContactProfile.h"
-#include "core/DiseaseProfile.h"
+#include "core/TransmissionProfile.h"
 
 #include <memory>
 #include <spdlog/spdlog.h>
@@ -66,7 +66,7 @@ class Infector
 {
 public:
         ///
-        static void Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+        static void Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
                          ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
                          std::shared_ptr<spdlog::logger> contact_logger);
 };
@@ -79,7 +79,7 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(ContactPool& pool, ContactProfile& profile, DiseaseProfile disease_profile,
+        static void Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
                          ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
                          std::shared_ptr<spdlog::logger> contact_logger);
 };

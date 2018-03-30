@@ -22,7 +22,7 @@
 #include "core/ContactLogMode.h"
 #include "core/ContactPoolSys.h"
 #include "core/ContactProfiles.h"
-#include "core/DiseaseProfile.h"
+#include "core/TransmissionProfile.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"
@@ -65,7 +65,7 @@ public:
         const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the disease profile.
-        const DiseaseProfile& GetDiseaseProfile() const { return m_disease_profile; }
+        const TransmissionProfile& GetDiseaseProfile() const { return m_disease_profile; }
 
         /// Get the population.
         std::shared_ptr<Population> GetPopulation() { return m_population; }
@@ -86,7 +86,7 @@ private:
         ContactLogMode::Id              m_contact_log_mode; ///< Specifies contact/transmission logging mode.
         std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
         ContactProfiles                 m_contact_profiles; ///< Contact profiles w.r.t age.
-        DiseaseProfile                  m_disease_profile;  ///< Profile of disease.
+        TransmissionProfile                  m_disease_profile;  ///< Profile of disease.
         unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
         bool                            m_track_index_case; ///< General simulation or tracking index case.
 
