@@ -21,9 +21,7 @@
 #include "PopulationBuilder.h"
 
 #include "core/Health.h"
-#include "pop/HealthSampler.h"
 #include "pop/Population.h"
-#include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
 
@@ -35,8 +33,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, const ptree& disease_pt,
-                                                     util::RNManager& rn_manager)
+std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, util::RNManager& rn_manager)
 {
         // ------------------------------------------------
         // Setup.
@@ -44,7 +41,6 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, con
         const auto    pop        = make_shared<Population>();
         Population&   population = *pop;
         const auto    belief_pt  = config_pt.get_child("run.belief_policy");
-        HealthSampler h_sampler(disease_pt, rn_manager);
 
         //------------------------------------------------
         // Seeding rate.
@@ -83,10 +79,9 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, con
                 const auto work_id                = FromString<unsigned int>(values[3]);
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
-                const auto health                 = h_sampler.Sample();
 
                 population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                        secondary_community_id, health, belief_pt, risk_averseness);
+                                        secondary_community_id, Health(), belief_pt, risk_averseness);
                 ++person_id;
         }
 

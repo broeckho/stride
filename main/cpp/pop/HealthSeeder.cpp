@@ -18,8 +18,9 @@
  * Core Population class
  */
 
-#include "HealthSampler.h"
+#include "HealthSeeder.h"
 
+#include "pop/Population.h"
 #include "util/PtreeUtils.h"
 #include "util/RNManager.h"
 
@@ -31,7 +32,7 @@ using namespace std;
 
 namespace stride {
 
-HealthSampler::HealthSampler(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager)
+HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager)
 {
         m_distrib_start_infectiousness = PtreeUtils::GetDistribution(disease_pt, "disease.start_infectiousness");
         m_distrib_start_symptomatic    = PtreeUtils::GetDistribution(disease_pt, "disease.start_symptomatic");
@@ -49,7 +50,7 @@ HealthSampler::HealthSampler(const boost::property_tree::ptree& disease_pt, util
                "HealthSampler> Error in time_symptomatic distribution!");
 }
 
-Health HealthSampler::Sample()
+Health HealthSeeder::Sample()
 {
         const auto start_infectiousness = Sample(m_distrib_start_infectiousness);
         const auto start_symptomatic    = Sample(m_distrib_start_symptomatic);
@@ -59,7 +60,7 @@ Health HealthSampler::Sample()
         return Health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic);
 }
 
-unsigned int HealthSampler::Sample(const vector<double>& distribution)
+unsigned int HealthSeeder::Sample(const vector<double>& distribution)
 {
         const auto rn  = m_uniform01_generator();
         auto       ret = static_cast<unsigned int>(distribution.size());
@@ -72,6 +73,14 @@ unsigned int HealthSampler::Sample(const vector<double>& distribution)
         }
 
         return ret;
+}
+
+void HealthSeeder::Seed(std::shared_ptr<stride::Population> pop)
+{
+        Population&   population = *pop;
+        for (auto& p : population) {
+                p.GetHealth() = Sample();
+        }
 }
 
 } // namespace stride

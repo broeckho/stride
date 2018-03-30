@@ -39,7 +39,6 @@ public:
         /// @param disease_pt    Property_tree with disease configuration settings.
         /// @return              Pointer to the initialized population.
         static std::shared_ptr<Population> Build(const boost::property_tree::ptree& config_pt,
-                                                 const boost::property_tree::ptree& disease_pt,
                                                  util::RNManager&                   rn_manager);
 };
 

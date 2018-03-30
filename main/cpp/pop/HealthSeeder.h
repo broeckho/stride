@@ -24,21 +24,27 @@
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <functional>
+#include <memory>
 #include <vector>
 
 namespace stride {
 
+class Population;
+
 /**
  * Container for persons in population.
  */
-class HealthSampler
+class HealthSeeder
 {
 public:
         ///
-        HealthSampler(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager);
+        HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager);
 
         ///
         Health Sample();
+
+        ///
+        void Seed(std::shared_ptr<Population> pop);
 
 private:
         /// Sample for each of the health data item individually.
