@@ -41,7 +41,7 @@ void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& popul
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
         // --------------------------------------------------------------
-        std::array<unsigned int, ContactPoolType::NumOfTypes()> max_ids = {0U};
+        std::array<unsigned int, ContactPoolType::NumOfTypes()> max_ids = {{0U}};
         for (const auto& p : population) {
                 for (Id typ : IdRange) {
                         max_ids[ToSizeT(typ)] = max(max_ids[ToSizeT(typ)], p.GetContactPoolId(typ));

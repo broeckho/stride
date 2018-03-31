@@ -51,11 +51,19 @@ public:
         /// Returns string with the time stamp after eliminating newline.
         std::string ToTag() const
         {
-                auto              now       = std::chrono::system_clock::now();
-                auto              in_time_t = std::chrono::system_clock::to_time_t(now);
-                std::stringstream ss;
-                ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
-                return ss.str();
+                // This is the C++11 implementation but clang 5 on Travis Linux VM's
+                // still does not implement std::put_time.
+                // auto now = std::chrono::system_clock::now();
+                // auto in_time_t = std::chrono::system_clock::to_time_t(now);
+                // std::stringstream ss;
+                // ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%X");
+                // return ss.str();
+                time_t    now = time(nullptr);
+                struct tm tstruct;
+                char      buf[80];
+                tstruct = *localtime_r(&now, &tstruct);
+                strftime(buf, sizeof(buf), "%Y%m%d_%H%M%S", &tstruct);
+                return std::string(buf);
         }
 
         /// Returns time stamp as a time_t.
