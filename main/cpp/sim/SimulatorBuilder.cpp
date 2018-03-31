@@ -186,8 +186,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
         // --------------------------------------------------------------
-        for (Id id : IdRange) {
-                sim->m_contact_profiles[ToSizeT(id)] = AgeContactProfile(id, contact_pt);
+        for (Id typ : IdList) {
+                sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
         }
 
         // --------------------------------------------------------------

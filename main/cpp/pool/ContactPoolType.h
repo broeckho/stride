@@ -30,7 +30,7 @@ namespace stride {
 namespace ContactPoolType {
 
 /// Enumerates the ContactPool types.
-enum class Id
+enum class Id : std::size_t
 {
         Household,
         School,
@@ -54,9 +54,9 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
-///
-constexpr std::initializer_list<Id> IdRange{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
-                                            Id::SecondaryCommunity};
+/// To allow iteration over the type ids.
+constexpr std::initializer_list<Id> IdList{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
+                                           Id::SecondaryCommunity};
 
 } // namespace ContactPoolType
 } // namespace stride

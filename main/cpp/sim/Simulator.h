@@ -19,10 +19,10 @@
  * Header for the Simulator class.
  */
 
+#include "contact/AgeContactProfiles.h"
 #include "contact/ContactLogMode.h"
 #include "contact/TransmissionProfile.h"
 #include "pool/ContactPoolSys.h"
-#include "pool/ContactProfiles.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"

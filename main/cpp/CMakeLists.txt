@@ -22,18 +22,15 @@ set(LIB_SRC
 #---
     calendar/Calendar.cpp
 #---
+	contact/AgeContactProfile.cpp
+	contact/AgeContactProfiles.h
 	contact/ContactHandler.h
 	contact/ContactLogMode.cpp
-    pool/ContactPool.cpp
-    pool/ContactPoolSys.h
-    pool/ContactPoolType.cpp
-	contact/AgeContactProfile.cpp
-    pool/ContactProfiles.h
+	contact/Infector.cpp
     contact/TransmissionProfile.cpp
-    disease/Health.cpp
-    contact/Infector.cpp
 #---
     disease/DiseaseSeeder.cpp
+	disease/Health.cpp
     disease/HealthSeeder.cpp
 	disease/Immunizer.cpp
 #---
@@ -41,6 +38,11 @@ set(LIB_SRC
 	output/CasesFile.cpp
     output/PersonsFile.cpp
 	output/SummaryFile.cpp
+#---
+	pool/ContactPool.cpp
+	pool/ContactPoolSys.h
+	pool/ContactPoolType.cpp
+    pool/IdSubscriptArray.h
 #---
     pop/Age.h
     pop/ContactPoolBuilder.cpp

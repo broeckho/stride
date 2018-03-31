@@ -21,10 +21,10 @@
 
 #include "contact/AgeContactProfile.h"
 #include "pool/ContactPoolType.h"
-#include <array>
+#include "pool/IdSubscriptArray.h"
 
 namespace stride {
 
-using ContactProfiles = std::array<AgeContactProfile, ContactPoolType::NumOfTypes()>;
+using ContactProfiles = ContactPoolType::IdSubscriptArray<AgeContactProfile>;
 
 } // namespace stride

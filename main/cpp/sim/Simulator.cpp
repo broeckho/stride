@@ -138,40 +138,38 @@ void Simulator::UpdateContactPools()
                 const auto thread = static_cast<unsigned int>(omp_get_thread_num());
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::Household)].size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[Id::Household].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[ToSizeT(Id::Household)][i], m_contact_profiles.at(ToSizeT(Id::Household)),
-                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[Id::Household][i], m_contact_profiles[Id::Household], m_disease_profile,
+                            handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::School)].size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[Id::School].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[ToSizeT(Id::School)][i], m_contact_profiles.at(ToSizeT(Id::School)),
-                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                            m_pool_sys[Id::School][i], m_contact_profiles[Id::School], m_disease_profile,
+                            handlers[thread], m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::Work)].size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[Id::Work].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[ToSizeT(Id::Work)][i], m_contact_profiles.at(ToSizeT(Id::Work)),
-                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
-                }
-
-#pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::PrimaryCommunity)].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[ToSizeT(Id::PrimaryCommunity)][i],
-                            m_contact_profiles.at(ToSizeT(Id::PrimaryCommunity)), m_disease_profile, handlers[thread],
+                            m_pool_sys[Id::Work][i], m_contact_profiles[Id::Work], m_disease_profile, handlers[thread],
                             m_calendar, m_contact_logger);
                 }
 
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[ToSizeT(Id::SecondaryCommunity)].size(); i++) { // NOLINT
+                for (size_t i = 0; i < m_pool_sys[Id::PrimaryCommunity].size(); i++) { // NOLINT
                         Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[ToSizeT(Id::SecondaryCommunity)][i],
-                            m_contact_profiles.at(ToSizeT(Id::SecondaryCommunity)), m_disease_profile, handlers[thread],
-                            m_calendar, m_contact_logger);
+                            m_pool_sys[Id::PrimaryCommunity][i], m_contact_profiles[Id::PrimaryCommunity],
+                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                }
+
+#pragma omp for schedule(runtime)
+                for (size_t i = 0; i < m_pool_sys[Id::SecondaryCommunity].size(); i++) { // NOLINT
+                        Infector<log_level, track_index_case, local_information_policy>::Exec(
+                            m_pool_sys[Id::SecondaryCommunity][i], m_contact_profiles[Id::SecondaryCommunity],
+                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
                 }
         }
 }

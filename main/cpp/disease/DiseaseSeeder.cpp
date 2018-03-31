@@ -47,10 +47,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
         const auto immunity_profile = m_config_pt.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunity_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
+        Vaccinate("immunity", immunity_profile, sim->GetContactPoolSys()[Id::Household]);
 
         const auto vaccination_profile = m_config_pt.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccination_profile, sim->GetContactPoolSys()[ToSizeT(Id::Household)]);
+        Vaccinate("vaccine", vaccination_profile, sim->GetContactPoolSys()[Id::Household]);
 
         // --------------------------------------------------------------
         // Seed infected persons.

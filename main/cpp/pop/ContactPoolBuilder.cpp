@@ -21,6 +21,7 @@
 #include "ContactPoolBuilder.h"
 
 #include "pool/ContactPoolSys.h"
+#include "pool/IdSubscriptArray.h"
 #include "pop/Population.h"
 
 namespace stride {
@@ -41,21 +42,25 @@ void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& popul
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
         // --------------------------------------------------------------
-        std::array<unsigned int, ContactPoolType::NumOfTypes()> max_ids = {{0U}};
+
+        IdSubscriptArray<unsigned int> max_ids{0U};
         for (const auto& p : population) {
-                for (Id typ : IdRange) {
-                        max_ids[ToSizeT(typ)] = max(max_ids[ToSizeT(typ)], p.GetContactPoolId(typ));
+                for (Id typ : IdList) {
+                        max_ids[typ] = max(max_ids[typ], p.GetContactPoolId(typ));
                 }
         }
-
+        cout << static_cast<size_t>(static_cast<Id>(9)) << endl;
+        cout << static_cast<size_t>(static_cast<Id>(-21)) << endl;
+        cout << max_ids[static_cast<Id>(9)] << endl;
+        throw runtime_error("waht");
         // --------------------------------------------------------------
         // Keep separate id counter to provide a unique id for every contactpool.
         // Start at 1 (see next item for pool_id==0).
         // --------------------------------------------------------------
         unsigned int c_id = 1;
-        for (Id typ : IdRange) {
-                for (size_t i = 0; i <= max_ids[ToSizeT(typ)]; i++) {
-                        pool_sys[ToSizeT(typ)].emplace_back(ContactPool(c_id, typ));
+        for (Id typ : IdList) {
+                for (size_t i = 0; i <= max_ids[typ]; i++) {
+                        pool_sys[typ].emplace_back(ContactPool(c_id, typ));
                         c_id++;
                 }
         }
@@ -65,10 +70,10 @@ void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& popul
         // Having contactpool id '0' means "not present in any pool of that type".
         // --------------------------------------------------------------
         for (auto& p : population) {
-                for (Id typ : IdRange) {
+                for (Id typ : IdList) {
                         const auto pool_id = p.GetContactPoolId(typ);
                         if (pool_id > 0) {
-                                pool_sys[ToSizeT(typ)][pool_id].AddMember(&p);
+                                pool_sys[typ][pool_id].AddMember(&p);
                         }
                 }
         }

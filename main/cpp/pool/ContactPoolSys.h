@@ -21,9 +21,10 @@
 
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
+#include "pool/IdSubscriptArray.h"
 
 namespace stride {
 
-using ContactPoolSys = std::array<std::vector<ContactPool>, ContactPoolType::NumOfTypes()>;
+using ContactPoolSys = ContactPoolType::IdSubscriptArray<std::vector<ContactPool>>;
 
 } // namespace stride
