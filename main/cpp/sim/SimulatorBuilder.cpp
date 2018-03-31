@@ -24,7 +24,7 @@
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
-#include "pop/ContactPoolBuilder.h"
+#include "pop/PopPoolBuilder.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
@@ -193,7 +193,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build the ContactPoolSystem of the simulator.
         // --------------------------------------------------------------
-        ContactPoolBuilder cp_builder(m_stride_logger);
+        PopPoolBuilder cp_builder(m_stride_logger);
         cp_builder.Build(sim->m_pool_sys, *sim->m_population);
 
         // --------------------------------------------------------------

@@ -32,10 +32,10 @@ namespace ContactLogMode {
 
 enum class Id
 {
-        None                = 0U,
-        Transmissions       = 1U,
-        Contacts            = 2U,
-        SusceptibleContacts = 3U,
+        None          = 0U,
+        Transmissions = 1U,
+        All           = 2U,
+        Susceptibles  = 3U,
         Null
 };
 

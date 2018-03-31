@@ -35,11 +35,11 @@ class Simulator;
  * The population members should have their pool ids for the
  * various pools already assigned to them.
  */
-class ContactPoolBuilder
+class PopPoolBuilder
 {
 public:
         /// Initializing ContactPoolBuilder.
-        explicit ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger);
+        explicit PopPoolBuilder(std::shared_ptr<spdlog::logger> logger);
 
         /// Build the contact pool system.
         void Build(ContactPoolSys& pool_sys, const Population& population);

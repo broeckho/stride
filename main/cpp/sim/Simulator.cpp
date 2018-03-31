@@ -66,20 +66,16 @@ void Simulator::TimeStep()
         if (m_local_information_policy == "NoLocalInformation") {
                 if (m_track_index_case) {
                         switch (m_contact_log_mode) {
-                        case Id::SusceptibleContacts:
-                                UpdatePools<Id::SusceptibleContacts, NoLocalInformation, true>();
-                                break;
-                        case Id::Contacts: UpdatePools<Id::Contacts, NoLocalInformation, true>(); break;
+                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, NoLocalInformation, true>(); break;
+                        case Id::All: UpdatePools<Id::All, NoLocalInformation, true>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, true>(); break;
                         case Id::None: UpdatePools<Id::None, NoLocalInformation, true>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
-                        case Id::SusceptibleContacts:
-                                UpdatePools<Id::SusceptibleContacts, NoLocalInformation, false>();
-                                break;
-                        case Id::Contacts: UpdatePools<Id::Contacts, NoLocalInformation, false>(); break;
+                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, NoLocalInformation, false>(); break;
+                        case Id::All: UpdatePools<Id::All, NoLocalInformation, false>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, false>(); break;
                         case Id::None: UpdatePools<Id::None, NoLocalInformation, false>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
@@ -88,20 +84,16 @@ void Simulator::TimeStep()
         } else if (m_local_information_policy == "LocalDiscussion") {
                 if (m_track_index_case) {
                         switch (m_contact_log_mode) {
-                        case Id::SusceptibleContacts:
-                                UpdatePools<Id::SusceptibleContacts, LocalDiscussion, true>();
-                                break;
-                        case Id::Contacts: UpdatePools<Id::Contacts, LocalDiscussion, true>(); break;
+                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, LocalDiscussion, true>(); break;
+                        case Id::All: UpdatePools<Id::All, LocalDiscussion, true>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, true>(); break;
                         case Id::None: UpdatePools<Id::None, LocalDiscussion, true>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
-                        case Id::SusceptibleContacts:
-                                UpdatePools<Id::SusceptibleContacts, LocalDiscussion, false>();
-                                break;
-                        case Id::Contacts: UpdatePools<Id::Contacts, LocalDiscussion, false>(); break;
+                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, LocalDiscussion, false>(); break;
+                        case Id::All: UpdatePools<Id::All, LocalDiscussion, false>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, false>(); break;
                         case Id::None: UpdatePools<Id::None, LocalDiscussion, false>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
@@ -128,6 +120,10 @@ void Simulator::UpdatePools()
                 auto gen = m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
                 handlers.emplace_back(ContactHandler(gen));
         }
+
+        // Loop over the various types of contact pool systems (household, school, work, etc
+        // The inner loop over the pools in each system is parallellized providing OpenMP is available.
+        // Infector updates individuals for contacts & transmission within a pool.
 
 #pragma omp parallel num_threads(m_num_threads)
         {

@@ -106,7 +106,7 @@ private:
 
 private:
         friend class SimulatorBuilder;
-        friend class ContactPoolBuilder;
+        friend class PopPoolBuilder;
 };
 
 } // namespace stride

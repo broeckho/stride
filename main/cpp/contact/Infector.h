@@ -95,14 +95,14 @@ extern template class Infector<ContactLogMode::Id::Transmissions, false, LocalDi
 extern template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
 extern template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
 
-extern template class Infector<ContactLogMode::Id::Contacts, false, NoLocalInformation>;
-extern template class Infector<ContactLogMode::Id::Contacts, false, LocalDiscussion>;
-extern template class Infector<ContactLogMode::Id::Contacts, true, NoLocalInformation>;
-extern template class Infector<ContactLogMode::Id::Contacts, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::All, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::All, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::All, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::All, true, LocalDiscussion>;
 
-extern template class Infector<ContactLogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
-extern template class Infector<ContactLogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
-extern template class Infector<ContactLogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
-extern template class Infector<ContactLogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Susceptibles, false, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDiscussion>;
+extern template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
+extern template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
 
 } // namespace stride

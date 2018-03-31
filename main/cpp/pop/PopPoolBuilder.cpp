@@ -18,7 +18,7 @@
  * Implementation for the ContactPoolBuilder class.
  */
 
-#include "ContactPoolBuilder.h"
+#include "PopPoolBuilder.h"
 
 #include "pool/ContactPoolSys.h"
 #include "pool/IdSubscriptArray.h"
@@ -29,12 +29,12 @@ namespace stride {
 using namespace boost::property_tree;
 using namespace std;
 
-ContactPoolBuilder::ContactPoolBuilder(std::shared_ptr<spdlog::logger> logger) : m_stride_logger(std::move(logger))
+PopPoolBuilder::PopPoolBuilder(std::shared_ptr<spdlog::logger> logger) : m_stride_logger(std::move(logger))
 {
         assert(m_stride_logger && "ContactPoolBuilder::ContactPoolBuilder> Nullptr for logger not acceptable!");
 }
 
-void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& population)
+void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& population)
 {
         using namespace ContactPoolType;
         m_stride_logger->trace("Starting ContactPoolBuilder::Build.");

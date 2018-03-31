@@ -48,13 +48,13 @@ public:
         /// Subscripting with pool typ id as argument.
         typename std::array<T, NumOfTypes()>::reference& operator[](ContactPoolType::Id id)
         {
-                return (*this).std::array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
         typename std::array<T, NumOfTypes()>::const_reference& operator[](ContactPoolType::Id id) const
         {
-                return (*this).std::array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
@@ -63,7 +63,7 @@ public:
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
-                return (*this).std::array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
@@ -72,7 +72,7 @@ public:
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
-                return (*this).std::array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 };
 

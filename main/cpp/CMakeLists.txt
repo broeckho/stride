@@ -45,7 +45,7 @@ set(LIB_SRC
     pool/IdSubscriptArray.h
 #---
     pop/Age.h
-    pop/ContactPoolBuilder.cpp
+    pop/PopPoolBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
     pop/PopulationBuilder.cpp

@@ -103,7 +103,7 @@ public:
 
 /// Specialized LOG_POLICY policy LogMode::Contacts.
 template <>
-class LOG_POLICY<ContactLogMode::Id::Contacts>
+class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
@@ -131,7 +131,7 @@ public:
 
 /// Specialized LOG_POLICY policy LogMode::SusceptibleContacts.
 template <>
-class LOG_POLICY<ContactLogMode::Id::SusceptibleContacts>
+class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
         static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
@@ -290,14 +290,14 @@ template class Infector<ContactLogMode::Id::Transmissions, false, LocalDiscussio
 template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
 template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
 
-template class Infector<ContactLogMode::Id::Contacts, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Contacts, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::Contacts, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Contacts, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::All, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::All, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::All, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::All, true, LocalDiscussion>;
 
-template class Infector<ContactLogMode::Id::SusceptibleContacts, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::SusceptibleContacts, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::SusceptibleContacts, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::SusceptibleContacts, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Susceptibles, false, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
+template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
 
 } // namespace stride
