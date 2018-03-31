@@ -79,13 +79,13 @@ public:
 private:
         /// Update the contacts in the given contactpools.
         template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case = false>
-        void UpdateContactPools();
+        void UpdatePools();
 
 private:
         boost::property_tree::ptree     m_config_pt;        ///< Configuration property tree
         ContactLogMode::Id              m_contact_log_mode; ///< Specifies contact/transmission logging mode.
         std::shared_ptr<spdlog::logger> m_contact_logger;   ///< Logger for contact/transmission.
-        ContactProfiles                 m_contact_profiles; ///< Contact profiles w.r.t age.
+        AgeContactProfiles              m_contact_profiles; ///< Contact profiles w.r.t age.
         TransmissionProfile             m_disease_profile;  ///< Profile of disease.
         unsigned int                    m_num_threads;      ///< The number of (OpenMP) threads.
         bool                            m_track_index_case; ///< General simulation or tracking index case.

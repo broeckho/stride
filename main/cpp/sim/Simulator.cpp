@@ -67,25 +67,21 @@ void Simulator::TimeStep()
                 if (m_track_index_case) {
                         switch (m_contact_log_mode) {
                         case Id::SusceptibleContacts:
-                                UpdateContactPools<Id::SusceptibleContacts, NoLocalInformation, true>();
+                                UpdatePools<Id::SusceptibleContacts, NoLocalInformation, true>();
                                 break;
-                        case Id::Contacts: UpdateContactPools<Id::Contacts, NoLocalInformation, true>(); break;
-                        case Id::Transmissions:
-                                UpdateContactPools<Id::Transmissions, NoLocalInformation, true>();
-                                break;
-                        case Id::None: UpdateContactPools<Id::None, NoLocalInformation, true>(); break;
+                        case Id::Contacts: UpdatePools<Id::Contacts, NoLocalInformation, true>(); break;
+                        case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, true>(); break;
+                        case Id::None: UpdatePools<Id::None, NoLocalInformation, true>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
                         case Id::SusceptibleContacts:
-                                UpdateContactPools<Id::SusceptibleContacts, NoLocalInformation, false>();
+                                UpdatePools<Id::SusceptibleContacts, NoLocalInformation, false>();
                                 break;
-                        case Id::Contacts: UpdateContactPools<Id::Contacts, NoLocalInformation, false>(); break;
-                        case Id::Transmissions:
-                                UpdateContactPools<Id::Transmissions, NoLocalInformation, false>();
-                                break;
-                        case Id::None: UpdateContactPools<Id::None, NoLocalInformation, false>(); break;
+                        case Id::Contacts: UpdatePools<Id::Contacts, NoLocalInformation, false>(); break;
+                        case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, false>(); break;
+                        case Id::None: UpdatePools<Id::None, NoLocalInformation, false>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 }
@@ -93,21 +89,21 @@ void Simulator::TimeStep()
                 if (m_track_index_case) {
                         switch (m_contact_log_mode) {
                         case Id::SusceptibleContacts:
-                                UpdateContactPools<Id::SusceptibleContacts, LocalDiscussion, true>();
+                                UpdatePools<Id::SusceptibleContacts, LocalDiscussion, true>();
                                 break;
-                        case Id::Contacts: UpdateContactPools<Id::Contacts, LocalDiscussion, true>(); break;
-                        case Id::Transmissions: UpdateContactPools<Id::Transmissions, LocalDiscussion, true>(); break;
-                        case Id::None: UpdateContactPools<Id::None, LocalDiscussion, true>(); break;
+                        case Id::Contacts: UpdatePools<Id::Contacts, LocalDiscussion, true>(); break;
+                        case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, true>(); break;
+                        case Id::None: UpdatePools<Id::None, LocalDiscussion, true>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
                         case Id::SusceptibleContacts:
-                                UpdateContactPools<Id::SusceptibleContacts, LocalDiscussion, false>();
+                                UpdatePools<Id::SusceptibleContacts, LocalDiscussion, false>();
                                 break;
-                        case Id::Contacts: UpdateContactPools<Id::Contacts, LocalDiscussion, false>(); break;
-                        case Id::Transmissions: UpdateContactPools<Id::Transmissions, LocalDiscussion, false>(); break;
-                        case Id::None: UpdateContactPools<Id::None, LocalDiscussion, false>(); break;
+                        case Id::Contacts: UpdatePools<Id::Contacts, LocalDiscussion, false>(); break;
+                        case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, false>(); break;
+                        case Id::None: UpdatePools<Id::None, LocalDiscussion, false>(); break;
                         default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 }
@@ -121,7 +117,7 @@ void Simulator::TimeStep()
 }
 
 template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
-void Simulator::UpdateContactPools()
+void Simulator::UpdatePools()
 {
         using namespace stride::ContactPoolType;
 
@@ -136,40 +132,13 @@ void Simulator::UpdateContactPools()
 #pragma omp parallel num_threads(m_num_threads)
         {
                 const auto thread = static_cast<unsigned int>(omp_get_thread_num());
-
+                for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[Id::Household].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[Id::Household][i], m_contact_profiles[Id::Household], m_disease_profile,
-                            handlers[thread], m_calendar, m_contact_logger);
-                }
-
-#pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[Id::School].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[Id::School][i], m_contact_profiles[Id::School], m_disease_profile,
-                            handlers[thread], m_calendar, m_contact_logger);
-                }
-
-#pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[Id::Work].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[Id::Work][i], m_contact_profiles[Id::Work], m_disease_profile, handlers[thread],
-                            m_calendar, m_contact_logger);
-                }
-
-#pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[Id::PrimaryCommunity].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[Id::PrimaryCommunity][i], m_contact_profiles[Id::PrimaryCommunity],
-                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
-                }
-
-#pragma omp for schedule(runtime)
-                for (size_t i = 0; i < m_pool_sys[Id::SecondaryCommunity].size(); i++) { // NOLINT
-                        Infector<log_level, track_index_case, local_information_policy>::Exec(
-                            m_pool_sys[Id::SecondaryCommunity][i], m_contact_profiles[Id::SecondaryCommunity],
-                            m_disease_profile, handlers[thread], m_calendar, m_contact_logger);
+                        for (size_t i = 0; i < m_pool_sys[typ].size(); i++) { // NOLINT
+                                Infector<log_level, track_index_case, local_information_policy>::Exec(
+                                    m_pool_sys[typ][i], m_contact_profiles[typ], m_disease_profile, handlers[thread],
+                                    m_calendar, m_contact_logger);
+                        }
                 }
         }
 }

@@ -49,10 +49,6 @@ void ContactPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& popul
                         max_ids[typ] = max(max_ids[typ], p.GetContactPoolId(typ));
                 }
         }
-        cout << static_cast<size_t>(static_cast<Id>(9)) << endl;
-        cout << static_cast<size_t>(static_cast<Id>(-21)) << endl;
-        cout << max_ids[static_cast<Id>(9)] << endl;
-        throw runtime_error("waht");
         // --------------------------------------------------------------
         // Keep separate id counter to provide a unique id for every contactpool.
         // Start at 1 (see next item for pool_id==0).
