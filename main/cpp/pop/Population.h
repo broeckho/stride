@@ -21,6 +21,8 @@
 
 #include "pop/Person.h"
 
+#include "util/Any.h"
+
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <vector>
 
@@ -49,6 +51,9 @@ private:
         void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                        unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
                        Health health, const boost::property_tree::ptree& pt_belief, double risk_averseness = 0);
+
+private:
+        util::Any beliefs_container;
 };
 
 } // namespace stride
