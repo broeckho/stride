@@ -82,7 +82,7 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
 void ContactPool::UpdateMemberPresence()
 {
         for (auto& member : m_members) {
-                member.second = member.first->IsInContactPool(m_pool_type);
+                member.second = member.first->IsInPool(m_pool_type);
         }
 }
 

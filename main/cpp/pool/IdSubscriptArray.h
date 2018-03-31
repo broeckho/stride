@@ -22,6 +22,9 @@
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 
+#include <array>
+#include <initializer_list>
+#include <iostream>
 #include <stdexcept>
 
 namespace stride {
@@ -31,7 +34,12 @@ namespace ContactPoolType {
  * The std::array modified to enable subscripting with the constact pool
  * type indentifiers. The bounds checking "at" method, to protevt against
  * a subscript that is static_cast<Id> from an erroneous integer value.
+ *
  * We intentionally shadow the direct subscripting of the base array.
+ *
+ * Writing constructor is somehat weird since std::array has no constructors,
+ * only aggregate initialization. But we want some constructors for
+ * shorthand expressions.
  *
  * @tparam T  base type of the array.
  */
@@ -39,15 +47,44 @@ template <class T>
 class IdSubscriptArray : public std::array<T, NumOfTypes()>
 {
 public:
-        /// Forwrd constructor argumenents to bas class.
-        template <typename... Args>
-        explicit IdSubscriptArray(Args&&... args) : std::array<T, NumOfTypes()>{std::forward<Args>(args)...}
+        /// What we 'll use most often and where we can have a default and
+        /// initialize all array elements to the same value.
+        /// e.g.    IdSubscriptArray<bool> m(true);
+        explicit IdSubscriptArray(T t = T())
         {
+                for (auto typ : IdList) {
+                        this->operator[](typ) = t;
+                }
         }
+
+        /// When we want to use an initializer list the elements is the
+        /// (possibly emty) initializer list are applied to the first
+        /// elements in order; any remaininig elements are default initialized.
+        ///  e.g.   IdSubscriptArray<bool> mm {true, false, true};
+        explicit IdSubscriptArray(std::initializer_list<T> l)
+        {
+                auto it = l.begin();
+                for (auto typ : IdList) {
+                        if (it != l.end()) {
+                                this->operator[](typ) = *it;
+                                ++it;
+                        } else {
+                                this->operator[](typ) = T();
+                        }
+                }
+        }
+
+        /// This actually works in itself but interferes annoyingly with the first
+        /// constructor above and is for practical purpose redundant.
+        ///
+        /// Forward constructor arguments to base class.
+        /// template <typename... Args>
+        /// explicit IdSubscriptArray(Args&&... args) : std::array<T, NumOfTypes()>{{std::forward<Args>(args)...}}{}
 
         /// Subscripting with pool typ id as argument.
         typename std::array<T, NumOfTypes()>::reference& operator[](ContactPoolType::Id id)
         {
+                // std::cerr << "haha"<< std::endl;
                 return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 

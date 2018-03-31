@@ -27,6 +27,7 @@ using namespace std;
 namespace {
 
 using namespace stride;
+using namespace stride::ContactPoolType;
 
 inline double GetContactRate(const AgeContactProfile& profile, const Person* p, size_t pool_size)
 {
@@ -72,12 +73,11 @@ template <ContactLogMode::Id LL>
 class LOG_POLICY
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, Person*, Person*, ContactPoolType::Id,
-                            const shared_ptr<const Calendar>&)
+        static void Contact(const shared_ptr<spdlog::logger>&, Person*, Person*, Id, const shared_ptr<const Calendar>&)
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, Person*, Person*, ContactPoolType::Id,
+        static void Transmission(const shared_ptr<spdlog::logger>&, Person*, Person*, Id,
                                  const shared_ptr<const Calendar>&)
         {
         }
@@ -88,32 +88,31 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>&, Person*, Person*, ContactPoolType::Id,
-                            const shared_ptr<const Calendar>&)
+        static void Contact(const shared_ptr<spdlog::logger>&, Person*, Person*, Id, const shared_ptr<const Calendar>&)
         {
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
-                                 ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
+        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2, Id type,
+                                 const shared_ptr<const Calendar>& calendar)
         {
-                contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ContactPoolType::ToString(type),
+                contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type),
                                      calendar->GetSimulationDay());
         }
 };
 
-/// Specialized LOG_POLICY policy LogMode::Contacts.
+/// Specialized LOG_POLICY policy LogMode::All.
 template <>
 class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
-                            ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2, Id type,
+                            const shared_ptr<const Calendar>& calendar)
         {
-                const auto home                = (type == ContactPoolType::Id::Household);
-                const auto work                = (type == ContactPoolType::Id::Work);
-                const auto school              = (type == ContactPoolType::Id::School);
-                const auto primary_community   = (type == ContactPoolType::Id::PrimaryCommunity);
-                const auto secundary_community = (type == ContactPoolType::Id::SecondaryCommunity);
+                const auto home                = (type == Id::Household);
+                const auto work                = (type == Id::Work);
+                const auto school              = (type == Id::School);
+                const auto primary_community   = (type == Id::PrimaryCommunity);
+                const auto secundary_community = (type == Id::SecondaryCommunity);
 
                 contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(home), static_cast<unsigned int>(school),
@@ -121,28 +120,28 @@ public:
                                      static_cast<unsigned int>(secundary_community), calendar->GetSimulationDay());
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2,
-                                 ContactPoolType::Id type, const shared_ptr<const Calendar>& calendar)
+        static void Transmission(const shared_ptr<spdlog::logger>& logger, Person* p1, Person* p2, Id type,
+                                 const shared_ptr<const Calendar>& calendar)
         {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ContactPoolType::ToString(type),
+                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type),
                              calendar->GetSimulationDay());
         }
 };
 
-/// Specialized LOG_POLICY policy LogMode::SusceptibleContacts.
+/// Specialized LOG_POLICY policy LogMode::Susceptibles.
 template <>
 class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2,
-                            ContactPoolType::Id, const shared_ptr<const Calendar>&)
+        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, Person* p1, Person* p2, Id,
+                            const shared_ptr<const Calendar>&)
         {
                 if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
-        static void Transmission(const shared_ptr<spdlog::logger>&, Person*, Person*, ContactPoolType::Id,
+        static void Transmission(const shared_ptr<spdlog::logger>&, Person*, Person*, Id,
                                  const shared_ptr<const Calendar>&)
         {
         }
