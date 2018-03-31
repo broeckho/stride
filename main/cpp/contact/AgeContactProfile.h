@@ -11,19 +11,30 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Container for the contact pools of various type (household, work, ...)..
+ * Contact profile.
  */
 
-#include "core/ContactPool.h"
-#include "core/ContactPoolType.h"
+#include "pool/ContactPoolType.h"
+#include "pop/Age.h"
+
+#include <boost/property_tree/ptree.hpp>
+#include <array>
 
 namespace stride {
 
-using ContactPoolSys = std::array<std::vector<ContactPool>, ContactPoolType::NumOfTypes()>;
+class AgeContactProfile : public std::array<double, MaximumAge() + 1>
+{
+public:
+        /// Need to keep the default constructor available.
+        AgeContactProfile() = default;
+
+        /// Explicitly initialize
+        AgeContactProfile(ContactPoolType::Id pool_type, const boost::property_tree::ptree& pt_contacts);
+};
 
 } // namespace stride

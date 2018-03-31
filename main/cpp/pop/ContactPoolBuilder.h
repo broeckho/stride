@@ -19,7 +19,7 @@
  * Header for the ContactPoolBuilder class.
  */
 
-#include "core/ContactPoolSys.h"
+#include "pool/ContactPoolSys.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>

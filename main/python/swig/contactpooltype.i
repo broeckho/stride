@@ -2,7 +2,7 @@
 
 // headers for generated file
 %{
-#include "core/ContactPoolType.h"
+#include "pool/ContactPoolType.h"
 %}
 
-%include "core/ContactPoolType.h"
+%include "pool/ContactPoolType.h"

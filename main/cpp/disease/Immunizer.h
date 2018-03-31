@@ -19,7 +19,7 @@
  * Header for the Immunizer class.
  */
 
-#include "core/ContactPool.h"
+#include "pool/ContactPool.h"
 
 #include <vector>
 

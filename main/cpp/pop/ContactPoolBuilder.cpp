@@ -20,7 +20,7 @@
 
 #include "ContactPoolBuilder.h"
 
-#include "core/ContactPoolSys.h"
+#include "pool/ContactPoolSys.h"
 #include "pop/Population.h"
 
 namespace stride {

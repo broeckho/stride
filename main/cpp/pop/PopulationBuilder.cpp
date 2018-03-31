@@ -20,7 +20,7 @@
 
 #include "PopulationBuilder.h"
 
-#include "core/Health.h"
+#include "disease/Health.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 #include "util/StringUtils.h"

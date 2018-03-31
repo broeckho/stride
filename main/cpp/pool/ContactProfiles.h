@@ -16,25 +16,15 @@
 
 /**
  * @file
- * Contact profile.
+ * Contact profiles stored in simulator.
  */
 
-#include "core/ContactPoolType.h"
-#include "pop/Age.h"
-
-#include <boost/property_tree/ptree.hpp>
+#include "contact/AgeContactProfile.h"
+#include "pool/ContactPoolType.h"
 #include <array>
 
 namespace stride {
 
-class ContactProfile : public std::array<double, MaximumAge() + 1>
-{
-public:
-        /// Need to keep the default constructor available.
-        ContactProfile() = default;
-
-        /// Explicitly initialize
-        ContactProfile(ContactPoolType::Id pool_type, const boost::property_tree::ptree& pt_contacts);
-};
+using ContactProfiles = std::array<AgeContactProfile, ContactPoolType::NumOfTypes()>;
 
 } // namespace stride

@@ -3,8 +3,8 @@
 
 // headers for generated file
 %{
-#include "core/Health.h"
+#include "disease/Health.h"
 
 %}
 
-%include "core/Health.h"
+%include "disease/Health.h"

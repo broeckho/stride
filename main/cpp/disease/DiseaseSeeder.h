@@ -19,7 +19,7 @@
  * Header for the DiseaseSeeder class.
  */
 
-#include "core/ContactPool.h"
+#include "pool/ContactPool.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>

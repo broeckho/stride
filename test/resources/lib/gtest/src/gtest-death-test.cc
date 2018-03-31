@@ -195,7 +195,7 @@ static std::string ExitSummary(int exit_code) {
   }
 #  ifdef WCOREDUMP
   if (WCOREDUMP(exit_code)) {
-    m << " (core dumped)";
+    m << " (pool dumped)";
   }
 #  endif
 # endif  // GTEST_OS_WINDOWS

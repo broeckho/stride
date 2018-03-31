@@ -3918,7 +3918,7 @@ int UnitTest::Run() {
     if (!GTEST_FLAG(break_on_failure))
       _set_abort_behavior(
           0x0,                                    // Clear the following flags:
-          _WRITE_ABORT_MSG | _CALL_REPORTFAULT);  // pop-up window, core dump.
+          _WRITE_ABORT_MSG | _CALL_REPORTFAULT);  // pop-up window, pool dump.
 # endif
   }
 #endif  // GTEST_HAS_SEH

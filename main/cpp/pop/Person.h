@@ -20,8 +20,8 @@
  */
 
 #include "behaviour/belief_policies/Belief.h"
-#include "core/ContactPoolType.h"
-#include "core/Health.h"
+#include "disease/Health.h"
+#include "pool/ContactPoolType.h"
 
 #include <boost/property_tree/ptree.hpp>
 

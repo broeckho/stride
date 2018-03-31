@@ -18,14 +18,14 @@
  * Contact profile.
  */
 
-#include "ContactProfile.h"
+#include "AgeContactProfile.h"
 
 namespace stride {
 
 using namespace std;
 using namespace boost::property_tree;
 
-ContactProfile::ContactProfile(ContactPoolType::Id pool_type, const ptree& pt_contacts)
+AgeContactProfile::AgeContactProfile(ContactPoolType::Id pool_type, const ptree& pt_contacts)
     : std::array<double, MaximumAge() + 1>()
 {
         const string key{string("matrices.").append(ContactPoolType::ToString(pool_type))};

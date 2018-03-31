@@ -24,12 +24,12 @@
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
-#include "core/ContactHandler.h"
-#include "core/ContactPoolType.h"
-#include "core/Infector.h"
+#include "contact/ContactHandler.h"
+#include "contact/Infector.h"
+#include "pool/ContactPoolType.h"
 #include "pop/Population.h"
+
 #include <trng/uniform01_dist.hpp>
-#include <core/ContactPoolType.h>
 #include <omp.h>
 
 namespace stride {

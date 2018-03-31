@@ -32,7 +32,7 @@ class ContactHandler
 {
 public:
         /// Constructor sets the transmission rate and random number generator.
-        explicit ContactHandler(const std::function<double()>& gen) : m_uniform01_generator(gen) {}
+        explicit ContactHandler(std::function<double()> gen) : m_uniform01_generator(std::move(gen)) {}
 
         /// Check if two individuals have contact and transmission.
         bool HasContactAndTransmission(double contact_rate, double transmission_rate)

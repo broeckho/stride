@@ -20,7 +20,7 @@
 
 #include "Infector.h"
 
-#include "core/ContactPool.h"
+#include "pool/ContactPool.h"
 
 using namespace std;
 
@@ -28,7 +28,7 @@ namespace {
 
 using namespace stride;
 
-inline double GetContactRate(const ContactProfile& profile, const Person* p, size_t pool_size)
+inline double GetContactRate(const AgeContactProfile& profile, const Person* p, size_t pool_size)
 {
         const double reference_num_contacts{profile[EffectiveAge(static_cast<unsigned int>(p->GetAge()))]};
         const double potential_num_contacts{static_cast<double>(pool_size - 1)};
@@ -154,9 +154,9 @@ public:
 // And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
-                                      ContactHandler contact_handler, shared_ptr<const Calendar> calendar,
-                                      shared_ptr<spdlog::logger> contact_logger)
+void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, AgeContactProfile& profile,
+                                      TransmissionProfile disease_profile, ContactHandler contact_handler,
+                                      shared_ptr<const Calendar> calendar, shared_ptr<spdlog::logger> contact_logger)
 {
         using LP = LOG_POLICY<LL>;
         using RP = R0_POLICY<TIC>;
@@ -223,7 +223,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, ContactProfile& profile
 // Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, ContactProfile& profile,
+void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, AgeContactProfile& profile,
                                                        TransmissionProfile disease_profile, ContactHandler ch,
                                                        shared_ptr<const Calendar> calendar,
                                                        shared_ptr<spdlog::logger> contact_logger)

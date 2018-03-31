@@ -22,16 +22,16 @@ set(LIB_SRC
 #---
     calendar/Calendar.cpp
 #---
-    core/ContactHandler.h
-	core/ContactLogMode.cpp
-	core/ContactPool.cpp
-    core/ContactPoolSys.h
-    core/ContactPoolType.cpp
-    core/ContactProfile.cpp
-	core/ContactProfiles.h
-    core/TransmissionProfile.cpp
-    core/Health.cpp
-    core/Infector.cpp
+	contact/ContactHandler.h
+	contact/ContactLogMode.cpp
+    pool/ContactPool.cpp
+    pool/ContactPoolSys.h
+    pool/ContactPoolType.cpp
+	contact/AgeContactProfile.cpp
+    pool/ContactProfiles.h
+    contact/TransmissionProfile.cpp
+    disease/Health.cpp
+    contact/Infector.cpp
 #---
     disease/DiseaseSeeder.cpp
     disease/HealthSeeder.cpp

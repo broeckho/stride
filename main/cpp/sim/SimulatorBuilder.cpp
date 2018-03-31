@@ -21,9 +21,9 @@
 #include "SimulatorBuilder.h"
 
 #include "calendar/Calendar.h"
-#include "core/ContactPoolType.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
+#include "pool/ContactPoolType.h"
 #include "pop/ContactPoolBuilder.h"
 #include "pop/PopulationBuilder.h"
 #include "pop/SurveySeeder.h"
@@ -187,7 +187,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // Initialize the age-related contact profiles.
         // --------------------------------------------------------------
         for (Id id : IdRange) {
-                sim->m_contact_profiles[ToSizeT(id)] = ContactProfile(id, contact_pt);
+                sim->m_contact_profiles[ToSizeT(id)] = AgeContactProfile(id, contact_pt);
         }
 
         // --------------------------------------------------------------

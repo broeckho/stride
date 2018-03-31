@@ -19,7 +19,7 @@
  * Header file for the HealthSeeder.
  */
 
-#include "core/Health.h"
+#include "Health.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>

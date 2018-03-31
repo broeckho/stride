@@ -55,8 +55,8 @@ std::string ToString(Id w);
 Id ToType(const std::string& s);
 
 ///
-const std::initializer_list<Id> IdRange{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
-                                        Id::SecondaryCommunity};
+constexpr std::initializer_list<Id> IdRange{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,
+                                            Id::SecondaryCommunity};
 
 } // namespace ContactPoolType
 } // namespace stride

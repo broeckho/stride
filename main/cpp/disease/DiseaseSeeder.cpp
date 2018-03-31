@@ -20,8 +20,8 @@
 
 #include "DiseaseSeeder.h"
 
-#include "core/ContactPoolSys.h"
 #include "disease/Immunizer.h"
+#include "pool/ContactPoolSys.h"
 #include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "util/StringUtils.h"

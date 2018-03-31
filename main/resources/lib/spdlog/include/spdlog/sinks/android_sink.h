@@ -39,7 +39,7 @@ public:
         const android_LogPriority priority = convert_to_android(msg.level);
         const char *msg_output = (_use_raw_msg ? msg.raw.c_str() : msg.formatted.c_str());
 
-        // See system/core/liblog/logger_write.c for explanation of return value
+        // See system/pool/liblog/logger_write.c for explanation of return value
         int ret = __android_log_write(priority, _tag.c_str(), msg_output);
         int retry_count = 0;
         while ((ret == -11/*EAGAIN*/) && (retry_count < SPDLOG_ANDROID_RETRIES))

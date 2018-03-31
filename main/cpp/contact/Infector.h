@@ -19,13 +19,13 @@
  * Header for the Infector class.
  */
 
+#include "ContactLogMode.h"
+#include "TransmissionProfile.h"
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
-#include "core/ContactHandler.h"
-#include "core/ContactLogMode.h"
-#include "core/ContactProfile.h"
-#include "core/TransmissionProfile.h"
+#include "contact/AgeContactProfile.h"
+#include "contact/ContactHandler.h"
 
 #include <memory>
 #include <spdlog/spdlog.h>
@@ -66,7 +66,7 @@ class Infector
 {
 public:
         ///
-        static void Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
+        static void Exec(ContactPool& pool, AgeContactProfile& profile, TransmissionProfile disease_profile,
                          ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
                          std::shared_ptr<spdlog::logger> contact_logger);
 };
@@ -79,7 +79,7 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(ContactPool& pool, ContactProfile& profile, TransmissionProfile disease_profile,
+        static void Exec(ContactPool& pool, AgeContactProfile& profile, TransmissionProfile disease_profile,
                          ContactHandler contact_handler, std::shared_ptr<const Calendar> calendar,
                          std::shared_ptr<spdlog::logger> contact_logger);
 };

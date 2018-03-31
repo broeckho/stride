@@ -11,20 +11,19 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Contact profiles stored in simulator.
+ * Container for the contact pools of various type (household, work, ...)..
  */
 
-#include "core/ContactPoolType.h"
-#include "core/ContactProfile.h"
-#include <array>
+#include "pool/ContactPool.h"
+#include "pool/ContactPoolType.h"
 
 namespace stride {
 
-using ContactProfiles = std::array<ContactProfile, ContactPoolType::NumOfTypes()>;
+using ContactPoolSys = std::array<std::vector<ContactPool>, ContactPoolType::NumOfTypes()>;
 
 } // namespace stride

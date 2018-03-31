@@ -19,8 +19,8 @@
  * Header for the core ContactPool class.
  */
 
-#include "core/ContactLogMode.h"
-#include "core/ContactPoolType.h"
+#include "contact/ContactLogMode.h"
+#include "pool/ContactPoolType.h"
 
 #include <array>
 #include <vector>
