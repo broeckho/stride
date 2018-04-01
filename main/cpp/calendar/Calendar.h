@@ -37,7 +37,7 @@ class Calendar
 {
 public:
         /// Constructor
-        explicit Calendar(const boost::property_tree::ptree& pt_config);
+        explicit Calendar(const boost::property_tree::ptree& config_pt);
 
         /// Advance the simulated calendar by one day.
         void AdvanceDay();
@@ -52,7 +52,7 @@ public:
         std::size_t GetMonth() const { return m_date.month(); }
 
         /// Current simulated day since the start of the simulation.
-        std::size_t GetSimulationDay() const { return m_day; }
+        unsigned short int GetSimulationDay() const { return m_day; }
 
         /// Current year in the simulated calendar.
         std::size_t GetYear() const { return m_date.year(); }
@@ -72,11 +72,11 @@ public:
 
 private:
         ///
-        void InitializeHolidays(const boost::property_tree::ptree& pt_config);
+        void InitializeHolidays(const boost::property_tree::ptree& config_pt);
 
 private:
         boost::gregorian::date              m_date;            ///< Current simulated date.
-        std::size_t                         m_day;             ///< Current day since start of simulation.
+        unsigned short int                  m_day;             ///< Current day since start of simulation.
         std::vector<boost::gregorian::date> m_holidays;        ///< Vector of general holidays
         std::vector<boost::gregorian::date> m_school_holidays; ///< Vector of school holidays
 };

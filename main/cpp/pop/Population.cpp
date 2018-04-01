@@ -48,9 +48,7 @@ unsigned int Population::GetAdoptedCount() const
 {
         unsigned int total{0U};
         for (const auto& p : *this) {
-                auto belief  = p.GetBelief();
-                bool adopted = belief->HasAdopted();
-                if (adopted) {
+                if (p.GetBelief()->HasAdopted()) {
                         total++;
                 }
         }

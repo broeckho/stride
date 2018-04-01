@@ -51,7 +51,7 @@ HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::
 
 void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& root_pt, const string& xml_tag)
 {
-        boost::property_tree::ptree subtree = root_pt.get_child(xml_tag);
+        const boost::property_tree::ptree& subtree = root_pt.get_child(xml_tag);
         for (const auto& tree : subtree) {
                 distribution.push_back(tree.second.get<double>(""));
         }
@@ -71,7 +71,6 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
 {
         const auto rn  = m_uniform01_generator();
         auto       ret = static_cast<unsigned short int>(distribution.size());
-
         for (unsigned short int i = 0; i < distribution.size(); i++) {
                 if (rn <= distribution[i]) {
                         ret = i;
@@ -84,8 +83,7 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
 
 void HealthSeeder::Seed(std::shared_ptr<stride::Population> pop)
 {
-        Population& population = *pop;
-        for (auto& p : population) {
+        for (auto& p : *pop) {
                 p.GetHealth() = Sample();
         }
 }
