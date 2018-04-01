@@ -61,7 +61,7 @@ public:
         /// (possibly emty) initializer list are applied to the first
         /// elements in order; any remaininig elements are default initialized.
         ///  e.g.   IdSubscriptArray<bool> mm {true, false, true};
-        explicit IdSubscriptArray(std::initializer_list<T> l)
+        IdSubscriptArray(std::initializer_list<T> l)
         {
                 auto it = l.begin();
                 for (auto typ : IdList) {

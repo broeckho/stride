@@ -42,12 +42,11 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
         // note: focusing on measles, we expect the number of susceptible individuals
         // to be less compared to the number of immune.
         // TODO but this is a generic simulator
-        for (const auto& c : pools) {
-                for (const auto& m : c.GetPool()) {
-                        Person& p = *(m.first);
-                        if (p.GetHealth().IsSusceptible()) {
-                                p.GetHealth().SetImmune();
-                                population_count_age[p.GetAge()]++;
+        for (auto& c : pools) {
+                for (const auto& p : c.GetPool()) {
+                        if (p->GetHealth().IsSusceptible()) {
+                                p->GetHealth().SetImmune();
+                                population_count_age[p->GetAge()]++;
                         }
                 }
         }
@@ -69,10 +68,10 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
         while (total_num_susceptible > 0) {
                 // random pool, random order of members
                 const ContactPool&        p_pool = pools[int_generator()];
-                const auto                size   = p_pool.GetSize();
+                const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
                 std::vector<unsigned int> indices(size);
-                for (size_t i = 0; i < size; i++) {
-                        indices[i] = static_cast<unsigned int>(i); // TODO why not just loop over unsigned ints?
+                for (unsigned int i = 0; i < size; i++) {
+                        indices[i] = i;
                 }
                 m_rn_manager.RandomShuffle(indices.begin(), indices.end());
 
