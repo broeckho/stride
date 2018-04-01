@@ -37,7 +37,12 @@ class Population;
 class SurveySeeder
 {
 public:
+        /// Seeds the population with survey participants.
         ///
+        /// \param config_pt         Configuration parameters.
+        /// \param pop               Population.
+        /// \param rn_manager        Random number manager.
+        /// \param contact_logger    To log contacts/transmission events.
         static void Seed(const boost::property_tree::ptree& config_pt, std::shared_ptr<Population> pop,
                          util::RNManager& rn_manager, std::shared_ptr<spdlog::logger> contact_logger);
 };

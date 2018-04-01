@@ -82,7 +82,7 @@ public:
         }
 
         ///
-        operator bool() const { return m_ptr != nullptr; }
+        explicit operator bool() const { return m_ptr != nullptr; }
 
 private:
         void*                 m_ptr;

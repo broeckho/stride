@@ -30,7 +30,7 @@ namespace stride {
 class Person;
 
 /**
- * Represents a group of Persons for potential contacts.
+ * Represents a group of Persons that potentially have contacts.
  */
 class ContactPool
 {

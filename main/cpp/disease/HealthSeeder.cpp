@@ -67,12 +67,12 @@ Health HealthSeeder::Sample()
         return Health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic);
 }
 
-unsigned int HealthSeeder::Sample(const vector<double>& distribution)
+unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
 {
         const auto rn  = m_uniform01_generator();
-        auto       ret = static_cast<unsigned int>(distribution.size());
+        auto       ret = static_cast<unsigned short int>(distribution.size());
 
-        for (unsigned int i = 0; i < distribution.size(); i++) {
+        for (unsigned short int i = 0; i < distribution.size(); i++) {
                 if (rn <= distribution[i]) {
                         ret = i;
                         break;

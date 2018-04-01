@@ -31,7 +31,7 @@ namespace stride {
 namespace ContactPoolType {
 
 /**
- * The std::array modified to enable subscripting with the constact pool
+ * An std::array modified to enable subscripting with the constact pool
  * type indentifiers. The bounds checking "at" method, to protevt against
  * a subscript that is static_cast<Id> from an erroneous integer value.
  *
