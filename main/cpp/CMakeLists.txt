@@ -76,6 +76,7 @@ set(LIB_SRC
 	util/RunConfigPtree.cpp
     util/RunConfigString.cpp
     util/SegmentedVector.h
+    ../resources/lib/sha1/src/Sha1.cpp
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h

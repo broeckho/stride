@@ -12,13 +12,22 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
+#############################################################################
+#
+#  Build sha1.
+#
 #############################################################################
 
 #============================================================================
-# Add subdirs:
+# Build SHA1 lib (build only, no install)
 #============================================================================
-add_subdirectory(sha1)
-add_subdirectory(trng-4.20)
+set(SRC
+	src/Sha1.cpp
+)
+
+add_library(sha1 ${SRC})
+set_property(TARGET sha1 PROPERTY POSITION_INDEPENDENT_CODE ON)
+unset(SRC)
 
 #############################################################################
