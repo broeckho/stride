@@ -20,6 +20,7 @@
 
 #include "SimRunner.h"
 
+#include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "sim/SimulatorBuilder.h"
 #include "util/FileSys.h"
@@ -119,7 +120,8 @@ void SimRunner::Run()
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
                 m_sim->TimeStep();
-                m_stride_logger->trace("Time step starting at day {} done.", i);
+                m_stride_logger->trace("    Day: {:4}  Done, infected count: {:7}", i,
+                                       m_sim->GetPopulation()->GetInfectedCount());
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});

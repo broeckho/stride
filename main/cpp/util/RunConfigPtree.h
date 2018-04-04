@@ -35,6 +35,9 @@ public:
 
         ///
         static const boost::property_tree::ptree& CreateTestsBasic2();
+
+        ///
+        static const boost::property_tree::ptree& CreateParMeasles();
 };
 
 } // namespace util

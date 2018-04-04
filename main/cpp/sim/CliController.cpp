@@ -120,6 +120,9 @@ void CliController::PatchConfig()
         // Config items that should be specified with commandline options (-r, -l, -w NOT with -p)
         // -----------------------------------------------------------------------------------------
         m_config_pt.put("run.track_index_case", m_track_index_case);
+        if (m_stride_log_level.empty()) {  // i.e. not specified on commandline
+                m_stride_log_level = m_config_pt.get("run.stride_log_level", "info");
+        }
         m_config_pt.put("run.stride_log_level", m_stride_log_level);
         m_config_pt.put("run.use_install_dirs", m_use_install_dirs);
 

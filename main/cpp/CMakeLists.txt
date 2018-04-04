@@ -16,6 +16,12 @@
 #############################################################################
 
 #============================================================================
+# Produce header with git commit sha.
+#============================================================================
+file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/util/Git.h
+	"namespace stride {namespace util{ const char* stride_git_hash = \"${STRIDE_WC_REVISION_HASH}\";}}" )
+
+#============================================================================
 # Sources. Includes headers to enable code insight by CLion.
 #============================================================================
 set(LIB_SRC

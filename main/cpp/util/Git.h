@@ -1,0 +1,1 @@
+namespace stride {namespace util{ const char* stride_git_hash = "0000-0000-000";}}

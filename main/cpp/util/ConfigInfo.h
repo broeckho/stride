@@ -11,16 +11,19 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Info on configuration through compile time constants i.o. macros.
+ * Info on configuration..
  */
+
+#include "util/Git.h"
 
 #include <omp.h>
 #include <string>
+#include <unistd.h>
 
 namespace stride {
 namespace util {
@@ -41,6 +44,17 @@ public:
 #endif
         }
 
+        static std::string GitRevision()
+        {
+                return stride_git_hash;
+        }
+
+        static std::string GetHostname()
+        {
+                char hostname[40];
+                gethostname(hostname, 40);
+                return hostname;
+        }
         ///
         static unsigned int NumberAvailableThreads()
         {

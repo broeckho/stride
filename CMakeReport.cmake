@@ -19,6 +19,9 @@
 #
 #############################################################################
 
+include(ProcessorCount)
+ProcessorCount(PROC_COUNT)
+
 #============================================================================
 # Overview report:
 #============================================================================
@@ -36,6 +39,9 @@ message( STATUS " " )
 message( STATUS "------> CMAKE_SYSTEM                : ${CMAKE_SYSTEM} "           )
 message( STATUS "------> CMAKE_SYSTEM_VERSION        : ${CMAKE_SYSTEM_VERSION} "   )
 message( STATUS "------> CMAKE_SYSTEM_PROCESSOR      : ${CMAKE_SYSTEM_PROCESSOR} " )
+message( STATUS "------> PROCESSOR_COUNT             : ${PROC_COUNT} "             )
+#
+message( STATUS " " )
 message( STATUS "------> CMAKE_VERSION               : ${CMAKE_VERSION} "          )
 message( STATUS "------> CMAKE_PREFIX_PATH           : ${CMAKE_PREFIX_PATH} "      )
 message( STATUS "------> ENVIRONMENT PATH            : $ENV{PATH} "                )

@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 
                 vector<string>           vals{"trace", "debug", "info", "warning", "error", "critical"};
                 ValuesConstraint<string> vc(vals);
-                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "info", &vc, cmd);
+                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "", &vc, cmd);
                 MultiArg<string>         params_override_Arg("p", "param_override",
                                                      "config parameter override -p <p_name>=<p_value>", false,
                                                      "parameter override", cmd);

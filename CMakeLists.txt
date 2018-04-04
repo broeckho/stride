@@ -53,7 +53,7 @@ find_package(PythonLibs 3)
 # Configuration for Git.
 #============================================================================
 find_package(Git QUIET)
-if(GIT_FOUND)
+if(GIT_FOUND AND EXISTS CMAKE_HOME_DIRECTORY/.git)
 	GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
 else()
     # This is done to eliminate blank output of undefined CMake variables.
