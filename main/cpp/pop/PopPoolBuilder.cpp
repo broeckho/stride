@@ -42,13 +42,13 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
         // --------------------------------------------------------------
-
         IdSubscriptArray<unsigned int> max_ids{0U};
         for (const auto& p : population) {
                 for (Id typ : IdList) {
-                        max_ids[typ] = max(max_ids[typ], p.GetContactPoolId(typ));
+                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
                 }
         }
+
         // --------------------------------------------------------------
         // Keep separate id counter to provide a unique id for every contactpool.
         // Start at 1 (see next item for pool_id==0).
@@ -67,7 +67,7 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
         // --------------------------------------------------------------
         for (auto& p : population) {
                 for (Id typ : IdList) {
-                        const auto pool_id = p.GetContactPoolId(typ);
+                        const auto pool_id = p.GetPoolId(typ);
                         if (pool_id > 0) {
                                 pool_sys[typ][pool_id].AddMember(&p);
                         }

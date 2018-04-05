@@ -32,14 +32,14 @@ using namespace boost::property_tree::json_parser;
 using namespace stride::util;
 using boost::property_tree::ptree;
 
-Calendar::Calendar(const ptree& pt_config) : m_date(), m_day(static_cast<size_t>(0)), m_holidays(), m_school_holidays()
+Calendar::Calendar(const ptree& config_pt) : m_date(), m_day(0U), m_holidays(), m_school_holidays()
 {
         // Set start date
-        const string start_date{pt_config.get<string>("run.start_date", "2016-01-01")};
+        const string start_date{config_pt.get<string>("run.start_date", "2016-01-01")};
         m_date = boost::gregorian::from_simple_string(start_date);
 
         // Set holidays & school holidays
-        InitializeHolidays(pt_config);
+        InitializeHolidays(config_pt);
 }
 
 void Calendar::AdvanceDay()
@@ -48,13 +48,13 @@ void Calendar::AdvanceDay()
         m_date = m_date + boost::gregorian::date_duration(1);
 }
 
-void Calendar::InitializeHolidays(const ptree& pt_config)
+void Calendar::InitializeHolidays(const ptree& config_pt)
 {
         // Load json file
         ptree pt_holidays;
         {
-                const string file_name{pt_config.get<string>("run.holidays_file", "holidays_flanders_2016.json")};
-                const path   file_path{FileSys().GetDataDir() /= file_name};
+                const string file_name{config_pt.get<string>("run.holidays_file", "holidays_flanders_2016.json")};
+                const path   file_path{FileSys::GetDataDir() /= file_name};
                 if (!is_regular_file(file_path)) {
                         throw runtime_error(string(__func__) + "Holidays file " + file_path.string() + " not present.");
                 }

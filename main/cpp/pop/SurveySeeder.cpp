@@ -51,8 +51,8 @@ void SurveySeeder::Seed(const boost::property_tree::ptree& config_pt, shared_ptr
                                 p.ParticipateInSurvey();
                                 contact_logger->info("[PART] {}", p.GetId());
                                 contact_logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                                     p.GetContactPoolId(ContactPoolType::Id::School),
-                                                     p.GetContactPoolId(ContactPoolType::Id::Work));
+                                                     p.GetPoolId(ContactPoolType::Id::School),
+                                                     p.GetPoolId(ContactPoolType::Id::Work));
                                 num_samples++;
                         }
                 }

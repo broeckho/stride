@@ -21,10 +21,8 @@
 
 namespace stride {
 
-/*
- *
- */
-enum class HealthStatus
+/// Enumerate the various health states with respect to the infection.
+enum class HealthStatus : unsigned short int
 {
         Susceptible              = 0U,
         Exposed                  = 1U,
@@ -35,27 +33,25 @@ enum class HealthStatus
         Immune                   = 6U
 };
 
-/*
- *
- */
+/// Holds a person's health data.
 class Health
 {
 public:
         ///
-        explicit Health(unsigned int start_infectiousness = 0U, unsigned int start_symptomatic = 0U,
-                        unsigned int time_infectious = 0U, unsigned int time_symptomatic = 0U);
+        explicit Health(unsigned short int start_infectiousness = 0U, unsigned int short start_symptomatic = 0U,
+                        unsigned short int time_infectious = 0U, unsigned short int time_symptomatic = 0U);
 
         ///
-        unsigned int GetEndInfectiousness() const { return m_end_infectiousness; }
+        unsigned short int GetEndInfectiousness() const { return m_end_infectiousness; }
 
         ///
-        unsigned int GetEndSymptomatic() const { return m_end_symptomatic; }
+        unsigned short int GetEndSymptomatic() const { return m_end_symptomatic; }
 
         ///
-        unsigned int GetStartInfectiousness() const { return m_start_infectiousness; }
+        unsigned short int GetStartInfectiousness() const { return m_start_infectiousness; }
 
         ///
-        unsigned int GetStartSymptomatic() const { return m_start_symptomatic; }
+        unsigned short int GetStartSymptomatic() const { return m_start_symptomatic; }
 
         ///
         bool IsImmune() const { return m_status == HealthStatus::Immune; }
@@ -102,7 +98,7 @@ public:
 
 private:
         /// Get the disease counter.
-        unsigned int GetDiseaseCounter() const { return m_disease_counter; }
+        unsigned short int GetDiseaseCounter() const { return m_disease_counter; }
 
         /// Increment disease counter.
         void IncrementDiseaseCounter() { m_disease_counter++; }
@@ -111,13 +107,13 @@ private:
         void ResetDiseaseCounter() { m_disease_counter = 0U; }
 
 private:
-        unsigned int m_disease_counter; ///< The disease counter.
-        HealthStatus m_status;          ///< The current status of the person w.r.t. the disease.
+        unsigned short int m_disease_counter; ///< The disease counter.
+        HealthStatus       m_status;          ///< The current status of the person w.r.t. the disease.
 
-        unsigned int m_start_infectiousness; ///< Days after infection to become infectious.
-        unsigned int m_start_symptomatic;    ///< Days after infection to become symptomatic.
-        unsigned int m_end_infectiousness;   ///< Days after infection to end infectious state.
-        unsigned int m_end_symptomatic;      ///< Days after infection to end symptomatic state.
+        unsigned short int m_start_infectiousness; ///< Days after infection to become infectious.
+        unsigned short int m_start_symptomatic;    ///< Days after infection to become symptomatic.
+        unsigned short int m_end_infectiousness;   ///< Days after infection to end infectious state.
+        unsigned short int m_end_symptomatic;      ///< Days after infection to end symptomatic state.
 };
 
 } // namespace stride

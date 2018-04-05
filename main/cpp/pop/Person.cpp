@@ -19,37 +19,14 @@
  */
 
 #include "Person.h"
+
+#include "pool/ContactPoolType.h"
 #include "pop/Age.h"
 
 namespace stride {
 
 using namespace std;
-
-unsigned int Person::GetContactPoolId(const ContactPoolType::Id& pool_type) const
-{
-        unsigned int ret;
-        switch (pool_type) {
-        case ContactPoolType::Id::Household: ret = m_household_id; break;
-        case ContactPoolType::Id::School: ret = m_school_id; break;
-        case ContactPoolType::Id::Work: ret = m_work_id; break;
-        case ContactPoolType::Id::PrimaryCommunity: ret = m_primary_community_id; break;
-        case ContactPoolType::Id::SecondaryCommunity: ret = m_secondary_community_id; break;
-        }
-        return ret;
-}
-
-bool Person::IsInContactPool(const ContactPoolType::Id& c) const
-{
-        bool ret;
-        switch (c) {
-        case ContactPoolType::Id::Household: ret = m_at_household; break;
-        case ContactPoolType::Id::School: ret = m_at_school; break;
-        case ContactPoolType::Id::Work: ret = m_at_work; break;
-        case ContactPoolType::Id::PrimaryCommunity: ret = m_at_primary_community; break;
-        case ContactPoolType::Id::SecondaryCommunity: ret = m_at_secondary_community; break;
-        }
-        return ret;
-}
+using namespace stride::ContactPoolType;
 
 void Person::Update(bool is_work_off, bool is_school_off)
 {
@@ -57,21 +34,20 @@ void Person::Update(bool is_work_off, bool is_school_off)
 
         // Update presence in contactpools.
         if (m_health.IsSymptomatic()) {
-                m_at_school              = false;
-                m_at_work                = false;
-                m_at_secondary_community = false;
-                m_at_primary_community   = false;
-                // TODO set at_home_due_to_illness?
+                m_in_pools[Id::School]             = false;
+                m_in_pools[Id::Work]               = false;
+                m_in_pools[Id::PrimaryCommunity]   = false;
+                m_in_pools[Id::SecondaryCommunity] = false;
         } else if (is_work_off || (m_age <= MinAdultAge() && is_school_off)) {
-                m_at_school              = false;
-                m_at_work                = false;
-                m_at_secondary_community = false;
-                m_at_primary_community   = true;
+                m_in_pools[Id::School]             = false;
+                m_in_pools[Id::Work]               = false;
+                m_in_pools[Id::PrimaryCommunity]   = true;
+                m_in_pools[Id::SecondaryCommunity] = false;
         } else {
-                m_at_school              = true;
-                m_at_work                = true;
-                m_at_secondary_community = true;
-                m_at_primary_community   = false;
+                m_in_pools[Id::School]             = true;
+                m_in_pools[Id::Work]               = true;
+                m_in_pools[Id::PrimaryCommunity]   = false;
+                m_in_pools[Id::SecondaryCommunity] = true;
         }
 }
 

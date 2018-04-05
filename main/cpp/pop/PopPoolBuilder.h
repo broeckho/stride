@@ -31,9 +31,9 @@ class Population;
 class Simulator;
 
 /**
- * Builds contact pool system and adds members from population.
- * The population members should have their pool ids for the
- * various pools already assigned to them.
+ * Builds the contact pool system and adds members from the population.
+ * The population members should have their pool ids for the various
+ * pools already assigned to them.
  */
 class PopPoolBuilder
 {

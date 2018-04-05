@@ -36,7 +36,7 @@ class Simulator;
 class DiseaseSeeder
 {
 public:
-        /// Initializing DiseaseBuilder.
+        /// Initializing DiseaseSeeder.
         DiseaseSeeder(const boost::property_tree::ptree& config_pt, util::RNManager& rn_manager);
 
         /// Build the simulator.

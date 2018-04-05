@@ -39,7 +39,7 @@ public:
         ~SummaryFile();
 
         /// Print the given output with corresponding tag.
-        void Print(const boost::property_tree::ptree& pt_config, unsigned int population_size, unsigned int num_cases,
+        void Print(const boost::property_tree::ptree& config_pt, unsigned int population_size, unsigned int num_cases,
                    double transmission_rate, unsigned int run_time, unsigned int total_time);
 
 private:

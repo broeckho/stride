@@ -25,6 +25,10 @@
 
 namespace stride {
 
+/// ContactPoolSys contains for each of the type of pools (household, school, ...)
+/// a vector of with all of the contcatpools of the type.
+/// The ContactPoolSys container is an std::array extended to be subscriptable
+/// with the enum class of the pool types.
 using ContactPoolSys = ContactPoolType::IdSubscriptArray<std::vector<ContactPool>>;
 
 } // namespace stride

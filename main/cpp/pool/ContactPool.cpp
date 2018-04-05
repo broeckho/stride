@@ -34,15 +34,9 @@ ContactPool::ContactPool(std::size_t pool_id, ContactPoolType::Id type)
 
 void ContactPool::AddMember(const Person* p)
 {
-        m_members.emplace_back(std::make_pair(const_cast<Person*>(p), true));
+        m_members.emplace_back(const_cast<Person*>(p));
         m_index_immune++;
 }
-
-size_t ContactPool::GetSize() const { return m_members.size(); }
-
-Person* ContactPool::GetMember(unsigned int index) const { return m_members[index].first; }
-
-const std::vector<std::pair<Person*, bool>>& ContactPool::GetPool() const { return m_members; }
 
 std::tuple<bool, size_t> ContactPool::SortMembers()
 {
@@ -51,12 +45,12 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
 
         for (size_t i_member = 0; i_member < m_index_immune; i_member++) {
                 // if immune, move to back
-                if (m_members[i_member].first->GetHealth().IsImmune()) {
+                if (m_members[i_member]->GetHealth().IsImmune()) {
                         bool   swapped   = false;
                         size_t new_place = m_index_immune - 1;
                         m_index_immune--;
                         while (!swapped && new_place > i_member) {
-                                if (m_members[new_place].first->GetHealth().IsImmune()) {
+                                if (m_members[new_place]->GetHealth().IsImmune()) {
                                         m_index_immune--;
                                         new_place--;
                                 } else {
@@ -66,8 +60,8 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                         }
                 }
                 // else, if not susceptible, move to front
-                else if (!m_members[i_member].first->GetHealth().IsSusceptible()) {
-                        if (!infectious_cases && m_members[i_member].first->GetHealth().IsInfectious()) {
+                else if (!m_members[i_member]->GetHealth().IsSusceptible()) {
+                        if (!infectious_cases && m_members[i_member]->GetHealth().IsInfectious()) {
                                 infectious_cases = true;
                         }
                         if (i_member > num_cases) {
@@ -77,13 +71,6 @@ std::tuple<bool, size_t> ContactPool::SortMembers()
                 }
         }
         return std::make_tuple(infectious_cases, num_cases);
-}
-
-void ContactPool::UpdateMemberPresence()
-{
-        for (auto& member : m_members) {
-                member.second = member.first->IsInContactPool(m_pool_type);
-        }
 }
 
 } // namespace stride

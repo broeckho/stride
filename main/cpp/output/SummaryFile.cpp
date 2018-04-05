@@ -48,20 +48,20 @@ void SummaryFile::Initialize(const string& output_prefix)
                   << endl;
 }
 
-void SummaryFile::Print(const boost::property_tree::ptree& pt_config, unsigned int population_size,
+void SummaryFile::Print(const boost::property_tree::ptree& config_pt, unsigned int population_size,
                         unsigned int num_cases, double transmission_rate, unsigned int run_time,
                         unsigned int total_time)
 {
-        m_fstream << pt_config.get<string>("run.population_file") << "," << pt_config.get<unsigned int>("run.num_days")
-                  << "," << population_size << "," << pt_config.get<double>("run.seeding_rate") << ","
-                  << pt_config.get<double>("run.r0") << "," << transmission_rate << ","
-                  << pt_config.get<double>("run.immunity_rate") << "," << pt_config.get<unsigned int>("run.num_threads")
-                  << "," << pt_config.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
+        m_fstream << config_pt.get<string>("run.population_file") << "," << config_pt.get<unsigned int>("run.num_days")
+                  << "," << population_size << "," << config_pt.get<double>("run.seeding_rate") << ","
+                  << config_pt.get<double>("run.r0") << "," << transmission_rate << ","
+                  << config_pt.get<double>("run.immunity_rate") << "," << config_pt.get<unsigned int>("run.num_threads")
+                  << "," << config_pt.get<unsigned int>("run.rng_seed") << "," << run_time << "," << total_time << ","
                   << num_cases << "," << static_cast<double>(num_cases) / population_size << ","
-                  << pt_config.get<string>("run.output_prefix") << "," << pt_config.get<string>("run.start_date") << ","
-                  << pt_config.get<string>("run.age_contact_matrix_file") << ","
-                  << pt_config.get<unsigned int>("run.num_participants_survey") << ","
-                  << pt_config.get<string>("run.disease_config_file") << endl;
+                  << config_pt.get<string>("run.output_prefix") << "," << config_pt.get<string>("run.start_date") << ","
+                  << config_pt.get<string>("run.age_contact_matrix_file") << ","
+                  << config_pt.get<unsigned int>("run.num_participants_survey") << ","
+                  << config_pt.get<string>("run.disease_config_file") << endl;
 }
 
 } // namespace output

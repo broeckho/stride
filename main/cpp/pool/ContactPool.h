@@ -30,7 +30,7 @@ namespace stride {
 class Person;
 
 /**
- * Represents a group of Persons for potential contacts.
+ * Represents a group of Persons that potentially have contacts.
  */
 class ContactPool
 {
@@ -42,13 +42,13 @@ public:
         void AddMember(const Person* p);
 
         /// Get member at index.
-        Person* GetMember(unsigned int index) const;
+        Person* GetMember(unsigned int index) const { return m_members[index]; }
 
         /// Get the entire pool of members.
-        const std::vector<std::pair<Person*, bool>>& GetPool() const;
+        const std::vector<Person*>& GetPool() const { return m_members; }
 
         /// Get size (number of members).
-        std::size_t GetSize() const;
+        std::size_t GetSize() const { return m_members.size(); }
 
 private:
         /// Sort members w.r.t. health status.
@@ -59,14 +59,11 @@ private:
         template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
         friend class Infector;
 
-        /// Calculate which members are present on the current day.
-        void UpdateMemberPresence();
-
 private:
-        std::size_t                           m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
-        ContactPoolType::Id                   m_pool_type;    ///< The type of the ContactPool (for logging purposes).
-        std::size_t                           m_index_immune; ///< Index of the first immune member in the ContactPool.
-        std::vector<std::pair<Person*, bool>> m_members;      ///< Container with pointers to contactpool members.
+        std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
+        ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
+        std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
+        std::vector<Person*> m_members;      ///< Container with pointers to contactpool members.
 };
 
 } // namespace stride

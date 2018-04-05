@@ -22,10 +22,12 @@
 
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
+#include "disease/Health.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <cassert>
+#include <utility>
 
 using namespace boost::property_tree;
 using namespace std;
@@ -46,9 +48,7 @@ unsigned int Population::GetAdoptedCount() const
 {
         unsigned int total{0U};
         for (const auto& p : *this) {
-                auto belief  = p.GetBelief();
-                bool adopted = belief->HasAdopted();
-                if (adopted) {
+                if (p.GetBelief()->HasAdopted()) {
                         total++;
                 }
         }
@@ -58,33 +58,35 @@ unsigned int Population::GetAdoptedCount() const
 template <typename BeliefPolicy>
 void Population::NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                            unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                           Health health, const ptree& pt_belief, double risk_averseness)
+                           Health health, const ptree& belief_pt, double risk_averseness)
 {
-        static util::SegmentedVector<BeliefPolicy> beliefs_container;
-        const BeliefPolicy                         b(pt_belief);
+        if (!beliefs_container) {
+                beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
+        }
+        auto container = beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
 
-        assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 
-        BeliefPolicy* bp = beliefs_container.emplace_back(b);
+        BeliefPolicy* bp = container->emplace_back(belief_pt);
         this->emplace_back(Person(id, age, household_id, school_id, work_id, primary_community_id,
                                   secondary_community_id, health, risk_averseness, bp));
 
-        assert(this->size() == beliefs_container.size() && "Person and Beliefs container sizes not equal!");
+        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
 
 void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
                               unsigned int work_id, unsigned int primary_community_id,
-                              unsigned int secondary_community_id, Health health, const ptree& pt_belief,
+                              unsigned int secondary_community_id, Health health, const ptree& belief_pt,
                               double risk_averseness)
 {
-        string belief_policy = pt_belief.get<string>("name");
+        string belief_policy = belief_pt.get<string>("name");
 
         if (belief_policy == "NoBelief") {
                 NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
-                                    secondary_community_id, health, pt_belief, risk_averseness);
+                                    secondary_community_id, health, belief_pt, risk_averseness);
         } else if (belief_policy == "Imitation") {
                 NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
-                                     secondary_community_id, health, pt_belief, risk_averseness);
+                                     secondary_community_id, health, belief_pt, risk_averseness);
         } else {
                 throw runtime_error(string(__func__) + "No valid belief policy!");
         }

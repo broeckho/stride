@@ -19,8 +19,6 @@
  * Helpers for age.
  */
 
-#include <array>
-
 namespace stride {
 
 /// Maximum age for Person's.
