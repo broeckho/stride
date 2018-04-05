@@ -17,7 +17,7 @@
  * Implementation of ptree utils.
  */
 
-#include "RunConfigPtree.h"
+#include "RunConfigManager.h"
 
 #include "util/FileSys.h"
 
@@ -31,27 +31,19 @@ using namespace std;
 namespace stride {
 namespace util {
 
-ptree RunConfigPtree::CheckConfigFile(const boost::filesystem::path& config_p)
+void RunConfigManager::CleanConfigFile(const boost::filesystem::path& config_p)
 {
         ptree pt;
         pt = FileSys::ReadPtreeFile(config_p);
 
-        const string short_sha1_fn = config_p.stem().string();
-        const string short_sha1_pt = RunConfigPtree::ToShortSha1(pt);
-
-        if (short_sha1_fn != short_sha1_pt) {
-                const string new_config_fn = short_sha1_pt + ".xml";
-                const auto   new_config_p  = config_p.parent_path() / new_config_fn;
-                cerr << "main> Short sha1 of config file does not check!" << endl
-                     << "main> Rewriting config to file" << new_config_p.string() << " locally." << endl;
-                FileSys::WritePtreeFile(new_config_p, pt);
-                pt.clear();
-        }
-
-        return pt;
+        const string short_sha1_pt = RunConfigManager::ToShortSha1(pt);
+        const string new_config_fn = short_sha1_pt + ".xml";
+        const auto   new_config_p  = config_p.parent_path() / new_config_fn;
+        cerr << "Rewriting config to file" << new_config_p.string() << " in current directory." << endl;
+        FileSys::WritePtreeFile(new_config_p, pt);
 }
 
-const ptree& RunConfigPtree::CreateTestsBasic1()
+const ptree& RunConfigManager::CreateTestsInfluenza_a()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -87,7 +79,7 @@ const ptree& RunConfigPtree::CreateTestsBasic1()
         return config_pt;
 }
 
-const ptree& RunConfigPtree::CreateTestsBasic2()
+const ptree& RunConfigManager::CreateTestsMeasles_a()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -122,7 +114,7 @@ const ptree& RunConfigPtree::CreateTestsBasic2()
         return config_pt;
 }
 
-const ptree& RunConfigPtree::CreateParMeasles()
+const ptree& RunConfigManager::CreateBench01()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -158,17 +150,17 @@ const ptree& RunConfigPtree::CreateParMeasles()
         return config_pt;
 }
 
-std::string RunConfigPtree::ToString(const boost::property_tree::ptree& pt)
+std::string RunConfigManager::ToString(const boost::property_tree::ptree& pt)
 {
         ostringstream ss;
         write_xml(ss, pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
         return ss.str();
 }
 
-std::string RunConfigPtree::ToSha1(const boost::property_tree::ptree& pt) { return sha1(ToString(pt)); }
+std::string RunConfigManager::ToSha1(const boost::property_tree::ptree& pt) { return sha1(ToString(pt)); }
 
 ///
-std::string RunConfigPtree::ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n)
+std::string RunConfigManager::ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n)
 {
         return ToSha1(pt).substr(0, n);
 }

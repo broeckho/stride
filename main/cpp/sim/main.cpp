@@ -20,7 +20,7 @@
 
 #include "sim/CliController.h"
 #include "util/FileSys.h"
-#include "util/RunConfigPtree.h"
+#include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 
@@ -48,29 +48,32 @@ int main(int argc, char** argv)
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
                 CmdLine          cmd("stride", ' ', "1.0", false);
-                MultiArg<string> override_Arg("", "override", "config parameter override --override <name>=<value>",
-                                              false, "parameter override", cmd);
-                ValueArg<string> config_file_Arg("", "config", "config file", false, "run_default.xml",
+
+
+                vector<string>           execs{"clean_config", "sim"};
+                ValuesConstraint<string> vc(execs);
+                ValueArg<string>         exec("", "exec", "Execute the specified function.", false, "sim", &vc, cmd);
+                MultiArg<string> override_Arg("", "override", "Override config parameters. Format --override <name>=<value>",
+                                              false, "<NAME>=<VALUE>", cmd);
+                ValueArg<string> config_file_Arg("", "config", "File with the run configuration parameters.", false, "run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
-                SwitchArg install_dir_Arg("", "working_dir", "Look for files in install directory", cmd, true);
+                SwitchArg installed_config_Arg("", "installed_config", "Look for config file in install directories", cmd, true);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
-                // Retrieve configuration.
+                // Full configuration filename.
                 // -----------------------------------------------------------------------------------------
-                const bool                    use_install_dirs = !install_dir_Arg.getValue();
                 const auto                    config_fn        = config_file_Arg.getValue();
                 const boost::filesystem::path config_p =
-                    (use_install_dirs) ? FileSys::GetConfigDir() /= config_fn : config_fn;
-                auto pt = FileSys::ReadPtreeFile(config_p);
+                    (installed_config_Arg.getValue()) ? FileSys::GetConfigDir() /= config_fn : config_fn;
 
                 // -----------------------------------------------------------------------------------------
-                // If configuration OK, go ahead otherwise just exit.
+                // If run simulation ...
                 // -----------------------------------------------------------------------------------------
-                if (!pt.empty()) {
-                        // ---------------------------------------------------------------------------------
-                        // Patch configuration with the overrides (if any).
-                        // ---------------------------------------------------------------------------------
+                if (exec.getValue() == "sim") {
+                        
+                        // Read configuration and patch it with the overrides (if any).
+                        auto pt = FileSys::ReadPtreeFile(config_p);
                         vector<tuple<string, string>> p_overrides;
                         const auto                    p_vec = override_Arg.getValue();
                         for (const auto& p_assignment : p_vec) {
@@ -83,13 +86,17 @@ int main(int argc, char** argv)
                                 pt.put("run.output_prefix", output_prefix);
                         }
                         pt.sort();
-
-                        // ---------------------------------------------------------------------------------
+                        
                         // Setup controller, run simulation.
-                        // ---------------------------------------------------------------------------------
                         CliController cntrl(pt);
                         cntrl.Setup();
                         cntrl.Execute();
+                }
+                // -----------------------------------------------------------------------------------------
+                // If clean an configuration file
+                // -----------------------------------------------------------------------------------------
+                else if (exec.getValue() == "clean_config") {
+                        RunConfigManager::CleanConfigFile(config_p);
                 }
 
         } catch (exception& e) {

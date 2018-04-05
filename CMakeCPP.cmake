@@ -36,7 +36,6 @@ set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++14 -Wall -Wno-unknown-pr
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
-#add_definitions("-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags

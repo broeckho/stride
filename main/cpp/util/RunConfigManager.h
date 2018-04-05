@@ -28,20 +28,20 @@ namespace util {
 /**
  * Produce run config ptree.
  */
-class RunConfigPtree
+class RunConfigManager
 {
 public:
-        ///
-        static boost::property_tree::ptree CheckConfigFile(const boost::filesystem::path& config_p);
+        /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
+        static void CleanConfigFile(const boost::filesystem::path& config_p);
 
         ///
-        static const boost::property_tree::ptree& CreateTestsBasic1();
+        static const boost::property_tree::ptree& CreateTestsInfluenza_a();
 
         ///
-        static const boost::property_tree::ptree& CreateTestsBasic2();
+        static const boost::property_tree::ptree& CreateTestsMeasles_a();
 
         ///
-        static const boost::property_tree::ptree& CreateParMeasles();
+        static const boost::property_tree::ptree& CreateBench01();
 
         ///
         static std::string ToString(const boost::property_tree::ptree& pt);

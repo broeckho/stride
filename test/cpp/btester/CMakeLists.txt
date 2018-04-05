@@ -1,6 +1,5 @@
 #############################################################################
-#  This file is part of the Stride software.
-#  It is free software: you can redistribute it and/or modify
+#  This is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
@@ -12,21 +11,20 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
-# Define smoke test. DO NOT BREAK THE COMMAND LINE.
+# Build & install executable.
 #============================================================================
-add_test(NAME smoke_test
-    WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND sh -c "${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/smoke_test > /dev/null"
-)
+add_executable(myhayai_demo   myhayai_main.cpp )
+target_compile_options(myhayai_demo PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai/include)
+target_link_libraries(myhayai_demo myhayai)
+install(TARGETS myhayai_demo  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Add subdirectories:
 #============================================================================
-add_subdirectory(btester)
-add_subdirectory(gtester)
+add_subdirectory(myhayai)
 
 #############################################################################

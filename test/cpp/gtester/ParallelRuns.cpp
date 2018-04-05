@@ -23,7 +23,7 @@
 #include "sim/SimRunner.h"
 #include "sim/Simulator.h"
 #include "util/ConfigInfo.h"
-#include "util/RunConfigPtree.h"
+#include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>

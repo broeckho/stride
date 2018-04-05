@@ -68,7 +68,7 @@ set(LIB_SRC
 	util/LogUtils.cpp
     util/RNEngineType.cpp
     util/RNManager.cpp
-	util/RunConfigPtree.cpp
+    util/RunConfigManager.cpp
     util/RunConfigString.cpp
     util/SegmentedVector.h
     util/Stopwatch.h
