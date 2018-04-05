@@ -59,6 +59,9 @@ public:
                       bool track_index_case = false, std::string stride_log_level = "info",
                       bool use_install_dirs = true);
 
+        /// Straight initialization.
+        CliController(const boost::property_tree::ptree& config_pt);
+
         /// Actual run of the simulator.
         void Execute();
 

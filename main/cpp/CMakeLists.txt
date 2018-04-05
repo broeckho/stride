@@ -12,14 +12,8 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
-
-#============================================================================
-# Produce header with git commit sha.
-#============================================================================
-file( WRITE ${CMAKE_CURRENT_SOURCE_DIR}/util/Git.h
-	"namespace stride {namespace util{ const char* stride_git_hash = \"${STRIDE_WC_REVISION_HASH}\";}}" )
 
 #============================================================================
 # Sources. Includes headers to enable code insight by CLion.
@@ -66,7 +60,7 @@ set(LIB_SRC
 	sim/event/Subject.cpp
 	sim/python/StrideRunner.cpp
 #---
-    util/ConfigInfo.h
+    util/ConfigInfo.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
@@ -76,7 +70,6 @@ set(LIB_SRC
 	util/RunConfigPtree.cpp
     util/RunConfigString.cpp
     util/SegmentedVector.h
-    ../resources/lib/sha1/src/Sha1.cpp
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h
@@ -97,6 +90,7 @@ set(LIB_SRC
 add_library(libstride ${LIB_SRC})
 target_link_libraries(libstride ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
+target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================

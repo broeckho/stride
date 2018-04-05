@@ -38,6 +38,19 @@ set(DOC_INSTALL_LOCATION     doc)
 set(TESTS_INSTALL_LOCATION   tests)
 
 #============================================================================
+# Configuration for Git.
+#============================================================================
+find_package(Git QUIET)
+if(GIT_FOUND)
+    GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
+else()
+    # This is done to eliminate blank output of undefined CMake variables.
+    set(GIT_FOUND FALSE)
+    set(STRIDE_WC_REVISION_HASH       "0000-0000-000")
+    set(STRIDE_WC_LAST_CHANGED_DATE   "0000 0000 0000")
+endif()
+
+#============================================================================
 # Configuration for CPP.
 #============================================================================
 include(CMakeCPP.cmake)
@@ -48,19 +61,6 @@ include(CMakeCPP.cmake)
 find_package(SWIG)
 find_package(PythonInterp 3)
 find_package(PythonLibs 3)
-
-#============================================================================
-# Configuration for Git.
-#============================================================================
-find_package(Git QUIET)
-if(GIT_FOUND AND EXISTS CMAKE_HOME_DIRECTORY/.git)
-	GIT_WC_INFO(${CMAKE_SOURCE_DIR} STRIDE)
-else()
-    # This is done to eliminate blank output of undefined CMake variables.
-    set(GIT_FOUND FALSE)
-	set(STRIDE_WC_REVISION_HASH       "0000-0000-000")
-	set(STRIDE_WC_LAST_CHANGED_DATE   "0000 0000 0000")
-endif()
 
 #============================================================================
 # Configuration for DOC: DOXYGEN

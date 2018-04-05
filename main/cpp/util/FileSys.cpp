@@ -22,7 +22,9 @@
 
 #include "util/StringUtils.h"
 
+#include <boost/property_tree/xml_parser.hpp>
 #include <iostream>
+#include <string>
 
 #if defined(WIN32)
 #include <stdlib.h>
@@ -34,11 +36,17 @@
 #include <mach-o/dyld.h>
 #endif
 
+namespace {
+const auto empty_path = boost::filesystem::path();
+}
+
 namespace stride {
 namespace util {
 
 using namespace std;
 using namespace boost::filesystem;
+using namespace boost::property_tree;
+using namespace boost::property_tree::xml_parser;
 
 boost::filesystem::path FileSys::BuildPath(const std::string& output_prefix, const std::string& filename)
 {
@@ -121,7 +129,7 @@ FileSys::Dirs FileSys::Initialize()
 
         //------- Retrieving root and bin directory (the subdirectory of the install root)
         {
-                path exec_dir = dirs.m_exec_path.parent_path();
+                boost::filesystem::path exec_dir = dirs.m_exec_path.parent_path();
                 if (!dirs.m_exec_path.empty()) {
 #if (__APPLE__)
                         if (exec_dir.filename().string() == "MacOS") {
@@ -165,17 +173,17 @@ FileSys::Dirs FileSys::Initialize()
         //------- Config Dir
         {
                 dirs.m_config_dir = dirs.m_root_dir / "config";
-                dirs.m_config_dir = is_directory(dirs.m_config_dir) ? dirs.m_config_dir : path();
+                dirs.m_config_dir = is_directory(dirs.m_config_dir) ? dirs.m_config_dir : empty_path;
         }
         //------- Data Dir
         {
                 dirs.m_data_dir = dirs.m_root_dir / "data";
-                dirs.m_data_dir = is_directory(dirs.m_data_dir) ? dirs.m_data_dir : path();
+                dirs.m_data_dir = is_directory(dirs.m_data_dir) ? dirs.m_data_dir : empty_path;
         }
         //------- Tests Dir
         {
                 dirs.m_tests_dir = dirs.m_root_dir / "tests";
-                dirs.m_tests_dir = is_directory(dirs.m_tests_dir) ? dirs.m_tests_dir : path();
+                dirs.m_tests_dir = is_directory(dirs.m_tests_dir) ? dirs.m_tests_dir : empty_path;
         }
 
         return dirs;
@@ -185,6 +193,45 @@ bool FileSys::IsDirectoryString(const string& s)
 {
         const auto n = s.find('/');
         return n != string::npos;
+}
+
+ptree FileSys::ReadPtreeFile(const boost::filesystem::path& f_p)
+{
+        ptree ret;
+        if (!exists(f_p) || !is_regular_file(f_p)) {
+                const string s = "FileSys::ReadPtreeFile> Abort! File " + f_p.string() + " not present.";
+                cerr << s << endl;
+                throw runtime_error(s);
+        } else {
+                try {
+                        read_xml(canonical(f_p).string(), ret, xml_parser::trim_whitespace);
+                } catch (xml_parser_error& e) {
+                        const string s = "FileSys::ReadPtreeFile> Abort! Error reading " + f_p.string();
+                        cerr << s << endl;
+                        throw runtime_error(s);
+                        ;
+                }
+        }
+        return ret;
+}
+
+ptree FileSys::ReadPtreeFile(const string& f_n) { return ReadPtreeFile(system_complete(f_n)); }
+
+void FileSys::WritePtreeFile(const boost::filesystem::path& f_p, const boost::property_tree::ptree& pt)
+{
+        try {
+                write_xml(f_p.string(), pt, std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+        } catch (xml_parser_error& e) {
+                const string s = "FileSys::ReadPtreeFile> Abort! Error reading " + f_p.string();
+                cerr << s << endl;
+                throw runtime_error(s);
+                ;
+        }
+}
+
+void FileSys::WritePtreeFile(const string& f_n, const boost::property_tree::ptree& pt)
+{
+        WritePtreeFile(system_complete(f_n), pt);
 }
 
 } // namespace util

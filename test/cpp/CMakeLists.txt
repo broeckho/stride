@@ -21,11 +21,11 @@
 
 
 #============================================================================
-# Define smoke test.
+# Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
 add_test(NAME smoke_test
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
-    COMMAND sh -c "${BIN_INSTALL_LOCATION}/stride -p output_prefix=tests/smoke_test > /dev/null"
+    COMMAND sh -c "${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/smoke_test > /dev/null"
 )
 
 #============================================================================

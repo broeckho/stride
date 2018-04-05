@@ -19,15 +19,24 @@
  */
 
 #include "sim/CliController.h"
+#include "util/FileSys.h"
+#include "util/RunConfigPtree.h"
 #include "util/StringUtils.h"
+#include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>
+#include <iomanip>
+#include <ios>
+#include <iostream>
+#include <locale>
+#include <string>
 #include <vector>
 
 using namespace std;
 using namespace stride;
 using namespace stride::util;
 using namespace TCLAP;
+using namespace boost::property_tree;
 
 /// Main program of the stride simulator.
 int main(int argc, char** argv)
@@ -38,42 +47,51 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine cmd("stride", ' ', "1.0", false);
-
-                vector<string>           vals{"trace", "debug", "info", "warning", "error", "critical"};
-                ValuesConstraint<string> vc(vals);
-                ValueArg<string>         stride_log_level("l", "loglevel", "stride log level", false, "", &vc, cmd);
-                MultiArg<string>         params_override_Arg("p", "param_override",
-                                                     "config parameter override -p <p_name>=<p_value>", false,
-                                                     "parameter override", cmd);
-                ValueArg<string>         config_file_Arg("c", "config", "config file", false, "run_default.xml",
+                CmdLine          cmd("stride", ' ', "1.0", false);
+                MultiArg<string> override_Arg("", "override", "config parameter override --override <name>=<value>",
+                                              false, "parameter override", cmd);
+                ValueArg<string> config_file_Arg("", "config", "config file", false, "run_default.xml",
                                                  "CONFIGURATION FILE", cmd);
-
-                SwitchArg index_case_Arg("r", "r0", "R0 only i.e. track index case mode", cmd, false);
-                SwitchArg working_dir_Arg("w", "working_dir",
-                                          "Use working directory to find files i.o install directories", cmd, false);
-
+                SwitchArg install_dir_Arg("", "working_dir", "Look for files in install directory", cmd, true);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
-                // Parse commandline config parameter overrides (if any).
+                // Retrieve configuration.
                 // -----------------------------------------------------------------------------------------
-                vector<tuple<string, string>> p_overrides;
-                const auto                    p_vec = params_override_Arg.getValue();
-                for (const auto& p_assignment : p_vec) {
-                        const auto v = util::Tokenize(p_assignment, "=");
-                        p_overrides.emplace_back(make_tuple(v[0], v[1]));
-                }
+                const bool                    use_install_dirs = !install_dir_Arg.getValue();
+                const auto                    config_fn        = config_file_Arg.getValue();
+                const boost::filesystem::path config_p =
+                    (use_install_dirs) ? FileSys::GetConfigDir() /= config_fn : config_fn;
+                auto pt = FileSys::ReadPtreeFile(config_p);
 
                 // -----------------------------------------------------------------------------------------
-                // Run the Stride simulator.
+                // If configuration OK, go ahead otherwise just exit.
                 // -----------------------------------------------------------------------------------------
-                // We have been using use_installdirs for a while, so ..
-                const bool    use_install_dirs = !working_dir_Arg.getValue();
-                CliController cntrl(config_file_Arg.getValue(), p_overrides, index_case_Arg.getValue(),
-                                    stride_log_level.getValue(), use_install_dirs);
-                cntrl.Setup();
-                cntrl.Execute();
+                if (!pt.empty()) {
+                        // ---------------------------------------------------------------------------------
+                        // Patch configuration with the overrides (if any).
+                        // ---------------------------------------------------------------------------------
+                        vector<tuple<string, string>> p_overrides;
+                        const auto                    p_vec = override_Arg.getValue();
+                        for (const auto& p_assignment : p_vec) {
+                                const auto v = util::Tokenize(p_assignment, "=");
+                                pt.put("run." + v[0], v[1]);
+                        }
+                        auto output_prefix = pt.get<string>("run.output_prefix", "");
+                        if (output_prefix.empty()) {
+                                output_prefix = TimeStamp().ToTag() + "/";
+                                pt.put("run.output_prefix", output_prefix);
+                        }
+                        pt.sort();
+
+                        // ---------------------------------------------------------------------------------
+                        // Setup controller, run simulation.
+                        // ---------------------------------------------------------------------------------
+                        CliController cntrl(pt);
+                        cntrl.Setup();
+                        cntrl.Execute();
+                }
+
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

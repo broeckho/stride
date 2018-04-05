@@ -20,6 +20,8 @@
  */
 
 #include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
+#include <boost/property_tree/ptree.hpp>
 #include <functional>
 #include <string>
 
@@ -38,6 +40,18 @@ public:
 
         /// Interpret prefix (directory or filename prefix) and return appropriate path.
         static boost::filesystem::path BuildPath(const std::string& output_prefix, const std::string& filename);
+
+        /// Read ptree from file at path.
+        static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path& f_p);
+
+        /// Read ptree from file specifified by name string.
+        static boost::property_tree::ptree ReadPtreeFile(const std::string& f_n);
+
+        /// Write ptree to file at path.
+        static void WritePtreeFile(const boost::filesystem::path& f_p, const boost::property_tree::ptree& pt);
+
+        /// Write ptree to file specifified by name string.
+        static void WritePtreeFile(const std::string& f_n, const boost::property_tree::ptree& pt);
 
 public:
         /// Get path to the current directory.

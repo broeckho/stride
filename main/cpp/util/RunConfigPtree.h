@@ -19,6 +19,7 @@
  * Produce run config ptree.
  */
 
+#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 
 namespace stride {
@@ -31,6 +32,9 @@ class RunConfigPtree
 {
 public:
         ///
+        static boost::property_tree::ptree CheckConfigFile(const boost::filesystem::path& config_p);
+
+        ///
         static const boost::property_tree::ptree& CreateTestsBasic1();
 
         ///
@@ -38,6 +42,15 @@ public:
 
         ///
         static const boost::property_tree::ptree& CreateParMeasles();
+
+        ///
+        static std::string ToString(const boost::property_tree::ptree& pt);
+
+        ///
+        static std::string ToSha1(const boost::property_tree::ptree& pt);
+
+        ///
+        static std::string ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n = 7U);
 };
 
 } // namespace util

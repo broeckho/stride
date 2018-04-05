@@ -23,7 +23,7 @@
 # Build SHA1 lib (build only, no install)
 #============================================================================
 set(SRC
-	src/Sha1.cpp
+	src/sha1.cpp
 )
 
 add_library(sha1 ${SRC})

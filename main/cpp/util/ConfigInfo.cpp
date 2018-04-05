@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,36 +18,36 @@
  * Info on configuration..
  */
 
+#include "ConfigInfo.h"
+
+#include <omp.h>
 #include <string>
+#include <unistd.h>
+
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
 
 namespace stride {
 namespace util {
 
-/**
- * Config information.
- */
-class ConfigInfo
+std::string ConfigInfo::GitRevision() { return TOSTRING(STRIDE_GIT_HASH); }
+
+std::string ConfigInfo::GetHostname()
 {
-public:
-        ///
-        static constexpr bool HaveOpenMP()
+        char hostname[40];
+        gethostname(hostname, 40);
+        return hostname;
+}
+
+unsigned int ConfigInfo::NumberAvailableThreads()
+{
+        unsigned int i = 1U;
+#pragma omp parallel
         {
-#ifdef _OPENMP
-                return true;
-#else
-                return false;
-#endif
+                i = static_cast<unsigned int>(omp_get_num_threads());
         }
-
-        ///
-        static std::string GitRevision();
-
-        ///
-        static std::string GetHostname();
-
-        ///
-        static unsigned int NumberAvailableThreads();
-};
+        return i;
+}
 
 } // namespace util
 } // namespace stride
