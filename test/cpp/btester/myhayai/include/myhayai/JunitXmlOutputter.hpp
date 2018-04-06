@@ -17,13 +17,12 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for JUnitXmlOutputter.
  */
 
-#include "myhayai/Outputter.hpp"
+#include "Outputter.hpp"
 
 #include <iomanip>
 #include <map>

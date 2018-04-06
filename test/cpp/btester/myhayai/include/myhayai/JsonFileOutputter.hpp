@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for JsonFileOutputter.
  */
 
-#include "myhayai/JsonOutputter.hpp"
-#include "myhayai/FileOutputter.hpp"
+#include "FileOutputter.hpp"
+#include "JsonOutputter.hpp"
 
 namespace myhayai {
 
@@ -34,10 +33,7 @@ public:
         explicit JsonFileOutputter(const char* path) : FileOutputter(path) {}
 
 protected:
-        Outputter* CreateOutputter(std::ostream& stream) override
-        {
-                return new JsonOutputter(stream);
-        }
+        Outputter* CreateOutputter(std::ostream& stream) override { return new JsonOutputter(stream); }
 };
 
 } // namespace myhayai

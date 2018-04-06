@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for JUnitXmlFileOutputter.
  */
 
-#include "myhayai/FileOutputter.hpp"
-#include "myhayai/JUnitXmlOutputter.hpp"
+#include "FileOutputter.hpp"
+#include "JUnitXmlOutputter.hpp"
 
 namespace myhayai {
 
@@ -34,10 +33,7 @@ public:
         explicit JUnitXmlFileOutputter(const char* path) : FileOutputter(path) {}
 
 protected:
-        Outputter* CreateOutputter(std::ostream& stream) override
-        {
-                return new ::myhayai::JUnitXmlOutputter(stream);
-        }
+        Outputter* CreateOutputter(std::ostream& stream) override { return new ::myhayai::JUnitXmlOutputter(stream); }
 };
 
 } // namespace myhayai

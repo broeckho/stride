@@ -24,13 +24,13 @@
  */
 
 #include "Benchmarker.hpp"
+#include "ConsoleFileOutputter.hpp"
 #include "ConsoleOutputter.hpp"
-#include "myhayai/ConsoleFileOutputter.hpp"
-#include "myhayai/JUnitXmlFileOutputter.hpp"
-#include "myhayai/JsonFileOutputter.hpp"
-#include "myhayai/JsonOutputter.hpp"
-#include "myhayai/JunitXmlOutputter.hpp"
-#include "myhayai/Fixture.hpp"
+#include "Fixture.hpp"
+#include "JUnitXmlFileOutputter.hpp"
+#include "JsonFileOutputter.hpp"
+#include "JsonOutputter.hpp"
+#include "JunitXmlOutputter.hpp"
 
 #include <algorithm>
 #include <cerrno>
@@ -43,19 +43,20 @@
 
 namespace myhayai {
 
-/// Execution mode.
-enum MainExecutionMode
-{
-        MainRunBenchmarks,
-        MainListBenchmarks
-};
-
-/// Default main executable runner for Hayai.
+/// Default main executable runner.
 class MainRunner
 {
 public:
+        /// Execution mode.
+        enum class Modes
+        {
+                Run,
+                List
+        };
+
+public:
         ///
-        MainRunner() : ExecutionMode(MainRunBenchmarks), ShuffleBenchmarks(false), StdoutOutputter(nullptr) {}
+        MainRunner() : ExecutionMode(Modes::Run), ShuffleBenchmarks(false), StdoutOutputter(nullptr) {}
 
         ///
         ~MainRunner();
@@ -78,23 +79,23 @@ public:
         int Run();
 
 private:
-        /// Run benchmarks.
-        /// @returns the exit status code to be returned from the executable.
-        int RunBenchmarks();
-
         /// List benchmarks.
         /// @returns the exit status code to be returned from the executable.
         int ListBenchmarks();
+
+        /// Run benchmarks.
+        /// @returns the exit status code to be returned from the executable.
+        int RunBenchmarks();
 
         /// Show usage.
         /// @param execName Executable name.
         void ShowUsage(const char* execName);
 
 private:
-        MainExecutionMode ExecutionMode; ///< Execution mode.
-        bool ShuffleBenchmarks; ///< Shuffle benchmarks.
-        std::vector<FileOutputter*> FileOutputters; ///< File outputters (freed by the class on destruction).
-        Outputter* StdoutOutputter; /// Standard outputter (freed by the class on destruction).
+        Modes                       ExecutionMode;     ///< Execution mode.
+        std::vector<FileOutputter*> FileOutputters;    ///< File outputters (freed by the class on destruction).
+        bool                        ShuffleBenchmarks; ///< Shuffle benchmarks.
+        Outputter*                  StdoutOutputter;   /// Standard outputter (freed by the class on destruction).
 };
 
 } // namespace myhayai

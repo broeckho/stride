@@ -1,3 +1,25 @@
+/*
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
+ *
+ *  This software has been altered form the hayai software by Nick Bruun.
+ *  The original copyright, to be found in the directory one level higher
+ *  still aplies.
+ */
+/**
+ * @file
+ * Implementation file for JsonOutputter.
+ */
 
 #include "myhayai/JsonOutputter.hpp"
 
@@ -16,6 +38,8 @@
 #define JSON_FALSE "false"
 
 namespace myhayai {
+
+// const char* JSON_OBJECT_BEGIN = "{";
 
 void JsonOutputter::Begin(const std::size_t&, const std::size_t&)
 {
@@ -155,14 +179,3 @@ void JsonOutputter::WriteDoubleProperty(const std::string& key, const double val
 }
 
 } // namespace myhayai
-
-#undef JSON_OBJECT_BEGIN
-#undef JSON_OBJECT_END
-#undef JSON_ARRAY_BEGIN
-#undef JSON_ARRAY_END
-#undef JSON_STRING_BEGIN
-#undef JSON_STRING_END
-#undef JSON_NAME_SEPARATOR
-#undef JSON_VALUE_SEPARATOR
-#undef JSON_TRUE
-#undef JSON_FALSE

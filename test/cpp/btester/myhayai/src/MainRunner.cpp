@@ -1,14 +1,36 @@
+/*
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
+ *
+ *  This software has been altered form the hayai software by Nick Bruun.
+ *  The original copyright, to be found in the directory two levels higher
+ *  still aplies.
+ */
+/**
+ * @file
+ * Implementation file for MainRunner.
+ */
 
 #include "myhayai/MainRunner.hpp"
 
 #include "myhayai/Benchmarker.hpp"
 #include "myhayai/ConsoleFileOutputter.hpp"
 #include "myhayai/ConsoleOutputter.hpp"
+#include "myhayai/Fixture.hpp"
 #include "myhayai/JUnitXmlFileOutputter.hpp"
 #include "myhayai/JUnitXmlOutputter.hpp"
 #include "myhayai/JsonFileOutputter.hpp"
 #include "myhayai/JsonOutputter.hpp"
-#include "myhayai/Fixture.hpp"
 
 #include <algorithm>
 #include <cerrno>
@@ -26,7 +48,7 @@
         myhayai::Console::TextRed << "Error:" << myhayai::Console::TextDefault << " " << _desc
 #define HAYAI_MAIN_USAGE_ERROR(_desc)                                                                                  \
         {                                                                                                              \
-                cerr << HAYAI_MAIN_FORMAT_ERROR(_desc) << endl << endl;                                 \
+                cerr << HAYAI_MAIN_FORMAT_ERROR(_desc) << endl << endl;                                                \
                 ShowUsage(argv[0]);                                                                                    \
                 return EXIT_FAILURE;                                                                                   \
         }
@@ -46,12 +68,38 @@ MainRunner::~MainRunner()
         }
 }
 
+int MainRunner::ListBenchmarks()
+{
+        // List out the unique benchmark names.
+        vector<const TestDescriptor*> tests = Benchmarker::ListTests();
+        vector<string>                testNames;
+        set<string>                   uniqueTestNames;
+
+        for (auto it = tests.begin(); it < tests.end(); ++it) {
+                if (uniqueTestNames.find((*it)->CanonicalName) != uniqueTestNames.end()) {
+                        continue;
+                }
+                testNames.push_back((*it)->CanonicalName);
+                uniqueTestNames.insert((*it)->CanonicalName);
+        }
+
+        // Sort the benchmark names.
+        sort(testNames.begin(), testNames.end());
+
+        // Dump the list.
+        for (auto it = testNames.begin(); it < testNames.end(); ++it) {
+                cout << *it << endl;
+        }
+
+        return EXIT_SUCCESS;
+}
+
 int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
 {
         int argI = 1;
         while (argI < argc) {
-                char*       arg     = argv[argI++];
-                bool        argLast = (argI == argc);
+                char*  arg     = argv[argI++];
+                bool   argLast = (argI == argc);
                 size_t argLen  = strlen(arg);
 
                 if (argLen == 0) {
@@ -59,7 +107,7 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                 }
                 // List flag.
                 if ((!strcmp(arg, "-l")) || (!strcmp(arg, "--list"))) {
-                        ExecutionMode = MainListBenchmarks;
+                        ExecutionMode = Modes::List;
                 }
                 // Shuffle flag.
                 else if ((!strcmp(arg, "-s")) || (!strcmp(arg, "--shuffle"))) {
@@ -156,14 +204,13 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
 
 int MainRunner::Run()
 {
+        int ret = EXIT_FAILURE;
         // Execute based on the selected mode.
         switch (ExecutionMode) {
-        case MainRunBenchmarks: return RunBenchmarks();
-        case MainListBenchmarks: return ListBenchmarks();
-        default:
-                cerr << HAYAI_MAIN_FORMAT_ERROR("invalid execution mode: " << ExecutionMode) << endl;
-                return EXIT_FAILURE;
+        case Modes::Run: ret = RunBenchmarks(); break;
+        case Modes::List: ret = ListBenchmarks(); break;
         }
+        return ret;
 }
 
 int MainRunner::RunBenchmarks()
@@ -193,96 +240,68 @@ int MainRunner::RunBenchmarks()
         return EXIT_SUCCESS;
 }
 
-int MainRunner::ListBenchmarks()
-{
-        // List out the unique benchmark names.
-        vector<const TestDescriptor*> tests = Benchmarker::ListTests();
-        vector<string>                    testNames;
-        set<string>                       uniqueTestNames;
-
-        for (auto it = tests.begin(); it < tests.end(); ++it) {
-                if (uniqueTestNames.find((*it)->CanonicalName) != uniqueTestNames.end()) {
-                        continue;
-                }
-                testNames.push_back((*it)->CanonicalName);
-                uniqueTestNames.insert((*it)->CanonicalName);
-        }
-
-        // Sort the benchmark names.
-        sort(testNames.begin(), testNames.end());
-
-        // Dump the list.
-        for (auto it = testNames.begin(); it < testNames.end(); ++it) {
-                cout << *it << endl;
-        }
-
-        return EXIT_SUCCESS;
-}
-
 void MainRunner::ShowUsage(const char* execName)
 {
         const char* baseName = strrchr(execName, '/');
 
-        cerr << "Usage: " << (baseName ? baseName + 1 : execName) << " " << HAYAI_MAIN_FORMAT_FLAG("[OPTIONS]")
-                  << endl
-                  << endl
+        cerr << "Usage: " << (baseName ? baseName + 1 : execName) << " " << HAYAI_MAIN_FORMAT_FLAG("[OPTIONS]") << endl
+             << endl
 
-                  << "  Runs the benchmarks for this project." << endl
-                  << endl
+             << "  Runs the benchmarks for this project." << endl
+             << endl
 
-                  << "Benchmark selection options:" << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("-l") << ", " << HAYAI_MAIN_FORMAT_FLAG("--list") << endl
-                  << "    List the names of all benchmarks instead of "
-                  << "running them." << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("-f") << ", " << HAYAI_MAIN_FORMAT_FLAG("--filter") << " <"
-                  << HAYAI_MAIN_FORMAT_ARGUMENT("pattern") << ">" << endl
-                  << "    Run only the tests whose name matches one of the "
-                  << "positive patterns but" << endl
-                  << "    none of the negative patterns. '?' matches any "
-                  << "single character; '*'" << endl
-                  << "    matches any substring; ':' separates two "
-                  << "patterns." << endl
+             << "Benchmark selection options:" << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("-l") << ", " << HAYAI_MAIN_FORMAT_FLAG("--list") << endl
+             << "    List the names of all benchmarks instead of "
+             << "running them." << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("-f") << ", " << HAYAI_MAIN_FORMAT_FLAG("--filter") << " <"
+             << HAYAI_MAIN_FORMAT_ARGUMENT("pattern") << ">" << endl
+             << "    Run only the tests whose name matches one of the "
+             << "positive patterns but" << endl
+             << "    none of the negative patterns. '?' matches any "
+             << "single character; '*'" << endl
+             << "    matches any substring; ':' separates two "
+             << "patterns." << endl
 
-                  << "Benchmark execution options:" << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("-s") << ", " << HAYAI_MAIN_FORMAT_FLAG("--shuffle") << endl
-                  << "    Randomize benchmark execution order." << endl
-                  << endl
+             << "Benchmark execution options:" << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("-s") << ", " << HAYAI_MAIN_FORMAT_FLAG("--shuffle") << endl
+             << "    Randomize benchmark execution order." << endl
+             << endl
 
-                  << "Benchmark output options:" << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("-o") << ", " << HAYAI_MAIN_FORMAT_FLAG("--output") << " <"
-                  << HAYAI_MAIN_FORMAT_ARGUMENT("format") << ">[:" << HAYAI_MAIN_FORMAT_ARGUMENT("<path>") << "]"
-                  << endl
-                  << "    Output results in a specific format. If no "
-                  << "path is specified, the output" << endl
-                  << "    will be presented on stdout. Can be specified "
-                  << "multiple times to get output" << endl
-                  << "    in different formats. The supported formats are:" << endl
-                  << endl
-                  << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("console") << endl
-                  << "      Standard console output." << endl
-                  << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("json") << endl
-                  << "      JSON." << endl
-                  << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("junit") << endl
-                  << "      JUnit-compatible XML (very restrictive.)" << endl
-                  << endl
-                  << "    If multiple output formats are provided without "
-                  << "a path, only the last" << endl
-                  << "    provided format will be output to stdout." << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("--c") << ", " << HAYAI_MAIN_FORMAT_FLAG("--color") << " ("
-                  << Console::TextGreen << "yes" << Console::TextDefault << "|"
-                  << Console::TextGreen << "no" << Console::TextDefault << ")" << endl
-                  << "    Enable colored output when available. Default " << Console::TextGreen << "yes"
-                  << Console::TextDefault << "." << endl
-                  << endl
+             << "Benchmark output options:" << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("-o") << ", " << HAYAI_MAIN_FORMAT_FLAG("--output") << " <"
+             << HAYAI_MAIN_FORMAT_ARGUMENT("format") << ">[:" << HAYAI_MAIN_FORMAT_ARGUMENT("<path>") << "]" << endl
+             << "    Output results in a specific format. If no "
+             << "path is specified, the output" << endl
+             << "    will be presented on stdout. Can be specified "
+             << "multiple times to get output" << endl
+             << "    in different formats. The supported formats are:" << endl
+             << endl
+             << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("console") << endl
+             << "      Standard console output." << endl
+             << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("json") << endl
+             << "      JSON." << endl
+             << "    " << HAYAI_MAIN_FORMAT_ARGUMENT("junit") << endl
+             << "      JUnit-compatible XML (very restrictive.)" << endl
+             << endl
+             << "    If multiple output formats are provided without "
+             << "a path, only the last" << endl
+             << "    provided format will be output to stdout." << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("--c") << ", " << HAYAI_MAIN_FORMAT_FLAG("--color") << " ("
+             << Console::TextGreen << "yes" << Console::TextDefault << "|" << Console::TextGreen << "no"
+             << Console::TextDefault << ")" << endl
+             << "    Enable colored output when available. Default " << Console::TextGreen << "yes"
+             << Console::TextDefault << "." << endl
+             << endl
 
-                  << "Miscellaneous options:" << endl
-                  << "  " << HAYAI_MAIN_FORMAT_FLAG("-?") << ", " << HAYAI_MAIN_FORMAT_FLAG("-h") << ", "
-                  << HAYAI_MAIN_FORMAT_FLAG("--help") << endl
-                  << "    Show this help information." << endl
-                  << endl
+             << "Miscellaneous options:" << endl
+             << "  " << HAYAI_MAIN_FORMAT_FLAG("-?") << ", " << HAYAI_MAIN_FORMAT_FLAG("-h") << ", "
+             << HAYAI_MAIN_FORMAT_FLAG("--help") << endl
+             << "    Show this help information." << endl
+             << endl
 
-                  << "hayai version: " << HAYAI_VERSION << endl
-                  << "Clock implementation: " << Clock::Description() << endl;
+             << "hayai version: " << HAYAI_VERSION << endl
+             << "Clock implementation: " << Clock::Description() << endl;
 }
 
 } // namespace myhayai

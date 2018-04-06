@@ -17,30 +17,24 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for TestFactoryDefault.
  */
 
-#include "myhayai/TestFactory.hpp"
+#include "TestFactory.hpp"
 
-namespace myhayai
+namespace myhayai {
+/// Default test factory implementation. Simply constructs an instance
+/// of a the test of class @ref T with no constructor parameters.
+/// @tparam T Test class.
+template <class T>
+class TestFactoryDefault : public TestFactory
 {
-    /// Default test factory implementation. Simply constructs an instance
-    /// of a the test of class @ref T with no constructor parameters.
-    /// @tparam T Test class.
-    template<class T>
-    class TestFactoryDefault :   public TestFactory
-    {
-    public:
+public:
         /// Create a test instance with no constructor parameters.
 
         /// @returns a pointer to an initialized test.
-        virtual Fixture* CreateTest()
-        {
-            return new T();
-        }
-    };
-}
-
+        virtual Fixture* CreateTest() { return new T(); }
+};
+} // namespace myhayai

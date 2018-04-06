@@ -1,3 +1,25 @@
+/*
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
+ *
+ *  This software has been altered form the hayai software by Nick Bruun.
+ *  The original copyright, to be found in the directory one level higher
+ *  still aplies.
+ */
+/**
+ * @file
+ * Implementation file for TetsParametersDescription.
+ */
 
 #include "myhayai/TestParametersDescriptor.hpp"
 
@@ -13,6 +35,39 @@ using namespace std;
 
 namespace myhayai {
 
+TestParametersDescriptor::TestParametersDescriptor(const char* rawDeclarations, const char* rawValues)
+{
+        // Parse the declarations.
+        vector<string> declarations = ParseCommaSeparated(rawDeclarations);
+        for (const auto& d : declarations) {
+                _parameters.push_back(ParseDescriptor(d));
+        }
+
+        // Parse the values.
+        vector<string> values         = ParseCommaSeparated(rawValues);
+        size_t         straightValues = (_parameters.size() > values.size() ? values.size() : _parameters.size()),
+               variadicValues         = 0;
+
+        if (values.size() > _parameters.size()) {
+                if (straightValues > 0)
+                        --straightValues;
+                variadicValues = values.size() - _parameters.size() + 1;
+        }
+        for (size_t i = 0; i < straightValues; ++i) {
+                _parameters[i].Value = values[i];
+        }
+        if (variadicValues) {
+                stringstream variadic;
+                for (size_t i = 0; i < variadicValues; ++i) {
+                        if (i) {
+                                variadic << ", ";
+                        }
+                        variadic << values[straightValues + i];
+                }
+                _parameters[_parameters.size() - 1].Value = variadic.str();
+        }
+}
+
 vector<string> TestParametersDescriptor::ParseCommaSeparated(const char* separated)
 {
         vector<string> result;
@@ -21,7 +76,7 @@ vector<string> TestParametersDescriptor::ParseCommaSeparated(const char* separat
                 ++separated;
 
         while ((*separated) && (*separated != ')')) {
-                size_t  escapeCounter = 0;
+                size_t       escapeCounter = 0;
                 const char*  start         = separated;
                 QuotingState state         = Unquoted;
                 bool         escaped       = false;
@@ -60,7 +115,7 @@ TestParameterDescriptor TestParametersDescriptor::ParseDescriptor(const string& 
 
         // Split the declaration into its declaration and its default type.
         const char*  equalPosition = nullptr;
-        size_t  escapeCounter = 0;
+        size_t       escapeCounter = 0;
         QuotingState state         = Unquoted;
         bool         escaped       = false;
 
@@ -98,39 +153,6 @@ TestParameterDescriptor TestParametersDescriptor::ParseDescriptor(const string& 
                                                string(TrimmedString(equalPosition, end)));
         } else
                 return TestParameterDescriptor(raw, string());
-}
-
-TestParametersDescriptor::TestParametersDescriptor(const char* rawDeclarations, const char* rawValues)
-{
-        // Parse the declarations.
-        vector<string> declarations = ParseCommaSeparated(rawDeclarations);
-        for (const auto& d : declarations) {
-                _parameters.push_back(ParseDescriptor(d));
-        }
-
-        // Parse the values.
-        vector<string> values = ParseCommaSeparated(rawValues);
-        size_t straightValues      = (_parameters.size() > values.size() ? values.size() : _parameters.size()),
-                    variadicValues      = 0;
-
-        if (values.size() > _parameters.size()) {
-                if (straightValues > 0)
-                        --straightValues;
-                variadicValues = values.size() - _parameters.size() + 1;
-        }
-        for (size_t i = 0; i < straightValues; ++i) {
-                _parameters[i].Value = values[i];
-        }
-        if (variadicValues) {
-                stringstream variadic;
-                for (size_t i = 0; i < variadicValues; ++i) {
-                        if (i) {
-                                variadic << ", ";
-                        }
-                        variadic << values[straightValues + i];
-                }
-                _parameters[_parameters.size() - 1].Value = variadic.str();
-        }
 }
 
 } // namespace myhayai

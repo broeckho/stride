@@ -17,15 +17,14 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for TestParametersDescriptor.
  */
 
-#include "myhayai/TestParameterDescriptor.hpp"
-#include "myhayai/Fixture.hpp"
-#include "myhayai/TestFactory.hpp"
+#include "Fixture.hpp"
+#include "TestFactory.hpp"
+#include "TestParameterDescriptor.hpp"
 
 #include <cstring>
 #include <sstream>
@@ -38,10 +37,13 @@ namespace myhayai {
 class TestParametersDescriptor
 {
 public:
+        ///
         TestParametersDescriptor() = default;
 
+        ///
         TestParametersDescriptor(const char* rawDeclarations, const char* rawValues);
 
+        ///
         const std::vector<TestParameterDescriptor>& Parameters() const { return _parameters; }
 
 private:

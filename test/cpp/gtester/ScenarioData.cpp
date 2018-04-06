@@ -31,7 +31,8 @@ namespace Tests {
 
 tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
 {
-        ptree pt = tag.substr(0, 2) != "r0" ? RunConfigManager::CreateTestsInfluenza_a() : RunConfigManager::CreateTestsMeasles_a();
+        ptree pt = tag.substr(0, 2) != "r0" ? RunConfigManager::CreateTestsInfluenza_a()
+                                            : RunConfigManager::CreateTestsMeasles_a();
         unsigned int target = 0U;
         double       margin = 0.1;
 

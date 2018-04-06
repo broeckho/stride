@@ -17,7 +17,6 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for FileOutputter.
@@ -75,9 +74,9 @@ protected:
         virtual Outputter* CreateOutputter(std::ostream& stream) = 0;
 
 private:
-        const char*         _path;
-        std::ofstream       _stream;
-        Outputter* _outputter;
+        const char*   _path;
+        std::ofstream _stream;
+        Outputter*    _outputter;
 };
 
-} // namespace hayai
+} // namespace myhayai

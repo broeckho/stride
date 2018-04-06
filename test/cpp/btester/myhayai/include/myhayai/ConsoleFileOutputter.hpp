@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for ConsoleFileOutputter.
  */
 
-#include "myhayai/ConsoleOutputter.hpp"
-#include "myhayai/FileOutputter.hpp"
+#include "ConsoleOutputter.hpp"
+#include "FileOutputter.hpp"
 
 namespace myhayai {
 
@@ -34,10 +33,7 @@ public:
         explicit ConsoleFileOutputter(const char* path) : FileOutputter(path) {}
 
 protected:
-        myhayai::Outputter* CreateOutputter(std::ostream& stream) override
-        {
-                return new ConsoleOutputter(stream);
-        }
+        myhayai::Outputter* CreateOutputter(std::ostream& stream) override { return new ConsoleOutputter(stream); }
 };
 
-} // namespace hayai
+} // namespace myhayai

@@ -17,7 +17,6 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for Outputter.
@@ -35,6 +34,9 @@ namespace myhayai {
 class Outputter
 {
 public:
+        /// Base so needs to be virtual.
+        virtual ~Outputter() = default;
+
         /// Begin benchmarking. The total number of benchmarks registred is the
         /// sum of the two counts passed to the outputter.
         /// @param enabledCount Number of benchmarks to be executed.
@@ -70,9 +72,6 @@ public:
         /// @param iterationsCount Number of iterations per run.
         virtual void SkipDisabledTest(const std::string& fixtureName, const std::string& testName,
                                       const TestParametersDescriptor& parameters, const std::size_t& runsCount) = 0;
-
-        ///
-        virtual ~Outputter() = default;
 
 protected:
         /// Write a nicely formatted test name to a stream.

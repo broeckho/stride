@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for TestParameterDescriptor.
  */
 
-#include "myhayai/Fixture.hpp"
-#include "myhayai/TestFactory.hpp"
+#include "Fixture.hpp"
+#include "TestFactory.hpp"
 
 #include <string>
 #include <utility>

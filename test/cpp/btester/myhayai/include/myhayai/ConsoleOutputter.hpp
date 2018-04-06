@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for ConsoleOutputter.
  */
 
-#include "myhayai/Console.hpp"
-#include "myhayai/Outputter.hpp"
+#include "Console.hpp"
+#include "Outputter.hpp"
 
 #include <iomanip>
 

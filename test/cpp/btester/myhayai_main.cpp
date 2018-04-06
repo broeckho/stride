@@ -1,5 +1,5 @@
-#include "myhayai/MainRunner.hpp"
 #include "myhayai/Benchmarker.hpp"
+#include "myhayai/MainRunner.hpp"
 #include "myhayai/TestFactoryDefault.hpp"
 
 #include <cstddef>
@@ -9,12 +9,7 @@
 using namespace std;
 using namespace myhayai;
 
-
-
-inline void msleep(unsigned int duration)
-{
-        usleep(duration * 1000);
-}
+inline void msleep(unsigned int duration) { usleep(duration * 1000); }
 
 /// Delivery man.
 class DeliveryMan
@@ -22,14 +17,14 @@ class DeliveryMan
 public:
         /// Initialize a delivery man instance.
         /// @param speed Delivery man speed from 1 to 10.
-        explicit DeliveryMan(std::size_t speed) :   _speed(speed) {}
+        explicit DeliveryMan(std::size_t speed) : _speed(speed) {}
 
         /// Deliver a package.
         /// @param distance Distance the package has to travel.
         void DeliverPackage(std::size_t distance)
         {
                 // Waste some clock cycles here.
-                std::size_t largeNumber = 10000u * distance / _speed;
+                std::size_t          largeNumber = 10000u * distance / _speed;
                 volatile std::size_t targetNumber;
                 while (largeNumber--)
                         targetNumber = largeNumber;
@@ -39,13 +34,12 @@ private:
         std::size_t _speed; ///< Delivery man speed from 1 to 10.
 };
 
-template<unsigned int N>
+template <unsigned int N>
 class SleepTest : public Fixture
 {
 public:
         void TestBody() override { msleep(N); }
 };
-
 
 class PackageTest : public Fixture
 {
@@ -59,8 +53,12 @@ public:
         SlowDeliveryManFixture() : SlowDeliveryMan(nullptr) {}
         void SetUp() override { this->SlowDeliveryMan = new DeliveryMan(1); }
         void TearDown() override { delete this->SlowDeliveryMan; }
-        void DoThis(unsigned int m, unsigned int n) { msleep(m); SlowDeliveryMan->DeliverPackage(n); }
-        void DoThat(unsigned int n) { SlowDeliveryMan->DeliverPackage(2*n); }
+        void DoThis(unsigned int m, unsigned int n)
+        {
+                msleep(m);
+                SlowDeliveryMan->DeliverPackage(n);
+        }
+        void DoThat(unsigned int n) { SlowDeliveryMan->DeliverPackage(2 * n); }
 
         DeliveryMan* SlowDeliveryMan;
 };
@@ -77,16 +75,18 @@ public:
         void TestBody() override { DoThat(8); }
 };
 
-
-
 class ParamDeliveryManFixture : public Fixture
 {
 public:
         ParamDeliveryManFixture() : SlowDeliveryMan(nullptr) {}
         void SetUp() override { this->SlowDeliveryMan = new DeliveryMan(1); }
         void TearDown() override { delete this->SlowDeliveryMan; }
-        void DoThis(unsigned int m, unsigned int n) { msleep(m); SlowDeliveryMan->DeliverPackage(n); }
-        void DoThat(unsigned int n) { SlowDeliveryMan->DeliverPackage(2*n); }
+        void DoThis(unsigned int m, unsigned int n)
+        {
+                msleep(m);
+                SlowDeliveryMan->DeliverPackage(n);
+        }
+        void DoThat(unsigned int n) { SlowDeliveryMan->DeliverPackage(2 * n); }
 
         DeliveryMan* SlowDeliveryMan;
 };
@@ -96,8 +96,8 @@ class ParamTest : public Fixture
 public:
         ParamTest() : SlowDeliveryMan(nullptr) {}
         ~ParamTest() override = default;
-        void SetUp() override { this->SlowDeliveryMan = new DeliveryMan(1); }
-        void TearDown() override { delete this->SlowDeliveryMan; }
+        void         SetUp() override { this->SlowDeliveryMan = new DeliveryMan(1); }
+        void         TearDown() override { delete this->SlowDeliveryMan; }
         DeliveryMan* SlowDeliveryMan;
 
 protected:
@@ -108,8 +108,14 @@ protected:
         }
 };
 
-struct P1 : public ParamTest { void TestBody() override { this->TestPayload(1, 10); }};
-struct P2 : public ParamTest { void TestBody() override { this->TestPayload(7, 3); }};
+struct P1 : public ParamTest
+{
+        void TestBody() override { this->TestPayload(1, 10); }
+};
+struct P2 : public ParamTest
+{
+        void TestBody() override { this->TestPayload(7, 3); }
+};
 
 int main(int argc, char** argv)
 {
@@ -119,10 +125,8 @@ int main(int argc, char** argv)
                                   TestParametersDescriptor());
         Benchmarker::RegisterTest("Delivery", "Delivery100", 10, new TestFactoryDefault<PackageTest>(),
                                   TestParametersDescriptor());
-        Benchmarker::RegisterTest("DoTest", "Do1", 10, new TestFactoryDefault<Do1Test>(),
-                                  TestParametersDescriptor());
-        Benchmarker::RegisterTest("DoTest", "Do2", 5, new TestFactoryDefault<Do2Test>(),
-                                  TestParametersDescriptor());
+        Benchmarker::RegisterTest("DoTest", "Do1", 10, new TestFactoryDefault<Do1Test>(), TestParametersDescriptor());
+        Benchmarker::RegisterTest("DoTest", "Do2", 5, new TestFactoryDefault<Do2Test>(), TestParametersDescriptor());
         Benchmarker::RegisterTest("ParameTest", "P1", 5, new TestFactoryDefault<P1>(),
                                   TestParametersDescriptor("(std::size_t duration, std::size_t distance)", "(1, 10)"));
         Benchmarker::RegisterTest("ParameTest", "P2", 5, new TestFactoryDefault<P2>(),
@@ -139,4 +143,3 @@ int main(int argc, char** argv)
         // Execute based on the selected mode.
         return runner.Run();
 }
-

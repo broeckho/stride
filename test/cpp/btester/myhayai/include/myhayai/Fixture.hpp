@@ -17,14 +17,13 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for Fixture.
  */
 
-#include "myhayai/Clock.hpp"
-#include "myhayai/TestResult.hpp"
+#include "Clock.hpp"
+#include "TestResult.hpp"
 
 #include <cstddef>
 
@@ -32,8 +31,7 @@ namespace myhayai {
 
 /// Base test class.
 /// @ref SetUp is invoked before each run, and @ref TearDown is invoked
-/// once the run is finished. Iterations rely on the same fixture
-/// for every run.
+/// once the run is finished.
 /// The default test class does not contain any actual code in the
 /// SetUp and TearDown methods, which means that tests can inherit
 /// this class directly for non-fixture based benchmarking tests.

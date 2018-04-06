@@ -47,23 +47,24 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine          cmd("stride", ' ', "1.0", false);
-
+                CmdLine cmd("stride", ' ', "1.0", false);
 
                 vector<string>           execs{"clean_config", "sim"};
                 ValuesConstraint<string> vc(execs);
                 ValueArg<string>         exec("", "exec", "Execute the specified function.", false, "sim", &vc, cmd);
-                MultiArg<string> override_Arg("", "override", "Override config parameters. Format --override <name>=<value>",
-                                              false, "<NAME>=<VALUE>", cmd);
-                ValueArg<string> config_file_Arg("", "config", "File with the run configuration parameters.", false, "run_default.xml",
-                                                 "CONFIGURATION FILE", cmd);
-                SwitchArg installed_config_Arg("", "installed_config", "Look for config file in install directories", cmd, true);
+                MultiArg<string>         override_Arg("", "override",
+                                              "Override config parameters. Format --override <name>=<value>", false,
+                                              "<NAME>=<VALUE>", cmd);
+                ValueArg<string> config_file_Arg("", "config", "File with the run configuration parameters.", false,
+                                                 "run_default.xml", "CONFIGURATION FILE", cmd);
+                SwitchArg installed_config_Arg("", "installed_config", "Look for config file in install directories",
+                                               cmd, true);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
                 // Full configuration filename.
                 // -----------------------------------------------------------------------------------------
-                const auto                    config_fn        = config_file_Arg.getValue();
+                const auto                    config_fn = config_file_Arg.getValue();
                 const boost::filesystem::path config_p =
                     (installed_config_Arg.getValue()) ? FileSys::GetConfigDir() /= config_fn : config_fn;
 
@@ -71,9 +72,9 @@ int main(int argc, char** argv)
                 // If run simulation ...
                 // -----------------------------------------------------------------------------------------
                 if (exec.getValue() == "sim") {
-                        
+
                         // Read configuration and patch it with the overrides (if any).
-                        auto pt = FileSys::ReadPtreeFile(config_p);
+                        auto                          pt = FileSys::ReadPtreeFile(config_p);
                         vector<tuple<string, string>> p_overrides;
                         const auto                    p_vec = override_Arg.getValue();
                         for (const auto& p_assignment : p_vec) {
@@ -86,7 +87,7 @@ int main(int argc, char** argv)
                                 pt.put("run.output_prefix", output_prefix);
                         }
                         pt.sort();
-                        
+
                         // Setup controller, run simulation.
                         CliController cntrl(pt);
                         cntrl.Setup();

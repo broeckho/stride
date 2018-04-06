@@ -17,15 +17,14 @@
  *  The original copyright, to be found in the directory two levels higher
  *  still aplies.
  */
-
 /**
  * @file
  * Header file for TestDescriptor.
  */
 
-#include "myhayai/Fixture.hpp"
-#include "myhayai/TestFactory.hpp"
-#include "myhayai/TestParametersDescriptor.hpp"
+#include "Fixture.hpp"
+#include "TestFactory.hpp"
+#include "TestParametersDescriptor.hpp"
 
 #include <cstring>
 #include <sstream>
@@ -35,9 +34,8 @@
 namespace myhayai {
 
 /// Test descriptor.
-class TestDescriptor
+struct TestDescriptor
 {
-public:
         /// Initialize a new test descriptor.
         /// @param fixtureName Name of the fixture.
         /// @param testName Name of the test.
