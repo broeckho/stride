@@ -26,6 +26,7 @@
 #include "TestResult.hpp"
 
 #include <cstddef>
+#include <functional>
 
 namespace myhayai {
 
@@ -35,6 +36,35 @@ namespace myhayai {
 /// The default test class does not contain any actual code in the
 /// SetUp and TearDown methods, which means that tests can inherit
 /// this class directly for non-fixture based benchmarking tests.
+
+struct Fixture
+{
+        explicit Fixture(std::function<void()> body = std::function<void()>(),
+                        std::function<void()> setup = std::function<void()>(),
+                        std::function<void()> teardown = std::function<void()>())
+                        : m_body(std::move(body)), m_setup(std::move(setup)), m_teardown(std::move(teardown)) {}
+
+        uint64_t Run()
+        {
+                if(m_setup) {
+                        m_setup();
+                }
+                Clock::TimePoint startTime = Clock::Now();
+                if (m_body) {
+                        m_body();
+                }
+                Clock::TimePoint endTime = Clock::Now();
+                if (m_teardown){
+                        m_teardown();
+                }
+                return Clock::Duration(startTime, endTime);
+        }
+
+        std::function<void()> m_body;
+        std::function<void()> m_setup;
+        std::function<void()> m_teardown;
+};
+  /*
 class Fixture
 {
 public:
@@ -63,5 +93,5 @@ protected:
         /// Test body.
         virtual void TestBody() {}
 };
-
+*/
 } // namespace myhayai

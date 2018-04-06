@@ -68,7 +68,8 @@ public:
         /// @returns a pointer to a @ref TestDescriptor instance
         /// representing the given test.
         static TestDescriptor* RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
-                                            TestFactory* testFactory, TestParametersDescriptor parameters);
+                                            TestFactory* testFactory,
+                                            TestParametersDescriptor parameters = TestParametersDescriptor());
         /// Run all benchmarking tests.
         static void RunAllTests();
 

@@ -33,7 +33,6 @@ class TestFactoryDefault : public TestFactory
 {
 public:
         /// Create a test instance with no constructor parameters.
-
         /// @returns a pointer to an initialized test.
         virtual Fixture* CreateTest() { return new T(); }
 };
