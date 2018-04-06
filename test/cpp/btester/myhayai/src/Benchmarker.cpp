@@ -24,8 +24,9 @@
 #include "myhayai/Benchmarker.hpp"
 
 #include "myhayai/ConsoleOutputter.hpp"
-#include "myhayai/TestDescriptor.hpp"
+#include "myhayai/Fixture.hpp"
 #include "myhayai/TestFactory.hpp"
+#include "myhayai/TestParametersDescriptor.hpp"
 #include "myhayai/TestResult.hpp"
 
 #include <algorithm>

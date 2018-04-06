@@ -24,21 +24,10 @@
  */
 
 #include "Benchmarker.hpp"
-#include "ConsoleFileOutputter.hpp"
-#include "ConsoleOutputter.hpp"
+#include "FileOutputter.hpp"
 #include "Fixture.hpp"
-#include "JUnitXmlFileOutputter.hpp"
-#include "JsonFileOutputter.hpp"
-#include "JsonOutputter.hpp"
-#include "JunitXmlOutputter.hpp"
+#include "Outputter.hpp"
 
-#include <algorithm>
-#include <cerrno>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <fstream>
-#include <set>
 #include <vector>
 
 namespace myhayai {

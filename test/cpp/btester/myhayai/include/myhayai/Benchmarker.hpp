@@ -25,6 +25,7 @@
 #include "ConsoleOutputter.hpp"
 #include "TestDescriptor.hpp"
 #include "TestFactory.hpp"
+#include "TestParametersDescriptor.hpp"
 #include "TestResult.hpp"
 
 #include <algorithm>
@@ -68,7 +69,7 @@ public:
         /// @returns a pointer to a @ref TestDescriptor instance
         /// representing the given test.
         static TestDescriptor* RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
-                                            TestFactory* testFactory,
+                                            TestFactory*             testFactory,
                                             TestParametersDescriptor parameters = TestParametersDescriptor());
         /// Run all benchmarking tests.
         static void RunAllTests();

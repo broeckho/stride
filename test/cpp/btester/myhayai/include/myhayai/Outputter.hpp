@@ -22,7 +22,7 @@
  * Header file for Outputter.
  */
 
-#include "TestDescriptor.hpp"
+#include "TestParametersDescriptor.hpp"
 #include "TestResult.hpp"
 
 #include <cstddef>

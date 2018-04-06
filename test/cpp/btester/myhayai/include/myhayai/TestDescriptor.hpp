@@ -22,7 +22,6 @@
  * Header file for TestDescriptor.
  */
 
-#include "Fixture.hpp"
 #include "TestFactory.hpp"
 #include "TestParametersDescriptor.hpp"
 

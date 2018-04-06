@@ -22,9 +22,9 @@
  * Header file for TestFactory.
  */
 
-#include "Fixture.hpp"
-
 namespace myhayai {
+
+class Fixture;
 
 /// Base class for test factory implementations.
 class TestFactory

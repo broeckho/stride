@@ -23,11 +23,13 @@
  */
 
 #include "Outputter.hpp"
+#include "TestParametersDescriptor.hpp"
 
 #include <iomanip>
 #include <map>
 #include <ostream>
 #include <sstream>
+#include <string>
 #include <vector>
 
 namespace myhayai {

@@ -39,14 +39,16 @@ namespace myhayai {
 
 struct Fixture
 {
-        explicit Fixture(std::function<void()> body = std::function<void()>(),
-                        std::function<void()> setup = std::function<void()>(),
-                        std::function<void()> teardown = std::function<void()>())
-                        : m_body(std::move(body)), m_setup(std::move(setup)), m_teardown(std::move(teardown)) {}
+        explicit Fixture(std::function<void()> body     = std::function<void()>(),
+                         std::function<void()> setup    = std::function<void()>(),
+                         std::function<void()> teardown = std::function<void()>())
+            : m_body(std::move(body)), m_setup(std::move(setup)), m_teardown(std::move(teardown))
+        {
+        }
 
         uint64_t Run()
         {
-                if(m_setup) {
+                if (m_setup) {
                         m_setup();
                 }
                 Clock::TimePoint startTime = Clock::Now();
@@ -54,7 +56,7 @@ struct Fixture
                         m_body();
                 }
                 Clock::TimePoint endTime = Clock::Now();
-                if (m_teardown){
+                if (m_teardown) {
                         m_teardown();
                 }
                 return Clock::Duration(startTime, endTime);
@@ -64,34 +66,5 @@ struct Fixture
         std::function<void()> m_setup;
         std::function<void()> m_teardown;
 };
-  /*
-class Fixture
-{
-public:
-        /// Set up the testing fixture for execution of a run.
-        virtual void SetUp() {}
 
-        /// Tear down the previously set up testing fixture after the execution run.
-        virtual void TearDown() {}
-
-        /// Run the test.
-        /// @returns the number of nanoseconds the run took.
-        uint64_t Run()
-        {
-                SetUp();
-                Clock::TimePoint startTime = Clock::Now();
-                TestBody();
-                Clock::TimePoint endTime = Clock::Now();
-                TearDown();
-                return Clock::Duration(startTime, endTime);
-        }
-
-        ///
-        virtual ~Fixture() = default;
-
-protected:
-        /// Test body.
-        virtual void TestBody() {}
-};
-*/
 } // namespace myhayai
