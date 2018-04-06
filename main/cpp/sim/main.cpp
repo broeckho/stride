@@ -65,7 +65,7 @@ int main(int argc, char** argv)
                 // Full configuration filename.
                 // -----------------------------------------------------------------------------------------
                 const auto                    config_fn = config_file_Arg.getValue();
-                const boost::filesystem::path config_p =
+                const boost::filesystem::path config_fp =
                     (installed_config_Arg.getValue()) ? FileSys::GetConfigDir() /= config_fn : config_fn;
 
                 // -----------------------------------------------------------------------------------------
@@ -74,17 +74,13 @@ int main(int argc, char** argv)
                 if (exec.getValue() == "sim") {
 
                         // Read configuration and patch it with the overrides (if any).
-                        auto                          pt = FileSys::ReadPtreeFile(config_p);
-                        vector<tuple<string, string>> p_overrides;
-                        const auto                    p_vec = override_Arg.getValue();
-                        for (const auto& p_assignment : p_vec) {
+                        auto pt = FileSys::ReadPtreeFile(config_fp);
+                        for (const auto& p_assignment : override_Arg.getValue()) {
                                 const auto v = util::Tokenize(p_assignment, "=");
                                 pt.put("run." + v[0], v[1]);
                         }
-                        auto output_prefix = pt.get<string>("run.output_prefix", "");
-                        if (output_prefix.empty()) {
-                                output_prefix = TimeStamp().ToTag() + "/";
-                                pt.put("run.output_prefix", output_prefix);
+                        if (pt.get<string>("run.output_prefix", "").empty()) {
+                                pt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
                         pt.sort();
 
@@ -97,7 +93,7 @@ int main(int argc, char** argv)
                 // If clean an configuration file
                 // -----------------------------------------------------------------------------------------
                 else if (exec.getValue() == "clean_config") {
-                        RunConfigManager::CleanConfigFile(config_p);
+                        RunConfigManager::CleanConfigFile(config_fp);
                 }
 
         } catch (exception& e) {

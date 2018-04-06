@@ -44,7 +44,7 @@ SimRunner::SimRunner()
 {
 }
 
-bool SimRunner::Setup(const ptree& run_config_pt)
+bool SimRunner::Setup(const ptree& config_pt)
 {
         Notify({shared_from_this(), Id::SetupBegin});
 
@@ -53,7 +53,7 @@ bool SimRunner::Setup(const ptree& run_config_pt)
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
         bool status     = true;
-        m_config_pt     = run_config_pt;
+        m_config_pt     = config_pt;
         m_log_level     = m_config_pt.get<string>("run.stride_log_level", "info");
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 

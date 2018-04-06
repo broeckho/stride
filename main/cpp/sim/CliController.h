@@ -55,12 +55,7 @@ class CliController
 {
 public:
         /// Straight initialization.
-        CliController(std::string config_file, std::vector<std::tuple<std::string, std::string>> p_overrides,
-                      bool track_index_case = false, std::string stride_log_level = "info",
-                      bool use_install_dirs = true);
-
-        /// Straight initialization.
-        CliController(const boost::property_tree::ptree& config_pt);
+        explicit CliController(const boost::property_tree::ptree& config_pt);
 
         /// Actual run of the simulator.
         void Execute();
