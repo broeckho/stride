@@ -48,10 +48,9 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
                         max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
                 }
         }
-
         // --------------------------------------------------------------
-        // Keep separate id counter to provide a unique id for every contactpool.
-        // Start at 1 (see next item for pool_id==0).
+        // Keep separate id counter to provide a unique id for every
+        // contactpool. Start at 1 (see next item for pool_id==0).
         // --------------------------------------------------------------
         unsigned int c_id = 1;
         for (Id typ : IdList) {
@@ -60,10 +59,10 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
                         c_id++;
                 }
         }
-
         // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools.
-        // Having contactpool id '0' means "not present in any pool of that type".
+        // Insert persons (pointers) in their contactpools. Having
+        // contactpool id '0' means "not belonging pool of that type"
+        // (school / work - belong to both).
         // --------------------------------------------------------------
         for (auto& p : population) {
                 for (Id typ : IdList) {
@@ -73,7 +72,6 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
                         }
                 }
         }
-
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------

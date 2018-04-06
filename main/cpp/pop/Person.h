@@ -99,7 +99,9 @@ private:
         char         m_gender; ///< The gender.
 
         using PoolIds = ContactPoolType::IdSubscriptArray<unsigned int>;
-        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) the person belongs to.
+        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) you belong to.
+                            ///< Id value 0 means does not belong to any of that type (e.g. school
+                            ///< and work are mutually exclusive.
 
         using InPools = ContactPoolType::IdSubscriptArray<bool>;
         InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
