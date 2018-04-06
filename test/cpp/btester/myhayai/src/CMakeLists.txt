@@ -25,6 +25,7 @@ set(SRC
     ../include/myhayai/Console.hpp
     ../include/myhayai/ConsoleFileOutputter.hpp
     ../include/myhayai/ConsoleOutputter.hpp
+    ../include/myhayai/FileOutputter.hpp
     ../include/myhayai/Fixture.hpp
     ../include/myhayai/JsonOutputter.hpp
     ../include/myhayai/JsonFileOutputter.hpp
@@ -45,6 +46,7 @@ set(SRC
 #
     Benchmarker.cpp
     ConsoleOutputter.cpp
+    FileOutputter.cpp
     JsonOutputter.cpp
     JUnitXmlOutputter.cpp
     Outputter.cpp

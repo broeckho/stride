@@ -42,21 +42,21 @@ struct TestDescriptor
         /// @param iterations Number of iterations per run.
         /// @param testFactory Test factory implementation for the test.
         /// @param parameters Parametrized test parameters.
-        TestDescriptor(const char* fixtureName, const char* testName, std::size_t runs, TestFactory* testFactory,
+        TestDescriptor(const char* fixtureName, const char* testName, std::size_t runs, TestFactory testFactory,
                        TestParametersDescriptor parameters, bool isDisabled = false)
             : FixtureName(fixtureName), TestName(testName), CanonicalName(std::string(fixtureName) + "." + testName),
-              Runs(runs), Factory(testFactory), Parameters(parameters), IsDisabled(isDisabled)
+              Runs(runs), Factory(std::move(testFactory)), Parameters(std::move(parameters)), IsDisabled(isDisabled)
         {
         }
 
         /// Dispose of a test descriptor.
-        ~TestDescriptor() { delete this->Factory; }
+        //~TestDescriptor() { delete this->Factory; }
 
         std::string              FixtureName;   ///< Fixture name.
         std::string              TestName;      ///< Test name.
         std::string              CanonicalName; ///< Canonical name: <FixtureName>.<TestName>.
         std::size_t              Runs;          ///< Test runs.
-        TestFactory*             Factory;       ///< Test factory.
+        TestFactory              Factory;       ///< Test factory.
         TestParametersDescriptor Parameters;    ///< Parameters for parametrized tests
         bool                     IsDisabled;    ///< Disabled.
 };

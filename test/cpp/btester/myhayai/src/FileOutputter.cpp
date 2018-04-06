@@ -1,4 +1,4 @@
-#pragma once
+
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,23 +19,43 @@
  */
 /**
  * @file
- * Header file for TestFactoryDefault.
+ * Implementation file for FileOutputter.
  */
 
-#include "TestFactory.hpp"
+#include "myhayai/FileOutputter.hpp"
+
+#include <fstream>
 
 namespace myhayai {
-/// Default test factory implementation. Simply constructs an instance
-/// of a the test of class @ref T with no constructor parameters.
-/// @tparam T Test class.
-/*
-template <class T>
-class TestFactoryDefault : public TestFactory
+
+FileOutputter::~FileOutputter()
 {
-public:
-        /// Create a test instance with no constructor parameters.
-        /// @returns a pointer to an initialized test.
-        virtual Fixture* CreateTest() { return new T(); }
-};
- */
+        if (_outputter) {
+                delete _outputter;
+        }
+        _stream.close();
+}
+
+/// Set up.
+/// Opens the output file for writing and initializes the outputter.
+void FileOutputter::SetUp()
+{
+        _stream.open(_path, std::ios_base::out | std::ios_base::trunc | std::ios_base::binary);
+        if (_stream.bad()) {
+                std::stringstream error;
+                error << "failed to open " << _path << " for writing: " << strerror(errno);
+                throw std::runtime_error(error.str());
+        }
+        _outputter = CreateOutputter(_stream);
+}
+
+/// Outputter.
+Outputter& FileOutputter::GetOutputter()
+{
+        if (!_outputter) {
+                throw std::runtime_error("outputter has not been set up");
+        }
+        return *_outputter;
+}
+
 } // namespace myhayai

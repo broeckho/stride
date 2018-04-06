@@ -100,11 +100,8 @@ void JsonOutputter::EndTest(const std::string& fixtureName, const std::string& t
 }
 
 void JsonOutputter::BeginTestObject(const std::string& fixtureName, const std::string& testName,
-                                    const TestParametersDescriptor& parameters, const std::size_t& runsCount,
-                                    bool disabled)
+                                    const TestParametersDescriptor& parameters, const std::size_t&, bool disabled)
 {
-        (void)runsCount;
-
         if (_firstTest)
                 _firstTest = false;
         else
@@ -149,7 +146,7 @@ void JsonOutputter::BeginTestObject(const std::string& fixtureName, const std::s
                 << (disabled ? JSON_TRUE : JSON_FALSE);
 }
 
-inline void JsonOutputter::EndTestObject() { _stream << JSON_OBJECT_END; }
+void JsonOutputter::EndTestObject() { _stream << JSON_OBJECT_END; }
 
 void JsonOutputter::WriteString(const std::string& str)
 {

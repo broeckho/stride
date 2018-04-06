@@ -141,7 +141,7 @@ bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
 }
 
 TestDescriptor* Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t runs,
-                                          TestFactory* testFactory, TestParametersDescriptor parameters)
+                                          TestFactory testFactory, TestParametersDescriptor parameters)
 {
         // Determine if the test has been disabled.
         static const char* disabledPrefix = "DISABLED_";
@@ -152,7 +152,7 @@ TestDescriptor* Benchmarker::RegisterTest(const char* fixtureName, const char* t
 
         // Add the descriptor.
         TestDescriptor* descriptor =
-            new TestDescriptor(fixtureName, testName, runs, testFactory, parameters, isDisabled);
+            new TestDescriptor(fixtureName, testName, runs, std::move(testFactory), std::move(parameters), isDisabled);
         Instance()._tests.push_back(descriptor);
         return descriptor;
 }
@@ -166,10 +166,10 @@ void Benchmarker::RunAllTests()
         vector<Outputter*>& outputters = (instance._outputters.empty() ? defaultOutputters : instance._outputters);
 
         // Get the tests for execution.
-        vector<TestDescriptor*>                 tests         = instance.GetTests();
-        const size_t                            totalCount    = tests.size();
-        size_t                                  disabledCount = 0;
-        vector<TestDescriptor*>::const_iterator testsIt       = tests.begin();
+        auto         tests         = instance.GetTests();
+        const size_t totalCount    = tests.size();
+        size_t       disabledCount = 0;
+        auto         testsIt       = tests.cbegin();
 
         while (testsIt != tests.end()) {
                 if ((*testsIt)->IsDisabled)
@@ -179,8 +179,8 @@ void Benchmarker::RunAllTests()
         const size_t enabledCount = totalCount - disabledCount;
 
         // Begin output.
-        for (size_t outputterIndex = 0; outputterIndex < outputters.size(); outputterIndex++) {
-                outputters[outputterIndex]->Begin(enabledCount, disabledCount);
+        for (auto& o : outputters) {
+                o->Begin(enabledCount, disabledCount);
         }
 
         // Run through all the tests in ascending order.
@@ -190,7 +190,7 @@ void Benchmarker::RunAllTests()
                 TestDescriptor* descriptor = tests[index++];
 
                 // Check if test matches include filters
-                if (instance._include.size() > 0) {
+                if (!instance._include.empty()) {
                         bool   included = false;
                         string name     = descriptor->FixtureName + "." + descriptor->TestName;
                         for (size_t i = 0; i < instance._include.size(); i++) {
@@ -221,10 +221,9 @@ void Benchmarker::RunAllTests()
                 vector<uint64_t> runTimes(descriptor->Runs);
                 size_t           run = 0;
                 while (run < descriptor->Runs) {
-                        Fixture* test = descriptor->Factory->CreateTest();
-                        uint64_t time = test->Run();
+                        Fixture  test = descriptor->Factory();
+                        uint64_t time = test.Run();
                         runTimes[run] = time;
-                        delete test;
                         ++run;
                 }
 

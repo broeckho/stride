@@ -41,7 +41,7 @@ class DeliveryMan
 public:
         /// Initialize a delivery man instance.
         /// @param speed Delivery man speed from 1 to 10.
-        explicit DeliveryMan(std::size_t speed) : _speed(speed) {}
+        explicit DeliveryMan(std::size_t speed = 1) : _speed(speed) {}
 
         /// Deliver a package.
         /// @param distance Distance the package has to travel.
@@ -68,27 +68,27 @@ private:
 };
 
 template <unsigned int N>
-class SleepTestFactory : public TestFactory
+class SleepTestFactory
 {
 public:
-        Fixture* CreateTest()
+        Fixture operator()()
         {
-                return new Fixture([]() { msleep(N); });
+                return Fixture([]() { msleep(N); });
         }
 };
 
-class ParamTestFactory : public TestFactory
+class ParamTestFactory
 {
 public:
         ParamTestFactory(size_t distance, size_t duration) : m_distance(distance), m_duration(duration) {}
-        Fixture* CreateTest() override
+        Fixture operator()()
         {
                 auto p    = make_shared<DeliveryMan>(1);
                 auto body = [p, this]() {
                         msleep(m_duration);
                         p->DeliverPackage(m_distance);
                 };
-                return new Fixture(body);
+                return Fixture(body);
         }
 
 private:
@@ -114,20 +114,20 @@ public:
         DeliveryMan* m_man;
 };
 
-class Param2TestFactory : public TestFactory
+class Param2TestFactory
 {
 public:
         Param2TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
             : m_distance(distance), m_duration(duration), m_speed(speed)
         {
         }
-        Fixture* CreateTest() override
+        Fixture operator()()
         {
                 auto f        = make_shared<VerySlowDeliveryManFixture>();
                 auto body     = [f, this]() { f->DoThis(m_duration, m_distance); };
                 auto setup    = [f, this]() { f->SetUp(m_speed); };
                 auto teardown = [f]() { f->TearDown(); };
-                return new Fixture(body, setup, teardown);
+                return Fixture(body, setup, teardown);
         }
 
 private:
@@ -136,20 +136,20 @@ private:
         unsigned int m_speed;
 };
 
-class Param3TestFactory : public TestFactory
+class Param3TestFactory
 {
 public:
         Param3TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
             : m_distance(distance), m_duration(duration), m_speed(speed)
         {
         }
-        Fixture* CreateTest() override
+        Fixture operator()()
         {
                 auto f        = make_shared<VerySlowDeliveryManFixture>();
                 auto body     = bind(&VerySlowDeliveryManFixture::DoThis, f, m_duration, m_distance);
                 auto setup    = bind(&VerySlowDeliveryManFixture::SetUp, f, m_speed);
                 auto teardown = bind(&VerySlowDeliveryManFixture::TearDown, f);
-                return new Fixture(body, setup, teardown);
+                return Fixture(body, setup, teardown);
         }
 
 private:
@@ -158,14 +158,14 @@ private:
         unsigned int m_speed;
 };
 
-class Param4TestFactory : public TestFactory
+class Param4TestFactory
 {
 public:
         Param4TestFactory(unsigned int distance, unsigned int duration, unsigned int number, unsigned int speed)
             : m_distance(distance), m_duration(duration), m_number(number), m_speed(speed)
         {
         }
-        Fixture* CreateTest() override
+        Fixture operator()()
         {
                 auto p     = make_shared<DeliveryMan>(m_speed);
                 auto body  = bind(&DeliveryMan::Prepare, p, m_number);
@@ -173,7 +173,7 @@ public:
                         msleep(m_duration);
                         bind(&DeliveryMan::Prepare, p, m_distance);
                 };
-                return new Fixture(body, setup);
+                return Fixture(body, setup);
         }
 
 private:
@@ -185,19 +185,48 @@ private:
 
 int main(int argc, char** argv)
 {
-        Benchmarker::RegisterTest("Sleeper", "Sleep1ms", 5, new SleepTestFactory<10>);
+        Benchmarker::RegisterTest("Sleeper", "Sleepms", 5, SleepTestFactory<10>());
 
-        Benchmarker::RegisterTest("Delivery", "Param with distance=12,duration=10", 5, new ParamTestFactory(12, 10));
-        Benchmarker::RegisterTest("Delivery", "Param with distance=5,duration=8", 5, new ParamTestFactory(5, 8));
+        Benchmarker::RegisterTest("Sleeper", "Sleepms", 5, []() { return Fixture([]() { msleep(10); }); });
 
-        Benchmarker::RegisterTest("Delivery", "Param2 with distance=5,duration=8, speed=3", 10,
-                                  new Param2TestFactory(5, 8, 3));
+        Benchmarker::RegisterTest("Delivery", "Param - distance=12,duration=10", 5, ParamTestFactory(12, 10));
 
-        Benchmarker::RegisterTest("Delivery", "Param3 with distance=5, duration=8, speed=3", 10,
-                                  new Param3TestFactory(5, 8, 3));
+        Benchmarker::RegisterTest("Delivery", "Param with distance=12, duration=10", 5, []() {
+                return Fixture([]() {
+                        msleep(10);
+                        DeliveryMan(1).DeliverPackage(12);
+                });
+        });
 
-        Benchmarker::RegisterTest("Delivery", "Param4 with distance=5, duration=8, number=2, speed=3", 10,
-                                  new Param4TestFactory(5, 8, 10, 3));
+        Benchmarker::RegisterTest("Delivery", "Param2 - distance=5, duration=8, speed=3", 10,
+                                  Param2TestFactory(5, 8, 3));
+
+        auto param2_factory = []() {
+                auto p = make_shared<DeliveryMan>();
+                return Fixture(
+                    [p]() {
+                            msleep(8);
+                            p->DeliverPackage(5);
+                    },
+                    [p]() { *p = DeliveryMan(3); });
+        };
+        Benchmarker::RegisterTest("Delivery", "Param2 - distance=5,duration=8, speed=3", 10, param2_factory);
+
+        auto param2_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
+                return [distance, duration, speed]() {
+                        auto p = make_shared<DeliveryMan>();
+                        return Fixture(
+                            [p, duration, distance]() {
+                                    msleep(duration);
+                                    p->DeliverPackage(distance);
+                            },
+                            [p, speed]() { *p = DeliveryMan(speed); });
+                };
+        };
+        Benchmarker::RegisterTest("Delivery", "Param2 - distance=500, duration=800, speed=1", 10,
+                                  param2_factory_builder(500, 800, 1));
+        Benchmarker::RegisterTest("Delivery", "Param2 - distance=1, duration=1, speed=1", 10,
+                                  param2_factory_builder(1, 1, 1));
 
         // Set up the main runner.
         MainRunner runner;

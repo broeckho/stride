@@ -22,10 +22,15 @@
  * Header file for TestFactory.
  */
 
+#include "Fixture.hpp"
+
+#include <functional>
+
 namespace myhayai {
 
-class Fixture;
+using TestFactory = std::function<Fixture()>;
 
+/*
 /// Base class for test factory implementations.
 class TestFactory
 {
@@ -37,5 +42,5 @@ public:
         /// @returns a pointer to an initialized test.
         virtual Fixture* CreateTest() = 0;
 };
-
+*/
 } // namespace myhayai

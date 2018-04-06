@@ -21,8 +21,7 @@
  * @file
  * Header file for FileOutputter.
  */
-
-#include "Outputter.hpp"
+#include "myhayai/Outputter.hpp"
 
 #include <fstream>
 
@@ -33,39 +32,17 @@ class FileOutputter
 {
 public:
         /// File outputter.
-        /// @param path Output path. Expected to be available during the life
-        /// time of the outputter.
+        /// @param path Output path. Expected to be available during the life time of the outputter.
         explicit FileOutputter(const char* path) : _path(path), _outputter(nullptr) {}
 
-        virtual ~FileOutputter()
-        {
-                if (_outputter) {
-                        delete _outputter;
-                }
-                _stream.close();
-        }
+        virtual ~FileOutputter();
 
         /// Set up.
         /// Opens the output file for writing and initializes the outputter.
-        virtual void SetUp()
-        {
-                _stream.open(_path, std::ios_base::out | std::ios_base::trunc | std::ios_base::binary);
-                if (_stream.bad()) {
-                        std::stringstream error;
-                        error << "failed to open " << _path << " for writing: " << strerror(errno);
-                        throw std::runtime_error(error.str());
-                }
-                _outputter = CreateOutputter(_stream);
-        }
+        virtual void SetUp();
 
         /// Outputter.
-        virtual Outputter& GetOutputter()
-        {
-                if (!_outputter) {
-                        throw std::runtime_error("outputter has not been set up");
-                }
-                return *_outputter;
-        }
+        virtual Outputter& GetOutputter();
 
 protected:
         /// Create outputter from output stream.

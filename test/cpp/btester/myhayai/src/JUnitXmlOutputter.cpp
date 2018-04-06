@@ -45,7 +45,7 @@ void JUnitXmlOutputter::End(const std::size_t& executedCount, const std::size_t&
         (void)disabledCount;
 
         // Write the header.
-        _stream << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << std::endl << "<testsuites>" << std::endl;
+        _stream << R"(<?xml version="1.0" encoding="UTF-8"?>)" << std::endl << "<testsuites>" << std::endl;
 
         // Write out each test suite (fixture.)
         for (const auto& testSuite : _testSuites) {
