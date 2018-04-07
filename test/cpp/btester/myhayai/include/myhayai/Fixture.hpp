@@ -22,9 +22,10 @@
  * Header file for Fixture.
  */
 
-#include "Clock.hpp"
+#include "util/Stopwatch.h"
 #include "TestResult.hpp"
 
+#include <chrono>
 #include <cstddef>
 #include <functional>
 
@@ -51,15 +52,15 @@ struct Fixture
                 if (m_setup) {
                         m_setup();
                 }
-                Clock::TimePoint startTime = Clock::Now();
+                Stopwatch<> clock("bench", true);
                 if (m_body) {
                         m_body();
                 }
-                Clock::TimePoint endTime = Clock::Now();
+                clock.Stop();
                 if (m_teardown) {
                         m_teardown();
                 }
-                return Clock::Duration(startTime, endTime);
+                return std::chrono::duration_cast<uint64_t, std::nano>(clock.Get());
         }
 
         std::function<void()> m_body;

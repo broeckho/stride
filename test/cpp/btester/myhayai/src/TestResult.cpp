@@ -23,8 +23,6 @@
 
 #include "myhayai/TestResult.hpp"
 
-#include "myhayai/Clock.hpp"
-
 #include <algorithm>
 #include <cmath>
 #include <limits>
