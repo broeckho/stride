@@ -7,6 +7,6 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - make all
-          - make test
+          - make -DFORCE_NO_OPENMP=TRUE -DFORCE_NO_PYTHON -DFORCE_NO_HDF5 all
+          - make -DFORCE_NO_OPENMP=TRUE -DFORCE_NO_PYTHON -DFORCE_NO_HDF5 test
 
