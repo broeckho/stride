@@ -41,7 +41,6 @@
 #include <set>
 #include <vector>
 
-#define HAYAI_VERSION "1.0.1"
 #define HAYAI_MAIN_FORMAT_FLAG(_desc) myhayai::Console::TextGreen << _desc << myhayai::Console::TextDefault
 #define HAYAI_MAIN_FORMAT_ARGUMENT(_desc) myhayai::Console::TextYellow << _desc << myhayai::Console::TextDefault
 #define HAYAI_MAIN_FORMAT_ERROR(_desc)                                                                                 \
@@ -298,10 +297,7 @@ void MainRunner::ShowUsage(const char* execName)
              << "  " << HAYAI_MAIN_FORMAT_FLAG("-?") << ", " << HAYAI_MAIN_FORMAT_FLAG("-h") << ", "
              << HAYAI_MAIN_FORMAT_FLAG("--help") << endl
              << "    Show this help information." << endl
-             << endl
-
-             << "hayai version: " << HAYAI_VERSION << endl
-             << "Clock implementation: " << Clock::Description() << endl;
+             << endl;
 }
 
 } // namespace myhayai

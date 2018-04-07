@@ -27,6 +27,7 @@
 
 #include <chrono>
 #include <cstddef>
+#include <cstdint>
 #include <functional>
 
 namespace myhayai {
@@ -52,7 +53,7 @@ struct Fixture
                 if (m_setup) {
                         m_setup();
                 }
-                Stopwatch<> clock("bench", true);
+                stride::util::Stopwatch<> clock("bench", true);
                 if (m_body) {
                         m_body();
                 }
@@ -60,7 +61,9 @@ struct Fixture
                 if (m_teardown) {
                         m_teardown();
                 }
-                return std::chrono::duration_cast<uint64_t, std::nano>(clock.Get());
+                return static_cast<uint64_t >(
+                        std::chrono::duration_cast<std::chrono::nanoseconds>(clock.Get()).count()
+                                );
         }
 
         std::function<void()> m_body;
