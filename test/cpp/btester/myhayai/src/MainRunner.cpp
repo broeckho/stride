@@ -71,11 +71,11 @@ MainRunner::~MainRunner()
 int MainRunner::ListBenchmarks()
 {
         // List out the unique benchmark names.
-        vector<const TestDescriptor*> tests = Benchmarker::ListTests();
+        auto test_descriptors = Benchmarker::Instance().GetTests();
         vector<string>                testNames;
         set<string>                   uniqueTestNames;
 
-        for (auto it = tests.begin(); it < tests.end(); ++it) {
+        for (auto it = test_descriptors.begin(); it < test_descriptors.end(); ++it) {
                 if (uniqueTestNames.find((*it)->CanonicalName) != uniqueTestNames.end()) {
                         continue;
                 }

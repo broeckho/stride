@@ -58,8 +58,8 @@ public:
         /// benchmarker execution controller.
         static Benchmarker& Instance();
 
-        /// List tests.
-        static std::vector<const TestDescriptor*> ListTests();
+        /// Get the tests to be executed.
+        std::vector<TestDescriptor*> GetTests() const;
 
         /// Register a test with the benchmarker instance.
         /// @param fixtureName    Name of the fixture.
@@ -88,17 +88,14 @@ private:
         /// Adapted from gtest. All rights reserved by original authors.
         static bool FilterMatchesString(const char* filter, const std::string& str);
 
-        /// Get the tests to be executed.
-        std::vector<TestDescriptor*> GetTests() const;
-
         /// Test if pattern matches a string.
         /// Adapted from gtest. All rights reserved by original authors.
         static bool PatternMatchesString(const char* pattern, const char* str);
 
 private:
-        std::vector<std::string>     _include;    ///< Test filters.
-        std::vector<Outputter*>      _outputters; ///< Registered outputters.
-        std::vector<TestDescriptor*> _tests;      ///< Registered tests.
+        std::vector<std::string>     m_include_filters;  ///< Test filters.
+        std::vector<Outputter*>      m_outputters;       ///< Registered outputters.
+        std::vector<TestDescriptor*> m_test_descriptors; ///< Registered tests.
 };
 
 } // namespace myhayai
