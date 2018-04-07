@@ -17,11 +17,11 @@
 #============================================================================
 # Install the python test scripts.
 #============================================================================
-set ( SCRIPTS
+set (SCRIPTS
 	testSimple.py
 )
 
-INSTALL ( FILES
+INSTALL (FILES
 	${SCRIPTS}
 	DESTINATION ${BIN_INSTALL_LOCATION}
 )
@@ -29,14 +29,18 @@ INSTALL ( FILES
 #============================================================================
 # Define tests.
 #============================================================================
-add_test( NAME python_environment
+add_test(NAME python_environment
 	WORKING_DIRECTORY ${TESTS_DIR}
 	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
-)
+	)
+add_custom_target(run_ctest_py
+	COMMAND ctest ${CTEST_VERBOSE_OPTION} -R py* -O ${TESTS_DIR}/ctests.txt
+	WORKING_DIR ${TESTS_DIR}
+	)
 
 #============================================================================
 # Clean up.
 #============================================================================
-unset( SCRIPTS   )
+unset(SCRIPTS)
 
 #############################################################################

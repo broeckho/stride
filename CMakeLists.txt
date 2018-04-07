@@ -18,7 +18,10 @@
 #  CMake config.
 #
 #############################################################################
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.5)
+if(CMAKE_VERSION VERSION_LESS 3.8)
+	set(STRIDE_FORCE_NO_PYTHON ON)
+endif()
 include(CMakeConfig.cmake)
 include(CMakeLocal.cmake OPTIONAL)
 
@@ -58,9 +61,11 @@ include(CMakeCPP.cmake)
 #============================================================================
 # Configuration for Swig & Python.
 #============================================================================
-find_package(SWIG)
-find_package(PythonInterp 3)
-find_package(PythonLibs 3)
+if(NOT STRIDE_FORCE_NO_PYTHON)
+	find_package(SWIG)
+	find_package(PythonInterp 3)
+	find_package(PythonLibs 3)
+endif()
 
 #============================================================================
 # Configuration for DOC: DOXYGEN

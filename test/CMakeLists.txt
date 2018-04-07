@@ -29,30 +29,12 @@ set(TESTS_DIR ${CMAKE_INSTALL_PREFIX}/${TESTS_INSTALL_LOCATION})
 install(DIRECTORY DESTINATION  ${TESTS_DIR})
 
 #============================================================================
-# Top level custom target for instactive use through make:
-#============================================================================
-add_custom_target(run_ctest
-	COMMAND rm -rf ${TESTS_DIR}/smoke_test
-	COMMAND ctest ${CTEST_VERBOSE_OPTION} -O ${TESTS_DIR}/ctests.txt
-	WORKING_DIR ${TESTS_DIR}
-	)
-add_custom_target(run_ctest_py
-	COMMAND ctest ${CTEST_VERBOSE_OPTION} -R py* -O ${TESTS_DIR}/ctests.txt
-	WORKING_DIR ${TESTS_DIR}
-	)
-
-#============================================================================
-# Config related to using Google test (src in resources/lib/gtest) for cpp
-#============================================================================
-set(GTEST_RESOURCE_DIR	   ${CMAKE_SOURCE_DIR}/test/resources/lib/gtest/)
-include_directories(SYSTEM ${GTEST_RESOURCE_DIR})
-add_definitions(-DGTEST_LANG_CXX11)
-
-#============================================================================
 # Add subdirectories:
 #============================================================================
-add_subdirectory( cpp       )
-add_subdirectory( python    )
-add_subdirectory( resources )
+add_subdirectory(cpp)
+if (${SWIG_FOUND} AND ${PYTHONLIBS_FOUND})
+	add_subdirectory(python)
+endif()
+add_subdirectory(resources)
 
 #############################################################################
