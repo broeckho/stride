@@ -2,11 +2,13 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can use any Docker image from Docker Hub, or your own container registry, as your build environment.
-image: vcatechnology/ubuntu-toolchain
+#
+#image: vcatechnology/ubuntu-toolchain  they boost 1.58
+image: farokhcpu/gcc-boost-cmake
 pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - make -DFORCE_NO_OPENMP=TRUE -DFORCE_NO_PYTHON -DFORCE_NO_HDF5 all
-          - make -DFORCE_NO_OPENMP=TRUE -DFORCE_NO_PYTHON -DFORCE_NO_HDF5 test
+          - make -e FORCE_NO_OPENMP=TRUE -e FORCE_NO_PYTHON -e FORCE_NO_HDF5 all
+          - make -e FORCE_NO_OPENMP=TRUE -e FORCE_NO_PYTHON -e FORCE_NO_HDF5 test
 
