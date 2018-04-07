@@ -47,7 +47,7 @@ using namespace ContactPoolType;
 SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))
 {
-        assert(m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
+        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
                 m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
