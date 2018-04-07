@@ -107,14 +107,12 @@ class Clock
 {
 public:
         /// Time point.
-
         /// Opaque representation of a point in time.
-        typedef struct timespec TimePoint;
+        using TimePoint = struct timespec;
 
         /// Get the current time as a time point.
-
         /// @returns the current time point.
-        static TimePoint Now() __hayai_noexcept
+        static TimePoint Now() noexcept
         {
                 TimePoint result;
 #if defined(CLOCK_MONOTONIC_RAW)
@@ -130,12 +128,11 @@ public:
         }
 
         /// Get the duration between two time points.
-
         /// @param startTime Start time point.
         /// @param endTime End time point.
         /// @returns the number of nanoseconds elapsed between the two time
         /// points.
-        static uint64_t Duration(const TimePoint& startTime, const TimePoint& endTime) __hayai_noexcept
+        static uint64_t Duration(const TimePoint& startTime, const TimePoint& endTime) noexcept
         {
                 TimePoint timeDiff;
 
@@ -150,7 +147,6 @@ public:
         }
 
         /// Clock implementation description.
-
         /// @returns a description of the clock implementation used.
         static const char* Description()
         {

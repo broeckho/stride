@@ -7,6 +7,8 @@
 image: broeckho/jbuntu-stride-artful
 pipelines:
   default:
+    - caches:
+        - docker
     - step:
         script: # Modify the commands below to build your repository.
           - make -e FORCE_NO_OPENMP=TRUE -e FORCE_NO_PYTHON=TRUE -e FORCE_NO_HDF5=TRUE all
