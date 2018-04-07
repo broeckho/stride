@@ -30,7 +30,7 @@ set(SRC
     ../include/myhayai/JsonOutputter.hpp
     ../include/myhayai/JsonFileOutputter.hpp
     ../include/myhayai/JUnitXmlFileOutputter.hpp
-    ../include/myhayai/JunitXmlOutputter.hpp
+    ../include/myhayai/JUnitXmlOutputter.hpp
     ../include/myhayai/Outputter.hpp
     ../include/myhayai/TestFactory.hpp
     ../include/myhayai/TestFactoryDefault.hpp
