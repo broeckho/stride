@@ -21,7 +21,6 @@
 set(SRC
 #
     ../include/myhayai/Benchmarker.hpp
-    ../include/myhayai/Clock.hpp
     ../include/myhayai/Console.hpp
     ../include/myhayai/ConsoleFileOutputter.hpp
     ../include/myhayai/ConsoleOutputter.hpp
