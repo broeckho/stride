@@ -29,7 +29,8 @@ namespace myhayai {
 
 size_t TestDescriptors::CountDisabled()
 {
-        return static_cast<size_t>(count_if(this->begin(), this->end(), [](const auto& t_d){return t_d.IsDisabled;}));
+        return static_cast<size_t>(
+            count_if(this->begin(), this->end(), [](const auto& t_d) { return t_d.m_is_disabled; }));
 }
 
 } // namespace myhayai

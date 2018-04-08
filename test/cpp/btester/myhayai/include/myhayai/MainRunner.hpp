@@ -45,7 +45,7 @@ public:
 
 public:
         ///
-        MainRunner() : ExecutionMode(Modes::Run), ShuffleBenchmarks(false), StdoutOutputter(nullptr) {}
+        MainRunner() : m_exec_mode(Modes::Run), m_shuffle_benchmarks(false), m_stdout_outputter(nullptr) {}
 
         ///
         ~MainRunner();
@@ -81,10 +81,10 @@ private:
         void ShowUsage(const char* execName);
 
 private:
-        Modes                       ExecutionMode;     ///< Execution mode.
-        std::vector<FileOutputter*> FileOutputters;    ///< File outputters (freed by the class on destruction).
-        bool                        ShuffleBenchmarks; ///< Shuffle benchmarks.
-        Outputter*                  StdoutOutputter;   /// Standard outputter (freed by the class on destruction).
+        Modes                       m_exec_mode;          ///< Execution mode.
+        std::vector<FileOutputter*> m_file_outputters;    ///< File outputters (freed by the class on destruction).
+        bool                        m_shuffle_benchmarks; ///< Shuffle benchmarks.
+        Outputter*                  m_stdout_outputter;   /// Standard outputter (freed by the class on destruction).
 };
 
 } // namespace myhayai

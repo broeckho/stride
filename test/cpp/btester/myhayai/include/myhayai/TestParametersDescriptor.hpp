@@ -24,66 +24,28 @@
 
 #include "TestParameterDescriptor.hpp"
 
-#include <cstring>
-#include <sstream>
-#include <string>
-#include <vector>
+#include <boost/property_tree/ptree.hpp>
+#include <ostream>
 
 namespace myhayai {
 
 /// Test parameters descriptor.
-class TestParametersDescriptor
+struct TestParametersDescriptor
 {
-public:
-        ///
-        TestParametersDescriptor() = default;
-
-        ///
-        TestParametersDescriptor(const char* rawDeclarations, const char* rawValues);
-
-        ///
-        const std::vector<TestParameterDescriptor>& Parameters() const { return _parameters; }
-
-private:
-        /// Quoting state.
-        enum QuotingState
-        {
-                Unquoted,
-                SingleQuoted,
-                DoubleQuoted
-        };
-
-        /// Trimmed string.
-        /// @param start    Start character.
-        /// @param end      Character one position beyond end.
-        inline static std::string TrimmedString(const char* start, const char* end)
-        {
-                while (start < end) {
-                        if ((*start == ' ') || (*start == '\r') || (*start == '\n') || (*start == '\t'))
-                                ++start;
-                        else
-                                break;
-                }
-                while (end > start) {
-                        const char c = *(end - 1);
-                        if ((c != ' ') && (c != '\r') && (c != '\n') && (c != '\t'))
-                                break;
-                        --end;
-                }
-                return std::string(start, std::string::size_type(end - start));
-        }
-
-        /// Parse comma separated parentherized value.
-        /// @param separated Separated values as "(..[, ..])".
-        /// @returns the individual values with white space trimmed.
-        static std::vector<std::string> ParseCommaSeparated(const char* separated);
-
-        /// Parse parameter declaration.
-        /// @param raw Raw declaration.
-        TestParameterDescriptor ParseDescriptor(const std::string& raw);
-
-private:
-        std::vector<TestParameterDescriptor> _parameters;
+        TestParametersDescriptor() : m_num_threads(0U) {}
+        unsigned int m_num_threads;
 };
+
+inline boost::property_tree::ptree& operator<<(boost::property_tree::ptree& pt, const TestParametersDescriptor& t_d)
+{
+        pt.put("num_threads", t_d.m_num_threads);
+        return pt;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const TestParametersDescriptor& t_d)
+{
+        os << "num_threads" << t_d.m_num_threads << std::endl;
+        return os;
+}
 
 } // namespace myhayai

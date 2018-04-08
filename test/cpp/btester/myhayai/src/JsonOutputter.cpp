@@ -120,28 +120,26 @@ void JsonOutputter::BeginTestObject(const std::string& fixtureName, const std::s
         WriteString(testName);
 
         _stream << JSON_VALUE_SEPARATOR;
+        /*
+                const std::vector<TestParameterDescriptor>& descs = parameters.m_params_desc();
+                if (!descs.empty()) {
+                        _stream << JSON_STRING_BEGIN "parameters" JSON_STRING_END JSON_NAME_SEPARATOR JSON_ARRAY_BEGIN;
 
-        const std::vector<TestParameterDescriptor>& descs = parameters.Parameters();
+                        for (std::size_t i = 0; i < descs.size(); ++i) {
+                                if (i)
+                                        _stream << JSON_VALUE_SEPARATOR;
 
-        if (!descs.empty()) {
-                _stream << JSON_STRING_BEGIN "parameters" JSON_STRING_END JSON_NAME_SEPARATOR JSON_ARRAY_BEGIN;
+                                const TestParameterDescriptor&    desc = descs[i];
+                                _stream << JSON_OBJECT_BEGIN      JSON_STRING_BEGIN
+                                    "declaration" JSON_STRING_END JSON_NAME_SEPARATOR;
+                                WriteString(desc.Declaration);
+                                _stream << JSON_VALUE_SEPARATOR JSON_STRING_BEGIN "value" JSON_STRING_END
+           JSON_NAME_SEPARATOR; WriteString(desc.Value); _stream << JSON_OBJECT_END;
+                        }
 
-                for (std::size_t i = 0; i < descs.size(); ++i) {
-                        if (i)
-                                _stream << JSON_VALUE_SEPARATOR;
-
-                        const TestParameterDescriptor&    desc = descs[i];
-                        _stream << JSON_OBJECT_BEGIN      JSON_STRING_BEGIN
-                            "declaration" JSON_STRING_END JSON_NAME_SEPARATOR;
-                        WriteString(desc.Declaration);
-                        _stream << JSON_VALUE_SEPARATOR JSON_STRING_BEGIN "value" JSON_STRING_END JSON_NAME_SEPARATOR;
-                        WriteString(desc.Value);
-                        _stream << JSON_OBJECT_END;
+                        _stream << JSON_ARRAY_END JSON_VALUE_SEPARATOR;
                 }
-
-                _stream << JSON_ARRAY_END JSON_VALUE_SEPARATOR;
-        }
-
+        */
         _stream << JSON_STRING_BEGIN "disabled" JSON_STRING_END JSON_NAME_SEPARATOR
                 << (disabled ? JSON_TRUE : JSON_FALSE);
 }

@@ -59,18 +59,20 @@ public:
         static Benchmarker& Instance();
 
         /// Get the tests to be executed.
-        std::vector<TestDescriptor*> GetTests() const;
+        std::vector<TestDescriptor*> GetTestDescriptors() const;
 
         /// Register a test with the benchmarker instance.
         /// @param fixtureName    Name of the fixture.
         /// @param testName       Name of the test.
         /// @param runs           Number of runs for the test.
         /// @param testFactory    Test factory implementation for the test.
+        /// @param disable_test   Disable the test (won't run evn if included in filter.
         /// @returns a pointer to a @ref TestDescriptor instance
         /// representing the given test.
         static TestDescriptor* RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
                                             TestFactory              testFactory,
-                                            TestParametersDescriptor parameters = TestParametersDescriptor());
+                                            TestParametersDescriptor parameters   = TestParametersDescriptor(),
+                                            bool                     disable_test = false);
         /// Run all benchmarking tests.
         static void RunAllTests();
 

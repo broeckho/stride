@@ -37,7 +37,8 @@ void Outputter::WriteTestNameToStream(ostream& stream, const string& fixtureName
                                       const TestParametersDescriptor& parameters)
 {
         stream << fixtureName << "." << testName;
-        const vector<TestParameterDescriptor>& descs = parameters.Parameters();
+        /*
+        const vector<TestParameterDescriptor>& descs = parameters.m_params_desc();
         if (!descs.empty()) {
                 stream << "(";
                 for (size_t i = 0; i < descs.size(); ++i) {
@@ -49,6 +50,7 @@ void Outputter::WriteTestNameToStream(ostream& stream, const string& fixtureName
                 }
                 stream << ")";
         }
+         */
 }
 
 } // namespace myhayai

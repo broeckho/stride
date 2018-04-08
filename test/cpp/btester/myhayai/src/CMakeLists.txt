@@ -34,9 +34,6 @@ set(SRC
     ../include/myhayai/TestFactory.hpp
     ../include/myhayai/TestFactoryDefault.hpp
     ../include/myhayai/TestDescriptor.hpp
-
-    ../include/myhayai/TestParameterDescriptor.hpp
-    ../include/myhayai/TestParameterDescriptor.hpp
     ../include/myhayai/TestParametersDescriptor.hpp
     ../include/myhayai/TestResult.hpp
     ../include/myhayai/Fixture.hpp
@@ -52,7 +49,6 @@ set(SRC
     Outputter.cpp
     MainRunner.cpp
     TestDescriptors.cpp
-    TestParametersDescriptor.cpp
     TestResult.cpp
 )
 

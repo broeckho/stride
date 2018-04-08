@@ -22,7 +22,7 @@ add_test(NAME smoke_test
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
     COMMAND sh -c "${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/smoke_test > /dev/null"
 	)
-	
+
 #============================================================================
 # Add subdirectories:
 #============================================================================

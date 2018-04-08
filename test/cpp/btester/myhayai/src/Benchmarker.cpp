@@ -70,16 +70,10 @@ void Benchmarker::ApplyPatternFilter(const char* pattern)
         }
 
         // Iterate across all tests and test them against the patterns.
-        size_t index = 0;
-        while (index < instance.m_test_descriptors.size()) {
-                TestDescriptor* desc = instance.m_test_descriptors[index];
-                if ((!FilterMatchesString(positive.c_str(), desc->CanonicalName)) ||
-                    (FilterMatchesString(negative.c_str(), desc->CanonicalName))) {
-                        instance.m_test_descriptors.erase(instance.m_test_descriptors.begin() +
-                                                          vector<TestDescriptor*>::difference_type(index));
-                        delete desc;
-                } else {
-                        ++index;
+        for (auto& desc : instance.m_test_descriptors) {
+                if ((!FilterMatchesString(positive.c_str(), desc->m_canonical_name)) ||
+                    (FilterMatchesString(negative.c_str(), desc->m_canonical_name))) {
+                        desc->m_is_in_filter = false;
                 }
         }
 }
@@ -100,7 +94,7 @@ bool Benchmarker::FilterMatchesString(const char* filter, const string& str)
         }
 }
 
-vector<TestDescriptor*> Benchmarker::GetTests() const
+vector<TestDescriptor*> Benchmarker::GetTestDescriptors() const
 {
         vector<TestDescriptor*> tests;
         size_t                  index = 0;
@@ -131,19 +125,11 @@ bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
 }
 
 TestDescriptor* Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t runs,
-                                          TestFactory testFactory, TestParametersDescriptor parameters)
+                                          TestFactory testFactory, TestParametersDescriptor parameters, bool disabled)
 {
-        // Determine if the test has been disabled.
-        static const char* disabledPrefix = "DISABLED_";
-        bool               isDisabled     = ((::strlen(testName) >= 9) && (!::memcmp(testName, disabledPrefix, 9)));
-
-        if (isDisabled)
-                testName += 9;
-
-        // Add the descriptor.
         TestDescriptor* descriptor =
-            new TestDescriptor(fixtureName, testName, runs, std::move(testFactory), std::move(parameters), isDisabled);
-        Instance().m_test_descriptors.push_back(descriptor);
+            new TestDescriptor(fixtureName, testName, runs, std::move(testFactory), parameters, disabled);
+        Instance().m_test_descriptors.emplace_back(descriptor);
         return descriptor;
 }
 
@@ -156,13 +142,13 @@ void Benchmarker::RunAllTests()
         vector<Outputter*>& outputters = (instance.m_outputters.empty() ? defaultOutputters : instance.m_outputters);
 
         // Get the test_descriptors for execution.
-        auto         test_descriptors = instance.GetTests();
+        auto         test_descriptors = instance.GetTestDescriptors();
         const size_t totalCount       = test_descriptors.size();
         size_t       disabledCount    = 0;
         auto         testsIt          = test_descriptors.cbegin();
 
         while (testsIt != test_descriptors.end()) {
-                if ((*testsIt)->IsDisabled)
+                if ((*testsIt)->m_is_disabled)
                         ++disabledCount;
                 ++testsIt;
         }
@@ -174,58 +160,44 @@ void Benchmarker::RunAllTests()
         }
 
         // Run through all the test_descriptors in ascending order.
-        size_t index = 0;
-        while (index < test_descriptors.size()) {
-                // Get the test descriptor.
-                TestDescriptor* t_d = test_descriptors[index++];
+        for (const auto& t_d : test_descriptors) {
 
-                // Check if test matches include filters
-                if (!instance.m_include_filters.empty()) {
-                        bool   included = false;
-                        string name     = t_d->FixtureName + "." + t_d->TestName;
-                        for (size_t i = 0; i < instance.m_include_filters.size(); i++) {
-                                if (name.find(instance.m_include_filters[i]) != string::npos) {
-                                        included = true;
-                                        break;
-                                }
-                        }
-                        if (!included)
-                                continue;
+                // If test is not in filter, just skip (not outputting info for now).
+                if (t_d->m_is_disabled) {
+                        continue;
                 }
 
-                // Check if test is not disabled.
-                if (t_d->IsDisabled) {
+                // If test is disabled output and skip.
+                if (t_d->m_is_disabled) {
                         for (auto& o : outputters)
-                                o->SkipDisabledTest(t_d->FixtureName, t_d->TestName, t_d->Parameters, t_d->Runs);
+                                o->SkipDisabledTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc,
+                                                    t_d->m_num_runs);
                         continue;
                 }
 
                 // Describe the beginning of the run.
                 for (auto& o : outputters)
-                        o->BeginTest(t_d->FixtureName, t_d->TestName, t_d->Parameters, t_d->Runs);
+                        o->BeginTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc, t_d->m_num_runs);
 
                 // Execute each individual run.
-                vector<uint64_t> runTimes(t_d->Runs);
-                size_t           run = 0;
-                while (run < t_d->Runs) {
-                        Fixture  test = t_d->Factory();
-                        uint64_t time = test.Run();
-                        runTimes[run] = time;
-                        ++run;
+                vector<uint64_t> run_times(t_d->m_num_runs);
+                for (auto& rt : run_times) {
+                        Fixture test = t_d->m_test_factory();
+                        rt           = test.Run();
                 }
 
                 // Calculate the test result.
-                TestResult testResult(runTimes);
+                TestResult results(run_times);
 
                 // Describe the end of the run.
                 for (auto& o : outputters) {
-                        o->EndTest(t_d->FixtureName, t_d->TestName, t_d->Parameters, testResult);
+                        o->EndTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc, results);
                 }
         }
 
         // End output.
-        for (size_t outputterIndex = 0; outputterIndex < outputters.size(); outputterIndex++) {
-                outputters[outputterIndex]->End(enabledCount, disabledCount);
+        for (auto& o : outputters) {
+                o->End(enabledCount, disabledCount);
         }
 }
 

@@ -32,11 +32,10 @@ namespace myhayai {
 class TestDescriptors : std::vector<TestDescriptor>
 {
 public:
-    ///
-    std::size_t CountDisabled();
+        ///
+        std::size_t CountDisabled();
 
 private:
-
 };
 
 } // namespace myhayai

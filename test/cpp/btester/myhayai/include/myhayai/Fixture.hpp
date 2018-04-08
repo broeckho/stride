@@ -22,8 +22,8 @@
  * Header file for Fixture.
  */
 
-#include "util/Stopwatch.h"
 #include "TestResult.hpp"
+#include "util/Stopwatch.h"
 
 #include <chrono>
 #include <cstddef>
@@ -61,9 +61,7 @@ struct Fixture
                 if (m_teardown) {
                         m_teardown();
                 }
-                return static_cast<uint64_t >(
-                        std::chrono::duration_cast<std::chrono::nanoseconds>(clock.Get()).count()
-                                );
+                return static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::nanoseconds>(clock.Get()).count());
         }
 
         std::function<void()> m_body;

@@ -36,29 +36,29 @@ namespace myhayai {
 struct TestDescriptor
 {
         /// Initialize a new test descriptor.
-        /// @param fixtureName Name of the fixture.
-        /// @param testName Name of the test.
-        /// @param runs Number of runs for the test.
-        /// @param iterations Number of iterations per run.
-        /// @param testFactory Test factory implementation for the test.
-        /// @param parameters Parametrized test parameters.
-        TestDescriptor(const char* fixtureName, const char* testName, std::size_t runs, TestFactory testFactory,
-                       TestParametersDescriptor parameters, bool isDisabled = false)
-            : FixtureName(fixtureName), TestName(testName), CanonicalName(std::string(fixtureName) + "." + testName),
-              Runs(runs), Factory(std::move(testFactory)), Parameters(std::move(parameters)), IsDisabled(isDisabled)
+        /// @param fixture_name    Name of the fixture.
+        /// @param test_name       Name of the test.
+        /// @param num_runs        Number of runs for the test.
+        /// @param iterations      Number of iterations per run.
+        /// @param test_factory    Test factory implementation for the test.
+        /// @param params_desc     Parametrized test parameters.
+        TestDescriptor(const char* fixture_name, const char* test_name, std::size_t num_runs, TestFactory test_factory,
+                       TestParametersDescriptor params_desc, bool is_disabled = false, bool is_in_filter = true)
+            : m_fixture_name(fixture_name), m_test_name(test_name),
+              m_canonical_name(std::string(fixture_name) + "." + test_name), m_num_runs(num_runs),
+              m_test_factory(std::move(test_factory)), m_params_desc(std::move(params_desc)),
+              m_is_disabled(is_disabled), m_is_in_filter(is_in_filter)
         {
         }
 
-        /// Dispose of a test descriptor.
-        //~TestDescriptor() { delete this->Factory; }
-
-        std::string              FixtureName;   ///< Fixture name.
-        std::string              TestName;      ///< Test name.
-        std::string              CanonicalName; ///< Canonical name: <FixtureName>.<TestName>.
-        std::size_t              Runs;          ///< Test runs.
-        TestFactory              Factory;       ///< Test factory.
-        TestParametersDescriptor Parameters;    ///< Parameters for parametrized tests
-        bool                     IsDisabled;    ///< Disabled.
+        std::string              m_fixture_name;   ///< Fixture name.
+        std::string              m_test_name;      ///< Test name.
+        std::string              m_canonical_name; ///< Canonical name: <FixtureName>.<TestName>.
+        std::size_t              m_num_runs;       ///< Number of test runs.
+        TestFactory              m_test_factory;   ///< Test factory.
+        TestParametersDescriptor m_params_desc;    ///< Parameters associated with the test.
+        bool                     m_is_disabled;    ///< Disabled (or not).
+        bool                     m_is_in_filter;   ///< Selected by filter (or not).
 };
 
 } // namespace myhayai

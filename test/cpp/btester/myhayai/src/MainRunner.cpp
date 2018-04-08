@@ -59,27 +59,27 @@ namespace myhayai {
 MainRunner::~MainRunner()
 {
         // Clean up the outputters.
-        for (auto it = FileOutputters.begin(); it != FileOutputters.end(); ++it) {
+        for (auto it = m_file_outputters.begin(); it != m_file_outputters.end(); ++it) {
                 delete *it;
         }
-        if (StdoutOutputter) {
-                delete StdoutOutputter;
+        if (m_stdout_outputter) {
+                delete m_stdout_outputter;
         }
 }
 
 int MainRunner::ListBenchmarks()
 {
         // List out the unique benchmark names.
-        auto test_descriptors = Benchmarker::Instance().GetTests();
-        vector<string>                testNames;
-        set<string>                   uniqueTestNames;
+        auto           test_descriptors = Benchmarker::Instance().GetTestDescriptors();
+        vector<string> testNames;
+        set<string>    uniqueTestNames;
 
         for (auto it = test_descriptors.begin(); it < test_descriptors.end(); ++it) {
-                if (uniqueTestNames.find((*it)->CanonicalName) != uniqueTestNames.end()) {
+                if (uniqueTestNames.find((*it)->m_canonical_name) != uniqueTestNames.end()) {
                         continue;
                 }
-                testNames.push_back((*it)->CanonicalName);
-                uniqueTestNames.insert((*it)->CanonicalName);
+                testNames.push_back((*it)->m_canonical_name);
+                uniqueTestNames.insert((*it)->m_canonical_name);
         }
 
         // Sort the benchmark names.
@@ -106,11 +106,11 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                 }
                 // List flag.
                 if ((!strcmp(arg, "-l")) || (!strcmp(arg, "--list"))) {
-                        ExecutionMode = Modes::List;
+                        m_exec_mode = Modes::List;
                 }
                 // Shuffle flag.
                 else if ((!strcmp(arg, "-s")) || (!strcmp(arg, "--shuffle"))) {
-                        ShuffleBenchmarks = true;
+                        m_shuffle_benchmarks = true;
                 }
                 // Filter flag.
                 else if ((!strcmp(arg, "-f")) || (!strcmp(arg, "--filter"))) {
@@ -136,30 +136,30 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
 
                         if (!strcmp(format, "console")) {
                                 if (path) {
-                                        FileOutputters.push_back(new ConsoleFileOutputter(path));
+                                        m_file_outputters.push_back(new ConsoleFileOutputter(path));
                                 } else {
-                                        if (StdoutOutputter) {
-                                                delete StdoutOutputter;
+                                        if (m_stdout_outputter) {
+                                                delete m_stdout_outputter;
                                         }
-                                        StdoutOutputter = new ConsoleOutputter(cout);
+                                        m_stdout_outputter = new ConsoleOutputter(cout);
                                 }
                         } else if (!strcmp(format, "json"))
                                 if (path) {
-                                        FileOutputters.push_back(new JsonFileOutputter(path));
+                                        m_file_outputters.push_back(new JsonFileOutputter(path));
                                 } else {
-                                        if (StdoutOutputter) {
-                                                delete StdoutOutputter;
+                                        if (m_stdout_outputter) {
+                                                delete m_stdout_outputter;
                                         }
-                                        StdoutOutputter = new JsonOutputter(cout);
+                                        m_stdout_outputter = new JsonOutputter(cout);
                                 }
                         else if (!strcmp(format, "junit"))
                                 if (path) {
-                                        FileOutputters.push_back(new JUnitXmlFileOutputter(path));
+                                        m_file_outputters.push_back(new JUnitXmlFileOutputter(path));
                                 } else {
-                                        if (StdoutOutputter) {
-                                                delete StdoutOutputter;
+                                        if (m_stdout_outputter) {
+                                                delete m_stdout_outputter;
                                         }
-                                        StdoutOutputter = new JUnitXmlOutputter(cout);
+                                        m_stdout_outputter = new JUnitXmlOutputter(cout);
                                 }
                         else {
                                 HAYAI_MAIN_USAGE_ERROR("invalid format: " << format);
@@ -205,7 +205,7 @@ int MainRunner::Run()
 {
         int ret = EXIT_FAILURE;
         // Execute based on the selected mode.
-        switch (ExecutionMode) {
+        switch (m_exec_mode) {
         case Modes::Run: ret = RunBenchmarks(); break;
         case Modes::List: ret = ListBenchmarks(); break;
         }
@@ -215,10 +215,10 @@ int MainRunner::Run()
 int MainRunner::RunBenchmarks()
 {
         // Hook up the outputs.
-        if (StdoutOutputter)
-                Benchmarker::AddOutputter(*StdoutOutputter);
+        if (m_stdout_outputter)
+                Benchmarker::AddOutputter(*m_stdout_outputter);
 
-        for (auto it = FileOutputters.begin(); it < FileOutputters.end(); ++it) {
+        for (auto it = m_file_outputters.begin(); it < m_file_outputters.end(); ++it) {
                 FileOutputter& fileOutputter = **it;
                 try {
                         fileOutputter.SetUp();
@@ -230,7 +230,7 @@ int MainRunner::RunBenchmarks()
         }
 
         // Run the benchmarks.
-        if (ShuffleBenchmarks) {
+        if (m_shuffle_benchmarks) {
                 srand(static_cast<unsigned>(time(0)));
                 Benchmarker::ShuffleTests();
         }
