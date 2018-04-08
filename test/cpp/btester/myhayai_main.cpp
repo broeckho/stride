@@ -190,7 +190,7 @@ int main(int argc, char** argv)
         Benchmarker::RegisterTest("Sleeper", "Sleepms", 5, []() { return Fixture([]() { msleep(10); }); });
 
         Benchmarker::RegisterTest("Delivery", "Param - distance=12,duration=10", 5, ParamTestFactory(12, 10));
-
+/*
         Benchmarker::RegisterTest("Delivery", "Param with distance=12, duration=10", 5, []() {
                 return Fixture([]() {
                         msleep(10);
@@ -227,6 +227,7 @@ int main(int argc, char** argv)
                                   param2_factory_builder(500, 800, 1));
         Benchmarker::RegisterTest("Delivery", "Param2 - distance=1, duration=1, speed=1", 10,
                                   param2_factory_builder(1, 1, 1));
+*/
 
         // Set up the main runner.
         MainRunner runner;

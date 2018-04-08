@@ -46,7 +46,7 @@ struct TestDescriptor
                        TestParametersDescriptor params_desc, bool is_disabled = false, bool is_in_filter = true)
             : m_fixture_name(fixture_name), m_test_name(test_name),
               m_canonical_name(std::string(fixture_name) + "." + test_name), m_num_runs(num_runs),
-              m_test_factory(std::move(test_factory)), m_params_desc(std::move(params_desc)),
+              m_test_factory(std::move(test_factory)), m_params_desc(params_desc),
               m_is_disabled(is_disabled), m_is_in_filter(is_in_filter)
         {
         }

@@ -41,15 +41,6 @@ using namespace std;
 
 namespace myhayai {
 
-Benchmarker::~Benchmarker()
-{
-        // Release all test descriptors.
-        size_t index = m_test_descriptors.size();
-        while (index--) {
-                delete m_test_descriptors[index];
-        }
-}
-
 void Benchmarker::AddOutputter(Outputter& outputter) { Instance().m_outputters.push_back(&outputter); }
 
 void Benchmarker::ApplyPatternFilter(const char* pattern)
@@ -71,9 +62,9 @@ void Benchmarker::ApplyPatternFilter(const char* pattern)
 
         // Iterate across all tests and test them against the patterns.
         for (auto& desc : instance.m_test_descriptors) {
-                if ((!FilterMatchesString(positive.c_str(), desc->m_canonical_name)) ||
-                    (FilterMatchesString(negative.c_str(), desc->m_canonical_name))) {
-                        desc->m_is_in_filter = false;
+                if ((!FilterMatchesString(positive.c_str(), desc.m_canonical_name)) ||
+                    (FilterMatchesString(negative.c_str(), desc.m_canonical_name))) {
+                        desc.m_is_in_filter = false;
                 }
         }
 }
@@ -94,14 +85,9 @@ bool Benchmarker::FilterMatchesString(const char* filter, const string& str)
         }
 }
 
-vector<TestDescriptor*> Benchmarker::GetTestDescriptors() const
+const TestDescriptors& Benchmarker::GetTestDescriptors() const
 {
-        vector<TestDescriptor*> tests;
-        size_t                  index = 0;
-        while (index < m_test_descriptors.size()) {
-                tests.push_back(m_test_descriptors[index++]);
-        }
-        return tests;
+        return m_test_descriptors;
 }
 
 Benchmarker& Benchmarker::Instance()
@@ -124,11 +110,10 @@ bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
         }
 }
 
-TestDescriptor* Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t runs,
-                                          TestFactory testFactory, TestParametersDescriptor parameters, bool disabled)
+TestDescriptor Benchmarker::RegisterTest(const char* fixture_name, const char* test_name, size_t runs,
+                                          TestFactory test_factory, TestParametersDescriptor parameters, bool disabled)
 {
-        TestDescriptor* descriptor =
-            new TestDescriptor(fixtureName, testName, runs, std::move(testFactory), parameters, disabled);
+        TestDescriptor descriptor(fixture_name, test_name, runs, std::move(test_factory), parameters, disabled);
         Instance().m_test_descriptors.emplace_back(descriptor);
         return descriptor;
 }
@@ -144,15 +129,8 @@ void Benchmarker::RunAllTests()
         // Get the test_descriptors for execution.
         auto         test_descriptors = instance.GetTestDescriptors();
         const size_t totalCount       = test_descriptors.size();
-        size_t       disabledCount    = 0;
-        auto         testsIt          = test_descriptors.cbegin();
-
-        while (testsIt != test_descriptors.end()) {
-                if ((*testsIt)->m_is_disabled)
-                        ++disabledCount;
-                ++testsIt;
-        }
-        const size_t enabledCount = totalCount - disabledCount;
+        const size_t disabledCount    = test_descriptors.CountDisabled();
+        const size_t enabledCount     = totalCount - disabledCount;
 
         // Begin output.
         for (auto& o : outputters) {
@@ -163,26 +141,26 @@ void Benchmarker::RunAllTests()
         for (const auto& t_d : test_descriptors) {
 
                 // If test is not in filter, just skip (not outputting info for now).
-                if (t_d->m_is_disabled) {
+                if (t_d.m_is_disabled) {
                         continue;
                 }
 
                 // If test is disabled output and skip.
-                if (t_d->m_is_disabled) {
+                if (t_d.m_is_disabled) {
                         for (auto& o : outputters)
-                                o->SkipDisabledTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc,
-                                                    t_d->m_num_runs);
+                                o->SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc,
+                                                    t_d.m_num_runs);
                         continue;
                 }
 
                 // Describe the beginning of the run.
                 for (auto& o : outputters)
-                        o->BeginTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc, t_d->m_num_runs);
+                        o->BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc, t_d.m_num_runs);
 
                 // Execute each individual run.
-                vector<uint64_t> run_times(t_d->m_num_runs);
+                vector<uint64_t> run_times(t_d.m_num_runs);
                 for (auto& rt : run_times) {
-                        Fixture test = t_d->m_test_factory();
+                        Fixture test = t_d.m_test_factory();
                         rt           = test.Run();
                 }
 
@@ -191,7 +169,7 @@ void Benchmarker::RunAllTests()
 
                 // Describe the end of the run.
                 for (auto& o : outputters) {
-                        o->EndTest(t_d->m_fixture_name, t_d->m_test_name, t_d->m_params_desc, results);
+                        o->EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc, results);
                 }
         }
 

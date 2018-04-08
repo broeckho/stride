@@ -29,11 +29,14 @@
 namespace myhayai {
 
 /// Test descriptor.
-class TestDescriptors : std::vector<TestDescriptor>
+class TestDescriptors : public std::vector<TestDescriptor>
 {
 public:
         ///
         std::size_t CountDisabled();
+
+        ///
+        std::size_t CountNotInFilter();
 
 private:
 };

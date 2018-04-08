@@ -23,7 +23,7 @@
  */
 
 #include "ConsoleOutputter.hpp"
-#include "TestDescriptor.hpp"
+#include "TestDescriptors.hpp"
 #include "TestFactory.hpp"
 #include "TestParametersDescriptor.hpp"
 #include "TestResult.hpp"
@@ -59,18 +59,18 @@ public:
         static Benchmarker& Instance();
 
         /// Get the tests to be executed.
-        std::vector<TestDescriptor*> GetTestDescriptors() const;
+        const TestDescriptors& GetTestDescriptors() const;
 
         /// Register a test with the benchmarker instance.
-        /// @param fixtureName    Name of the fixture.
-        /// @param testName       Name of the test.
+        /// @param fixture_name    Name of the fixture.
+        /// @param test_name       Name of the test.
         /// @param runs           Number of runs for the test.
-        /// @param testFactory    Test factory implementation for the test.
+        /// @param test_factory    Test factory implementation for the test.
         /// @param disable_test   Disable the test (won't run evn if included in filter.
         /// @returns a pointer to a @ref TestDescriptor instance
         /// representing the given test.
-        static TestDescriptor* RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
-                                            TestFactory              testFactory,
+        static TestDescriptor RegisterTest(const char* fixture_name, const char* test_name, std::size_t runs,
+                                            TestFactory              test_factory,
                                             TestParametersDescriptor parameters   = TestParametersDescriptor(),
                                             bool                     disable_test = false);
         /// Run all benchmarking tests.
@@ -83,8 +83,14 @@ private:
         /// Private constructor.
         Benchmarker() = default;
 
+        /// No copy construction allowed.
+        Benchmarker(const Benchmarker&) = delete;
+
+        /// No copy assignment allowed.
+        Benchmarker& operator=(const Benchmarker&) = delete;
+
         /// Private destructor.
-        ~Benchmarker();
+        ~Benchmarker() = default;
 
         /// Test if a filter matches a string.
         /// Adapted from gtest. All rights reserved by original authors.
@@ -95,9 +101,8 @@ private:
         static bool PatternMatchesString(const char* pattern, const char* str);
 
 private:
-        std::vector<std::string>     m_include_filters;  ///< Test filters.
         std::vector<Outputter*>      m_outputters;       ///< Registered outputters.
-        std::vector<TestDescriptor*> m_test_descriptors; ///< Registered tests.
+        TestDescriptors m_test_descriptors; ///< Descriptors for egistered tests.
 };
 
 } // namespace myhayai

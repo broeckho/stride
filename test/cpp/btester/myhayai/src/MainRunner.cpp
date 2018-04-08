@@ -69,25 +69,18 @@ MainRunner::~MainRunner()
 
 int MainRunner::ListBenchmarks()
 {
-        // List out the unique benchmark names.
-        auto           test_descriptors = Benchmarker::Instance().GetTestDescriptors();
+        // Get the the canonical test names.
         vector<string> testNames;
-        set<string>    uniqueTestNames;
-
-        for (auto it = test_descriptors.begin(); it < test_descriptors.end(); ++it) {
-                if (uniqueTestNames.find((*it)->m_canonical_name) != uniqueTestNames.end()) {
-                        continue;
-                }
-                testNames.push_back((*it)->m_canonical_name);
-                uniqueTestNames.insert((*it)->m_canonical_name);
+        for (auto& t_n : Benchmarker::Instance().GetTestDescriptors()) {
+                testNames.emplace_back(t_n.m_canonical_name);
         }
 
         // Sort the benchmark names.
         sort(testNames.begin(), testNames.end());
 
         // Dump the list.
-        for (auto it = testNames.begin(); it < testNames.end(); ++it) {
-                cout << *it << endl;
+        for (auto& t_n : testNames) {
+                cout << t_n << endl;
         }
 
         return EXIT_SUCCESS;
@@ -114,6 +107,7 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                 }
                 // Filter flag.
                 else if ((!strcmp(arg, "-f")) || (!strcmp(arg, "--filter"))) {
+                        cerr << "HHHHHH" << endl;
                         if ((argLast) || (*argv[argI] == 0))
                                 HAYAI_MAIN_USAGE_ERROR(HAYAI_MAIN_FORMAT_FLAG(arg)
                                                        << " requires a pattern to be specified");
