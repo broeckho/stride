@@ -23,11 +23,7 @@
  * Header file for MainRunner.
  */
 
-#include "Benchmarker.hpp"
-#include "FileOutputter.hpp"
-#include "Fixture.hpp"
-#include "Outputter.hpp"
-
+#include <string>
 #include <vector>
 
 namespace myhayai {
@@ -45,14 +41,7 @@ public:
         /// Parse arguments and initializes the MainRunner.
         /// @param argc             Argument count including the executable name.
         /// @param argv             Arguments.
-        /// @param residualArgs     Pointer to vector to hold residual arguments
-        /// after parsing. If not NULL, the parser will not fail upon
-        /// encounting an unknown argument but will instead add it to the list
-        /// of residual arguments and return a success code. Note: the parser
-        /// will still fail if an invalid value is provided to a known
-        /// argument.
-        /// @returns 0 on success, otherwise the exit status code to be
-        /// returned from the executable.
+        /// @returns EXIT_SUCCESS / EXIT_FAILURE.
         int ParseArgs(int argc, char** argv);
 
         /// Run the selected execution mode.
@@ -70,7 +59,6 @@ private:
 
         /// Shuffle test names.
         /// \param names  vector to be shuffled.
-        /// \return shuffled vector.
         static void Shuffle(std::vector<std::string>& names);
 
 private:

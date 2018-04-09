@@ -24,20 +24,9 @@
 #include "myhayai/MainRunner.hpp"
 
 #include "myhayai/Benchmarker.hpp"
-#include "myhayai/ConsoleFileOutputter.hpp"
-#include "myhayai/ConsoleOutputter.hpp"
-#include "myhayai/Fixture.hpp"
 
 #include <tclap/CmdLine.h>
 #include <algorithm>
-#include <cerrno>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <fstream>
-#include <set>
-#include <sstream>
-#include <vector>
 
 using namespace std;
 using namespace TCLAP;
