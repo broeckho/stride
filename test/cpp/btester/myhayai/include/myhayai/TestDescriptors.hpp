@@ -24,12 +24,13 @@
 
 #include "TestDescriptor.hpp"
 
-#include <vector>
+#include <map>
+#include <string>
 
 namespace myhayai {
 
 /// Test descriptor.
-class TestDescriptors : public std::vector<TestDescriptor>
+class TestDescriptors : public std::map<std::string, TestDescriptor>
 {
 public:
         ///

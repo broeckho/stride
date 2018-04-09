@@ -80,6 +80,11 @@ private:
         /// @param execName Executable name.
         void ShowUsage(const char* execName);
 
+        /// Shuffle test names.
+        /// \param names  vector to be shuffled.
+        /// \return shuffled vector.
+        static void Shuffle(std::vector<std::string>& names);
+
 private:
         Modes                       m_exec_mode;          ///< Execution mode.
         std::vector<FileOutputter*> m_file_outputters;    ///< File outputters (freed by the class on destruction).

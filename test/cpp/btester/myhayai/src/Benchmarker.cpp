@@ -26,6 +26,7 @@
 #include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
 #include "myhayai/TestFactory.hpp"
+#include "myhayai/TestDescriptors.hpp"
 #include "myhayai/InfoFactory.hpp"
 #include "myhayai/TestResult.hpp"
 
@@ -43,48 +44,6 @@ namespace myhayai {
 
 void Benchmarker::AddOutputter(Outputter& outputter) { Instance().m_outputters.push_back(&outputter); }
 
-void Benchmarker::ApplyPatternFilter(const char* pattern)
-{
-        Benchmarker& instance = Instance();
-
-        // Split the filter at '-' if it exists.
-        const char* const dash = strchr(pattern, '-');
-        string            positive;
-        string            negative;
-        if (dash == nullptr) {
-                positive = pattern;
-        } else {
-                positive = string(pattern, dash);
-                negative = string(dash + 1);
-                if (positive.empty())
-                        positive = "*";
-        }
-
-        // Iterate across all tests and test them against the patterns.
-        for (auto& desc : instance.m_test_descriptors) {
-                if ((!FilterMatchesString(positive.c_str(), desc.GetCanonicalName())) ||
-                    (FilterMatchesString(negative.c_str(), desc.GetCanonicalName()))) {
-                        desc.m_is_in_filter = false;
-                }
-        }
-}
-
-bool Benchmarker::FilterMatchesString(const char* filter, const string& str)
-{
-        const char* patternStart = filter;
-        while (true) {
-                if (PatternMatchesString(patternStart, str.c_str()))
-                        return true;
-                // Finds the next pattern in the filter.
-                patternStart = strchr(patternStart, ':');
-                // Returns if no more pattern can be found.
-                if (!patternStart)
-                        return false;
-                // Skips the pattern separater (the ':' character).
-                patternStart++;
-        }
-}
-
 const TestDescriptors& Benchmarker::GetTestDescriptors() const { return m_test_descriptors; }
 
 Benchmarker& Benchmarker::Instance()
@@ -93,29 +52,15 @@ Benchmarker& Benchmarker::Instance()
         return singleton;
 }
 
-bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
+bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t numRuns,
+                                         TestFactory testFactory, InfoFactory infoFactory, bool isDisabled)
 {
-        switch (*pattern) {
-        case '\0':
-        case ':': return (*str == '\0');
-        case '?': // Matches any single character.
-                return ((*str != '\0') && (PatternMatchesString(pattern + 1, str + 1)));
-        case '*': // Matches any string (possibly empty) of characters.
-                return (((*str != '\0') && (PatternMatchesString(pattern, str + 1))) ||
-                        (PatternMatchesString(pattern + 1, str)));
-        default: return ((*pattern == *str) && (PatternMatchesString(pattern + 1, str + 1)));
-        }
+        TestDescriptor d(fixtureName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);
+        const auto ret = Instance().m_test_descriptors.emplace(make_pair(d.GetCanonicalName(), d));
+        return ret.second;
 }
 
-TestDescriptor Benchmarker::RegisterTest(const char* fixture_name, const char* test_name, size_t runs,
-                                         TestFactory test_factory, InfoFactory infoFactory, bool disabled)
-{
-        TestDescriptor descriptor(fixture_name, test_name, runs, std::move(test_factory), infoFactory, disabled);
-        Instance().m_test_descriptors.emplace_back(descriptor);
-        return descriptor;
-}
-
-void Benchmarker::RunAllTests()
+void Benchmarker::RunTests(const vector<string>& names)
 {
         ConsoleOutputter   defaultOutputter;
         vector<Outputter*> defaultOutputters;
@@ -123,27 +68,24 @@ void Benchmarker::RunAllTests()
         Benchmarker&        instance   = Instance();
         vector<Outputter*>& outputters = (instance.m_outputters.empty() ? defaultOutputters : instance.m_outputters);
 
-        // Get the test_descriptors for execution.
-        auto         test_descriptors = instance.GetTestDescriptors();
-        const size_t totalCount       = test_descriptors.size();
-        const size_t disabledCount    = test_descriptors.CountDisabled();
-        const size_t enabledCount     = totalCount - disabledCount;
+        // Setup.
+        auto   test_descriptors = instance.GetTestDescriptors();
+        size_t disabledCount    = 0;
+        size_t enabledCount     = 0;
 
         // Begin output.
         for (auto& o : outputters) {
-                o->Begin(enabledCount, disabledCount);
+                o->Begin(names.size(), 0);
         }
 
         // Run through all the test_descriptors in ascending order.
-        for (const auto& t_d : test_descriptors) {
+        for (const auto& n : names) {
 
-                // If test is not in filter, just skip (not outputting info for now).
-                if (t_d.m_is_disabled) {
-                        continue;
-                }
+                const auto& t_d = test_descriptors[n];
 
                 // If test is disabled output and skip.
                 if (t_d.m_is_disabled) {
+                        ++disabledCount;
                         for (auto& o : outputters)
                                 o->SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory,
                                                     t_d.m_num_runs);
@@ -151,6 +93,7 @@ void Benchmarker::RunAllTests()
                 }
 
                 // Describe the beginning of the run.
+                ++enabledCount;
                 for (auto& o : outputters)
                         o->BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, t_d.m_num_runs);
 
@@ -174,14 +117,6 @@ void Benchmarker::RunAllTests()
         for (auto& o : outputters) {
                 o->End(enabledCount, disabledCount);
         }
-}
-
-void Benchmarker::ShuffleTests()
-{
-        Benchmarker&  instance = Instance();
-        random_device rd;
-        mt19937       g(rd());
-        shuffle(instance.m_test_descriptors.begin(), instance.m_test_descriptors.end(), g);
 }
 
 } // namespace myhayai

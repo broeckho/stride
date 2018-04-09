@@ -59,12 +59,6 @@ public:
         /// outputter remains in existence for the entire benchmark run.
         static void AddOutputter(Outputter& outputter);
 
-        /// Apply a pattern filter to the tests.
-        /// --gtest_filter-compatible pattern:
-        /// https://code.google.com/p/googletest/wiki/AdvancedGuide
-        /// @param pattern Filter pattern compatible with gtest.
-        static void ApplyPatternFilter(const char* pattern);
-
         /// Get the tests to be executed.
         const TestDescriptors& GetTestDescriptors() const;
 
@@ -75,16 +69,13 @@ public:
         /// @param testFactory    Test factory implementation for the test.
         /// @param infoFactory     Generates ptree with info on test
         /// @param disableTest   Disable the test (won't run evn if included in filter.
-        /// @returns TestDescriptor of registered test.
-        static TestDescriptor RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
+        /// @returns true in case of successful registration.
+        bool static RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
                                            TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
                                            bool disableTest = false);
 
         /// Run all benchmarking tests.
-        static void RunAllTests();
-
-        /// Randomly shuffles the order of tests.
-        static void ShuffleTests();
+        static void RunTests(const std::vector<std::string>& names);
 
 private:
         /// Private constructor.
@@ -92,14 +83,6 @@ private:
 
         /// Private destructor.
         ~Benchmarker() = default;
-
-        /// Test if a filter matches a string.
-        /// Adapted from gtest. All rights reserved by original authors.
-        static bool FilterMatchesString(const char* filter, const std::string& str);
-
-        /// Test if pattern matches a string.
-        /// Adapted from gtest. All rights reserved by original authors.
-        static bool PatternMatchesString(const char* pattern, const char* str);
 
 private:
         std::vector<Outputter*> m_outputters;       ///< Registered outputters.

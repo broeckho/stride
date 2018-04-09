@@ -65,12 +65,9 @@ int MainRunner::ListBenchmarks()
 {
         // Get the the canonical test names.
         vector<string> testNames;
-        for (auto& t_n : Benchmarker::Instance().GetTestDescriptors()) {
-                testNames.emplace_back(t_n.GetCanonicalName());
+        for (const auto& item : Benchmarker::Instance().GetTestDescriptors()) {
+                testNames.emplace_back(item.second.GetCanonicalName());
         }
-
-        // Sort the benchmark names.
-        sort(testNames.begin(), testNames.end());
 
         // Dump the list.
         for (auto& t_n : testNames) {
@@ -105,7 +102,7 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                                 HAYAI_MAIN_USAGE_ERROR(HAYAI_MAIN_FORMAT_FLAG(arg)
                                                        << " requires a pattern to be specified");
                         char* pattern = argv[argI++];
-                        Benchmarker::ApplyPatternFilter(pattern);
+                        //Benchmarker::ApplyPatternFilter(pattern);
                 }
                 // Output flag.
                 else if ((!strcmp(arg, "-o")) || (!strcmp(arg, "--output"))) {
@@ -217,13 +214,22 @@ int MainRunner::RunBenchmarks()
                 Benchmarker::AddOutputter(fileOutputter.GetOutputter());
         }
 
+        // Get the the canonical test names.
+        vector<string> testNames;
+        for (const auto& item : Benchmarker::Instance().GetTestDescriptors()) {
+                testNames.emplace_back(item.second.GetCanonicalName());
+        }
+
+        // Apply the filter.
+        //
+
         // Shuffle benchmarks if requested.
         if (m_shuffle_benchmarks) {
-                Benchmarker::ShuffleTests();
+                Shuffle(testNames);
         }
 
         // Run them.
-        Benchmarker::RunAllTests();
+        Benchmarker::RunTests(testNames);
 
         return EXIT_SUCCESS;
 }
@@ -288,6 +294,14 @@ void MainRunner::ShowUsage(const char* execName)
              << "    Show this help information." << endl
              << endl;
 }
+
+void MainRunner::Shuffle(vector<string>& names)
+{
+        random_device rd;
+        mt19937       g(rd());
+        shuffle(names.begin(), names.end(), g);
+}
+
 
 } // namespace myhayai
 

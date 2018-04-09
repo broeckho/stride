@@ -31,42 +31,35 @@ namespace myhayai {
 
 void ConsoleOutputter::Begin(const size_t& enabledCount, const size_t& disabledCount)
 {
-        _stream << fixed;
-        _stream << Console::TextGreen << "[==========]" << Console::TextDefault << " Running " << enabledCount
-                << (enabledCount == 1 ? " benchmark." : " benchmarks");
-
-        if (disabledCount) {
-                _stream << ", skipping " << disabledCount << (disabledCount == 1 ? " benchmark." : " benchmarks");
-        } else {
-                _stream << ".";
-        }
-        _stream << endl;
+        m_stream << fixed;
+        m_stream << Console::TextGreen << "[==========]" << Console::TextDefault << " Running " << enabledCount
+                << (enabledCount == 1 ? " benchmark." : " benchmarks")<< "." << endl;
 }
 
 void ConsoleOutputter::End(const size_t& executedCount, const size_t& disabledCount)
 {
-        _stream << Console::TextGreen << "[==========]" << Console::TextDefault << " Ran " << executedCount
+        m_stream << Console::TextGreen << "[==========]" << Console::TextDefault << " Ran " << executedCount
                 << (executedCount == 1 ? " benchmark." : " benchmarks");
 
         if (disabledCount) {
-                _stream << ", skipped " << disabledCount << (disabledCount == 1 ? " benchmark." : " benchmarks");
+                m_stream << ", skipped " << disabledCount << (disabledCount == 1 ? " benchmark." : " benchmarks");
         } else {
-                _stream << ".";
+                m_stream << ".";
         }
-        _stream << endl;
+        m_stream << endl;
 }
 
 void ConsoleOutputter::BeginOrSkipTest(const string& fixtureName, const string& testName,
                                        const InfoFactory& infoFactory, const size_t& runsCount, const bool skip)
 {
         if (skip) {
-                _stream << Console::TextCyan << "[ DISABLED ]";
+                m_stream << Console::TextCyan << "[ DISABLED ]";
         } else {
-                _stream << Console::TextGreen << "[ RUN      ]";
+                m_stream << Console::TextGreen << "[ RUN      ]";
         }
-        _stream << Console::TextYellow << " ";
-        WriteTestNameToStream(_stream, fixtureName, testName, infoFactory);
-        _stream << Console::TextDefault << " (" << runsCount << (runsCount == 1 ? " run" : " runs") << ")" << endl;
+        m_stream << Console::TextYellow << " ";
+        WriteTestNameToStream(m_stream, fixtureName, testName, infoFactory);
+        m_stream << Console::TextDefault << " (" << runsCount << (runsCount == 1 ? " run" : " runs") << ")" << endl;
 }
 
 void ConsoleOutputter::BeginTest(const string& fixtureName, const string& testName, const InfoFactory& infoFactory,
@@ -84,12 +77,12 @@ void ConsoleOutputter::SkipDisabledTest(const string& fixtureName, const string&
 void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName, const InfoFactory& infoFactory,
                                const TestResult& result)
 {
-        _stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " ";
-        WriteTestNameToStream(_stream, fixtureName, testName, infoFactory);
-        _stream << Console::TextDefault << " (" << setprecision(6) << (result.TimeTotal() / 1000000.0) << " ms)"
+        m_stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " ";
+        WriteTestNameToStream(m_stream, fixtureName, testName, infoFactory);
+        m_stream << Console::TextDefault << " (" << setprecision(6) << (result.TimeTotal() / 1000000.0) << " ms)"
                 << endl;
 
-        _stream << Console::TextBlue << "[   RUNS   ] " << Console::TextDefault
+        m_stream << Console::TextBlue << "[   RUNS   ] " << Console::TextDefault
                 << "       Average time: " << setprecision(3) << result.RunTimeAverage() / 1000.0 << " us "
                 << "(" << Console::TextBlue << "~" << result.RunTimeStdDev() / 1000.0 << " us" << Console::TextDefault
                 << ")" << endl;
@@ -99,7 +92,7 @@ void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName
                 const string unit     = "us";
                 double       _d_      = deviated - average;
 
-                _stream << setw(34) << "Fastest time: " << (result.RunTimeMinimum() / 1000.0) << " " << unit << " ("
+                m_stream << setw(34) << "Fastest time: " << (result.RunTimeMinimum() / 1000.0) << " " << unit << " ("
                         << (deviated > average ? Console::TextRed : Console::TextGreen)
                         << (deviated > average ? "+" : "") << _d_ << " " << unit << " / "
                         << (deviated > average ? "+" : "") << (_d_ * 100.0 / average) << " %" << Console::TextDefault
@@ -111,14 +104,14 @@ void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName
                 const string unit     = "us";
                 double       _d_      = double(deviated) - double(average);
 
-                _stream << setw(34) << "Slowest time: " << deviated << " " << unit << " ("
+                m_stream << setw(34) << "Slowest time: " << deviated << " " << unit << " ("
                         << (deviated > average ? Console::TextRed : Console::TextGreen)
                         << (deviated > average ? "+" : "") << _d_ << " " << unit << " / "
                         << (deviated > average ? "+" : "") << (_d_ * 100.0 / average) << " %" << Console::TextDefault
                         << ")" << endl;
         }
 
-        _stream << setw(34) << "Median time: " << result.RunTimeMedian() / 1000.0 << " us (" << Console::TextCyan
+        m_stream << setw(34) << "Median time: " << result.RunTimeMedian() / 1000.0 << " us (" << Console::TextCyan
                 << "1st quartile: " << result.RunTimeQuartile1() / 1000.0
                 << " us | 3rd quartile: " << result.RunTimeQuartile3() / 1000.0 << " us" << Console::TextDefault << ")"
                 << endl;

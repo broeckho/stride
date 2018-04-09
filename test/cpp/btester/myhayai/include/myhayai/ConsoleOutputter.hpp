@@ -36,7 +36,7 @@ public:
         /// Initialize console outputter.
         /// @param stream Output stream. Must exist for the entire duration of
         /// the outputter's use.
-        explicit ConsoleOutputter(std::ostream& stream = std::cout) : _stream(stream) {}
+        explicit ConsoleOutputter(std::ostream& stream = std::cout) : m_stream(stream) {}
 
         ///
         void Begin(const std::size_t& enabledCount, const std::size_t& disabledCount) override;
@@ -56,7 +56,8 @@ public:
         void EndTest(const std::string& fixtureName, const std::string& testName, const InfoFactory& infoFactory,
                      const TestResult& result) override;
 
-        std::ostream& _stream;
+private:
+        std::ostream& m_stream;
 };
 
 } // namespace myhayai
