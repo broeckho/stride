@@ -45,16 +45,16 @@ public:
         void End(const std::size_t& executedCount, const std::size_t& disabledCount) override;
 
         void BeginOrSkipTest(const std::string& fixtureName, const std::string& testName,
-                             const TestParametersDescriptor& parameters, const std::size_t& runsCount, const bool skip);
+                             const InfoFactory& infoFactory, const std::size_t& runsCount, const bool skip);
 
-        void BeginTest(const std::string& fixtureName, const std::string& testName,
-                       const TestParametersDescriptor& parameters, const std::size_t& runsCount) override;
+        void BeginTest(const std::string& fixtureName, const std::string& testName, const InfoFactory& infoFactory,
+                       const std::size_t& runsCount) override;
 
         void SkipDisabledTest(const std::string& fixtureName, const std::string& testName,
-                              const TestParametersDescriptor& parameters, const std::size_t& runsCount) override;
+                              const InfoFactory& infoFactory, const std::size_t& runsCount) override;
 
-        void EndTest(const std::string& fixtureName, const std::string& testName,
-                     const TestParametersDescriptor& parameters, const TestResult& result) override;
+        void EndTest(const std::string& fixtureName, const std::string& testName, const InfoFactory& infoFactory,
+                     const TestResult& result) override;
 
         std::ostream& _stream;
 };

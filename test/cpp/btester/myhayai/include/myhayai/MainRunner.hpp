@@ -39,13 +39,13 @@ public:
         /// Execution mode.
         enum class Modes
         {
-                Run,
+                Exec,
                 List
         };
 
 public:
         ///
-        MainRunner() : m_exec_mode(Modes::Run), m_shuffle_benchmarks(false), m_stdout_outputter(nullptr) {}
+        MainRunner() : m_exec_mode(Modes::Exec), m_shuffle_benchmarks(false), m_stdout_outputter(nullptr) {}
 
         ///
         ~MainRunner();

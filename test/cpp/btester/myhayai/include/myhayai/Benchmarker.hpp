@@ -23,9 +23,9 @@
  */
 
 #include "ConsoleOutputter.hpp"
+#include "InfoFactory.hpp"
 #include "TestDescriptors.hpp"
 #include "TestFactory.hpp"
-#include "TestParametersDescriptor.hpp"
 #include "TestResult.hpp"
 
 #include <algorithm>
@@ -43,6 +43,17 @@ namespace myhayai {
 class Benchmarker
 {
 public:
+        /// Simple singleton: no copy construction allowed.
+        Benchmarker(const Benchmarker&) = delete;
+
+        /// Simple singleton: no copy assignment allowed.
+        Benchmarker& operator=(const Benchmarker&) = delete;
+
+        /// Get the singleton instance of Benchmarker.
+        /// @returns a reference to the singleton instance.
+        static Benchmarker& Instance();
+
+public:
         /// Add an outputter.
         /// @param outputter Outputter. The caller must ensure that the
         /// outputter remains in existence for the entire benchmark run.
@@ -54,26 +65,21 @@ public:
         /// @param pattern Filter pattern compatible with gtest.
         static void ApplyPatternFilter(const char* pattern);
 
-        /// Get the singleton instance of @ref Benchmarker.
-        /// @returns a reference to the singleton instance of the
-        /// benchmarker execution controller.
-        static Benchmarker& Instance();
-
         /// Get the tests to be executed.
         const TestDescriptors& GetTestDescriptors() const;
 
         /// Register a test with the benchmarker instance.
-        /// @param fixture_name    Name of the fixture.
-        /// @param test_name       Name of the test.
+        /// @param fixtureName    Name of the fixture.
+        /// @param testName       Name of the test.
         /// @param runs           Number of runs for the test.
-        /// @param test_factory    Test factory implementation for the test.
-        /// @param disable_test   Disable the test (won't run evn if included in filter.
-        /// @returns a pointer to a @ref TestDescriptor instance
-        /// representing the given test.
-        static TestDescriptor RegisterTest(const char* fixture_name, const char* test_name, std::size_t runs,
-                                           TestFactory              test_factory,
-                                           TestParametersDescriptor parameters   = TestParametersDescriptor(),
-                                           bool                     disable_test = false);
+        /// @param testFactory    Test factory implementation for the test.
+        /// @param infoFactory     Generates ptree with info on test
+        /// @param disableTest   Disable the test (won't run evn if included in filter.
+        /// @returns TestDescriptor of registered test.
+        static TestDescriptor RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
+                                           TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
+                                           bool disableTest = false);
+
         /// Run all benchmarking tests.
         static void RunAllTests();
 
@@ -83,12 +89,6 @@ public:
 private:
         /// Private constructor.
         Benchmarker() = default;
-
-        /// No copy construction allowed.
-        Benchmarker(const Benchmarker&) = delete;
-
-        /// No copy assignment allowed.
-        Benchmarker& operator=(const Benchmarker&) = delete;
 
         /// Private destructor.
         ~Benchmarker() = default;

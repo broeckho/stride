@@ -37,8 +37,6 @@ public:
 
         ///
         std::size_t CountNotInFilter();
-
-private:
 };
 
 } // namespace myhayai

@@ -34,23 +34,9 @@ using namespace std;
 namespace myhayai {
 
 void Outputter::WriteTestNameToStream(ostream& stream, const string& fixtureName, const string& testName,
-                                      const TestParametersDescriptor& parameters)
+                                      const InfoFactory& infoFactory)
 {
         stream << fixtureName << "." << testName;
-        /*
-        const vector<TestParameterDescriptor>& descs = parameters.m_params_desc();
-        if (!descs.empty()) {
-                stream << "(";
-                for (size_t i = 0; i < descs.size(); ++i) {
-                        if (i) {
-                                stream << ", ";
-                        }
-                        const TestParameterDescriptor& desc = descs[i];
-                        stream << desc.Declaration << " = " << desc.Value;
-                }
-                stream << ")";
-        }
-         */
 }
 
 } // namespace myhayai

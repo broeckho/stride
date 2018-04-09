@@ -33,7 +33,7 @@ class FileOutputter
 public:
         /// File outputter.
         /// @param path Output path. Expected to be available during the life time of the outputter.
-        explicit FileOutputter(const char* path) : _path(path), _outputter(nullptr) {}
+        explicit FileOutputter(const char* path) : m_path(path), m_outputter(nullptr) {}
 
         virtual ~FileOutputter();
 
@@ -51,9 +51,9 @@ protected:
         virtual Outputter* CreateOutputter(std::ostream& stream) = 0;
 
 private:
-        const char*   _path;
-        std::ofstream _stream;
-        Outputter*    _outputter;
+        const char*   m_path;
+        std::ofstream m_stream;
+        Outputter*    m_outputter;
 };
 
 } // namespace myhayai

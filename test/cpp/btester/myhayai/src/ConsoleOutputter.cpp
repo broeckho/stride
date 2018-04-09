@@ -57,8 +57,7 @@ void ConsoleOutputter::End(const size_t& executedCount, const size_t& disabledCo
 }
 
 void ConsoleOutputter::BeginOrSkipTest(const string& fixtureName, const string& testName,
-                                       const TestParametersDescriptor& parameters, const size_t& runsCount,
-                                       const bool skip)
+                                       const InfoFactory& infoFactory, const size_t& runsCount, const bool skip)
 {
         if (skip) {
                 _stream << Console::TextCyan << "[ DISABLED ]";
@@ -66,27 +65,27 @@ void ConsoleOutputter::BeginOrSkipTest(const string& fixtureName, const string& 
                 _stream << Console::TextGreen << "[ RUN      ]";
         }
         _stream << Console::TextYellow << " ";
-        WriteTestNameToStream(_stream, fixtureName, testName, parameters);
+        WriteTestNameToStream(_stream, fixtureName, testName, infoFactory);
         _stream << Console::TextDefault << " (" << runsCount << (runsCount == 1 ? " run" : " runs") << ")" << endl;
 }
 
-void ConsoleOutputter::BeginTest(const string& fixtureName, const string& testName,
-                                 const TestParametersDescriptor& parameters, const size_t& runsCount)
+void ConsoleOutputter::BeginTest(const string& fixtureName, const string& testName, const InfoFactory& infoFactory,
+                                 const size_t& runsCount)
 {
-        BeginOrSkipTest(fixtureName, testName, parameters, runsCount, false);
+        BeginOrSkipTest(fixtureName, testName, infoFactory, runsCount, false);
 }
 
 void ConsoleOutputter::SkipDisabledTest(const string& fixtureName, const string& testName,
-                                        const TestParametersDescriptor& parameters, const size_t& runsCount)
+                                        const InfoFactory& infoFactory, const size_t& runsCount)
 {
-        BeginOrSkipTest(fixtureName, testName, parameters, runsCount, true);
+        BeginOrSkipTest(fixtureName, testName, infoFactory, runsCount, true);
 }
 
-void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName,
-                               const TestParametersDescriptor& parameters, const TestResult& result)
+void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName, const InfoFactory& infoFactory,
+                               const TestResult& result)
 {
         _stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " ";
-        WriteTestNameToStream(_stream, fixtureName, testName, parameters);
+        WriteTestNameToStream(_stream, fixtureName, testName, infoFactory);
         _stream << Console::TextDefault << " (" << setprecision(6) << (result.TimeTotal() / 1000000.0) << " ms)"
                 << endl;
 

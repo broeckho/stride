@@ -22,7 +22,7 @@
  * Header file for Outputter.
  */
 
-#include "TestParametersDescriptor.hpp"
+#include "InfoFactory.hpp"
 #include "TestResult.hpp"
 
 #include <cstddef>
@@ -51,32 +51,32 @@ public:
         /// Begin benchmark test run.
         /// @param fixtureName   Fixture name.
         /// @param testName      Test name.
-        /// @param parameters    Test parameter description.
+        /// @param infoFactory   Generates extra info on test.
         /// @param runsCount Number of runs to be executed.
         virtual void BeginTest(const std::string& fixtureName, const std::string& testName,
-                               const TestParametersDescriptor& parameters, const std::size_t& runsCount) = 0;
+                               const InfoFactory& infoFactory, const std::size_t& runsCount) = 0;
 
         /// End benchmark test run.
         /// @param fixtureName  Fixture name.
         /// @param testName     Test name.
-        /// @param parameters   Test parameter description.
+        /// @param infoFactory   Generates extra info on test.
         /// @param result       Test result.
         virtual void EndTest(const std::string& fixtureName, const std::string& testName,
-                             const TestParametersDescriptor& parameters, const TestResult& result) = 0;
+                             const InfoFactory& infoFactory, const TestResult& result) = 0;
 
         /// Skip disabled benchmark test run.
         /// @param fixtureName  Fixture name.
         /// @param testName     Test name.
-        /// @param parameters   Test parameter description.
+        /// @param infoFactory   Generates extra info on test.
         /// @param runsCount    Number of runs to be executed.
         /// @param iterationsCount Number of iterations per run.
         virtual void SkipDisabledTest(const std::string& fixtureName, const std::string& testName,
-                                      const TestParametersDescriptor& parameters, const std::size_t& runsCount) = 0;
+                                      const InfoFactory& infoFactory, const std::size_t& runsCount) = 0;
 
 protected:
         /// Write a nicely formatted test name to a stream.
         static void WriteTestNameToStream(std::ostream& stream, const std::string& fixtureName,
-                                          const std::string& testName, const TestParametersDescriptor& parameters);
+                                          const std::string& testName, const InfoFactory& infoFactory);
 };
 
 } // namespace myhayai

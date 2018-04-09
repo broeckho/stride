@@ -27,10 +27,6 @@
 #include "myhayai/ConsoleFileOutputter.hpp"
 #include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
-#include "myhayai/JUnitXmlFileOutputter.hpp"
-#include "myhayai/JUnitXmlOutputter.hpp"
-#include "myhayai/JsonFileOutputter.hpp"
-#include "myhayai/JsonOutputter.hpp"
 
 #include <algorithm>
 #include <cerrno>
@@ -70,7 +66,7 @@ int MainRunner::ListBenchmarks()
         // Get the the canonical test names.
         vector<string> testNames;
         for (auto& t_n : Benchmarker::Instance().GetTestDescriptors()) {
-                testNames.emplace_back(t_n.m_canonical_name);
+                testNames.emplace_back(t_n.GetCanonicalName());
         }
 
         // Sort the benchmark names.
@@ -134,7 +130,8 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                                         }
                                         m_stdout_outputter = new ConsoleOutputter(cout);
                                 }
-                        } else if (!strcmp(format, "json"))
+                        }
+                        /*else if (!strcmp(format, "json"))
                                 if (path) {
                                         m_file_outputters.push_back(new JsonFileOutputter(path));
                                 } else {
@@ -154,7 +151,7 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                                 }
                         else {
                                 HAYAI_MAIN_USAGE_ERROR("invalid format: " << format);
-                        }
+                        }*/
                 }
                 // Console coloring flag.
                 else if ((!strcmp(arg, "-c")) || (!strcmp(arg, "--color"))) {
@@ -197,7 +194,7 @@ int MainRunner::Execute()
         int ret = EXIT_FAILURE;
         // Execute based on the selected mode.
         switch (m_exec_mode) {
-        case Modes::Run: ret = RunBenchmarks(); break;
+        case Modes::Exec: ret = RunBenchmarks(); break;
         case Modes::List: ret = ListBenchmarks(); break;
         }
         return ret;

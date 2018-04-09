@@ -23,18 +23,20 @@
  */
 
 #include "Benchmarker.hpp"
+#include "InfoFactory.hpp"
 #include "TestFactory.hpp"
-#include "TestParametersDescriptor.hpp"
+
+#include <utility>
 
 namespace myhayai {
 
 class Benchmark
 {
 public:
-        Benchmark(const char* fixture_name, const char* test_name, std::size_t runs, TestFactory test_factory,
-                  TestParametersDescriptor parameters = TestParametersDescriptor(), bool disable_test = false)
+        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
+                  InfoFactory infoFactory = InfoFactory(), bool disableTest = false)
         {
-                Benchmarker::RegisterTest(fixture_name, test_name, runs, test_factory, parameters, disable_test);
+                Benchmarker::RegisterTest(fixtureName, testName, numRuns, std::move(testFactory), std::move(infoFactory), disableTest);
         }
 };
 

@@ -28,25 +28,19 @@ set(SRC
     ../include/myhayai/FileOutputter.hpp
     ../include/myhayai/Fixture.hpp
     ../include/myhayai/InfoFactory.hpp
-    ../include/myhayai/JsonOutputter.hpp
-    ../include/myhayai/JsonFileOutputter.hpp
-    ../include/myhayai/JUnitXmlFileOutputter.hpp
-    ../include/myhayai/JUnitXmlOutputter.hpp
+    ../include/myhayai/MainRunner.hpp
     ../include/myhayai/Outputter.hpp
     ../include/myhayai/TestFactory.hpp
     ../include/myhayai/TestDescriptor.hpp
-    ../include/myhayai/TestParametersDescriptor.hpp
-    ../include/myhayai/TestResult.hpp
-    ../include/myhayai/Fixture.hpp
+    ../include/myhayai/TestDescriptors.hpp
     ../include/myhayai/TestFactory.hpp
-    ../include/myhayai/TestDescriptor.hpp
-    ../include/myhayai/MainRunner.hpp
+    ../include/myhayai/TestResult.hpp
 #
     Benchmarker.cpp
     ConsoleOutputter.cpp
     FileOutputter.cpp
-    JsonOutputter.cpp
-    JUnitXmlOutputter.cpp
+#    JsonOutputter.cpp
+#    JUnitXmlOutputter.cpp
     Outputter.cpp
     MainRunner.cpp
     TestDescriptors.cpp

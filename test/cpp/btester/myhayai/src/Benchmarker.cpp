@@ -26,7 +26,7 @@
 #include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
 #include "myhayai/TestFactory.hpp"
-#include "myhayai/TestParametersDescriptor.hpp"
+#include "myhayai/InfoFactory.hpp"
 #include "myhayai/TestResult.hpp"
 
 #include <algorithm>
@@ -62,8 +62,8 @@ void Benchmarker::ApplyPatternFilter(const char* pattern)
 
         // Iterate across all tests and test them against the patterns.
         for (auto& desc : instance.m_test_descriptors) {
-                if ((!FilterMatchesString(positive.c_str(), desc.m_canonical_name)) ||
-                    (FilterMatchesString(negative.c_str(), desc.m_canonical_name))) {
+                if ((!FilterMatchesString(positive.c_str(), desc.GetCanonicalName())) ||
+                    (FilterMatchesString(negative.c_str(), desc.GetCanonicalName()))) {
                         desc.m_is_in_filter = false;
                 }
         }
@@ -108,9 +108,9 @@ bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
 }
 
 TestDescriptor Benchmarker::RegisterTest(const char* fixture_name, const char* test_name, size_t runs,
-                                         TestFactory test_factory, TestParametersDescriptor parameters, bool disabled)
+                                         TestFactory test_factory, InfoFactory infoFactory, bool disabled)
 {
-        TestDescriptor descriptor(fixture_name, test_name, runs, std::move(test_factory), parameters, disabled);
+        TestDescriptor descriptor(fixture_name, test_name, runs, std::move(test_factory), infoFactory, disabled);
         Instance().m_test_descriptors.emplace_back(descriptor);
         return descriptor;
 }
@@ -145,14 +145,14 @@ void Benchmarker::RunAllTests()
                 // If test is disabled output and skip.
                 if (t_d.m_is_disabled) {
                         for (auto& o : outputters)
-                                o->SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc,
+                                o->SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory,
                                                     t_d.m_num_runs);
                         continue;
                 }
 
                 // Describe the beginning of the run.
                 for (auto& o : outputters)
-                        o->BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc, t_d.m_num_runs);
+                        o->BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, t_d.m_num_runs);
 
                 // Execute each individual run.
                 vector<uint64_t> run_times(t_d.m_num_runs);
@@ -166,7 +166,7 @@ void Benchmarker::RunAllTests()
 
                 // Describe the end of the run.
                 for (auto& o : outputters) {
-                        o->EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_params_desc, results);
+                        o->EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, results);
                 }
         }
 

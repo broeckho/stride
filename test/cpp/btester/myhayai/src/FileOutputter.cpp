@@ -30,32 +30,32 @@ namespace myhayai {
 
 FileOutputter::~FileOutputter()
 {
-        if (_outputter) {
-                delete _outputter;
+        if (m_outputter) {
+                delete m_outputter;
         }
-        _stream.close();
+        m_stream.close();
 }
 
 /// Set up.
 /// Opens the output file for writing and initializes the outputter.
 void FileOutputter::SetUp()
 {
-        _stream.open(_path, std::ios_base::out | std::ios_base::trunc | std::ios_base::binary);
-        if (_stream.bad()) {
+        m_stream.open(m_path, std::ios_base::out | std::ios_base::trunc | std::ios_base::binary);
+        if (m_stream.bad()) {
                 std::stringstream error;
-                error << "failed to open " << _path << " for writing: " << strerror(errno);
+                error << "failed to open " << m_path << " for writing: " << strerror(errno);
                 throw std::runtime_error(error.str());
         }
-        _outputter = CreateOutputter(_stream);
+        m_outputter = CreateOutputter(m_stream);
 }
 
 /// Outputter.
 Outputter& FileOutputter::GetOutputter()
 {
-        if (!_outputter) {
+        if (!m_outputter) {
                 throw std::runtime_error("outputter has not been set up");
         }
-        return *_outputter;
+        return *m_outputter;
 }
 
 } // namespace myhayai

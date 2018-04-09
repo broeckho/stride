@@ -22,8 +22,8 @@
  * Header file for TestDescriptor.
  */
 
+#include "InfoFactory.hpp"
 #include "TestFactory.hpp"
-#include "TestParametersDescriptor.hpp"
 
 #include <cstring>
 #include <sstream>
@@ -42,23 +42,23 @@ struct TestDescriptor
         /// @param iterations      Number of iterations per run.
         /// @param test_factory    Test factory implementation for the test.
         /// @param params_desc     Parametrized test parameters.
-        TestDescriptor(const char* fixture_name, const char* test_name, std::size_t num_runs, TestFactory test_factory,
-                       TestParametersDescriptor params_desc, bool is_disabled = false, bool is_in_filter = true)
-            : m_fixture_name(fixture_name), m_test_name(test_name),
-              m_canonical_name(std::string(fixture_name) + "." + test_name), m_num_runs(num_runs),
-              m_test_factory(std::move(test_factory)), m_params_desc(params_desc), m_is_disabled(is_disabled),
-              m_is_in_filter(is_in_filter)
+        TestDescriptor(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
+                       InfoFactory infoFactory = InfoFactory(), bool isDisabled = false, bool isInFilter = true)
+            : m_fixture_name(fixtureName), m_test_name(testName), m_num_runs(numRuns),
+              m_test_factory(std::move(testFactory)), m_info_factory(std::move(infoFactory)),
+              m_is_disabled(isDisabled), m_is_in_filter(isInFilter)
         {
         }
 
-        std::string              m_fixture_name;   ///< Fixture name.
-        std::string              m_test_name;      ///< Test name.
-        std::string              m_canonical_name; ///< Canonical name: <FixtureName>.<TestName>.
-        std::size_t              m_num_runs;       ///< Number of test runs.
-        TestFactory              m_test_factory;   ///< Test factory.
-        TestParametersDescriptor m_params_desc;    ///< Parameters associated with the test.
-        bool                     m_is_disabled;    ///< Disabled (or not).
-        bool                     m_is_in_filter;   ///< Selected by filter (or not).
+        std::string GetCanonicalName() const { return std::string(m_fixture_name).append(".").append(m_test_name); }
+
+        std::string m_fixture_name;   ///< Fixture name.
+        std::string m_test_name;      ///< Test name.
+        std::size_t m_num_runs;       ///< Number of test runs.
+        TestFactory m_test_factory;   ///< Test factory.
+        InfoFactory m_info_factory;   ///< Generatesptree with info associated with the test.
+        bool        m_is_disabled;    ///< Disabled (or not).
+        bool        m_is_in_filter;   ///< Selected by filter (or not).
 };
 
 } // namespace myhayai

@@ -57,14 +57,14 @@ public:
         }
 
         /// Test if formatting is enabled.
-        static bool IsFormattingEnabled() { return Instance()._formattingEnabled; }
+        static bool IsFormattingEnabled() { return Instance().m_formatting_enabled; }
 
         /// Set whether formatting is enabled.
-        static void SetFormattingEnabled(bool enabled) { Instance()._formattingEnabled = enabled; }
+        static void SetFormattingEnabled(bool enabled) { Instance().m_formatting_enabled = enabled; }
 
 private:
-        Console() : _formattingEnabled(true) {}
-        bool _formattingEnabled;
+        Console() : m_formatting_enabled(true) {}
+        bool m_formatting_enabled;
 };
 
 #if !defined(HAYAI_NO_COLOR)

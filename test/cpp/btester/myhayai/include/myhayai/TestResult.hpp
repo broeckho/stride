@@ -37,41 +37,41 @@ public:
         explicit TestResult(const std::vector<std::uint64_t>& runTimes);
 
         /// Total time.
-        inline double TimeTotal() const { return double(_timeTotal); }
+        inline double TimeTotal() const { return double(m_timeTotal); }
 
         /// Run times.
-        inline const std::vector<uint64_t>& RunTimes() const { return _runTimes; }
+        inline const std::vector<uint64_t>& RunTimes() const { return m_runTimes; }
 
         /// Average time per run.
-        inline double RunTimeAverage() const { return double(_timeTotal) / double(_runTimes.size()); }
+        inline double RunTimeAverage() const { return double(m_timeTotal) / double(m_runTimes.size()); }
 
         /// Standard deviation time per run.
-        inline double RunTimeStdDev() const { return _timeStdDev; }
+        inline double RunTimeStdDev() const { return m_timeStdDev; }
 
         /// Median (2nd Quartile) time per run.
-        inline double RunTimeMedian() const { return _timeMedian; }
+        inline double RunTimeMedian() const { return m_timeMedian; }
 
         /// 1st Quartile time per run.
-        inline double RunTimeQuartile1() const { return _timeQuartile1; }
+        inline double RunTimeQuartile1() const { return m_timeQuartile1; }
 
         /// 3rd Quartile time per run.
-        inline double RunTimeQuartile3() const { return _timeQuartile3; }
+        inline double RunTimeQuartile3() const { return m_timeQuartile3; }
 
         /// Maximum time per run.
-        inline double RunTimeMaximum() const { return double(_timeRunMax); }
+        inline double RunTimeMaximum() const { return double(m_timeRunMax); }
 
         /// Minimum time per run.
-        inline double RunTimeMinimum() const { return double(_timeRunMin); }
+        inline double RunTimeMinimum() const { return double(m_timeRunMin); }
 
 private:
-        std::vector<uint64_t> _runTimes;
-        uint64_t              _timeTotal;
-        uint64_t              _timeRunMin;
-        uint64_t              _timeRunMax;
-        double                _timeStdDev;
-        double                _timeMedian;
-        double                _timeQuartile1;
-        double                _timeQuartile3;
+        std::vector<uint64_t> m_runTimes;
+        uint64_t              m_timeTotal;
+        uint64_t              m_timeRunMin;
+        uint64_t              m_timeRunMax;
+        double                m_timeStdDev;
+        double                m_timeMedian;
+        double                m_timeQuartile1;
+        double                m_timeQuartile3;
 };
 
 } // namespace myhayai
