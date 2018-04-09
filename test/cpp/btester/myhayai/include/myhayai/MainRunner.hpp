@@ -36,19 +36,11 @@ namespace myhayai {
 class MainRunner
 {
 public:
-        /// Execution mode.
-        enum class Modes
-        {
-                Exec,
-                List
-        };
-
-public:
         ///
-        MainRunner() : m_exec_mode(Modes::Exec), m_shuffle_benchmarks(false), m_stdout_outputter(nullptr) {}
+        MainRunner() : m_filter("*"), m_list_mode(true), m_shuffle(false), m_xml_path("") {}
 
         ///
-        ~MainRunner();
+        ~MainRunner() = default;
 
         /// Parse arguments and initializes the MainRunner.
         /// @param argc             Argument count including the executable name.
@@ -61,7 +53,7 @@ public:
         /// argument.
         /// @returns 0 on success, otherwise the exit status code to be
         /// returned from the executable.
-        int ParseArgs(int argc, char** argv, std::vector<char*>* residualArgs = nullptr);
+        int ParseArgs(int argc, char** argv);
 
         /// Run the selected execution mode.
         /// @returns the exit status code to be returned from the executable.
@@ -76,20 +68,16 @@ private:
         /// @returns the exit status code to be returned from the executable.
         int RunBenchmarks();
 
-        /// Show usage.
-        /// @param execName Executable name.
-        void ShowUsage(const char* execName);
-
         /// Shuffle test names.
         /// \param names  vector to be shuffled.
         /// \return shuffled vector.
         static void Shuffle(std::vector<std::string>& names);
 
 private:
-        Modes                       m_exec_mode;          ///< Execution mode.
-        std::vector<FileOutputter*> m_file_outputters;    ///< File outputters (freed by the class on destruction).
-        bool                        m_shuffle_benchmarks; ///< Shuffle benchmarks.
-        Outputter*                  m_stdout_outputter;   /// Standard outputter (freed by the class on destruction).
+        std::string m_filter;    ///< Filter the names of tests to be executed.
+        bool        m_list_mode; ///< Execution mode.
+        bool        m_shuffle;   ///< Shuffle benchmarks.
+        std::string m_xml_path;  ///< If not empty, produce xml in file at path.
 };
 
 } // namespace myhayai

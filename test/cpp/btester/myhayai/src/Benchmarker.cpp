@@ -25,9 +25,9 @@
 
 #include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
-#include "myhayai/TestFactory.hpp"
-#include "myhayai/TestDescriptors.hpp"
 #include "myhayai/InfoFactory.hpp"
+#include "myhayai/TestDescriptors.hpp"
+#include "myhayai/TestFactory.hpp"
 #include "myhayai/TestResult.hpp"
 
 #include <algorithm>
@@ -42,7 +42,16 @@ using namespace std;
 
 namespace myhayai {
 
-void Benchmarker::AddOutputter(Outputter& outputter) { Instance().m_outputters.push_back(&outputter); }
+size_t Benchmarker::GetDisabledCount(const vector<string>& names)
+{
+        size_t disabledCount = 0;
+        for (const auto& n : names) {
+                if (m_test_descriptors[n].m_is_disabled) {
+                        ++disabledCount;
+                }
+        }
+        return disabledCount;
+}
 
 const TestDescriptors& Benchmarker::GetTestDescriptors() const { return m_test_descriptors; }
 
@@ -52,31 +61,26 @@ Benchmarker& Benchmarker::Instance()
         return singleton;
 }
 
-bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t numRuns,
-                                         TestFactory testFactory, InfoFactory infoFactory, bool isDisabled)
+bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t numRuns, TestFactory testFactory,
+                               InfoFactory infoFactory, bool isDisabled)
 {
         TestDescriptor d(fixtureName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);
-        const auto ret = Instance().m_test_descriptors.emplace(make_pair(d.GetCanonicalName(), d));
+        const auto     ret = Instance().m_test_descriptors.emplace(make_pair(d.GetCanonicalName(), d));
         return ret.second;
 }
 
 void Benchmarker::RunTests(const vector<string>& names)
 {
-        ConsoleOutputter   defaultOutputter;
-        vector<Outputter*> defaultOutputters;
-        defaultOutputters.push_back(&defaultOutputter);
-        Benchmarker&        instance   = Instance();
-        vector<Outputter*>& outputters = (instance.m_outputters.empty() ? defaultOutputters : instance.m_outputters);
+        ConsoleOutputter defaultOutputter;
 
         // Setup.
-        auto   test_descriptors = instance.GetTestDescriptors();
-        size_t disabledCount    = 0;
-        size_t enabledCount     = 0;
+        auto         test_descriptors = Instance().GetTestDescriptors();
+        const size_t totalCount       = test_descriptors.size();
+        const size_t disabledCount    = Instance().GetDisabledCount(names);
+        const size_t enabledCount     = totalCount - disabledCount;
 
         // Begin output.
-        for (auto& o : outputters) {
-                o->Begin(names.size(), 0);
-        }
+        defaultOutputter.Begin(enabledCount, disabledCount);
 
         // Run through all the test_descriptors in ascending order.
         for (const auto& n : names) {
@@ -85,17 +89,13 @@ void Benchmarker::RunTests(const vector<string>& names)
 
                 // If test is disabled output and skip.
                 if (t_d.m_is_disabled) {
-                        ++disabledCount;
-                        for (auto& o : outputters)
-                                o->SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory,
-                                                    t_d.m_num_runs);
+                        defaultOutputter.SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory,
+                                                          t_d.m_num_runs);
                         continue;
                 }
 
                 // Describe the beginning of the run.
-                ++enabledCount;
-                for (auto& o : outputters)
-                        o->BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, t_d.m_num_runs);
+                defaultOutputter.BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, t_d.m_num_runs);
 
                 // Execute each individual run.
                 vector<uint64_t> run_times(t_d.m_num_runs);
@@ -108,15 +108,11 @@ void Benchmarker::RunTests(const vector<string>& names)
                 TestResult results(run_times);
 
                 // Describe the end of the run.
-                for (auto& o : outputters) {
-                        o->EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, results);
-                }
+                defaultOutputter.EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, results);
         }
 
         // End output.
-        for (auto& o : outputters) {
-                o->End(enabledCount, disabledCount);
-        }
+        defaultOutputter.End(enabledCount, disabledCount);
 }
 
 } // namespace myhayai

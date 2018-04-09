@@ -63,6 +63,11 @@ set(LIBS   ${LIBS}   m)
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/include)
 
 #----------------------------------------------------------------------------
+# TCLAP
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
+
+#----------------------------------------------------------------------------
 # SHA1 hash code.
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)

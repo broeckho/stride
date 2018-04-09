@@ -36,7 +36,8 @@ public:
         Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
                   InfoFactory infoFactory = InfoFactory(), bool disableTest = false)
         {
-                Benchmarker::RegisterTest(fixtureName, testName, numRuns, std::move(testFactory), std::move(infoFactory), disableTest);
+                Benchmarker::RegisterTest(fixtureName, testName, numRuns, std::move(testFactory),
+                                          std::move(infoFactory), disableTest);
         }
 };
 

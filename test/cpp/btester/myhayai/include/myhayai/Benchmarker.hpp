@@ -54,11 +54,6 @@ public:
         static Benchmarker& Instance();
 
 public:
-        /// Add an outputter.
-        /// @param outputter Outputter. The caller must ensure that the
-        /// outputter remains in existence for the entire benchmark run.
-        static void AddOutputter(Outputter& outputter);
-
         /// Get the tests to be executed.
         const TestDescriptors& GetTestDescriptors() const;
 
@@ -71,8 +66,8 @@ public:
         /// @param disableTest   Disable the test (won't run evn if included in filter.
         /// @returns true in case of successful registration.
         bool static RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
-                                           TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
-                                           bool disableTest = false);
+                                 TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
+                                 bool disableTest = false);
 
         /// Run all benchmarking tests.
         static void RunTests(const std::vector<std::string>& names);
@@ -84,9 +79,11 @@ private:
         /// Private destructor.
         ~Benchmarker() = default;
 
+        ///
+        size_t GetDisabledCount(const std::vector<std::string>& names);
+
 private:
-        std::vector<Outputter*> m_outputters;       ///< Registered outputters.
-        TestDescriptors         m_test_descriptors; ///< Descriptors for egistered tests.
+        TestDescriptors m_test_descriptors; ///< Descriptors for egistered tests.
 };
 
 } // namespace myhayai
