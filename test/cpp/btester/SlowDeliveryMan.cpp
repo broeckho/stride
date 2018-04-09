@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,15 +18,35 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Implementation file for SlowDeliveryMan.
  */
 
-#include "Fixture.hpp"
+#include <chrono>
+#include <thread>
 
-#include <functional>
+#include "SlowDeliveryMan.h"
 
-namespace myhayai {
+using namespace std;
 
-using TestFactory = std::function<Fixture()>;
+void SlowDeliveryMan::SetUp(unsigned int speed) { this->m_man = new DeliveryMan(speed); }
 
-} // namespace myhayai
+void SlowDeliveryMan::TearDown() { delete this->m_man; }
+
+void SlowDeliveryMan::DoThis(unsigned int dist, unsigned int dur)
+{
+        Sleep(dur);
+        m_man->DeliverPackage(dist);
+}
+
+void SlowDeliveryMan::DoThat(unsigned int dur)
+{
+        Sleep(dur);
+        m_man->DeliverPackage(2);
+}
+
+void SlowDeliveryMan::Sleep(unsigned int dur)
+{
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(dur * d1);
+}

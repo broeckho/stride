@@ -36,8 +36,7 @@ size_t TestDescriptors::CountDisabled()
 size_t TestDescriptors::CountNotInFilter()
 {
         return static_cast<size_t>(
-                count_if(this->begin(), this->end(), [](const auto& t_d) { return !t_d.m_is_in_filter; }));
+            count_if(this->begin(), this->end(), [](const auto& t_d) { return !t_d.m_is_in_filter; }));
 }
-
 
 } // namespace myhayai

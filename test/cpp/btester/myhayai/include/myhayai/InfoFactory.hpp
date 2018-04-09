@@ -19,15 +19,13 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for InfoFactory.
  */
 
-#include "Fixture.hpp"
-
+#include <boost/property_tree/ptree.hpp>
 #include <functional>
 
 namespace myhayai {
 
-using TestFactory = std::function<Fixture()>;
-
-} // namespace myhayai
+using InfoFactory = std::function<boost::property_tree::ptree()>;
+}

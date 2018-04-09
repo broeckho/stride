@@ -85,10 +85,7 @@ bool Benchmarker::FilterMatchesString(const char* filter, const string& str)
         }
 }
 
-const TestDescriptors& Benchmarker::GetTestDescriptors() const
-{
-        return m_test_descriptors;
-}
+const TestDescriptors& Benchmarker::GetTestDescriptors() const { return m_test_descriptors; }
 
 Benchmarker& Benchmarker::Instance()
 {
@@ -111,7 +108,7 @@ bool Benchmarker::PatternMatchesString(const char* pattern, const char* str)
 }
 
 TestDescriptor Benchmarker::RegisterTest(const char* fixture_name, const char* test_name, size_t runs,
-                                          TestFactory test_factory, TestParametersDescriptor parameters, bool disabled)
+                                         TestFactory test_factory, TestParametersDescriptor parameters, bool disabled)
 {
         TestDescriptor descriptor(fixture_name, test_name, runs, std::move(test_factory), parameters, disabled);
         Instance().m_test_descriptors.emplace_back(descriptor);

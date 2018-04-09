@@ -32,6 +32,7 @@
 #include <cstring>
 #include <iomanip>
 #include <limits>
+#include <memory>
 #include <random>
 #include <string>
 #include <vector>
@@ -70,9 +71,9 @@ public:
         /// @returns a pointer to a @ref TestDescriptor instance
         /// representing the given test.
         static TestDescriptor RegisterTest(const char* fixture_name, const char* test_name, std::size_t runs,
-                                            TestFactory              test_factory,
-                                            TestParametersDescriptor parameters   = TestParametersDescriptor(),
-                                            bool                     disable_test = false);
+                                           TestFactory              test_factory,
+                                           TestParametersDescriptor parameters   = TestParametersDescriptor(),
+                                           bool                     disable_test = false);
         /// Run all benchmarking tests.
         static void RunAllTests();
 
@@ -101,8 +102,8 @@ private:
         static bool PatternMatchesString(const char* pattern, const char* str);
 
 private:
-        std::vector<Outputter*>      m_outputters;       ///< Registered outputters.
-        TestDescriptors m_test_descriptors; ///< Descriptors for egistered tests.
+        std::vector<Outputter*> m_outputters;       ///< Registered outputters.
+        TestDescriptors         m_test_descriptors; ///< Descriptors for egistered tests.
 };
 
 } // namespace myhayai

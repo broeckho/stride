@@ -19,23 +19,34 @@
  */
 /**
  * @file
- * Header file for TestFactoryDefault.
+ * Header file for SlowDeliveryMan.
  */
 
-#include "TestFactory.hpp"
+#include "DeliveryMan.h"
 
-namespace myhayai {
-/// Default test factory implementation. Simply constructs an instance
-/// of a the test of class @ref T with no constructor parameters.
-/// @tparam T Test class.
-/*
-template <class T>
-class TestFactoryDefault : public TestFactory
+// Notice no inheritance, so the signatures of SetUp, Run, TearDown are not
+// necessarily restricted, nor indeed their names.
+class SlowDeliveryMan
 {
 public:
-        /// Create a test instance with no constructor parameters.
-        /// @returns a pointer to an initialized test.
-        virtual Fixture* CreateTest() { return new T(); }
+        ///
+        SlowDeliveryMan() : m_man(nullptr) {}
+
+        ///
+        void SetUp(unsigned int speed);
+
+        ///
+        void TearDown();
+
+        ///
+        void DoThis(unsigned int dist, unsigned int dur);
+
+        ///
+        void DoThat(unsigned int dur);
+
+        ///
+        void Sleep(unsigned int dur);
+
+private:
+        DeliveryMan* m_man;
 };
- */
-} // namespace myhayai

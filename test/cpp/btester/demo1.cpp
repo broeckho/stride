@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -22,12 +21,31 @@
  * Header file for TestFactory.
  */
 
-#include "Fixture.hpp"
+#include "DeliveryMan.h"
+#include "Param2TestFactory.h"
+#include "SlowDeliveryMan.h"
+#include "myhayai/Benchmarker.hpp"
+#include "myhayai/MainRunner.hpp"
 
-#include <functional>
+#include <chrono>
+#include <iostream>
+#include <thread>
+#include <unistd.h>
 
-namespace myhayai {
+using namespace std;
+using namespace myhayai;
 
-using TestFactory = std::function<Fixture()>;
+int main(int argc, char** argv)
+{
+        // Set up the main runner.
+        MainRunner runner;
 
-} // namespace myhayai
+        // Parse the arguments.
+        int result = runner.ParseArgs(argc, argv);
+        if (result) {
+                return result;
+        }
+
+        // Execute based on the selected mode.
+        return runner.Execute();
+}

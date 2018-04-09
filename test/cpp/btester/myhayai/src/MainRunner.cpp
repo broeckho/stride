@@ -62,9 +62,7 @@ MainRunner::~MainRunner()
         for (auto it = m_file_outputters.begin(); it != m_file_outputters.end(); ++it) {
                 delete *it;
         }
-        if (m_stdout_outputter) {
-                delete m_stdout_outputter;
-        }
+        delete m_stdout_outputter;
 }
 
 int MainRunner::ListBenchmarks()
@@ -107,7 +105,6 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
                 }
                 // Filter flag.
                 else if ((!strcmp(arg, "-f")) || (!strcmp(arg, "--filter"))) {
-                        cerr << "HHHHHH" << endl;
                         if ((argLast) || (*argv[argI] == 0))
                                 HAYAI_MAIN_USAGE_ERROR(HAYAI_MAIN_FORMAT_FLAG(arg)
                                                        << " requires a pattern to be specified");
@@ -195,7 +192,7 @@ int MainRunner::ParseArgs(int argc, char** argv, vector<char*>* residualArgs)
         return EXIT_SUCCESS;
 }
 
-int MainRunner::Run()
+int MainRunner::Execute()
 {
         int ret = EXIT_FAILURE;
         // Execute based on the selected mode.
@@ -223,11 +220,12 @@ int MainRunner::RunBenchmarks()
                 Benchmarker::AddOutputter(fileOutputter.GetOutputter());
         }
 
-        // Run the benchmarks.
+        // Shuffle benchmarks if requested.
         if (m_shuffle_benchmarks) {
-                srand(static_cast<unsigned>(time(0)));
                 Benchmarker::ShuffleTests();
         }
+
+        // Run them.
         Benchmarker::RunAllTests();
 
         return EXIT_SUCCESS;

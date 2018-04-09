@@ -19,15 +19,20 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for ParamTestFactory.
  */
 
-#include "Fixture.hpp"
+#include "myhayai/Fixture.hpp"
 
-#include <functional>
+class Param1TestFactory
+{
+public:
+        ///
+        Param1TestFactory(unsigned int distance) : m_distance(distance) {}
 
-namespace myhayai {
+        ///
+        myhayai::Fixture operator()();
 
-using TestFactory = std::function<Fixture()>;
-
-} // namespace myhayai
+private:
+        unsigned int m_distance;
+};

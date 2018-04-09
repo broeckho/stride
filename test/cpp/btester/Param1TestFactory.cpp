@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,15 +18,25 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for ParamTestFactory.
  */
 
-#include "Fixture.hpp"
+#include "Param1TestFactory.h"
+#include "DeliveryMan.h"
+#include "myhayai/Benchmark.hpp"
 
-#include <functional>
+#include <memory>
 
-namespace myhayai {
+using namespace std;
+using namespace myhayai;
 
-using TestFactory = std::function<Fixture()>;
+Fixture Param1TestFactory::operator()()
+{
+        auto p    = make_shared<DeliveryMan>(1);
+        auto body = [p, this]() { p->DeliverPackage(m_distance); };
+        return Fixture(body);
+}
 
-} // namespace myhayai
+namespace {
+Benchmark b("Delivery", "Param1 - distance=4", 10, Param1TestFactory(4));
+}

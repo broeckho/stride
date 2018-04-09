@@ -19,15 +19,23 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header Param3TestFactory.
  */
 
-#include "Fixture.hpp"
+#include "myhayai/Fixture.hpp"
 
-#include <functional>
+class Param3TestFactory
+{
+public:
+        Param3TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
+            : m_distance(distance), m_duration(duration), m_speed(speed)
+        {
+        }
 
-namespace myhayai {
+        myhayai::Fixture operator()();
 
-using TestFactory = std::function<Fixture()>;
-
-} // namespace myhayai
+private:
+        unsigned int m_distance;
+        unsigned int m_duration;
+        unsigned int m_speed;
+};

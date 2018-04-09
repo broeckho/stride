@@ -19,15 +19,29 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for DeliveryMan.
  */
 
-#include "Fixture.hpp"
+/// Delivery man.
+class DeliveryMan
+{
+public:
+        /// Initialize a delivery man instance.
+        /// @param speed Delivery man speed from 1 to 10.
+        explicit DeliveryMan(unsigned int speed = 1) : m_speed(speed) {}
 
-#include <functional>
+        /// Deliver a package.
+        /// @param distance Distance the package has to travel.
+        void DeliverPackage(unsigned dist);
 
-namespace myhayai {
+        /// Prepare
+        /// \param dur   Preparation takes "dur" milliseconds.
+        void Prepare(unsigned int dur);
 
-using TestFactory = std::function<Fixture()>;
+        /// Sleep
+        /// \param dur   Preparation takes "dur" milliseconds.
+        void Sleep(unsigned int dur);
 
-} // namespace myhayai
+private:
+        unsigned int m_speed; ///< Delivery man speed from 1 to 10.
+};

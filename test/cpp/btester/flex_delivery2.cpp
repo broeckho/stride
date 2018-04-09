@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -22,12 +21,31 @@
  * Header file for TestFactory.
  */
 
-#include "Fixture.hpp"
+#include "DeliveryMan.h"
+#include "Param2TestFactory.h"
+#include "SlowDeliveryMan.h"
+#include "myhayai/Benchmark.hpp"
+#include "myhayai/MainRunner.hpp"
 
-#include <functional>
+#include <chrono>
+#include <iostream>
+#include <thread>
+#include <unistd.h>
 
-namespace myhayai {
+using namespace std;
+using namespace myhayai;
+using namespace std::chrono_literals;
 
-using TestFactory = std::function<Fixture()>;
+auto param2_factory = []() {
+        auto p = make_shared<DeliveryMan>();
+        return Fixture(
+            [p]() {
+                    this_thread::sleep_for(10ms);
+                    p->DeliverPackage(5);
+            },
+            [p]() { *p = DeliveryMan(3); });
+};
 
-} // namespace myhayai
+namespace {
+Benchmark b("FlexDelivery", "Flex2 - distance=5, speed=3", 10, param2_factory);
+}

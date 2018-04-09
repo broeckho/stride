@@ -65,7 +65,7 @@ public:
 
         /// Run the selected execution mode.
         /// @returns the exit status code to be returned from the executable.
-        int Run();
+        int Execute();
 
 private:
         /// List benchmarks.

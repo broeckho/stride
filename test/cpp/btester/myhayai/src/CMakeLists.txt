@@ -20,19 +20,20 @@
 #============================================================================
 set(SRC
 #
+    ../include/myhayai/Benchmark.hpp
     ../include/myhayai/Benchmarker.hpp
     ../include/myhayai/Console.hpp
     ../include/myhayai/ConsoleFileOutputter.hpp
     ../include/myhayai/ConsoleOutputter.hpp
     ../include/myhayai/FileOutputter.hpp
     ../include/myhayai/Fixture.hpp
+    ../include/myhayai/InfoFactory.hpp
     ../include/myhayai/JsonOutputter.hpp
     ../include/myhayai/JsonFileOutputter.hpp
     ../include/myhayai/JUnitXmlFileOutputter.hpp
     ../include/myhayai/JUnitXmlOutputter.hpp
     ../include/myhayai/Outputter.hpp
     ../include/myhayai/TestFactory.hpp
-    ../include/myhayai/TestFactoryDefault.hpp
     ../include/myhayai/TestDescriptor.hpp
     ../include/myhayai/TestParametersDescriptor.hpp
     ../include/myhayai/TestResult.hpp

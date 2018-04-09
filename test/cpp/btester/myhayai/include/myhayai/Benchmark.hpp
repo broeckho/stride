@@ -19,15 +19,23 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for Benchmark.
  */
 
-#include "Fixture.hpp"
-
-#include <functional>
+#include "Benchmarker.hpp"
+#include "TestFactory.hpp"
+#include "TestParametersDescriptor.hpp"
 
 namespace myhayai {
 
-using TestFactory = std::function<Fixture()>;
+class Benchmark
+{
+public:
+        Benchmark(const char* fixture_name, const char* test_name, std::size_t runs, TestFactory test_factory,
+                  TestParametersDescriptor parameters = TestParametersDescriptor(), bool disable_test = false)
+        {
+                Benchmarker::RegisterTest(fixture_name, test_name, runs, test_factory, parameters, disable_test);
+        }
+};
 
 } // namespace myhayai

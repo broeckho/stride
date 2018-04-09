@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,15 +18,35 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Implementation file for DeliveryMan.
  */
 
-#include "Fixture.hpp"
+#include "DeliveryMan.h"
 
-#include <functional>
+#include <chrono>
+#include <thread>
 
-namespace myhayai {
+using namespace std;
 
-using TestFactory = std::function<Fixture()>;
+void DeliveryMan::DeliverPackage(unsigned int dist)
+{
+        // Waste some clock cycles here.
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(dist * d1);
+}
 
-} // namespace myhayai
+void DeliveryMan::Prepare(unsigned int number)
+{
+        // Waste some clock cycles here.
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(number * d1);
+}
+
+void DeliveryMan::Sleep(unsigned int dur)
+{
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(dur * d1);
+}
