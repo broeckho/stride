@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,32 +12,31 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory one level higher
- *  still aplies.
  */
+
 /**
  * @file
- * Implementation file for Outputter.
+ * Payload for Subject/Observer for myhayaia::events.
  */
 
-#include "myhayai/Outputter.hpp"
+#include "Id.hpp"
+#include "TestResult.hpp"
 
-#include "myhayai/TestDescriptor.hpp"
-#include "myhayai/TestResult.hpp"
-
-#include <cstddef>
-#include <iostream>
-
-using namespace std;
+#include <string>
+#include <vector>
 
 namespace myhayai {
+namespace event {
 
-void Outputter::WriteTestNameToStream(ostream& stream, const string& fixtureName, const string& testName,
-                                      const InfoFactory& infoFactory)
+struct Payload
 {
-        stream << fixtureName << "." << testName;
-}
+        Payload(Id id, std::string testName, myhayai::TestResult testResult = TestResult())
+            : m_id(id), m_test_name(std::move(testName)), m_run_times(std::move(testResult)){};
 
+        Id                  m_id;
+        std::string         m_test_name;
+        myhayai::TestResult m_run_times;
+};
+
+} // namespace event
 } // namespace myhayai

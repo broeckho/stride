@@ -19,17 +19,33 @@
  */
 /**
  * @file
- * Header file for TestResult.
+ * Header file for BoxPlotData.
  */
 
 #include <cstdint>
-#include <iterator>
-#include <tuple>
 #include <vector>
 
 namespace myhayai {
 
-/// Test result descriptor. All durations are expressed in nanoseconds.
-using TestResult = std::vector<uint64_t>;
+/// BoxPlotData.
+struct BoxPlotData
+{
+public:
+        BoxPlotData() : m_total(), m_min(), m_max(), m_average(), m_median(), m_std_dev(), m_quartile1(), m_quartile3()
+        {
+        }
+
+        uint64_t m_total;
+        uint64_t m_min;
+        uint64_t m_max;
+        double   m_average;
+        double   m_median;
+        double   m_std_dev;
+        double   m_quartile1;
+        double   m_quartile3;
+
+        ///
+        static BoxPlotData Calculate(const std::vector<uint64_t>& runTimes);
+};
 
 } // namespace myhayai

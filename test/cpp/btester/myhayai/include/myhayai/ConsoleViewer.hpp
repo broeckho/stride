@@ -19,17 +19,34 @@
  */
 /**
  * @file
- * Header file for TestResult.
+ * Header file for ConsoleOutputter.
  */
 
-#include <cstdint>
-#include <iterator>
-#include <tuple>
-#include <vector>
+#include "Benchmarker.hpp"
+#include "Payload.hpp"
+#include "TestDescriptors.hpp"
+
+#include <ostream>
 
 namespace myhayai {
 
-/// Test result descriptor. All durations are expressed in nanoseconds.
-using TestResult = std::vector<uint64_t>;
+/// Console outputter. Prints the result to standard output.
+class ConsoleViewer
+{
+public:
+        /// Initialize.
+        /// @param stream Output stream. Must exist for the entire duration of
+        /// the outputter's use.
+        explicit ConsoleViewer(std::ostream& stream = std::cout)
+            : m_descriptors(Benchmarker::Instance().GetTestDescriptors()), m_stream(stream)
+        {
+        }
+
+        void Update(const event::Payload& payload);
+
+private:
+        TestDescriptors m_descriptors;
+        std::ostream&   m_stream;
+};
 
 } // namespace myhayai

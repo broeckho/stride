@@ -70,11 +70,10 @@ int MainRunner::ParseArgs(int argc, char** argv)
 
                 //
                 cmd.parse(argc, static_cast<const char* const*>(argv));
-                m_xml_path = pathArg.getValue();
+                m_xml_path  = pathArg.getValue();
                 m_list_mode = listArg.getValue();
-                m_filter = filterArg.getValue();
-                m_shuffle = shuffleArg.getValue();
-
+                m_filter    = filterArg.getValue();
+                m_shuffle   = shuffleArg.getValue();
 
         } catch (ArgException& e) {
                 cerr << "MainRunner::ParseArgs>" << e.what();

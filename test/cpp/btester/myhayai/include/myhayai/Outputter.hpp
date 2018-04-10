@@ -72,11 +72,6 @@ public:
         /// @param iterationsCount Number of iterations per run.
         virtual void SkipDisabledTest(const std::string& fixtureName, const std::string& testName,
                                       const InfoFactory& infoFactory, const std::size_t& runsCount) = 0;
-
-protected:
-        /// Write a nicely formatted test name to a stream.
-        static void WriteTestNameToStream(std::ostream& stream, const std::string& fixtureName,
-                                          const std::string& testName, const InfoFactory& infoFactory);
 };
 
 } // namespace myhayai

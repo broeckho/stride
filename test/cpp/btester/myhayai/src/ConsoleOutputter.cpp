@@ -22,6 +22,7 @@
  */
 
 #include "myhayai/ConsoleOutputter.hpp"
+#include "myhayai/BoxPlotData.hpp"
 
 #include <iomanip>
 
@@ -58,7 +59,7 @@ void ConsoleOutputter::BeginOrSkipTest(const string& fixtureName, const string& 
                 m_stream << Console::TextGreen << "[ RUN      ]";
         }
         m_stream << Console::TextYellow << " ";
-        WriteTestNameToStream(m_stream, fixtureName, testName, infoFactory);
+        m_stream << fixtureName << "." << testName;
         m_stream << Console::TextDefault << " (" << runsCount << (runsCount == 1 ? " run" : " runs") << ")" << endl;
 }
 
@@ -77,43 +78,42 @@ void ConsoleOutputter::SkipDisabledTest(const string& fixtureName, const string&
 void ConsoleOutputter::EndTest(const string& fixtureName, const string& testName, const InfoFactory& infoFactory,
                                const TestResult& result)
 {
+        const auto stats = BoxPlotData::Calculate(result);
+
         m_stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " ";
-        WriteTestNameToStream(m_stream, fixtureName, testName, infoFactory);
-        m_stream << Console::TextDefault << " (" << setprecision(6) << (result.TimeTotal() / 1000000.0) << " ms)"
-                 << endl;
+        m_stream << fixtureName << "." << testName;
+        m_stream << Console::TextDefault << " (" << setprecision(6) << (stats.m_total / 1000000.0) << " ms)" << endl;
 
         m_stream << Console::TextBlue << "[   RUNS   ] " << Console::TextDefault
-                 << "       Average time: " << setprecision(3) << result.RunTimeAverage() / 1000.0 << " us "
-                 << "(" << Console::TextBlue << "~" << result.RunTimeStdDev() / 1000.0 << " us" << Console::TextDefault
-                 << ")" << endl;
+                 << "       Average time: " << setprecision(3) << stats.m_average / 1000.0 << " us "
+                 << "(" << Console::TextBlue << "~" << stats.m_std_dev / 1000.0 << " us" << Console::TextDefault << ")"
+                 << endl;
         {
-                double       deviated = (result.RunTimeMinimum() / 1000.0);
-                double       average  = (result.RunTimeAverage() / 1000.0);
-                const string unit     = "us";
-                double       _d_      = deviated - average;
+                double       mn    = (stats.m_min / 1000.0);
+                double       av    = (stats.m_average / 1000.0);
+                const string unit  = "us";
+                double       delta = mn - av;
 
-                m_stream << setw(34) << "Fastest time: " << (result.RunTimeMinimum() / 1000.0) << " " << unit << " ("
-                         << (deviated > average ? Console::TextRed : Console::TextGreen)
-                         << (deviated > average ? "+" : "") << _d_ << " " << unit << " / "
-                         << (deviated > average ? "+" : "") << (_d_ * 100.0 / average) << " %" << Console::TextDefault
-                         << ")" << endl;
+                m_stream << setw(34) << "Fastest time: " << (stats.m_min / 1000.0) << " " << unit << " ("
+                         << (mn > av ? Console::TextRed : Console::TextGreen) << (mn > av ? "+" : "") << delta << " "
+                         << unit << " / " << (mn > av ? "+" : "") << (delta * 100.0 / av) << " %"
+                         << Console::TextDefault << ")" << endl;
         }
         {
-                double       deviated = (result.RunTimeMaximum() / 1000.0);
-                double       average  = (result.RunTimeAverage() / 1000.0);
-                const string unit     = "us";
-                double       _d_      = double(deviated) - double(average);
+                double       mx    = (stats.m_max / 1000.0);
+                double       av    = (stats.m_average / 1000.0);
+                const string unit  = "us";
+                double       delta = double(mx) - double(av);
 
-                m_stream << setw(34) << "Slowest time: " << deviated << " " << unit << " ("
-                         << (deviated > average ? Console::TextRed : Console::TextGreen)
-                         << (deviated > average ? "+" : "") << _d_ << " " << unit << " / "
-                         << (deviated > average ? "+" : "") << (_d_ * 100.0 / average) << " %" << Console::TextDefault
-                         << ")" << endl;
+                m_stream << setw(34) << "Slowest time: " << mx << " " << unit << " ("
+                         << (mx > av ? Console::TextRed : Console::TextGreen) << (mx > av ? "+" : "") << delta << " "
+                         << unit << " / " << (mx > av ? "+" : "") << (delta * 100.0 / av) << " %"
+                         << Console::TextDefault << ")" << endl;
         }
 
-        m_stream << setw(34) << "Median time: " << result.RunTimeMedian() / 1000.0 << " us (" << Console::TextCyan
-                 << "1st quartile: " << result.RunTimeQuartile1() / 1000.0
-                 << " us | 3rd quartile: " << result.RunTimeQuartile3() / 1000.0 << " us" << Console::TextDefault << ")"
+        m_stream << setw(34) << "Median time: " << stats.m_median / 1000.0 << " us (" << Console::TextCyan
+                 << "1st quartile: " << stats.m_quartile1 / 1000.0
+                 << " us | 3rd quartile: " << stats.m_quartile3 / 1000.0 << " us" << Console::TextDefault << ")"
                  << endl;
 }
 

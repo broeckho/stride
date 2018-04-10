@@ -24,15 +24,20 @@ set(SRC
     ../include/myhayai/Console.hpp
     ../include/myhayai/Fixture.hpp
     ../include/myhayai/InfoFactory.hpp
+    ../include/myhayai/Outputter.hpp
+    ../include/myhayai/Payload.hpp
+    ../include/myhayai/Subject.hpp
     ../include/myhayai/TestDescriptor.hpp
     ../include/myhayai/TestFactory.hpp
+    ../include/myhayai/TestResult.hpp
 #
     Benchmarker.cpp
+    BoxPlotData.cpp
     ConsoleOutputter.cpp
-    Outputter.cpp
+    ConsoleViewer.cpp
+    Id.cpp
     MainRunner.cpp
     TestDescriptors.cpp
-    TestResult.cpp
 )
 
 add_library(myhayai STATIC ${SRC})
