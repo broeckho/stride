@@ -24,6 +24,8 @@
 
 #include "ConsoleOutputter.hpp"
 #include "InfoFactory.hpp"
+#include "Payload.hpp"
+#include "Subject.hpp"
 #include "TestDescriptors.hpp"
 #include "TestFactory.hpp"
 #include "TestResult.hpp"
@@ -40,7 +42,7 @@
 namespace myhayai {
 
 /// Benchmarking execution controller singleton.
-class Benchmarker
+class Benchmarker : public Subject<event::Payload>
 {
 public:
         /// Simple singleton: no copy construction allowed.
@@ -70,7 +72,7 @@ public:
                                  bool disableTest = false);
 
         /// Run all benchmarking tests.
-        static void RunTests(const std::vector<std::string>& names);
+        void RunTests(const std::vector<std::string>& names);
 
 private:
         /// Private constructor.

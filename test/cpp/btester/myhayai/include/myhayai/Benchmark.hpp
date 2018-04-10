@@ -33,8 +33,18 @@ namespace myhayai {
 class Benchmark
 {
 public:
+        ///
+        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory)
+            : Benchmark(fixtureName, testName, numRuns, std::move(testFactory), InfoFactory(), false){};
+
+        ///
         Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
-                  InfoFactory infoFactory = InfoFactory(), bool disableTest = false)
+                  bool disableTest)
+            : Benchmark(fixtureName, testName, numRuns, std::move(testFactory), InfoFactory(), disableTest){};
+
+        ///
+        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
+                  InfoFactory infoFactory, bool disableTest = false)
         {
                 Benchmarker::RegisterTest(fixtureName, testName, numRuns, std::move(testFactory),
                                           std::move(infoFactory), disableTest);

@@ -24,6 +24,7 @@
 #include "myhayai/MainRunner.hpp"
 
 #include "myhayai/Benchmarker.hpp"
+#include "myhayai/ConsoleViewer.hpp"
 
 #include <tclap/CmdLine.h>
 #include <algorithm>
@@ -88,6 +89,8 @@ int MainRunner::Execute()
         if (m_list_mode) {
                 ret = ListBenchmarks();
         } else {
+                auto cv = make_shared<ConsoleViewer>();
+                Benchmarker::Instance().Register(cv, bind(&ConsoleViewer::Update, cv, placeholders::_1));
                 ret = RunBenchmarks();
         }
         return ret;
@@ -110,7 +113,7 @@ int MainRunner::RunBenchmarks()
         }
 
         // Run them.
-        Benchmarker::RunTests(testNames);
+        Benchmarker::Instance().RunTests(testNames);
 
         return EXIT_SUCCESS;
 }

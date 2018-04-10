@@ -32,10 +32,16 @@ namespace myhayai {
 
 void ConsoleViewer::Update(const myhayai::event::Payload& payload)
 {
+        const string unit          = "us";
         unsigned int execCount     = 0U;
         unsigned int disabledCount = 0U;
-        // size_t totalCount = m_descriptors.size();
-        TestDescriptor t_d = m_descriptors[payload.m_test_name];
+
+        if (payload.m_id == event::Id::SkipTest) {
+                ++disabledCount;
+        }
+        if (payload.m_id == event::Id::BeginTest) {
+                ++execCount;
+        }
 
         switch (payload.m_id) {
         case event::Id::BeginRun: {
@@ -45,61 +51,48 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
         }
         case event::Id::EndRun: {
                 m_stream << Console::TextGreen << "[==========]" << Console::TextDefault
-                         << " Number of tests benchmarked: " << execCount << endl
-                         << "Number of tests disabled: " << disabledCount << endl;
+                         << " Benchmarker done (benchmarked: " << execCount << ", disabled: " << disabledCount << ")"
+                         << endl;
                 break;
         }
         case event::Id::SkipTest: {
-                ++disabledCount;
-                m_stream << Console::TextCyan << "[ DISABLED ]";
-                m_stream << Console::TextYellow << " ";
-                m_stream << payload.m_test_name;
-                m_stream << Console::TextDefault << " (" << t_d.m_num_runs << (t_d.m_num_runs == 1 ? " run" : " runs")
-                         << ")" << endl;
+                TestDescriptor t_d = m_descriptors[payload.m_test_name];
+                m_stream << Console::TextCyan << "[ DISABLED ]" << Console::TextYellow << " " << payload.m_test_name
+                         << endl;
                 break;
         }
         case event::Id::BeginTest: {
-                m_stream << Console::TextGreen << "[ RUN      ]";
-                m_stream << Console::TextYellow << " ";
-                m_stream << payload.m_test_name;
-                m_stream << Console::TextDefault << " (" << t_d.m_num_runs << (t_d.m_num_runs == 1 ? " run" : " runs")
+                TestDescriptor t_d = m_descriptors[payload.m_test_name];
+                m_stream << Console::TextGreen << "[ RUN      ]" << Console::TextYellow << " " << payload.m_test_name
+                         << Console::TextDefault << " (" << t_d.m_num_runs << (t_d.m_num_runs == 1 ? " run" : " runs")
                          << ")" << endl;
-                ++execCount;
                 break;
         }
         case event::Id::EndTest: {
                 const auto stats = BoxPlotData::Calculate(payload.m_run_times);
-
-                m_stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " ";
-                m_stream << payload.m_test_name;
-                m_stream << Console::TextDefault << " (" << setprecision(6) << (stats.m_total / 1000000.0) << " ms)"
+                m_stream << Console::TextGreen << "[     DONE ]" << Console::TextYellow << " " << payload.m_test_name
+                         << Console::TextDefault << " (" << setprecision(6) << (stats.m_total / 1000000.0) << " ms)"
                          << endl
                          << Console::TextBlue << "[   RUNS   ] " << Console::TextDefault
                          << "       Average time: " << setprecision(3) << stats.m_average / 1000.0 << " us "
                          << "(" << Console::TextBlue << "~" << stats.m_std_dev / 1000.0 << " us" << Console::TextDefault
                          << ")" << endl;
-                {
-                        double       mn    = (stats.m_min / 1000.0);
-                        double       av    = (stats.m_average / 1000.0);
-                        const string unit  = "us";
-                        double       delta = mn - av;
 
-                        m_stream << setw(34) << "Fastest time: " << (stats.m_min / 1000.0) << " " << unit << " ("
-                                 << (mn > av ? Console::TextRed : Console::TextGreen) << (mn > av ? "+" : "") << delta
-                                 << " " << unit << " / " << (mn > av ? "+" : "") << (delta * 100.0 / av) << " %"
-                                 << Console::TextDefault << ")" << endl;
-                }
-                {
-                        double       mx    = (stats.m_max / 1000.0);
-                        double       av    = (stats.m_average / 1000.0);
-                        const string unit  = "us";
-                        double       delta = double(mx) - double(av);
+                double mn1  = (stats.m_min / 1000.0);
+                double av1  = (stats.m_average / 1000.0);
+                double del1 = mn1 - av1;
+                m_stream << setw(34) << "Fastest time: " << (stats.m_min / 1000.0) << " " << unit << " ("
+                         << (mn1 > av1 ? Console::TextRed : Console::TextGreen) << (mn1 > av1 ? "+" : "") << del1 << " "
+                         << unit << " / " << (mn1 > av1 ? "+" : "") << (del1 * 100.0 / av1) << " %"
+                         << Console::TextDefault << ")" << endl;
 
-                        m_stream << setw(34) << "Slowest time: " << mx << " " << unit << " ("
-                                 << (mx > av ? Console::TextRed : Console::TextGreen) << (mx > av ? "+" : "") << delta
-                                 << " " << unit << " / " << (mx > av ? "+" : "") << (delta * 100.0 / av) << " %"
-                                 << Console::TextDefault << ")" << endl;
-                }
+                double mx2  = (stats.m_max / 1000.0);
+                double av2  = (stats.m_average / 1000.0);
+                double del2 = mx2 - av2;
+                m_stream << setw(34) << "Slowest time: " << mx2 << " " << unit << " ("
+                         << (mx2 > av2 ? Console::TextRed : Console::TextGreen) << (mx2 > av2 ? "+" : "") << del2 << " "
+                         << unit << " / " << (mx2 > av2 ? "+" : "") << (del2 * 100.0 / av2) << " %"
+                         << Console::TextDefault << ")" << endl;
 
                 m_stream << setw(34) << "Median time: " << stats.m_median / 1000.0 << " us (" << Console::TextCyan
                          << "1st quartile: " << stats.m_quartile1 / 1000.0

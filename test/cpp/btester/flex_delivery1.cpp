@@ -37,10 +37,12 @@ using namespace myhayai;
 
 namespace {
 
-Benchmark b("FlexDelivery", "Flex1 with distance=12", 5, []() {
-        return Fixture([]() {
-                this_thread::sleep_for(10ms);
-                DeliveryMan(1).DeliverPackage(12);
-        });
-});
+Benchmark b("FlexDelivery", "Flex1 with distance=12", 5,
+            []() {
+                    return Fixture([]() {
+                            this_thread::sleep_for(10ms);
+                            DeliveryMan(1).DeliverPackage(12);
+                    });
+            },
+            true);
 }

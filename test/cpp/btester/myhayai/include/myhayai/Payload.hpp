@@ -30,7 +30,7 @@ namespace event {
 
 struct Payload
 {
-        Payload(Id id, std::string testName, myhayai::TestResult testResult = TestResult())
+        Payload(Id id, std::string testName = "", myhayai::TestResult testResult = TestResult())
             : m_id(id), m_test_name(std::move(testName)), m_run_times(std::move(testResult)){};
 
         Id                  m_id;

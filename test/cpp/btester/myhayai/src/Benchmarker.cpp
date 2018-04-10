@@ -25,6 +25,7 @@
 
 #include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
+#include "myhayai/Id.hpp"
 #include "myhayai/InfoFactory.hpp"
 #include "myhayai/TestDescriptors.hpp"
 #include "myhayai/TestFactory.hpp"
@@ -71,48 +72,34 @@ bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, si
 
 void Benchmarker::RunTests(const vector<string>& names)
 {
-        ConsoleOutputter defaultOutputter;
-
         // Setup.
-        auto         test_descriptors = Instance().GetTestDescriptors();
-        const size_t totalCount       = test_descriptors.size();
-        const size_t disabledCount    = Instance().GetDisabledCount(names);
-        const size_t enabledCount     = totalCount - disabledCount;
-
-        // Begin output.
-        defaultOutputter.Begin(enabledCount, disabledCount);
+        auto test_descriptors = Instance().GetTestDescriptors();
+        Notify(event::Payload(event::Id::BeginRun));
 
         // Run through all the test_descriptors in ascending order.
         for (const auto& n : names) {
 
                 const auto& t_d = test_descriptors[n];
 
-                // If test is disabled output and skip.
+                // If test is disabled, then skip it.
                 if (t_d.m_is_disabled) {
-                        defaultOutputter.SkipDisabledTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory,
-                                                          t_d.m_num_runs);
+                        Notify(event::Payload(event::Id::SkipTest, n));
                         continue;
                 }
 
-                // Describe the beginning of the run.
-                defaultOutputter.BeginTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, t_d.m_num_runs);
-
-                // Execute each individual run.
+                // Runs for test with canonical name <name>.
+                Notify(event::Payload(event::Id::BeginTest, n));
                 vector<uint64_t> run_times(t_d.m_num_runs);
                 for (auto& rt : run_times) {
-                        Fixture test = t_d.m_test_factory();
-                        rt           = test.Run();
+                        rt = t_d.m_test_factory().Run();
                 }
 
-                // Calculate the test result.
-                TestResult results(run_times);
-
-                // Describe the end of the run.
-                defaultOutputter.EndTest(t_d.m_fixture_name, t_d.m_test_name, t_d.m_info_factory, results);
+                // Runs for this test done.
+                Notify(event::Payload(event::Id::EndTest, n, run_times));
         }
 
         // End output.
-        defaultOutputter.End(enabledCount, disabledCount);
+        Notify(event::Payload(event::Id::EndRun));
 }
 
 } // namespace myhayai
