@@ -28,4 +28,5 @@
 namespace myhayai {
 
 using InfoFactory = std::function<boost::property_tree::ptree()>;
+
 }

@@ -22,7 +22,7 @@
  * Header file for ParamTestFactory.
  */
 
-#include "myhayai/Fixture.hpp"
+#include "myhayai/include/myhayai/Test.hpp"
 
 class Param1TestFactory
 {
@@ -31,7 +31,7 @@ public:
         Param1TestFactory(unsigned int distance) : m_distance(distance) {}
 
         ///
-        myhayai::Fixture operator()();
+        myhayai::Test operator()();
 
 private:
         unsigned int m_distance;

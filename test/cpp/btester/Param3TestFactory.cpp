@@ -30,13 +30,13 @@
 using namespace std;
 using namespace myhayai;
 
-Fixture Param3TestFactory::operator()()
+Test Param3TestFactory::operator()()
 {
         auto f        = make_shared<SlowDeliveryMan>();
         auto body     = bind(&SlowDeliveryMan::DoThis, f, m_duration, m_distance);
         auto setup    = bind(&SlowDeliveryMan::SetUp, f, m_speed);
         auto teardown = bind(&SlowDeliveryMan::TearDown, f);
-        return Fixture(body, setup, teardown);
+        return Test(body, setup, teardown);
 }
 
 namespace {

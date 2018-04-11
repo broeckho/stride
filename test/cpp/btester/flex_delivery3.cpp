@@ -38,7 +38,7 @@ using namespace myhayai;
 auto param2_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
         return [distance, duration, speed]() {
                 auto p = make_shared<DeliveryMan>();
-                return Fixture(
+                return Test(
                     [p, duration, distance]() {
                             this_thread::sleep_for(duration * 10ms);
                             p->DeliverPackage(distance);

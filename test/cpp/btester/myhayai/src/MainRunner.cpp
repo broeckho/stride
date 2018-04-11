@@ -91,17 +91,17 @@ int MainRunner::Execute()
         } else {
                 auto cv = make_shared<ConsoleViewer>();
                 Benchmarker::Instance().Register(cv, bind(&ConsoleViewer::Update, cv, placeholders::_1));
-                ret = RunBenchmarks();
+                ret = ExecuteBenchmarks();
         }
         return ret;
 }
 
-int MainRunner::RunBenchmarks()
+int MainRunner::ExecuteBenchmarks()
 {
         // Get the the canonical test names.
-        vector<string> testNames;
+        vector<string> canonicalNames;
         for (const auto& item : Benchmarker::Instance().GetTestDescriptors()) {
-                testNames.emplace_back(item.second.GetCanonicalName());
+                canonicalNames.emplace_back(item.second.GetCanonicalName());
         }
 
         // Apply the filter to the canonical names.
@@ -109,11 +109,11 @@ int MainRunner::RunBenchmarks()
 
         // Shuffle benchmarks if requested.
         if (m_shuffle) {
-                Shuffle(testNames);
+                Shuffle(canonicalNames);
         }
 
         // Run them.
-        Benchmarker::Instance().RunTests(testNames);
+        Benchmarker::Instance().RunBenchmark(canonicalNames);
 
         return EXIT_SUCCESS;
 }

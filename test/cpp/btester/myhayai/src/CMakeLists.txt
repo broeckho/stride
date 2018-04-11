@@ -22,7 +22,7 @@ set(SRC
 #
     ../include/myhayai/Benchmark.hpp
     ../include/myhayai/Console.hpp
-    ../include/myhayai/Fixture.hpp
+    ../include/myhayai/Test.hpp
     ../include/myhayai/Id.hpp
     ../include/myhayai/InfoFactory.hpp
     ../include/myhayai/Payload.hpp

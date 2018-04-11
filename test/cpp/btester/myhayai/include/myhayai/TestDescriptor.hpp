@@ -43,7 +43,7 @@ struct TestDescriptor
         /// @param test_factory    Test factory implementation for the test.
         /// @param params_desc     Parametrized test parameters.
         TestDescriptor()
-            : m_fixture_name(nullptr), m_test_name(nullptr), m_num_runs(0), m_test_factory(TestFactory()),
+            : m_group_name(nullptr), m_test_name(nullptr), m_num_runs(0), m_test_factory(TestFactory()),
               m_info_factory(InfoFactory()), m_is_disabled(true), m_is_in_filter(false)
         {
         }
@@ -55,17 +55,17 @@ struct TestDescriptor
         /// @param iterations      Number of iterations per run.
         /// @param test_factory    Test factory implementation for the test.
         /// @param params_desc     Parametrized test parameters.
-        TestDescriptor(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
+        TestDescriptor(const char* groupName, const char* testName, std::size_t numRuns, TestFactory testFactory,
                        InfoFactory infoFactory = InfoFactory(), bool isDisabled = false, bool isInFilter = true)
-            : m_fixture_name(fixtureName), m_test_name(testName), m_num_runs(numRuns),
+            : m_group_name(groupName), m_test_name(testName), m_num_runs(numRuns),
               m_test_factory(std::move(testFactory)), m_info_factory(std::move(infoFactory)), m_is_disabled(isDisabled),
               m_is_in_filter(isInFilter)
         {
         }
 
-        std::string GetCanonicalName() const { return std::string(m_fixture_name).append(".").append(m_test_name); }
+        std::string GetCanonicalName() const { return std::string(m_group_name).append(".").append(m_test_name); }
 
-        std::string m_fixture_name; ///< Fixture name.
+        std::string m_group_name; ///< Fixture name.
         std::string m_test_name;    ///< Test name.
         std::size_t m_num_runs;     ///< Number of test runs.
         TestFactory m_test_factory; ///< Test factory.

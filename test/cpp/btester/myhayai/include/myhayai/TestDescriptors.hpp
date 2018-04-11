@@ -34,6 +34,9 @@ class TestDescriptors : public std::map<std::string, TestDescriptor>
 {
 public:
         ///
+        using std::map<std::string, TestDescriptor>::map;
+
+        ///
         std::size_t CountDisabled();
 
         ///

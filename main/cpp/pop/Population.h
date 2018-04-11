@@ -33,6 +33,9 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
+        /// Inheriting constructors.
+        using std::vector<Person>::vector;
+
         ///
         unsigned int GetAdoptedCount() const;
 

@@ -39,11 +39,11 @@ namespace myhayai {
 /// SetUp and TearDown methods, which means that tests can inherit
 /// this class directly for non-fixture based benchmarking tests.
 
-struct Fixture
+struct Test
 {
-        explicit Fixture(std::function<void()> body     = std::function<void()>(),
-                         std::function<void()> setup    = std::function<void()>(),
-                         std::function<void()> teardown = std::function<void()>())
+        explicit Test(std::function<void()> body     = std::function<void()>(),
+                      std::function<void()> setup    = std::function<void()>(),
+                      std::function<void()> teardown = std::function<void()>())
             : m_body(std::move(body)), m_setup(std::move(setup)), m_teardown(std::move(teardown))
         {
         }

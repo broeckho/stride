@@ -38,7 +38,7 @@ using namespace std::chrono_literals;
 
 auto param2_factory = []() {
         auto p = make_shared<DeliveryMan>();
-        return Fixture(
+        return Test(
             [p]() {
                     this_thread::sleep_for(10ms);
                     p->DeliverPackage(5);

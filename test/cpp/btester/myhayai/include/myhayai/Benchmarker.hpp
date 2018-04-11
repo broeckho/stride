@@ -58,20 +58,21 @@ public:
         /// Get the tests to be executed.
         const TestDescriptors& GetTestDescriptors() const;
 
-        /// Register a test with the benchmarker instance.
-        /// @param fixtureName    Name of the fixture.
+        /// Register a test with the benchmarker instance. The combination of
+        /// "<groupName>.<testName>" is the canonical name and must be unique.
+        /// @param groupName      Name of the group.
         /// @param testName       Name of the test.
         /// @param runs           Number of runs for the test.
         /// @param testFactory    Test factory implementation for the test.
         /// @param infoFactory     Generates ptree with info on test
         /// @param disableTest   Disable the test (won't run evn if included in filter.
         /// @returns true in case of successful registration.
-        bool static RegisterTest(const char* fixtureName, const char* testName, std::size_t runs,
+        bool static RegisterTest(const char* groupName, const char* testName, std::size_t runs,
                                  TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
                                  bool disableTest = false);
 
         /// Run all benchmarking tests.
-        void RunTests(const std::vector<std::string>& names);
+        void RunBenchmark(const std::vector<std::string> &names);
 
 private:
         /// Private constructor.

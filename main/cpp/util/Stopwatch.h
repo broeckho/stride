@@ -30,7 +30,7 @@ namespace util {
  * Provides a stopwatch interface to time: it accumulates time between
  * start/stop pairs.
  */
-template <typename T = std::chrono::system_clock>
+template <typename T = std::chrono::steady_clock>
 class Stopwatch
 {
 public:

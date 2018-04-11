@@ -55,7 +55,7 @@ private:
 
         /// Run benchmarks.
         /// @returns the exit status code to be returned from the executable.
-        int RunBenchmarks();
+        int ExecuteBenchmarks();
 
         /// Shuffle test names.
         /// \param names  vector to be shuffled.

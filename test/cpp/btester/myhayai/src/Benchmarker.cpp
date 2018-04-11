@@ -23,9 +23,9 @@
 
 #include "myhayai/Benchmarker.hpp"
 
-#include "myhayai/Fixture.hpp"
 #include "myhayai/Id.hpp"
 #include "myhayai/InfoFactory.hpp"
+#include "myhayai/Test.hpp"
 #include "myhayai/TestDescriptors.hpp"
 #include "myhayai/TestFactory.hpp"
 #include "myhayai/TestResult.hpp"
@@ -69,7 +69,7 @@ bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, si
         return ret.second;
 }
 
-void Benchmarker::RunTests(const vector<string>& names)
+void Benchmarker::RunBenchmark(const vector<string> &names)
 {
         // Setup.
         auto test_descriptors = Instance().GetTestDescriptors();

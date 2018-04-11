@@ -22,12 +22,12 @@
  * Header file for TestFactory.
  */
 
-#include "Fixture.hpp"
+#include "Test.hpp"
 
 #include <functional>
 
 namespace myhayai {
 
-using TestFactory = std::function<Fixture()>;
+using TestFactory = std::function<Test()>;
 
 } // namespace myhayai

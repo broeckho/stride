@@ -30,11 +30,11 @@
 using namespace std;
 using namespace myhayai;
 
-Fixture Param1TestFactory::operator()()
+Test Param1TestFactory::operator()()
 {
         auto p    = make_shared<DeliveryMan>(1);
         auto body = [p, this]() { p->DeliverPackage(m_distance); };
-        return Fixture(body);
+        return Test(body);
 }
 
 namespace {
