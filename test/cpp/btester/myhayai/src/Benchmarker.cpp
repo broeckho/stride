@@ -30,28 +30,10 @@
 #include "myhayai/TestFactory.hpp"
 #include "myhayai/TestResult.hpp"
 
-#include <algorithm>
-#include <cstring>
-#include <iomanip>
-#include <limits>
-#include <random>
-#include <string>
-#include <vector>
-
 using namespace std;
+using namespace std::chrono;
 
 namespace myhayai {
-
-size_t Benchmarker::GetDisabledCount(const vector<string>& names)
-{
-        size_t disabledCount = 0;
-        for (const auto& n : names) {
-                if (m_test_descriptors[n].m_is_disabled) {
-                        ++disabledCount;
-                }
-        }
-        return disabledCount;
-}
 
 const TestDescriptors& Benchmarker::GetTestDescriptors() const { return m_test_descriptors; }
 
@@ -61,22 +43,22 @@ Benchmarker& Benchmarker::Instance()
         return singleton;
 }
 
-bool Benchmarker::RegisterTest(const char* fixtureName, const char* testName, size_t numRuns, TestFactory testFactory,
+bool Benchmarker::RegisterTest(const char* groupName, const char* testName, size_t numRuns, TestFactory testFactory,
                                InfoFactory infoFactory, bool isDisabled)
 {
-        TestDescriptor d(fixtureName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);
+        TestDescriptor d(groupName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);
         const auto     ret = Instance().m_test_descriptors.emplace(make_pair(d.GetCanonicalName(), d));
         return ret.second;
 }
 
-void Benchmarker::RunBenchmark(const vector<string> &names)
+void Benchmarker::RunTests(const vector<string>& canonicalNames)
 {
         // Setup.
         auto test_descriptors = Instance().GetTestDescriptors();
         Notify(event::Payload(event::Id::BeginBench));
 
         // Run through all the test_descriptors in ascending order.
-        for (const auto& n : names) {
+        for (const auto& n : canonicalNames) {
 
                 const auto& t_d = test_descriptors[n];
 
@@ -86,15 +68,15 @@ void Benchmarker::RunBenchmark(const vector<string> &names)
                         continue;
                 }
 
-                // Runs for test with canonical name <name>.
+                // Number of runs for test with canonical name <name>.
                 Notify(event::Payload(event::Id::BeginTest, n));
-                vector<uint64_t> run_times(t_d.m_num_runs);
-                for (auto& rt : run_times) {
-                        rt = t_d.m_test_factory().Run();
+                TestResult runTimes(t_d.m_num_runs);
+                for (auto& rt : runTimes) {
+                        rt = t_d.m_test_factory().Run<steady_clock>();
                 }
 
                 // Runs for this test done.
-                Notify(event::Payload(event::Id::EndTest, n, run_times));
+                Notify(event::Payload(event::Id::EndTest, n, runTimes));
         }
 
         // End output.

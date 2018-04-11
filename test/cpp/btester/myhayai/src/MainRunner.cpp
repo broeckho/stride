@@ -28,6 +28,7 @@
 
 #include <tclap/CmdLine.h>
 #include <algorithm>
+#include <random>
 
 using namespace std;
 using namespace TCLAP;
@@ -113,7 +114,7 @@ int MainRunner::ExecuteBenchmarks()
         }
 
         // Run them.
-        Benchmarker::Instance().RunBenchmark(canonicalNames);
+        Benchmarker::Instance().RunTests(canonicalNames);
 
         return EXIT_SUCCESS;
 }

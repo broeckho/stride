@@ -32,13 +32,7 @@
 
 namespace myhayai {
 
-/// Base test class.
-/// @ref SetUp is invoked before each run, and @ref TearDown is invoked
-/// once the run is finished.
-/// The default test class does not contain any actual code in the
-/// SetUp and TearDown methods, which means that tests can inherit
-/// this class directly for non-fixture based benchmarking tests.
-
+/// Test.
 struct Test
 {
         explicit Test(std::function<void()> body     = std::function<void()>(),
@@ -48,20 +42,21 @@ struct Test
         {
         }
 
-        uint64_t Run()
+        template <typename T = std::chrono::steady_clock>
+        typename T::duration Run()
         {
                 if (m_setup) {
                         m_setup();
                 }
-                stride::util::Stopwatch<> clock("bench", true);
+                const auto start = T::now();
                 if (m_body) {
                         m_body();
                 }
-                clock.Stop();
+                const auto stop = T::now();
                 if (m_teardown) {
                         m_teardown();
                 }
-                return static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::nanoseconds>(clock.Get()).count());
+                return stop - start;
         }
 
         std::function<void()> m_body;

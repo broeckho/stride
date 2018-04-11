@@ -25,54 +25,47 @@
 
 #include <algorithm>
 #include <cassert>
-#include <cmath>
-#include <cstdint>
-#include <limits>
+#include <chrono>
 #include <numeric>
-#include <stdexcept>
-#include <tuple>
 #include <vector>
 
 using namespace std;
+using namespace std::chrono;
 
 namespace myhayai {
 
-BoxPlotData BoxPlotData::Calculate(const vector<uint64_t>& runTimes)
+BoxPlotData BoxPlotData::Calculate(const TestResult& runTimes)
 {
-        const auto size = runTimes.size();
         assert(size >= 1 && "TestResult> cannot calculate stats for empty vector.");
+
+        // Sort the durations.
+        TestResult sTimes(runTimes);
+        std::sort(sTimes.begin(), sTimes.end());
 
         // Total, min, max
         BoxPlotData stats;
-        stats.m_total   = accumulate(runTimes.cbegin(), runTimes.cend(), static_cast<uint64_t>(0));
-        stats.m_max     = *max_element(runTimes.cbegin(), runTimes.cend());
-        stats.m_min     = *min_element(runTimes.cbegin(), runTimes.cend());
-        stats.m_average = static_cast<double>(stats.m_total) / static_cast<double>(runTimes.size());
-
-        // Standard deviation (or 0 if size == 1).
-        const double dev = accumulate(runTimes.cbegin(), runTimes.cend(), static_cast<uint64_t>(0));
-        stats.m_std_dev  = (size > 1) ? sqrt(dev / (size - 1)) : 0.0;
+        stats.m_total = accumulate(runTimes.cbegin(), runTimes.cend(), steady_clock::duration::zero());
+        stats.m_max   = sTimes.back();
+        stats.m_min   = sTimes.front();
 
         // Quartiles.
-        std::vector<uint64_t> sTimes(runTimes);
-        std::sort(sTimes.begin(), sTimes.end());
+        const std::size_t size     = sTimes.size();
         const std::size_t sizeHalf = size / 2;
         if (size >= 4) {
                 const std::size_t quartile = sizeHalf / 2;
                 if ((size % 2) == 0) {
-                        stats.m_median    = 0.5 * (double(sTimes[sizeHalf - 1]) + double(sTimes[sizeHalf]));
-                        stats.m_quartile1 = double(sTimes[quartile]);
-                        stats.m_quartile3 = double(sTimes[sizeHalf + quartile]);
+                        stats.m_median    = (sTimes[sizeHalf - 1] + sTimes[sizeHalf]) / 2;
+                        stats.m_quartile1 = sTimes[quartile];
+                        stats.m_quartile3 = sTimes[sizeHalf + quartile];
                 } else {
-                        stats.m_median    = double(sTimes[sizeHalf]);
-                        stats.m_quartile1 = 0.5 * (double(sTimes[quartile - 1]) + double(sTimes[quartile]));
-                        stats.m_quartile3 =
-                            0.5 * (double(sTimes[sizeHalf + (quartile - 1)]) + double(sTimes[sizeHalf + quartile]));
+                        stats.m_median    = sTimes[sizeHalf];
+                        stats.m_quartile1 = (sTimes[quartile - 1] + sTimes[quartile]) / 2;
+                        stats.m_quartile3 = (sTimes[sizeHalf + (quartile - 1)] + sTimes[sizeHalf + quartile]) / 2;
                 }
         } else if (size > 0) {
-                stats.m_median    = double(sTimes[sizeHalf]);
-                stats.m_quartile1 = double(sTimes.front());
-                stats.m_quartile3 = double(sTimes.back());
+                stats.m_median    = sTimes[sizeHalf];
+                stats.m_quartile1 = sTimes.front();
+                stats.m_quartile3 = sTimes.back();
         }
 
         return stats;

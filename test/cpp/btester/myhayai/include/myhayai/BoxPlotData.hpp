@@ -22,8 +22,7 @@
  * Header file for BoxPlotData.
  */
 
-#include <cstdint>
-#include <vector>
+#include "TestResult.hpp"
 
 namespace myhayai {
 
@@ -31,21 +30,17 @@ namespace myhayai {
 struct BoxPlotData
 {
 public:
-        BoxPlotData() : m_total(), m_min(), m_max(), m_average(), m_median(), m_std_dev(), m_quartile1(), m_quartile3()
-        {
-        }
+        BoxPlotData() : m_total(), m_min(), m_max(), m_median(), m_quartile1(), m_quartile3() {}
 
-        uint64_t m_total;
-        uint64_t m_min;
-        uint64_t m_max;
-        double   m_average;
-        double   m_median;
-        double   m_std_dev;
-        double   m_quartile1;
-        double   m_quartile3;
+        typename TestResult::value_type m_total;
+        typename TestResult::value_type m_min;
+        typename TestResult::value_type m_max;
+        typename TestResult::value_type m_median;
+        typename TestResult::value_type m_quartile1;
+        typename TestResult::value_type m_quartile3;
 
         ///
-        static BoxPlotData Calculate(const std::vector<uint64_t>& runTimes);
+        static BoxPlotData Calculate(const TestResult& runTimes);
 };
 
 } // namespace myhayai

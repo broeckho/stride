@@ -23,7 +23,6 @@
 #include "TestResult.hpp"
 
 #include <string>
-#include <vector>
 
 namespace myhayai {
 namespace event {

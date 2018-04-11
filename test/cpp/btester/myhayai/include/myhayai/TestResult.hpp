@@ -22,6 +22,7 @@
  * Header file for TestResult.
  */
 
+#include <chrono>
 #include <cstdint>
 #include <iterator>
 #include <tuple>
@@ -30,6 +31,6 @@
 namespace myhayai {
 
 /// Test result descriptor. All durations are expressed in nanoseconds.
-using TestResult = std::vector<uint64_t>;
+using TestResult = std::vector<std::chrono::steady_clock::duration>;
 
 } // namespace myhayai

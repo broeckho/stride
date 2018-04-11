@@ -65,7 +65,7 @@ struct TestDescriptor
 
         std::string GetCanonicalName() const { return std::string(m_group_name).append(".").append(m_test_name); }
 
-        std::string m_group_name; ///< Fixture name.
+        std::string m_group_name;   ///< Fixture name.
         std::string m_test_name;    ///< Test name.
         std::size_t m_num_runs;     ///< Number of test runs.
         TestFactory m_test_factory; ///< Test factory.

@@ -29,12 +29,6 @@
 #include "TestFactory.hpp"
 #include "TestResult.hpp"
 
-#include <algorithm>
-#include <cstring>
-#include <iomanip>
-#include <limits>
-#include <memory>
-#include <random>
 #include <string>
 #include <vector>
 
@@ -67,12 +61,11 @@ public:
         /// @param infoFactory     Generates ptree with info on test
         /// @param disableTest   Disable the test (won't run evn if included in filter.
         /// @returns true in case of successful registration.
-        bool static RegisterTest(const char* groupName, const char* testName, std::size_t runs,
-                                 TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
-                                 bool disableTest = false);
+        bool static RegisterTest(const char* groupName, const char* testName, std::size_t runs, TestFactory testFactory,
+                                 InfoFactory infoFactory = InfoFactory(), bool disableTest = false);
 
-        /// Run all benchmarking tests.
-        void RunBenchmark(const std::vector<std::string> &names);
+        /// Run tests specified by their canonical names.
+        void RunTests(const std::vector<std::string>& canonicalNames);
 
 private:
         /// Private constructor.
@@ -80,9 +73,6 @@ private:
 
         /// Private destructor.
         ~Benchmarker() = default;
-
-        ///
-        size_t GetDisabledCount(const std::vector<std::string>& names);
 
 private:
         TestDescriptors m_test_descriptors; ///< Descriptors for egistered tests.
