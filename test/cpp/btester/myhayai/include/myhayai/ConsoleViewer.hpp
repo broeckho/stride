@@ -42,7 +42,7 @@ public:
             : m_descriptors(Benchmarker::Instance().GetTestDescriptors()), m_stream(stream)
         {
                 if (enableColor) {
-                        stream << Console::EnableColor;
+                        stream << console::Color::EnableColor;
                 }
         }
 

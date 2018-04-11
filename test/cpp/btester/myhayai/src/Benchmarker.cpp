@@ -23,7 +23,6 @@
 
 #include "myhayai/Benchmarker.hpp"
 
-#include "myhayai/ConsoleOutputter.hpp"
 #include "myhayai/Fixture.hpp"
 #include "myhayai/Id.hpp"
 #include "myhayai/InfoFactory.hpp"
@@ -74,7 +73,7 @@ void Benchmarker::RunTests(const vector<string>& names)
 {
         // Setup.
         auto test_descriptors = Instance().GetTestDescriptors();
-        Notify(event::Payload(event::Id::BeginRun));
+        Notify(event::Payload(event::Id::BeginBench));
 
         // Run through all the test_descriptors in ascending order.
         for (const auto& n : names) {
@@ -99,7 +98,7 @@ void Benchmarker::RunTests(const vector<string>& names)
         }
 
         // End output.
-        Notify(event::Payload(event::Id::EndRun));
+        Notify(event::Payload(event::Id::EndBench));
 }
 
 } // namespace myhayai

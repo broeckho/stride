@@ -31,7 +31,7 @@ using boost::to_upper;
 
 bool IsType(const string& s)
 {
-        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginRun), make_pair("ENDRUN", Id::EndRun),
+        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginBench), make_pair("ENDRUN", Id::EndBench),
                                    make_pair("SKIPTEST", Id::SkipTest), make_pair("BEGINTEST", Id::BeginTest),
                                    make_pair("ENDTEST", Id::EndTest)};
         string                 t{s};
@@ -41,7 +41,7 @@ bool IsType(const string& s)
 
 string ToString(Id c)
 {
-        static map<Id, string> names{make_pair(Id::BeginRun, "BeginRun"), make_pair(Id::EndRun, "EndRun"),
+        static map<Id, string> names{make_pair(Id::BeginBench, "BeginRun"), make_pair(Id::EndBench, "EndRun"),
                                      make_pair(Id::SkipTest, "SkipTest"), make_pair(Id::BeginTest, "BeginTest"),
                                      make_pair(Id::EndTest, "EndTest")};
         return (names.count(c) == 1) ? names[c] : "null";
@@ -49,7 +49,7 @@ string ToString(Id c)
 
 Id ToType(const string& s)
 {
-        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginRun), make_pair("ENDRUN", Id::EndRun),
+        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginBench), make_pair("ENDRUN", Id::EndBench),
                                    make_pair("SKIPTEST", Id::SkipTest), make_pair("BEGINTEST", Id::BeginTest),
                                    make_pair("ENDTEST", Id::EndTest)};
         string                 t{s};

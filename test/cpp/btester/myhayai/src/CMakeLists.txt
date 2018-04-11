@@ -23,8 +23,8 @@ set(SRC
     ../include/myhayai/Benchmark.hpp
     ../include/myhayai/Console.hpp
     ../include/myhayai/Fixture.hpp
+    ../include/myhayai/Id.hpp
     ../include/myhayai/InfoFactory.hpp
-    ../include/myhayai/Outputter.hpp
     ../include/myhayai/Payload.hpp
     ../include/myhayai/Subject.hpp
     ../include/myhayai/TestDescriptor.hpp

@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -28,8 +28,8 @@ namespace event {
 /// Enumerates the event.
 enum class Id
 {
-        BeginRun,
-        EndRun,
+        BeginBench,
+        EndBench,
         SkipTest,
         BeginTest,
         EndTest
