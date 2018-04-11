@@ -28,70 +28,60 @@
 
 namespace myhayai {
 
-/// Static helper class for outputting to a terminal/console.
 class Console
 {
 public:
-        /// Console text colors.Default console color (used for resets).
+        /// Console text colors. EnableColor and DisableColor change the
+        /// stream state to enable/disable color. The enable makes a
+        /// fair attempt to discover whther the stream is a teminal.
+        /// Default console color (used for resets).
         /// @warning Avoid using black unless it is absolutely necesssary.
         /// @warning Avoid using white unless it is absolutely necessary.
         enum TextColor
         {
-                TextDefault,
-                TextBlack,
-                TextBlue,
-                TextGreen,
-                TextCyan,
-                TextRed,
-                TextPurple,
-                TextYellow,
-                TextWhite
+                EnableColor,
+                DisableColor,
+                Default,
+                Black,
+                Blue,
+                Green,
+                Cyan,
+                Red,
+                Purple,
+                Yellow,
+                White
         };
-
-        /// Get the singleton instance of @ref Console.
-        /// @returns a reference to the singleton instance of the benchmarker console.
-        static Console& Instance()
-        {
-                static Console singleton;
-                return singleton;
-        }
-
-        /// Test if formatting is enabled.
-        static bool IsFormattingEnabled() { return Instance().m_formatting_enabled; }
-
-        /// Set whether formatting is enabled.
-        static void SetFormattingEnabled(bool enabled) { Instance().m_formatting_enabled = enabled; }
-
-private:
-        Console() : m_formatting_enabled(true) {}
-        bool m_formatting_enabled;
 };
 
-#if !defined(HAYAI_NO_COLOR)
 inline std::ostream& operator<<(std::ostream& stream, const Console::TextColor& color)
 {
-        static const bool outputNoColor = isatty(fileno(stdout)) != 1;
+        static bool c = false;
 
-        if ((!Console::IsFormattingEnabled()) || (outputNoColor) ||
-            ((stream.rdbuf() != std::cout.rdbuf()) && (stream.rdbuf() != std::cerr.rdbuf())))
-                return stream;
-
-        const char* value = "";
+        const char *value = "";
         switch (color) {
-        case Console::TextDefault: value = "\033[m"; break;
-        case Console::TextBlack: value = "\033[0;30m"; break;
-        case Console::TextBlue: value = "\033[0;34m"; break;
-        case Console::TextGreen: value = "\033[0;32m"; break;
-        case Console::TextCyan: value = "\033[0;36m"; break;
-        case Console::TextRed: value = "\033[0;31m"; break;
-        case Console::TextPurple: value = "\033[0;35m"; break;
-        case Console::TextYellow: value = "\033[0;33m"; break;
-        case Console::TextWhite: value = "\033[0;37m"; break;
+                case Console::EnableColor: {
+                        if ((isatty(fileno(stdout)) == 1) &&
+                            ((stream.rdbuf() != std::cout.rdbuf()) || (stream.rdbuf() != std::cerr.rdbuf()))) {
+                                c = true;
+                        }
+                        return stream;
+                }
+                case Console::DisableColor: {
+                        c = false;
+                        return stream;
+                }
+                case Console::Default: value = c ? "\033[m" : ""; break;
+                case Console::Black: value = c ? "\033[0;30m" : ""; break;
+                case Console::Blue: value = c ? "\033[0;34m" : ""; break;
+                case Console::Green:value = c ? "\033[0;32m" : ""; break;
+                case Console::Cyan: value = c ? "\033[0;36m" : ""; break;
+                case Console::Red: value = c ? "\033[0;31m" : ""; break;
+                case Console::Purple: value = c ? "\033[0;35m" : ""; break;
+                case Console::Yellow: value = c ? "\033[0;33m" : ""; break;
+                case Console::White: value = c ? "\033[0;37m" : ""; break;
         }
+
         return stream << value;
 }
-#else // No color
-inline std::ostream& operator<<(std::ostream& stream, const Console::TextColor&) { return stream; }
-#endif
 
 } // namespace myhayai

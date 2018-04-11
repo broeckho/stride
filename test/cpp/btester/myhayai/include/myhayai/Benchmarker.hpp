@@ -22,7 +22,6 @@
  * Header file for Benchmarker.
  */
 
-#include "ConsoleOutputter.hpp"
 #include "InfoFactory.hpp"
 #include "Payload.hpp"
 #include "Subject.hpp"

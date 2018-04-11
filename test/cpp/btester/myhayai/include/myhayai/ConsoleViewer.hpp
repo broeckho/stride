@@ -23,6 +23,7 @@
  */
 
 #include "Benchmarker.hpp"
+#include "Console.hpp"
 #include "Payload.hpp"
 #include "TestDescriptors.hpp"
 
@@ -37,9 +38,12 @@ public:
         /// Initialize.
         /// @param stream Output stream. Must exist for the entire duration of
         /// the outputter's use.
-        explicit ConsoleViewer(std::ostream& stream = std::cout)
+        explicit ConsoleViewer(std::ostream& stream = std::cout, bool enableColor = true)
             : m_descriptors(Benchmarker::Instance().GetTestDescriptors()), m_stream(stream)
         {
+                if (enableColor) {
+                        stream << Console::EnableColor;
+                }
         }
 
         void Update(const event::Payload& payload);

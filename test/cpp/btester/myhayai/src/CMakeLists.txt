@@ -33,7 +33,6 @@ set(SRC
 #
     Benchmarker.cpp
     BoxPlotData.cpp
-    ConsoleOutputter.cpp
     ConsoleViewer.cpp
     Id.cpp
     MainRunner.cpp
