@@ -20,16 +20,14 @@
 #============================================================================
 set(SRC
 #
-    ../include/myhayai/Benchmark.hpp
-    ../include/myhayai/Console.hpp
-    ../include/myhayai/Test.hpp
-    ../include/myhayai/Id.hpp
-    ../include/myhayai/InfoFactory.hpp
-    ../include/myhayai/Payload.hpp
-    ../include/myhayai/Subject.hpp
-    ../include/myhayai/TestDescriptor.hpp
-    ../include/myhayai/TestFactory.hpp
-    ../include/myhayai/TestResult.hpp
+    Console.hpp
+    Test.hpp
+    InfoFactory.hpp
+    Payload.hpp
+    Subject.hpp
+    TestDescriptor.hpp
+    TestFactory.hpp
+    TestResult.hpp
 #
     Benchmarker.cpp
     BoxPlotData.cpp
@@ -40,7 +38,7 @@ set(SRC
 )
 
 add_library(myhayai STATIC ${SRC})
-target_compile_options(myhayai PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai/include)
+#target_compile_options(myhayai PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai)
 set_property(TARGET myhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 #============================================================================

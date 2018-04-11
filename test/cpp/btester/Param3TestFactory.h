@@ -22,7 +22,7 @@
  * Header Param3TestFactory.
  */
 
-#include "myhayai/include/myhayai/Test.hpp"
+#include "myhayai/Test.hpp"
 
 class Param3TestFactory
 {

@@ -22,7 +22,7 @@
  * Header file for ParamTestFactory.
  */
 
-#include "myhayai/include/myhayai/Test.hpp"
+#include "myhayai/Test.hpp"
 
 class Param1TestFactory
 {

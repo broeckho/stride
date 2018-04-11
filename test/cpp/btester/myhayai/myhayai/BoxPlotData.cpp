@@ -21,7 +21,7 @@
  * Implementation file for TestResult.
  */
 
-#include "myhayai/BoxPlotData.hpp"
+#include "BoxPlotData.hpp"
 
 #include <algorithm>
 #include <cassert>

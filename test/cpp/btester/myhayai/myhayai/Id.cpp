@@ -18,7 +18,7 @@
  * Implementation of myhayai::event::Id.
  */
 
-#include "myhayai/Id.hpp"
+#include "Id.hpp"
 
 #include <boost/algorithm/string.hpp>
 #include <map>

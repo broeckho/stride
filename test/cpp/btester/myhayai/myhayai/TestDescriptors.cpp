@@ -21,7 +21,7 @@
  * Implementation file for TestDescriptors container.
  */
 
-#include "myhayai/TestDescriptors.hpp"
+#include "TestDescriptors.hpp"
 
 #include <algorithm>
 

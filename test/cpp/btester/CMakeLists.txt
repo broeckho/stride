@@ -30,7 +30,7 @@ set(SRC
     )
 
 add_executable(myhayai_demo ${SRC})
-target_compile_options(myhayai_demo PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai/include)
+target_compile_options(myhayai_demo PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai)
 target_link_libraries(myhayai_demo myhayai)
 install(TARGETS myhayai_demo  DESTINATION   ${BIN_INSTALL_LOCATION})
 unset(SRC)

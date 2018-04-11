@@ -21,8 +21,8 @@
  * Implementation file for ConsoleOutputter.
  */
 
-#include "myhayai/ConsoleViewer.hpp"
-#include "myhayai/BoxPlotData.hpp"
+#include "ConsoleViewer.hpp"
+#include "BoxPlotData.hpp"
 #include "util/TimeToString.h"
 
 #include <chrono>

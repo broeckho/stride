@@ -21,10 +21,10 @@
  * Implementation file for MainRunner.
  */
 
-#include "myhayai/MainRunner.hpp"
+#include "MainRunner.hpp"
 
-#include "myhayai/Benchmarker.hpp"
-#include "myhayai/ConsoleViewer.hpp"
+#include "Benchmarker.hpp"
+#include "ConsoleViewer.hpp"
 
 #include <tclap/CmdLine.h>
 #include <algorithm>

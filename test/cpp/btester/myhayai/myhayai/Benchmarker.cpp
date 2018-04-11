@@ -21,14 +21,14 @@
  * Implementation file for Benchmarker.
  */
 
-#include "myhayai/Benchmarker.hpp"
+#include "Benchmarker.hpp"
 
-#include "myhayai/Id.hpp"
-#include "myhayai/InfoFactory.hpp"
-#include "myhayai/Test.hpp"
-#include "myhayai/TestDescriptors.hpp"
-#include "myhayai/TestFactory.hpp"
-#include "myhayai/TestResult.hpp"
+#include "Id.hpp"
+#include "InfoFactory.hpp"
+#include "Test.hpp"
+#include "TestDescriptors.hpp"
+#include "TestFactory.hpp"
+#include "TestResult.hpp"
 
 using namespace std;
 using namespace std::chrono;
