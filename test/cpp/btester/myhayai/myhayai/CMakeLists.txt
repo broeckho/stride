@@ -34,6 +34,7 @@ set(SRC
     ConsoleViewer.cpp
     Id.cpp
     MainRunner.cpp
+    PtreeViewer.cpp
     TestDescriptors.cpp
 )
 

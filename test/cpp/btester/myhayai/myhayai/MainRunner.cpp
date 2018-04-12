@@ -25,12 +25,17 @@
 
 #include "Benchmarker.hpp"
 #include "ConsoleViewer.hpp"
+#include "PtreeViewer.hpp"
 
+#include <boost/property_tree/xml_parser.hpp>
 #include <tclap/CmdLine.h>
 #include <algorithm>
+#include <locale>
 #include <random>
 
 using namespace std;
+using namespace boost::property_tree;
+using namespace boost::property_tree::xml_parser;
 using namespace TCLAP;
 
 namespace myhayai {
@@ -60,8 +65,8 @@ int MainRunner::ParseArgs(int argc, char** argv)
                 ValueArg<string> pathArg("p", "path", "Produce xml in file at path.", false, "bench.xml", "path", cmd);
 
                 //
-                string s("Run only the test whose canonical names match one of the positive patterns and ");
-                s.append("none of the negative patterns. Patterns are defined as in GoogleTest.");
+                string           s("Run only the test whose canonical names match one of the positive patterns"
+                         "and none of the negative patterns. Patterns are defined as in GoogleTest.");
                 ValueArg<string> filterArg("f", "filter", s, false, "*", "selection pattern", cmd);
 
                 // If switch set on commandline opposite of default.
@@ -90,8 +95,6 @@ int MainRunner::Execute()
         if (m_list_mode) {
                 ret = ListBenchmarks();
         } else {
-                auto cv = make_shared<ConsoleViewer>();
-                Benchmarker::Instance().Register(cv, bind(&ConsoleViewer::Update, cv, placeholders::_1));
                 ret = ExecuteBenchmarks();
         }
         return ret;
@@ -113,8 +116,23 @@ int MainRunner::ExecuteBenchmarks()
                 Shuffle(canonicalNames);
         }
 
+        // Always the console viewer.
+        auto cv = make_shared<ConsoleViewer>();
+        Benchmarker::Instance().Register(cv, bind(&ConsoleViewer::Update, cv, placeholders::_1));
+
+        // Possible the ptree viewer.
+        auto pv = make_shared<PtreeViewer>();
+        if (!m_xml_path.empty()) {
+                Benchmarker::Instance().Register(pv, bind(&PtreeViewer::Update, pv, placeholders::_1));
+        }
+
         // Run them.
         Benchmarker::Instance().RunTests(canonicalNames);
+
+        // Possible the ptree viewer.
+        if (!m_xml_path.empty()) {
+                write_xml(m_xml_path, pv->CGet(), std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+        }
 
         return EXIT_SUCCESS;
 }
