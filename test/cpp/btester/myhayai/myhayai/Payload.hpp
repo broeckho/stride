@@ -29,11 +29,20 @@ namespace event {
 
 struct Payload
 {
-        Payload(Id id, std::string testName = "", myhayai::TestResult testResult = TestResult())
-            : m_id(id), m_test_name(std::move(testName)), m_run_times(std::move(testResult)){};
+        /// Only provide event id (a.o. begin and end of benchmarking).
+        explicit Payload(Id id) : m_id(id), m_test_name(), m_msg(), m_run_times(){};
+
+        /// Provide event id, name and possibly results (executed and disabled tests).
+        Payload(Id id, std::string testName, myhayai::TestResult testResult = TestResult())
+            : m_id(id), m_test_name(std::move(testName)), m_msg(), m_run_times(std::move(testResult)){};
+
+        /// Provide event id, name and message (aborted tests)
+        Payload(Id id, std::string testName, std::string msg)
+            : m_id(id), m_test_name(std::move(testName)), m_msg(std::move(msg)), m_run_times(){};
 
         Id                  m_id;
         std::string         m_test_name;
+        std::string         m_msg;
         myhayai::TestResult m_run_times;
 };
 

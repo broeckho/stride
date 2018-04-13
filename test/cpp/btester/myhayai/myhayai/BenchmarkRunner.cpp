@@ -11,17 +11,13 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory one level higher
- *  still aplies.
  */
 /**
  * @file
  * Implementation file for Benchmarker.
  */
 
-#include "Benchmarker.hpp"
+#include "BenchmarkRunner.hpp"
 
 #include "Id.hpp"
 #include "InfoFactory.hpp"
@@ -35,48 +31,53 @@ using namespace std::chrono;
 
 namespace myhayai {
 
-const TestDescriptors& Benchmarker::GetTestDescriptors() const { return m_test_descriptors; }
+const TestDescriptors& BenchmarkRunner::GetTestDescriptors() const { return m_test_descriptors; }
 
-Benchmarker& Benchmarker::Instance()
+BenchmarkRunner& BenchmarkRunner::Instance()
 {
-        static Benchmarker singleton;
+        static BenchmarkRunner singleton;
         return singleton;
 }
 
-bool Benchmarker::RegisterTest(const char* groupName, const char* testName, size_t numRuns, TestFactory testFactory,
-                               InfoFactory infoFactory, bool isDisabled)
+bool BenchmarkRunner::RegisterTest(const string& groupName, const string& testName, size_t numRuns,
+                                   TestFactory testFactory, InfoFactory infoFactory, bool isDisabled)
 {
         TestDescriptor d(groupName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);
         const auto     ret = Instance().m_test_descriptors.emplace(make_pair(d.GetCanonicalName(), d));
         return ret.second;
 }
 
-void Benchmarker::RunTests(const vector<string>& canonicalNames)
+void BenchmarkRunner::RunTests(const vector<string>& canonicalNames)
 {
         // Setup.
         auto test_descriptors = Instance().GetTestDescriptors();
         Notify(event::Payload(event::Id::BeginBench));
 
         // Run through all the test_descriptors in ascending order.
-        for (const auto& n : canonicalNames) {
+        for (const auto& name : canonicalNames) {
 
-                const auto& t_d = test_descriptors[n];
+                const auto& t_d = test_descriptors[name];
 
                 // If test is disabled, then skip it.
                 if (t_d.m_is_disabled) {
-                        Notify(event::Payload(event::Id::SkipTest, n));
+                        Notify(event::Payload(event::Id::SkipTest, name));
                         continue;
                 }
 
-                // Number of runs for test with canonical name <name>.
-                Notify(event::Payload(event::Id::BeginTest, n));
+                // Runs for test with canonical name <name>.
+                Notify(event::Payload(event::Id::BeginTest, name));
                 TestResult runTimes(t_d.m_num_runs);
-                for (auto& rt : runTimes) {
-                        rt = t_d.m_test_factory().Run<steady_clock>();
+                try {
+                        for (auto& rt : runTimes) {
+                                rt = t_d.m_test_factory().Run<steady_clock>();
+                        }
+                } catch (exception& e) {
+                        Notify(event::Payload(event::Id::AbortTest, name, e.what()));
+                        continue;
                 }
 
                 // Runs for this test done.
-                Notify(event::Payload(event::Id::EndTest, n, runTimes));
+                Notify(event::Payload(event::Id::EndTest, name, runTimes));
         }
 
         // End output.

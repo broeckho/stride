@@ -31,12 +31,13 @@ enum class Id
         BeginBench,
         EndBench,
         SkipTest,
+        AbortTest,
         BeginTest,
         EndTest
 };
 
 /// Number of ContactPool types.
-inline constexpr unsigned int NumOfTypes() { return 5U; }
+inline constexpr unsigned int NumOfTypes() { return 6U; }
 
 /// Check whether string is name of a ContactPoolType::Id.
 bool IsType(const std::string& s);

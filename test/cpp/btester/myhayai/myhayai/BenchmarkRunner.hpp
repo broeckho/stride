@@ -12,10 +12,6 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
  */
 /**
  * @file
@@ -34,19 +30,21 @@
 
 namespace myhayai {
 
-/// Benchmarking execution controller singleton.
-class Benchmarker : public Subject<event::Payload>
+/// BenchmarkRunner registers all tests (hence the singleton
+/// construction) and runs the tests specified by their
+/// canonical names (<test_group_name>.<test_name>).
+class BenchmarkRunner : public Subject<event::Payload>
 {
 public:
         /// Simple singleton: no copy construction allowed.
-        Benchmarker(const Benchmarker&) = delete;
+        BenchmarkRunner(const BenchmarkRunner&) = delete;
 
         /// Simple singleton: no copy assignment allowed.
-        Benchmarker& operator=(const Benchmarker&) = delete;
+        BenchmarkRunner& operator=(const BenchmarkRunner&) = delete;
 
         /// Get the singleton instance of Benchmarker.
         /// @returns a reference to the singleton instance.
-        static Benchmarker& Instance();
+        static BenchmarkRunner& Instance();
 
 public:
         /// Get the tests to be executed.
@@ -61,21 +59,22 @@ public:
         /// @param infoFactory     Generates ptree with info on test
         /// @param disableTest   Disable the test (won't run evn if included in filter.
         /// @returns true in case of successful registration.
-        bool static RegisterTest(const char* groupName, const char* testName, std::size_t runs, TestFactory testFactory,
-                                 InfoFactory infoFactory = InfoFactory(), bool disableTest = false);
+        bool static RegisterTest(const std::string& groupName, const std::string& testName, std::size_t runs,
+                                 TestFactory testFactory, InfoFactory infoFactory = InfoFactory(),
+                                 bool disableTest = false);
 
         /// Run tests specified by their canonical names.
         void RunTests(const std::vector<std::string>& canonicalNames);
 
 private:
         /// Private constructor.
-        Benchmarker() = default;
+        BenchmarkRunner() = default;
 
         /// Private destructor.
-        ~Benchmarker() = default;
+        ~BenchmarkRunner() final = default;
 
 private:
-        TestDescriptors m_test_descriptors; ///< Descriptors for egistered tests.
+        TestDescriptors m_test_descriptors; ///< Descriptors for registered tests.
 };
 
 } // namespace myhayai

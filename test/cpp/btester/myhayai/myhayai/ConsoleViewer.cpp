@@ -11,14 +11,10 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory one level higher
- *  still aplies.
  */
 /**
  * @file
- * Implementation file for ConsoleOutputter.
+ * Implementation file for ConsoleViewer.
  */
 
 #include "ConsoleViewer.hpp"
@@ -45,22 +41,28 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
         if (payload.m_id == event::Id::SkipTest) {
                 ++disabled;
         }
-        if (payload.m_id == event::Id::BeginTest) {
+        if (payload.m_id == event::Id::BeginTest || payload.m_id == event::Id::BeginTest) {
                 ++exec;
         }
 
         switch (payload.m_id) {
         case event::Id::BeginBench:
-                m_stream << Color::Green << "[==========]" << Color::Default << " Benchmarker running tests." << endl;
+                m_stream << Color::Green << "[==========]" << Color::Default << " BenchmarkRunner running tests."
+                         << endl;
                 break;
         case event::Id::EndBench:
                 m_stream << Color::Green << "[==========]" << Color::Yellow
-                         << " Benchmarker done (benchmarked: " << exec << ", skipped: " << disabled
-                         << ", registered but not selected by filter: " << m_descriptors.size() - exec - disabled << ")"
-                         << endl;
+                         << " BenchmarkRunner done (executed: " << exec << ", disabled: " << disabled
+                         << ", registered but not included: " << m_descriptors.size() - exec - disabled << ")" << endl;
                 break;
         case event::Id::SkipTest: {
                 m_stream << Color::Cyan << "[ DISABLED ]" << Color::Yellow << " " << name << endl;
+                break;
+        }
+        case event::Id::AbortTest: {
+                m_stream << Color::Red << "[ ABORTED ]"
+                         << " " << name << " (msg: " << payload.m_msg << ")" << endl;
+                m_stream << Color::Green << "[     DONE ]" << Color::Yellow << " " << name << endl;
                 break;
         }
         case event::Id::BeginTest: {

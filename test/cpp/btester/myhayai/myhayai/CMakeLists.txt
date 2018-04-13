@@ -20,26 +20,28 @@
 #============================================================================
 set(SRC
 #
+    Benchmark.hpp
     Console.hpp
     Test.hpp
     InfoFactory.hpp
     Payload.hpp
     Subject.hpp
+    Test.hpp
     TestDescriptor.hpp
     TestFactory.hpp
     TestResult.hpp
 #
-    Benchmarker.cpp
+    BenchmarkRunner.cpp
     BoxPlotData.cpp
     ConsoleViewer.cpp
     Id.cpp
-    MainRunner.cpp
+    CliController.cpp
     PtreeViewer.cpp
     TestDescriptors.cpp
 )
 
 add_library(myhayai STATIC ${SRC})
-#target_compile_options(myhayai PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai)
+target_compile_options(myhayai PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai)
 set_property(TARGET myhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 #============================================================================

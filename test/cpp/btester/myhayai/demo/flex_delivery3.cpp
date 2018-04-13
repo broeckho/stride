@@ -25,7 +25,7 @@
 #include "Param2TestFactory.h"
 #include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.hpp"
-#include "myhayai/MainRunner.hpp"
+#include "myhayai/CliController.hpp"
 
 #include <chrono>
 #include <iostream>

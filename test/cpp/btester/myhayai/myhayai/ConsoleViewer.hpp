@@ -12,17 +12,13 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
  */
 /**
  * @file
- * Header file for ConsoleOutputter.
+ * Header file for ConsoleViewer.
  */
 
-#include "Benchmarker.hpp"
+#include "BenchmarkRunner.hpp"
 #include "Console.hpp"
 #include "Payload.hpp"
 #include "TestDescriptors.hpp"
@@ -38,10 +34,12 @@ public:
         /// Initialize.
         /// @param stream Output stream. Must exist for the entire duration of
         /// the outputter's use.
-        explicit ConsoleViewer(std::ostream& stream = std::cout, bool enableColor = true)
-            : m_descriptors(Benchmarker::Instance().GetTestDescriptors()), m_stream(stream)
+        explicit ConsoleViewer(std::ostream& stream = std::cout, bool noColor = false)
+            : m_descriptors(BenchmarkRunner::Instance().GetTestDescriptors()), m_stream(stream)
         {
-                if (enableColor) {
+                if (noColor) {
+                        stream << console::Color::DisableColor;
+                } else {
                         stream << console::Color::EnableColor;
                 }
         }

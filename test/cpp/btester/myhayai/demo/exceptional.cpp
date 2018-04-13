@@ -18,31 +18,19 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Header file for exceptional test.
  */
 
-#include "DeliveryMan.h"
-#include "Param2TestFactory.h"
-#include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.hpp"
-#include "myhayai/MainRunner.hpp"
+#include "myhayai/Test.hpp"
 
-#include <chrono>
-#include <iostream>
-#include <thread>
-#include <unistd.h>
+#include <stdexcept>
 
 using namespace std;
 using namespace myhayai;
 
 namespace {
 
-Benchmark b("FlexDelivery", "Flex1 with distance=12", 5,
-            []() {
-                    return Test([]() {
-                            this_thread::sleep_for(10ms);
-                            DeliveryMan(1).DeliverPackage(12);
-                    });
-            },
-            true);
+Benchmark b("Exceptional", "Throwing runtime_error", 5,
+            []() { return Test([]() { throw runtime_error("Exception from exceptional test."); }); });
 }

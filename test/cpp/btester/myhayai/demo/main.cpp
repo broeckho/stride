@@ -12,40 +12,39 @@
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
+ *  This software has been (completely) rewritten starting from
+ *  the hayai code by Nick Bruun. The original copyright, to be
+ *  found in this directory still aplies.
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Impleme.
  */
 
-#include "DeliveryMan.h"
-#include "Param2TestFactory.h"
-#include "SlowDeliveryMan.h"
-#include "myhayai/Benchmarker.hpp"
-#include "myhayai/MainRunner.hpp"
+#include "myhayai/CliController.hpp"
 
-#include <chrono>
+#include <exception>
 #include <iostream>
-#include <thread>
-#include <unistd.h>
 
 using namespace std;
 using namespace myhayai;
 
 int main(int argc, char** argv)
 {
-        // Set up the main runner.
-        MainRunner runner;
+        int exit_status = EXIT_SUCCESS;
 
-        // Parse the arguments.
-        int result = runner.ParseArgs(argc, argv);
-        if (result) {
-                return result;
+        try {
+                CliController controller;
+                controller.ParseArgs(argc, argv);
+                controller.Control();
+                // Done.
+        } catch (exception& e) {
+                exit_status = EXIT_FAILURE;
+                cerr << "\nEXCEPION THROWN: " << e.what() << endl;
+        } catch (...) {
+                exit_status = EXIT_FAILURE;
+                cerr << "\nEXCEPION THROWN: Unknown exception." << endl;
         }
 
-        // Execute based on the selected mode.
-        return runner.Execute();
+        return exit_status;
 }

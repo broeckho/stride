@@ -47,7 +47,7 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 // Parse command line.
                 // -----------------------------------------------------------------------------------------
-                CmdLine cmd("stride", ' ', "1.0", false);
+                CmdLine cmd("stride", ' ', "1.0");
 
                 vector<string>           execs{"clean_config", "sim"};
                 ValuesConstraint<string> vc(execs);

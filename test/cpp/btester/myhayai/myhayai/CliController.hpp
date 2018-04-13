@@ -12,60 +12,75 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
  */
 
 /**
  * @file
- * Header file for MainRunner.
+ * Header file for myhayai::CliController.
  */
 
+#include <regex>
 #include <string>
 #include <vector>
 
 namespace myhayai {
 
 /// Default main executable runner.
-class MainRunner
+class CliController
 {
 public:
         ///
-        MainRunner() : m_filter("*"), m_list_mode(true), m_shuffle(false), m_xml_path("") {}
+        CliController()
+            : m_list_mode(true), m_shuffle(false), m_info_path(), m_json_path(), m_xml_path(), m_positive(),
+              m_negative()
+        {
+        }
 
         ///
-        ~MainRunner() = default;
+        ~CliController() = default;
 
         /// Parse arguments and initializes the MainRunner.
         /// @param argc             Argument count including the executable name.
         /// @param argv             Arguments.
         /// @returns EXIT_SUCCESS / EXIT_FAILURE.
-        int ParseArgs(int argc, char** argv);
+        void ParseArgs(int argc, char** argv);
 
         /// Run the selected execution mode.
         /// @returns the exit status code to be returned from the executable.
-        int Execute();
+        void Control();
 
 private:
+        /// Return the canonical names obtained after applying
+        /// the positive and negative regex filters.
+        std::vector<std::string> GetIncludedNames() const;
+
+        /// Checks whether a name gets to be included after applying
+        /// the positive and exclude negative filters.
+        bool IsIncluded(const std::string& name) const;
+
         /// List benchmarks.
         /// @returns the exit status code to be returned from the executable.
-        int ListBenchmarks();
+        void ListBenchmarks() const;
 
         /// Run benchmarks.
         /// @returns the exit status code to be returned from the executable.
-        int ExecuteBenchmarks();
+        void RunBenchmarks();
 
         /// Shuffle test names.
         /// \param names  vector to be shuffled.
-        static void Shuffle(std::vector<std::string>& names);
+        void Shuffle(std::vector<std::string>& names) const;
 
 private:
-        std::string m_filter;    ///< Filter the names of tests to be executed.
-        bool        m_list_mode; ///< Execution mode.
-        bool        m_shuffle;   ///< Shuffle benchmarks.
-        std::string m_xml_path;  ///< If not empty, produce xml in file at path.
+        bool m_no_color;  ///< Do not use color on console output.
+        bool m_list_mode; ///< Execution mode (list or run benchmarks).
+        bool m_shuffle;   ///< Shuffle benchmarks.
+
+        std::string m_info_path; ///< If not empty, produce output in info format in file at path.
+        std::string m_json_path; ///< If not empty, produce output in json format in file at path.
+        std::string m_xml_path;  ///< If not empty, produce output in xml format in file at path.
+
+        std::vector<std::regex> m_positive; ///< Positive regexes for including tests.
+        std::vector<std::regex> m_negative; ///< Negative regexes for excluding tests.
 };
 
 } // namespace myhayai

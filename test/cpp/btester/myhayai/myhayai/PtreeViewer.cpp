@@ -11,14 +11,10 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory one level higher
- *  still aplies.
  */
 /**
  * @file
- * Implementation file for ConsoleOutputter.
+ * Implementation file for PtreeViewer.
  */
 
 #include "PtreeViewer.hpp"
@@ -43,7 +39,6 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
         static unsigned int exec     = 0U;
         static unsigned int disabled = 0U;
         const string        name     = payload.m_test_name;
-        ptree               test_pt;
 
         if (payload.m_id == event::Id::SkipTest) {
                 ++disabled;
@@ -72,13 +67,15 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 m_ptree.add_child("benchmark.test", pt);
                 break;
         }
+        case event::Id::AbortTest: {
+                ptree pt;
+                pt.put("name", name);
+                pt.put("status", "aborted");
+                pt.put("message", payload.m_msg);
+                m_ptree.add_child("benchmark.test", pt);
+                break;
+        }
         case event::Id::BeginTest: {
-                TestDescriptor t_d = m_descriptors[name];
-                test_pt.clear();
-                test_pt.put("name", name);
-                if (t_d.m_info_factory) {
-                        test_pt.add_child("info", t_d.m_info_factory());
-                }
                 break;
         }
         case event::Id::EndTest: {
@@ -90,18 +87,24 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 const auto quart1 = duration_cast<milliseconds>(stats.m_quartile1);
                 const auto quart3 = duration_cast<milliseconds>(stats.m_quartile3);
 
-                test_pt.put("status", "executed");
-                test_pt.put("run_count", payload.m_run_times.size());
-                for (auto& rt : payload.m_run_times) {
-                        test_pt.add("run_times.run", duration_cast<milliseconds>(rt).count());
+                TestDescriptor t_d = m_descriptors[name];
+                ptree          pt;
+                pt.put("name", name);
+                if (t_d.m_info_factory) {
+                        pt.add_child("info", t_d.m_info_factory());
                 }
-                test_pt.put("boxplot.median", median.count());
-                test_pt.put("boxplot.min", min.count());
-                test_pt.put("boxplot.max", max.count());
-                test_pt.put("boxplot.quartile1", quart1.count());
-                test_pt.put("boxplot.quartile3", quart3.count());
+                pt.put("status", "executed");
+                pt.put("run_count", payload.m_run_times.size());
+                for (auto& rt : payload.m_run_times) {
+                        pt.add("run_times.run", duration_cast<milliseconds>(rt).count());
+                }
+                pt.put("boxplot.median", median.count());
+                pt.put("boxplot.min", min.count());
+                pt.put("boxplot.max", max.count());
+                pt.put("boxplot.quartile1", quart1.count());
+                pt.put("boxplot.quartile3", quart3.count());
 
-                m_ptree.add_child("benchmark.test", test_pt);
+                m_ptree.add_child("benchmark.test", pt);
                 break;
         }
         }

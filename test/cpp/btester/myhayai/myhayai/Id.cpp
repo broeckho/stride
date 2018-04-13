@@ -31,9 +31,9 @@ using boost::to_upper;
 
 bool IsType(const string& s)
 {
-        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginBench), make_pair("ENDRUN", Id::EndBench),
-                                   make_pair("SKIPTEST", Id::SkipTest), make_pair("BEGINTEST", Id::BeginTest),
-                                   make_pair("ENDTEST", Id::EndTest)};
+        static map<string, Id> ids{make_pair("BEGINBENCH", Id::BeginBench), make_pair("ENDBENCH", Id::EndBench),
+                                   make_pair("SKIPTEST", Id::SkipTest),     make_pair("ABORTTEST", Id::AbortTest),
+                                   make_pair("BEGINTEST", Id::BeginTest),   make_pair("ENDTEST", Id::EndTest)};
         string                 t{s};
         to_upper(t);
         return (ids.count(t) == 1);
@@ -41,17 +41,17 @@ bool IsType(const string& s)
 
 string ToString(Id c)
 {
-        static map<Id, string> names{make_pair(Id::BeginBench, "BeginRun"), make_pair(Id::EndBench, "EndRun"),
-                                     make_pair(Id::SkipTest, "SkipTest"), make_pair(Id::BeginTest, "BeginTest"),
-                                     make_pair(Id::EndTest, "EndTest")};
+        static map<Id, string> names{make_pair(Id::BeginBench, "BeginBench"), make_pair(Id::EndBench, "EndBench"),
+                                     make_pair(Id::SkipTest, "AbortTest"),    make_pair(Id::SkipTest, "AbortTest"),
+                                     make_pair(Id::BeginTest, "BeginTest"),   make_pair(Id::EndTest, "EndTest")};
         return (names.count(c) == 1) ? names[c] : "null";
 }
 
 Id ToType(const string& s)
 {
-        static map<string, Id> ids{make_pair("BEGINRUN", Id::BeginBench), make_pair("ENDRUN", Id::EndBench),
-                                   make_pair("SKIPTEST", Id::SkipTest), make_pair("BEGINTEST", Id::BeginTest),
-                                   make_pair("ENDTEST", Id::EndTest)};
+        static map<string, Id> ids{make_pair("BEGINBENCH", Id::BeginBench), make_pair("ENDBENCH", Id::EndBench),
+                                   make_pair("SKIPTEST", Id::SkipTest),     make_pair("ABORTTEST", Id::AbortTest),
+                                   make_pair("BEGINTEST", Id::BeginTest),   make_pair("ENDTEST", Id::EndTest)};
         string                 t{s};
         to_upper(t);
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("myhayai::event::Id::ToString> Not available:" + t);

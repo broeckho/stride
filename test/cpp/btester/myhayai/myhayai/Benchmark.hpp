@@ -12,17 +12,13 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
  */
 /**
  * @file
  * Header file for Benchmark.
  */
 
-#include "Benchmarker.hpp"
+#include "BenchmarkRunner.hpp"
 #include "InfoFactory.hpp"
 #include "TestFactory.hpp"
 
@@ -34,20 +30,25 @@ class Benchmark
 {
 public:
         ///
-        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory)
-            : Benchmark(fixtureName, testName, numRuns, std::move(testFactory), InfoFactory(), false){};
-
-        ///
-        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
-                  bool disableTest)
-            : Benchmark(fixtureName, testName, numRuns, std::move(testFactory), InfoFactory(), disableTest){};
-
-        ///
-        Benchmark(const char* fixtureName, const char* testName, std::size_t numRuns, TestFactory testFactory,
-                  InfoFactory infoFactory, bool disableTest = false)
+        Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
+                  TestFactory testFactory)
+            : Benchmark(groupName, testName, numRuns, std::move(testFactory), InfoFactory(), false)
         {
-                Benchmarker::RegisterTest(fixtureName, testName, numRuns, std::move(testFactory),
-                                          std::move(infoFactory), disableTest);
+        }
+
+        ///
+        Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
+                  TestFactory testFactory, bool disableTest)
+            : Benchmark(groupName, testName, numRuns, std::move(testFactory), InfoFactory(), disableTest)
+        {
+        }
+
+        ///
+        Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
+                  TestFactory testFactory, InfoFactory infoFactory, bool disableTest = false)
+        {
+                BenchmarkRunner::RegisterTest(groupName, testName, numRuns, std::move(testFactory),
+                                              std::move(infoFactory), disableTest);
         }
 };
 

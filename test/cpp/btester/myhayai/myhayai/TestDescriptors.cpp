@@ -11,10 +11,6 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
- *
- *  This software has been altered form the hayai software by Nick Bruun.
- *  The original copyright, to be found in the directory two levels higher
- *  still aplies.
  */
 /**
  * @file
@@ -36,7 +32,7 @@ size_t TestDescriptors::CountDisabled()
 size_t TestDescriptors::CountNotInFilter()
 {
         return static_cast<size_t>(
-            count_if(this->begin(), this->end(), [](const auto& item) { return !item.second.m_is_in_filter; }));
+            count_if(this->begin(), this->end(), [](const auto& item) { return !item.second.m_is_included; }));
 }
 
 } // namespace myhayai
