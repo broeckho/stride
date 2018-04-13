@@ -18,37 +18,44 @@
  */
 /**
  * @file
- * Header file for TestFactory.
+ * Implementation for Param3TestFactory.
  */
 
-#include "DeliveryMan.h"
-#include "Param2TestFactory.h"
 #include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.hpp"
-#include "myhayai/CliController.hpp"
+#include "myhayai/Test.hpp"
 
-#include <chrono>
-#include <iostream>
-#include <thread>
-#include <unistd.h>
+#include <memory>
 
 using namespace std;
 using namespace myhayai;
 
-auto param2_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
-        return [distance, duration, speed]() {
-                auto p = make_shared<DeliveryMan>();
-                return Test(
-                    [p, duration, distance]() {
-                            this_thread::sleep_for(duration * 10ms);
-                            p->DeliverPackage(distance);
-                    },
-                    [p, speed]() { *p = DeliveryMan(speed); });
-        };
+/**
+ * Simuilar to Param2TestFactory but now using binders.
+ */
+class Param3TestFactory
+{
+public:
+        Param3TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
+            : m_distance(distance), m_duration(duration), m_speed(speed)
+        {
+        }
+
+        myhayai::Test operator()()
+        {
+                auto f        = make_shared<SlowDeliveryMan>();
+                auto body     = bind(&SlowDeliveryMan::DoThis, f, m_duration, m_distance);
+                auto setup    = bind(&SlowDeliveryMan::SetUp, f, m_speed);
+                auto teardown = bind(&SlowDeliveryMan::TearDown, f);
+                return Test(body, setup, teardown);
+        }
+
+private:
+        unsigned int m_distance;
+        unsigned int m_duration;
+        unsigned int m_speed;
 };
 
 namespace {
-
-Benchmark b1("FlexDelivery", "Flex3 - distance=50, duration=80, speed=1", 1, param2_factory_builder(50, 80, 1));
-Benchmark b2("FlexDelivery", "Flex3 - distance=1, duration=1, speed=1", 10, param2_factory_builder(1, 1, 1));
-} // namespace
+Benchmark b("Delivery", "Param3 - distance=2, duration=2, speed=2", 10, Param3TestFactory(2, 2, 2));
+}

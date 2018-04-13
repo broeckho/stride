@@ -22,7 +22,6 @@
  */
 
 #include "DeliveryMan.h"
-#include "Param2TestFactory.h"
 #include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.hpp"
 #include "myhayai/CliController.hpp"
@@ -34,18 +33,21 @@
 
 using namespace std;
 using namespace myhayai;
-using namespace std::chrono_literals;
 
-auto param2_factory = []() {
-        auto p = make_shared<DeliveryMan>();
-        return Test(
-            [p]() {
-                    this_thread::sleep_for(10ms);
-                    p->DeliverPackage(5);
-            },
-            [p]() { *p = DeliveryMan(3); });
-};
-
+// The "all lambda" flex approach. You register a factory (outer lambda)
+// that, on each call, produces a test (inner lambda). The test only has
+// a body. It sleeps and then lets the DeliveryMan do his job.
 namespace {
-Benchmark b("FlexDelivery", "Flex2 - distance=5, speed=3", 10, param2_factory);
+
+Benchmark b("FlexDelivery", "Flex1 with distance=12", 5,                           //
+            []() {                                                                 //
+                        return Test(                                               //
+                                []() {                                             //
+                                        this_thread::sleep_for(10ms);              //
+                                        DeliveryMan(1).DeliverPackage(12);         //
+                                }                                                  //
+                        );                                                         //
+                 }                                                                 //
+            );                                                                     //
+
 }

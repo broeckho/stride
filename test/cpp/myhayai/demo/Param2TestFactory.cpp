@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,11 +18,20 @@
  */
 /**
  * @file
- * Header Param2TestFactory.
+ * Implementation for Param2TestFactory.
  */
 
+#include "SlowDeliveryMan.h"
+#include "myhayai/Benchmark.hpp"
 #include "myhayai/Test.hpp"
 
+#include <memory>
+
+using namespace std;
+using namespace myhayai;
+/**
+ * The factory produces a test with all three stages (setup, body, teardown).
+ */
 class Param2TestFactory
 {
 public:
@@ -32,10 +40,22 @@ public:
         {
         }
 
-        myhayai::Test operator()();
+        myhayai::Test operator()()
+        {
+                auto f        = make_shared<SlowDeliveryMan>();
+                auto body     = [f, this]() { f->DoThis(m_duration, m_distance); };
+                auto setup    = [f, this]() { f->SetUp(m_speed); };
+                auto teardown = [f]() { f->TearDown(); };
+                return Test(body, setup, teardown);
+        }
 
 private:
         unsigned int m_distance;
         unsigned int m_duration;
         unsigned int m_speed;
 };
+
+// Registration of the test.
+namespace {
+Benchmark b("Delivery", "Param2 - distance=6, duration=7, speed=2", 10, Param2TestFactory(6, 7, 2));
+}

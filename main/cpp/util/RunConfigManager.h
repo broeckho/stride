@@ -19,6 +19,8 @@
  * Produce run config ptree.
  */
 
+#include "util/ConfigInfo.h"
+
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 
@@ -35,14 +37,16 @@ public:
         static void CleanConfigFile(const boost::filesystem::path& config_p);
 
         ///
-        static const boost::property_tree::ptree& CreateTestsInfluenza_a();
+        static const boost::property_tree::ptree& CreateTestsInfluenza();
 
         ///
-        static const boost::property_tree::ptree& CreateTestsMeasles_a();
+        static const boost::property_tree::ptree& CreateTestsMeasles();
 
         ///
-        static const boost::property_tree::ptree& CreateBench01();
+        static const boost::property_tree::ptree& CreateBenchMeasles();
 
+        ///
+        static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
         ///
         static std::string ToString(const boost::property_tree::ptree& pt);
 

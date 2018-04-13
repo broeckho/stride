@@ -1,6 +1,5 @@
 #############################################################################
-#  This file is part of the Stride software.
-#  It is free software: you can redistribute it and/or modify
+#  This is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
@@ -12,41 +11,14 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
-# Build myhayai lib (build only, no install)
+# Add subdirectories:
 #============================================================================
-set(SRC
-#
-    Benchmark.hpp
-    Console.hpp
-    Test.hpp
-    InfoFactory.hpp
-    Payload.hpp
-    Subject.hpp
-    Test.hpp
-    TestDescriptor.hpp
-    TestFactory.hpp
-    TestResult.hpp
-#
-    BenchmarkRunner.cpp
-    BoxPlotData.cpp
-    ConsoleViewer.cpp
-    Id.cpp
-    CliController.cpp
-    PtreeViewer.cpp
-    TestDescriptors.cpp
-)
-
-add_library(myhayai STATIC ${SRC})
-target_compile_options(myhayai PUBLIC -I ${CMAKE_HOME_DIRECTORY}/test/cpp/btester/myhayai)
-set_property(TARGET myhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-#============================================================================
-# Clean up.
-#============================================================================
-unset(SRC)
+include_directories(${CMAKE_SOURCE_DIR}/test/cpp/myhayai)
+add_subdirectory(demo)
+add_subdirectory(myhayai)
 
 #############################################################################

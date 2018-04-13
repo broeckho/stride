@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,20 +18,20 @@
  */
 /**
  * @file
- * Header file for ParamTestFactory.
+ * Header file for exceptional test.
  */
 
+#include "myhayai/Benchmark.hpp"
 #include "myhayai/Test.hpp"
 
-class Param1TestFactory
-{
-public:
-        ///
-        Param1TestFactory(unsigned int distance) : m_distance(distance) {}
+#include <stdexcept>
 
-        ///
-        myhayai::Test operator()();
+using namespace std;
+using namespace myhayai;
 
-private:
-        unsigned int m_distance;
-};
+// Used to check that the BenchmarkRunner can continue after exceptions thrown by tests.
+namespace {
+
+Benchmark b("Exceptional", "Throwing runtime_error", 5,
+            []() { return Test([]() { throw runtime_error("Exception from exceptional test."); }); });
+}

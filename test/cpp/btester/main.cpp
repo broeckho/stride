@@ -29,9 +29,13 @@
 using namespace std;
 using namespace myhayai;
 
+void MeaslesBench();
+
 int main(int argc, char** argv)
 {
         int exit_status = EXIT_SUCCESS;
+
+        MeaslesBench();
 
         try {
                 CliController controller;

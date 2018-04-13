@@ -15,9 +15,24 @@
 #############################################################################
 
 #============================================================================
-# Add subdirectories:
+# Build & install executable.
 #============================================================================
-add_subdirectory(demo)
-add_subdirectory(myhayai)
+set(SRC
+    DeliveryMan.cpp
+    main.cpp
+    exceptional.cpp
+    flex_delivery1.cpp
+    flex_delivery2.cpp
+    flex_delivery3.cpp
+    Param1TestFactory.cpp
+    Param2TestFactory.cpp
+    Param3TestFactory.cpp
+    SlowDeliveryMan.cpp
+    )
+
+add_executable(myhayai_demo ${SRC})
+target_link_libraries(myhayai_demo myhayai libstride)
+install(TARGETS myhayai_demo  DESTINATION   ${BIN_INSTALL_LOCATION})
+unset(SRC)
 
 #############################################################################

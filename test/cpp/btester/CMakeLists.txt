@@ -15,8 +15,17 @@
 #############################################################################
 
 #============================================================================
-# Add subdirectories:
+# Build & install executable.
 #============================================================================
-add_subdirectory(myhayai)
+set(SRC
+    MeaslesBench.cpp
+    main.cpp
+    )
+
+include_directories(${CMAKE_SOURCE_DIR}/test/cpp/myhayai)
+add_executable(bench ${SRC})
+target_link_libraries(bench myhayai libstride)
+install(TARGETS bench  DESTINATION   ${BIN_INSTALL_LOCATION})
+unset(SRC)
 
 #############################################################################

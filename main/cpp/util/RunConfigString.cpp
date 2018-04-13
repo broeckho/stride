@@ -33,7 +33,7 @@ namespace util {
 string RunConfigString::CreateTestsBasic1()
 {
         ostringstream ss;
-        write_xml(ss, RunConfigManager::CreateTestsInfluenza_a(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+        write_xml(ss, RunConfigManager::CreateTestsInfluenza(), xml_writer_make_settings<ptree::key_type>(' ', 8));
         cout << ss.str() << endl;
         return ss.str();
 }
@@ -41,7 +41,7 @@ string RunConfigString::CreateTestsBasic1()
 string RunConfigString::CreateTestsBasic2()
 {
         ostringstream ss;
-        write_xml(ss, RunConfigManager::CreateTestsMeasles_a(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+        write_xml(ss, RunConfigManager::CreateTestsMeasles(), xml_writer_make_settings<ptree::key_type>(' ', 8));
         cout << ss.str() << endl;
         return ss.str();
 }

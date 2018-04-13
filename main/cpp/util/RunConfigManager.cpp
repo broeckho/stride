@@ -20,9 +20,11 @@
 #include "RunConfigManager.h"
 
 #include "util/FileSys.h"
+#include "util/ConfigInfo.h"
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <sha1.h>
+#include <initializer_list>
 #include <sstream>
 
 using namespace boost::property_tree;
@@ -43,7 +45,7 @@ void RunConfigManager::CleanConfigFile(const boost::filesystem::path& config_p)
         FileSys::WritePtreeFile(new_config_p, pt);
 }
 
-const ptree& RunConfigManager::CreateTestsInfluenza_a()
+const ptree& RunConfigManager::CreateTestsInfluenza()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -79,7 +81,7 @@ const ptree& RunConfigManager::CreateTestsInfluenza_a()
         return config_pt;
 }
 
-const ptree& RunConfigManager::CreateTestsMeasles_a()
+const ptree& RunConfigManager::CreateTestsMeasles()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -114,7 +116,7 @@ const ptree& RunConfigManager::CreateTestsMeasles_a()
         return config_pt;
 }
 
-const ptree& RunConfigManager::CreateBench01()
+const ptree& RunConfigManager::CreateBenchMeasles()
 {
         static ptree config_pt;
         if (config_pt.empty()) {
@@ -148,6 +150,30 @@ const ptree& RunConfigManager::CreateBench01()
                 config_pt.put("run.vaccine_rate", 0.0);
         }
         return config_pt;
+}
+
+vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int max)
+{
+        const unsigned int max_num = std::max(max, ConfigInfo::NumberAvailableThreads());
+        initializer_list<unsigned int> num {1U};
+
+        if (max_num >= 2){
+                num = {1U, 2U};
+        }
+        if (max_num >= 4){
+                num = {1U, 2U, 3U, 4U};
+        }
+        if (max_num >= 8){
+                num= {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
+        }
+        if (max_num >= 12) {
+                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U};
+        }
+        if (max_num >= 16) {
+                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U, 16U};
+        }
+
+        return num;
 }
 
 std::string RunConfigManager::ToString(const boost::property_tree::ptree& pt)

@@ -92,6 +92,9 @@ add_library(libstride ${LIB_SRC})
 target_link_libraries(libstride ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
+include(ProcessorCount)
+ProcessorCount(PROCCOUNT)
+target_compile_definitions(libstride PUBLIC "-DPROCCOUNT=${PROCCOUNT}")
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================

@@ -18,25 +18,35 @@
  */
 /**
  * @file
- * Header file for ParamTestFactory.
+ * Header file for TestFactory.
  */
 
-#include "Param1TestFactory.h"
 #include "DeliveryMan.h"
+#include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.hpp"
+#include "myhayai/Test.hpp"
 
 #include <memory>
+#include <thread>
 
 using namespace std;
 using namespace myhayai;
+using namespace std::chrono_literals;
 
-Test Param1TestFactory::operator()()
-{
-        auto p    = make_shared<DeliveryMan>(1);
-        auto body = [p, this]() { p->DeliverPackage(m_distance); };
-        return Test(body);
-}
+
+// Roughly as in flex_delivery1.cpp, except now we do not define
+// the factory in place, and the test has a setup in addition to a body.
+
+auto param2_factory = []() {
+        auto p = make_shared<DeliveryMan>();
+        return Test(
+            [p]() {
+                    this_thread::sleep_for(10ms);
+                    p->DeliverPackage(5);
+            },
+            [p]() { *p = DeliveryMan(3); });
+};
 
 namespace {
-Benchmark b("Delivery", "Param1 - distance=4", 10, Param1TestFactory(4));
+Benchmark b("FlexDelivery", "Flex2 - distance=5, speed=3", 10, param2_factory);
 }
