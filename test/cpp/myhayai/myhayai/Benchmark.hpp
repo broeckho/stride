@@ -47,9 +47,14 @@ public:
         Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
                   TestFactory testFactory, InfoFactory infoFactory, bool disableTest = false)
         {
-                BenchmarkRunner::RegisterTest(groupName, testName, numRuns, std::move(testFactory),
-                                              std::move(infoFactory), disableTest);
+                m_status = BenchmarkRunner::RegisterTest(groupName, testName, numRuns, std::move(testFactory),
+                                                         std::move(infoFactory), disableTest);
         }
+
+        operator bool() const { return m_status; }
+
+private:
+        bool m_status = false;
 };
 
 } // namespace myhayai

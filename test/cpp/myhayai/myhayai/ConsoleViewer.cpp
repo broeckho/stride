@@ -36,13 +36,15 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
 
         static unsigned int exec     = 0U;
         static unsigned int disabled = 0U;
+        static unsigned int aborted  = 0U;
         const string        name     = payload.m_test_name;
 
-        if (payload.m_id == event::Id::SkipTest) {
-                ++disabled;
-        }
-        if (payload.m_id == event::Id::BeginTest || payload.m_id == event::Id::BeginTest) {
+        if (payload.m_id == event::Id::EndTest) {
                 ++exec;
+        } else if (payload.m_id == event::Id::SkipTest) {
+                ++disabled;
+        } else if (payload.m_id == event::Id::AbortTest) {
+                ++aborted;
         }
 
         switch (payload.m_id) {
@@ -51,9 +53,12 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
                          << endl;
                 break;
         case event::Id::EndBench:
-                m_stream << Color::Green << "[==========]" << Color::Yellow
-                         << " BenchmarkRunner done (executed: " << exec << ", disabled: " << disabled
-                         << ", registered but not included: " << m_descriptors.size() - exec - disabled << ")" << endl;
+                m_stream << Color::Green << "[==========]" << Color::Default
+                         << " BenchmarkRunner done: executed: " << exec << ", aborted: " << aborted
+                         << ", disabled: " << disabled << endl;
+                m_stream << Color::Green << "[==========]" << Color::Default
+                         << " Tests registered but excluded by regex filter: "
+                         << m_descriptors.size() - exec - aborted - disabled << endl;
                 break;
         case event::Id::SkipTest: {
                 m_stream << Color::Cyan << "[ DISABLED ]" << Color::Yellow << " " << name << endl;

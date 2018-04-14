@@ -35,24 +35,35 @@ using namespace std;
 using namespace stride::util;
 using namespace myhayai;
 
+void class_delivery();
+void flex_delivery();
+
 int main(int argc, char** argv)
 {
         int exit_status = EXIT_SUCCESS;
 
-        // Building the tests with lambdas makes it easy to define them in main (or some
-        // function called directly by main prior to benchmarking) and do away the global
-        // variables used for registration outside main.
+        // Including tests registered elsewhere in some manner is necessary. You can do that
+        // as I did, by packaging them in a function and call it here. Or you can introduce
+        // variables with static storage duration outside of main, whose initialization
+        // triggers the registration of the test. The Benchmark clas is designed to enable
+        // just that. I prefer the former approach though..
+        class_delivery();
+        flex_delivery();
+
+        // Building the tests with lambdas also makes it easy to define them in main itself.
+        //clang-format off
         auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
                 return [distance, duration, speed]() {
                         auto p = make_shared<DeliveryMan>();
                         return Test(
-                            [p, duration, distance]() {
-                                    this_thread::sleep_for(duration * 10ms);
-                                    p->DeliverPackage(distance);
-                            },
-                            [p, speed]() { *p = DeliveryMan(speed); });
+                                [p, duration, distance]() {
+                                        this_thread::sleep_for(duration * 10ms);
+                                        p->DeliverPackage(distance);
+                                },
+                                [p, speed]() { *p = DeliveryMan(speed); });
                 };
         };
+        // clang-format on
 
         for (unsigned int i = 1; i < 4; ++i) {
                 BenchmarkRunner::RegisterTest("FlexDelivery", "FlexMain - " + ToString(i), 10,

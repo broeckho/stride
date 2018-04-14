@@ -50,7 +50,7 @@ inline std::ostream& operator<<(std::ostream& stream, const Color& color)
 {
         static bool c = false;
 
-        const char* value = "";
+        const char* value;
         switch (color) {
         case Color::EnableColor: {
                 if ((isatty(fileno(stdout)) == 1) &&

@@ -18,15 +18,10 @@
 # Build & install executable.
 #============================================================================
 set(SRC
+    class_delivery.cpp
     DeliveryMan.cpp
+    flex_delivery.cpp
     main.cpp
-    exceptional.cpp
-    flex_delivery1.cpp
-    flex_delivery2.cpp
-    flex_delivery3.cpp
-    Param1TestFactory.cpp
-    Param2TestFactory.cpp
-    Param3TestFactory.cpp
     SlowDeliveryMan.cpp
     )
 

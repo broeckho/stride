@@ -31,8 +31,8 @@ class CliController
 public:
         ///
         CliController()
-            : m_list_mode(true), m_shuffle(false), m_info_path(), m_json_path(), m_xml_path(), m_positive(),
-              m_negative()
+            : m_list_mode(true), m_no_color(true), m_shuffle(false), m_info_path(), m_json_path(), m_xml_path(),
+              m_negative(), m_positive()
         {
         }
 
@@ -71,16 +71,16 @@ private:
         void Shuffle(std::vector<std::string>& names) const;
 
 private:
-        bool m_no_color;  ///< Do not use color on console output.
         bool m_list_mode; ///< Execution mode (list or run benchmarks).
+        bool m_no_color;  ///< Do not use color on console output.
         bool m_shuffle;   ///< Shuffle benchmarks.
 
         std::string m_info_path; ///< If not empty, produce output in info format in file at path.
         std::string m_json_path; ///< If not empty, produce output in json format in file at path.
         std::string m_xml_path;  ///< If not empty, produce output in xml format in file at path.
 
-        std::vector<std::regex> m_positive; ///< Positive regexes for including tests.
         std::vector<std::regex> m_negative; ///< Negative regexes for excluding tests.
+        std::vector<std::regex> m_positive; ///< Positive regexes for including tests.
 };
 
 } // namespace myhayai

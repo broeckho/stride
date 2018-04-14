@@ -134,7 +134,8 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // Initialize RNManager for random number engine management.
         // --------------------------------------------------------------
         sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
-                m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "", sim->m_num_threads});
+                                                     m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
+                                                     sim->m_num_threads});
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
