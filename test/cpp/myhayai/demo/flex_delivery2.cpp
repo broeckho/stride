@@ -33,7 +33,6 @@ using namespace std;
 using namespace myhayai;
 using namespace std::chrono_literals;
 
-
 // Roughly as in flex_delivery1.cpp, except now we do not define
 // the factory in place, and the test has a setup in addition to a body.
 

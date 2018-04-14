@@ -18,10 +18,10 @@
  * Implementation of influenza_a runs for benchmarking.
  */
 
+#include "myhayai/BenchmarkRunner.hpp"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
-#include "myhayai/BenchmarkRunner.hpp"
 
 #include <iostream>
 
@@ -32,17 +32,15 @@ using namespace myhayai;
 
 void MeaslesBench()
 {
-        auto num_builder = [](unsigned int n ) {
+        auto num_builder = [](unsigned int n) {
                 return [n]() {
                         auto runner = SimRunner::Create();
-                        return Test(
-                                [runner]() {runner->Run();},
-                                [runner, n]() {
-                                        auto config_pt = RunConfigManager::CreateBenchMeasles();
-                                        config_pt.put("run.num_threads", n);
-                                        runner->Setup(config_pt);
-                                }
-                        );
+                        return Test([runner]() { runner->Run(); },
+                                    [runner, n]() {
+                                            auto config_pt = RunConfigManager::CreateBenchMeasles();
+                                            config_pt.put("run.num_threads", n);
+                                            runner->Setup(config_pt);
+                                    });
                 };
         };
 

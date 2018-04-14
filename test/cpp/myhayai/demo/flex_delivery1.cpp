@@ -39,15 +39,14 @@ using namespace myhayai;
 // a body. It sleeps and then lets the DeliveryMan do his job.
 namespace {
 
-Benchmark b("FlexDelivery", "Flex1 with distance=12", 5,                           //
-            []() {                                                                 //
-                        return Test(                                               //
-                                []() {                                             //
-                                        this_thread::sleep_for(10ms);              //
-                                        DeliveryMan(1).DeliverPackage(12);         //
-                                }                                                  //
-                        );                                                         //
-                 }                                                                 //
-            );                                                                     //
-
+Benchmark b("FlexDelivery", "Flex1 with distance=12", 5,           //
+            []() {                                                 //
+                    return Test(                                   //
+                        []() {                                     //
+                                this_thread::sleep_for(10ms);      //
+                                DeliveryMan(1).DeliverPackage(12); //
+                        }                                          //
+                    );                                             //
+            }                                                      //
+);                                                                 //
 }

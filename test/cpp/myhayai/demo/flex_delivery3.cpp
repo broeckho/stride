@@ -38,22 +38,22 @@ using namespace myhayai;
 // Now we're cooking, with another indirection layer. the factory_builder builds test_factories.
 // It can accept parameters (which the factory cannot since it has to have a void() signature)
 // At registration time, the call to the factory builder the produces the factory.
-auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {     //
-        return [distance, duration, speed]() {                                                          //
-                auto p = make_shared<DeliveryMan>();                                                    //
-                return Test(                                                                            //
-                                    [p, duration, distance]() {                                         //
-                                            this_thread::sleep_for(duration * 10ms);                    //
-                                            p->DeliverPackage(distance);                                //
-                                    },                                                                  //
-                                    [p, speed]() { *p = DeliveryMan(speed); }                           //
-                            );                                                                          //
-        };                                                                                              //
-};                                                                                                      //
+auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) { //
+        return [distance, duration, speed]() {                                                      //
+                autop                     = make_shared<DeliveryMan>();                                            //
+                return Test(                                                                        //
+                    [p, duration, distance]() {                                                     //
+                            this_thread::sleep_for(duration * 10ms);                                //
+                            p->DeliverPackage(distance);                                            //
+                    },                                                                              //
+                    [p, speed]() { *p = DeliveryMan(speed); }                                       //
+                );                                                                                  //
+        };                                                                                          //
+};                                                                                                  //
 
 bool register_many()
 {
-        for (unsigned int i = 1; i < 4; ++i){
+        for (unsigned int i = 1; i < 4; ++i) {
                 BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - " + ToString(i), 10,
                                               param_factory_builder(1, 1, i));
         }
@@ -64,10 +64,9 @@ bool register_many()
         return true;
 }
 
-
 // Again, just to trigger execution
 namespace {
-bool b0 = register_many();
+bool      b0 = register_many();
 Benchmark b1("FlexDelivery", "Flex3 - distance=50, duration=80, speed=1", 1, param_factory_builder(50, 80, 1));
 Benchmark b2("FlexDelivery", "Flex3 - distance=1, duration=1, speed=1", 10, param_factory_builder(1, 1, 1));
 } // namespace

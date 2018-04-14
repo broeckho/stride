@@ -50,10 +50,7 @@ public:
         static unsigned int NumberAvailableThreads();
 
         ///
-        static constexpr unsigned int ProcessorCount()
-        {
-                return PROCCOUNT;
-        }
+        static constexpr unsigned int ProcessorCount() { return PROCCOUNT; }
 };
 
 } // namespace util

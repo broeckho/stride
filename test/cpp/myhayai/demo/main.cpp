@@ -23,8 +23,8 @@
 
 #include "DeliveryMan.h"
 #include "myhayai/BenchmarkRunner.hpp"
-#include "myhayai/Test.hpp"
 #include "myhayai/CliController.hpp"
+#include "myhayai/Test.hpp"
 #include "util/StringUtils.h"
 
 #include <exception>
@@ -43,18 +43,18 @@ int main(int argc, char** argv)
         // function called directly by main prior to benchmarking) and do away the global
         // variables used for registration outside main.
         auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
-            return [distance, duration, speed]() {
-                auto p = make_shared<DeliveryMan>();
-                return Test(
-                        [p, duration, distance]() {
-                            this_thread::sleep_for(duration * 10ms);
-                            p->DeliverPackage(distance);
-                        },
-                        [p, speed]() { *p = DeliveryMan(speed); });
-            };
+                return [distance, duration, speed]() {
+                        auto p = make_shared<DeliveryMan>();
+                        return Test(
+                            [p, duration, distance]() {
+                                    this_thread::sleep_for(duration * 10ms);
+                                    p->DeliverPackage(distance);
+                            },
+                            [p, speed]() { *p = DeliveryMan(speed); });
+                };
         };
 
-        for (unsigned int i = 1; i < 4; ++i){
+        for (unsigned int i = 1; i < 4; ++i) {
                 BenchmarkRunner::RegisterTest("FlexDelivery", "FlexMain - " + ToString(i), 10,
                                               param_factory_builder(1, 1, i));
         }

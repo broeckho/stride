@@ -22,6 +22,8 @@
  * Header file for DeliveryMan.
  */
 
+#include <iostream>
+
 /// Delivery man.
 class DeliveryMan
 {

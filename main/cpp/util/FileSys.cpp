@@ -209,7 +209,6 @@ ptree FileSys::ReadPtreeFile(const boost::filesystem::path& f_p)
                         const string s = "FileSys::ReadPtreeFile> Abort! Error reading " + f_p.string();
                         cerr << s << endl;
                         throw runtime_error(s);
-                        ;
                 }
         }
         return ret;
@@ -225,7 +224,6 @@ void FileSys::WritePtreeFile(const boost::filesystem::path& f_p, const boost::pr
                 const string s = "FileSys::ReadPtreeFile> Abort! Error reading " + f_p.string();
                 cerr << s << endl;
                 throw runtime_error(s);
-                ;
         }
 }
 

@@ -123,10 +123,12 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Config info.
         // --------------------------------------------------------------
-        sim->m_config_pt        = m_config_pt;
-        sim->m_track_index_case = m_config_pt.get<bool>("run.track_index_case");
-        sim->m_num_threads      = m_config_pt.get<unsigned int>("run.num_threads");
-        sim->m_calendar         = make_shared<Calendar>(m_config_pt);
+        sim->m_config_pt         = m_config_pt;
+        sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
+        sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
+        sim->m_calendar          = make_shared<Calendar>(m_config_pt);
+        sim->m_local_info_policy = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
+        sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
 
         // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
@@ -135,14 +137,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         const auto            rng_type = m_config_pt.get<string>("run.rng_type", "mrg2");
         const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
         sim->m_rn_manager.Initialize(info);
-
-        // --------------------------------------------------------------
-        // ContactLogMode related initialization.
-        // --------------------------------------------------------------
-        const string l          = m_config_pt.get<string>("run.contact_log_level", "None");
-        sim->m_contact_log_mode = ContactLogMode::IsMode(l)
-                                      ? ContactLogMode::ToMode(l)
-                                      : throw runtime_error(string(__func__) + "> Invalid input for ContactLogMode.");
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
@@ -161,12 +155,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         }
 
         // --------------------------------------------------------------
-        // Set correct information policies.
-        // --------------------------------------------------------------
-        const string loc_info_policy    = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
-        sim->m_local_information_policy = loc_info_policy;
-
-        // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
         sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
@@ -179,8 +167,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
-        HealthSeeder h_seeder(disease_pt, sim->m_rn_manager);
-        h_seeder.Seed(sim->m_population);
+        HealthSeeder(disease_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
@@ -192,8 +179,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build the ContactPoolSystem of the simulator.
         // --------------------------------------------------------------
-        PopPoolBuilder cp_builder(m_stride_logger);
-        cp_builder.Build(sim->m_pool_sys, *sim->m_population);
+        PopPoolBuilder(m_stride_logger).Build(sim->m_pool_sys, *sim->m_population);
 
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
@@ -203,8 +189,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
-        DiseaseSeeder d_builder(m_config_pt, sim->m_rn_manager);
-        d_builder.Seed(sim);
+        DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim);
 
         // --------------------------------------------------------------
         // Done.

@@ -100,9 +100,9 @@ private:
         unsigned int m_sim_day;
 
 private:
-        std::shared_ptr<Population> m_population;               ///< Pointer to the Population.
-        ContactPoolSys              m_pool_sys;                 ///< Holds vector of ContactPool of different types.
-        std::string                 m_local_information_policy; ///< Local information name.
+        std::shared_ptr<Population> m_population;        ///< Pointer to the Population.
+        ContactPoolSys              m_pool_sys;          ///< Holds vector of ContactPool of different types.
+        std::string                 m_local_info_policy; ///< Local information name.
 
 private:
         friend class SimulatorBuilder;

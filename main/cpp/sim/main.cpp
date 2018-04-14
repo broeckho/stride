@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -25,10 +25,8 @@
 #include "util/TimeStamp.h"
 
 #include <tclap/CmdLine.h>
-#include <iomanip>
-#include <ios>
 #include <iostream>
-#include <locale>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -49,51 +47,73 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 CmdLine cmd("stride", ' ', "1.0");
 
-                vector<string>           execs{"clean_config", "sim"};
+                vector<string>           execs{"clean", "dump", "sim"};
                 ValuesConstraint<string> vc(execs);
-                ValueArg<string>         exec("", "exec", "Execute the specified function.", false, "sim", &vc, cmd);
-                MultiArg<string>         override_Arg("", "override",
-                                              "Override config parameters. Format --override <name>=<value>", false,
-                                              "<NAME>=<VALUE>", cmd);
-                ValueArg<string> config_file_Arg("", "config", "File with the run configuration parameters.", false,
-                                                 "run_default.xml", "CONFIGURATION FILE", cmd);
-                SwitchArg installed_config_Arg("", "installed_config", "Look for config file in install directories",
-                                               cmd, true);
+                string se = "Execute the indicated function. The clean function takes the configuration file "
+                            "specified by the --config file=<file> parameter, cleans it (indent, sort) and "
+                            "rewrites it to a new file. The dump function takes the built-in configuration "
+                            "(used for testing/benchmarking) specified by the --config name=<name> parameter "
+                            "and writes it, cleanly (i.e. indented, sorted) to a new file. The sim function "
+                            "runs the simulator using the configuration specified by the --config parameter."
+                            "The latter may use either --config file=<file> or --config name=<name>. The sim"
+                            "function is the default.";
+                ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
+
+                string so = "Override configuration parameters in the configuration file. The format is "
+                            "--override <name>=<value>. It can be used multiple times.";
+                MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
+
+                string sc = "Specifies the run configuration parameters to be used. It may be either "
+                            "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
+                            "shortened to -c <file>.";
+                ValueArg<string> configArg("c", "config", sc, false, "run_default.xml", "RUN CONFIGURATION", cmd);
+
+                string si = "Look for configuration file specified by the -c file=<file> or -c <file> in the "
+                            "stride install directories";
+                SwitchArg installedArg("i", "installed", si, cmd, true);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // -----------------------------------------------------------------------------------------
-                // Full configuration filename.
+                // Get configuration and path with overrides (if any).
                 // -----------------------------------------------------------------------------------------
-                const auto                    config_fn = config_file_Arg.getValue();
-                const boost::filesystem::path config_fp =
-                    (installed_config_Arg.getValue()) ? FileSys::GetConfigDir() /= config_fn : config_fn;
+                auto  config = configArg.getValue();
+                ptree config_pt;
+
+                if (regex_search(config, regex("^name="))) {
+                        config    = regex_replace(config, regex("^name="), "");
+                        config_pt = RunConfigManager::Create(config);
+                } else {
+                        config = regex_replace(config, regex("^file="), "");
+                        const boost::filesystem::path configPath =
+                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
+                        config_pt = FileSys::ReadPtreeFile(configPath);
+                }
+
+                for (const auto& p_assignment : overrideArg.getValue()) {
+                        const auto v = util::Tokenize(p_assignment, "=");
+                        config_pt.put("run." + v[0], v[1]);
+                }
 
                 // -----------------------------------------------------------------------------------------
                 // If run simulation ...
                 // -----------------------------------------------------------------------------------------
-                if (exec.getValue() == "sim") {
+                if (execArg.getValue() == "sim") {
 
-                        // Read configuration and patch it with the overrides (if any).
-                        auto pt = FileSys::ReadPtreeFile(config_fp);
-                        for (const auto& p_assignment : override_Arg.getValue()) {
-                                const auto v = util::Tokenize(p_assignment, "=");
-                                pt.put("run." + v[0], v[1]);
+                        if (config_pt.get<string>("run.output_prefix", "").empty()) {
+                                config_pt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
-                        if (pt.get<string>("run.output_prefix", "").empty()) {
-                                pt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
-                        }
-                        pt.sort();
+                        config_pt.sort();
 
-                        // Setup controller, run simulation.
-                        CliController cntrl(pt);
+                        CliController cntrl(config_pt);
                         cntrl.Setup();
                         cntrl.Execute();
                 }
                 // -----------------------------------------------------------------------------------------
-                // If clean an configuration file
+                // If clean/dump ...
                 // -----------------------------------------------------------------------------------------
-                else if (exec.getValue() == "clean_config") {
-                        RunConfigManager::CleanConfigFile(config_fp);
+                else {
+                        RunConfigManager::CleanConfigFile(config_pt);
                 }
 
         } catch (exception& e) {

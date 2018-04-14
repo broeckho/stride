@@ -23,6 +23,7 @@
 
 #include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
+#include <string>
 
 namespace stride {
 namespace util {
@@ -34,19 +35,23 @@ class RunConfigManager
 {
 public:
         /// Clean (i.e. indent, sort and produde the sha1) the ptree config file.
-        static void CleanConfigFile(const boost::filesystem::path& config_p);
+        static void CleanConfigFile(boost::property_tree::ptree pt);
 
         ///
-        static const boost::property_tree::ptree& CreateTestsInfluenza();
+        static boost::property_tree::ptree Create(const std::string& configName);
 
         ///
-        static const boost::property_tree::ptree& CreateTestsMeasles();
+        static boost::property_tree::ptree CreateTestsInfluenza();
 
         ///
-        static const boost::property_tree::ptree& CreateBenchMeasles();
+        static boost::property_tree::ptree CreateTestsMeasles();
+
+        ///
+        static boost::property_tree::ptree CreateBenchMeasles();
 
         ///
         static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
+
         ///
         static std::string ToString(const boost::property_tree::ptree& pt);
 

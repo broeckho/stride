@@ -19,12 +19,13 @@
 
 #include "RunConfigManager.h"
 
-#include "util/FileSys.h"
 #include "util/ConfigInfo.h"
+#include "util/FileSys.h"
 
 #include <boost/property_tree/xml_parser.hpp>
-#include <sha1.h>
 #include <initializer_list>
+#include <iostream>
+#include <sha1.h>
 #include <sstream>
 
 using namespace boost::property_tree;
@@ -33,143 +34,158 @@ using namespace std;
 namespace stride {
 namespace util {
 
-void RunConfigManager::CleanConfigFile(const boost::filesystem::path& config_p)
+void RunConfigManager::CleanConfigFile(ptree pt)
+{
+        pt.sort();
+        const string sha1  = RunConfigManager::ToShortSha1(pt);
+        const string fName = sha1 + ".xml";
+        cerr << "Rewriting config to file " << fName << " in current directory." << endl;
+        FileSys::WritePtreeFile(fName, pt);
+}
+
+ptree RunConfigManager::Create(const std::string& configName)
 {
         ptree pt;
-        pt = FileSys::ReadPtreeFile(config_p);
-
-        const string short_sha1_pt = RunConfigManager::ToShortSha1(pt);
-        const string new_config_fn = short_sha1_pt + ".xml";
-        const auto   new_config_p  = config_p.parent_path() / new_config_fn;
-        cerr << "Rewriting config to file" << new_config_p.string() << " in current directory." << endl;
-        FileSys::WritePtreeFile(new_config_p, pt);
+        if (configName == "TestsInfluenza") {
+                pt = CreateTestsInfluenza();
+        } else if (configName == "TestsMeasles") {
+                pt = CreateTestsMeasles();
+        } else if (configName == "BenchMeasles") {
+                cout << "bench measles" << endl;
+                pt = CreateBenchMeasles();
+                cout << "bench measles" << endl;
+        } else {
+                throw runtime_error("RunConfigManager::Create> Unknown string.");
+        }
+        return pt;
 }
 
-const ptree& RunConfigManager::CreateTestsInfluenza()
+ptree RunConfigManager::CreateTestsInfluenza()
 {
-        static ptree config_pt;
-        if (config_pt.empty()) {
+        ptree pt;
 
-                config_pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                config_pt.put("run.behaviour_policy", "NoBehaviour");
-                config_pt.put("run.belief_policy.name", "NoBelief");
-                config_pt.put("run.contact_log_level", "None");
-                config_pt.put("run.contact_output_file", "false");
-                config_pt.put("run.disease_config_file", "disease_influenza.xml");
-                config_pt.put("run.global_information_policy", "NoGlobalInformation");
-                config_pt.put("run.holidays_file", "holidays_none.json");
-                config_pt.put("run.immunity_link_probability", 0);
-                config_pt.put("run.immunity_profile", "Random");
-                config_pt.put("run.immunity_rate", 0.0);
-                config_pt.put("run.local_information_policy", "NoLocalInformation");
-                config_pt.put("run.num_days", 30U);
-                config_pt.put("run.num_participants_survey", 10);
-                config_pt.put("run.num_threads", 1);
-                config_pt.put("run.output_prefix", "BatchRuns");
-                config_pt.put("run.population_file", "pop_flanders600.csv");
-                config_pt.put("run.rng_seed", 2015);
-                config_pt.put("run.r0", 3.0);
-                config_pt.put("run.seeding_rate", 0.0009);
-                config_pt.put("run.seeding_age_min", 1);
-                config_pt.put("run.seeding_age_max", 99);
-                config_pt.put("run.start_date", "2017-01-01");
-                config_pt.put("run.stride_log_level", "info");
-                config_pt.put("run.track_index_case", false);
-                config_pt.put("run.use_install_dirs", true);
-                config_pt.put("run.vaccine_profile", "None");
-        }
-        return config_pt;
+        pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
+        pt.put("run.behaviour_policy", "NoBehaviour");
+        pt.put("run.belief_policy.name", "NoBelief");
+        pt.put("run.contact_log_level", "None");
+        pt.put("run.contact_output_file", "false");
+        pt.put("run.disease_config_file", "disease_influenza.xml");
+        pt.put("run.global_information_policy", "NoGlobalInformation");
+        pt.put("run.holidays_file", "holidays_none.json");
+        pt.put("run.immunity_link_probability", 0);
+        pt.put("run.immunity_profile", "Random");
+        pt.put("run.immunity_rate", 0.0);
+        pt.put("run.local_information_policy", "NoLocalInformation");
+        pt.put("run.num_days", 30U);
+        pt.put("run.num_participants_survey", 10);
+        pt.put("run.num_threads", 1);
+        pt.put("run.output_prefix", "BatchRuns");
+        pt.put("run.population_file", "pop_flanders600.csv");
+        pt.put("run.rng_seed", 2015);
+        pt.put("run.r0", 3.0);
+        pt.put("run.seeding_rate", 0.0009);
+        pt.put("run.seeding_age_min", 1);
+        pt.put("run.seeding_age_max", 99);
+        pt.put("run.start_date", "2017-01-01");
+        pt.put("run.stride_log_level", "info");
+        pt.put("run.track_index_case", false);
+        pt.put("run.use_install_dirs", true);
+        pt.put("run.vaccine_profile", "None");
+
+        return pt;
 }
 
-const ptree& RunConfigManager::CreateTestsMeasles()
+ptree RunConfigManager::CreateTestsMeasles()
 {
-        static ptree config_pt;
-        if (config_pt.empty()) {
-                config_pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                config_pt.put("run.behaviour_policy", "NoBehaviour");
-                config_pt.put("run.belief_policy.name", "NoBelief");
-                config_pt.put("run.contact_log_level", "Transmissions");
-                config_pt.put("run.contact_output_file", "false");
-                config_pt.put("run.disease_config_file", "disease_measles.xml");
-                config_pt.put("run.global_information_policy", "NoGlobalInformation");
-                config_pt.put("run.holidays_file", "holidays_none.json");
-                config_pt.put("run.immunity_rate", 0.8);
-                config_pt.put("run.immunity_profile", "None");
-                config_pt.put("run.local_information_policy", "NoLocalInformation");
-                config_pt.put("run.num_days", 50U);
-                config_pt.put("run.num_participants_survey", 10);
-                config_pt.put("run.num_threads", 1);
-                config_pt.put("run.output_prefix", "BatchRuns");
-                config_pt.put("run.population_file", "pop_flanders600.csv");
-                config_pt.put("run.rng_seed", 1);
-                config_pt.put("run.seeding_age_max", 99);
-                config_pt.put("run.seeding_age_min", 1);
-                config_pt.put("run.seeding_rate", 0.002);
-                config_pt.put("run.start_date", "2017-01-01");
-                config_pt.put("run.stride_log_level", "info");
-                config_pt.put("run.track_index_case", false);
-                config_pt.put("run.use_install_dirs", true);
-                config_pt.put("run.vaccine_link_probability", 0);
-                config_pt.put("run.vaccine_profile", "Random");
-                config_pt.put("run.vaccine_rate", 0.8);
-        }
-        return config_pt;
+        ptree pt;
+
+        pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
+        pt.put("run.behaviour_policy", "NoBehaviour");
+        pt.put("run.belief_policy.name", "NoBelief");
+        pt.put("run.contact_log_level", "Transmissions");
+        pt.put("run.contact_output_file", "false");
+        pt.put("run.disease_config_file", "disease_measles.xml");
+        pt.put("run.global_information_policy", "NoGlobalInformation");
+        pt.put("run.holidays_file", "holidays_none.json");
+        pt.put("run.immunity_rate", 0.8);
+        pt.put("run.immunity_profile", "None");
+        pt.put("run.local_information_policy", "NoLocalInformation");
+        pt.put("run.num_days", 50U);
+        pt.put("run.num_participants_survey", 10);
+        pt.put("run.num_threads", 1);
+        pt.put("run.output_prefix", "BatchRuns");
+        pt.put("run.population_file", "pop_flanders600.csv");
+        pt.put("run.rng_seed", 1);
+        pt.put("run.seeding_age_max", 99);
+        pt.put("run.seeding_age_min", 1);
+        pt.put("run.seeding_rate", 0.002);
+        pt.put("run.start_date", "2017-01-01");
+        pt.put("run.stride_log_level", "info");
+        pt.put("run.track_index_case", false);
+        pt.put("run.use_install_dirs", true);
+        pt.put("run.vaccine_link_probability", 0);
+        pt.put("run.vaccine_profile", "Random");
+        pt.put("run.vaccine_rate", 0.8);
+
+        return pt;
 }
 
-const ptree& RunConfigManager::CreateBenchMeasles()
+ptree RunConfigManager::CreateBenchMeasles()
 {
-        static ptree config_pt;
-        if (config_pt.empty()) {
-                config_pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
-                config_pt.put("run.behaviour_policy", "NoBehaviour");
-                config_pt.put("run.belief_policy.name", "NoBelief");
-                config_pt.put("run.contact_log_level", "All");
-                config_pt.put("run.contact_output_file", "false");
-                config_pt.put("run.disease_config_file", "disease_measles.xml");
-                config_pt.put("run.global_information_policy", "NoGlobalInformation");
-                config_pt.put("run.holidays_file", "holidays_none.json");
-                config_pt.put("run.immunity_profile", "None");
-                config_pt.put("run.immunity_rate", 0.01);
-                config_pt.put("run.local_information_policy", "NoLocalInformation");
-                config_pt.put("run.num_days", 30U);
-                config_pt.put("run.num_participants_survey", 10);
-                config_pt.put("run.num_threads", 1U);
-                config_pt.put("run.output_prefix", "bench");
-                config_pt.put("run.population_file", "pop_flanders1600.csv");
-                config_pt.put("run.rng_seed", 1U);
-                config_pt.put("run.r0", 15U);
-                config_pt.put("run.seeding_age_max", 99);
-                config_pt.put("run.seeding_age_min", 1);
-                config_pt.put("run.seeding_rate", 0.02);
-                config_pt.put("run.start_date", "2017-01-01");
-                config_pt.put("run.stride_log_level", "info");
-                config_pt.put("run.track_index_case", false);
-                config_pt.put("run.use_install_dirs", true);
-                config_pt.put("run.vaccine_link_probability", 0);
-                config_pt.put("run.vaccine_profile", "Random");
-                config_pt.put("run.vaccine_rate", 0.0);
-        }
-        return config_pt;
+        ptree pt;
+
+        pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
+        pt.put("run.behaviour_policy", "NoBehaviour");
+        pt.put("run.belief_policy.name", "NoBelief");
+        // pt.put("run.contact_log_level", "All");
+        pt.put("run.contact_log_level", "None");
+        pt.put("run.contact_output_file", "false");
+        pt.put("run.disease_config_file", "disease_measles.xml");
+        pt.put("run.global_information_policy", "NoGlobalInformation");
+        pt.put("run.holidays_file", "holidays_none.json");
+        pt.put("run.immunity_profile", "None");
+        pt.put("run.immunity_rate", 0.01);
+        pt.put("run.local_information_policy", "NoLocalInformation");
+        pt.put("run.num_days", 30U);
+        pt.put("run.num_participants_survey", 10);
+        pt.put("run.num_threads", 1U);
+        pt.put("run.output_prefix", "bench");
+        // pt.put("run.population_file", "pop_flanders1600.csv");
+        pt.put("run.population_file", "pop_flanders600.csv");
+        pt.put("run.rng_seed", 1U);
+        pt.put("run.r0", 15U);
+        pt.put("run.seeding_age_max", 99);
+        pt.put("run.seeding_age_min", 1);
+        pt.put("run.seeding_rate", 0.02);
+        pt.put("run.start_date", "2017-01-01");
+        pt.put("run.stride_log_level", "info");
+        pt.put("run.track_index_case", false);
+        pt.put("run.use_install_dirs", true);
+        pt.put("run.vaccine_link_probability", 0);
+        pt.put("run.vaccine_profile", "Random");
+        pt.put("run.vaccine_rate", 0.0);
+
+        return pt;
 }
 
 vector<unsigned int> RunConfigManager::CreateNumThreads(unsigned int max)
 {
-        const unsigned int max_num = std::max(max, ConfigInfo::NumberAvailableThreads());
-        initializer_list<unsigned int> num {1U};
+        max = std::max(max, ConfigInfo::NumberAvailableThreads());
+        initializer_list<unsigned int> num{1U};
 
-        if (max_num >= 2){
+        if (max >= 2) {
                 num = {1U, 2U};
         }
-        if (max_num >= 4){
+        if (max >= 4) {
                 num = {1U, 2U, 3U, 4U};
         }
-        if (max_num >= 8){
-                num= {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
+        if (max >= 8) {
+                num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U};
         }
-        if (max_num >= 12) {
+        if (max >= 12) {
                 num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U};
         }
-        if (max_num >= 16) {
+        if (max >= 16) {
                 num = {1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 10U, 12U, 16U};
         }
 
@@ -185,7 +201,6 @@ std::string RunConfigManager::ToString(const boost::property_tree::ptree& pt)
 
 std::string RunConfigManager::ToSha1(const boost::property_tree::ptree& pt) { return sha1(ToString(pt)); }
 
-///
 std::string RunConfigManager::ToShortSha1(const boost::property_tree::ptree& pt, unsigned int n)
 {
         return ToSha1(pt).substr(0, n);
