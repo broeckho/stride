@@ -51,7 +51,7 @@ public:
                                                          std::move(infoFactory), disableTest);
         }
 
-        operator bool() const { return m_status; }
+        explicit operator bool() const { return m_status; }
 
 private:
         bool m_status = false;

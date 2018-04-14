@@ -27,20 +27,16 @@ class TransmissionProfile
 {
 public:
         /// Initialize.
-        TransmissionProfile() : m_transmission_rate(0.0), m_is_operational(false) {}
+        TransmissionProfile() : m_transmission_rate(0.0) {}
 
         /// Return transmission rate.
         double GetRate() const { return m_transmission_rate; }
 
-        /// Check if the disease configuration was valid.
-        bool IsOperational() const { return m_is_operational; }
-
         /// Initialize.
-        bool Initialize(const boost::property_tree::ptree& config_pt, const boost::property_tree::ptree& disease_pt);
+        void Initialize(const boost::property_tree::ptree& config_pt, const boost::property_tree::ptree& disease_pt);
 
 private:
         double m_transmission_rate;
-        bool   m_is_operational;
 };
 
 } // namespace stride

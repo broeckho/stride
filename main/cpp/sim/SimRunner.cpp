@@ -82,22 +82,7 @@ bool SimRunner::Setup(const ptree& config_pt)
         m_stride_logger->trace("Building the simulator.");
         SimulatorBuilder builder(m_config_pt, m_stride_logger);
         m_sim = builder.Build();
-        if (m_sim) {
-                m_stride_logger->trace("Done building the simulator.");
-        } else {
-                m_stride_logger->critical("Simulator build failed!");
-                throw runtime_error("SimRunner::Setup> Simulator build failed!");
-        }
-
-        // -----------------------------------------------------------------------------------------
-        // Check the simulator.
-        // -----------------------------------------------------------------------------------------
-        if (m_sim->IsOperational()) {
-                m_stride_logger->trace("Simulator is operational.");
-        } else {
-                m_stride_logger->critical("Invalid configuration => terminate without output");
-                throw runtime_error("SimRunner::Setup> Simulator not operational!");
-        }
+        m_stride_logger->trace("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------
         // Done.

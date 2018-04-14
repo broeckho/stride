@@ -44,10 +44,10 @@ using namespace std;
 using namespace util;
 using namespace ContactPoolType;
 
-SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
+SimulatorBuilder::SimulatorBuilder(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(config_pt), m_stride_logger(std::move(logger))
 {
-        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty ptree not acceptable!");
+        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty config ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
                 m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
@@ -57,60 +57,16 @@ SimulatorBuilder::SimulatorBuilder(const boost::property_tree::ptree& config_pt,
 std::shared_ptr<Simulator> SimulatorBuilder::Build()
 {
         m_stride_logger->trace("Starting SimulatorBuilder::Build.");
-        const auto pt_contact = ReadContactPtree();
-        const auto pt_disease = ReadDiseasePtree();
+        const auto contact_pt = ReadContactPtree();
+        const auto disease_pt = ReadDiseasePtree();
 
-        std::shared_ptr<Simulator> sim = nullptr;
-        if (!pt_contact.empty() && !pt_disease.empty()) {
-                sim = Build(pt_disease, pt_contact);
-        }
+        assert(!contact_pt.empty() && "SimulatorBuilder::Build> Empty contact ptree not acceptable!");
+        assert(!disease_pt.empty() && "SimulatorBuilder::Build> Empty disease ptree not acceptable!");
+
+        auto sim = Build(disease_pt, contact_pt);
 
         m_stride_logger->trace("Finished SimulatorBuilder::Build.");
         return sim;
-}
-
-ptree SimulatorBuilder::ReadContactPtree()
-{
-        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        ptree      pt;
-        const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
-        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
-        if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
-        } else {
-                m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
-                try {
-                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
-                } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
-                }
-        }
-
-        return pt;
-}
-
-ptree SimulatorBuilder::ReadDiseasePtree()
-{
-        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        ptree      pt;
-        const auto fn = m_config_pt.get<string>("run.disease_config_file");
-        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
-        if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
-        } else {
-                m_stride_logger->debug("Disease config file:  {}", fp.string());
-                try {
-                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
-                } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
-                }
-        }
-
-        return pt;
 }
 
 std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, const ptree& contact_pt)
@@ -182,7 +138,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
-        sim->m_operational = sim->m_disease_profile.Initialize(m_config_pt, disease_pt);
+        sim->m_transmission_profile.Initialize(m_config_pt, disease_pt);
 
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.
@@ -193,6 +149,50 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // Done.
         // --------------------------------------------------------------
         return sim;
+}
+
+ptree SimulatorBuilder::ReadContactPtree()
+{
+        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
+
+        ptree      pt;
+        const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
+        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
+        if (!exists(fp) || !is_regular_file(fp)) {
+                m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
+        } else {
+                m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
+                try {
+                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
+                } catch (xml_parser_error& e) {
+                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
+                        pt.clear();
+                }
+        }
+
+        return pt;
+}
+
+ptree SimulatorBuilder::ReadDiseasePtree()
+{
+        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
+
+        ptree      pt;
+        const auto fn = m_config_pt.get<string>("run.disease_config_file");
+        const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
+        if (!exists(fp) || !is_regular_file(fp)) {
+                m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
+        } else {
+                m_stride_logger->debug("Disease config file:  {}", fp.string());
+                try {
+                        read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
+                } catch (xml_parser_error& e) {
+                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
+                        pt.clear();
+                }
+        }
+
+        return pt;
 }
 
 } // namespace stride

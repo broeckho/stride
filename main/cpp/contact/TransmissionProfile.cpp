@@ -27,7 +27,7 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-bool TransmissionProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
+void TransmissionProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
 {
         // Use a quadratic model, fitted to simulation data:
         // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
@@ -45,9 +45,9 @@ bool TransmissionProfile::Initialize(const ptree& config_pt, const ptree& diseas
         if (r0 < (-(b * b) / (4 * a))) {
                 const double determ = (b * b) - 4 * a * c;
                 m_transmission_rate = (-b + sqrt(determ)) / (2 * a);
-                m_is_operational    = true;
+        } else {
+                throw runtime_error("TransmissionProfile::Initialize> Illegal input values.");
         }
-        return m_is_operational;
 }
 
 } // namespace stride

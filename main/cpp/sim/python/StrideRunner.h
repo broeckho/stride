@@ -71,7 +71,6 @@ private:
 
 private:
         bool                        m_is_running;    ///< Sim is running.
-        bool                        m_operational;   ///< Input config is OK to be run
         std::string                 m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree m_pt_config;     ///< Ptree with configuration.
         util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.

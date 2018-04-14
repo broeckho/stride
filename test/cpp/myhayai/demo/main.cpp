@@ -51,16 +51,16 @@ int main(int argc, char** argv)
         flex_delivery();
 
         // Building the tests with lambdas also makes it easy to define them in main itself.
-        //clang-format off
+        // clang-format off
         auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
                 return [distance, duration, speed]() {
                         auto p = make_shared<DeliveryMan>();
                         return Test(
-                                [p, duration, distance]() {
-                                        this_thread::sleep_for(duration * 10ms);
-                                        p->DeliverPackage(distance);
-                                },
-                                [p, speed]() { *p = DeliveryMan(speed); });
+                            [p, duration, distance]() {
+                                    this_thread::sleep_for(duration * 10ms);
+                                    p->DeliverPackage(distance);
+                            },
+                            [p, speed]() { *p = DeliveryMan(speed); });
                 };
         };
         // clang-format on
