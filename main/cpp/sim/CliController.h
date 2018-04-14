@@ -58,7 +58,7 @@ public:
         explicit CliController(const boost::property_tree::ptree& config_pt);
 
         /// Actual run of the simulator.
-        void Execute();
+        void Control();
 
         /// Setup the controller.
         void Setup();
@@ -76,12 +76,6 @@ private:
 
         /// Make the appropriate logger for cli environment and register as stride_logger.
         void MakeLogger();
-
-        /// Patch run configuration with cli overrides and defaults.
-        void PatchConfig();
-
-        /// Read configuration file.
-        void ReadConfigFile();
 
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner);

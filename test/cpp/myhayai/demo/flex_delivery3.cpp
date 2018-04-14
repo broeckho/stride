@@ -38,9 +38,10 @@ using namespace myhayai;
 // Now we're cooking, with another indirection layer. the factory_builder builds test_factories.
 // It can accept parameters (which the factory cannot since it has to have a void() signature)
 // At registration time, the call to the factory builder the produces the factory.
+// clang-format off
 auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) { //
         return [distance, duration, speed]() {                                                      //
-                autop                     = make_shared<DeliveryMan>();                                            //
+                auto p = make_shared<DeliveryMan>();                                                //
                 return Test(                                                                        //
                     [p, duration, distance]() {                                                     //
                             this_thread::sleep_for(duration * 10ms);                                //
@@ -50,6 +51,7 @@ auto param_factory_builder = [](unsigned int distance, unsigned int duration, un
                 );                                                                                  //
         };                                                                                          //
 };                                                                                                  //
+//clang-format on
 
 bool register_many()
 {

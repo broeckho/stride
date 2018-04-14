@@ -39,7 +39,7 @@ using namespace boost::property_tree;
 /// Main program of the stride simulator.
 int main(int argc, char** argv)
 {
-        int exit_status = EXIT_SUCCESS;
+        int exitStatus = EXIT_SUCCESS;
 
         try {
                 // -----------------------------------------------------------------------------------------
@@ -78,21 +78,21 @@ int main(int argc, char** argv)
                 // Get configuration and path with overrides (if any).
                 // -----------------------------------------------------------------------------------------
                 auto  config = configArg.getValue();
-                ptree config_pt;
+                ptree configPt;
 
                 if (regex_search(config, regex("^name="))) {
-                        config    = regex_replace(config, regex("^name="), "");
-                        config_pt = RunConfigManager::Create(config);
+                        config   = regex_replace(config, regex("^name="), "");
+                        configPt = RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, regex("^file="), "");
                         const boost::filesystem::path configPath =
                             (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
-                        config_pt = FileSys::ReadPtreeFile(configPath);
+                        configPt = FileSys::ReadPtreeFile(configPath);
                 }
 
                 for (const auto& p_assignment : overrideArg.getValue()) {
                         const auto v = util::Tokenize(p_assignment, "=");
-                        config_pt.put("run." + v[0], v[1]);
+                        configPt.put("run." + v[0], v[1]);
                 }
 
                 // -----------------------------------------------------------------------------------------
@@ -100,28 +100,28 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 if (execArg.getValue() == "sim") {
 
-                        if (config_pt.get<string>("run.output_prefix", "").empty()) {
-                                config_pt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
+                        if (configPt.get<string>("run.output_prefix", "").empty()) {
+                                configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
-                        config_pt.sort();
+                        configPt.sort();
 
-                        CliController cntrl(config_pt);
+                        CliController cntrl(configPt);
                         cntrl.Setup();
-                        cntrl.Execute();
+                        cntrl.Control();
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...
                 // -----------------------------------------------------------------------------------------
                 else {
-                        RunConfigManager::CleanConfigFile(config_pt);
+                        RunConfigManager::CleanConfigFile(configPt);
                 }
 
         } catch (exception& e) {
-                exit_status = EXIT_FAILURE;
+                exitStatus = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;
         } catch (...) {
-                exit_status = EXIT_FAILURE;
+                exitStatus = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: Unknown exception." << endl;
         }
-        return exit_status;
+        return exitStatus;
 }

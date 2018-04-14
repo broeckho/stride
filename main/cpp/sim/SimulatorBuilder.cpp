@@ -133,21 +133,18 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
         // --------------------------------------------------------------
-        const auto            rng_seed = m_config_pt.get<unsigned long>("run.rng_seed", 1UL);
-        const auto            rng_type = m_config_pt.get<string>("run.rng_type", "mrg2");
-        const RNManager::Info info{rng_type, rng_seed, "", sim->m_num_threads};
-        sim->m_rn_manager.Initialize(info);
+        sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
+                m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "", sim->m_num_threads});
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
-        const auto contact_output_file = m_config_pt.get<bool>("run.contact_output_file", true);
-        if (contact_output_file) {
-                const auto output_prefix = m_config_pt.get<string>("run.output_prefix");
-                const auto log_path      = FileSys::BuildPath(output_prefix, "contact_log.txt");
-                sim->m_contact_logger    = LogUtils::CreateRotatingLogger("contact_logger", log_path.string());
+        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix     = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath    = FileSys::BuildPath(prefix, "contact_log.txt");
+                sim->m_contact_logger = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
                 // Remove meta data from log => time-stamp of logging
                 sim->m_contact_logger->set_pattern("%v");
         } else {

@@ -70,7 +70,7 @@ bool SimRunner::Setup(const ptree& config_pt)
         m_stride_logger->info("SimRunner setup starting at: {}", TimeStamp().ToString());
 
         // -----------------------------------------------------------------------------------------
-        // Output the full run config.
+        // Log the full run config.
         // -----------------------------------------------------------------------------------------
         ostringstream ss;
         write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));

@@ -75,7 +75,7 @@ void CliController::CheckOutputPrefix()
         }
 }
 
-void CliController::Execute()
+void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
         // Instantiate SimRunner & register viewers & setup+execute the run.
