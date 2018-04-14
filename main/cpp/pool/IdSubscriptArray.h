@@ -23,6 +23,7 @@
 #include "pool/ContactPoolType.h"
 
 #include <array>
+#include <bitset>
 #include <initializer_list>
 #include <iostream>
 #include <stdexcept>
@@ -49,7 +50,7 @@ class IdSubscriptArray : public std::array<T, NumOfTypes()>
 public:
         /// What we 'll use most often and where we can have a default and
         /// initialize all array elements to the same value.
-        /// e.g.    IdSubscriptArray<bool> m(true);
+        /// e.g.    IdSubscriptArray<unsigned int> m(1U);
         explicit IdSubscriptArray(T t = T())
         {
                 for (auto typ : IdList) {
@@ -60,7 +61,7 @@ public:
         /// When we want to use an initializer list the elements is the
         /// (possibly emty) initializer list are applied to the first
         /// elements in order; any remaininig elements are default initialized.
-        ///  e.g.   IdSubscriptArray<bool> mm {true, false, true};
+        ///  e.g.   IdSubscriptArray<unsigned int> mm {1U, 2U, 2U};
         IdSubscriptArray(std::initializer_list<T> l)
         {
                 auto it = l.begin();
@@ -82,20 +83,19 @@ public:
         /// explicit IdSubscriptArray(Args&&... args) : std::array<T, NumOfTypes()>{{std::forward<Args>(args)...}}{}
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::reference& operator[](ContactPoolType::Id id)
-        {
-                // std::cerr << "haha"<< std::endl;
-                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
-        }
-
-        /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::const_reference& operator[](ContactPoolType::Id id) const
+        typename std::array<T, NumOfTypes()>::reference operator[](ContactPoolType::Id id)
         {
                 return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::reference& at(ContactPoolType::Id id)
+        typename std::array<T, NumOfTypes()>::const_reference operator[](ContactPoolType::Id id) const
+        {
+                return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+        }
+
+        /// Subscripting with pool typ id as argument.
+        typename std::array<T, NumOfTypes()>::reference at(ContactPoolType::Id id)
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
@@ -104,12 +104,72 @@ public:
         }
 
         /// Subscripting with pool typ id as argument.
-        typename std::array<T, NumOfTypes()>::const_reference& at(ContactPoolType::Id id) const
+        typename std::array<T, NumOfTypes()>::const_reference at(ContactPoolType::Id id) const
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");
                 }
                 return this->std::template array<T, NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+        }
+};
+
+template<>
+class IdSubscriptArray<bool> : public std::bitset<NumOfTypes()>
+{
+public:
+        /// What we 'll use most often and where we can have a default and
+        /// initialize all array elements to the same value.
+        /// e.g.    IdSubscriptArray<bool> m(true);
+        explicit IdSubscriptArray(bool t = bool())
+        {
+                if (t) this->set(); else this->reset();
+        }
+
+        /// When we want to use an initializer list the elements is the
+        /// (possibly emty) initializer list are applied to the first
+        /// elements in order; any remaininig elements are default initialized.
+        ///  e.g.   IdSubscriptArray<bool> mm {true, false, true};
+        IdSubscriptArray(std::initializer_list<bool> l)
+        {
+                auto it = l.begin();
+                for (auto typ : IdList) {
+                        if (it != l.end()) {
+                                this->operator[](typ) = *it;
+                                ++it;
+                        } else {
+                                this->operator[](typ) = bool();
+                        }
+                }
+        }
+
+        /// Subscripting with pool typ id as argument.
+        typename std::bitset<NumOfTypes()>::reference operator[](ContactPoolType::Id id)
+        {
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+        }
+
+        /// Subscripting with pool typ id as argument.
+        constexpr bool operator[](ContactPoolType::Id id) const
+        {
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+        }
+
+        /// Subscripting with pool typ id as argument.
+        typename bitset<NumOfTypes()>::reference at(ContactPoolType::Id id)
+        {
+                if (ToSizeT(id) >= NumOfTypes()) {
+                        throw std::out_of_range("IdSubscriptArray<bool>::at> Id out of range");
+                }
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
+        }
+
+        /// Subscripting with pool typ id as argument.
+        constexpr bool at(ContactPoolType::Id id) const
+        {
+                if (ToSizeT(id) >= NumOfTypes()) {
+                        throw std::out_of_range("IdSubscriptArray::at> Id out of range");
+                }
+                return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
 };
 

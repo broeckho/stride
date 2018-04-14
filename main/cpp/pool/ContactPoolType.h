@@ -46,7 +46,7 @@ inline constexpr unsigned int NumOfTypes() { return 5U; }
 bool IsType(const std::string& s);
 
 /// Cast to size_t for indexing.
-inline std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
+inline constexpr std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
 
 /// Converts a ContactPoolType::Id value to corresponding name.
 std::string ToString(Id w);
