@@ -29,7 +29,6 @@ set(SWIG_IFACE
 	swig/population.i
 	swig/simulator.i
 	swig/simulatorobserver.i
-	swig/striderunner.i
 	swig/stride.i
 )
 

@@ -74,7 +74,6 @@ set(LIB_SRC
     sim/event/Id.cpp
     sim/event/Payload.h
 	sim/event/Subject.cpp
-	sim/python/StrideRunner.cpp
 #---
     util/Any.h
     util/ConfigInfo.cpp

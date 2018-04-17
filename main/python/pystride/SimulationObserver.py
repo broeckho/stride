@@ -1,4 +1,4 @@
-from pystride.stride.stride import SimulatorObserver, Simulator, Population
+'''from pystride.stride.stride import SimulatorObserver, Simulator, Population
 
 class SimulationObserver(SimulatorObserver):
     def __init__(self, simulation):
@@ -14,4 +14,4 @@ class SimulationObserver(SimulatorObserver):
             try:
                 c(self.simulation, timestep)
             except Exception as e:
-                print(e)
+                print(e)'''

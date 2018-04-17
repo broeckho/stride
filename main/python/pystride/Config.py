@@ -1,4 +1,4 @@
-import os
+'''import os
 import xml.etree.ElementTree as ET
 
 class Config:
@@ -38,4 +38,4 @@ class Config:
     def copy(self):
         newConfig = Config()
         newConfig._etree = ET.fromstring(ET.tostring(self._etree))
-        return newConfig
+        return newConfig'''

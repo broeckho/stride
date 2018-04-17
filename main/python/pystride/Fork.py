@@ -1,4 +1,4 @@
-import os
+'''import os
 
 import pystride
 
@@ -25,4 +25,4 @@ class Fork(Simulation):
         return dict()
 
     def __setstate__(self, state):
-        pass
+        pass'''

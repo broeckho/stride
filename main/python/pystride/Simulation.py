@@ -1,4 +1,4 @@
-import os
+'''import os
 from time import localtime, strftime
 
 import pystride
@@ -120,4 +120,4 @@ class Simulation:
     def __setstate__(self, state):
         pass
 
-from .Fork import Fork
+from .Fork import Fork'''
