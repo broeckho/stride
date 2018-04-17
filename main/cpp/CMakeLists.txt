@@ -20,7 +20,23 @@
 #============================================================================
 set(LIB_SRC
 #---
+	behaviour/behaviour_policies/NoBehaviour.h
+	behaviour/behaviour_policies/Vaccination.h
+	behaviour/belief_policies/Belief.h
+	behaviour/belief_policies/HBM.h
+	behaviour/belief_policies/Imitation.h
+	behaviour/belief_policies/NoBelief.h
+	behaviour/belief_policies/Threshold.h
+	behaviour/information_policies/LocalDiscussion.h
+	behaviour/information_policies/NoGlobalInformation.h
+	behaviour/information_policies/NoLocalInformation.h
+#---
     calendar/Calendar.cpp
+    calendar/DaysOffAll.h
+    calendar/DaysOffInterface.h
+    calendar/DaysOffNone.h
+    calendar/DaysOffSchool.h
+    calendar/DaysOffStandard.h
 #---
 	contact/AgeContactProfile.cpp
 	contact/AgeContactProfiles.h

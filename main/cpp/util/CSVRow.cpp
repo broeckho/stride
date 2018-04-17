@@ -37,9 +37,9 @@ namespace util {
 
 CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : parent(parent)
 {
-        if (values.size() != parent->getColumnCount()) {
+        if (values.size() != parent->GetColumnCount()) {
                 throw std::runtime_error("Tried adding row with " + ToString(values.size()) + " value(s) to CSV with " +
-                                         ToString(parent->getColumnCount()) + " columns.");
+                                         ToString(parent->GetColumnCount()) + " columns.");
         }
         for (const std::string& value : values) {
                 this->values.push_back(Trim(value, "\""));
@@ -48,9 +48,9 @@ CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : pare
 
 /// specialization for string
 template <>
-std::string CSVRow::getValue<std::string>(size_t index) const
+std::string CSVRow::GetValue<std::string>(size_t index) const
 {
-        if (index >= parent->getColumnCount()) {
+        if (index >= parent->GetColumnCount()) {
                 throw std::runtime_error("Index out of range for CSV: " + ToString(index));
         }
         return values.at(index);
@@ -58,10 +58,10 @@ std::string CSVRow::getValue<std::string>(size_t index) const
 
 /// specialization for string
 template <>
-std::string CSVRow::getValue<std::string>(const std::string& label) const
+std::string CSVRow::GetValue<std::string>(const std::string &label) const
 {
-        size_t index = parent->getIndexForLabel(label);
-        return getValue(index);
+        size_t index = parent->GetIndexForLabel(label);
+        return GetValue(index);
 }
 
 bool CSVRow::operator==(const CSVRow& other) const { return values == other.values; }

@@ -46,11 +46,11 @@ public:
 
         /// Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.
         template <typename T = std::string>
-        T getValue(size_t index) const;
+        T GetValue(size_t index) const;
 
         /// Get value based on label. Note this is slower than using the index.
         template <typename T = std::string>
-        T getValue(const std::string& label) const;
+        T GetValue(const std::string &label) const;
 
         /// Compare operator.
         bool operator==(const CSVRow& other) const;
@@ -61,24 +61,24 @@ public:
 
 /// Declaration of specialization
 template <>
-std::string CSVRow::getValue<std::string>(size_t index) const;
+std::string CSVRow::GetValue<std::string>(size_t index) const;
 
 /// Declaration of specialization
 template <>
-std::string CSVRow::getValue<std::string>(const std::string& label) const;
+std::string CSVRow::GetValue<std::string>(const std::string &label) const;
 
 ///
 template <typename T>
-inline T CSVRow::getValue(size_t index) const
+inline T CSVRow::GetValue(size_t index) const
 {
-        return FromString<T>(getValue<std::string>(index));
+        return FromString<T>(GetValue<std::string>(index));
 }
 
 ///
 template <typename T>
-inline T CSVRow::getValue(const std::string& label) const
+inline T CSVRow::GetValue(const std::string &label) const
 {
-        return FromString<T>(getValue<std::string>(label));
+        return FromString<T>(GetValue<std::string>(label));
 }
 
 } // namespace util

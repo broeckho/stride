@@ -36,6 +36,11 @@ namespace util {
 class CSV : protected std::vector<CSVRow>
 {
 public:
+        using std::vector<CSVRow>::begin;
+        using std::vector<CSVRow>::end;
+        using std::vector<CSVRow>::size;
+
+public:
         /// Initialize from file. If optLabels not specied, the file is required. Otherwise initialize like second
         /// constructor.
         explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
@@ -46,33 +51,25 @@ public:
         /// Default constructor. Mainly used for swig.
         CSV() = default;
 
-        /// iterators
-        using std::vector<CSVRow>::begin;
-        using std::vector<CSVRow>::end;
-        using std::vector<CSVRow>::size;
-
-        /// Amount of columns in the CSV.
-        size_t getColumnCount() const { return columnCount; }
-
-        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
-        /// introduce a perfomance tradeoff.
-        size_t getIndexForLabel(const std::string& label) const;
+        /// Compare operator.
+        bool operator==(const CSV& other) const;
 
         /// Add row of values. Will all be converted to string with StringUtils::ToString
         template <typename... T>
-        void addRow(const T&... values);
+        void AddRow(const T &... values);
 
-        /// Add rom of string values.
-        void addRow(std::vector<std::string> values);
+        /// Add row of string values.
+        void AddRow(std::vector<std::string> values);
 
-        /// Add a collection of rows.
-        void addRows(std::vector<std::vector<std::string>>& rows);
+        /// Amount of columns in the CSV.
+        size_t GetColumnCount() const { return columnCount; }
+
+        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
+        /// introduce a perfomance tradeoff.
+        size_t GetIndexForLabel(const std::string &label) const;
 
         /// Write CSV to file.
-        void write(const boost::filesystem::path& path) const;
-
-        /// Compare operator.
-        bool operator==(const CSV& other) const;
+        void Write(const boost::filesystem::path &path) const;
 
 protected:
         std::vector<std::string> labels;
@@ -80,9 +77,9 @@ protected:
 };
 
 template <typename... T>
-inline void CSV::addRow(const T&... values)
+inline void CSV::AddRow(const T &... values)
 {
-        addRow({ToString(values)...});
+        AddRow({ToString(values)...});
 }
 
 } // namespace util

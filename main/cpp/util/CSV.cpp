@@ -75,7 +75,7 @@ CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels
                         if (!line.empty()) {
                                 // Split is bad! There is no option to escape ",".
                                 vector<string> values = Split(line, ",");
-                                addRow(values);
+                                AddRow(values);
                         }
                 }
         } catch (runtime_error& error) {
@@ -90,20 +90,18 @@ CSV::CSV(const boost::filesystem::path& path, initializer_list<string> optLabels
 
 CSV::CSV(initializer_list<string> labels) : labels(labels), columnCount(labels.size()) {}
 
-void CSV::addRow(vector<string> values)
+bool CSV::operator==(const CSV& other) const
+{
+        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
+}
+
+void CSV::AddRow(vector<string> values)
 {
         CSVRow csvRow(this, values);
         this->push_back(csvRow);
 }
 
-void CSV::addRows(vector<vector<string>>& rows)
-{
-        for (const vector<string>& row : rows) {
-                addRow(row);
-        }
-}
-
-size_t CSV::getIndexForLabel(const string& label) const
+size_t CSV::GetIndexForLabel(const string &label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {
                 if (labels.at(index) == label)
@@ -112,7 +110,7 @@ size_t CSV::getIndexForLabel(const string& label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void CSV::write(const boost::filesystem::path& path) const
+void CSV::Write(const boost::filesystem::path &path) const
 {
         boost::filesystem::ofstream file;
         file.open(path.string());
@@ -134,11 +132,6 @@ void CSV::write(const boost::filesystem::path& path) const
                 file << row << endl;
         }
         file.close();
-}
-
-bool CSV::operator==(const CSV& other) const
-{
-        return labels == other.labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
 } // namespace util
