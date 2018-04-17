@@ -81,10 +81,10 @@ int main(int argc, char** argv)
                 ptree configPt;
 
                 if (regex_search(config, regex("^name="))) {
-                        config   = regex_replace(config, regex("^name="), "");
+                        config   = regex_replace(config, regex(string("^name=")), "");
                         configPt = RunConfigManager::Create(config);
                 } else {
-                        config = regex_replace(config, regex("^file="), "");
+                        config = regex_replace(config, regex(string("^file=")), "");
                         const boost::filesystem::path configPath =
                             (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;
                         configPt = FileSys::ReadPtreeFile(configPath);

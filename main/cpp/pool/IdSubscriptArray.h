@@ -149,7 +149,7 @@ public:
         }
 
         /// Subscripting with pool typ id as argument.
-        constexpr bool operator[](ContactPoolType::Id id) const
+        bool operator[](ContactPoolType::Id id) const
         {
                 return this->std::template bitset<NumOfTypes()>::operator[](ContactPoolType::ToSizeT(id));
         }
