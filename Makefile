@@ -26,6 +26,13 @@ NCORES=`getconf _NPROCESSORS_ONLN`
 ifeq ($(PARALLEL_MAKE),)
 	PARALLEL_MAKE = -j$(NCORES)
 endif
+
+#============================================================================
+#   Test related: had to duplicate CMAKE_INSTALL_PREFIX here for gtester
+#============================================================================
+LABEL=$(shell git rev-list HEAD --count)
+CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
+
 #============================================================================
 # 	CMake command
 #============================================================================
@@ -131,14 +138,15 @@ clean: cores
 distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)
 
-test installcheck: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest
+test: install
+	cd $(BUILD_DIR)/test; ctest $(TESTARGS) -V
 
-test_py: install
-	$(MAKE) -C $(BUILD_DIR)/test --no-print-directory run_ctest_py
+gtest: install
+	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(GTESTARGS)
 
 format:
 	resources/bash/clang-format-all .
 	resources/bash/remove_trailing_space
 
 #############################################################################
+REGERX=influen

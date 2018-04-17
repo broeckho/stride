@@ -42,7 +42,7 @@ install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 #============================================================================
 # Define tests.
 #============================================================================
-add_test(NAME  ${EXEC}_all
+add_test(NAME  ${EXEC}
     WORKING_DIRECTORY  ${TESTS_DIR}
     COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
         --gtest_output=xml:gtester_all.xml
