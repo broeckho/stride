@@ -80,7 +80,6 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
         }
         case event::Id::EndTest: {
                 const auto stats  = BoxPlotData::Calculate(payload.m_run_times);
-                const auto total  = duration_cast<milliseconds>(stats.m_total);
                 const auto median = duration_cast<milliseconds>(stats.m_median);
                 const auto min    = duration_cast<milliseconds>(stats.m_min);
                 const auto max    = duration_cast<milliseconds>(stats.m_max);

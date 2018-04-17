@@ -29,7 +29,6 @@
 #include "util/StringUtils.h"
 
 #include <memory>
-#include <thread>
 
 using namespace std;
 using namespace stride::util;
@@ -47,7 +46,6 @@ void flex_delivery()
                 []() {
                         return Test(
                                 []() {
-                                        this_thread::sleep_for(10ms);
                                         DeliveryMan(1).DeliverPackage(12);
                                 }
                         );
@@ -78,10 +76,10 @@ void flex_delivery()
                 auto p = make_shared<DeliveryMan>();
                 return Test(
                         [p]() {
-                                this_thread::sleep_for(10ms);
+                                p->Sleep(1);
                                 p->DeliverPackage(5);
                         },
-                        [p]() { *p = DeliveryMan(3); }
+                        [p]() { *p = DeliveryMan(2); }
                 );
         };
         //clang-format on
@@ -99,7 +97,7 @@ void flex_delivery()
                         auto p = make_shared<DeliveryMan>();
                         return Test(
                                 [p, duration, distance]() {
-                                        this_thread::sleep_for(duration * 10ms);
+                                        p->Sleep(1);
                                         p->DeliverPackage(distance);
                                 },
                                 [p, speed]() { *p = DeliveryMan(speed); }
