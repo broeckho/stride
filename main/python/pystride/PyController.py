@@ -1,3 +1,12 @@
+
+class PyController:
+    def __init__(self):
+        pass
+
+    def loadRunConfig(self, filename: str):
+        pass
+
+
 '''import os
 from time import localtime, strftime
 
