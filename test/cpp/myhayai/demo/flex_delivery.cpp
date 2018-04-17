@@ -97,7 +97,7 @@ void flex_delivery()
                         auto p = make_shared<DeliveryMan>();
                         return Test(
                                 [p, duration, distance]() {
-                                        p->Sleep(1);
+                                        p->Sleep(duration);
                                         p->DeliverPackage(distance);
                                 },
                                 [p, speed]() { *p = DeliveryMan(speed); }
@@ -112,9 +112,9 @@ void flex_delivery()
         }
         volatile auto somecondition = true;
         if (somecondition) {
-                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 80, 1));
+                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 2, 1));
         }
 
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 80, 1));
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 3, 1));
         BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(1, 1, 1));
 }
