@@ -94,7 +94,5 @@ script:
   # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - export PATH=$HOME/cmake-3.11.1-Linux-x86_64/bin:$PATH
-  - cmake --version
-  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON CMAKE=$HOME/cmake-3.11.1-Linux-x86_64/bin/cmake make all
   - make test
