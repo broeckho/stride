@@ -70,6 +70,7 @@ int main(int argc, char** argv)
                                               param_factory_builder(1, 1, i));
         }
 
+        // This is the actual main.
         try {
                 CliController controller;
                 controller.ParseArgs(argc, argv);

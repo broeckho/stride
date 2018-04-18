@@ -28,10 +28,12 @@
 #include "myhayai/Test.hpp"
 #include "util/StringUtils.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <memory>
 
 using namespace std;
 using namespace stride::util;
+using boost::property_tree::ptree;
 using namespace myhayai;
 
 void flex_delivery()
@@ -90,6 +92,7 @@ void flex_delivery()
         // Now we're cooking, with another indirection layer. the factory_builder builds test_factories.
         // It can accept parameters (which the factory cannot since it has to have a void() signature)
         // At registration time, the call to the factory builder the produces the factory.
+        // Also we're using InfoFactory to (potentially) allow a Viewer to inject info in their output.
         //---------------------------------------------------------------------------------------------
         // clang-format off
         auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
@@ -112,9 +115,12 @@ void flex_delivery()
         }
         volatile auto somecondition = true;
         if (somecondition) {
-                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 2, 1));
+                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 2, 1),
+                []() {ptree pt; pt.put("FlexDelivery.distance", "5"); return pt;});
         }
 
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 3, 1));
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(1, 1, 1));
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 3, 1),
+                                      []() {ptree pt; pt.put("FlexDelivery.distance", "50"); return pt;});
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(1, 1, 1),
+                                      []() {ptree pt; pt.put("FlexDelivery.distance", "1"); return pt;});
 }

@@ -23,12 +23,14 @@
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <iostream>
 
 using namespace std;
 using namespace stride;
 using namespace stride::util;
 using namespace myhayai;
+using boost::property_tree::ptree;
 
 void MeaslesBench()
 {
@@ -46,6 +48,7 @@ void MeaslesBench()
 
         const auto num = RunConfigManager::CreateNumThreads();
         for (const auto n : num) {
-                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n));
+                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n),
+                [n]() { ptree pt; pt.put("num_threads", n); return pt;});
         }
 }

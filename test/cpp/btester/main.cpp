@@ -35,13 +35,15 @@ int main(int argc, char** argv)
 {
         int exit_status = EXIT_SUCCESS;
 
+        /// Prelim: calling function that registers benchmarks tests
         MeaslesBench();
 
+        /// Go ahead and set them up, run hem.
         try {
                 CliController controller;
                 controller.ParseArgs(argc, argv);
                 controller.Control();
-                // Done.
+
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;
