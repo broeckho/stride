@@ -54,6 +54,14 @@ SimulatorBuilder::SimulatorBuilder(const ptree& config_pt, std::shared_ptr<spdlo
         }
 }
 
+SimulatorBuilder::SimulatorBuilder(const std::string& config_file)
+{
+	// Create ptree
+	m_config_pt = FileSys::ReadPtreeFile(config_file);
+	// Create empty logger
+	m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
+}
+
 std::shared_ptr<Simulator> SimulatorBuilder::Build()
 {
         m_stride_logger->trace("Starting SimulatorBuilder::Build.");
