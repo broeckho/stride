@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 class Config:
     def __init__(self, filepath=None, root="config"):
-        if filename != None:
+        if filepath != None:
             self.fromFile(filepath)
         else:
             self._etree = ET.Element(root)

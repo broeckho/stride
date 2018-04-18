@@ -1,9 +1,15 @@
+from .Config import Config
+
 
 class PyController:
     def __init__(self):
-        pass
+        self.runConfig = Config(root="run")
+        self.diseaseConfig = Config(root="disease")
 
     def loadRunConfig(self, filename: str):
+        pass
+
+    def run(self):
         pass
 
 
@@ -12,7 +18,6 @@ from time import localtime, strftime
 
 import pystride
 from pystride.stride.stride import StrideRunner
-from .Config import Config
 from .SimulationObserver import SimulationObserver
 
 class Simulation:
@@ -20,8 +25,6 @@ class Simulation:
         self.forks = list()
         self.runner = StrideRunner()
         self.observer = SimulationObserver(self.runner)
-        self.runConfig = Config(root="run")
-        self.diseaseConfig = Config(root="disease")
         self.timestamp =  strftime("%Y%m%d_%H%M%S", localtime())
         if dataDir == None:
             self.dataDir = os.path.join("..", "data")
