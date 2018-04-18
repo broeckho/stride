@@ -164,7 +164,7 @@ public:
         }
 
         /// Subscripting with pool typ id as argument.
-        constexpr bool at(ContactPoolType::Id id) const
+        bool at(ContactPoolType::Id id) const
         {
                 if (ToSizeT(id) >= NumOfTypes()) {
                         throw std::out_of_range("IdSubscriptArray::at> Id out of range");

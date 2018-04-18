@@ -29,7 +29,6 @@
 #include "util/StringUtils.h"
 
 #include <memory>
-#include <thread>
 
 using namespace std;
 using namespace stride::util;
@@ -47,7 +46,6 @@ void flex_delivery()
                 []() {
                         return Test(
                                 []() {
-                                        this_thread::sleep_for(10ms);
                                         DeliveryMan(1).DeliverPackage(12);
                                 }
                         );
@@ -78,10 +76,10 @@ void flex_delivery()
                 auto p = make_shared<DeliveryMan>();
                 return Test(
                         [p]() {
-                                this_thread::sleep_for(10ms);
+                                p->Sleep(1);
                                 p->DeliverPackage(5);
                         },
-                        [p]() { *p = DeliveryMan(3); }
+                        [p]() { *p = DeliveryMan(2); }
                 );
         };
         //clang-format on
@@ -99,7 +97,7 @@ void flex_delivery()
                         auto p = make_shared<DeliveryMan>();
                         return Test(
                                 [p, duration, distance]() {
-                                        this_thread::sleep_for(duration * 10ms);
+                                        p->Sleep(duration);
                                         p->DeliverPackage(distance);
                                 },
                                 [p, speed]() { *p = DeliveryMan(speed); }
@@ -114,9 +112,9 @@ void flex_delivery()
         }
         volatile auto somecondition = true;
         if (somecondition) {
-                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 80, 1));
+                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 2, 1));
         }
 
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 80, 1));
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(50, 3, 1));
         BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(1, 1, 1));
 }

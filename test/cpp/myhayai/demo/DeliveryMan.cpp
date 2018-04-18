@@ -33,7 +33,7 @@ void DeliveryMan::DeliverPackage(unsigned int dist)
         // Waste some clock cycles here.
         using namespace std::chrono_literals;
         const auto d1 = 10ms;
-        this_thread::sleep_for(dist * d1);
+        this_thread::sleep_for(m_speed*dist * d1);
 }
 
 void DeliveryMan::Prepare(unsigned int number)

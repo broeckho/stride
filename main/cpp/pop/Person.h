@@ -98,13 +98,13 @@ private:
         double       m_age;    ///< The age.
         char         m_gender; ///< The gender.
 
-        using PoolIds = ContactPoolType::IdSubscriptArray<unsigned int>;
-        PoolIds m_pool_ids; ///< Ids of each of the types of pool (school, work,..) you belong to.
-                            ///< Id value 0 means does not belong to any of that type (e.g. school
-                            ///< and work are mutually exclusive.
+        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids; ///< Ids (school, work, etc) of pools you belong to.
+                                                                    ///< Id value 0 means you do not belong to any
+                                                                    ///< pool of that type (e.g. school and work are
+                                                                    ///< mutually exclusive.
 
-        using InPools = ContactPoolType::IdSubscriptArray<bool>;
-        InPools m_in_pools; ///< Is person present in pool of each of the types (school, work,..)?
+        ContactPoolType::IdSubscriptArray<bool> m_in_pools; ///< Is person present/absent in pools of each of the
+                                                            ///< types (school, work, etc)?
 
         Belief* m_belief;         ///< Health beliefs related data.
         Health  m_health;         ///< Health info for this person.

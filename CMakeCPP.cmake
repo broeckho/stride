@@ -49,12 +49,17 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #----------------------------------------------------------------------------
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_HOST_APPLE)
 	add_definitions( -D__APPLE__ )
-	set(CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS} -Wno-unused-private-field -stdlib=libc++")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-unused-private-field")
+#
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT CMAKE_HOST_APPLE )
-	set( CMAKE_CXX_FLAGS           "${CMAKE_CXX_FLAGS} -pthread -Wno-unused-private-field -Wno-unused-command-line-argument")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-command-line-argument -Wno-self-assign")
 	add_definitions(-D__extern_always_inline=inline)
+#
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	set(CMAKE_CXX_FLAGS 	       "${CMAKE_CXX_FLAGS} -fPIC -Wno-maybe-uninitialized")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
 endif()
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)

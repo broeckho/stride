@@ -36,8 +36,8 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-5.0' CXX_COMPILER_ID=CLANG
-      addons: { apt: { packages: [*default_packages, clang-5.0], sources:  [*default_sources, llvm-toolchain-trusty-5.0] } }
+      env: CXX_COMPILER_NAME='clang++-6.0' CXX_COMPILER_ID=CLANG
+      addons: { apt: { packages: [*default_packages, clang-6.0], sources:  [*default_sources, llvm-toolchain-trusty-6.0] } }
 
     - os: osx
       osx_image: xcode8.3
@@ -57,7 +57,7 @@ matrix:
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@5 && brew link --force --overwrite llvm@5; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@6 && brew link --force --overwrite llvm@6; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
