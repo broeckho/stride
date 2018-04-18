@@ -64,9 +64,6 @@ set(STRIDE_VERBOSE_TESTING  TRUE
 # Additional CMake modules:
 #============================================================================
 list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
-if (CMAKE_VERSION VERSION_GREATER 3.5.0 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-	list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake_extra/" )
-endif()
 
 #============================================================================
 # Distinguish Linux from Aplle in UNIX family.
