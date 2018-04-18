@@ -46,10 +46,6 @@ endif
 #============================================================================
 #   MACRO definitions to pass on to cmake
 #============================================================================
-ifeq ($(BUILD_DIR),)
-	BUILD_DIR = ./cmake-build-release
-endif
-
 ifneq ($(CMAKE_GENERATOR),)
 	CMAKE_ARGS += -DCMAKE_GENERATOR=$(CMAKE_GENERATOR)
 endif
@@ -88,6 +84,17 @@ ifneq ($(STRIDE_FORCE_NO_PYHTON),)
 endif
 ifneq ($(STRIDE_FORCE_NO_HDF5),)
 	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=$(STRIDE_FORCE_NO_HDF5)
+endif
+
+#============================================================================
+#   Build directory.
+#============================================================================
+ifeq ($(BUILD_DIR),)
+ifeq ($(CMAKE_BUILD_TYPE),Debug)
+	BUILD_DIR = ./cmake-build-debug
+else
+	BUILD_DIR = ./cmake-build-release
+endif
 endif
 
 #============================================================================
@@ -133,7 +140,7 @@ install: cores
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
 clean: cores
-	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean
+	 if [ -d $(BUILD_DIR) ]; then $(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) clean; fi
 
 distclean:
 	$(CMAKE) -E remove_directory $(BUILD_DIR)

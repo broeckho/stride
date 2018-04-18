@@ -13,6 +13,7 @@ cache:
   directories:
     - $HOME/.ccache
     - $HOME/boost_1_66_0_cache
+    - $HOME/cmake
 
 addons:
   apt:
@@ -86,6 +87,14 @@ install:
     export LD_LIBRARY_PATH=$HOME/boost_1_66_0_cache/lib
     sudo rm -f /usr/local/lib/libboost*.dylib*
     sudo ln -s $HOME/boost_1_66_0_cache/lib/*.{so,dylib}* /usr/local/lib
+ - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      CMAKE_URL="https://cmake.org/files/v3.11/cmake-3.11.1-Linux-x86_64.tar.gz"
+      mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
+      export PATH=cmake/bin:${PATH}
+    else
+      brew upgrade cmake
+    fi
 
 script:
   # Build stride and run tests
