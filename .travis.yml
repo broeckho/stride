@@ -62,9 +62,12 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb; sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://cmake.org/files/v3.11/cmake-3.11.1-Linux-x86_64.tar.gz; \
-            tar -xf cmake-3.11.1-Linux-x86_64.tar.gz -C $HOME/cmake-3.11.1 --strip-components 1; \
-            export PATH=$HOME/cmake-3.11.1:$PATH; fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      wget https://cmake.org/files/v3.11/cmake-3.11.1-Linux-x86_64.tar.gz;
+      tar -xf cmake-3.11.1-Linux-x86_64.tar.gz -C $HOME/cmake-3.11.1 --strip-components 1;
+      export PATH=$HOME/cmake-3.11.1:$PATH;
+    fi
 
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
