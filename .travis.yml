@@ -36,7 +36,7 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-6.0' CXX_COMPILER_ID=CLANG
+      env: CXX_COMPILER_NAME='clang++-6.0' CXX_COMPILER_ID=LLVM
       addons: { apt: { packages: [*default_packages, clang-6.0], sources:  [*default_sources, llvm-toolchain-trusty-6.0] } }
 
     - os: osx
@@ -101,7 +101,7 @@ script:
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
       CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-      make test
+      CMAKE_BUILD_TYPE=Debug make test
     else
       STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       make test
