@@ -97,5 +97,12 @@ script:
   # Build stride and run tests
   #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
   #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  - STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-  - make test
+  # Arbitrarily chosen one platform for Debug build.
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
+      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      make test
+    else
+      STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      make test
+    fi

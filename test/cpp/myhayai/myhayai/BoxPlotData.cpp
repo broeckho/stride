@@ -32,7 +32,7 @@ namespace myhayai {
 
 BoxPlotData BoxPlotData::Calculate(const TestResult& runTimes)
 {
-        assert(size >= 1 && "TestResult> cannot calculate stats for empty vector.");
+        assert(runTimes.size() >= 1 && "TestResult> cannot calculate stats for empty vector.");
 
         // Sort the durations.
         TestResult sTimes(runTimes);
