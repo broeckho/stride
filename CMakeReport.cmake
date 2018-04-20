@@ -96,6 +96,18 @@ if( NOT STRIDE_FORCE_NO_PYTHON )
 endif()
 #
 message( STATUS "" )
+if ( STRIDE_INCLUDE_DOC )
+	message( STATUS "------> DOXYGEN_FOUND               : ${DOXYGEN_FOUND} "          )
+	message( STATUS "------> DOXYGEN_DOT_FOUND           : ${DOXYGEN_DOT_FOUND} "      )
+	if ( DOXYGEN_FOUND )
+		message( STATUS "------> DOXYGEN_EXECUTABLE          : ${DOXYGEN_EXECUTABLE} " )
+		message( STATUS "------> DOXYGEN_VERSION             : ${DOXYGEN_VERSION} "    )
+	endif()
+	if ( DOXYGEN_DOT_FOUND )
+		message( STATUS "------> DOXYGEN_DOT_EXECUTABLE      : ${DOXYGEN_DOT_EXECUTABLE} " )
+	endif()
+endif()
+message( STATUS "" )
 message( STATUS "Report complete." )
 
 #############################################################################
