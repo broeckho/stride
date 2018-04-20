@@ -22,16 +22,12 @@
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactLogMode.h"
 #include "contact/TransmissionProfile.h"
-#include "pool/ContactPoolSys.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-
-namespace spdlog {
-class logger;
-}
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -54,12 +50,6 @@ public:
 
         /// Get the contact logger.
         std::shared_ptr<spdlog::logger> GetContactLogger() { return m_contact_logger; }
-
-        /// The ContactPoolSys of the simulator.
-        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
-
-        /// The ContactPoolSys of the simulator.
-        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the transmission profile.
         const TransmissionProfile& GetTransmissionProfile() const { return m_transmission_profile; }
@@ -97,7 +87,7 @@ private:
 
 private:
         std::shared_ptr<Population> m_population;        ///< Pointer to the Population.
-        ContactPoolSys              m_pool_sys;          ///< Holds vector of ContactPool of different types.
+
         std::string                 m_local_info_policy; ///< Local information name.
 
 private:

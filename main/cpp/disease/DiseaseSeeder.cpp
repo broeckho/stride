@@ -25,6 +25,8 @@
 #include "pop/Population.h"
 #include "sim/Simulator.h"
 #include "util/StringUtils.h"
+#include "util/FileSys.h"
+#include "util/LogUtils.h"
 
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
@@ -36,21 +38,21 @@ using namespace stride::ContactPoolType;
 using namespace util;
 using namespace std;
 
-DiseaseSeeder::DiseaseSeeder(const ptree& config_pt, RNManager& rn_manager)
-    : m_config_pt(config_pt), m_rn_manager(rn_manager)
+DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RNManager& rnManager, shared_ptr<spdlog::logger> contactLogger)
+    : m_config_pt(configPt), m_contact_logger(std::move(contactLogger)), m_rn_manager(rnManager)
 {
 }
 
-void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
+void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
 {
         // --------------------------------------------------------------
         // Population immunity (natural immunity & vaccination).
         // --------------------------------------------------------------
         const auto immunity_profile = m_config_pt.get<std::string>("run.immunity_profile");
-        Vaccinate("immunity", immunity_profile, sim->GetContactPoolSys()[Id::Household]);
+        Vaccinate("immunity", immunity_profile, pop->GetContactPoolSys()[Id::Household]);
 
         const auto vaccination_profile = m_config_pt.get<std::string>("run.vaccine_profile");
-        Vaccinate("vaccine", vaccination_profile, sim->GetContactPoolSys()[Id::Household]);
+        Vaccinate("vaccine", vaccination_profile, pop->GetContactPoolSys()[Id::Household]);
 
         // --------------------------------------------------------------
         // Seed infected persons.
@@ -58,18 +60,18 @@ void DiseaseSeeder::Seed(std::shared_ptr<Simulator> sim)
         const auto seeding_rate    = m_config_pt.get<double>("run.seeding_rate");
         const auto seeding_age_min = m_config_pt.get<double>("run.seeding_age_min", 1);
         const auto seeding_age_max = m_config_pt.get<double>("run.seeding_age_max", 99);
-        const auto pop_size        = sim->GetPopulation()->size() - 1;
+        const auto pop_size        = pop->size() - 1;
         const auto max_pop_index   = static_cast<unsigned int>(pop_size);
-        auto       int_generator   = sim->GetRNManager().GetGenerator(trng::uniform_int_dist(0, max_pop_index));
+        auto       int_generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_pop_index));
 
         auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {
-                Person& p = sim->GetPopulation()->at(static_cast<size_t>(int_generator()));
+                Person& p = pop->at(static_cast<size_t>(int_generator()));
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
                     (p.GetAge() <= seeding_age_max)) {
                         p.GetHealth().StartInfection();
                         num_infected--;
-                        sim->GetContactLogger()->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        m_contact_logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 }

@@ -23,6 +23,7 @@
 #include "disease/Health.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
+#include "util/LogUtils.h"
 #include "util/StringUtils.h"
 
 #include <trng/uniform_int_dist.hpp>
@@ -48,6 +49,21 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, uti
         const auto seeding_rate = config_pt.get<double>("run.seeding_rate");
         if (seeding_rate > 1.0) {
                 throw runtime_error(string(__func__) + "> Bad input data.");
+        }
+
+        // -----------------------------------------------------------------------------------------
+        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
+        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
+        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
+        // -----------------------------------------------------------------------------------------
+        if (config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix     = config_pt.get<string>("run.output_prefix");
+                const auto logPath    = FileSys::BuildPath(prefix, "contact_log.txt");
+                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                // Remove meta data from log => time-stamp of logging
+                pop->GetContactLogger()->set_pattern("%v");
+        } else {
+                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
         }
 
         //------------------------------------------------

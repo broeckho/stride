@@ -34,6 +34,17 @@ using namespace std;
 
 namespace stride {
 
+unsigned int Population::GetAdoptedCount() const
+{
+        unsigned int total{0U};
+        for (const auto& p : *this) {
+                if (p.GetBelief()->HasAdopted()) {
+                        total++;
+                }
+        }
+        return total;
+}
+
 unsigned int Population::GetInfectedCount() const
 {
         unsigned int total{0U};
@@ -44,15 +55,22 @@ unsigned int Population::GetInfectedCount() const
         return total;
 }
 
-unsigned int Population::GetAdoptedCount() const
+void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
+                              unsigned int work_id, unsigned int primary_community_id,
+                              unsigned int secondary_community_id, Health health, const ptree& belief_pt,
+                              double risk_averseness)
 {
-        unsigned int total{0U};
-        for (const auto& p : *this) {
-                if (p.GetBelief()->HasAdopted()) {
-                        total++;
-                }
+        string belief_policy = belief_pt.get<string>("name");
+
+        if (belief_policy == "NoBelief") {
+                NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
+                                    secondary_community_id, health, belief_pt, risk_averseness);
+        } else if (belief_policy == "Imitation") {
+                NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
+                                     secondary_community_id, health, belief_pt, risk_averseness);
+        } else {
+                throw runtime_error(string(__func__) + "No valid belief policy!");
         }
-        return total;
 }
 
 template <typename BeliefPolicy>
@@ -74,22 +92,5 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
 
-void Population::CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                              unsigned int work_id, unsigned int primary_community_id,
-                              unsigned int secondary_community_id, Health health, const ptree& belief_pt,
-                              double risk_averseness)
-{
-        string belief_policy = belief_pt.get<string>("name");
-
-        if (belief_policy == "NoBelief") {
-                NewPerson<NoBelief>(id, age, household_id, school_id, work_id, primary_community_id,
-                                    secondary_community_id, health, belief_pt, risk_averseness);
-        } else if (belief_policy == "Imitation") {
-                NewPerson<Imitation>(id, age, household_id, school_id, work_id, primary_community_id,
-                                     secondary_community_id, health, belief_pt, risk_averseness);
-        } else {
-                throw runtime_error(string(__func__) + "No valid belief policy!");
-        }
-}
 
 } // namespace stride

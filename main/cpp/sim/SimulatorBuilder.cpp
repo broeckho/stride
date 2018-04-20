@@ -93,21 +93,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
                                                      m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
                                                      sim->m_num_threads});
 
-        // -----------------------------------------------------------------------------------------
-        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
-        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
-        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix     = m_config_pt.get<string>("run.output_prefix");
-                const auto logPath    = FileSys::BuildPath(prefix, "contact_log.txt");
-                sim->m_contact_logger = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                // Remove meta data from log => time-stamp of logging
-                sim->m_contact_logger->set_pattern("%v");
-        } else {
-                sim->m_contact_logger = LogUtils::CreateNullLogger("contact_logger");
-        }
-
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
@@ -116,7 +101,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.
         // --------------------------------------------------------------
-        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager, sim->m_contact_logger);
+        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager);
 
         // --------------------------------------------------------------
         // Seed the population with health data.
@@ -133,7 +118,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build the ContactPoolSystem of the simulator.
         // --------------------------------------------------------------
-        PopPoolBuilder(m_stride_logger).Build(sim->m_pool_sys, *sim->m_population);
+        PopPoolBuilder(m_stride_logger).Build(sim->m_population->GetContactPoolSys(), *sim->m_population);
 
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
@@ -143,7 +128,9 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
-        DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim);
+        m_stride_logger->trace("Starting DiseaseSeeder.");
+        DiseaseSeeder(m_config_pt, sim->m_rn_manager, sim->m_population->GetContactLogger()).Seed(sim->m_population);
+        m_stride_logger->trace("Finished DiseaseSeeder.");
 
         // --------------------------------------------------------------
         // Done.

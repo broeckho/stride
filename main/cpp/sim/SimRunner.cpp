@@ -74,7 +74,7 @@ bool SimRunner::Setup(const ptree& config_pt)
         // -----------------------------------------------------------------------------------------
         ostringstream ss;
         write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
-        m_stride_logger->debug("Run config used:\n {}", ss.str());
+        m_stride_logger->trace("Run config used:\n {}", ss.str());
 
         // ------------------------------------------------------------------------------
         // Build simulator.
@@ -105,8 +105,6 @@ void SimRunner::Run()
         Notify({shared_from_this(), Id::AtStart});
         for (unsigned int i = 0; i < num_days; i++) {
                 m_sim->TimeStep();
-                m_stride_logger->trace("    Day: {:4}  Done, infected count: {:7}", i,
-                                       m_sim->GetPopulation()->GetInfectedCount());
                 Notify({shared_from_this(), Id::Stepped});
         }
         Notify({shared_from_this(), Id::Finished});

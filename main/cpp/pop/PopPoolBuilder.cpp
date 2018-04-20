@@ -37,7 +37,7 @@ PopPoolBuilder::PopPoolBuilder(std::shared_ptr<spdlog::logger> logger) : m_strid
 void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& population)
 {
         using namespace ContactPoolType;
-        m_stride_logger->trace("Starting ContactPoolBuilder::Build.");
+        m_stride_logger->trace("Starting PopPoolBuilder::Build.");
 
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
@@ -75,7 +75,7 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Finished ContactPoolBuilder::Build.");
+        m_stride_logger->trace("Finished PopPoolBuilder::Build.");
 }
 
 } // namespace stride

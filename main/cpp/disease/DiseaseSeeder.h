@@ -20,11 +20,12 @@
  */
 
 #include "pool/ContactPool.h"
+#include "pop/Population.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <memory>
 #include <spdlog/spdlog.h>
+#include <memory>
 
 namespace stride {
 
@@ -37,10 +38,11 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& config_pt, util::RNManager& rn_manager);
+        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager,
+                      std::shared_ptr<spdlog::logger> contactLogger);
 
         /// Build the simulator.
-        void Seed(std::shared_ptr<Simulator> sim);
+        void Seed(std::shared_ptr<Population> pop);
 
 private:
         /// Seed for vaccination/natural immunity.
@@ -48,8 +50,9 @@ private:
                        std::vector<ContactPool>& immunity_pools);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RNManager&                   m_rn_manager; ///< Random number manager.
+        const boost::property_tree::ptree& m_config_pt;         ///< Run config.
+        std::shared_ptr<spdlog::logger>    m_contact_logger;    ///< Logger for contact/transmission.
+        util::RNManager&                   m_rn_manager;        ///< Random number manager.
 };
 
 } // namespace stride
