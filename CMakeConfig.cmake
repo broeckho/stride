@@ -57,8 +57,6 @@ set(STRIDE_FORCE_NO_HDF5	FALSE
 	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
 set(STRIDE_FORCE_NO_PYHTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
-set(STRIDE_VERBOSE_TESTING  TRUE
-	CACHE BOOL "Run tests in verbose mode.")
 
 #============================================================================
 # Additional CMake modules:

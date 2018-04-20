@@ -81,8 +81,8 @@ private:
         void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 private:
-        std::string                                       m_config_file;      /// Config parameters file name.
-        std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
+        std::string                                       m_config_file; /// Config parameters file name.
+        std::vector<std::tuple<std::string, std::string>> m_p_overrides; /// Cli overides of config parameters.
 
         std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
         bool        m_use_install_dirs; /// Working dir or install dir mode.

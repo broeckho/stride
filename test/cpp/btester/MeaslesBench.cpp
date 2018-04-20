@@ -48,7 +48,10 @@ void MeaslesBench()
 
         const auto num = RunConfigManager::CreateNumThreads();
         for (const auto n : num) {
-                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n),
-                [n]() { ptree pt; pt.put("num_threads", n); return pt;});
+                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n), [n]() {
+                        ptree pt;
+                        pt.put("num_threads", n);
+                        return pt;
+                });
         }
 }

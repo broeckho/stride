@@ -67,9 +67,6 @@ endif
 ifneq ($(STRIDE_INCLUDE_DOC),)
 	CMAKE_ARGS += -DSTRIDE_INCLUDE_DOC:BOOL=$(STRIDE_INCLUDE_DOC)
 endif
-ifneq ($(STRIDE_VERBOSE_TESTING),)
-	CMAKE_ARGS += -DSTRIDE_VERBOSE_TESTING:BOOL=$(STRIDE_VERBOSE_TESTING)
-endif
 ifneq ($(STRIDE_BOOST_ROOT),)
 	CMAKE_ARGS += -DSTRIDE_BOOST_ROOT:STRING=$(STRIDE_BOOST_ROOT)
 endif
@@ -118,10 +115,10 @@ help:
 	@ $(CMAKE) -E echo "   CMAKE_INSTALL_PREFIX          : " $(CMAKE_INSTALL_PREFIX)
 	@ $(CMAKE) -E echo " "
 	@ $(CMAKE) -E echo "   STRIDE_INCLUDE_DOC            : " $(STRIDE_INCLUDE_DOC)
-	@ $(CMAKE) -E echo "   STRIDE_VERBOSE_TESTING        : " $(STRIDE_VERBOSE_TESTING)
 	@ $(CMAKE) -E echo "   STRIDE_BOOST_ROOT             : " $(STRIDE_BOOST_ROOT)
 	@ $(CMAKE) -E echo "   STRIDE_BOOST_NO_SYSTEM_PATHS  : " $(STRIDE_BOOST_NO_SYSTEM_PATHS)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_OPENMP        : " $(STRIDE_FORCE_NO_OPENMP)
+	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_PYTHON        : " $(STRIDE_FORCE_NO_PYTHON)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_HDF5          : " $(STRIDE_FORCE_NO_HDF5)
 
 	@ $(CMAKE) -E echo " "
@@ -156,4 +153,3 @@ format:
 	resources/bash/remove_trailing_space
 
 #############################################################################
-REGERX=influen

@@ -58,7 +58,7 @@ std::string CSVRow::GetValue<std::string>(size_t index) const
 
 /// specialization for string
 template <>
-std::string CSVRow::GetValue<std::string>(const std::string &label) const
+std::string CSVRow::GetValue<std::string>(const std::string& label) const
 {
         size_t index = parent->GetIndexForLabel(label);
         return GetValue(index);
