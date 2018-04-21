@@ -64,6 +64,9 @@ ptree RunConfigManager::CreateTestsInfluenza()
 {
         ptree pt;
 
+        pt.put("stride.pop.rng_seed", 20);
+        pt.put("stride.pop.rng_type", "lcg64");
+
         pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
         pt.put("run.behaviour_policy", "NoBehaviour");
         pt.put("run.belief_policy.name", "NoBelief");
@@ -82,6 +85,7 @@ ptree RunConfigManager::CreateTestsInfluenza()
         pt.put("run.output_prefix", "BatchRuns");
         pt.put("run.population_file", "pop_flanders600.csv");
         pt.put("run.rng_seed", 2015);
+        pt.put("run.rng_type", "mrg2");
         pt.put("run.r0", 3.0);
         pt.put("run.seeding_rate", 0.0009);
         pt.put("run.seeding_age_min", 1);
@@ -98,6 +102,9 @@ ptree RunConfigManager::CreateTestsInfluenza()
 ptree RunConfigManager::CreateTestsMeasles()
 {
         ptree pt;
+
+        pt.put("stride.pop.rng_seed", 20);
+        pt.put("stride.pop.rng_type", "lcg64");
 
         pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
         pt.put("run.behaviour_policy", "NoBehaviour");
@@ -116,6 +123,7 @@ ptree RunConfigManager::CreateTestsMeasles()
         pt.put("run.output_prefix", "BatchRuns");
         pt.put("run.population_file", "pop_flanders600.csv");
         pt.put("run.rng_seed", 1);
+        pt.put("run.rng_type", "mrg2");
         pt.put("run.seeding_age_max", 99);
         pt.put("run.seeding_age_min", 1);
         pt.put("run.seeding_rate", 0.002);
@@ -133,6 +141,9 @@ ptree RunConfigManager::CreateTestsMeasles()
 ptree RunConfigManager::CreateBenchMeasles()
 {
         ptree pt;
+
+        pt.put("stride.pop.rng_seed", 20);
+        pt.put("stride.pop.rng_type", "lcg64");
 
         pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
         pt.put("run.behaviour_policy", "NoBehaviour");
@@ -153,6 +164,7 @@ ptree RunConfigManager::CreateBenchMeasles()
         // pt.put("run.population_file", "pop_flanders1600.csv");
         pt.put("run.population_file", "pop_flanders600.csv");
         pt.put("run.rng_seed", 1U);
+        pt.put("run.rng_type", "mrg2");
         pt.put("run.r0", 15U);
         pt.put("run.seeding_age_max", 99);
         pt.put("run.seeding_age_min", 1);

@@ -38,8 +38,8 @@ using namespace boost::property_tree;
 PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt)
 {
         m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
-        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
-                                                m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
+        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
+                                                m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
                                                 m_num_threads});
 }
 
