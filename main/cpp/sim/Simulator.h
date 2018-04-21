@@ -66,12 +66,12 @@ private:
         void UpdatePools();
 
 private:
-        boost::property_tree::ptree     m_config_pt;            ///< Configuration property tree
-        ContactLogMode::Id              m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
-        AgeContactProfiles              m_contact_profiles;     ///< Contact profiles w.r.t age.
-        unsigned int                    m_num_threads;          ///< The number of (OpenMP) threads.
-        bool                            m_track_index_case;     ///< General simulation or tracking index case.
-        TransmissionProfile             m_transmission_profile; ///< Profile of disease.
+        boost::property_tree::ptree m_config_pt;            ///< Configuration property tree
+        ContactLogMode::Id          m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
+        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
+        unsigned int                m_num_threads;          ///< The number of (OpenMP) threads.
+        bool                        m_track_index_case;     ///< General simulation or tracking index case.
+        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 
         std::shared_ptr<Calendar> m_calendar;   ///< Management of calendar.
         util::RNManager           m_rn_manager; ///< Random numbere generation management.

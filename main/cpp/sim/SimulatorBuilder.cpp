@@ -94,24 +94,32 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Starting PopulationBuilder.");
         sim->m_population = PopulationBuilder(m_config_pt).Build();
+        m_stride_logger->trace("Finished PopulationBuilder.");
 
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Starting HealthSeeder.");
         HealthSeeder(disease_pt, sim->m_rn_manager).Seed(sim->m_population);
+        m_stride_logger->trace("Finished HealthSeeder.");
 
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Initializing Age-Contact profiles.");
         for (Id typ : IdList) {
                 sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
         }
+        m_stride_logger->trace("Done initializing Age-Contact profiles.");
 
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
+        m_stride_logger->trace("Initializing Transmission profiles.");
         sim->m_transmission_profile.Initialize(m_config_pt, disease_pt);
+        m_stride_logger->trace("Done initializing Transmission profiles.");
 
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.

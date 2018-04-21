@@ -49,8 +49,8 @@ private:
                        std::vector<ContactPool>& immunityPools);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;      ///< Run config.
-        util::RNManager&                   m_rn_manager;     ///< Random number manager.
+        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

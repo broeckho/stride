@@ -63,7 +63,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         const auto pop_size        = pop->size() - 1;
         const auto max_pop_index   = static_cast<unsigned int>(pop_size);
         auto       int_generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_pop_index));
-        auto& contactLogger = pop->GetContactLogger();
+        auto&      contactLogger   = pop->GetContactLogger();
 
         auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
         while (num_infected > 0) {

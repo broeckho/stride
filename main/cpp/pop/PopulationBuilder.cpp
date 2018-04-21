@@ -35,15 +35,13 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>())
-{
-}
+PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
 
 void PopulationBuilder::MakePoolSys()
 {
         using namespace ContactPoolType;
         auto& population = *m_pop;
-        auto& poolSys = population.GetContactPoolSys();
+        auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
@@ -83,7 +81,6 @@ void PopulationBuilder::MakePoolSys()
         // --------------------------------------------------------------
 }
 
-
 void PopulationBuilder::MakePersons()
 {
         //------------------------------------------------
@@ -118,7 +115,7 @@ void PopulationBuilder::MakePersons()
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
                 m_pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                  secondary_community_id, Health(), belief_pt, risk_averseness);
+                                    secondary_community_id, Health(), belief_pt, risk_averseness);
                 ++person_id;
         }
 
@@ -175,8 +172,8 @@ void PopulationBuilder::Preliminaries()
         // Create contact_logger to log contacts/transmissions. Do NOT register it.
         // -----------------------------------------------------------------------------------------
         if (m_config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix       = m_config_pt.get<string>("run.output_prefix");
-                const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
+                const auto prefix         = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
                 m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
                 // Remove meta data from log => time-stamp of logging
                 m_pop->GetContactLogger()->set_pattern("%v");
