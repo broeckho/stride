@@ -36,7 +36,7 @@ class Population : public std::vector<Person>
 {
 public:
         ///
-        Population() :  std::vector<Person>(), m_pool_sys(), m_contact_logger() {}
+        Population() : std::vector<Person>(), m_pool_sys(), m_contact_logger() {}
 
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
@@ -66,8 +66,8 @@ private:
                        Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
 
 private:
-        ContactPoolSys              m_pool_sys;          ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger;       ///< Logger for contact/transmission.
+        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
 
 private:
         util::Any beliefs_container;

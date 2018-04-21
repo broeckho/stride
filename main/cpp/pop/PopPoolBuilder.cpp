@@ -31,13 +31,13 @@ using namespace std;
 
 PopPoolBuilder::PopPoolBuilder(std::shared_ptr<spdlog::logger> logger) : m_stride_logger(std::move(logger))
 {
-        assert(m_stride_logger && "ContactPoolBuilder::ContactPoolBuilder> Nullptr for logger not acceptable!");
+        // assert(m_stride_logger && "ContactPoolBuilder::ContactPoolBuilder> Nullptr for logger not acceptable!");
 }
 
 void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& population)
 {
         using namespace ContactPoolType;
-        m_stride_logger->trace("Starting PopPoolBuilder::Build.");
+        // m_stride_logger->trace("Starting PopPoolBuilder::Build.");
 
         // --------------------------------------------------------------
         // Determine number of contact pools from ids in population.
@@ -75,7 +75,7 @@ void PopPoolBuilder::Build(ContactPoolSys& pool_sys, const Population& populatio
         // --------------------------------------------------------------
         // Done.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Finished PopPoolBuilder::Build.");
+        // m_stride_logger->trace("Finished PopPoolBuilder::Build.");
 }
 
 } // namespace stride

@@ -96,7 +96,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        sim->m_population = PopulationBuilder::Build(m_config_pt, sim->m_rn_manager);
+        sim->m_population = PopulationBuilder(m_config_pt).Build();
 
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.
@@ -114,11 +114,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         for (Id typ : IdList) {
                 sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
         }
-
-        // --------------------------------------------------------------
-        // Build the ContactPoolSystem of the simulator.
-        // --------------------------------------------------------------
-        PopPoolBuilder(m_stride_logger).Build(sim->m_population->GetContactPoolSys(), *sim->m_population);
 
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).

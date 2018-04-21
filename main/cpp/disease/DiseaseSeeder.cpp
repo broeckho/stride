@@ -24,9 +24,9 @@
 #include "pool/ContactPoolSys.h"
 #include "pop/Population.h"
 #include "sim/Simulator.h"
-#include "util/StringUtils.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
+#include "util/StringUtils.h"
 
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>

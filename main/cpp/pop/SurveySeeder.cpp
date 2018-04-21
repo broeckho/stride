@@ -34,14 +34,14 @@ namespace stride {
 
 void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop, RNManager& rnManager)
 {
-        const string log_level  = configPt.get<string>("run.log_level", "None");
+        const string log_level = configPt.get<string>("run.log_level", "None");
         if (log_level == "Contacts" || log_level == "SusceptibleContacts") {
 
-                Population&  population = *pop;
-                auto&            logger = population.GetContactLogger();
-                const auto   max_index  = static_cast<unsigned int>(population.size() - 1);
-                auto         generator  = rnManager.GetGenerator(trng::uniform_int_dist(0, max_index));
-                const auto participants = configPt.get<unsigned int>("run.num_participants_survey");
+                Population& population   = *pop;
+                auto&       logger       = population.GetContactLogger();
+                const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
+                auto        generator    = rnManager.GetGenerator(trng::uniform_int_dist(0, max_index));
+                const auto  participants = configPt.get<unsigned int>("run.num_participants_survey");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.

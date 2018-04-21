@@ -86,9 +86,9 @@ private:
         unsigned int m_sim_day;
 
 private:
-        std::shared_ptr<Population> m_population;        ///< Pointer to the Population.
+        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
 
-        std::string                 m_local_info_policy; ///< Local information name.
+        std::string m_local_info_policy; ///< Local information name.
 
 private:
         friend class SimulatorBuilder;

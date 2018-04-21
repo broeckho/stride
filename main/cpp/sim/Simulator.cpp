@@ -123,9 +123,9 @@ void Simulator::UpdatePools()
         // The inner loop over the pools in each system is parallellized providing OpenMP is available.
         // Infector updates individuals for contacts & transmission within a pool.
 
-        const auto sim_day = m_calendar->GetSimulationDay();
-        auto& poolSys = m_population->GetContactPoolSys();
-        auto contactLogger = m_population->GetContactLogger();
+        const auto sim_day       = m_calendar->GetSimulationDay();
+        auto&      poolSys       = m_population->GetContactPoolSys();
+        auto       contactLogger = m_population->GetContactLogger();
 
 #pragma omp parallel num_threads(m_num_threads)
         {
@@ -134,8 +134,8 @@ void Simulator::UpdatePools()
 #pragma omp for schedule(runtime)
                         for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
                                 Infector<log_level, track_index_case, local_information_policy>::Exec(
-                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
-                                    handlers[thread], sim_day, contactLogger);
+                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile, handlers[thread],
+                                    sim_day, contactLogger);
                         }
                 }
         }

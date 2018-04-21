@@ -24,8 +24,8 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <spdlog/spdlog.h>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -50,9 +50,9 @@ private:
                        std::vector<ContactPool>& immunity_pools);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;         ///< Run config.
-        std::shared_ptr<spdlog::logger>    m_contact_logger;    ///< Logger for contact/transmission.
-        util::RNManager&                   m_rn_manager;        ///< Random number manager.
+        const boost::property_tree::ptree& m_config_pt;      ///< Run config.
+        std::shared_ptr<spdlog::logger>    m_contact_logger; ///< Logger for contact/transmission.
+        util::RNManager&                   m_rn_manager;     ///< Random number manager.
 };
 
 } // namespace stride

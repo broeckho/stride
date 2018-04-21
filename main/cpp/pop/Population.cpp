@@ -92,5 +92,4 @@ void Population::NewPerson(unsigned int id, double age, unsigned int household_i
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 }
 
-
 } // namespace stride

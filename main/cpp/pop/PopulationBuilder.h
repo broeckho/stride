@@ -34,12 +34,18 @@ class Population;
 class PopulationBuilder
 {
 public:
-        /// Initializes a Population: add persons, set immunity, seed infection.
-        /// @param config_pt     Property_tree with general configuration settings.
-        /// @param disease_pt    Property_tree with disease configuration settings.
-        /// @return              Pointer to the initialized population.
-        static std::shared_ptr<Population> Build(const boost::property_tree::ptree& config_pt,
-                                                 util::RNManager&                   rn_manager);
+        /// @param configPt      Property_tree with general configuration settings.
+        PopulationBuilder(const boost::property_tree::ptree& configPt);
+
+        /// Initializes a Population.
+        /// @return              Pointer to the population.
+        std::shared_ptr<Population> Build();
+
+private:
+        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
+        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
+
+        util::RNManager m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

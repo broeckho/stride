@@ -39,7 +39,7 @@ class PopPoolBuilder
 {
 public:
         /// Initializing ContactPoolBuilder.
-        explicit PopPoolBuilder(std::shared_ptr<spdlog::logger> logger);
+        explicit PopPoolBuilder(std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Build the contact pool system.
         void Build(ContactPoolSys& pool_sys, const Population& population);

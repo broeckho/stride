@@ -21,6 +21,7 @@
 #include "PopulationBuilder.h"
 
 #include "disease/Health.h"
+#include "pop/PopPoolBuilder.h"
 #include "pop/Population.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -34,31 +35,37 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, util::RNManager& rn_manager)
+PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt)
 {
+        m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
+        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
+                                                m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
+                                                m_num_threads});
+}
+
+std::shared_ptr<Population> PopulationBuilder::Build()
+{
+        //------------------------------------------------
+        // Check validity of input data.
+        //------------------------------------------------
+        const auto seeding_rate = m_config_pt.get<double>("run.seeding_rate");
+        if (seeding_rate > 1.0) {
+                throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
+        }
+
         // ------------------------------------------------
         // Setup.
         // ------------------------------------------------
-        const auto  pop        = make_shared<Population>();
-        Population& population = *pop;
-        const auto  belief_pt  = config_pt.get_child("run.belief_policy");
-
-        //------------------------------------------------
-        // Seeding rate.
-        //------------------------------------------------
-        const auto seeding_rate = config_pt.get<double>("run.seeding_rate");
-        if (seeding_rate > 1.0) {
-                throw runtime_error(string(__func__) + "> Bad input data.");
-        }
+        const auto pop = make_shared<Population>();
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
         // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
         // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
         // -----------------------------------------------------------------------------------------
-        if (config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix     = config_pt.get<string>("run.output_prefix");
-                const auto logPath    = FileSys::BuildPath(prefix, "contact_log.txt");
+        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix       = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
                 pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
                 // Remove meta data from log => time-stamp of logging
                 pop->GetContactLogger()->set_pattern("%v");
@@ -69,8 +76,9 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, uti
         //------------------------------------------------
         // Build population from file.
         //------------------------------------------------
-        const auto file_name        = config_pt.get<string>("run.population_file");
-        const auto use_install_dirs = config_pt.get<bool>("run.use_install_dirs");
+        const auto belief_pt        = m_config_pt.get_child("run.belief_policy");
+        const auto file_name        = m_config_pt.get<string>("run.population_file");
+        const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
         const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
@@ -96,12 +104,17 @@ std::shared_ptr<Population> PopulationBuilder::Build(const ptree& config_pt, uti
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
-                population.CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                        secondary_community_id, Health(), belief_pt, risk_averseness);
+                pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
+                                  secondary_community_id, Health(), belief_pt, risk_averseness);
                 ++person_id;
         }
 
         pop_file.close();
+
+        // --------------------------------------------------------------
+        // Build the ContactPoolSystem of the simulator.
+        // --------------------------------------------------------------
+        PopPoolBuilder(/*m_stride_logger*/).Build(pop->GetContactPoolSys(), *pop);
 
         //------------------------------------------------
         // Done
