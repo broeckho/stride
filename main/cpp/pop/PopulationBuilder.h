@@ -35,15 +35,26 @@ class PopulationBuilder
 {
 public:
         /// @param configPt      Property_tree with general configuration settings.
-        PopulationBuilder(const boost::property_tree::ptree& configPt);
+        explicit PopulationBuilder(const boost::property_tree::ptree& configPt);
 
         /// Initializes a Population.
         /// @return              Pointer to the population.
         std::shared_ptr<Population> Build();
 
 private:
+        ///
+        void MakePoolSys();
+
+        ///
+        void MakePersons();
+
+        ///
+        void Preliminaries();
+
+private:
         boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
         unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
+        std::shared_ptr<Population> m_pop;
 
         util::RNManager m_rn_manager; ///< Random numbere generation management.
 };

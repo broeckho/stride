@@ -22,6 +22,7 @@
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
+#include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <spdlog/spdlog.h>

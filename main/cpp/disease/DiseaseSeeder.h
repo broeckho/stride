@@ -38,20 +38,18 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager,
-                      std::shared_ptr<spdlog::logger> contactLogger);
+        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
         /// Build the simulator.
         void Seed(std::shared_ptr<Population> pop);
 
 private:
         /// Seed for vaccination/natural immunity.
-        void Vaccinate(const std::string& immunity_type, const std::string& immunization_profile,
-                       std::vector<ContactPool>& immunity_pools);
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
+                       std::vector<ContactPool>& immunityPools);
 
 private:
         const boost::property_tree::ptree& m_config_pt;      ///< Run config.
-        std::shared_ptr<spdlog::logger>    m_contact_logger; ///< Logger for contact/transmission.
         util::RNManager&                   m_rn_manager;     ///< Random number manager.
 };
 

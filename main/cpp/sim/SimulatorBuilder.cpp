@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -24,9 +24,7 @@
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
-#include "pop/PopPoolBuilder.h"
 #include "pop/PopulationBuilder.h"
-#include "pop/SurveySeeder.h"
 #include "sim/Simulator.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -99,11 +97,6 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         sim->m_population = PopulationBuilder(m_config_pt).Build();
 
         // --------------------------------------------------------------
-        // Seed the population with social contact survey participants.
-        // --------------------------------------------------------------
-        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager);
-
-        // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
         HealthSeeder(disease_pt, sim->m_rn_manager).Seed(sim->m_population);
@@ -124,7 +117,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting DiseaseSeeder.");
-        DiseaseSeeder(m_config_pt, sim->m_rn_manager, sim->m_population->GetContactLogger()).Seed(sim->m_population);
+        DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
         m_stride_logger->trace("Finished DiseaseSeeder.");
 
         // --------------------------------------------------------------

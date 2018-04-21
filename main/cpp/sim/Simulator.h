@@ -48,9 +48,6 @@ public:
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
 
-        /// Get the contact logger.
-        std::shared_ptr<spdlog::logger> GetContactLogger() { return m_contact_logger; }
-
         /// Get the transmission profile.
         const TransmissionProfile& GetTransmissionProfile() const { return m_transmission_profile; }
 
@@ -71,7 +68,6 @@ private:
 private:
         boost::property_tree::ptree     m_config_pt;            ///< Configuration property tree
         ContactLogMode::Id              m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
-        std::shared_ptr<spdlog::logger> m_contact_logger;       ///< Logger for contact/transmission.
         AgeContactProfiles              m_contact_profiles;     ///< Contact profiles w.r.t age.
         unsigned int                    m_num_threads;          ///< The number of (OpenMP) threads.
         bool                            m_track_index_case;     ///< General simulation or tracking index case.
@@ -92,7 +88,6 @@ private:
 
 private:
         friend class SimulatorBuilder;
-        friend class PopPoolBuilder;
 };
 
 } // namespace stride

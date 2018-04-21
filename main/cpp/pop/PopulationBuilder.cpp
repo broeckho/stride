@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -21,8 +21,8 @@
 #include "PopulationBuilder.h"
 
 #include "disease/Health.h"
-#include "pop/PopPoolBuilder.h"
 #include "pop/Population.h"
+#include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"
@@ -35,46 +35,59 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt)
+PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>())
 {
-        m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
-        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
-                                                m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
-                                                m_num_threads});
 }
 
-std::shared_ptr<Population> PopulationBuilder::Build()
+void PopulationBuilder::MakePoolSys()
+{
+        using namespace ContactPoolType;
+        auto& population = *m_pop;
+        auto& poolSys = population.GetContactPoolSys();
+
+        // --------------------------------------------------------------
+        // Determine number of contact pools from ids in population.
+        // --------------------------------------------------------------
+        IdSubscriptArray<unsigned int> max_ids{0U};
+        for (const auto& p : population) {
+                for (Id typ : IdList) {
+                        max_ids[typ] = max(max_ids[typ], p.GetPoolId(typ));
+                }
+        }
+        // --------------------------------------------------------------
+        // Keep separate id counter to provide a unique id for every
+        // contactpool. Start at 1 (see next item for pool_id==0).
+        // --------------------------------------------------------------
+        unsigned int id = 1;
+        for (Id typ : IdList) {
+                for (size_t i = 0; i <= max_ids[typ]; i++) {
+                        poolSys[typ].emplace_back(ContactPool(id, typ));
+                        id++;
+                }
+        }
+        // --------------------------------------------------------------
+        // Insert persons (pointers) in their contactpools. Having
+        // contactpool id '0' means "not belonging pool of that type"
+        // (school / work - belong to both).
+        // --------------------------------------------------------------
+        for (auto& p : population) {
+                for (Id typ : IdList) {
+                        const auto poolId = p.GetPoolId(typ);
+                        if (poolId > 0) {
+                                poolSys[typ][poolId].AddMember(&p);
+                        }
+                }
+        }
+        // --------------------------------------------------------------
+        // Done.
+        // --------------------------------------------------------------
+}
+
+
+void PopulationBuilder::MakePersons()
 {
         //------------------------------------------------
-        // Check validity of input data.
-        //------------------------------------------------
-        const auto seeding_rate = m_config_pt.get<double>("run.seeding_rate");
-        if (seeding_rate > 1.0) {
-                throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
-        }
-
-        // ------------------------------------------------
-        // Setup.
-        // ------------------------------------------------
-        const auto pop = make_shared<Population>();
-
-        // -----------------------------------------------------------------------------------------
-        // Create contact_logger for the simulator to log contacts/transmissions. Do NOT register it.
-        // Transmissions: [TRANSMISSION] <infecterID> <infectedID> <contactpoolID> <day>
-        // Contacts: [CNT] <person1ID> <person1AGE> <person2AGE> <at_home> <at_work> <at_school> <at_other>
-        // -----------------------------------------------------------------------------------------
-        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix       = m_config_pt.get<string>("run.output_prefix");
-                const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
-                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                // Remove meta data from log => time-stamp of logging
-                pop->GetContactLogger()->set_pattern("%v");
-        } else {
-                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
-        }
-
-        //------------------------------------------------
-        // Build population from file.
+        // Read persosns from file.
         //------------------------------------------------
         const auto belief_pt        = m_config_pt.get_child("run.belief_policy");
         const auto file_name        = m_config_pt.get<string>("run.population_file");
@@ -104,22 +117,72 @@ std::shared_ptr<Population> PopulationBuilder::Build()
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
-                pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
+                m_pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
                                   secondary_community_id, Health(), belief_pt, risk_averseness);
                 ++person_id;
         }
 
         pop_file.close();
+}
+
+std::shared_ptr<Population> PopulationBuilder::Build()
+{
+        //---------------------------------------------------------------
+        // Preliminaries (check input data, rnManager, contactLogger).
+        //---------------------------------------------------------------
+        Preliminaries();
 
         // --------------------------------------------------------------
-        // Build the ContactPoolSystem of the simulator.
+        // Read persons from file.
         // --------------------------------------------------------------
-        PopPoolBuilder(/*m_stride_logger*/).Build(pop->GetContactPoolSys(), *pop);
+        MakePersons();
+
+        // --------------------------------------------------------------
+        // Fill up the various type of contactpools.
+        // --------------------------------------------------------------
+        MakePoolSys();
+
+        // --------------------------------------------------------------
+        // Seed the population with social contact survey participants.
+        // --------------------------------------------------------------
+        SurveySeeder::Seed(m_config_pt, m_pop, m_rn_manager);
 
         //------------------------------------------------
         // Done
         //------------------------------------------------
-        return pop;
+        return m_pop;
+}
+
+void PopulationBuilder::Preliminaries()
+{
+        //------------------------------------------------
+        // Check validity of input data.
+        //------------------------------------------------
+        const auto seeding_rate = m_config_pt.get<double>("run.seeding_rate");
+        if (seeding_rate > 1.0) {
+                throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
+        }
+
+        // ------------------------------------------------
+        // Setup RNManager.
+        // ------------------------------------------------
+        m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
+        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
+                                                m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
+                                                m_num_threads});
+
+        // -----------------------------------------------------------------------------------------
+        // Create contact_logger to log contacts/transmissions. Do NOT register it.
+        // -----------------------------------------------------------------------------------------
+        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix       = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
+                m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                // Remove meta data from log => time-stamp of logging
+                m_pop->GetContactLogger()->set_pattern("%v");
+        } else {
+                m_pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+        }
 }
 
 } // namespace stride

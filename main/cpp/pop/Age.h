@@ -21,7 +21,7 @@
 
 namespace stride {
 
-/// Maximum age for Person's.
+/// Maximum age for Persons.
 inline constexpr unsigned int MaximumAge() { return 80U; }
 
 /// Maximum age for Person's.

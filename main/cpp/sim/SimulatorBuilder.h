@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -32,10 +32,8 @@ class Simulator;
  * It
  * \li reads any additional configuration files (disease, contact, ...)
  * \li initializes calendar and random number manager for the simulator
- * \li builds a contact/transmission logger
- * \li builds a population (@see PopulationBuilder)
- * \li adds population members to their contact pool (@see ContactPoolBuilder)
- * \li deals with initial immunity and infection in the population (@see DiseaseBuilder)
+ * \li builds a population and contcat pool system (@see PopulationBuilder)
+ * \li deals with health and immunity (@see HealthSeeder, @see DiseaseBuilder)
  */
 class SimulatorBuilder
 {
