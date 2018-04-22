@@ -25,39 +25,39 @@
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 /**
- * Builds a simulator (@see Simulator) based a configuration property tree.
+ * Builds a simulator (@see Sim) based a configuration property tree.
  * It
  * \li reads any additional configuration files (disease, contact, ...)
  * \li initializes calendar and random number manager for the simulator
- * \li builds a population and contcat pool system (@see PopulationBuilder)
+ * \li builds a population and contact pool system (@see PopulationBuilder)
  * \li deals with health and immunity (@see HealthSeeder, @see DiseaseBuilder)
  */
-class SimulatorBuilder
+class SimBuilder
 {
 public:
         /// Initializing SimulatorBuilder.
-        SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger);
+        SimBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
 
         /// Build the simulator.
-        std::shared_ptr<Simulator> Build();
+        std::shared_ptr<Sim> Build();
 
 private:
         /// Build the simulator.
-        std::shared_ptr<Simulator> Build(const boost::property_tree::ptree& disease_pt,
-                                         const boost::property_tree::ptree& contact_pt);
+        std::shared_ptr<Sim> Build(const boost::property_tree::ptree& diseasePt,
+                                   const boost::property_tree::ptree& ageContactPt);
 
         /// Get the contact configuration data.
-        boost::property_tree::ptree ReadContactPtree();
+        boost::property_tree::ptree ReadAgeContactPtree();
 
         /// Get the disease configuration data.
         boost::property_tree::ptree ReadDiseasePtree();
 
 private:
         boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger (!= contact_logger).
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride

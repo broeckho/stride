@@ -18,7 +18,7 @@
  * Initialize populations: implementation.
  */
 
-#include "PopulationBuilder.h"
+#include "PopBuilder.h"
 
 #include "disease/Health.h"
 #include "pop/Population.h"
@@ -35,9 +35,17 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopulationBuilder::PopulationBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
+PopBuilder::PopBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
+    : m_config_pt(configPt), m_pop(make_shared<Population>()), m_stride_logger(std::move(logger))
+{
+        assert(!m_config_pt.empty() && "PopBuilder::PopBuilder> Empty config ptree not acceptable!");
+        // So as not to have to guard all log statements
+        if (!m_stride_logger) {
+                m_stride_logger = LogUtils::CreateNullLogger("PopBuilderNullLogger");
+        }
+}
 
-void PopulationBuilder::MakePoolSys()
+void PopBuilder::MakePoolSys()
 {
         using namespace ContactPoolType;
         auto& population = *m_pop;
@@ -81,7 +89,7 @@ void PopulationBuilder::MakePoolSys()
         // --------------------------------------------------------------
 }
 
-void PopulationBuilder::MakePersons()
+void PopBuilder::MakePersons()
 {
         //------------------------------------------------
         // Read persosns from file.
@@ -122,27 +130,35 @@ void PopulationBuilder::MakePersons()
         pop_file.close();
 }
 
-std::shared_ptr<Population> PopulationBuilder::Build()
+std::shared_ptr<Population> PopBuilder::Build()
 {
         //---------------------------------------------------------------
         // Preliminaries (check input data, rnManager, contactLogger).
         //---------------------------------------------------------------
+        m_stride_logger->trace("Starting Preliminaries.");
         Preliminaries();
+        m_stride_logger->trace("Finished Preliminaries.");
 
         // --------------------------------------------------------------
         // Read persons from file.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Starting MakePersons.");
         MakePersons();
+        m_stride_logger->trace("Finished MakePersons.");
 
         // --------------------------------------------------------------
         // Fill up the various type of contactpools.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Starting MakePoolSys.");
         MakePoolSys();
+        m_stride_logger->trace("Finished MakePoolSys.");
 
         // --------------------------------------------------------------
         // Seed the population with social contact survey participants.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Starting SurveySeeder.");
         SurveySeeder::Seed(m_config_pt, m_pop, m_rn_manager);
+        m_stride_logger->trace("Finished SurveySeeder.");
 
         //------------------------------------------------
         // Done
@@ -150,7 +166,7 @@ std::shared_ptr<Population> PopulationBuilder::Build()
         return m_pop;
 }
 
-void PopulationBuilder::Preliminaries()
+void PopBuilder::Preliminaries()
 {
         //------------------------------------------------
         // Check validity of input data.

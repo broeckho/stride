@@ -22,8 +22,8 @@
 
 #include "calendar/Calendar.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 
 using namespace std;
 using namespace stride::sim_event;

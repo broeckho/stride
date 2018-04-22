@@ -40,9 +40,9 @@ public:
         Population() : std::vector<Person>(), m_pool_sys(), m_contact_logger() {}
 
         /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                          Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -62,9 +62,9 @@ public:
 private:
         ///
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                       unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                       Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
 private:
         ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.

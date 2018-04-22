@@ -21,8 +21,8 @@
 #include "SimRunner.h"
 
 #include "pop/Population.h"
-#include "sim/Simulator.h"
-#include "sim/SimulatorBuilder.h"
+#include "sim/Sim.h"
+#include "sim/SimBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
@@ -80,7 +80,7 @@ bool SimRunner::Setup(const ptree& config_pt)
         // Build simulator.
         //------------------------------------------------------------------------------
         m_stride_logger->trace("Building the simulator.");
-        SimulatorBuilder builder(m_config_pt, m_stride_logger);
+        SimBuilder builder(m_config_pt, m_stride_logger);
         m_sim = builder.Build();
         m_stride_logger->trace("Done building the simulator.");
 

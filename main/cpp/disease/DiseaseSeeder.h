@@ -29,7 +29,7 @@
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 /**
  * Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.

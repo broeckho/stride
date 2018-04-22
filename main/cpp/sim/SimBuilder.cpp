@@ -18,14 +18,14 @@
  * Implementation for the SimulatorBuilder class.
  */
 
-#include "SimulatorBuilder.h"
+#include "SimBuilder.h"
 
 #include "calendar/Calendar.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
-#include "pop/PopulationBuilder.h"
-#include "sim/Simulator.h"
+#include "pop/PopBuilder.h"
+#include "sim/Sim.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 
@@ -42,37 +42,37 @@ using namespace std;
 using namespace util;
 using namespace ContactPoolType;
 
-SimulatorBuilder::SimulatorBuilder(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
-    : m_config_pt(config_pt), m_stride_logger(std::move(logger))
+SimBuilder::SimBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
+    : m_config_pt(configPt), m_stride_logger(std::move(logger))
 {
-        assert(!m_config_pt.empty() && "SimulatorBuilder::SimulatorBuilder> Empty config ptree not acceptable!");
+        assert(!m_config_pt.empty() && "SimBuilder::SimBuilder> Empty config ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
-                m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
+                m_stride_logger = LogUtils::CreateNullLogger("SimBuilderNullLogger");
         }
 }
 
-std::shared_ptr<Simulator> SimulatorBuilder::Build()
+std::shared_ptr<Sim> SimBuilder::Build()
 {
-        m_stride_logger->trace("Starting SimulatorBuilder::Build.");
-        const auto contact_pt = ReadContactPtree();
-        const auto disease_pt = ReadDiseasePtree();
+        m_stride_logger->trace("Starting SimBuilder::Build.");
+        const auto contactPt = ReadAgeContactPtree();
+        const auto diseasePt = ReadDiseasePtree();
 
-        assert(!contact_pt.empty() && "SimulatorBuilder::Build> Empty contact ptree not acceptable!");
-        assert(!disease_pt.empty() && "SimulatorBuilder::Build> Empty disease ptree not acceptable!");
+        assert(!contactPt.empty() && "SimBuilder::Build> Empty contact ptree not acceptable!");
+        assert(!diseasePt.empty() && "SimBuilder::Build> Empty disease ptree not acceptable!");
 
-        auto sim = Build(disease_pt, contact_pt);
+        auto sim = Build(diseasePt, contactPt);
 
-        m_stride_logger->trace("Finished SimulatorBuilder::Build.");
+        m_stride_logger->trace("Finished SimBuilder::Build.");
         return sim;
 }
 
-std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, const ptree& contact_pt)
+std::shared_ptr<Sim> SimBuilder::Build(const ptree& diseasePt, const ptree& ageContactPt)
 {
         // --------------------------------------------------------------
         // Uninitialized simulator object.
         // --------------------------------------------------------------
-        auto sim = make_shared<Simulator>();
+        auto sim = make_shared<Sim>();
 
         // --------------------------------------------------------------
         // Config info.
@@ -94,15 +94,15 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting PopulationBuilder.");
-        sim->m_population = PopulationBuilder(m_config_pt).Build();
-        m_stride_logger->trace("Finished PopulationBuilder.");
+        m_stride_logger->trace("Starting PopBuilder.");
+        sim->m_population = PopBuilder(m_config_pt, m_stride_logger).Build();
+        m_stride_logger->trace("Finished PopBuilder.");
 
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
         m_stride_logger->trace("Starting HealthSeeder.");
-        HealthSeeder(disease_pt, sim->m_rn_manager).Seed(sim->m_population);
+        HealthSeeder(diseasePt, sim->m_rn_manager).Seed(sim->m_population);
         m_stride_logger->trace("Finished HealthSeeder.");
 
         // --------------------------------------------------------------
@@ -110,7 +110,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // --------------------------------------------------------------
         m_stride_logger->trace("Initializing Age-Contact profiles.");
         for (Id typ : IdList) {
-                sim->m_contact_profiles[typ] = AgeContactProfile(typ, contact_pt);
+                sim->m_contact_profiles[typ] = AgeContactProfile(typ, ageContactPt);
         }
         m_stride_logger->trace("Done initializing Age-Contact profiles.");
 
@@ -118,7 +118,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
         m_stride_logger->trace("Initializing Transmission profiles.");
-        sim->m_transmission_profile.Initialize(m_config_pt, disease_pt);
+        sim->m_transmission_profile.Initialize(m_config_pt, diseasePt);
         m_stride_logger->trace("Done initializing Transmission profiles.");
 
         // --------------------------------------------------------------
@@ -134,7 +134,7 @@ std::shared_ptr<Simulator> SimulatorBuilder::Build(const ptree& disease_pt, cons
         return sim;
 }
 
-ptree SimulatorBuilder::ReadContactPtree()
+ptree SimBuilder::ReadAgeContactPtree()
 {
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 
@@ -156,7 +156,7 @@ ptree SimulatorBuilder::ReadContactPtree()
         return pt;
 }
 
-ptree SimulatorBuilder::ReadDiseasePtree()
+ptree SimBuilder::ReadDiseasePtree()
 {
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 

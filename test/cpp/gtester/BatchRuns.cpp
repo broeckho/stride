@@ -20,8 +20,8 @@
 
 #include "ScenarioData.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>

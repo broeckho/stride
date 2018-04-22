@@ -38,11 +38,11 @@ class Population;
  * Simulator can time step and reveal some of the key data.
  * The Subject base class used for the interaction with the python environment only.
  */
-class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
+class Sim : public python::Subject<unsigned int, python::SimulatorObserver>
 {
 public:
         /// Default constructor for empty Simulator.
-        Simulator();
+        Sim();
 
         /// Caledar associated with simulated world. Represents date/simulated day of
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
@@ -87,7 +87,7 @@ private:
         std::string m_local_info_policy; ///< Local information name.
 
 private:
-        friend class SimulatorBuilder;
+        friend class SimBuilder;
 };
 
 } // namespace stride

@@ -35,7 +35,7 @@ class logger;
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 /**
  * The simulation runner build a simulator and then lets it step through
@@ -77,7 +77,7 @@ public:
         const boost::property_tree::ptree& GetConfig() const { return m_config_pt; }
 
         /// Return the Simulator.
-        std::shared_ptr<Simulator> GetSim() const { return m_sim; }
+        std::shared_ptr<Sim> GetSim() const { return m_sim; }
 
         /// Setup the context for the simulation run.
         /// \param config_pt        config info for run and for config of simulator
@@ -98,7 +98,7 @@ private:
         std::string                     m_log_level;     ///< Log level (see spdlog::level in spdlog/common.h).
         std::string                     m_output_prefix; ///< Prefix for output data files.
         boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
-        std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
+        std::shared_ptr<Sim>            m_sim;           ///< Simulator object.
 };
 
 } // namespace stride

@@ -18,7 +18,7 @@
  * Implementation for the Simulator class.
  */
 
-#include "Simulator.h"
+#include "Sim.h"
 
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
@@ -40,14 +40,14 @@ using namespace std;
 using namespace trng;
 using namespace util;
 
-Simulator::Simulator()
+Sim::Sim()
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
       m_track_index_case(false), m_transmission_profile(), m_calendar(), m_rn_manager(), m_sim_day(0U),
       m_population(nullptr), m_local_info_policy()
 {
 }
 
-void Simulator::TimeStep()
+void Sim::TimeStep()
 {
         std::shared_ptr<DaysOffInterface> days_off{nullptr};
 
@@ -107,7 +107,7 @@ void Simulator::TimeStep()
 }
 
 template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
-void Simulator::UpdatePools()
+void Sim::UpdatePools()
 {
         using namespace stride::ContactPoolType;
 

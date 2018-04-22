@@ -23,6 +23,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -31,11 +32,11 @@ class Population;
 /**
  * Initializes Population objects.
  */
-class PopulationBuilder
+class PopBuilder
 {
 public:
         /// @param configPt      Property_tree with general configuration settings.
-        explicit PopulationBuilder(const boost::property_tree::ptree& configPt);
+        explicit PopBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
 
         /// Initializes a Population.
         /// @return              Pointer to the population.
@@ -57,6 +58,8 @@ private:
         std::shared_ptr<Population> m_pop;
 
         util::RNManager m_rn_manager; ///< Random numbere generation management.
+
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride

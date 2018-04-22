@@ -1,4 +1,4 @@
-from pystride.stride.stride import SimulatorObserver, Simulator, Population
+from pystride.stride.stride import SimulatorObserver, Sim, Population
 
 class SimulationObserver(SimulatorObserver):
     def __init__(self, simulation):

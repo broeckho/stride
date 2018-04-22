@@ -63,13 +63,13 @@ set(LIB_SRC
     pop/Age.h
     pop/Person.cpp
     pop/Population.cpp
-    pop/PopulationBuilder.cpp
+	pop/PopBuilder.cpp
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
 	sim/SimRunner.cpp
-	sim/Simulator.cpp
-	sim/SimulatorBuilder.cpp
+    sim/Sim.cpp
+    sim/SimBuilder.cpp
     sim/event/Id.cpp
     sim/event/Payload.h
 	sim/event/Subject.cpp
