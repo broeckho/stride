@@ -12,38 +12,21 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #################################################################################################
 
 #================================================================================================
-# List python example scripts.
+# Copy Python example scripts to the bin folder.
 #================================================================================================
-
-SET(PYTHON_EXAMPLES
-	runCallbackInterval.py
-	runCallbackTimestep.py
-	runExperiments.py
-	runExperimentsR0.py
-	runManualConfig.py
-	runRepeat.py
-	runSimple.py
-	runStopOnCallback.py
+INSTALL(FILES
+		runCallbackInterval.py
+		runExperiments.py
+		runExperimentsR0.py
+		runManualConfig.py
+		runRepeat.py
+		runSimple.py
+	DESTINATION ${BIN_INSTALL_LOCATION}
+	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )
-
-#================================================================================================
-# Copy Python scripts to the bin folder.
-#================================================================================================
-
-INSTALL ( FILES
-		  ${PYTHON_EXAMPLES}
-		  DESTINATION ${BIN_INSTALL_LOCATION}
-		  PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
-)
-
-#================================================================================================
-# Clean up.
-# ===============================================================================================
-
-unset(PYTHON_EXAMPLES)
 
 #################################################################################################

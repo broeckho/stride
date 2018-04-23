@@ -23,6 +23,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -31,15 +32,34 @@ class Population;
 /**
  * Initializes Population objects.
  */
-class PopulationBuilder
+class PopBuilder
 {
 public:
-        /// Initializes a Population: add persons, set immunity, seed infection.
-        /// @param config_pt     Property_tree with general configuration settings.
-        /// @param disease_pt    Property_tree with disease configuration settings.
-        /// @return              Pointer to the initialized population.
-        static std::shared_ptr<Population> Build(const boost::property_tree::ptree& config_pt,
-                                                 util::RNManager&                   rn_manager);
+        /// @param configPt      Property_tree with general configuration settings.
+        explicit PopBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
+
+        /// Initializes a Population.
+        /// @return              Pointer to the population.
+        std::shared_ptr<Population> Build();
+
+private:
+        ///
+        void MakePoolSys();
+
+        ///
+        void MakePersons();
+
+        ///
+        void Preliminaries();
+
+private:
+        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
+        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
+        std::shared_ptr<Population> m_pop;
+
+        util::RNManager m_rn_manager; ///< Random numbere generation management.
+
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride

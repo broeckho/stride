@@ -90,6 +90,7 @@ void CliController::Control()
         // Register viewers do runner setup and the execute.
         // -----------------------------------------------------------------------------------------
         RegisterViewers(runner);
+        FileSys::WritePtreeFile(string("huhu.xml"), m_config_pt);
         runner->Setup(m_config_pt);
         runner->Run();
         m_stride_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());

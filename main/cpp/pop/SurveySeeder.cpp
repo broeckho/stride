@@ -27,32 +27,32 @@
 
 using namespace boost::property_tree;
 using namespace stride::util;
+using namespace stride::ContactPoolType;
 using namespace std;
 
 namespace stride {
 
-void SurveySeeder::Seed(const boost::property_tree::ptree& config_pt, shared_ptr<Population> pop, RNManager& rn_manager,
-                        std::shared_ptr<spdlog::logger> contact_logger)
+void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop, RNManager& rnManager)
 {
-        const auto   max_pop_index = static_cast<unsigned int>(pop->size() - 1);
-        auto         int_generator = rn_manager.GetGenerator(trng::uniform_int_dist(0, max_pop_index));
-        const string log_level     = config_pt.get<string>("run.log_level", "None");
-        Population&  population    = *pop;
-
+        const string log_level = configPt.get<string>("run.log_level", "None");
         if (log_level == "Contacts" || log_level == "SusceptibleContacts") {
-                const auto num_participants = config_pt.get<unsigned int>("run.num_participants_survey");
 
-                // Use while-loop to get 'num_participant' unique participants (default sampling is with replacement).
+                Population& population   = *pop;
+                auto&       logger       = population.GetContactLogger();
+                const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
+                auto        generator    = rnManager.GetGenerator(trng::uniform_int_dist(0, max_index));
+                const auto  participants = configPt.get<unsigned int>("run.num_participants_survey");
+
+                // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
                 auto num_samples = 0U;
-                while (num_samples < num_participants) {
-                        Person& p = population[int_generator()];
+                while (num_samples < participants) {
+                        Person& p = population[generator()];
                         if (!p.IsParticipatingInSurvey()) {
                                 p.ParticipateInSurvey();
-                                contact_logger->info("[PART] {}", p.GetId());
-                                contact_logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                                     p.GetPoolId(ContactPoolType::Id::School),
-                                                     p.GetPoolId(ContactPoolType::Id::Work));
+                                logger->info("[PART] {}", p.GetId());
+                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
+                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work));
                                 num_samples++;
                         }
                 }

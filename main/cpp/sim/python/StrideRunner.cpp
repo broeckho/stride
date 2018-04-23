@@ -25,8 +25,8 @@
 #include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "pop/Population.h"
-#include "sim/Simulator.h"
-#include "sim/SimulatorBuilder.h"
+#include "sim/Sim.h"
+#include "sim/SimBuilder.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
@@ -47,7 +47,7 @@ using namespace std;
 using namespace std::chrono;
 
 StrideRunner::StrideRunner()
-    : m_is_running(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"), m_sim(make_shared<Simulator>())
+    : m_is_running(false), m_output_prefix(""), m_pt_config(), m_clock("total_clock"), m_sim(make_shared<Sim>())
 {
 }
 
@@ -142,7 +142,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        SimulatorBuilder builder(m_pt_config, nullptr);
+        SimBuilder builder(m_pt_config, nullptr);
         m_sim = builder.Build();
         cout << "Done building the simulator. " << endl;
 }

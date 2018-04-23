@@ -1,9 +1,10 @@
-%module Simulator
+%module Sim
 
 // headers for generated file
 %{
 #include "sim/python/Subject.h"
-#include "sim/Simulator.h"
+#include "sim/Sim.h"
+
 %}
 
 namespace stride { namespace python {} }
@@ -15,6 +16,6 @@ namespace stride { namespace python {} }
 
 %include <std_shared_ptr.i>
 %shared_ptr(stride::python::Subject<unsigned int, SimulatorObserver>)
-%shared_ptr(stride::Simulator)
+%shared_ptr(stride::Sim)
 
-%include "sim/Simulator.h";
+%include "sim/Sim.h";

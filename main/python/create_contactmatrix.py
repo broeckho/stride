@@ -69,22 +69,22 @@ def createFromCSV(household_file, work_file, school_file, prim_community_file, s
     tree = ET.ElementTree(root)
     output_file = directory + "/contact_matrix_" + postfix + ".xml";
     tree.write(output_file)
-    print "Complete: " + output_file ;
+    print("Complete: " + output_file)
 
 
 def main(argv):
-    print ""
+    print("")
     if len(argv) == 5:
-        print "Creating contact matrix from CSV files using default name and directory."
+        print("Creating contact matrix from CSV files using default name and directory.")
         createFromCSV(argv[0], argv[1], argv[2], argv[3], argv[4])
     elif len(argv) == 6:
-        print "Creating contact matrix from CSV files using default directory."
+        print("Creating contact matrix from CSV files using default directory.")
         createFromCSV(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5])
     elif len(argv) == 7:
-        print "Creating contact matrix from CSV files."
+        print("Creating contact matrix from CSV files.")
         createFromCSV(argv[0], argv[1], argv[2], argv[3], argv[4], argv[5], argv[6])
     else:
-        print "!! ERROR: Program requires 5 input files: household, work, school, primary_community, secondary_community, POSTFIX, DIRECTORY"
-    print ""
+        print("!! ERROR: Program requires 5 input files: household, work, school, primary_community, secondary_community, POSTFIX, DIRECTORY")
+    print("")
 if __name__ == "__main__":
     main(sys.argv[1:])

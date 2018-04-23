@@ -29,7 +29,7 @@
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 namespace python {
 
@@ -61,7 +61,7 @@ public:
         void Stop();
 
         /// Get the simulator (method used by the python environment).
-        std::shared_ptr<Simulator> GetSimulator() { return m_sim; }
+        std::shared_ptr<Sim> GetSimulator() { return m_sim; }
 
 private:
         /// Generate output files (at the end of the simulation).
@@ -74,7 +74,7 @@ private:
         std::string                 m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree m_pt_config;     ///< Ptree with configuration.
         util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
-        std::shared_ptr<Simulator>  m_sim;           ///< Simulator object.
+        std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };
 
 } // namespace python

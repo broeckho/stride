@@ -18,7 +18,7 @@
  * Implementation for the Simulator class.
  */
 
-#include "Simulator.h"
+#include "Sim.h"
 
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
@@ -28,6 +28,8 @@
 #include "contact/Infector.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
+#include "util/FileSys.h"
+#include "util/LogUtils.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
@@ -38,14 +40,14 @@ using namespace std;
 using namespace trng;
 using namespace util;
 
-Simulator::Simulator()
-    : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_logger(nullptr), m_contact_profiles(),
-      m_num_threads(1U), m_track_index_case(false), m_transmission_profile(), m_calendar(), m_rn_manager(),
-      m_sim_day(0U), m_population(nullptr), m_pool_sys(), m_local_info_policy()
+Sim::Sim()
+    : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
+      m_track_index_case(false), m_transmission_profile(), m_calendar(), m_rn_manager(), m_sim_day(0U),
+      m_population(nullptr), m_local_info_policy()
 {
 }
 
-void Simulator::TimeStep()
+void Sim::TimeStep()
 {
         std::shared_ptr<DaysOffInterface> days_off{nullptr};
 
@@ -70,7 +72,6 @@ void Simulator::TimeStep()
                         case Id::All: UpdatePools<Id::All, NoLocalInformation, true>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, true>(); break;
                         case Id::None: UpdatePools<Id::None, NoLocalInformation, true>(); break;
-                        default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
@@ -78,7 +79,6 @@ void Simulator::TimeStep()
                         case Id::All: UpdatePools<Id::All, NoLocalInformation, false>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, false>(); break;
                         case Id::None: UpdatePools<Id::None, NoLocalInformation, false>(); break;
-                        default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 }
         } else if (m_local_info_policy == "LocalDiscussion") {
@@ -88,7 +88,6 @@ void Simulator::TimeStep()
                         case Id::All: UpdatePools<Id::All, LocalDiscussion, true>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, true>(); break;
                         case Id::None: UpdatePools<Id::None, LocalDiscussion, true>(); break;
-                        default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 } else {
                         switch (m_contact_log_mode) {
@@ -96,7 +95,6 @@ void Simulator::TimeStep()
                         case Id::All: UpdatePools<Id::All, LocalDiscussion, false>(); break;
                         case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, false>(); break;
                         case Id::None: UpdatePools<Id::None, LocalDiscussion, false>(); break;
-                        default: throw std::runtime_error(std::string(__func__) + "Log mode screwed up!");
                         }
                 }
         } else {
@@ -109,7 +107,7 @@ void Simulator::TimeStep()
 }
 
 template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
-void Simulator::UpdatePools()
+void Sim::UpdatePools()
 {
         using namespace stride::ContactPoolType;
 
@@ -125,17 +123,19 @@ void Simulator::UpdatePools()
         // The inner loop over the pools in each system is parallellized providing OpenMP is available.
         // Infector updates individuals for contacts & transmission within a pool.
 
-        const auto sim_day = m_calendar->GetSimulationDay();
+        const auto sim_day       = m_calendar->GetSimulationDay();
+        auto&      poolSys       = m_population->GetContactPoolSys();
+        auto       contactLogger = m_population->GetContactLogger();
 
 #pragma omp parallel num_threads(m_num_threads)
         {
                 const auto thread = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(runtime)
-                        for (size_t i = 0; i < m_pool_sys[typ].size(); i++) { // NOLINT
+                        for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
                                 Infector<log_level, track_index_case, local_information_policy>::Exec(
-                                    m_pool_sys[typ][i], m_contact_profiles[typ], m_transmission_profile,
-                                    handlers[thread], sim_day, m_contact_logger);
+                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile, handlers[thread],
+                                    sim_day, contactLogger);
                         }
                 }
         }

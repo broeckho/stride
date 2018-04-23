@@ -22,5 +22,5 @@
 %include "./health.i";
 %include "./population.i";
 %include "./simulatorobserver.i";
-%include "./simulator.i";
+%include "./sim.i";
 %include "./striderunner.i";

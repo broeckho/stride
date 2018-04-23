@@ -42,11 +42,11 @@ public:
         }
 
         /// Constructor: set the person data.
-        Person(unsigned int id, double age, unsigned int household_id, unsigned int school_id, unsigned int work_id,
-               unsigned int primary_community_id, unsigned int secondary_community_id, Health health = Health(),
+        Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
+               unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
                double risk_averseness = 0, Belief* bp = nullptr)
             : m_id(id), m_age(age),
-              m_gender('M'), m_pool_ids{household_id, school_id, work_id, primary_community_id, secondary_community_id},
+              m_gender('M'), m_pool_ids{householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId},
               m_in_pools(true), m_belief(bp), m_health(health), m_is_participant(false)
         {
         }
@@ -64,7 +64,7 @@ public:
         const Belief* GetBelief() const { return m_belief; }
 
         /// Get ID of contactpool_type
-        unsigned int GetPoolId(const ContactPoolType::Id& pool_type) const { return m_pool_ids[pool_type]; }
+        unsigned int GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
 
         /// Return person's gender.
         char GetGender() const { return m_gender; }
@@ -79,7 +79,7 @@ public:
         unsigned int GetId() const { return m_id; }
 
         /// Check if a person is present today in a given contactpool
-        bool IsInPool(const ContactPoolType::Id& pool_type) const { return m_in_pools[pool_type]; }
+        bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 
         /// Does this person participates in the social contact study?
         bool IsParticipatingInSurvey() const { return m_is_participant; }
@@ -88,7 +88,7 @@ public:
         void ParticipateInSurvey() { m_is_participant = true; }
 
         /// Update the health status and presence in contactpools.
-        void Update(bool is_work_off, bool is_school_off);
+        void Update(bool isWorkOff, bool isSchoolOff);
 
         ///
         void Update(Person* p);

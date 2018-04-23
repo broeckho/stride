@@ -22,16 +22,12 @@
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactLogMode.h"
 #include "contact/TransmissionProfile.h"
-#include "pool/ContactPoolSys.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-
-namespace spdlog {
-class logger;
-}
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -42,24 +38,15 @@ class Population;
  * Simulator can time step and reveal some of the key data.
  * The Subject base class used for the interaction with the python environment only.
  */
-class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
+class Sim : public python::Subject<unsigned int, python::SimulatorObserver>
 {
 public:
         /// Default constructor for empty Simulator.
-        Simulator();
+        Sim();
 
-        /// Caledar associated with simulated world. Represents date/simulated day of
+        /// Calendar associated with simulated world. Represents date/simulated day of
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
-
-        /// Get the contact logger.
-        std::shared_ptr<spdlog::logger> GetContactLogger() { return m_contact_logger; }
-
-        /// The ContactPoolSys of the simulator.
-        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
-
-        /// The ContactPoolSys of the simulator.
-        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
         /// Get the transmission profile.
         const TransmissionProfile& GetTransmissionProfile() const { return m_transmission_profile; }
@@ -79,15 +66,14 @@ private:
         void UpdatePools();
 
 private:
-        boost::property_tree::ptree     m_config_pt;            ///< Configuration property tree
-        ContactLogMode::Id              m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
-        std::shared_ptr<spdlog::logger> m_contact_logger;       ///< Logger for contact/transmission.
-        AgeContactProfiles              m_contact_profiles;     ///< Contact profiles w.r.t age.
-        unsigned int                    m_num_threads;          ///< The number of (OpenMP) threads.
-        bool                            m_track_index_case;     ///< General simulation or tracking index case.
-        TransmissionProfile             m_transmission_profile; ///< Profile of disease.
+        boost::property_tree::ptree m_config_pt;            ///< Configuration property tree
+        ContactLogMode::Id          m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
+        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
+        unsigned int                m_num_threads;          ///< The number of (OpenMP) threads.
+        bool                        m_track_index_case;     ///< General simulation or tracking index case.
+        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 
-        std::shared_ptr<Calendar> m_calendar;   ///< Management of calendar.
+        std::shared_ptr<Calendar> m_calendar;   ///< Managment of calendar.
         util::RNManager           m_rn_manager; ///< Random numbere generation management.
 
 private:
@@ -96,13 +82,12 @@ private:
         unsigned int m_sim_day;
 
 private:
-        std::shared_ptr<Population> m_population;        ///< Pointer to the Population.
-        ContactPoolSys              m_pool_sys;          ///< Holds vector of ContactPool of different types.
-        std::string                 m_local_info_policy; ///< Local information name.
+        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
+
+        std::string m_local_info_policy; ///< Local information name.
 
 private:
-        friend class SimulatorBuilder;
-        friend class PopPoolBuilder;
+        friend class SimBuilder;
 };
 
 } // namespace stride

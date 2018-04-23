@@ -20,8 +20,8 @@
 
 #include "ScenarioData.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 #include "util/ConfigInfo.h"
 #include "util/RunConfigManager.h"
 
@@ -85,7 +85,7 @@ TEST_P(ParallelRuns, Run)
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
         for (const auto n : num_threads) {
-                config_pt.put("num_threads", n);
+                config_pt.put("run.num_threads", n);
                 cerr << "test tag: " << test_tag << " with #threads: " << n << endl;
                 auto runner = SimRunner::Create();
                 runner->Setup(config_pt);
