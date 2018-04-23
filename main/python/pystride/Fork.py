@@ -6,7 +6,7 @@ from .Simulation import Simulation
 
 class Fork(Simulation):
     def __init__(self, name: str, parent):
-        super().__init__()
+        super().__init__(parent.dataDir)
         # Copy config from parent
         self.runConfig = parent.runConfig.copy()
         self.runConfig.setParameter('output_prefix', name)
