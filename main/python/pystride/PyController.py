@@ -3,13 +3,30 @@ import os
 from time import localtime, strftime
 from .SimulationObserver import SimulationObserver
 '''
-
+'''
 import pystride
 from .Config import Config
 from .PyRunner import PyRunner
+'''
 
 class PyController:
     pass
+
+'''
+        std::string                                       m_config_file;      /// Config parameters file name.
+        std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
+
+        std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
+        bool        m_use_install_dirs; /// Working dir or install dir mode.
+
+        unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
+        std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
+        util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
+
+        boost::filesystem::path         m_config_path;   ///< path to config file.
+        boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
+'''
 
 '''
     def __init__(self):
@@ -149,23 +166,6 @@ from .Fork import Fork'''
 
 
 '''
-/**
- * The CliController controls execution of a simulation run (@see SimRunner) from the
- * command line interface (cli).
- * The CliController setup
- * \li accepts the commandline arguments
- * \li checks the OpenMP environment
- * \li checks the file system environment
- * \li reads the config file specified on the cli
- * \li effects cli overides of config parameters
- * \li patches the config file for any remaining defaults
- * \li interprets and executes the ouput prefix
- * \li makes a stride logger
- * The CliController execution
- * \li creates a simulation runner (@see SimRunner)
- * \li registers the appropriate viewers
- * \li runs the simulation
- */
 class CliController
 {
 public:
@@ -194,21 +194,6 @@ private:
 
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner);
-
-private:
-        std::string                                       m_config_file;      /// Config parameters file name.
-        std::vector<std::tuple<std::string, std::string>> m_p_overrides;      /// Cli overides of config parameters.
-
-        std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
-        bool        m_use_install_dirs; /// Working dir or install dir mode.
-
-        unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
-        std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
-        util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
-
-        boost::filesystem::path         m_config_path;   ///< path to config file.
-        boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
 };
 '''
 
