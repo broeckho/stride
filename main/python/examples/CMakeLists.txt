@@ -23,7 +23,6 @@ INSTALL(FILES
 		interactive_maps.py
 		log2csv.py
 		plot_maps.py
-		runCallbackInterval.py
 		runExperiments.py
 		runExperimentsR0.py
 		runManualConfig.py

@@ -133,11 +133,6 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
                 m_pt_config.put("run.num_participants_survey", 1);
         }
 
-        // -----------------------------------------------------------------------------------------
-        // Track index case setting.
-        // -----------------------------------------------------------------------------------------
-        cout << "Setting for track_index_case:  " << boolalpha << track_index_case << endl;
-
         // ------------------------------------------------------------------------------
         // Create the simulator.
         //------------------------------------------------------------------------------
@@ -151,7 +146,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
 /// Run the simulator with config information provided.
 void StrideRunner::Run()
 {
-        std::cout << "Starting the run" << std::endl;
+
         // -----------------------------------------------------------------------------------------
         // Run the simulation (if operational).
         // -----------------------------------------------------------------------------------------
@@ -159,18 +154,17 @@ void StrideRunner::Run()
 
         m_is_running = true;
         const auto num_days{m_pt_config.get<unsigned int>("run.num_days")};
+        std::cout << "Starting the run for " << num_days << " days." << std::endl;
         for (unsigned int i = 0; i < num_days; i++) {
                 // Check if still running
                 if (!m_is_running) {
                         break;
                 }
 
-                cout << "Day: " << setw(5) << i;
                 run_clock.Start();
                 m_sim->TimeStep();
                 run_clock.Stop();
                 m_sim->Notify(static_cast<unsigned int>(m_sim->GetCalendar()->GetSimulationDay()));
-                cout << "    Done, infected count: " << setw(7) << m_sim->GetPopulation()->GetInfectedCount() << endl;
         }
 
         m_is_running = false;
@@ -182,7 +176,7 @@ void StrideRunner::Run()
         // Print final message to command line.
         // -----------------------------------------------------------------------------------------
         cout << endl << endl;
-        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_clock.ToString() << endl << endl;
+        cout << "  run_time: " << run_clock.ToString() << "  -- total time: " << m_clock.ToString() << endl;
         cout << "Exiting at:         " << TimeStamp().ToString() << endl << endl;
 }
 

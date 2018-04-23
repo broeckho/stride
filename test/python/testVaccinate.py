@@ -5,7 +5,6 @@ status = True
 
 def vaccinate(sim, timestep):
     if timestep == 20:
-        print("Vaccinated everyone who is not yet infected on day 20.")
         pop = sim.GetSimulator().GetPopulation()
         for pIndex in range(pop.size()):
             if pop[pIndex].GetHealth().IsSusceptible():
