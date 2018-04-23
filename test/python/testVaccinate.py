@@ -5,7 +5,7 @@ status = True
 
 def vaccinate(sim, timestep):
     if timestep == 20:
-        print("Vaccinating everyone who is not yet infected on day 20.")
+        print("Vaccinated everyone who is not yet infected on day 20.")
         pop = sim.GetSimulator().GetPopulation()
         for pIndex in range(pop.size()):
             if pop[pIndex].GetHealth().IsSusceptible():
@@ -26,7 +26,7 @@ def check(sim, timestep):
 simulation = Simulation()
 simulation.loadRunConfig("../config/run_default.xml")
 
-# Register the "vaccinate" callback
+# Register the callbacks
 simulation.registerCallback(vaccinate)
 simulation.registerCallback(check)
 

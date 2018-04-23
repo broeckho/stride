@@ -221,7 +221,7 @@ def main(argv):
         try:
             create_slider(argv[0], argv[1], argv[2], argv[3], argv[4])
         except KeyError:
-            print "Note that all .csv input files should have delimiter ';'."
+            print("Note that all .csv input files should have delimiter ';'.")
 
     else:
         print("Usage: python slider_maps.py <districts_file> <population_file> <households_file> <persons_file> <transmissions_log>")

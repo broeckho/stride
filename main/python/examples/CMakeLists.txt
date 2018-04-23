@@ -19,12 +19,15 @@
 # Copy Python example scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+		create_contactmatrix.py
+		interactive_maps.py
+		log2csv.py
+		plot_maps.py
 		runCallbackInterval.py
 		runExperiments.py
 		runExperimentsR0.py
 		runManualConfig.py
 		runRepeat.py
-		runSimple.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )

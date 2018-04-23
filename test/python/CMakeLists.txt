@@ -18,7 +18,8 @@
 # Install the python test scripts.
 #============================================================================
 set (SCRIPTS
-	testSimple.py
+	testInfected.py
+	testSmoke.py
 	testVaccinate.py
 )
 
@@ -30,9 +31,13 @@ INSTALL (FILES
 #============================================================================
 # Define tests.
 #============================================================================
-add_test(NAME simple_py
+add_test(NAME infected_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py
+	)
+add_test(NAME smoke_py
+	WORKING_DIRECTORY ${TESTS_DIR}
+	COMMAND sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py > /dev/null"
 	)
 add_test(NAME vaccinate_py
 	WORKING_DIRECTORY ${TESTS_DIR}
