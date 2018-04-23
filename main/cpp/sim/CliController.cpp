@@ -78,25 +78,24 @@ void CliController::CheckOutputPrefix()
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Instantiate SimRunner & register viewers & setup+execute the run.
+        // Instantiate & stup SimRunner & register viewers.
         // -----------------------------------------------------------------------------------------
         // Necessary (i.o. local variable) because (quote) a precondition of shared_from_this(),
         // namely that at least one shared_ptr must already have been created (and still exist)
         // pointing to this. Shared_from_this is used in viewer notification mechanism.
-        // auto runner = make_shared<SimRunner>();
         auto runner = SimRunner::Create();
+        RegisterViewers(runner);
+        runner->Setup(m_config_pt, m_stride_logger);
 
         // -----------------------------------------------------------------------------------------
-        // Register viewers do runner setup and the execute.
+        // Execute run.
         // -----------------------------------------------------------------------------------------
-        RegisterViewers(runner);
-        runner->Setup(m_config_pt);
         runner->Run();
-        m_stride_logger->info("CliController shutting down. Timing: {}", m_run_clock.ToString());
 
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
+        m_stride_logger->info("CliController shutting down.");
         spdlog::drop_all();
 }
 

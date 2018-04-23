@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation for the SimulatorBuilder class.
+ * Implementation for the SimBuilder class.
  */
 
 #include "SimBuilder.h"
@@ -31,8 +31,6 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <trng/uniform_int_dist.hpp>
-#include <cassert>
 
 namespace stride {
 
@@ -45,25 +43,17 @@ using namespace ContactPoolType;
 SimBuilder::SimBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(configPt), m_stride_logger(std::move(logger))
 {
-        assert(!m_config_pt.empty() && "SimBuilder::SimBuilder> Empty config ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
-                m_stride_logger = LogUtils::CreateNullLogger("SimBuilderNullLogger");
+                m_stride_logger = LogUtils::CreateNullLogger("NullLogger");
         }
 }
 
 std::shared_ptr<Sim> SimBuilder::Build()
 {
-        m_stride_logger->trace("Starting SimBuilder::Build.");
         const auto contactPt = ReadAgeContactPtree();
         const auto diseasePt = ReadDiseasePtree();
-
-        assert(!contactPt.empty() && "SimBuilder::Build> Empty contact ptree not acceptable!");
-        assert(!diseasePt.empty() && "SimBuilder::Build> Empty disease ptree not acceptable!");
-
-        auto sim = Build(diseasePt, contactPt);
-
-        m_stride_logger->trace("Finished SimBuilder::Build.");
+        auto       sim       = Build(diseasePt, contactPt);
         return sim;
 }
 
@@ -87,9 +77,11 @@ std::shared_ptr<Sim> SimBuilder::Build(const ptree& diseasePt, const ptree& ageC
         // --------------------------------------------------------------
         // Initialize RNManager for random number engine management.
         // --------------------------------------------------------------
+        m_stride_logger->trace("Initializing random number manager.");
         sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
                                                      m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
                                                      sim->m_num_threads});
+        m_stride_logger->trace("Done Initializing random number manager.");
 
         // --------------------------------------------------------------
         // Build population.
@@ -143,13 +135,14 @@ ptree SimBuilder::ReadAgeContactPtree()
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
                 m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
+                throw runtime_error("SimBuilder::ReadAgeContactPtree> Not finding " + fp.string());
         } else {
                 m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
                         m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
+                        throw runtime_error("SimBuilder::ReadAgeContactPtree> Error reading " + fp.string());
                 }
         }
 
@@ -165,13 +158,14 @@ ptree SimBuilder::ReadDiseasePtree()
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
                 m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
+                throw runtime_error("SimBuilder::ReadDiseasePtree> Not finding " + fp.string());
         } else {
                 m_stride_logger->debug("Disease config file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
                         m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
+                        throw runtime_error("SimBuilder::ReadDiseasePtree> Error reading " + fp.string());
                 }
         }
 

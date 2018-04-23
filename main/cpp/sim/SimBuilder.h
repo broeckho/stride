@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header for the SimulatorBuilder class.
+ * Header for the SimBuilder class.
  */
 
 #include <boost/property_tree/ptree.hpp>
@@ -26,6 +26,7 @@
 namespace stride {
 
 class Sim;
+class Population;
 
 /**
  * Builds a simulator (@see Sim) based a configuration property tree.
@@ -38,8 +39,8 @@ class Sim;
 class SimBuilder
 {
 public:
-        /// Initializing SimulatorBuilder.
-        SimBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
+        /// Initializing SimBuilder.
+        SimBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger = nullptr);
 
         /// Build the simulator.
         std::shared_ptr<Sim> Build();

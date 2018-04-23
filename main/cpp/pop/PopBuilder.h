@@ -35,30 +35,31 @@ class Population;
 class PopBuilder
 {
 public:
-        /// @param configPt      Property_tree with general configuration settings.
-        explicit PopBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
+        /// Initializing constructor.
+        /// \param configPt    Property_tree with general configuration settings.
+        /// \param logger      Logger for trace info.
+        explicit PopBuilder(const boost::property_tree::ptree& configPt,
+                            std::shared_ptr<spdlog::logger>    logger = nullptr);
 
-        /// Initializes a Population.
+        /// Builds a Population.
         /// @return              Pointer to the population.
         std::shared_ptr<Population> Build();
 
 private:
-        ///
+        /// Fills up the contact pool system.
         void MakePoolSys();
 
-        ///
+        /// generates persons.
         void MakePersons();
 
-        ///
+        /// Preliminary setup.
         void Preliminaries();
 
 private:
-        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
-        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
-        std::shared_ptr<Population> m_pop;
-
-        util::RNManager m_rn_manager; ///< Random numbere generation management.
-
+        boost::property_tree::ptree     m_config_pt;   ///< Configuration property tree
+        unsigned int                    m_num_threads; ///< The number of (OpenMP) threads.
+        std::shared_ptr<Population>     m_pop;
+        util::RNManager                 m_rn_manager;    ///< Random numbere generation management.
         std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 

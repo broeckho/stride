@@ -20,6 +20,7 @@
 
 #include "SimRunner.h"
 
+#include "pop/PopBuilder.h"
 #include "pop/Population.h"
 #include "sim/Sim.h"
 #include "sim/SimBuilder.h"
@@ -39,78 +40,74 @@ using namespace std;
 namespace stride {
 
 SimRunner::SimRunner()
-    : m_clock("total_clock"), m_stride_logger(nullptr), m_log_level("info"), m_output_prefix(""), m_config_pt(),
-      m_sim(nullptr)
+    : m_clock("total_clock"), m_output_prefix(""), m_config_pt(), m_sim(nullptr), m_stride_logger(nullptr)
 {
 }
 
-bool SimRunner::Setup(const ptree& config_pt)
+void SimRunner::Setup(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
 {
-        Notify({shared_from_this(), Id::SetupBegin});
-
         // -----------------------------------------------------------------------------------------
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        bool status     = true;
+        Notify({shared_from_this(), Id::SetupBegin});
         m_config_pt     = config_pt;
-        m_log_level     = m_config_pt.get<string>("run.stride_log_level", "info");
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
-        // Unless execution context has done so, create logger, do NOT register it.
+        // C.
         // -----------------------------------------------------------------------------------------
-        m_stride_logger = spdlog::get("stride_logger");
+        m_stride_logger = std::move(logger);
         if (!m_stride_logger) {
-                const auto l    = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-                m_stride_logger = LogUtils::CreateFileLogger("stride_logger", l.string());
-                m_stride_logger->set_level(spdlog::level::from_str(m_log_level));
-                m_stride_logger->flush_on(spdlog::level::err);
+                // So as not to have to guard all log statements
+                m_stride_logger = LogUtils::CreateNullLogger("NullLogger");
         }
-        m_stride_logger->info("SimRunner setup starting at: {}", TimeStamp().ToString());
 
         // -----------------------------------------------------------------------------------------
-        // Log the full run config.
-        // -----------------------------------------------------------------------------------------
-        ostringstream ss;
-        write_xml(ss, m_config_pt, xml_writer_make_settings<ptree::key_type>(' ', 8));
-        m_stride_logger->trace("Run config used:\n {}", ss.str());
-
-        // ------------------------------------------------------------------------------
         // Build simulator.
-        //------------------------------------------------------------------------------
-        m_stride_logger->trace("Building the simulator.");
+        //------------------------------------------------------------------------------------------
+        m_stride_logger->trace("Starting SimBuilder::Build.");
         SimBuilder builder(m_config_pt, m_stride_logger);
+        m_stride_logger->trace("Finished SimBuilder::Build.");
         m_sim = builder.Build();
-        m_stride_logger->trace("Done building the simulator.");
 
         // -----------------------------------------------------------------------------------------
         // Done.
         // -----------------------------------------------------------------------------------------
         m_clock.Stop();
         Notify({shared_from_this(), Id::SetupEnd});
-        m_stride_logger->trace("Finished SimRunner::Setup.");
-        return status;
+}
+
+void SimRunner::AtFinish()
+{
+        m_clock.Start();
+        Notify({shared_from_this(), Id::Finished});
+        m_clock.Stop();
+}
+
+void SimRunner::AtStart()
+{
+        m_clock.Start();
+        Notify({shared_from_this(), Id::AtStart});
+        m_clock.Stop();
+}
+
+void SimRunner::Run(unsigned int numDays)
+{
+        m_clock.Start();
+        for (unsigned int i = 0; i < numDays; i++) {
+                m_sim->TimeStep();
+                Notify({shared_from_this(), Id::Stepped});
+        }
+        m_clock.Stop();
 }
 
 void SimRunner::Run()
 {
-        // -----------------------------------------------------------------------------------------
-        // Run the simulator.
-        // -----------------------------------------------------------------------------------------
-        m_clock.Start();
-        const auto num_days = m_config_pt.get<unsigned int>("run.num_days");
-        m_stride_logger->info("SimRunner ready to simulate {} days:", num_days);
-
-        Notify({shared_from_this(), Id::AtStart});
-        for (unsigned int i = 0; i < num_days; i++) {
-                m_sim->TimeStep();
-                Notify({shared_from_this(), Id::Stepped});
-        }
-        Notify({shared_from_this(), Id::Finished});
-
-        m_clock.Stop();
-        m_stride_logger->info("SimRunner done after: {}", m_clock.ToString());
+        AtStart();
+        const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
+        Run(numDays);
+        AtFinish();
 }
 
 } // namespace stride

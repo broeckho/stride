@@ -82,11 +82,20 @@ public:
         /// Setup the context for the simulation run.
         /// \param config_pt        config info for run and for config of simulator
         /// \param logger               general logger
-        /// \return                     status value
-        bool Setup(const boost::property_tree::ptree& config_pt);
+        void Setup(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger = nullptr);
 
-        /// Run the simulator with config information provided.
+        /// Run simulator for numDays steps.
         void Run();
+
+public:
+        ///
+        void AtFinish();
+
+        ///
+        void AtStart();
+
+        /// Run simulator for numDays steps.
+        void Run(unsigned int numDays);
 
 private:
         /// Private constructor, @see Create.
@@ -94,11 +103,10 @@ private:
 
 private:
         util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger (!= contact_logger).
-        std::string                     m_log_level;     ///< Log level (see spdlog::level in spdlog/common.h).
         std::string                     m_output_prefix; ///< Prefix for output data files.
         boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
         std::shared_ptr<Sim>            m_sim;           ///< Simulator object.
+        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger (!= contact_logger).
 };
 
 } // namespace stride

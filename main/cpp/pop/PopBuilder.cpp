@@ -38,10 +38,9 @@ using namespace boost::property_tree;
 PopBuilder::PopBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
     : m_config_pt(configPt), m_pop(make_shared<Population>()), m_stride_logger(std::move(logger))
 {
-        assert(!m_config_pt.empty() && "PopBuilder::PopBuilder> Empty config ptree not acceptable!");
         // So as not to have to guard all log statements
         if (!m_stride_logger) {
-                m_stride_logger = LogUtils::CreateNullLogger("PopBuilderNullLogger");
+                m_stride_logger = LogUtils::CreateNullLogger("NullLogger");
         }
 }
 

@@ -38,7 +38,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
 
         // Influenza data
         if (tag == "influenza_a") {
-                target = 1232U;
+                target = 1200U;
         }
         if (tag == "influenza_b") {
                 pt.put("run.seeding_rate", 0.0);

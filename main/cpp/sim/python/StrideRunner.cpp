@@ -35,7 +35,6 @@
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <omp.h>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 namespace python {
@@ -138,7 +137,7 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         //------------------------------------------------------------------------------
         m_clock.Start();
         cout << "Building the simulator. " << endl;
-        SimBuilder builder(m_pt_config, nullptr);
+        SimBuilder builder(m_pt_config);
         m_sim = builder.Build();
         cout << "Done building the simulator. " << endl;
 }
