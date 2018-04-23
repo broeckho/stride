@@ -49,19 +49,19 @@ Sim::Sim()
 
 void Sim::TimeStep()
 {
-        std::shared_ptr<DaysOffInterface> days_off{nullptr};
+        std::shared_ptr<DaysOffInterface> daysOff{nullptr};
 
         // Logic where you compute (on the basis of input/config for initial day or on the basis of
         // number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you apply.
-        // If we want to make this independent of contacpools, then the days_off object has to be
+        // If we want to make this independent of contacpools, then the daysOff object has to be
         // passed into the Update function.
-        days_off                 = std::make_shared<DaysOffStandard>(m_calendar);
-        const bool is_work_off   = days_off->IsWorkOff();
-        const bool is_school_off = days_off->IsSchoolOff();
+        daysOff                = std::make_shared<DaysOffStandard>(m_calendar);
+        const bool isWorkOff   = daysOff->IsWorkOff();
+        const bool isSchoolOff = daysOff->IsSchoolOff();
 
         // Update individual's health status & presence in contactpools.
         for (auto& p : *m_population) {
-                p.Update(is_work_off, is_school_off);
+                p.Update(isWorkOff, isSchoolOff);
         }
 
         using Id = ContactLogMode::Id;
@@ -101,8 +101,6 @@ void Sim::TimeStep()
                 throw std::runtime_error(std::string(__func__) + "No valid local information policy!");
         }
 
-        Notify(static_cast<unsigned int>(m_calendar->GetSimulationDay()));
-
         m_calendar->AdvanceDay();
 }
 
@@ -123,7 +121,7 @@ void Sim::UpdatePools()
         // The inner loop over the pools in each system is parallellized providing OpenMP is available.
         // Infector updates individuals for contacts & transmission within a pool.
 
-        const auto sim_day       = m_calendar->GetSimulationDay();
+        const auto simDay        = m_calendar->GetSimulationDay();
         auto&      poolSys       = m_population->GetContactPoolSys();
         auto       contactLogger = m_population->GetContactLogger();
 
@@ -135,7 +133,7 @@ void Sim::UpdatePools()
                         for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
                                 Infector<log_level, track_index_case, local_information_policy>::Exec(
                                     poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile, handlers[thread],
-                                    sim_day, contactLogger);
+                                    simDay, contactLogger);
                         }
                 }
         }

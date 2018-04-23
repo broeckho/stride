@@ -55,7 +55,7 @@ class CliController
 {
 public:
         /// Straight initialization.
-        explicit CliController(const boost::property_tree::ptree& config_pt);
+        explicit CliController(const boost::property_tree::ptree& configPt);
 
         /// Actual run of the simulator.
         void Control();

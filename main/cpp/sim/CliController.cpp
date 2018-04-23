@@ -41,9 +41,9 @@ using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 
-CliController::CliController(const ptree& config_pt)
+CliController::CliController(const ptree& configPt)
     : m_config_file(""), m_p_overrides(), m_stride_log_level(), m_use_install_dirs(), m_max_num_threads(1U),
-      m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(config_pt),
+      m_output_prefix(""), m_run_clock("run_clock", true), m_config_path(), m_config_pt(configPt),
       m_stride_logger(nullptr)
 {
         m_stride_log_level = m_config_pt.get<string>("run.stride_log_level");

@@ -18,7 +18,7 @@ class Simulation:
             self.dataDir = os.path.join("..", "data")
         else:
             self.dataDir = dataDir
-    
+
     def loadRunConfig(self, filename: str):
         self.runConfig = Config(filename)
         self.diseaseConfig = Config(os.path.join(self.dataDir, self.runConfig.getParameter("disease_config_file")))
@@ -105,7 +105,7 @@ class Simulation:
     def runForks(self, *args, **kwargs):
         """ Create the root simulation folder. """
         os.makedirs(self.getOutputDirectory(), exist_ok=True)
-        
+
         """ Run all forks but not the root simulation. """
         for fork in self.forks:
             fork.run(*args, **kwargs)

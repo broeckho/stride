@@ -20,6 +20,7 @@
 
 #include "StrideRunner.h"
 
+#include "calendar/Calendar.h"
 #include "output/AdoptedFile.h"
 #include "output/CasesFile.h"
 #include "output/PersonsFile.h"
@@ -157,35 +158,20 @@ void StrideRunner::Run()
         Stopwatch<> run_clock("run_clock");
 
         m_is_running = true;
-        const auto           num_days{m_pt_config.get<unsigned int>("run.num_days")};
-        vector<unsigned int> cases(num_days);
-        vector<unsigned int> adopted(num_days);
+        const auto num_days{m_pt_config.get<unsigned int>("run.num_days")};
         for (unsigned int i = 0; i < num_days; i++) {
                 // Check if still running
                 if (!m_is_running) {
                         break;
                 }
 
-                cout << "Simulating day: " << setw(5) << i;
+                cout << "Day: " << setw(5) << i;
                 run_clock.Start();
                 m_sim->TimeStep();
                 run_clock.Stop();
-
-                cout << "     Done, infected count: ";
-
-                cases[i]   = m_sim->GetPopulation()->GetInfectedCount();
-                adopted[i] = m_sim->GetPopulation()->GetAdoptedCount();
-
-                cout << setw(7) << cases[i] << "     Adopters count: " << setw(7) << adopted[i];
-                cout << endl;
+                m_sim->Notify(static_cast<unsigned int>(m_sim->GetCalendar()->GetSimulationDay()));
+                cout << "    Done, infected count: " << setw(7) << m_sim->GetPopulation()->GetInfectedCount() << endl;
         }
-
-        // -----------------------------------------------------------------------------------------
-        // Generate output files
-        // -----------------------------------------------------------------------------------------
-        GenerateOutputFiles(m_output_prefix, cases, adopted, m_pt_config,
-                            static_cast<unsigned int>(duration_cast<milliseconds>(run_clock.Get()).count()),
-                            static_cast<unsigned int>(duration_cast<milliseconds>(m_clock.Get()).count()));
 
         m_is_running = false;
 
@@ -201,32 +187,6 @@ void StrideRunner::Run()
 }
 
 void StrideRunner::Stop() { m_is_running = false; }
-
-/// Generate output files (at the end of the simulation).
-void StrideRunner::GenerateOutputFiles(const string& output_prefix, const vector<unsigned int>& cases,
-                                       const vector<unsigned int>& adopted, const ptree& pt_config,
-                                       unsigned int run_time, unsigned int total_time)
-{
-        // Cases
-        CasesFile cases_file(output_prefix);
-        cases_file.Print(cases);
-
-        // Adopted
-        AdoptedFile adopted_file(output_prefix);
-        adopted_file.Print(adopted);
-
-        // Summary
-        SummaryFile summary_file(output_prefix);
-        summary_file.Print(pt_config, static_cast<unsigned int>(m_sim->GetPopulation()->size()),
-                           m_sim->GetPopulation()->GetInfectedCount(), m_sim->GetTransmissionProfile().GetRate(),
-                           run_time, total_time);
-
-        // Persons
-        if (pt_config.get<bool>("run.output_persons", false)) {
-                PersonsFile person_file(output_prefix);
-                person_file.Print(m_sim->GetPopulation());
-        }
-}
 
 } // namespace python
 } // namespace stride
