@@ -28,8 +28,8 @@ class Config:
             self._etree.find(name).text = str(value)
 
     def fromFile(self, filepath: str):
-        if os.path.isfile(filepaht):
-            self._etree = ET.parse(filename).getroot()
+        if os.path.isfile(filepath):
+            self._etree = ET.parse(filepath).getroot()
         else:
             print ("Configuration file " + filepath + " could not be found")
             exit(1)
