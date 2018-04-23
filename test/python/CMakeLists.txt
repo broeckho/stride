@@ -19,6 +19,7 @@
 #============================================================================
 set (SCRIPTS
 	testSimple.py
+	testVaccinate.py
 )
 
 INSTALL (FILES
@@ -32,6 +33,10 @@ INSTALL (FILES
 add_test(NAME simple_py
 	WORKING_DIRECTORY ${TESTS_DIR}
 	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testSimple.py
+	)
+add_test(NAME vaccinate_py
+	WORKING_DIRECTORY ${TESTS_DIR}
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testVaccinate.py
 	)
 
 #============================================================================

@@ -44,7 +44,7 @@ public:
         /// Default constructor for empty Simulator.
         Sim();
 
-        /// Caledar associated with simulated world. Represents date/simulated day of
+        /// Calendar associated with simulated world. Represents date/simulated day of
         /// last TimeStep completed (it is incremented at the very end of TimeStep).
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
 
@@ -73,7 +73,7 @@ private:
         bool                        m_track_index_case;     ///< General simulation or tracking index case.
         TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 
-        std::shared_ptr<Calendar> m_calendar;   ///< Management of calendar.
+        std::shared_ptr<Calendar> m_calendar;   ///< Managment of calendar.
         util::RNManager           m_rn_manager; ///< Random numbere generation management.
 
 private:

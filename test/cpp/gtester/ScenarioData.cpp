@@ -69,7 +69,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
         }
         if (tag == "r0_4") {
                 pt.put("run.r0", 4.0);
-                target = 39080U;
+                target = 40000U;
         }
         if (tag == "r0_8") {
                 pt.put("run.r0", 8.0);
