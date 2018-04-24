@@ -24,7 +24,6 @@
 #include "pop/Population.h"
 #include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "util/TimeStamp.h"
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <sstream>
@@ -41,24 +40,24 @@ void CliViewer::Update(const sim_event::Payload& p)
 {
         switch (p.m_event_id) {
         case Id::AtStart: {
-                const auto sim = p.m_runner->GetSim();
-                m_logger->info("SimRunner at start: {}", TimeStamp().ToString());
+                const auto sim = m_runner->GetSim();
+                m_logger->info("   SimRunner at start:");
                 ostringstream ss;
-                write_xml(ss, p.m_runner->GetConfig(), xml_writer_make_settings<ptree::key_type>(' ', 8));
+                write_xml(ss, m_runner->GetConfig(), xml_writer_make_settings<ptree::key_type>(' ', 8));
                 m_logger->trace("Run config used:\n {}", ss.str());
-                m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
+                m_logger->info("      Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto sim = p.m_runner->GetSim();
-                m_logger->info("     Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
+                const auto sim = m_runner->GetSim();
+                m_logger->info("      Day: {:4}  Done, infected count: {:7}", sim->GetCalendar()->GetSimulationDay(),
                                sim->GetPopulation()->GetInfectedCount());
                 break;
         }
         case Id::Finished: {
-                const auto sim = p.m_runner->GetSim();
-                m_logger->info("  SimRunner done after: {}", p.m_runner->GetClock().ToString());
+                const auto sim = m_runner->GetSim();
+                m_logger->info("   SimRunner done after: {}", m_runner->GetClock().ToString());
                 break;
         }
         default: break;

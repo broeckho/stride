@@ -31,9 +31,8 @@ namespace sim_event {
 
 struct Payload
 {
-        Payload(std::shared_ptr<SimRunner> s, sim_event::Id e) : m_runner(std::move(s)), m_event_id(e){};
-        std::shared_ptr<SimRunner> m_runner;
-        sim_event::Id              m_event_id;
+        explicit Payload(sim_event::Id e) : m_event_id(e){};
+        sim_event::Id m_event_id;
 };
 
 } // namespace sim_event

@@ -34,12 +34,12 @@ void CasesViewer::Update(const sim_event::Payload& p)
 {
         switch (p.m_event_id) {
         case Id::AtStart: {
-                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                const auto pop = m_runner->GetSim()->GetPopulation();
                 m_cases.push_back(pop->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                const auto pop = m_runner->GetSim()->GetPopulation();
                 m_cases.push_back(pop->GetInfectedCount());
                 break;
         }

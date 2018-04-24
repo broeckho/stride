@@ -33,13 +33,17 @@ class PersonsViewer
 {
 public:
         /// Instantiate cases viewer.
-        explicit PersonsViewer(const std::string& output_prefix) : m_persons_file(output_prefix) {}
+        PersonsViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_persons_file(output_prefix), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);
 
 private:
-        output::PersonsFile m_persons_file;
+        output::PersonsFile        m_persons_file;
+        std::shared_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

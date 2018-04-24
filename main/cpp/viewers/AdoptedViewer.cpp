@@ -34,12 +34,12 @@ void AdoptedViewer::Update(const sim_event::Payload& p)
 {
         switch (p.m_event_id) {
         case Id::AtStart: {
-                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                const auto pop = m_runner->GetSim()->GetPopulation();
                 m_adopted.push_back(pop->GetAdoptedCount());
                 break;
         }
         case Id::Stepped: {
-                const auto pop = p.m_runner->GetSim()->GetPopulation();
+                const auto pop = m_runner->GetSim()->GetPopulation();
                 m_adopted.push_back(pop->GetAdoptedCount());
                 break;
         }

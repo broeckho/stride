@@ -50,7 +50,7 @@ void SimRunner::Setup(const ptree& config_pt, std::shared_ptr<spdlog::logger> lo
         // Intro.
         // -----------------------------------------------------------------------------------------
         m_clock.Start();
-        Notify({shared_from_this(), Id::SetupBegin});
+        Notify(Payload(Id::SetupBegin));
         m_config_pt     = config_pt;
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
@@ -75,20 +75,20 @@ void SimRunner::Setup(const ptree& config_pt, std::shared_ptr<spdlog::logger> lo
         // Done.
         // -----------------------------------------------------------------------------------------
         m_clock.Stop();
-        Notify({shared_from_this(), Id::SetupEnd});
+        Notify(Payload(Id::SetupEnd));
 }
 
 void SimRunner::AtFinish()
 {
         m_clock.Start();
-        Notify({shared_from_this(), Id::Finished});
+        Notify(Payload(Id::Finished));
         m_clock.Stop();
 }
 
 void SimRunner::AtStart()
 {
         m_clock.Start();
-        Notify({shared_from_this(), Id::AtStart});
+        Notify(Payload(Id::AtStart));
         m_clock.Stop();
 }
 
@@ -97,7 +97,7 @@ void SimRunner::Run(unsigned int numDays)
         m_clock.Start();
         for (unsigned int i = 0; i < numDays; i++) {
                 m_sim->TimeStep();
-                Notify({shared_from_this(), Id::Stepped});
+                Notify(Payload(Id::Stepped));
         }
         m_clock.Stop();
 }

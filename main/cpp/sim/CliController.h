@@ -21,7 +21,7 @@
 
 #include "util/Stopwatch.h"
 
-#include <boost/filesystem/path.hpp>
+//#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>
@@ -91,7 +91,6 @@ private:
         std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
         util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
 
-        boost::filesystem::path         m_config_path;   ///< path to config file.
         boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
         std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
 };

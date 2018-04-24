@@ -33,13 +33,17 @@ class SummaryViewer
 {
 public:
         /// Instantiate cases viewer.
-        explicit SummaryViewer(const std::string& output_prefix) : m_summary_file(output_prefix) {}
+        SummaryViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_summary_file(output_prefix), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);
 
 private:
-        output::SummaryFile m_summary_file;
+        output::SummaryFile        m_summary_file;
+        std::shared_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

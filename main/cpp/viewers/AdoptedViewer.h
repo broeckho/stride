@@ -33,14 +33,18 @@ class AdoptedViewer
 {
 public:
         /// Instantiate cases viewer.
-        explicit AdoptedViewer(const std::string& output_prefix) : m_adopted(), m_adopted_file(output_prefix) {}
+        AdoptedViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_adopted(), m_adopted_file(output_prefix), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);
 
 private:
-        std::vector<unsigned int> m_adopted;
-        output::AdoptedFile       m_adopted_file;
+        std::vector<unsigned int>  m_adopted;
+        output::AdoptedFile        m_adopted_file;
+        std::shared_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

@@ -31,13 +31,17 @@ class CliViewer
 {
 public:
         /// Instantiate cli viewer.
-        explicit CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(std::move(logger)) {}
+        CliViewer(std::shared_ptr<SimRunner> runner, std::shared_ptr<spdlog::logger> logger)
+            : m_logger(std::move(logger)), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
         void Update(const sim_event::Payload& p);
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
+        std::shared_ptr<SimRunner>      m_runner;
 };
 
 } // namespace viewers
