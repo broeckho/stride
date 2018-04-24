@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -43,7 +43,7 @@ using namespace util;
 Sim::Sim()
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
       m_track_index_case(false), m_transmission_profile(), m_calendar(), m_rn_manager(), m_sim_day(0U),
-      m_population(nullptr), m_local_info_policy()
+      m_local_info_policy(), m_population(nullptr)
 {
 }
 

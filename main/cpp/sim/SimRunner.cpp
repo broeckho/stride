@@ -40,7 +40,7 @@ using namespace std;
 namespace stride {
 
 SimRunner::SimRunner()
-    : m_clock("total_clock"), m_output_prefix(""), m_config_pt(), m_sim(nullptr), m_stride_logger(nullptr)
+    : m_clock("total_clock"), m_output_prefix(""), m_config_pt(), m_sim(nullptr)
 {
 }
 
@@ -55,20 +55,9 @@ void SimRunner::Setup(const ptree& config_pt, std::shared_ptr<spdlog::logger> lo
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
 
         // -----------------------------------------------------------------------------------------
-        // C.
-        // -----------------------------------------------------------------------------------------
-        m_stride_logger = std::move(logger);
-        if (!m_stride_logger) {
-                // So as not to have to guard all log statements
-                m_stride_logger = LogUtils::CreateNullLogger("NullLogger");
-        }
-
-        // -----------------------------------------------------------------------------------------
         // Build simulator.
         //------------------------------------------------------------------------------------------
-        m_stride_logger->trace("Starting SimBuilder::Build.");
-        SimBuilder builder(m_config_pt, m_stride_logger);
-        m_stride_logger->trace("Finished SimBuilder::Build.");
+        SimBuilder builder(m_config_pt);
         m_sim = builder.Build();
 
         // -----------------------------------------------------------------------------------------

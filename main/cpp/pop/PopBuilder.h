@@ -38,10 +38,13 @@ public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
         /// \param logger      Logger for trace info.
-        explicit PopBuilder(const boost::property_tree::ptree& configPt,
-                            std::shared_ptr<spdlog::logger>    logger = nullptr);
+        explicit PopBuilder(const boost::property_tree::ptree& configPt);
 
-        /// Builds a Population.
+        /// Builds a Population. The steps are:
+        /// - Preliminaries (check input data, rnManager, contactLogger).
+        /// - Read persons from file and instatiate them.
+        /// - Fill up the various type of contactpools.
+        /// - Seed the population with contact survey participants.
         /// @return              Pointer to the population.
         std::shared_ptr<Population> Build();
 
@@ -60,7 +63,6 @@ private:
         unsigned int                    m_num_threads; ///< The number of (OpenMP) threads.
         std::shared_ptr<Population>     m_pop;
         util::RNManager                 m_rn_manager;    ///< Random numbere generation management.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride

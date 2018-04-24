@@ -72,19 +72,16 @@ private:
         unsigned int                m_num_threads;          ///< The number of (OpenMP) threads.
         bool                        m_track_index_case;     ///< General simulation or tracking index case.
         TransmissionProfile         m_transmission_profile; ///< Profile of disease.
+        std::string                 m_local_info_policy; ///< Local information name.
 
-        std::shared_ptr<Calendar> m_calendar;   ///< Managment of calendar.
-        util::RNManager           m_rn_manager; ///< Random numbere generation management.
+        std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
+        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
+        util::RNManager             m_rn_manager; ///< Random numbere generation management.
 
 private:
         ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is
         ///< incremented at the beginning of TimeStep and should be used with coution inside TimeStep.
         unsigned int m_sim_day;
-
-private:
-        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
-
-        std::string m_local_info_policy; ///< Local information name.
 
 private:
         friend class SimBuilder;

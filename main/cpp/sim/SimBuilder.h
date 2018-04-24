@@ -40,7 +40,7 @@ class SimBuilder
 {
 public:
         /// Initializing SimBuilder.
-        SimBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger = nullptr);
+        SimBuilder(const boost::property_tree::ptree& configPt);
 
         /// Build the simulator.
         std::shared_ptr<Sim> Build();
@@ -58,7 +58,6 @@ private:
 
 private:
         boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
 };
 
 } // namespace stride
