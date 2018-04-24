@@ -1,7 +1,12 @@
-from pystride.stride.stride import Simulator
-from .Clock import Clock
+import time
 
-class PyRunner:
+from pystride.stride.stride import Simulator
+
+from .Clock import Clock
+from .Event import EventType, Event
+from .Subject import Subject
+
+class PyRunner(Subject):
     """
         Class responsible for the actual simulation loop.
         Functions as the 'model' in the MVC pattern.
@@ -10,34 +15,36 @@ class PyRunner:
         self.clock = Clock("run_clock")
         self.simulator = Simulator()
         # TODO output_prefix
-        # TODO configuration
+        self.runConfig = None
 
     # TODO getClock()?
     # TODO getConfig() ?
 
-    # TODO getSimulator()
+    def getSimulator(self):
+        return self.simulator
 
     def setup(self):
-        # TODO notify observers of setup begin
-        # TODO start clock
+        self.notifyObservers(Event(EventType.SetupBegin))
+        self.clock.start()
         # TODO status = True
         # TODO write configuration to filepath
-        # TODO set logger / output prefix?
-        # TODO log start setup + config file path
+        # TODO output prefix?
+        print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+        # TODO print config file path?
         # TODO build simulator
         #   log start builder
         #   SimulatorBuilder builder(config)
         #   self.simulator = builder.build()
         #   log end Building
-        # TODO stop clock
-        # TODO notify observers: setup finished
-        # TODO log end setup
+        self.clock.stop()
+        self.notifyObservers(Event(EventType.SetupEnd))
+        print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
         # TODO return status?
         pass
 
     def run(self):
-        # TODO clock.Start
-        # TODO get num days
+        self.clock.start()
+        num_days = self.runConfig.getParameter("num_days")
         # TODO log start?
         # TODO notify observers that sim is about to start
         #for day in range(num_days):
@@ -46,6 +53,6 @@ class PyRunner:
         #   TODO notify observers of timestep stepped
 
         # TODO notify observers that sim is Finished
-        # TODO stop clock
+        self.clock.stop()
         # TODO log finished ?
         pass

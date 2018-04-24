@@ -4,13 +4,14 @@ class Subject:
         Base class for subjects.
     """
     def __init__(self):
-        pass
+        self.observers = list()
 
     def registerObserver(self, observer):
-        pass
+        self.observers.append(observer)
 
     def unregisterObserver(self, observer):
-        pass
+        self.observers.remove(observer)
 
     def notifyObservers(self, event):
-        pass
+        for obs in self.observers:
+            obs.update(event)
