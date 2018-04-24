@@ -36,7 +36,7 @@ void MeaslesBench()
 {
         auto num_builder = [](unsigned int n) {
                 return [n]() {
-                        auto runner = SimRunner::Create();
+                        auto runner = make_shared<SimRunner>();
                         return Test([runner]() { runner->Run(); },
                                     [runner, n]() {
                                             auto config_pt = RunConfigManager::CreateBenchMeasles();

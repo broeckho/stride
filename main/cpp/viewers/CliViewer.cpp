@@ -36,9 +36,9 @@ using namespace boost::property_tree;
 namespace stride {
 namespace viewers {
 
-void CliViewer::Update(const sim_event::Payload& p)
+void CliViewer::Update(const sim_event::Id id)
 {
-        switch (p.m_event_id) {
+        switch (id) {
         case Id::AtStart: {
                 const auto sim = m_runner->GetSim();
                 m_logger->info("   SimRunner at start:");

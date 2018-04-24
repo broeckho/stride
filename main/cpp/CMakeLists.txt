@@ -71,7 +71,6 @@ set(LIB_SRC
     sim/Sim.cpp
     sim/SimBuilder.cpp
     sim/event/Id.cpp
-    sim/event/Payload.h
 	sim/event/Subject.cpp
 	sim/python/StrideRunner.cpp
 #---

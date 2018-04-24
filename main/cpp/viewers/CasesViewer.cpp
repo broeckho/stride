@@ -30,9 +30,9 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void CasesViewer::Update(const sim_event::Payload& p)
+void CasesViewer::Update(const sim_event::Id id)
 {
-        switch (p.m_event_id) {
+        switch (id) {
         case Id::AtStart: {
                 const auto pop = m_runner->GetSim()->GetPopulation();
                 m_cases.push_back(pop->GetInfectedCount());

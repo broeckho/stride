@@ -31,9 +31,9 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void SummaryViewer::Update(const sim_event::Payload& p)
+void SummaryViewer::Update(const sim_event::Id id)
 {
-        switch (p.m_event_id) {
+        switch (id) {
         case Id::Finished: {
                 const auto configPt = m_runner->GetConfig();
                 const auto sim      = m_runner->GetSim();

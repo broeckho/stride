@@ -19,7 +19,8 @@
  * Observer for SimEvents for commandline interface usage.
  */
 
-#include "sim/event/Payload.h"
+#include "sim/SimRunner.h"
+#include "sim/event/Id.h"
 
 #include <spdlog/spdlog.h>
 
@@ -37,7 +38,7 @@ public:
         }
 
         /// Let viewer perform update.
-        void Update(const sim_event::Payload& p);
+        void Update(const sim_event::Id id);
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
