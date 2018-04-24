@@ -72,7 +72,7 @@ public:
         /// Setup the context for the simulation run.
         /// \param config_pt        config info for run and for config of simulator
         /// \param logger               general logger
-        void Setup(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger = nullptr);
+        void Setup(const boost::property_tree::ptree& config_pt);
 
         /// Run simulator for numDays steps.
         void Run();
@@ -96,7 +96,6 @@ private:
         std::string                     m_output_prefix; ///< Prefix for output data files.
         boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
         std::shared_ptr<Sim>            m_sim;           ///< Simulator object.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger (!= contact_logger).
 };
 
 } // namespace stride

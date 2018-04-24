@@ -123,7 +123,6 @@ ptree SimBuilder::ReadAgeContactPtree()
                         throw runtime_error("SimBuilder::ReadAgeContactPtree> Error reading " + fp.string());
                 }
         }
-
         return pt;
 }
 
@@ -143,7 +142,6 @@ ptree SimBuilder::ReadDiseasePtree()
                         throw runtime_error("SimBuilder::ReadDiseasePtree> Error reading " + fp.string());
                 }
         }
-
         return pt;
 }
 

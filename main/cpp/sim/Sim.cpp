@@ -42,8 +42,8 @@ using namespace util;
 
 Sim::Sim()
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
-      m_track_index_case(false), m_transmission_profile(), m_calendar(), m_rn_manager(), m_sim_day(0U),
-      m_local_info_policy(), m_population(nullptr)
+      m_track_index_case(false), m_transmission_profile(), m_calendar(), m_local_info_policy(), m_population(nullptr),
+      m_sim_day(0U), m_rn_manager()
 {
 }
 

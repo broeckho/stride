@@ -44,7 +44,7 @@ SimRunner::SimRunner()
 {
 }
 
-void SimRunner::Setup(const ptree& config_pt, std::shared_ptr<spdlog::logger> logger)
+void SimRunner::Setup(const ptree& config_pt)
 {
         // -----------------------------------------------------------------------------------------
         // Intro.

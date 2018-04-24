@@ -84,7 +84,7 @@ void CliController::Control()
         // pointing to this. Shared_from_this is used in viewer notification mechanism.
         auto runner = make_shared<SimRunner>();
         RegisterViewers(runner);
-        runner->Setup(m_config_pt, m_stride_logger);
+        runner->Setup(m_config_pt);
 
         // -----------------------------------------------------------------------------------------
         // Execute run.
