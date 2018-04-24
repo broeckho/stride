@@ -68,9 +68,8 @@ TEST_P(BatchRuns, Run)
         const auto   margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
-        // Actual simualtor run.
+        // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        cerr << "            test tag: " << test_tag << endl;
         auto runner = make_shared<SimRunner>();
         runner->Setup(config_pt);
         runner->Run();
