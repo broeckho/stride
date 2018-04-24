@@ -39,12 +39,48 @@ namespace stride {
 using namespace std;
 using namespace trng;
 using namespace util;
+using namespace ContactLogMode;
 
 Sim::Sim()
     : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
       m_track_index_case(false), m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr),
       m_rn_manager()
 {
+        m_updaters = std::move(std::map<UpdaterKeyT, void (Sim::*)()>{
+            // clang-format off
+            {make_tuple(Id::Susceptibles, "NoLocalInformation", true),
+                    &Sim::UpdatePools<Id::Susceptibles, NoLocalInformation, true>},
+            {make_tuple(Id::All, "NoLocalInformation", true),
+                    &Sim::UpdatePools<Id::All, NoLocalInformation, true>},
+            {make_tuple(Id::Transmissions, "NoLocalInformation", true),
+                    &Sim::UpdatePools<Id::Transmissions, NoLocalInformation, true>},
+            {make_tuple(Id::None, "NoLocalInformation", true),
+                    &Sim::UpdatePools<Id::None, NoLocalInformation, true>},
+            {make_tuple(Id::Susceptibles, "NoLocalInformation", false),
+                    &Sim::UpdatePools<Id::Susceptibles, NoLocalInformation, false>},
+            {make_tuple(Id::All, "NoLocalInformation", false),
+                    &Sim::UpdatePools<Id::All, NoLocalInformation, false>},
+            {make_tuple(Id::Transmissions, "NoLocalInformation", false),
+                    &Sim::UpdatePools<Id::Transmissions, NoLocalInformation, false>},
+            {make_tuple(Id::None, "NoLocalInformation", false),
+                    &Sim::UpdatePools<Id::None, NoLocalInformation, false>},
+            {make_tuple(Id::Susceptibles, "LocalDiscussion", true),
+                    &Sim::UpdatePools<Id::Susceptibles, LocalDiscussion, true>},
+            {make_tuple(Id::All, "LocalDiscussion", true),
+                    &Sim::UpdatePools<Id::All, LocalDiscussion, true>},
+            {make_tuple(Id::Transmissions, "LocalDiscussion", true),
+                    &Sim::UpdatePools<Id::Transmissions, LocalDiscussion, true>},
+            {make_tuple(Id::None, "LocalDiscussion", true),
+                    &Sim::UpdatePools<Id::None, LocalDiscussion, true>},
+            {make_tuple(Id::Susceptibles, "LocalDiscussion", false),
+                    &Sim::UpdatePools<Id::Susceptibles, LocalDiscussion, false>},
+            {make_tuple(Id::All, "LocalDiscussion", false),
+                    &Sim::UpdatePools<Id::All, LocalDiscussion, false>},
+            {make_tuple(Id::Transmissions, "LocalDiscussion", false),
+                    &Sim::UpdatePools<Id::Transmissions, LocalDiscussion, false>},
+            {make_tuple(Id::None, "LocalDiscussion", false),
+                    &Sim::UpdatePools<Id::None, LocalDiscussion, false>}
+        }); // clang-format on
 }
 
 void Sim::TimeStep()
@@ -64,43 +100,8 @@ void Sim::TimeStep()
                 p.Update(isWorkOff, isSchoolOff);
         }
 
-        using Id = ContactLogMode::Id;
-        if (m_local_info_policy == "NoLocalInformation") {
-                if (m_track_index_case) {
-                        switch (m_contact_log_mode) {
-                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, NoLocalInformation, true>(); break;
-                        case Id::All: UpdatePools<Id::All, NoLocalInformation, true>(); break;
-                        case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, true>(); break;
-                        case Id::None: UpdatePools<Id::None, NoLocalInformation, true>(); break;
-                        }
-                } else {
-                        switch (m_contact_log_mode) {
-                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, NoLocalInformation, false>(); break;
-                        case Id::All: UpdatePools<Id::All, NoLocalInformation, false>(); break;
-                        case Id::Transmissions: UpdatePools<Id::Transmissions, NoLocalInformation, false>(); break;
-                        case Id::None: UpdatePools<Id::None, NoLocalInformation, false>(); break;
-                        }
-                }
-        } else if (m_local_info_policy == "LocalDiscussion") {
-                if (m_track_index_case) {
-                        switch (m_contact_log_mode) {
-                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, LocalDiscussion, true>(); break;
-                        case Id::All: UpdatePools<Id::All, LocalDiscussion, true>(); break;
-                        case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, true>(); break;
-                        case Id::None: UpdatePools<Id::None, LocalDiscussion, true>(); break;
-                        }
-                } else {
-                        switch (m_contact_log_mode) {
-                        case Id::Susceptibles: UpdatePools<Id::Susceptibles, LocalDiscussion, false>(); break;
-                        case Id::All: UpdatePools<Id::All, LocalDiscussion, false>(); break;
-                        case Id::Transmissions: UpdatePools<Id::Transmissions, LocalDiscussion, false>(); break;
-                        case Id::None: UpdatePools<Id::None, LocalDiscussion, false>(); break;
-                        }
-                }
-        } else {
-                throw std::runtime_error(std::string(__func__) + "No valid local information policy!");
-        }
-
+        // Update contact/transmission in the various contact pools.
+        (this->*m_updaters.at(make_tuple(m_contact_log_mode, m_local_info_policy, m_track_index_case)))();
         m_calendar->AdvanceDay();
 }
 

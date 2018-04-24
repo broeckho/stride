@@ -70,7 +70,7 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Actual simualtor run.
         // -----------------------------------------------------------------------------------------
-        cerr << "test tag: " << test_tag << endl;
+        cerr << "            test tag: " << test_tag << endl;
         auto runner = make_shared<SimRunner>();
         runner->Setup(config_pt);
         runner->Run();

@@ -23,7 +23,6 @@
 #include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
-
 #include <iostream>
 #include <spdlog/spdlog.h>
 

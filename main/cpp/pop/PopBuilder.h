@@ -59,10 +59,10 @@ private:
         void Preliminaries();
 
 private:
-        boost::property_tree::ptree     m_config_pt;   ///< Configuration property tree
-        unsigned int                    m_num_threads; ///< The number of (OpenMP) threads.
-        std::shared_ptr<Population>     m_pop;
-        util::RNManager                 m_rn_manager;    ///< Random numbere generation management.
+        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
+        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
+        std::shared_ptr<Population> m_pop;
+        util::RNManager             m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

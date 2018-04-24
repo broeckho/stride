@@ -35,9 +35,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>())
-{
-}
+PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
 
 void PopBuilder::MakePoolSys()
 {

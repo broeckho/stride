@@ -90,12 +90,11 @@ public:
 private:
         /// Private constructor, @see Create.
 
-
 private:
-        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
-        std::string                     m_output_prefix; ///< Prefix for output data files.
-        boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
-        std::shared_ptr<Sim>            m_sim;           ///< Simulator object.
+        util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
+        std::string                 m_output_prefix; ///< Prefix for output data files.
+        boost::property_tree::ptree m_config_pt;     ///< Ptree with configuration.
+        std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };
 
 } // namespace stride

@@ -86,7 +86,7 @@ TEST_P(ParallelRuns, Run)
         // -----------------------------------------------------------------------------------------
         for (const auto n : num_threads) {
                 config_pt.put("run.num_threads", n);
-                cerr << "test tag: " << test_tag << " with #threads: " << n << endl;
+                cerr << "            test tag: " << test_tag << " with #threads: " << n << endl;
                 auto runner = make_shared<SimRunner>();
                 runner->Setup(config_pt);
                 runner->Run();
