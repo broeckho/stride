@@ -44,8 +44,11 @@ public:
         /// Default constructor for empty Simulator.
         Sim();
 
-        /// Calendar associated with simulated world. Represents date/simulated day of
-        /// last TimeStep completed (it is incremented at the very end of TimeStep).
+        /// Calendar associated with simulated world. Gets initialized with the date
+        /// in the simulation world at whic simulation starts. It represents date/simulated day
+        /// of the last TimeStep completed (it is incremented at the very end of TimeStep).
+        /// GetCalendar()->GetsimulationDay() is the number of days simulated in the alst
+        /// completed time step.
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
 
         /// Get the transmission profile.
@@ -77,11 +80,6 @@ private:
         std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
         util::RNManager             m_rn_manager; ///< Random numbere generation management.
-
-private:
-        ///< Last simulated day; in TimeStep it is the currently simulating day i.e. m_sim_day is
-        ///< incremented at the beginning of TimeStep and should be used with coution inside TimeStep.
-        unsigned int m_sim_day;
 
 private:
         friend class SimBuilder;
