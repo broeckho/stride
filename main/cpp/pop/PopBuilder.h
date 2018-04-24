@@ -23,7 +23,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -37,7 +36,6 @@ class PopBuilder
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
-        /// \param logger      Logger for trace info.
         explicit PopBuilder(const boost::property_tree::ptree& configPt);
 
         /// Builds a Population. The steps are:
@@ -60,9 +58,8 @@ private:
 
 private:
         boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
-        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
-        std::shared_ptr<Population> m_pop;
-        util::RNManager             m_rn_manager; ///< Random numbere generation management.
+        std::shared_ptr<Population> m_pop;         ///< The population.
+        util::RNManager             m_rn_manager;  ///< Random numbere generation management.
 };
 
 } // namespace stride

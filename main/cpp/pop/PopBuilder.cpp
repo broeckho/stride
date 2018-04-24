@@ -20,14 +20,11 @@
 
 #include "PopBuilder.h"
 
-#include "disease/Health.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"
-
-#include <trng/uniform_int_dist.hpp>
 
 namespace stride {
 
@@ -76,9 +73,6 @@ void PopBuilder::MakePoolSys()
                         }
                 }
         }
-        // --------------------------------------------------------------
-        // Done.
-        // --------------------------------------------------------------
 }
 
 void PopBuilder::MakePersons()
@@ -144,10 +138,9 @@ void PopBuilder::Preliminaries()
         // ------------------------------------------------
         // Setup RNManager.
         // ------------------------------------------------
-        m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
         m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
                                                 m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
-                                                m_num_threads});
+                                                m_config_pt.get<unsigned int>("run.num_threads")});
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger to log contacts/transmissions. Do NOT register it.
@@ -156,7 +149,6 @@ void PopBuilder::Preliminaries()
                 const auto prefix         = m_config_pt.get<string>("run.output_prefix");
                 const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
                 m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                // Remove meta data from log => time-stamp of logging
                 m_pop->GetContactLogger()->set_pattern("%v");
         } else {
                 m_pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");

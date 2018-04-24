@@ -28,7 +28,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <map>
-#include <spdlog/spdlog.h>
 #include <tuple>
 
 namespace stride {

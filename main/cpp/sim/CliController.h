@@ -67,9 +67,6 @@ private:
         /// Check install environment.
         void CheckEnv();
 
-        /// Check the OpenMP environment.
-        void CheckOpenMP();
-
         // Output_prefix: if it's a string not containing any / it gets interpreted as a
         // filename prefix; otherwise we 'll create the corresponding directory.
         void CheckOutputPrefix();
@@ -81,18 +78,11 @@ private:
         void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 private:
-        std::string                                       m_config_file; /// Config parameters file name.
-        std::vector<std::tuple<std::string, std::string>> m_p_overrides; /// Cli overides of config parameters.
-
-        std::string m_stride_log_level; /// Log level (see spdlog::level in spdlog/common.h).
-        bool        m_use_install_dirs; /// Working dir or install dir mode.
-
-        unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
-        std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
-        util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
-
-        boost::property_tree::ptree     m_config_pt;     ///< Main configuration for run and sim.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger.
+        boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
+        std::string                     m_output_prefix;    /// Prefix to output (name prefix or prefix dir)
+        util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
+        std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
+        bool                            m_use_install_dirs; /// Working dir or install dir mode.
 };
 
 } // namespace stride

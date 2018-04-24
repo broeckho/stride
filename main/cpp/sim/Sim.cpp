@@ -28,8 +28,6 @@
 #include "contact/Infector.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
-#include "util/FileSys.h"
-#include "util/LogUtils.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
@@ -42,9 +40,8 @@ using namespace util;
 using namespace ContactLogMode;
 
 Sim::Sim()
-    : m_config_pt(), m_contact_log_mode(ContactLogMode::Id::None), m_contact_profiles(), m_num_threads(1U),
-      m_track_index_case(false), m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr),
-      m_rn_manager()
+    : m_config_pt(), m_contact_log_mode(Id::None), m_contact_profiles(), m_num_threads(1U), m_track_index_case(false),
+      m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr), m_rn_manager()
 {
         m_updaters = std::move(std::map<UpdaterKeyT, void (Sim::*)()>{
             // clang-format off
@@ -108,9 +105,7 @@ void Sim::TimeStep()
 template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
 void Sim::UpdatePools()
 {
-        using namespace stride::ContactPoolType;
-
-        // Contact handlers, each boud to a generator bound to a different random engine stream.
+        // Contact handlers, each bound to a generator bound to a different random engine stream.
         vector<ContactHandler> handlers;
         for (size_t i = 0; i < m_num_threads; i++) {
                 // RN generators with double in [0.0, 1.0) each bound to a different stream.
@@ -118,23 +113,21 @@ void Sim::UpdatePools()
                 handlers.emplace_back(ContactHandler(gen));
         }
 
-        // Loop over the various types of contact pool systems (household, school, work, etc
-        // The inner loop over the pools in each system is parallellized providing OpenMP is available.
-        // Infector updates individuals for contacts & transmission within a pool.
-
         const auto simDay        = m_calendar->GetSimulationDay();
         auto&      poolSys       = m_population->GetContactPoolSys();
         auto       contactLogger = m_population->GetContactLogger();
 
+        // Loop over the various types of contact pool systems (household, school, work, etc
+        // Infector updates individuals for contacts & transmission within a pool.
 #pragma omp parallel num_threads(m_num_threads)
         {
-                const auto thread = static_cast<unsigned int>(omp_get_thread_num());
+                const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(runtime)
                         for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
                                 Infector<log_level, track_index_case, local_information_policy>::Exec(
-                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile, handlers[thread],
-                                    simDay, contactLogger);
+                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
+                                    handlers[thread_num], simDay, contactLogger);
                         }
                 }
         }

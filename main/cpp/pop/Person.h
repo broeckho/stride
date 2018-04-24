@@ -34,10 +34,9 @@ namespace stride {
 class Person
 {
 public:
-        /// Default construction.
+        /// Default construction (for population vector).
         Person()
-            : m_id(0), m_age(0.0), m_gender(' '), m_pool_ids{0U}, m_in_pools(false), m_belief(nullptr), m_health(),
-              m_is_participant(false)
+            : m_age(0.0), m_belief(), m_gender(' '), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools()
         {
         }
 
@@ -45,9 +44,8 @@ public:
         Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
                unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
                double risk_averseness = 0, Belief* bp = nullptr)
-            : m_id(id), m_age(age),
-              m_gender('M'), m_pool_ids{householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId},
-              m_in_pools(true), m_belief(bp), m_health(health), m_is_participant(false)
+            : m_age(age), m_belief(bp), m_gender('M'), m_health(health), m_id(id), m_is_participant(false),
+              m_pool_ids{householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId}, m_in_pools(true)
         {
         }
 
@@ -94,21 +92,19 @@ public:
         void Update(Person* p);
 
 private:
-        unsigned int m_id;     ///< The id.
-        double       m_age;    ///< The age.
-        char         m_gender; ///< The gender.
+        double       m_age;            ///< The age.
+        Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
+        char         m_gender;         ///< The gender.
+        Health       m_health;         ///< Health info for this person.
+        unsigned int m_id;             ///< The id.
+        bool         m_is_participant; ///< Is participating in the social contact study
 
-        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids; ///< Ids (school, work, etc) of pools you belong to.
-                                                                    ///< Id value 0 means you do not belong to any
-                                                                    ///< pool of that type (e.g. school and work are
-                                                                    ///< mutually exclusive.
+        ///< Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any
+        ///< pool of that type (e.g. school and work are mutually exclusive.
+        ContactPoolType::IdSubscriptArray<unsigned int> m_pool_ids;
 
-        ContactPoolType::IdSubscriptArray<bool> m_in_pools; ///< Is person present/absent in pools of each of the
-                                                            ///< types (school, work, etc)?
-
-        Belief* m_belief;         ///< Health beliefs related data.
-        Health  m_health;         ///< Health info for this person.
-        bool    m_is_participant; ///< Is participating in the social contact study
+        ///< Is person present/absent in pools of each of the types (school, work, etc)?
+        ContactPoolType::IdSubscriptArray<bool> m_in_pools;
 };
 
 } // namespace stride

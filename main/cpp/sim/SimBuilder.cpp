@@ -44,18 +44,12 @@ SimBuilder::SimBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 
 std::shared_ptr<Sim> SimBuilder::Build()
 {
-        const auto contactPt = ReadAgeContactPtree();
-        const auto diseasePt = ReadDiseasePtree();
-        auto       sim       = Build(diseasePt, contactPt);
-        return sim;
-}
-
-std::shared_ptr<Sim> SimBuilder::Build(const ptree& diseasePt, const ptree& ageContactPt)
-{
         // --------------------------------------------------------------
-        // Uninitialized simulator object.
+        // Preliminaries.
         // --------------------------------------------------------------
         auto sim = make_shared<Sim>();
+        const auto diseasePt    = ReadDiseasePtree();
+        const auto ageContactPt = ReadAgeContactPtree();
 
         // --------------------------------------------------------------
         // Config info.

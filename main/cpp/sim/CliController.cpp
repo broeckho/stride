@@ -42,10 +42,8 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 CliController::CliController(const ptree& configPt)
-    : m_config_file(""), m_p_overrides(), m_stride_log_level(), m_use_install_dirs(), m_max_num_threads(1U),
-      m_output_prefix(""), m_run_clock("run_clock", true), m_config_pt(configPt), m_stride_logger(nullptr)
+    : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run", true), m_stride_logger(), m_use_install_dirs()
 {
-        m_stride_log_level = m_config_pt.get<string>("run.stride_log_level");
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 };
@@ -59,8 +57,6 @@ void CliController::CheckEnv()
                 }
         }
 }
-
-void CliController::CheckOpenMP() { m_max_num_threads = ConfigInfo::NumberAvailableThreads(); }
 
 void CliController::CheckOutputPrefix()
 {
@@ -77,18 +73,11 @@ void CliController::CheckOutputPrefix()
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Instantiate & stup SimRunner & register viewers.
+        // Instantiate & stup SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        // Necessary (i.o. local variable) because (quote) a precondition of shared_from_this(),
-        // namely that at least one shared_ptr must already have been created (and still exist)
-        // pointing to this. Shared_from_this is used in viewer notification mechanism.
         auto runner = make_shared<SimRunner>();
         RegisterViewers(runner);
         runner->Setup(m_config_pt);
-
-        // -----------------------------------------------------------------------------------------
-        // Execute run.
-        // -----------------------------------------------------------------------------------------
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
@@ -100,9 +89,10 @@ void CliController::Control()
 
 void CliController::MakeLogger()
 {
-        const auto l    = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        m_stride_logger = LogUtils::CreateCliLogger("stride_logger", l.string());
-        m_stride_logger->set_level(spdlog::level::from_str(m_stride_log_level));
+        const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
+        const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
+        m_stride_logger = LogUtils::CreateCliLogger("stride_logger", path.string());
+        m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
 }
 
@@ -149,7 +139,6 @@ void CliController::Setup()
         // prefix contains at least one /, make a logger. Do NOT register it.
         // -----------------------------------------------------------------------------------------
         CheckEnv();
-        CheckOpenMP();
         CheckOutputPrefix();
         MakeLogger();
 
@@ -158,7 +147,7 @@ void CliController::Setup()
         // -----------------------------------------------------------------------------------------
         m_stride_logger->info("CliController stating up at: {}", TimeStamp().ToString());
         m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
-        m_stride_logger->trace("Creating dir:  {}", m_output_prefix);
+        m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
         m_stride_logger->trace("Current directory:   {}", FileSys::GetCurrentDir().string());
         if (m_use_install_dirs) {
@@ -167,8 +156,9 @@ void CliController::Setup()
                 m_stride_logger->trace("Data    directory:   {}", FileSys::GetDataDir().string());
         }
         if (ConfigInfo::HaveOpenMP()) {
-                m_stride_logger->trace("Max number OpenMP threads in this environment: {}", m_max_num_threads);
-                m_stride_logger->trace("Configured number of threads: {}",
+                m_stride_logger->info("Max number OpenMP threads in this environment: {}",
+                                       ConfigInfo::NumberAvailableThreads());
+                m_stride_logger->info("Configured number of threads: {}",
                                        m_config_pt.get<unsigned int>("run.num_threads"));
         } else {
                 m_stride_logger->info("Not using OpenMP threads.");

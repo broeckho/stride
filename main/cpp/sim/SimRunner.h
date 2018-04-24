@@ -70,30 +70,19 @@ public:
         std::shared_ptr<Sim> GetSim() const { return m_sim; }
 
         /// Setup the context for the simulation run.
-        /// \param config_pt        config info for run and for config of simulator
-        /// \param logger               general logger
-        void Setup(const boost::property_tree::ptree& config_pt);
+        /// \param configPt        config info for run and for config of simulator
+        void Setup(const boost::property_tree::ptree& configPt);
 
-        /// Run simulator for numDays steps.
+        /// Run simulator for as many steps/days as indicated in config.
         void Run();
 
-public:
-        ///
-        void AtFinish();
-
-        ///
-        void AtStart();
-
-        /// Run simulator for numDays steps.
-        void Run(unsigned int numDays);
-
-private:
-        /// Private constructor, @see Create.
+        /// Run simulator for numSteps steps/days.
+        void Run(unsigned int numSteps);
 
 private:
         util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
-        std::string                 m_output_prefix; ///< Prefix for output data files.
         boost::property_tree::ptree m_config_pt;     ///< Ptree with configuration.
+        std::string                 m_output_prefix; ///< Prefix for output data files.
         std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };
 

@@ -21,7 +21,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -40,16 +39,12 @@ class SimBuilder
 {
 public:
         /// Initializing SimBuilder.
-        SimBuilder(const boost::property_tree::ptree& configPt);
+        explicit SimBuilder(const boost::property_tree::ptree& configPt);
 
         /// Build the simulator.
         std::shared_ptr<Sim> Build();
 
 private:
-        /// Build the simulator.
-        std::shared_ptr<Sim> Build(const boost::property_tree::ptree& diseasePt,
-                                   const boost::property_tree::ptree& ageContactPt);
-
         /// Get the contact configuration data.
         boost::property_tree::ptree ReadAgeContactPtree();
 
