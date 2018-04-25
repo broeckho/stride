@@ -5,4 +5,6 @@
 #include "sim/SimulatorBuilder.h"
 %}
 
+%include <std_string.i>
+
 %include "sim/SimulatorBuilder.h";

@@ -37,6 +37,9 @@ class Config:
     def toFile(self, filepath: str):
         ET.ElementTree(self._etree).write(filepath)
 
+    def toString(self):
+        return ET.tostring(self._etree, encoding="utf8", method="xml").decode("utf-8")
+
     def copy(self):
         """
             Make a different Config object, with the same

@@ -35,6 +35,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform_int_dist.hpp>
 #include <cassert>
+#include <sstream>
 
 namespace stride {
 
@@ -54,10 +55,13 @@ SimulatorBuilder::SimulatorBuilder(const ptree& config_pt, std::shared_ptr<spdlo
         }
 }
 
-SimulatorBuilder::SimulatorBuilder(const std::string& config_file)
+SimulatorBuilder::SimulatorBuilder(const std::string& config_string)
 {
-	// Create ptree
-	m_config_pt = FileSys::ReadPtreeFile(config_file);
+	// Create ptree from xml string
+	stringstream ss;
+	ss << config_string;
+	read_xml(ss, m_config_pt, xml_parser::trim_whitespace);
+
 	// Create empty logger
 	m_stride_logger = LogUtils::CreateNullLogger("SimulatorBuilder_Null_Logger");
 }

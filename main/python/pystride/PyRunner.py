@@ -1,6 +1,6 @@
 import time
 
-from pystride.stride.stride import Simulator
+from pystride.stride.stride import Simulator, SimulatorBuilder
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch
@@ -32,13 +32,16 @@ class PyRunner(Subject):
         # TODO write config to file
         # TODO output prefix?
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-        '''
-                # TODO build simulator
-                #   log start builder
-                #   SimulatorBuilder builder(config)
-                #   self.simulator = builder.build()
-                #   log end Building
-        '''
+
+        # TODO build simulator
+        #   log start builder
+        #   SimulatorBuilder builder(config)
+        config_string = self.runConfig.toString()
+        print(config_string)
+        builder = SimulatorBuilder(config_string)
+        #   self.simulator = builder.build()
+        #   log end Building
+
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
         '''

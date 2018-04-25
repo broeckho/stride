@@ -43,7 +43,7 @@ public:
         /// Initializing SimulatorBuilder.
         SimulatorBuilder(const boost::property_tree::ptree& config_pt, std::shared_ptr<spdlog::logger> logger);
 
-        SimulatorBuilder(const std::string& config_file);
+        SimulatorBuilder(const std::string& config_string);
 
         /// Build the simulator.
         std::shared_ptr<Simulator> Build();
