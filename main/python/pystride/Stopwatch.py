@@ -1,7 +1,7 @@
 import time
 
-class Clock:
-    def __init__(self, name="clock"):
+class Stopwatch:
+    def __init__(self, name="stopwatch"):
         self.accumulated = None
         self.last_start = None
         self.name = name
@@ -40,30 +40,3 @@ class Clock:
             else:
                 temp = (now - self.last_start)
         return temp
-
-    # TODO toString(self) ?
-
-
-'''
-        /// Returns string representation of readout
-        std::string ToString() const
-        {
-                using namespace std;
-                using namespace std::chrono;
-
-                string                          colon_string;
-                typedef typename TClock::period TPeriod;
-                if (ratio_less_equal<TPeriod, micro>::value) {
-                        microseconds d = duration_cast<microseconds>(Get());
-                        colon_string   = TimeToString::ToColonString(d);
-                } else if (ratio_less_equal<TPeriod, milli>::value) {
-                        milliseconds d = duration_cast<milliseconds>(Get());
-                        colon_string   = TimeToString::ToColonString(d);
-                } else {
-                        seconds d    = duration_cast<seconds>(Get());
-                        colon_string = TimeToString::ToColonString(d);
-                }
-                return colon_string;
-        }
-};
-'''

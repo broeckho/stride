@@ -6,64 +6,49 @@ from .Config import Config
 from .PyRunner import PyRunner
 
 class PyController:
-    def __init__(self, config_path=None):
+    def __init__(self, config_path=None, data_dir="../data"):
         # self.forks = list()
         self.runner = PyRunner()
+        self.dataDir = data_dir
         self.timestamp =  time.strftime("%Y%m%d_%H%M%S", time.localtime())
         if config_path != None:
-            # Load run and disease config from file
+            # Load run config from file
             self.loadRunConfig(config_path)
-            # TODO load disease config
         else:
             self.runConfig = Config(root="run")
             self.diseaseConfig = Config(root="disease")
 
     def loadRunConfig(self, config_path: str):
         self.runConfig = Config(config_path)
-        #self.diseaseConfig = Config(os.path.join(self.dataDir, self.runConfig.getParameter("disease_config_file")))
-        #self.runConfig.setParameter("output_prefix", self.getLabel())
+        self.diseaseConfig = Config(os.path.join(self.dataDir, self.runConfig.getParameter("disease_config_file")))
+        self.runConfig.setParameter("output_prefix", self.getOutputPrefix())
 
     def getOutputPrefix(self):
         output_prefix = self.runConfig.getParameter("output_prefix")
         if output_prefix == None:
             return self.timestamp
-        return output_prefix
 
     def getWorkingDirectory(self):
         return pystride.workspace
 
     def getOutputDirectory(self):
-        pass
-
-    '''
-        def getOutputDirectory(self):
-            return os.path.join(self.getWorkingDirectory(), self.getLabel()+"/")
-    '''
+        return os.path.join(self.getWorkingDirectory(), self.getOutputPrefix())
 
     def run(self):
         """
-            Run the current simulation
+            Run the current simulation.
         """
-        print("Run starting at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+        print("PyController starting run at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
         # TODO create output directory
-        # TODO copy data files to output/data?
+        # os.makedirs(self.getOutputDirectory(), exist_ok=True)
+        # TODO copy data files to output/data
 
         # TODO setup runner + execute
-        # self.runner.setup(self.runConfig)
-        # self.runner.run()
-        print("Run ending at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+        self.runner.setup(self.runConfig)
+        self.runner.run()
 
-    def runForks(self):
-        pass
+        print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
-    def runAll(self):
-        pass
-
-'''
-        unsigned int      m_max_num_threads; /// Max number  of OpenMP threads.
-        std::string       m_output_prefix;   /// Prefix to output (name prefix or prefix dir)
-        util::Stopwatch<> m_run_clock;       ///< Stopwatch for timing the computation.
-'''
 
 '''
     def __init__(self, dataDir=None):
@@ -71,10 +56,6 @@ class PyController:
             self.dataDir = os.path.join("..", "data")
         else:
             self.dataDir = dataDir
-
-    def loadDiseaseConfig(self, filename: str):
-        self.diseaseConfig = Config(filename)
-        self.runConfig.setParameter("disease_config_file", os.path.basename(filename))
 
     def _linkData(self):
         dataDestDir = os.path.join(self.getOutputDirectory(), "data")
@@ -150,4 +131,6 @@ class PyController:
         self.run(*args, **kwargs)
         self.runForks(*args, **kwargs)
 
-from .Fork import Fork'''
+
+from .Fork import Fork
+'''
