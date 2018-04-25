@@ -57,9 +57,9 @@ private:
         void Preliminaries();
 
 private:
-        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
-        std::shared_ptr<Population> m_pop;         ///< The population.
-        util::RNManager             m_rn_manager;  ///< Random numbere generation management.
+        boost::property_tree::ptree m_config_pt;  ///< Configuration property tree
+        std::shared_ptr<Population> m_pop;        ///< The population.
+        util::RNManager             m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

@@ -47,7 +47,7 @@ std::shared_ptr<Sim> SimBuilder::Build()
         // --------------------------------------------------------------
         // Preliminaries.
         // --------------------------------------------------------------
-        auto sim = make_shared<Sim>();
+        auto       sim          = make_shared<Sim>();
         const auto diseasePt    = ReadDiseasePtree();
         const auto ageContactPt = ReadAgeContactPtree();
 

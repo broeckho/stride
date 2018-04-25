@@ -43,40 +43,40 @@ Sim::Sim()
     : m_config_pt(), m_contact_log_mode(Id::None), m_contact_profiles(), m_num_threads(1U), m_track_index_case(false),
       m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr), m_rn_manager()
 {
-        m_updaters = std::move(std::map<UpdaterKeyT, void (Sim::*)()>{
+        m_infectors = std::move(InfectorMap{
             // clang-format off
-            {make_tuple(Id::Susceptibles, "NoLocalInformation", true),
-                    &Sim::UpdatePools<Id::Susceptibles, NoLocalInformation, true>},
-            {make_tuple(Id::All, "NoLocalInformation", true),
-                    &Sim::UpdatePools<Id::All, NoLocalInformation, true>},
-            {make_tuple(Id::Transmissions, "NoLocalInformation", true),
-                    &Sim::UpdatePools<Id::Transmissions, NoLocalInformation, true>},
-            {make_tuple(Id::None, "NoLocalInformation", true),
-                    &Sim::UpdatePools<Id::None, NoLocalInformation, true>},
-            {make_tuple(Id::Susceptibles, "NoLocalInformation", false),
-                    &Sim::UpdatePools<Id::Susceptibles, NoLocalInformation, false>},
-            {make_tuple(Id::All, "NoLocalInformation", false),
-                    &Sim::UpdatePools<Id::All, NoLocalInformation, false>},
-            {make_tuple(Id::Transmissions, "NoLocalInformation", false),
-                    &Sim::UpdatePools<Id::Transmissions, NoLocalInformation, false>},
-            {make_tuple(Id::None, "NoLocalInformation", false),
-                    &Sim::UpdatePools<Id::None, NoLocalInformation, false>},
-            {make_tuple(Id::Susceptibles, "LocalDiscussion", true),
-                    &Sim::UpdatePools<Id::Susceptibles, LocalDiscussion, true>},
-            {make_tuple(Id::All, "LocalDiscussion", true),
-                    &Sim::UpdatePools<Id::All, LocalDiscussion, true>},
-            {make_tuple(Id::Transmissions, "LocalDiscussion", true),
-                    &Sim::UpdatePools<Id::Transmissions, LocalDiscussion, true>},
-            {make_tuple(Id::None, "LocalDiscussion", true),
-                    &Sim::UpdatePools<Id::None, LocalDiscussion, true>},
-            {make_tuple(Id::Susceptibles, "LocalDiscussion", false),
-                    &Sim::UpdatePools<Id::Susceptibles, LocalDiscussion, false>},
-            {make_tuple(Id::All, "LocalDiscussion", false),
-                    &Sim::UpdatePools<Id::All, LocalDiscussion, false>},
-            {make_tuple(Id::Transmissions, "LocalDiscussion", false),
-                    &Sim::UpdatePools<Id::Transmissions, LocalDiscussion, false>},
-            {make_tuple(Id::None, "LocalDiscussion", false),
-                    &Sim::UpdatePools<Id::None, LocalDiscussion, false>}
+                {make_tuple(Id::Susceptibles, true, "NoLocalInformation"),
+                        &Infector<Id::Susceptibles, true, NoLocalInformation>::Exec},
+                {make_tuple(Id::All, true, "NoLocalInformation"),
+                        &Infector<Id::All, true, NoLocalInformation>::Exec},
+                {make_tuple(Id::Transmissions, true, "NoLocalInformation"),
+                        &Infector<Id::Transmissions, true, NoLocalInformation>::Exec},
+                {make_tuple(Id::None, true, "NoLocalInformation"),
+                        &Infector<Id::None, true, NoLocalInformation>::Exec},
+                {make_tuple(Id::Susceptibles, false, "NoLocalInformation"),
+                        &Infector<Id::Susceptibles, false, NoLocalInformation>::Exec},
+                {make_tuple(Id::All, false, "NoLocalInformation"),
+                        &Infector<Id::All, false, NoLocalInformation>::Exec},
+                {make_tuple(Id::Transmissions, false, "NoLocalInformation"),
+                        &Infector<Id::Transmissions, false, NoLocalInformation>::Exec},
+                {make_tuple(Id::None, false, "NoLocalInformation"),
+                        &Infector<Id::None, false, NoLocalInformation>::Exec},
+                {make_tuple(Id::Susceptibles, true, "LocalDiscussion"),
+                        &Infector<Id::Susceptibles, true, LocalDiscussion>::Exec},
+                {make_tuple(Id::All, true, "LocalDiscussion"),
+                        &Infector<Id::All, true, LocalDiscussion>::Exec},
+                {make_tuple(Id::Transmissions, true, "LocalDiscussion"),
+                        &Infector<Id::Transmissions, true, LocalDiscussion>::Exec},
+                {make_tuple(Id::None, true, "LocalDiscussion"),
+                        &Infector<Id::None, true, LocalDiscussion>::Exec},
+                {make_tuple(Id::Susceptibles, false, "LocalDiscussion"),
+                        &Infector<Id::Susceptibles, false, LocalDiscussion>::Exec},
+                {make_tuple(Id::All, false, "LocalDiscussion"),
+                        &Infector<Id::All, false, LocalDiscussion>::Exec},
+                {make_tuple(Id::Transmissions, false, "LocalDiscussion"),
+                        &Infector<Id::Transmissions, false, LocalDiscussion>::Exec},
+                {make_tuple(Id::None, false, "LocalDiscussion"),
+                        &Infector<Id::None, false, LocalDiscussion>::Exec}
         }); // clang-format on
 }
 
@@ -97,12 +97,11 @@ void Sim::TimeStep()
                 p.Update(isWorkOff, isSchoolOff);
         }
 
-        // Update contact/transmission in the various contact pools.
-        (this->*m_updaters.at(make_tuple(m_contact_log_mode, m_local_info_policy, m_track_index_case)))();
+        // Update contact/transmission in contact pools & advance calendar.
+        UpdatePools();
         m_calendar->AdvanceDay();
 }
 
-template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case>
 void Sim::UpdatePools()
 {
         // Contact handlers, each bound to a generator bound to a different random engine stream.
@@ -125,9 +124,9 @@ void Sim::UpdatePools()
                 for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(runtime)
                         for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
-                                Infector<log_level, track_index_case, local_information_policy>::Exec(
-                                    poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
-                                    handlers[thread_num], simDay, contactLogger);
+                                const auto s = make_tuple(m_contact_log_mode, m_track_index_case, m_local_info_policy);
+                                (*m_infectors.at(s))(poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
+                                                     handlers[thread_num], simDay, contactLogger);
                         }
                 }
         }

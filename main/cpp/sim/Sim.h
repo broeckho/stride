@@ -21,6 +21,7 @@
 
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactLogMode.h"
+#include "contact/Infector.h"
 #include "contact/TransmissionProfile.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
@@ -66,11 +67,10 @@ public:
 
 private:
         /// Update the contacts in the given contactpools.
-        template <ContactLogMode::Id log_level, typename local_information_policy, bool track_index_case = false>
         void UpdatePools();
 
-        using UpdaterKeyT = std::tuple<stride::ContactLogMode::Id, std::string, bool>;
-        std::map<UpdaterKeyT, void (Sim::*)()> m_updaters;
+        using InfectorMap = std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT>;
+        InfectorMap m_infectors;
 
 private:
         boost::property_tree::ptree m_config_pt;            ///< Configuration property tree
@@ -79,7 +79,7 @@ private:
         unsigned int                m_num_threads;          ///< The number of (OpenMP) threads.
         bool                        m_track_index_case;     ///< General simulation or tracking index case.
         TransmissionProfile         m_transmission_profile; ///< Profile of disease.
-        std::string                 m_local_info_policy;    ///< Local information name.
+        std::string                 m_local_info_policy;    ///< Local information policy name.
 
         std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.

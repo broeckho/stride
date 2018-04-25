@@ -86,7 +86,7 @@ void CliController::MakeLogger()
 {
         const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
         const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
-        m_stride_logger = LogUtils::CreateCliLogger("stride_logger", path.string());
+        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
 }
@@ -152,9 +152,9 @@ void CliController::Setup()
         }
         if (ConfigInfo::HaveOpenMP()) {
                 m_stride_logger->info("Max number OpenMP threads in this environment: {}",
-                                       ConfigInfo::NumberAvailableThreads());
+                                      ConfigInfo::NumberAvailableThreads());
                 m_stride_logger->info("Configured number of threads: {}",
-                                       m_config_pt.get<unsigned int>("run.num_threads"));
+                                      m_config_pt.get<unsigned int>("run.num_threads"));
         } else {
                 m_stride_logger->info("Not using OpenMP threads.");
         }

@@ -42,15 +42,14 @@ namespace stride {
 
 SimRunner::SimRunner() : m_clock("total_clock"), m_config_pt(), m_output_prefix(""), m_sim(nullptr) {}
 
-SimRunner::SimRunner(const ptree& configPt)
-        : SimRunner()
+SimRunner::SimRunner(const ptree& configPt) : SimRunner()
 {
         m_clock.Start();
         Notify(Id::SetupBegin);
 
         m_config_pt     = configPt;
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
-        m_sim = SimBuilder(m_config_pt).Build();
+        m_sim           = SimBuilder(m_config_pt).Build();
 
         Notify(Id::SetupEnd);
         m_clock.Stop();
@@ -75,26 +74,22 @@ void SimRunner::Run(unsigned int numSteps)
                         if (m_sim->GetCalendar()->GetSimulationDay() < numDays - 1) {
                                 m_sim->TimeStep();
                                 Notify(Id::Stepped);
-                        // This is the last step so execute and afterwards signal Stepped and Finished
+                                // This is the last step so execute and afterwards signal Stepped and Finished
                         } else if (m_sim->GetCalendar()->GetSimulationDay() == numDays - 1) {
                                 m_sim->TimeStep();
                                 Notify(Id::Stepped);
                                 Notify(Id::Finished);
                                 break;
-                        // We are apparently already at the end of the numDays so nothing to do or signal.
-                        }  else {
+                                // We are apparently already at the end of the numDays so nothing to do or signal.
+                        } else {
                                 break;
                         }
                 }
 
                 m_clock.Stop();
         }
-
 }
 
-void SimRunner::Run()
-{
-        Run(m_config_pt.get<unsigned int>("run.num_days"));
-}
+void SimRunner::Run() { Run(m_config_pt.get<unsigned int>("run.num_days")); }
 
 } // namespace stride

@@ -37,26 +37,22 @@ void MeaslesBench()
         class MeaslesBenchmark
         {
         public:
-
         private:
-
         };
 
         auto factoryBuilder = [](unsigned int n) {
                 auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
                 return [n, configPt]() {
                         return Test([n, configPt]() {
-                                            configPt->put("run.num_threads", n);
-                                            SimRunner(*configPt).Run();
+                                configPt->put("run.num_threads", n);
+                                SimRunner(*configPt).Run();
                         });
                 };
         };
 
         const auto num = RunConfigManager::CreateNumThreads();
         for (const auto n : num) {
-                auto infoFactory = [n]() {
-                        return ptree().put("num_threads", n);
-                };
+                auto infoFactory = [n]() { return ptree().put("num_threads", n); };
                 BenchmarkRunner::RegisterTest("MeaslesBench", "NumThreads." + ToString(n), 1, factoryBuilder(n),
                                               infoFactory);
         }
