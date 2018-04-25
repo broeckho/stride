@@ -58,7 +58,7 @@ int main(int argc, char** argv)
                             "The latter may use either --config file=<file> or --config name=<name>. The sim"
                             "function is the default. The simgui function runs the simulator with a graphical"
                             "interface. The geopop executes the geospatial synthetic population generator";
-                ValueArg<string> execArg("e", "exec", se, false, "sim_cli", &vc, cmd);
+                ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
                 string so = "Override configuration parameters in the configuration file. The format is "
                             "--override <name>=<value>. It can be used multiple times.";
