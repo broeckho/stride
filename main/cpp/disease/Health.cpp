@@ -57,7 +57,6 @@ void Health::Update()
         const bool infected = m_status == HealthStatus::Exposed || m_status == HealthStatus::Infectious ||
                               m_status == HealthStatus::Symptomatic ||
                               m_status == HealthStatus::InfectiousAndSymptomatic;
-
         if (infected) {
                 IncrementDiseaseCounter();
                 if (GetDiseaseCounter() == m_start_infectiousness) {

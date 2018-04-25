@@ -85,7 +85,6 @@ set(LIB_SRC
     util/RNEngineType.cpp
     util/RNManager.cpp
     util/RunConfigManager.cpp
-    util/RunConfigString.cpp
     util/SegmentedVector.h
     util/Stopwatch.h
     util/StringUtils.h

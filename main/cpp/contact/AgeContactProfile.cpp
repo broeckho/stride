@@ -25,17 +25,17 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-AgeContactProfile::AgeContactProfile(ContactPoolType::Id pool_type, const ptree& pt_contacts)
+AgeContactProfile::AgeContactProfile(ContactPoolType::Id poolType, const ptree& contactPt)
     : std::array<double, MaximumAge() + 1>()
 {
-        const string key{string("matrices.").append(ContactPoolType::ToString(pool_type))};
+        const string key{string("matrices.").append(ContactPoolType::ToString(poolType))};
         unsigned int i = 0U;
-        for (const auto& participant : pt_contacts.get_child(key)) {
-                double total_contacts = 0;
+        for (const auto& participant : contactPt.get_child(key)) {
+                double totalContacts = 0;
                 for (const auto& contact : participant.second.get_child("contacts")) {
-                        total_contacts += contact.second.get<double>("rate");
+                        totalContacts += contact.second.get<double>("rate");
                 }
-                (*this)[i++] = total_contacts;
+                (*this)[i++] = totalContacts;
         }
 }
 

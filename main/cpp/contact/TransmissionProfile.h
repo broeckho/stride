@@ -33,7 +33,7 @@ public:
         double GetRate() const { return m_transmission_rate; }
 
         /// Initialize.
-        void Initialize(const boost::property_tree::ptree& config_pt, const boost::property_tree::ptree& disease_pt);
+        void Initialize(const boost::property_tree::ptree& configPt, const boost::property_tree::ptree& diseasePt);
 
 private:
         double m_transmission_rate;

@@ -88,11 +88,11 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                                 // check for contact
                                                 if (c_handler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
-                                                        if (p1->IsParticipatingInSurvey()) {
+                                                        if (p1->IsSurveyParticipant()) {
                                                                 LP::Contact(c_logger, p1, p2, p_type, sim_day);
                                                         }
                                                         // log contact if person 2 is participating in survey
-                                                        if (p2->IsParticipatingInSurvey()) {
+                                                        if (p2->IsSurveyParticipant()) {
                                                                 LP::Contact(c_logger, p2, p1, p_type, sim_day);
                                                         }
 

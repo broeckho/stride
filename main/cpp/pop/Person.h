@@ -82,7 +82,7 @@ public:
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 
         /// Does this person participates in the social contact study?
-        bool IsParticipatingInSurvey() const { return m_is_participant; }
+        bool IsSurveyParticipant() const { return m_is_participant; }
 
         /// Participate in social contact study and log person details
         void ParticipateInSurvey() { m_is_participant = true; }

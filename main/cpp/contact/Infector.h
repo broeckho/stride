@@ -71,7 +71,7 @@ public:
                          std::shared_ptr<spdlog::logger> c_logger);
 };
 
-/// Time-optimized version (Only for NoLocalInformation policy and None || Transmission logging).
+/// Time-optimized version (Only for NoLocalInformation policy in combination with None || Transmission logging).
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
 template <ContactLogMode::Id LL, bool TIC>

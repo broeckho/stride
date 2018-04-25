@@ -19,8 +19,8 @@
  * DaysOffStandard class.
  */
 
-#include "Calendar.h"
-#include "DaysOffInterface.h"
+#include "calendar/Calendar.h"
+#include "calendar/DaysOffInterface.h"
 
 #include <memory>
 
@@ -33,7 +33,7 @@ class DaysOffStandard : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        DaysOffStandard(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        explicit DaysOffStandard(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }

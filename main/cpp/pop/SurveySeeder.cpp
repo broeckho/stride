@@ -48,7 +48,7 @@ void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<
                 auto num_samples = 0U;
                 while (num_samples < participants) {
                         Person& p = population[generator()];
-                        if (!p.IsParticipatingInSurvey()) {
+                        if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
                                 logger->info("[PART] {}", p.GetId());
                                 logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
