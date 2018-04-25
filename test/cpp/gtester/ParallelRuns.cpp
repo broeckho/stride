@@ -63,35 +63,34 @@ TEST_P(ParallelRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Prepare test configuration.
         // -----------------------------------------------------------------------------------------
-        const auto           max_num_threads = ConfigInfo::NumberAvailableThreads();
-        vector<unsigned int> num_threads;
-        if (max_num_threads >= 4) {
-                num_threads.push_back(static_cast<unsigned int>(max_num_threads / 2));
-                num_threads.push_back(max_num_threads);
+        const auto           maxNumThreads = ConfigInfo::NumberAvailableThreads();
+        vector<unsigned int> numThreads;
+        if (maxNumThreads >= 4) {
+                numThreads.push_back(maxNumThreads / 2);
+                numThreads.push_back(maxNumThreads);
         } else {
-                num_threads.push_back(max_num_threads);
+                numThreads.push_back(maxNumThreads);
         }
 
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
-        const string test_tag  = GetParam();
-        const auto   d         = ScenarioData::Get(test_tag);
-        auto         config_pt = get<0>(d);
-        const auto   target    = get<1>(d);
-        const auto   margin    = get<2>(d);
+        const string testTag  = GetParam();
+        const auto   d        = ScenarioData::Get(testTag);
+        auto         configPt = get<0>(d);
+        const auto   target   = get<1>(d);
+        const auto   margin   = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
-        for (const auto n : num_threads) {
-                config_pt.put("run.num_threads", n);
-                auto runner = make_shared<SimRunner>();
-                runner->Setup(config_pt);
+        for (const auto n : numThreads) {
+                configPt.put("run.num_threads", n);
+                auto runner = make_shared<SimRunner>(configPt);
                 runner->Run();
                 const auto result = runner->GetSim()->GetPopulation()->GetInfectedCount();
                 EXPECT_NEAR(result, target, target * margin)
-                    << "!! CHANGES:" << test_tag << " with #threads: " << n << endl;
+                    << "!! CHANGES:" << testTag << " with #threads: " << n << endl;
         }
 }
 

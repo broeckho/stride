@@ -73,16 +73,11 @@ void CliController::CheckOutputPrefix()
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Instantiate & stup SimRunner & register viewers & run.
+        // Instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>();
+        auto runner = make_shared<SimRunner>(m_config_pt);
         RegisterViewers(runner);
-        runner->Setup(m_config_pt);
         runner->Run();
-
-        // -----------------------------------------------------------------------------------------
-        // Done.
-        // -----------------------------------------------------------------------------------------
         m_stride_logger->info("CliController shutting down.");
         spdlog::drop_all();
 }

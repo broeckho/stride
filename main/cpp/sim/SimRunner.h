@@ -38,24 +38,21 @@ namespace stride {
 class Sim;
 
 /**
- * The simulation runner build a simulator and then lets it step through
- * untill the end of the simulation interval.
- * The SimRunner setup
- * \li accepts and configuration property tree from its controller
- * \li makes a logger
- * \li outputs the run configuration to file
- * \li invokes the builder (@see SimulatorBuilder) for the simulator
- * \li checks the simulator
- * The SimRunner execution
+ * The simulation runner:
+ * \li invokes the simulator builder (@see SimulatorBuilder)
  * \li manages elapsed time clock
  * \li manages time steps
- * All the while SimRunner notifies viewers of its events (@see sim_event::Id)
+ * \linotifies viewers of its events (@see sim_event::Id)
  */
 class SimRunner : public util::Subject<stride::sim_event::Id>
 {
 public:
         /// Default initialization.
         SimRunner();
+
+        /// Initialization with propert tree.
+        /// \param configPt config info for run and for config of simulator
+        explicit SimRunner(const boost::property_tree::ptree& configPt);
 
         /// Destructor
         virtual ~SimRunner() = default;
@@ -68,10 +65,6 @@ public:
 
         /// Return the Simulator.
         std::shared_ptr<Sim> GetSim() const { return m_sim; }
-
-        /// Setup the context for the simulation run.
-        /// \param configPt        config info for run and for config of simulator
-        void Setup(const boost::property_tree::ptree& configPt);
 
         /// Run simulator for as many steps/days as indicated in config.
         void Run();

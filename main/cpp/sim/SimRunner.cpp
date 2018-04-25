@@ -42,32 +42,23 @@ namespace stride {
 
 SimRunner::SimRunner() : m_clock("total_clock"), m_config_pt(), m_output_prefix(""), m_sim(nullptr) {}
 
-void SimRunner::Setup(const ptree& configPt)
+SimRunner::SimRunner(const ptree& configPt)
+        : SimRunner()
 {
-        // -----------------------------------------------------------------------------------------
-        // Intro.
-        // -----------------------------------------------------------------------------------------
         m_clock.Start();
         Notify(Id::SetupBegin);
+
         m_config_pt     = configPt;
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
+        m_sim = SimBuilder(m_config_pt).Build();
 
-        // -----------------------------------------------------------------------------------------
-        // Build simulator.
-        //------------------------------------------------------------------------------------------
-        SimBuilder builder(m_config_pt);
-        m_sim = builder.Build();
-
-        // -----------------------------------------------------------------------------------------
-        // Done.
-        // -----------------------------------------------------------------------------------------
         Notify(Id::SetupEnd);
         m_clock.Stop();
 }
 
 void SimRunner::Run(unsigned int numSteps)
 {
-        // Saveguard against repeatedly firing AtStart event; bypass everything if numSteps == 0.
+        // Saveguard against repeatedly firing AtStart, so bypass if numSteps == 0.
         if (numSteps != 0U) {
                 // Prelims.
                 m_clock.Start();

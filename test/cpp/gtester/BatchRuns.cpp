@@ -47,7 +47,7 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        ~BatchRuns() override {}
+        ~BatchRuns() override = default;
 
         /// Set up for the test fixture
         void SetUp() override {}
@@ -70,8 +70,7 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>();
-        runner->Setup(config_pt);
+        auto runner = make_shared<SimRunner>(config_pt);
         runner->Run();
 
         // -----------------------------------------------------------------------------------------

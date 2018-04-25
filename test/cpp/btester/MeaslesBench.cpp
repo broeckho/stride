@@ -34,24 +34,30 @@ using boost::property_tree::ptree;
 
 void MeaslesBench()
 {
-        auto num_builder = [](unsigned int n) {
-                return [n]() {
-                        auto runner = make_shared<SimRunner>();
-                        return Test([runner]() { runner->Run(); },
-                                    [runner, n]() {
-                                            auto config_pt = RunConfigManager::CreateBenchMeasles();
-                                            config_pt.put("run.num_threads", n);
-                                            runner->Setup(config_pt);
-                                    });
+        class MeaslesBenchmark
+        {
+        public:
+
+        private:
+
+        };
+
+        auto factoryBuilder = [](unsigned int n) {
+                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
+                return [n, configPt]() {
+                        return Test([n, configPt]() {
+                                            configPt->put("run.num_threads", n);
+                                            SimRunner(*configPt).Run();
+                        });
                 };
         };
 
         const auto num = RunConfigManager::CreateNumThreads();
         for (const auto n : num) {
-                BenchmarkRunner::RegisterTest("MeaselsBench", "NumThreads: " + ToString(n), 1, num_builder(n), [n]() {
-                        ptree pt;
-                        pt.put("num_threads", n);
-                        return pt;
-                });
+                auto infoFactory = [n]() {
+                        return ptree().put("num_threads", n);
+                };
+                BenchmarkRunner::RegisterTest("MeaslesBench", "NumThreads." + ToString(n), 1, factoryBuilder(n),
+                                              infoFactory);
         }
 }
