@@ -18,8 +18,11 @@ class PyRunner(Subject):
         self.simulator = None
         self.runConfig = None
 
-    # TODO getClock()?
-    # TODO getConfig() ?
+    def getClock(self):
+        return self.stopwatch
+
+    def getConfig(self):
+        return self.runConfig
 
     def getSimulator(self):
         return self.simulator
@@ -29,7 +32,7 @@ class PyRunner(Subject):
         self.stopwatch.start()
         status = True
         self.runConfig = run_config
-        # TODO write config to file
+        # TODO write config to file?
         # TODO output prefix?
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 

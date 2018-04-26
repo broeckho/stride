@@ -40,7 +40,6 @@ class PyController:
             "holidays_file",
             "age_contact_matrix_file",
             "disease_config_file",
-            # TODO disease_config_file?
         ]
         for param in file_params:
             src = os.path.join(self.dataDir, self.runConfig.getParameter(param))
