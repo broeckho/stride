@@ -11,7 +11,9 @@ from pystride.PyController import PyController
 # Configure simulation
 sim = PyController("../config/run_default.xml")
 sim.runConfig.setParameter("output_prefix", "testSimple")
-#sim.runConfig.setParameter("use_install_dirs", "true")
+sim.runConfig.setParameter("use_install_dirs", "true")
+
+print(sim.runConfig.getParameter("disease_config_file"))
 
 # Clean up leftover of previous (failed) testrun
 if os.path.isdir("testSimple"):

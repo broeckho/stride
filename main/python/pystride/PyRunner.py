@@ -35,10 +35,8 @@ class PyRunner(Subject):
 
         # TODO build simulator
         #   log start builder
-        #   SimulatorBuilder builder(config)
-        config_string = self.runConfig.toString()
-        print(config_string)
-        builder = SimulatorBuilder(config_string)
+        builder = SimulatorBuilder(self.runConfig.toString())
+        self.simulator = builder.Build()
         #   self.simulator = builder.build()
         #   log end Building
 

@@ -34,6 +34,35 @@ class PyController:
     def getOutputDirectory(self):
         return os.path.join(self.getWorkingDirectory(), self.getOutputPrefix())
 
+    def linkData(self):
+        file_params = [
+            "population_file",
+            "holidays_file",
+            "age_contact_matrix_file",
+            "disease_config_file",
+            # TODO disease_config_file?
+        ]
+        for param in file_params:
+            src = os.path.join(self.dataDir, self.runConfig.getParameter(param))
+            self.runConfig.setParameter(param, src)
+
+    '''
+            dataDestDir = os.path.join(self.getOutputDirectory(), "data")
+            os.makedirs(dataDestDir, exist_ok=True)
+            file_params = [
+                "population_file",
+                "holidays_file",
+                "age_contact_matrix_file",
+                # TODO disease_config_file?
+            ]
+            for param in file_params:
+                src = os.path.join(self.dataDir, self.runConfig.getParameter(param))
+                self.runConfig.setParameter(param, src)
+                dst = os.path.join(dataDestDir, os.path.basename(src))
+                if (os.path.isfile(src)) and (not (os.path.isfile(dst))):
+                    os.symlink(src, dst)
+    '''
+
     def run(self):
         """
             Run the current simulation.
@@ -42,6 +71,7 @@ class PyController:
         # TODO create output directory
         # os.makedirs(self.getOutputDirectory(), exist_ok=True)
         # TODO copy data files to output/data
+        self.linkData()
 
         # TODO setup runner + execute
         self.runner.setup(self.runConfig)
@@ -56,22 +86,6 @@ class PyController:
             self.dataDir = os.path.join("..", "data")
         else:
             self.dataDir = dataDir
-
-    def _linkData(self):
-        dataDestDir = os.path.join(self.getOutputDirectory(), "data")
-        os.makedirs(dataDestDir, exist_ok=True)
-        file_params = [
-            "population_file",
-            "holidays_file",
-            "age_contact_matrix_file",
-            # TODO disease_config_file?
-        ]
-        for param in file_params:
-            src = os.path.join(self.dataDir, self.runConfig.getParameter(param))
-            self.runConfig.setParameter(param, src)
-            dst = os.path.join(dataDestDir, os.path.basename(src))
-            if (os.path.isfile(src)) and (not (os.path.isfile(dst))):
-                os.symlink(src, dst)
 
     def _setup(self, linkData=True):
         """
