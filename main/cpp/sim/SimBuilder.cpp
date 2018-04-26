@@ -31,6 +31,7 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
+#include <trng/uniform01_dist.hpp>
 
 namespace stride {
 
@@ -62,12 +63,17 @@ std::shared_ptr<Sim> SimBuilder::Build()
         sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
 
         // --------------------------------------------------------------
-        // Initialize RNManager for random number engine management.
+        // Random number manager and the generators for contact handlers.
         // --------------------------------------------------------------
         sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
                                                      m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
                                                      sim->m_num_threads});
-
+        // std::vector<ContactHandler> handlers;
+        // Contact handlers, each bound to a generator bound to a different random engine stream.
+        for (size_t i = 0; i < sim->m_num_threads; i++) {
+                auto gen = sim->m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
+                sim->m_handlers.emplace_back(ContactHandler(gen));
+        }
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------

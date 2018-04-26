@@ -20,6 +20,7 @@
  */
 
 #include "contact/AgeContactProfiles.h"
+#include "contact/ContactHandler.h"
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorMap.h"
 #include "contact/TransmissionProfile.h"
@@ -66,10 +67,6 @@ public:
         void TimeStep();
 
 private:
-        /// Update the contacts in the given contactpools.
-        void UpdatePools();
-
-        // typedef std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT> InfectorMap;
         InfectorMap m_infectors;
 
 private:
@@ -82,6 +79,7 @@ private:
         std::string                 m_local_info_policy;    ///< Local information policy name.
 
         std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
+        std::vector<ContactHandler> m_handlers;   ///< Contact handlers.
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
         util::RNManager             m_rn_manager; ///< Random numbere generation management.
 

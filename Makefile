@@ -146,7 +146,7 @@ test: install
 	cd $(BUILD_DIR)/test; ctest $(TESTARGS) -V
 
 gtest: install
-	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(GTESTARGS)
+	cd $(CMAKE_INSTALL_PREFIX); bin/gtester $(TESTARGS)
 
 format:
 	resources/bash/clang-format-all .
