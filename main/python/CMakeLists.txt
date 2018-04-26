@@ -28,7 +28,6 @@ set(SWIG_IFACE
 	swig/health.i
 	swig/population.i
 	swig/simulator.i
-	swig/simulatorobserver.i
 	swig/simulatorbuilder.i
 	swig/stride.i
 )

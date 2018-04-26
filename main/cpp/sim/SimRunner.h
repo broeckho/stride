@@ -21,7 +21,6 @@
 
 #include "event/Subject.h"
 #include "sim/event/Payload.h"
-#include "sim/python/SimulatorObserver.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>

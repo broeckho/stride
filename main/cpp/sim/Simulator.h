@@ -23,8 +23,6 @@
 #include "contact/ContactLogMode.h"
 #include "contact/TransmissionProfile.h"
 #include "pool/ContactPoolSys.h"
-#include "sim/python/SimulatorObserver.h"
-#include "sim/python/Subject.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -40,9 +38,8 @@ class Population;
 
 /**
  * Simulator can time step and reveal some of the key data.
- * The Subject base class used for the interaction with the python environment only.
  */
-class Simulator : public python::Subject<unsigned int, python::SimulatorObserver>
+class Simulator
 {
 public:
         /// Default constructor for empty Simulator.
