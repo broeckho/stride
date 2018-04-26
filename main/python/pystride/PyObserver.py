@@ -1,11 +1,15 @@
+from .Event import EventType
 from .Observer import Observer
 
 class PyObserver(Observer):
-    def __init__(self, simulator=None):
-        self.simulator = simulator
+    def __init__(self):
+        self.simulator = None
         self.callbacks = {}
-        for name in EvenType:
+        for name in EventType:
             self.callbacks[name] = []
+
+    def setSimulator(self, simulator):
+        self.simulator = simulator
 
     def registerCallback(self, callback, event_type):
         self.callbacks[event_type].append(callback)

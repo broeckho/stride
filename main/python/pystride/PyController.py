@@ -3,6 +3,7 @@ import time
 
 import pystride
 from .Config import Config
+from .PyObserver import PyObserver
 from .PyRunner import PyRunner
 
 class PyController:
@@ -11,6 +12,7 @@ class PyController:
         self.runner = PyRunner()
         self.dataDir = data_dir
         self.timestamp =  time.strftime("%Y%m%d_%H%M%S", time.localtime())
+        self.observer = PyObserver()
         if config_path != None:
             # Load run config from file
             self.loadRunConfig(config_path)
@@ -62,6 +64,9 @@ class PyController:
                     os.symlink(src, dst)
     '''
 
+    def registerCallback(self, callback, event_type):
+        self.observer.registerCallback(callback, event_type)
+
     def run(self):
         """
             Run the current simulation.
@@ -72,20 +77,17 @@ class PyController:
         # TODO copy data files to output/data
         self.linkData()
 
-        # TODO setup runner + execute
+        # Setup runner (build simulator etc)
         self.runner.setup(self.runConfig)
+        # Set simulator for PyObserver
+        self.observer.setSimulator(self.runner.getSimulator())
+        # Run simulation
         self.runner.run()
 
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
 
 '''
-    def __init__(self, dataDir=None):
-        if dataDir == None:
-            self.dataDir = os.path.join("..", "data")
-        else:
-            self.dataDir = dataDir
-
     def _setup(self, linkData=True):
         """
             Create folder in workspace to run simulation.
@@ -107,10 +109,6 @@ class PyController:
         self.runConfig.setParameter("output_prefix", self.getOutputDirectory())
         self.runConfig.toFile(configPath)
         self.runConfig.setParameter('output_prefix', oldLabel)
-
-    def registerCallback(self, callback):
-        """ Registers a callback to the simulation. """
-        self.observer.RegisterCallback(callback)
 
     def fork(self, name: str):
         """
