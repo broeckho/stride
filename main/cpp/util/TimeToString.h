@@ -44,7 +44,7 @@ struct TimeToString
                 hours         hh = duration_cast<hours>(d);
                 minutes       mm = duration_cast<minutes>(d % hours(1));
 
-                oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count()<< ":" << setw(2)
+                oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count() << ":" << setw(2)
                     << 0;
                 return oss.str();
         }

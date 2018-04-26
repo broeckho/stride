@@ -26,6 +26,7 @@
 #include "calendar/DaysOffStandard.h"
 #include "contact/ContactHandler.h"
 #include "contact/Infector.h"
+#include "contact/InfectorMap.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
 
@@ -43,33 +44,6 @@ Sim::Sim()
     : m_config_pt(), m_contact_log_mode(Id::None), m_contact_profiles(), m_num_threads(1U), m_track_index_case(false),
       m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr), m_rn_manager()
 {
-        const char* I = "NoLocalInformation";
-        const char* D = "LocalDiscussion";
-        const auto Sus = Id::Susceptibles;
-        const auto Trans = Id::Transmissions;
-
-        // In future we 'll have more classes in addition to NoLocalInformation, LocalDiscussion
-        // TODO A varyadic template that builds the map for all {ContactLogMode::Id} x {true, flase} x Class
-        // combinations for each of the class template paremeters.
-        m_infectors = std::move(InfectorMap{
-            // clang-format off
-                {make_tuple(Sus, true, I),        &Infector<Sus, true, NoLocalInformation>::Exec},
-                {make_tuple(Id::All, true, I),    &Infector<Id::All, true, NoLocalInformation>::Exec},
-                {make_tuple(Trans, true, I),      &Infector<Trans, true, NoLocalInformation>::Exec},
-                {make_tuple(Id::None, true, I),   &Infector<Id::None, true, NoLocalInformation>::Exec},
-                {make_tuple(Sus, false, I),       &Infector<Sus, false, NoLocalInformation>::Exec},
-                {make_tuple(Id::All, false, I),   &Infector<Id::All, false, NoLocalInformation>::Exec},
-                {make_tuple(Trans, false, I),     &Infector<Trans, false, NoLocalInformation>::Exec},
-                {make_tuple(Id::None, false, I),  &Infector<Id::None, false, NoLocalInformation>::Exec},
-                {make_tuple(Sus, true, D),        &Infector<Sus, true, LocalDiscussion>::Exec},
-                {make_tuple(Id::All, true, D),    &Infector<Id::All, true, LocalDiscussion>::Exec},
-                {make_tuple(Trans, true, D),      &Infector<Trans, true, LocalDiscussion>::Exec},
-                {make_tuple(Id::None, true, D),   &Infector<Id::None, true, LocalDiscussion>::Exec},
-                {make_tuple(Sus, false, D),       &Infector<Sus, false, LocalDiscussion>::Exec},
-                {make_tuple(Id::All, false, D),   &Infector<Id::All, false, LocalDiscussion>::Exec},
-                {make_tuple(Trans, false, D),     &Infector<Trans, false, LocalDiscussion>::Exec},
-                {make_tuple(Id::None, false, D),  &Infector<Id::None, false, LocalDiscussion>::Exec}
-        }); // clang-format on
 }
 
 void Sim::TimeStep()

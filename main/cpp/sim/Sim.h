@@ -21,7 +21,7 @@
 
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactLogMode.h"
-#include "contact/Infector.h"
+#include "contact/InfectorMap.h"
 #include "contact/TransmissionProfile.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
@@ -69,7 +69,7 @@ private:
         /// Update the contacts in the given contactpools.
         void UpdatePools();
 
-        typedef std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT> InfectorMap;
+        // typedef std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT> InfectorMap;
         InfectorMap m_infectors;
 
 private:

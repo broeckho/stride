@@ -43,6 +43,7 @@ set(LIB_SRC
 	contact/ContactHandler.h
 	contact/ContactLogMode.cpp
 	contact/Infector.cpp
+	contact/InfectorMap.h
 	contact/LogPolicy.h
 	contact/R0Policy.h
     contact/TransmissionProfile.cpp
