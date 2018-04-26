@@ -17,6 +17,6 @@ class PyObserver(Observer):
     def update(self, event):
         for callback in self.callbacks[event.event_type]:
             try:
-                callback(simulator)
+                callback(self.simulator)
             except Exception as e:
                 print(e)

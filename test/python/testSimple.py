@@ -6,14 +6,19 @@ import os
 from shutil import rmtree
 
 import pystride
+from pystride.Event import EventType
 from pystride.PyController import PyController
+
+
+def getNumInfected(simulator):
+    print("CALLBACKS WORK")
 
 # Configure simulation
 sim = PyController("../config/run_default.xml")
 sim.runConfig.setParameter("output_prefix", "testSimple")
 sim.runConfig.setParameter("use_install_dirs", "true")
 
-print(sim.runConfig.getParameter("disease_config_file"))
+sim.registerCallback(getNumInfected, EventType.Finished)
 
 # Clean up leftover of previous (failed) testrun
 if os.path.isdir("testSimple"):

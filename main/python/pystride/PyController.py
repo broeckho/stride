@@ -13,6 +13,7 @@ class PyController:
         self.dataDir = data_dir
         self.timestamp =  time.strftime("%Y%m%d_%H%M%S", time.localtime())
         self.observer = PyObserver()
+        self.runner.registerObserver(self.observer)
         if config_path != None:
             # Load run config from file
             self.loadRunConfig(config_path)
