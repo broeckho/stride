@@ -36,31 +36,26 @@ class PyRunner(Subject):
         # TODO output prefix?
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
-        # TODO build simulator
-        #   log start builder
+        print("Starting simulator build")
         builder = SimulatorBuilder(self.runConfig.toString())
         self.simulator = builder.Build()
-        #   self.simulator = builder.build()
-        #   log end Building
+        print("Simulator build done")
 
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
-        '''
-                        print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-                        # TODO return status?
-        '''
+        print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+        # TODO return status?
 
     def run(self):
         self.stopwatch.start()
         num_days = int(self.runConfig.getParameter("num_days"))
         # TODO log start?
-        # TODO notify observers that sim is about to start
+        self.notifyObservers(Event(EventType.AtStart))
         for day in range(num_days):
-            # TODO self.sim->TimeStep()
-            # TODO log time stepped
+            self.simulator.TimeStep()
             print("Stepped: timestep " + str(day))
             self.notifyObservers(SteppedEvent(day))
 
-        # TODO notify observers that sim is finished
+        self.notifyObservers(Event(EventType.Finished))
         self.stopwatch.stop()
         # TODO log finished?
