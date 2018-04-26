@@ -10,15 +10,23 @@ from pystride.Event import EventType
 from pystride.PyController import PyController
 
 
-def getNumInfected(simulator):
-    print("CALLBACKS WORK")
+def checkNumCases(simulator):
+    """
+    """
+    targetCases = 118925
+    actualCases = simulator.GetPopulation().GetInfectedCount()
+    # Accept a 10% margin of error
+    assert (abs(targetCases - actualCases) <= (targetCases * 0.1)),"Expected value is {} - actual value is {}".format(targetCases, actualCases)
+
 
 # Configure simulation
 sim = PyController("../config/run_default.xml")
 sim.runConfig.setParameter("output_prefix", "testSimple")
 sim.runConfig.setParameter("use_install_dirs", "true")
 
-sim.registerCallback(getNumInfected, EventType.Finished)
+# Register callback function to check number of cases at
+# end of simulation
+sim.registerCallback(checkNumCases, EventType.Finished)
 
 # Clean up leftover of previous (failed) testrun
 if os.path.isdir("testSimple"):
@@ -26,18 +34,3 @@ if os.path.isdir("testSimple"):
 
 # Run the simulation
 sim.run()
-
-'''
-# Check results
-target_cases = 118925
-
-# TODO callback function that returns # of infected + recovered at end of simulation
-'''
-'''
-summary_file = os.path.join("testSimple", "summary.csv")
-with open(summary_file) as csvfile:
-    reader = csv.DictReader(csvfile)
-    actualCases = int((next(reader))['num_cases'])
-    # Accept a 10% margin of error
-    assert (abs(targetCases - actualCases) <= (targetCases * 0.1)),"Expected value is {} - actual value is {}".format(targetCases, actualCases)
-'''
