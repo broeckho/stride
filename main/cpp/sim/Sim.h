@@ -69,7 +69,7 @@ private:
         /// Update the contacts in the given contactpools.
         void UpdatePools();
 
-        using InfectorMap = std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT>;
+        typedef std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT> InfectorMap;
         InfectorMap m_infectors;
 
 private:

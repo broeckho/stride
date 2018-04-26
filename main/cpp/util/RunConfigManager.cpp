@@ -187,7 +187,7 @@ ptree RunConfigManager::CreateTestsInfluenza()
         pt.put("run.num_days", 30U);
         pt.put("run.num_participants_survey", 10);
         pt.put("run.num_threads", 1);
-        pt.put("run.output_prefix", "BatchRuns");
+        pt.put("run.output_prefix", "BenchRuns");
         pt.put("run.population_file", "pop_flanders600.csv");
         pt.put("run.rng_seed", 2015);
         pt.put("run.rng_type", "mrg2");
@@ -225,7 +225,7 @@ ptree RunConfigManager::CreateTestsMeasles()
         pt.put("run.num_days", 50U);
         pt.put("run.num_participants_survey", 10);
         pt.put("run.num_threads", 1);
-        pt.put("run.output_prefix", "BatchRuns");
+        pt.put("run.output_prefix", "BenchRuns");
         pt.put("run.population_file", "pop_flanders600.csv");
         pt.put("run.rng_seed", 1);
         pt.put("run.rng_type", "mrg2");
