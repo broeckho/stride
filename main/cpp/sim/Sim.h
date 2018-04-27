@@ -22,7 +22,7 @@
 #include "contact/AgeContactProfiles.h"
 #include "contact/ContactHandler.h"
 #include "contact/ContactLogMode.h"
-#include "contact/InfectorMap.h"
+#include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
@@ -67,9 +67,6 @@ public:
         void TimeStep();
 
 private:
-        InfectorMap m_infectors;
-
-private:
         boost::property_tree::ptree m_config_pt;            ///< Configuration property tree
         ContactLogMode::Id          m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
         AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
@@ -79,7 +76,8 @@ private:
         std::string                 m_local_info_policy;    ///< Local information policy name.
 
         std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
-        std::vector<ContactHandler> m_handlers;   ///< Contact handlers.
+        std::vector<ContactHandler> m_handlers;   ///< Contact handlers (rng & rates).
+        InfectorExec*               m_infector;   ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population> m_population; ///< Pointer to the Population.
         util::RNManager             m_rn_manager; ///< Random numbere generation management.
 

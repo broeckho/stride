@@ -21,6 +21,7 @@
 
 #include "contact/ContactLogMode.h"
 #include "contact/Infector.h"
+#include "contact/InfectorExec.h"
 
 #include <map>
 #include <tuple>
@@ -35,7 +36,7 @@ class Population;
  * Simulator can time step and reveal some of the key data.
  * The Subject base class used for the interaction with the python environment only.
  */
-class InfectorMap : public std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExecT>
+class InfectorMap : public std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExec*>
 {
 public:
         /// Fully initialized.

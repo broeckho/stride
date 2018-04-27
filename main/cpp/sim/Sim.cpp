@@ -24,6 +24,7 @@
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
+#include "contact/InfectorExec.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
 
@@ -60,8 +61,7 @@ void Sim::TimeStep()
         auto&       poolSys       = population.GetContactPoolSys();
         auto        contactLogger = population.GetContactLogger();
         const auto  simDay        = m_calendar->GetSimulationDay();
-        const auto& select        = make_tuple(m_contact_log_mode, m_track_index_case, m_local_info_policy);
-        const auto& infector      = *m_infectors.at(select);
+        const auto& infector      = *m_infector;
 
 #pragma omp parallel num_threads(m_num_threads)
         {

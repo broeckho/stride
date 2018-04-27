@@ -21,6 +21,7 @@
 #include "SimBuilder.h"
 
 #include "calendar/Calendar.h"
+#include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
@@ -63,17 +64,24 @@ std::shared_ptr<Sim> SimBuilder::Build()
         sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
 
         // --------------------------------------------------------------
-        // Random number manager and the generators for contact handlers.
+        // Random number manager.
         // --------------------------------------------------------------
         sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
                                                      m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
                                                      sim->m_num_threads});
-        // std::vector<ContactHandler> handlers;
-        // Contact handlers, each bound to a generator bound to a different random engine stream.
+
+        // --------------------------------------------------------------
+        // Contact handlers, each with generator bound to different
+        // random engine stream) and infector.
+        // --------------------------------------------------------------
         for (size_t i = 0; i < sim->m_num_threads; i++) {
                 auto gen = sim->m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }
+
+        const auto& select = make_tuple(sim->m_contact_log_mode, sim->m_track_index_case, sim->m_local_info_policy);
+        sim->m_infector    = InfectorMap().at(select);
+
         // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
