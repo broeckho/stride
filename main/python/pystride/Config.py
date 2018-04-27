@@ -1,4 +1,3 @@
-'''
 import os
 import xml.etree.ElementTree as ET
 
@@ -49,4 +48,3 @@ class Config:
         new_config = Config()
         new_config._etree = ET.fromstring(ET.tostring(self._etree))
         return new_config
-    '''
