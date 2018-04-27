@@ -11,30 +11,26 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Payload for Subject/Observer for SimEvents.
+ * Header for the InfectorExec class.
  */
 
-#include "Id.h"
-
-#include <memory>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 
-class SimRunner;
+class ContactPool;
+class AgeContactProfile;
+class TransmissionProfile;
+class ContactHandler;
 
-namespace sim_event {
+/// For use in the InfectorMap and Sim.
+typedef void(InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
+                           const TransmissionProfile& trans_profile, ContactHandler& c_handler,
+                           unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
 
-struct Payload
-{
-        Payload(std::shared_ptr<SimRunner> s, sim_event::Id e) : m_runner(std::move(s)), m_event_id(e){};
-        std::shared_ptr<SimRunner> m_runner;
-        sim_event::Id              m_event_id;
-};
-
-} // namespace sim_event
 } // namespace stride

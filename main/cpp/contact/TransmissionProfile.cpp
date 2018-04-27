@@ -27,14 +27,14 @@ namespace stride {
 using namespace std;
 using namespace boost::property_tree;
 
-void TransmissionProfile::Initialize(const ptree& config_pt, const ptree& disease_pt)
+void TransmissionProfile::Initialize(const ptree& configPt, const ptree& diseasePt)
 {
         // Use a quadratic model, fitted to simulation data:
         // Expected(R0) = (0 + b1*transm_rate + b2*transm_rate^2).
-        const auto r0 = config_pt.get<double>("run.r0");
-        const auto b0 = disease_pt.get<double>("disease.transmission.b0");
-        const auto b1 = disease_pt.get<double>("disease.transmission.b1");
-        const auto b2 = disease_pt.get<double>("disease.transmission.b2");
+        const auto r0 = configPt.get<double>("run.r0");
+        const auto b0 = diseasePt.get<double>("disease.transmission.b0");
+        const auto b1 = diseasePt.get<double>("disease.transmission.b1");
+        const auto b2 = diseasePt.get<double>("disease.transmission.b2");
 
         // Find root
         const auto a = b2;

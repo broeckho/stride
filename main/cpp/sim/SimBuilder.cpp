@@ -15,12 +15,13 @@
 
 /**
  * @file
- * Implementation for the SimulatorBuilder class.
+ * Implementation for the SimBuilder class.
  */
 
 #include "SimBuilder.h"
 
 #include "calendar/Calendar.h"
+#include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
@@ -31,8 +32,7 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <trng/uniform_int_dist.hpp>
-#include <cassert>
+#include <trng/uniform01_dist.hpp>
 
 namespace stride {
 
@@ -42,37 +42,19 @@ using namespace std;
 using namespace util;
 using namespace ContactPoolType;
 
-SimBuilder::SimBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
-    : m_config_pt(configPt), m_stride_logger(std::move(logger))
-{
-        assert(!m_config_pt.empty() && "SimBuilder::SimBuilder> Empty config ptree not acceptable!");
-        // So as not to have to guard all log statements
-        if (!m_stride_logger) {
-                m_stride_logger = LogUtils::CreateNullLogger("SimBuilderNullLogger");
-        }
-}
+SimBuilder::SimBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 
 std::shared_ptr<Sim> SimBuilder::Build()
 {
-        m_stride_logger->trace("Starting SimBuilder::Build.");
-        const auto contactPt = ReadAgeContactPtree();
-        const auto diseasePt = ReadDiseasePtree();
-
-        assert(!contactPt.empty() && "SimBuilder::Build> Empty contact ptree not acceptable!");
-        assert(!diseasePt.empty() && "SimBuilder::Build> Empty disease ptree not acceptable!");
-
-        auto sim = Build(diseasePt, contactPt);
-
-        m_stride_logger->trace("Finished SimBuilder::Build.");
-        return sim;
-}
-
-std::shared_ptr<Sim> SimBuilder::Build(const ptree& diseasePt, const ptree& ageContactPt)
-{
         // --------------------------------------------------------------
-        // Uninitialized simulator object.
+        // Preliminaries.
         // --------------------------------------------------------------
-        auto sim = make_shared<Sim>();
+        struct make_shared_enabler : public Sim
+        {
+        };
+        shared_ptr<Sim> sim          = make_shared<make_shared_enabler>();
+        const auto      diseasePt    = ReadDiseasePtree();
+        const auto      ageContactPt = ReadAgeContactPtree();
 
         // --------------------------------------------------------------
         // Config info.
@@ -85,48 +67,50 @@ std::shared_ptr<Sim> SimBuilder::Build(const ptree& diseasePt, const ptree& ageC
         sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
 
         // --------------------------------------------------------------
-        // Initialize RNManager for random number engine management.
+        // Random number manager.
         // --------------------------------------------------------------
         sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
                                                      m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
                                                      sim->m_num_threads});
 
         // --------------------------------------------------------------
+        // Contact handlers, each with generator bound to different
+        // random engine stream) and infector.
+        // --------------------------------------------------------------
+        for (size_t i = 0; i < sim->m_num_threads; i++) {
+                auto gen = sim->m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
+                sim->m_handlers.emplace_back(ContactHandler(gen));
+        }
+
+        const auto& select = make_tuple(sim->m_contact_log_mode, sim->m_track_index_case, sim->m_local_info_policy);
+        sim->m_infector    = InfectorMap().at(select);
+
+        // --------------------------------------------------------------
         // Build population.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting PopBuilder.");
-        sim->m_population = PopBuilder(m_config_pt, m_stride_logger).Build();
-        m_stride_logger->trace("Finished PopBuilder.");
+        sim->m_population = PopBuilder(m_config_pt).Build();
 
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting HealthSeeder.");
         HealthSeeder(diseasePt, sim->m_rn_manager).Seed(sim->m_population);
-        m_stride_logger->trace("Finished HealthSeeder.");
 
         // --------------------------------------------------------------
         // Initialize the age-related contact profiles.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Initializing Age-Contact profiles.");
         for (Id typ : IdList) {
                 sim->m_contact_profiles[typ] = AgeContactProfile(typ, ageContactPt);
         }
-        m_stride_logger->trace("Done initializing Age-Contact profiles.");
 
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
-        m_stride_logger->trace("Initializing Transmission profiles.");
         sim->m_transmission_profile.Initialize(m_config_pt, diseasePt);
-        m_stride_logger->trace("Done initializing Transmission profiles.");
 
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
-        m_stride_logger->trace("Starting DiseaseSeeder.");
         DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
-        m_stride_logger->trace("Finished DiseaseSeeder.");
 
         // --------------------------------------------------------------
         // Done.
@@ -142,17 +126,14 @@ ptree SimBuilder::ReadAgeContactPtree()
         const auto fn = m_config_pt.get("run.age_contact_matrix_file", "contact_matrix.xml");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Age-Contact matrix file {} not present! Quitting.", fp.string());
+                throw runtime_error("SimBuilder::ReadAgeContactPtree> Not finding " + fp.string());
         } else {
-                m_stride_logger->debug("Age-Contact matrix file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
+                        throw runtime_error("SimBuilder::ReadAgeContactPtree> Error reading " + fp.string());
                 }
         }
-
         return pt;
 }
 
@@ -164,17 +145,14 @@ ptree SimBuilder::ReadDiseasePtree()
         const auto fn = m_config_pt.get<string>("run.disease_config_file");
         const auto fp = (use_install_dirs) ? FileSys::GetDataDir() /= fn : fn;
         if (!exists(fp) || !is_regular_file(fp)) {
-                m_stride_logger->critical("Disease config file {} not present! Quitting.", fp.string());
+                throw runtime_error("SimBuilder::ReadDiseasePtree> Not finding " + fp.string());
         } else {
-                m_stride_logger->debug("Disease config file:  {}", fp.string());
                 try {
                         read_xml(canonical(fp).string(), pt, xml_parser::trim_whitespace);
                 } catch (xml_parser_error& e) {
-                        m_stride_logger->critical("Error reading {}\nException: {}", canonical(fp).string(), e.what());
-                        pt.clear();
+                        throw runtime_error("SimBuilder::ReadDiseasePtree> Error reading " + fp.string());
                 }
         }
-
         return pt;
 }
 

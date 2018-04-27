@@ -16,16 +16,16 @@
 
 /**
  * @file
- * Header for the SimulatorBuilder class.
+ * Header for the SimBuilder class.
  */
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
 class Sim;
+class Population;
 
 /**
  * Builds a simulator (@see Sim) based a configuration property tree.
@@ -38,17 +38,13 @@ class Sim;
 class SimBuilder
 {
 public:
-        /// Initializing SimulatorBuilder.
-        SimBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
+        /// Initializing SimBuilder.
+        explicit SimBuilder(const boost::property_tree::ptree& configPt);
 
         /// Build the simulator.
         std::shared_ptr<Sim> Build();
 
 private:
-        /// Build the simulator.
-        std::shared_ptr<Sim> Build(const boost::property_tree::ptree& diseasePt,
-                                   const boost::property_tree::ptree& ageContactPt);
-
         /// Get the contact configuration data.
         boost::property_tree::ptree ReadAgeContactPtree();
 
@@ -56,8 +52,7 @@ private:
         boost::property_tree::ptree ReadDiseasePtree();
 
 private:
-        boost::property_tree::ptree     m_config_pt;     ///< Run config in ptree.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
+        boost::property_tree::ptree m_config_pt; ///< Run config in ptree.
 };
 
 } // namespace stride

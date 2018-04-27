@@ -41,16 +41,22 @@ public:
         static boost::property_tree::ptree Create(const std::string& configName);
 
         ///
-        static boost::property_tree::ptree CreateTestsInfluenza();
-
-        ///
-        static boost::property_tree::ptree CreateTestsMeasles();
+        static boost::property_tree::ptree CreateBenchInfluenza();
 
         ///
         static boost::property_tree::ptree CreateBenchMeasles();
 
         ///
         static std::vector<unsigned int> CreateNumThreads(unsigned int max = ConfigInfo::ProcessorCount());
+
+        ///
+        static boost::property_tree::ptree CreateTestsInfluenza();
+
+        ///
+        static boost::property_tree::ptree CreateTestsMeasles();
+
+        ///
+        static boost::property_tree::ptree FromString(const std::string& s);
 
         ///
         static std::string ToString(const boost::property_tree::ptree& pt);

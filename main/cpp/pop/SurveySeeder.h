@@ -22,10 +22,7 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <functional>
 #include <memory>
-#include <spdlog/spdlog.h>
-#include <string>
 
 namespace stride {
 

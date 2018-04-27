@@ -16,28 +16,28 @@
 
 /**
  * @file
- * Produce run config ptree.
+ * Implementation of Infector algorithms.
  */
 
-#include <string>
+#include "pop/Person.h"
 
 namespace stride {
-namespace util {
 
-/**
- * Produce run config xml string. Intended for use in python as
- * import xml.etree.ElementTree as ET
- * tree = ET.ElementTree(ET.fromstring(xmlstring))
- */
-class RunConfigString
+/// Primary R0_POLICY: do nothing i.e. track all cases.
+/// \tparam TIC         TrackIndexCase
+template <bool TIC>
+class R0_POLICY
 {
 public:
-        ///
-        static std::string CreateTestsBasic1();
-
-        ///
-        static std::string CreateTestsBasic2();
+        static void Exec(Person*) {}
 };
 
-} // namespace util
+/// Specialized R0_POLICY: track only the index case.
+template <>
+class R0_POLICY<true>
+{
+public:
+        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
+};
+
 } // namespace stride

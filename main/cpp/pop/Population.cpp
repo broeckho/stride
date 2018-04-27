@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -26,7 +26,6 @@
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <cassert>
 #include <utility>
 
 using namespace boost::property_tree;

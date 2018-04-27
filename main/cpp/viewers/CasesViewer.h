@@ -20,7 +20,8 @@
  */
 
 #include "output/CasesFile.h"
-#include "sim/event/Payload.h"
+#include "sim/SimRunner.h"
+#include "sim/event/Id.h"
 
 #include <iostream>
 #include <spdlog/spdlog.h>
@@ -33,14 +34,18 @@ class CasesViewer
 {
 public:
         /// Instantiate cases viewer.
-        explicit CasesViewer(const std::string& output_prefix) : m_cases(), m_cases_file(output_prefix) {}
+        CasesViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_cases(), m_cases_file(output_prefix), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
-        void Update(const sim_event::Payload& p);
+        void Update(const sim_event::Id id);
 
 private:
-        std::vector<unsigned int> m_cases;
-        output::CasesFile         m_cases_file;
+        std::vector<unsigned int>  m_cases;
+        output::CasesFile          m_cases_file;
+        std::shared_ptr<SimRunner> m_runner;
 };
 
 } // namespace viewers

@@ -31,16 +31,16 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void SummaryViewer::Update(const sim_event::Payload& p)
+void SummaryViewer::Update(const sim_event::Id id)
 {
-        switch (p.m_event_id) {
+        switch (id) {
         case Id::Finished: {
-                const auto pt_config = p.m_runner->GetConfig();
-                const auto sim       = p.m_runner->GetSim();
-                const auto pop       = p.m_runner->GetSim()->GetPopulation();
-                const auto dur       = duration_cast<milliseconds>(p.m_runner->GetClock().Get());
-                const auto milli     = static_cast<unsigned int>(dur.count());
-                m_summary_file.Print(pt_config, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
+                const auto configPt = m_runner->GetConfig();
+                const auto sim      = m_runner->GetSim();
+                const auto pop      = m_runner->GetSim()->GetPopulation();
+                const auto dur      = duration_cast<milliseconds>(m_runner->GetClock().Get());
+                const auto milli    = static_cast<unsigned int>(dur.count());
+                m_summary_file.Print(configPt, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
                                      sim->GetTransmissionProfile().GetRate(), milli, milli);
                 break;
         }

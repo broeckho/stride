@@ -29,7 +29,7 @@ namespace myhayai {
 class CliController
 {
 public:
-        ///
+        /// Defaults.
         CliController()
             : m_list_mode(true), m_no_color(true), m_shuffle(false), m_info_path(), m_json_path(), m_xml_path(),
               m_negative(), m_positive()
@@ -42,11 +42,9 @@ public:
         /// Parse arguments and initializes the MainRunner.
         /// @param argc             Argument count including the executable name.
         /// @param argv             Arguments.
-        /// @returns EXIT_SUCCESS / EXIT_FAILURE.
         void ParseArgs(int argc, char** argv);
 
         /// Run the selected execution mode.
-        /// @returns the exit status code to be returned from the executable.
         void Control();
 
 private:
@@ -59,11 +57,9 @@ private:
         bool IsIncluded(const std::string& name) const;
 
         /// List benchmarks.
-        /// @returns the exit status code to be returned from the executable.
         void ListBenchmarks() const;
 
         /// Run benchmarks.
-        /// @returns the exit status code to be returned from the executable.
         void RunBenchmarks();
 
         /// Shuffle test names.

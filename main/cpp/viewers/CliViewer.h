@@ -19,7 +19,8 @@
  * Observer for SimEvents for commandline interface usage.
  */
 
-#include "sim/event/Payload.h"
+#include "sim/SimRunner.h"
+#include "sim/event/Id.h"
 
 #include <spdlog/spdlog.h>
 
@@ -31,13 +32,17 @@ class CliViewer
 {
 public:
         /// Instantiate cli viewer.
-        explicit CliViewer(std::shared_ptr<spdlog::logger> logger) : m_logger(std::move(logger)) {}
+        CliViewer(std::shared_ptr<SimRunner> runner, std::shared_ptr<spdlog::logger> logger)
+            : m_logger(std::move(logger)), m_runner(std::move(runner))
+        {
+        }
 
         /// Let viewer perform update.
-        void Update(const sim_event::Payload& p);
+        void Update(const sim_event::Id id);
 
 private:
         std::shared_ptr<spdlog::logger> m_logger;
+        std::shared_ptr<SimRunner>      m_runner;
 };
 
 } // namespace viewers

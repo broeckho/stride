@@ -21,6 +21,8 @@
 #include "Infector.h"
 
 #include "calendar/Calendar.h"
+#include "contact/LogPolicy.h"
+#include "contact/R0Policy.h"
 #include "pool/ContactPool.h"
 
 using namespace std;
@@ -50,96 +52,6 @@ inline double GetContactRate(const AgeContactProfile& profile, const Person* p, 
 } // namespace
 
 namespace stride {
-
-/// Primary R0_POLICY: do nothing i.e. track all cases.
-/// \tparam TIC         TrackIndexCase
-template <bool TIC>
-class R0_POLICY
-{
-public:
-        static void Exec(Person*) {}
-};
-
-/// Specialized R0_POLICY: track only the index case.
-template <>
-class R0_POLICY<true>
-{
-public:
-        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
-};
-
-/// Primary LOG_POLICY policy, implements LogMode::None.
-/// \tparam LL
-template <ContactLogMode::Id LL>
-class LOG_POLICY
-{
-public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
-                            unsigned short int sim_day)
-        {
-        }
-
-        static void Transmission(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
-                                 unsigned short int sim_day)
-        {
-        }
-};
-
-/// Specialized LOG_POLICY policy LogMode::Transmissions.
-template <>
-class LOG_POLICY<ContactLogMode::Id::Transmissions>
-{
-public:
-        static void Contact(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id, unsigned short int) {}
-
-        static void Transmission(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
-                                 Id type, unsigned short int sim_day)
-        {
-                contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
-        }
-};
-
-/// Specialized LOG_POLICY policy LogMode::All.
-template <>
-class LOG_POLICY<ContactLogMode::Id::All>
-{
-public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
-                            Id type, unsigned short int sim_day)
-        {
-                contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
-                                     static_cast<unsigned int>(type == Id::Household),
-                                     static_cast<unsigned int>(type == Id::School),
-                                     static_cast<unsigned int>(type == Id::Work),
-                                     static_cast<unsigned int>(type == Id::PrimaryCommunity),
-                                     static_cast<unsigned int>(type == Id::SecondaryCommunity), sim_day);
-        }
-
-        static void Transmission(const shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2, Id type,
-                                 unsigned short int sim_day)
-        {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
-        }
-};
-
-/// Specialized LOG_POLICY policy LogMode::Susceptibles.
-template <>
-class LOG_POLICY<ContactLogMode::Id::Susceptibles>
-{
-public:
-        static void Contact(const shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2, Id,
-                            unsigned short int)
-        {
-                if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
-                        contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
-                }
-        }
-
-        static void Transmission(const shared_ptr<spdlog::logger>&, const Person*, const Person*, Id,
-                                 unsigned short int)
-        {
-        }
-};
 
 //-------------------------------------------------------------------------------------------------
 // Definition for primary template covers the situation for ContactLogMode::None &
@@ -176,11 +88,11 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                                 // check for contact
                                                 if (c_handler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
-                                                        if (p1->IsParticipatingInSurvey()) {
+                                                        if (p1->IsSurveyParticipant()) {
                                                                 LP::Contact(c_logger, p1, p2, p_type, sim_day);
                                                         }
                                                         // log contact if person 2 is participating in survey
-                                                        if (p2->IsParticipatingInSurvey()) {
+                                                        if (p2->IsSurveyParticipant()) {
                                                                 LP::Contact(c_logger, p2, p1, p_type, sim_day);
                                                         }
 

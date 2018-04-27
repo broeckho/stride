@@ -34,7 +34,7 @@ public:
         AgeContactProfile() = default;
 
         /// Explicitly initialize
-        AgeContactProfile(ContactPoolType::Id pool_type, const boost::property_tree::ptree& pt_contacts);
+        AgeContactProfile(ContactPoolType::Id poolType, const boost::property_tree::ptree& contactPt);
 };
 
 } // namespace stride

@@ -67,7 +67,7 @@ def createFromCSV(household_file, work_file, school_file, prim_community_file, s
                 part_age += 1
 
     tree = ET.ElementTree(root)
-    output_file = directory + "/contact_matrix_" + postfix + ".xml";
+    output_file = directory + "/contact_matrix_" + postfix + ".xml"
     tree.write(output_file)
     print("Complete: " + output_file)
 

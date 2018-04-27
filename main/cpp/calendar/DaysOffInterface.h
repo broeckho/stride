@@ -34,7 +34,7 @@ public:
         virtual bool IsSchoolOff() = 0;
 
         /// Virtual destructor.
-        virtual ~DaysOffInterface() {}
+        virtual ~DaysOffInterface() = default;
 };
 
 } // namespace stride

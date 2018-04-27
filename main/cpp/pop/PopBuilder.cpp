@@ -20,14 +20,11 @@
 
 #include "PopBuilder.h"
 
-#include "disease/Health.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/StringUtils.h"
-
-#include <trng/uniform_int_dist.hpp>
 
 namespace stride {
 
@@ -35,15 +32,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt, std::shared_ptr<spdlog::logger> logger)
-    : m_config_pt(configPt), m_pop(make_shared<Population>()), m_stride_logger(std::move(logger))
-{
-        assert(!m_config_pt.empty() && "PopBuilder::PopBuilder> Empty config ptree not acceptable!");
-        // So as not to have to guard all log statements
-        if (!m_stride_logger) {
-                m_stride_logger = LogUtils::CreateNullLogger("PopBuilderNullLogger");
-        }
-}
+PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
 
 void PopBuilder::MakePoolSys()
 {
@@ -84,9 +73,6 @@ void PopBuilder::MakePoolSys()
                         }
                 }
         }
-        // --------------------------------------------------------------
-        // Done.
-        // --------------------------------------------------------------
 }
 
 void PopBuilder::MakePersons()
@@ -132,37 +118,10 @@ void PopBuilder::MakePersons()
 
 std::shared_ptr<Population> PopBuilder::Build()
 {
-        //---------------------------------------------------------------
-        // Preliminaries (check input data, rnManager, contactLogger).
-        //---------------------------------------------------------------
-        m_stride_logger->trace("Starting Preliminaries.");
         Preliminaries();
-        m_stride_logger->trace("Finished Preliminaries.");
-
-        // --------------------------------------------------------------
-        // Read persons from file.
-        // --------------------------------------------------------------
-        m_stride_logger->trace("Starting MakePersons.");
         MakePersons();
-        m_stride_logger->trace("Finished MakePersons.");
-
-        // --------------------------------------------------------------
-        // Fill up the various type of contactpools.
-        // --------------------------------------------------------------
-        m_stride_logger->trace("Starting MakePoolSys.");
         MakePoolSys();
-        m_stride_logger->trace("Finished MakePoolSys.");
-
-        // --------------------------------------------------------------
-        // Seed the population with social contact survey participants.
-        // --------------------------------------------------------------
-        m_stride_logger->trace("Starting SurveySeeder.");
         SurveySeeder::Seed(m_config_pt, m_pop, m_rn_manager);
-        m_stride_logger->trace("Finished SurveySeeder.");
-
-        //------------------------------------------------
-        // Done
-        //------------------------------------------------
         return m_pop;
 }
 
@@ -179,10 +138,9 @@ void PopBuilder::Preliminaries()
         // ------------------------------------------------
         // Setup RNManager.
         // ------------------------------------------------
-        m_num_threads = m_config_pt.get<unsigned int>("run.num_threads");
         m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
                                                 m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
-                                                m_num_threads});
+                                                m_config_pt.get<unsigned int>("run.num_threads")});
 
         // -----------------------------------------------------------------------------------------
         // Create contact_logger to log contacts/transmissions. Do NOT register it.
@@ -191,7 +149,6 @@ void PopBuilder::Preliminaries()
                 const auto prefix         = m_config_pt.get<string>("run.output_prefix");
                 const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
                 m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                // Remove meta data from log => time-stamp of logging
                 m_pop->GetContactLogger()->set_pattern("%v");
         } else {
                 m_pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");

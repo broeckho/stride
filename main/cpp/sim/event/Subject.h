@@ -19,12 +19,12 @@
  * Definition of Subject/Observer for SimEvents.
  */
 
-#include "Payload.h"
+#include "Id.h"
 #include "util/Subject.h"
 
 namespace stride {
 
 // Cannot declare this in sim_event as it has to be declared in enclosing namespace.
-extern template class stride::util::Subject<sim_event::Payload>;
+extern template class stride::util::Subject<sim_event::Id>;
 
 } // namespace stride

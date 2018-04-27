@@ -64,12 +64,6 @@ public:
         std::shared_ptr<Sim> GetSimulator() { return m_sim; }
 
 private:
-        /// Generate output files (at the end of the simulation).
-        void GenerateOutputFiles(const std::string& output_prefix, const std::vector<unsigned int>& cases,
-                                 const std::vector<unsigned int>& adopted, const boost::property_tree::ptree& pt_config,
-                                 unsigned int run_time, unsigned int total_time);
-
-private:
         bool                        m_is_running;    ///< Sim is running.
         std::string                 m_output_prefix; ///< Prefix for outpu data files.
         boost::property_tree::ptree m_pt_config;     ///< Ptree with configuration.

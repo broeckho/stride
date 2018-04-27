@@ -43,6 +43,10 @@ set(LIB_SRC
 	contact/ContactHandler.h
 	contact/ContactLogMode.cpp
 	contact/Infector.cpp
+	contact/InfectorExec.h
+	contact/InfectorMap.h
+	contact/LogPolicy.h
+	contact/R0Policy.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
@@ -71,7 +75,6 @@ set(LIB_SRC
     sim/Sim.cpp
     sim/SimBuilder.cpp
     sim/event/Id.cpp
-    sim/event/Payload.h
 	sim/event/Subject.cpp
 	sim/python/StrideRunner.cpp
 #---
@@ -84,7 +87,6 @@ set(LIB_SRC
     util/RNEngineType.cpp
     util/RNManager.cpp
     util/RunConfigManager.cpp
-    util/RunConfigString.cpp
     util/SegmentedVector.h
     util/Stopwatch.h
     util/StringUtils.h

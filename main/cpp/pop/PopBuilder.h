@@ -23,7 +23,6 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
-#include <spdlog/spdlog.h>
 
 namespace stride {
 
@@ -35,31 +34,32 @@ class Population;
 class PopBuilder
 {
 public:
-        /// @param configPt      Property_tree with general configuration settings.
-        explicit PopBuilder(const boost::property_tree::ptree& configPt, std::shared_ptr<spdlog::logger> logger);
+        /// Initializing constructor.
+        /// \param configPt    Property_tree with general configuration settings.
+        explicit PopBuilder(const boost::property_tree::ptree& configPt);
 
-        /// Initializes a Population.
+        /// Builds a Population. The steps are:
+        /// - Preliminaries (check input data, rnManager, contactLogger).
+        /// - Read persons from file and instatiate them.
+        /// - Fill up the various type of contactpools.
+        /// - Seed the population with contact survey participants.
         /// @return              Pointer to the population.
         std::shared_ptr<Population> Build();
 
 private:
-        ///
+        /// Fills up the contact pool system.
         void MakePoolSys();
 
-        ///
+        /// generates persons.
         void MakePersons();
 
-        ///
+        /// Preliminary setup.
         void Preliminaries();
 
 private:
-        boost::property_tree::ptree m_config_pt;   ///< Configuration property tree
-        unsigned int                m_num_threads; ///< The number of (OpenMP) threads.
-        std::shared_ptr<Population> m_pop;
-
-        util::RNManager m_rn_manager; ///< Random numbere generation management.
-
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
+        boost::property_tree::ptree m_config_pt;  ///< Configuration property tree
+        std::shared_ptr<Population> m_pop;        ///< The population.
+        util::RNManager             m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

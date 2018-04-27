@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation of Measles runs for benchmarking.
+ * Implementation of Influenza runs for benchmarking.
  */
 
 #include "myhayai/BenchmarkRunner.hpp"
@@ -31,21 +31,21 @@ using namespace stride::util;
 using namespace myhayai;
 using boost::property_tree::ptree;
 
-void MeaslesBench()
+void InfluenzaBench()
 {
-        auto builder = [](unsigned int n) {
-                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
-                return [n, configPt]() {
-                        return Test([n, configPt]() {
-                                configPt->put("run.num_threads", n);
+        auto builder = [](string s) {
+                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchInfluenza());
+                return [s, configPt]() {
+                        return Test([s, configPt]() {
+                                configPt->put("run.contact_log_level", s);
                                 SimRunner(*configPt).Run();
                         });
                 };
         };
 
-        const auto num = RunConfigManager::CreateNumThreads();
-        for (const auto n : num) {
-                auto info = [n]() { return ptree().put("num_threads", n); };
-                BenchmarkRunner::RegisterTest("Measles", "NumThreads." + ToString(n), 7, builder(n), info);
+        const vector<string> levels{"None", "Transmissions", "Susceptibles"};
+        for (const auto& s : levels) {
+                auto info = [s]() { return ptree().put("contact_log_level", s); };
+                BenchmarkRunner::RegisterTest("Influenza", "ContactLog." + s, 7, builder(s), info);
         }
 }
