@@ -1,8 +1,8 @@
 #############################################################################
-#  This file is part of the Stride software. 
+#  This file is part of the Stride software.
 #  It is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -27,10 +27,16 @@ message(STATUS "\nReading configuration info from CMakeLocal.cmake! \n")
 # MACRO (WARNING: CLion overrides the setting of CMAKE_BUILD_TYPE)
 #============================================================================
 set(STRIDE_INCLUDE_DOC      FALSE)
-#set(STRIDE_VERBOSE_TESTING  TRUE)
-#set(STRIDE_COMPILER_ID      GNU)
-set(STRIDE_COMPILER_ID      Clang)
-set(STRIDE_COMPILER_ID      Apple)
+set(STRIDE_FORCE_NO_OPENMP  FALSE)
+set(STRIDE_FORCE_NO_PYTHON  FALSE)
+set(STRIDE_COMPILER_ID      GNU)
+#set(STRIDE_COMPILER_ID      Clang)
+#set(STRIDE_COMPILER_ID      Apple)
+
+#set(CMAKE_CXX_FLAGS “—Weffc++ Wextra -pedantic")
+#set(CMAKE_CXX_FLAGS "-UNDEBUG")
+
+#set(CMAKE_BUILD_TYPE "Debug")
 
 #============================================================================
 # To help find modules.
@@ -45,8 +51,8 @@ set(Python_ADDITIONAL_VERSIONS 3.4)
 # Install dir.
 #============================================================================
 execute_process(COMMAND git rev-list HEAD --count
-        OUTPUT_VARIABLE STRIDE_GIT_LABEL OUTPUT_STRIP_TRAILING_WHITESPACE)
-set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_LABEL})
+        OUTPUT_VARIABLE STRIDE_GIT_SHA OUTPUT_STRIP_TRAILING_WHITESPACE)
+set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_SHA})
 
 #============================================================================
 # Compiler.

@@ -31,13 +31,13 @@ using namespace std;
 
 namespace stride {
 
-HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::RNManager& rn_manager)
+HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt, util::RNManager& rnManager)
 {
-        GetDistribution(m_distrib_start_infectiousness, disease_pt, "disease.start_infectiousness");
-        GetDistribution(m_distrib_start_symptomatic, disease_pt, "disease.start_symptomatic");
-        GetDistribution(m_distrib_time_infectious, disease_pt, "disease.time_infectious");
-        GetDistribution(m_distrib_time_symptomatic, disease_pt, "disease.time_symptomatic");
-        m_uniform01_generator = rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        GetDistribution(m_distrib_start_infectiousness, diseasePt, "disease.start_infectiousness");
+        GetDistribution(m_distrib_start_symptomatic, diseasePt, "disease.start_symptomatic");
+        GetDistribution(m_distrib_time_infectious, diseasePt, "disease.time_infectious");
+        GetDistribution(m_distrib_time_symptomatic, diseasePt, "disease.time_symptomatic");
+        m_uniform01_generator = rnManager.GetGenerator(trng::uniform01_dist<double>());
 
         assert((abs(m_distrib_start_infectiousness.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in start_infectiousness distribution!");
@@ -49,9 +49,9 @@ HealthSeeder::HealthSeeder(const boost::property_tree::ptree& disease_pt, util::
                "HealthSampler> Error in time_symptomatic distribution!");
 }
 
-void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& root_pt, const string& xml_tag)
+void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& rootPt, const string& xmlTag)
 {
-        const boost::property_tree::ptree& subtree = root_pt.get_child(xml_tag);
+        const boost::property_tree::ptree& subtree = rootPt.get_child(xmlTag);
         for (const auto& tree : subtree) {
                 distribution.push_back(tree.second.get<double>(""));
         }
@@ -59,12 +59,12 @@ void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& ro
 
 Health HealthSeeder::Sample()
 {
-        const auto start_infectiousness = Sample(m_distrib_start_infectiousness);
-        const auto start_symptomatic    = Sample(m_distrib_start_symptomatic);
-        const auto time_infectious      = Sample(m_distrib_time_infectious);
-        const auto time_symptomatic     = Sample(m_distrib_time_symptomatic);
+        const auto startInfectiousness = Sample(m_distrib_start_infectiousness);
+        const auto startSymptomatic    = Sample(m_distrib_start_symptomatic);
+        const auto timeInfectious      = Sample(m_distrib_time_infectious);
+        const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic);
 
-        return Health(start_infectiousness, start_symptomatic, time_infectious, time_symptomatic);
+        return Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
 }
 
 unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
@@ -77,7 +77,6 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
                         break;
                 }
         }
-
         return ret;
 }
 

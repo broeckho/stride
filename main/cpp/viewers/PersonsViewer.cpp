@@ -19,8 +19,8 @@
  */
 
 #include "PersonsViewer.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 
 using namespace std;
 using namespace stride::sim_event;
@@ -28,11 +28,11 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void PersonsViewer::Update(const sim_event::Payload& p)
+void PersonsViewer::Update(const sim_event::Id id)
 {
-        switch (p.m_event_id) {
+        switch (id) {
         case Id::Finished: {
-                m_persons_file.Print(p.m_runner->GetSim()->GetPopulation());
+                m_persons_file.Print(m_runner->GetSim()->GetPopulation());
                 break;
         }
         default: break;

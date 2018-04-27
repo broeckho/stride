@@ -1,3 +1,4 @@
+'''
 #############################################
 #           Test Python environment         #
 #############################################
@@ -34,3 +35,4 @@ if os.path.isdir("testSimple"):
 
 # Run the simulation
 sim.run()
+'''

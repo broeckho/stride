@@ -101,7 +101,7 @@ void CSV::AddRow(vector<string> values)
         this->push_back(csvRow);
 }
 
-size_t CSV::GetIndexForLabel(const string &label) const
+size_t CSV::GetIndexForLabel(const string& label) const
 {
         for (unsigned int index = 0; index < labels.size(); ++index) {
                 if (labels.at(index) == label)
@@ -110,7 +110,7 @@ size_t CSV::GetIndexForLabel(const string &label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void CSV::Write(const boost::filesystem::path &path) const
+void CSV::Write(const boost::filesystem::path& path) const
 {
         boost::filesystem::ofstream file;
         file.open(path.string());

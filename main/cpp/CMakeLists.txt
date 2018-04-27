@@ -43,6 +43,10 @@ set(LIB_SRC
 	contact/ContactHandler.h
 	contact/ContactLogMode.cpp
 	contact/Infector.cpp
+	contact/InfectorExec.h
+	contact/InfectorMap.h
+	contact/LogPolicy.h
+	contact/R0Policy.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
@@ -61,18 +65,16 @@ set(LIB_SRC
     pool/IdSubscriptArray.h
 #---
     pop/Age.h
-    pop/PopPoolBuilder.cpp
     pop/Person.cpp
     pop/Population.cpp
-    pop/PopulationBuilder.cpp
+	pop/PopBuilder.cpp
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
 	sim/SimRunner.cpp
-	sim/Simulator.cpp
-	sim/SimulatorBuilder.cpp
+    sim/Sim.cpp
+    sim/SimBuilder.cpp
     sim/event/Id.cpp
-    sim/event/Payload.h
 	sim/event/Subject.cpp
 #---
     util/Any.h
@@ -84,7 +86,6 @@ set(LIB_SRC
     util/RNEngineType.cpp
     util/RNManager.cpp
     util/RunConfigManager.cpp
-    util/RunConfigString.cpp
     util/SegmentedVector.h
     util/Stopwatch.h
     util/StringUtils.h

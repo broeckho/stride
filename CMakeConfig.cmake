@@ -53,25 +53,21 @@ set(STRIDE_INCLUDE_DOC	FALSE
 	CACHE BOOL "Exclude doc directory from build and install.")
 set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
-set(STRIDE_FORCE_NO_HDF5	FALSE
-	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
 set(STRIDE_FORCE_NO_PYHTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
-set(STRIDE_VERBOSE_TESTING  TRUE
-	CACHE BOOL "Run tests in verbose mode.")
+set(STRIDE_FORCE_NO_HDF5	FALSE
+	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
 
 #============================================================================
 # Additional CMake modules:
 #============================================================================
 list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
-if (CMAKE_VERSION VERSION_GREATER 3.5.0 AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-	list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake_extra/" )
-endif()
 
 #============================================================================
 # Distinguish Linux from Aplle in UNIX family.
 #============================================================================
 if(UNIX AND NOT APPLE)
+	message(STATUS "setting Linux TRUE")
     set(LINUX TRUE)
 endif()
 

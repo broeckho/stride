@@ -19,7 +19,8 @@
  * DaysOffAll class: everybody gets the day off.
  */
 
-#include "DaysOffInterface.h"
+#include "calendar/Calendar.h"
+#include "calendar/DaysOffInterface.h"
 
 namespace stride {
 
@@ -30,7 +31,7 @@ class DaysOffSchool : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        explicit DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }

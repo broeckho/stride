@@ -144,7 +144,7 @@ void CliController::ParseArgs(int argc, char** argv)
 
                 //
                 string           sx("Produce output in xml format in file at <path>.");
-                ValueArg<string> xmlArg("", "xml_path", sx, false, "", "path", cmd);
+                ValueArg<string> xmlArg("", "xml_path", sx, false, "btester.xml", "path", cmd);
 
                 string           sp("Positive regex for the canonical names (<group_name>.<test_name>) "
                           "in the current benchmarking run. A test gets included if its name "

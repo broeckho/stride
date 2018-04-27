@@ -35,6 +35,21 @@ namespace util {
 struct TimeToString
 {
         /// Produce string in hh:mm:ss format.
+        static std::string ToColonString(std::chrono::minutes d)
+        {
+                using namespace std;
+                using namespace std::chrono;
+
+                ostringstream oss;
+                hours         hh = duration_cast<hours>(d);
+                minutes       mm = duration_cast<minutes>(d % hours(1));
+
+                oss << right << setfill('0') << setw(2) << hh.count() << ":" << setw(2) << mm.count() << ":" << setw(2)
+                    << 0;
+                return oss.str();
+        }
+
+        /// Produce string in hh:mm:ss format.
         static std::string ToColonString(std::chrono::seconds d)
         {
                 using namespace std;

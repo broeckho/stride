@@ -20,6 +20,7 @@
  */
 
 #include "pool/ContactPool.h"
+#include "pop/Population.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -28,7 +29,7 @@
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 /**
  * Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.
@@ -37,15 +38,15 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& config_pt, util::RNManager& rn_manager);
+        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
         /// Build the simulator.
-        void Seed(std::shared_ptr<Simulator> sim);
+        void Seed(std::shared_ptr<Population> pop);
 
 private:
         /// Seed for vaccination/natural immunity.
-        void Vaccinate(const std::string& immunity_type, const std::string& immunization_profile,
-                       std::vector<ContactPool>& immunity_pools);
+        void Vaccinate(const std::string& immunityType, const std::string& immunizationProfile,
+                       std::vector<ContactPool>& immunityPools);
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.

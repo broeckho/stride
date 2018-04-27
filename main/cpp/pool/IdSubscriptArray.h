@@ -113,7 +113,7 @@ public:
         }
 };
 
-template<>
+template <>
 class IdSubscriptArray<bool> : public std::bitset<NumOfTypes()>
 {
 public:
@@ -122,7 +122,10 @@ public:
         /// e.g.    IdSubscriptArray<bool> m(true);
         explicit IdSubscriptArray(bool t = bool())
         {
-                if (t) this->set(); else this->reset();
+                if (t)
+                        this->set();
+                else
+                        this->reset();
         }
 
         /// When we want to use an initializer list the elements is the

@@ -37,7 +37,7 @@ class Calendar
 {
 public:
         /// Constructor
-        explicit Calendar(const boost::property_tree::ptree& config_pt);
+        explicit Calendar(const boost::property_tree::ptree& configPt);
 
         /// Advance the simulated calendar by one day.
         void AdvanceDay();
@@ -72,7 +72,7 @@ public:
 
 private:
         ///
-        void InitializeHolidays(const boost::property_tree::ptree& config_pt);
+        void InitializeHolidays(const boost::property_tree::ptree& configPt);
 
 private:
         boost::gregorian::date              m_date;            ///< Current simulated date.

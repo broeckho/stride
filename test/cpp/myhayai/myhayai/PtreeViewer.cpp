@@ -39,6 +39,7 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
         static unsigned int exec     = 0U;
         static unsigned int disabled = 0U;
         const string        name     = payload.m_test_name;
+        static Stopwatch<>  clock("total");
 
         if (payload.m_id == event::Id::SkipTest) {
                 ++disabled;
@@ -49,6 +50,7 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
 
         switch (payload.m_id) {
         case event::Id::BeginBench: {
+                clock.Start();
                 m_ptree.put("benchmark.date", TimeStamp().ToTag());
                 m_ptree.put("benchmark.host", ConfigInfo::GetHostname());
                 m_ptree.put("benchmark.git_comit", ConfigInfo::GitRevision());
@@ -58,6 +60,8 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 m_ptree.put("benchmark.executed", exec);
                 m_ptree.put("benchmark.disabled", disabled);
                 m_ptree.put("benchmark.excluded", m_descriptors.size() - exec - disabled);
+                const auto t = duration_cast<seconds>(clock.Stop().Get());
+                m_ptree.put("benchmark.total_time", TimeToString::ToColonString(t));
                 break;
         }
         case event::Id::SkipTest: {
@@ -80,11 +84,11 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
         }
         case event::Id::EndTest: {
                 const auto stats  = BoxPlotData::Calculate(payload.m_run_times);
-                const auto median = duration_cast<milliseconds>(stats.m_median);
-                const auto min    = duration_cast<milliseconds>(stats.m_min);
-                const auto max    = duration_cast<milliseconds>(stats.m_max);
-                const auto quart1 = duration_cast<milliseconds>(stats.m_quartile1);
-                const auto quart3 = duration_cast<milliseconds>(stats.m_quartile3);
+                const auto median = duration_cast<seconds>(stats.m_median);
+                const auto min    = duration_cast<seconds>(stats.m_min);
+                const auto max    = duration_cast<seconds>(stats.m_max);
+                const auto quart1 = duration_cast<seconds>(stats.m_quartile1);
+                const auto quart3 = duration_cast<seconds>(stats.m_quartile3);
 
                 TestDescriptor t_d = m_descriptors[name];
                 ptree          pt;
@@ -95,7 +99,7 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 pt.put("status", "executed");
                 pt.put("run_count", payload.m_run_times.size());
                 for (auto& rt : payload.m_run_times) {
-                        pt.add("run_times.run", duration_cast<milliseconds>(rt).count());
+                        pt.add("run_times.run", duration_cast<seconds>(rt).count());
                 }
                 pt.put("boxplot.median", median.count());
                 pt.put("boxplot.min", min.count());

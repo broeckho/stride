@@ -19,10 +19,12 @@
  * Header file for the core Population class
  */
 
+#include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
+#include <spdlog/spdlog.h>
 #include <vector>
 
 namespace stride {
@@ -33,8 +35,14 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
-        /// Inheriting constructors.
-        using std::vector<Person>::vector;
+        ///
+        // Population() : std::vector<Person>(), m_pool_sys(), m_contact_logger() {}
+        Population() = default;
+
+        /// New Person in the population.
+        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -42,17 +50,25 @@ public:
         /// Get the cumulative number of cases.
         unsigned int GetInfectedCount() const;
 
-        /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                          unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                          Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        ///
+        std::shared_ptr<spdlog::logger>& GetContactLogger() { return m_contact_logger; }
+
+        /// The ContactPoolSys of the simulator.
+        ContactPoolSys& GetContactPoolSys() { return m_pool_sys; }
+
+        /// The ContactPoolSys of the simulator.
+        const ContactPoolSys& GetContactPoolSys() const { return m_pool_sys; }
 
 private:
         ///
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int household_id, unsigned int school_id,
-                       unsigned int work_id, unsigned int primary_community_id, unsigned int secondary_community_id,
-                       Health health, const boost::property_tree::ptree& belief_pt, double risk_averseness = 0);
+        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+
+private:
+        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
 
 private:
         util::Any beliefs_container;

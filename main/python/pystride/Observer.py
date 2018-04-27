@@ -1,4 +1,4 @@
-
+'''
 class Observer:
     """
         Base class for Observers.
@@ -8,3 +8,4 @@ class Observer:
 
     def update(self, event):
         print("Update on " + event)
+'''

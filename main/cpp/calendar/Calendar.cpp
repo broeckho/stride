@@ -32,14 +32,13 @@ using namespace boost::property_tree::json_parser;
 using namespace stride::util;
 using boost::property_tree::ptree;
 
-Calendar::Calendar(const ptree& config_pt) : m_date(), m_day(0U), m_holidays(), m_school_holidays()
+Calendar::Calendar(const ptree& configPt) : m_date(), m_day(0U), m_holidays(), m_school_holidays()
 {
         // Set start date
-        const string start_date{config_pt.get<string>("run.start_date", "2016-01-01")};
-        m_date = boost::gregorian::from_simple_string(start_date);
+        m_date = boost::gregorian::from_simple_string(configPt.get<string>("run.start_date", "2016-01-01"));
 
         // Set holidays & school holidays
-        InitializeHolidays(config_pt);
+        InitializeHolidays(configPt);
 }
 
 void Calendar::AdvanceDay()
@@ -48,40 +47,35 @@ void Calendar::AdvanceDay()
         m_date = m_date + boost::gregorian::date_duration(1);
 }
 
-void Calendar::InitializeHolidays(const ptree& config_pt)
+void Calendar::InitializeHolidays(const ptree& configPt)
 {
         // Load json file
-        ptree pt_holidays;
+        ptree holidaysPt;
         {
-                const string file_name{config_pt.get<string>("run.holidays_file", "holidays_flanders_2016.json")};
+                const string file_name{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
                 const path   file_path{FileSys::GetDataDir() /= file_name};
                 if (!is_regular_file(file_path)) {
                         throw runtime_error(string(__func__) + "Holidays file " + file_path.string() + " not present.");
                 }
-                read_json(file_path.string(), pt_holidays);
+                read_json(file_path.string(), holidaysPt);
         }
 
         // Read in holidays
         for (int i = 1; i < 13; i++) {
-                const string month{to_string(i)};
-                const string year{pt_holidays.get<string>("year", "2016")};
+                const auto month = to_string(i);
+                const auto year  = holidaysPt.get<string>("year", "2017");
+                const auto lead  = string(year).append("-").append(month).append("-");
 
                 // read in general holidays
-                const string general_key{"general." + month};
-                for (auto& date : pt_holidays.get_child(general_key)) {
-                        const string date_string{
-                            string(year).append("-").append(month).append("-").append(date.second.get_value<string>())};
-                        const auto new_holiday = boost::gregorian::from_simple_string(date_string);
-                        m_holidays.push_back(new_holiday);
+                for (const auto& date : holidaysPt.get_child("general." + month)) {
+                        const auto d = string(lead).append(date.second.get_value<string>());
+                        m_holidays.push_back(boost::gregorian::from_simple_string(d));
                 }
 
                 // read in school holidays
-                const string school_key{"school." + month};
-                for (auto& date : pt_holidays.get_child(school_key)) {
-                        const string date_string{
-                            string(year).append("-").append(month).append("-").append(date.second.get_value<string>())};
-                        const auto new_holiday = boost::gregorian::from_simple_string(date_string);
-                        m_school_holidays.push_back(new_holiday);
+                for (const auto& date : holidaysPt.get_child("school." + month)) {
+                        const string d = string(lead).append(date.second.get_value<string>());
+                        m_school_holidays.push_back(boost::gregorian::from_simple_string(d));
                 }
         }
 }

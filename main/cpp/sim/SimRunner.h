@@ -19,52 +19,32 @@
  * Header for the SimRunner class.
  */
 
-#include "event/Subject.h"
-#include "sim/event/Payload.h"
+
+#include "sim/event/Id.h"
+#include "sim/event/Subject.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <string>
-#include <vector>
-
-namespace spdlog {
-class logger;
-}
 
 namespace stride {
 
-class Simulator;
+class Sim;
 
 /**
- * The simulation runner build a simulator and then lets it step through
- * untill the end of the simulation interval.
- * The SimRunner setup
- * \li accepts and configuration property tree from its controller
- * \li makes a logger
- * \li outputs the run configuration to file
- * \li invokes the builder (@see SimulatorBuilder) for the simulator
- * \li checks the simulator
- * The SimRunner execution
+ * The simulation runner:
+ * \li invokes the simulator builder (@see SimulatorBuilder)
  * \li manages elapsed time clock
  * \li manages time steps
- * All the while SimRunner notifies viewers of its events (@see sim_event::Id)
+ * \linotifies viewers of its events (@see sim_event::Id)
  */
-class SimRunner : public util::Subject<stride::sim_event::Payload>, public std::enable_shared_from_this<SimRunner>
+class SimRunner : public util::Subject<stride::sim_event::Id>
 {
 public:
-        /// The enable_shared_from_this make it so we need to instatiate a live shared_ptr
-        /// to use the object. To enforce this, the constructor has been made private.
-        static std::shared_ptr<SimRunner> Create()
-        {
-                // See discussion on make_shared and private constructor
-                // https://stackoverflow.com/questions/8147027/
-                // how-do-i-call-stdmake-shared-on-a-class-with-only-protected-or-private-const
-                struct make_shared_enabler : public SimRunner
-                {
-                };
-                return std::make_shared<make_shared_enabler>();
-        }
+        /// Initialization with property tree.
+        /// \param configPt config info for run and for config of simulator
+        explicit SimRunner(const boost::property_tree::ptree& configPt);
 
         /// Destructor
         virtual ~SimRunner() = default;
@@ -76,28 +56,19 @@ public:
         const boost::property_tree::ptree& GetConfig() const { return m_config_pt; }
 
         /// Return the Simulator.
-        std::shared_ptr<Simulator> GetSim() const { return m_sim; }
+        std::shared_ptr<Sim> GetSim() const { return m_sim; }
 
-        /// Setup the context for the simulation run.
-        /// \param config_pt        config info for run and for config of simulator
-        /// \param logger               general logger
-        /// \return                     status value
-        bool Setup(const boost::property_tree::ptree& config_pt);
-
-        /// Run the simulator with config information provided.
+        /// Run simulator for as many steps/days as indicated in config.
         void Run();
 
-private:
-        /// Private constructor, @see Create.
-        SimRunner();
+        /// Run simulator for numSteps steps/days.
+        void Run(unsigned int numSteps);
 
 private:
-        util::Stopwatch<>               m_clock;         ///< Stopwatch for timing the computation.
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< General logger (!= contact_logger).
-        std::string                     m_log_level;     ///< Log level (see spdlog::level in spdlog/common.h).
-        std::string                     m_output_prefix; ///< Prefix for output data files.
-        boost::property_tree::ptree     m_config_pt;     ///< Ptree with configuration.
-        std::shared_ptr<Simulator>      m_sim;           ///< Simulator object.
+        util::Stopwatch<>           m_clock;         ///< Stopwatch for timing the computation.
+        boost::property_tree::ptree m_config_pt;     ///< Ptree with configuration.
+        std::string                 m_output_prefix; ///< Prefix for output data files.
+        std::shared_ptr<Sim>        m_sim;           ///< Simulator object.
 };
 
 } // namespace stride

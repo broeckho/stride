@@ -22,7 +22,7 @@
 #include "contact/ContactLogMode.h"
 #include "pool/ContactPoolType.h"
 
-#include <array>
+#include <tuple>
 #include <vector>
 
 namespace stride {
@@ -51,8 +51,7 @@ public:
         std::size_t GetSize() const { return m_members.size(); }
 
 private:
-        /// Sort members w.r.t. health status.
-        /// Sort order: exposed/infected/recovered, susceptible, immune).
+        /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
@@ -63,7 +62,7 @@ private:
         std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
         ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
-        std::vector<Person*> m_members;      ///< Container with pointers to contactpool members.
+        std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };
 
 } // namespace stride

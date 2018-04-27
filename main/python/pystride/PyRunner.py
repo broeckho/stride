@@ -1,3 +1,4 @@
+'''
 import time
 
 from pystride.stride.stride import Simulator, SimulatorBuilder
@@ -59,3 +60,4 @@ class PyRunner(Subject):
         self.notifyObservers(Event(EventType.Finished))
         self.stopwatch.stop()
         print("Simulation run finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+    '''

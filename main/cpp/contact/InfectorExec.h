@@ -16,36 +16,21 @@
 
 /**
  * @file
- * Header for the ContactPoolBuilder class.
+ * Header for the InfectorExec class.
  */
 
-#include "pool/ContactPoolSys.h"
-
-#include <boost/property_tree/ptree.hpp>
-#include <memory>
 #include <spdlog/spdlog.h>
 
 namespace stride {
 
-class Population;
-class Simulator;
+class ContactPool;
+class AgeContactProfile;
+class TransmissionProfile;
+class ContactHandler;
 
-/**
- * Builds the contact pool system and adds members from the population.
- * The population members should have their pool ids for the various
- * pools already assigned to them.
- */
-class PopPoolBuilder
-{
-public:
-        /// Initializing ContactPoolBuilder.
-        explicit PopPoolBuilder(std::shared_ptr<spdlog::logger> logger);
-
-        /// Build the contact pool system.
-        void Build(ContactPoolSys& pool_sys, const Population& population);
-
-private:
-        std::shared_ptr<spdlog::logger> m_stride_logger; ///< Stride run logger.
-};
+/// For use in the InfectorMap and Sim.
+typedef void(InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
+                           const TransmissionProfile& trans_profile, ContactHandler& c_handler,
+                           unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
 
 } // namespace stride

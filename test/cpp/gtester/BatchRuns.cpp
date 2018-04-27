@@ -20,8 +20,8 @@
 
 #include "ScenarioData.h"
 #include "pop/Population.h"
+#include "sim/Sim.h"
 #include "sim/SimRunner.h"
-#include "sim/Simulator.h"
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -47,7 +47,7 @@ public:
 
 protected:
         /// Destructor has to be virtual.
-        ~BatchRuns() override {}
+        ~BatchRuns() override = default;
 
         /// Set up for the test fixture
         void SetUp() override {}
@@ -68,11 +68,9 @@ TEST_P(BatchRuns, Run)
         const auto   margin    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
-        // Actual simualtor run.
+        // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        cerr << "test tag: " << test_tag << endl;
-        auto runner = SimRunner::Create();
-        runner->Setup(config_pt);
+        auto runner = make_shared<SimRunner>(config_pt);
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
