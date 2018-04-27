@@ -31,7 +31,7 @@ def createFromCSV(household_file, work_file, school_file, prim_community_file, s
         Create contact matrices from files with diary-study results.
         """
     root = ET.Element("matrices")
-    cluster_types = ["household", "primary_community", "work", "school", "secondary_community"]
+    cluster_types = ["household",  "work", "school", "primary_community", "secondary_community"]
     for cluster_type in cluster_types:
         cluster_root = ET.SubElement(root, cluster_type)
         cluster_file = None

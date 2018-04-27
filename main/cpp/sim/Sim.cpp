@@ -103,6 +103,7 @@ void Sim::TimeStep()
 
         Notify(static_cast<unsigned int>(m_calendar->GetSimulationDay()));
 
+        m_population->GetContactLogger()->flush();
         m_calendar->AdvanceDay();
 }
 
