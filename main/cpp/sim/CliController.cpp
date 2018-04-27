@@ -41,12 +41,23 @@ using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 
-CliController::CliController(const ptree& configPt)
-    : m_config_pt(configPt), m_output_prefix(""), m_run_clock("run", true), m_stride_logger(), m_use_install_dirs()
+CliController::CliController()
+    : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
 {
+}
+
+CliController::CliController(const ptree& configPt) : CliController()
+{
+        m_run_clock.Start();
+        m_config_pt        = configPt;
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-};
+
+        CheckEnv();
+        CheckOutputPrefix();
+        MakeLogger();
+        LogSetup();
+}
 
 void CliController::CheckEnv()
 {
@@ -127,19 +138,8 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
         }
 }
 
-void CliController::Setup()
+void CliController::LogSetup()
 {
-        // -----------------------------------------------------------------------------------------
-        // Check environment, deal with output_prefix (i.e. make the directory iff the
-        // prefix contains at least one /, make a logger. Do NOT register it.
-        // -----------------------------------------------------------------------------------------
-        CheckEnv();
-        CheckOutputPrefix();
-        MakeLogger();
-
-        // -----------------------------------------------------------------------------------------
-        // Log the setup.
-        // -----------------------------------------------------------------------------------------
         m_stride_logger->info("CliController stating up at: {}", TimeStamp().ToString());
         m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);

@@ -29,8 +29,8 @@ class TransmissionProfile;
 class ContactHandler;
 
 /// For use in the InfectorMap and Sim.
-typedef void (InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
-                            const TransmissionProfile& trans_profile, ContactHandler& c_handler,
-                            unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
+typedef void(InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
+                           const TransmissionProfile& trans_profile, ContactHandler& c_handler,
+                           unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
 
 } // namespace stride

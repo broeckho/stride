@@ -24,11 +24,11 @@
 #include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
-#include "contact/InfectorExec.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
+#include "sim/SimBuilder.h"
+#include "util/RunConfigManager.h"
 
-#include <trng/uniform01_dist.hpp>
 #include <omp.h>
 
 namespace stride {
@@ -39,9 +39,16 @@ using namespace util;
 using namespace ContactLogMode;
 
 Sim::Sim()
-    : m_config_pt(), m_contact_log_mode(Id::None), m_contact_profiles(), m_num_threads(1U), m_track_index_case(false),
-      m_transmission_profile(), m_local_info_policy(), m_calendar(), m_population(nullptr), m_rn_manager()
+    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
+      m_calendar(nullptr), m_contact_profiles(), m_population(nullptr), m_rn_manager(), m_transmission_profile()
 {
+}
+
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt) { return SimBuilder(configPt).Build(); }
+
+std::shared_ptr<Sim> Sim::Create(const string& configString)
+{
+        return SimBuilder(RunConfigManager::FromString(configString)).Build();
 }
 
 void Sim::TimeStep()

@@ -105,9 +105,7 @@ int main(int argc, char** argv)
                         }
                         configPt.sort();
 
-                        CliController cntrl(configPt);
-                        cntrl.Setup();
-                        cntrl.Control();
+                        CliController(configPt).Control();
                 }
                 // -----------------------------------------------------------------------------------------
                 // If run simulation in gui ...

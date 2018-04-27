@@ -27,11 +27,6 @@
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <string>
-#include <vector>
-
-namespace spdlog {
-class logger;
-}
 
 namespace stride {
 
@@ -47,10 +42,7 @@ class Sim;
 class SimRunner : public util::Subject<stride::sim_event::Id>
 {
 public:
-        /// Default initialization.
-        SimRunner();
-
-        /// Initialization with propert tree.
+        /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
         explicit SimRunner(const boost::property_tree::ptree& configPt);
 

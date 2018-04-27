@@ -60,16 +60,19 @@ public:
         /// Actual run of the simulator.
         void Control();
 
-        /// Setup the controller.
-        void Setup();
-
 private:
+        /// Empty controller: used as taget for delegation.
+        explicit CliController();
+
         /// Check install environment.
         void CheckEnv();
 
         // Output_prefix: if it's a string not containing any / it gets interpreted as a
         // filename prefix; otherwise we 'll create the corresponding directory.
         void CheckOutputPrefix();
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void LogSetup();
 
         /// Make the appropriate logger for cli environment and register as stride_logger.
         void MakeLogger();

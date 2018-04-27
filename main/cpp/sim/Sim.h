@@ -29,8 +29,7 @@
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <map>
-#include <tuple>
+#include <string>
 
 namespace stride {
 
@@ -44,14 +43,14 @@ class Population;
 class Sim : public python::Subject<unsigned int, python::SimulatorObserver>
 {
 public:
-        /// Default constructor for empty Simulator.
-        Sim();
+        /// Create a simulator initialized by the configuration ptree.
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt);
 
-        /// Calendar associated with simulated world. Gets initialized with the date
-        /// in the simulation world at whic simulation starts. It represents date/simulated day
-        /// of the last TimeStep completed (it is incremented at the very end of TimeStep).
-        /// GetCalendar()->GetsimulationDay() is the number of days simulated in the alst
-        /// completed time step.
+        /// For use in python environment: create using configuration string i.o ptree.
+        static std::shared_ptr<Sim> Create(const std::string& configString);
+
+        /// Calendar for the simulated world. Initialized with the start date in the simulation
+        /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.
         std::shared_ptr<Calendar> GetCalendar() const { return m_calendar; }
 
         /// Get the transmission profile.
@@ -67,22 +66,26 @@ public:
         void TimeStep();
 
 private:
-        boost::property_tree::ptree m_config_pt;            ///< Configuration property tree
-        ContactLogMode::Id          m_contact_log_mode;     ///< Specifies contact/transmission logging mode.
-        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
-        unsigned int                m_num_threads;          ///< The number of (OpenMP) threads.
-        bool                        m_track_index_case;     ///< General simulation or tracking index case.
-        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
-        std::string                 m_local_info_policy;    ///< Local information policy name.
+        /// Default constructor for empty Simulator.
+        Sim();
 
-        std::shared_ptr<Calendar>   m_calendar;   ///< Managment of calendar.
-        std::vector<ContactHandler> m_handlers;   ///< Contact handlers (rng & rates).
-        InfectorExec*               m_infector;   ///< Executes contacts/transmission loops in contact pool.
-        std::shared_ptr<Population> m_population; ///< Pointer to the Population.
-        util::RNManager             m_rn_manager; ///< Random numbere generation management.
+        /// SimBuilder accesses the default constructor to build Sim using config.
+        friend class SimBuilder;
 
 private:
-        friend class SimBuilder;
+        boost::property_tree::ptree m_config_pt;         ///< Configuration property tree
+        ContactLogMode::Id          m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
+        unsigned int                m_num_threads;       ///< The number of (OpenMP) threads.
+        bool                        m_track_index_case;  ///< General simulation or tracking index case.
+        std::string                 m_local_info_policy; ///< Local information policy name.
+
+        std::shared_ptr<Calendar>   m_calendar;             ///< Managment of calendar.
+        AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
+        std::vector<ContactHandler> m_handlers;             ///< Contact handlers (rng & rates).
+        InfectorExec*               m_infector;             ///< Executes contacts/transmission loops in contact pool.
+        std::shared_ptr<Population> m_population;           ///< Pointer to the Population.
+        util::RNManager             m_rn_manager;           ///< Random numbere generation management.
+        TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 };
 
 } // namespace stride

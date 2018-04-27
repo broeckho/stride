@@ -49,9 +49,12 @@ std::shared_ptr<Sim> SimBuilder::Build()
         // --------------------------------------------------------------
         // Preliminaries.
         // --------------------------------------------------------------
-        auto       sim          = make_shared<Sim>();
-        const auto diseasePt    = ReadDiseasePtree();
-        const auto ageContactPt = ReadAgeContactPtree();
+        struct make_shared_enabler : public Sim
+        {
+        };
+        shared_ptr<Sim> sim          = make_shared<make_shared_enabler>();
+        const auto      diseasePt    = ReadDiseasePtree();
+        const auto      ageContactPt = ReadAgeContactPtree();
 
         // --------------------------------------------------------------
         // Config info.
