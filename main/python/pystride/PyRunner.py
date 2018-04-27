@@ -49,7 +49,7 @@ class PyRunner(Subject):
     def run(self):
         self.stopwatch.start()
         num_days = int(self.runConfig.getParameter("num_days"))
-        # TODO log start?
+        print("Beginning actual simulation run at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
         self.notifyObservers(Event(EventType.AtStart))
         for day in range(num_days):
             self.simulator.TimeStep()
@@ -58,4 +58,4 @@ class PyRunner(Subject):
 
         self.notifyObservers(Event(EventType.Finished))
         self.stopwatch.stop()
-        # TODO log finished?
+        print("Simulation run finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
