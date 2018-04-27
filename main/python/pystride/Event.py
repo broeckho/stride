@@ -1,10 +1,9 @@
-'''
 from enum import Enum
 
 class EventType(Enum):
     AtStart = 1
     Stepped = 2
-    Finished = 3
+    AtFinished = 3
     SetupBegin = 4
     SetupEnd = 5
 
@@ -20,4 +19,3 @@ class SteppedEvent(Event):
     def __init__(self, timestep):
         super(SteppedEvent, self).__init__(EventType.Stepped)
         self.timestep = timestep
-'''

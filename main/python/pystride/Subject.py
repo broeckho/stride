@@ -1,4 +1,3 @@
-'''
 class Subject:
     """
         Base class for subjects.
@@ -15,4 +14,3 @@ class Subject:
     def notifyObservers(self, event):
         for obs in self.observers:
             obs.update(event)
-'''
