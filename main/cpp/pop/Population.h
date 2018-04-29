@@ -36,7 +36,6 @@ class Population : public std::vector<Person>
 {
 public:
         ///
-        // Population() : std::vector<Person>(), m_pool_sys(), m_contact_logger() {}
         Population() = default;
 
         /// New Person in the population.

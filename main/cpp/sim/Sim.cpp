@@ -78,12 +78,13 @@ void Sim::TimeStep()
                         population[i].Update(isWorkOff, isSchoolOff);
                 }
 
-                // Loop over types of contact pool systems (household, school, etc.)
-                // Infector updates individuals for contacts & transmission within a pool.
+                // Loop over types of contact pool (household, etc.) and over pools of that type.
+                // Infector updates individuals for contacts & transmission within each pool.
+                // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(static)
-                        for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
+                        for (size_t i = 1; i < poolSys[typ].size(); i++) { // NOLINT
                                 infector(poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
                                          m_handlers[thread_num], simDay, contactLogger);
                         }

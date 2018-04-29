@@ -41,7 +41,7 @@ void PopBuilder::MakePoolSys()
         auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
-        // Determine number of contact pools from ids in population.
+        // Determine maximum pool ids in population.
         // --------------------------------------------------------------
         IdSubscriptArray<unsigned int> max_ids{0U};
         for (const auto& p : population) {
@@ -50,20 +50,22 @@ void PopBuilder::MakePoolSys()
                 }
         }
         // --------------------------------------------------------------
-        // Keep separate id counter to provide a unique id for every
-        // contactpool. Start at 1 (see next item for pool_id==0).
+        // Initialize poolSys with empty ContactPools (even for Id=0).
         // --------------------------------------------------------------
-        unsigned int id = 1;
         for (Id typ : IdList) {
-                for (size_t i = 0; i <= max_ids[typ]; i++) {
-                        poolSys[typ].emplace_back(ContactPool(id, typ));
-                        id++;
+                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
+                        poolSys[typ].emplace_back(ContactPool(i, typ));
                 }
         }
+
         // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools. Having
-        // contactpool id '0' means "not belonging pool of that type"
-        // (school / work - belong to both).
+        // Insert persons (pointers) in their contactpools. Having Id 0
+        // means "not belonging pool of that type" (e.g. school/ work -
+        // cannot belong to both, or e.g. out-of-work).
+        //
+        // Pools are uniquely identified by (typ, subscript) and a Person
+        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
+        // Defensive measure: we have a pool for Id 0 and leave it empty.
         // --------------------------------------------------------------
         for (auto& p : population) {
                 for (Id typ : IdList) {
