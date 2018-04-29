@@ -32,12 +32,13 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
+PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager)
+        : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
-void PopBuilder::MakePoolSys()
+void PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 {
         using namespace ContactPoolType;
-        auto& population = *m_pop;
+        auto& population = *pop;
         auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
@@ -77,7 +78,7 @@ void PopBuilder::MakePoolSys()
         }
 }
 
-void PopBuilder::MakePersons()
+void PopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Read persosns from file.
@@ -110,24 +111,15 @@ void PopBuilder::MakePersons()
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
-                m_pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                    secondary_community_id, Health(), belief_pt, risk_averseness);
+                pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
+                                  secondary_community_id, Health(), belief_pt, risk_averseness);
                 ++person_id;
         }
 
         pop_file.close();
 }
 
-std::shared_ptr<Population> PopBuilder::Build()
-{
-        Preliminaries();
-        MakePersons();
-        MakePoolSys();
-        SurveySeeder::Seed(m_config_pt, m_pop, m_rn_manager);
-        return m_pop;
-}
-
-void PopBuilder::Preliminaries()
+void PopBuilder::Build(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Check validity of input data.
@@ -137,24 +129,12 @@ void PopBuilder::Preliminaries()
                 throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
         }
 
-        // ------------------------------------------------
-        // Setup RNManager.
-        // ------------------------------------------------
-        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
-                                                m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
-                                                m_config_pt.get<unsigned int>("run.num_threads")});
-
-        // -----------------------------------------------------------------------------------------
-        // Create contact_logger to log contacts/transmissions. Do NOT register it.
-        // -----------------------------------------------------------------------------------------
-        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix         = m_config_pt.get<string>("run.output_prefix");
-                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
-                m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                m_pop->GetContactLogger()->set_pattern("%v");
-        } else {
-                m_pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
-        }
+        //------------------------------------------------
+        // Add persons & fill pools & surveyseeding.
+        //------------------------------------------------
+        MakePersons(pop);
+        MakePoolSys(pop);
+        SurveySeeder::Seed(m_config_pt, pop, m_rn_manager);
 }
 
 } // namespace stride

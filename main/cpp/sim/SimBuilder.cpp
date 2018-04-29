@@ -86,9 +86,23 @@ std::shared_ptr<Sim> SimBuilder::Build()
         sim->m_infector    = InfectorMap().at(select);
 
         // --------------------------------------------------------------
-        // Build population.
+        // Create (empty) population & give it a contact logger.
         // --------------------------------------------------------------
-        sim->m_population = PopBuilder(m_config_pt).Build();
+        auto pop = make_shared<Population>();
+        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix         = m_config_pt.get<string>("run.output_prefix");
+                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
+                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                pop->GetContactLogger()->set_pattern("%v");
+        } else {
+                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+        }
+
+        // -----------------------------------------------------------------------------------------
+        // Initialize population.
+        // -----------------------------------------------------------------------------------------
+        PopBuilder(m_config_pt, sim->m_rn_manager).Build(pop);
+        sim->m_population = pop;
 
         // --------------------------------------------------------------
         // Seed the population with health data.

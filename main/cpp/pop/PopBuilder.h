@@ -36,30 +36,26 @@ class PopBuilder
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
-        explicit PopBuilder(const boost::property_tree::ptree& configPt);
+        /// \param rnManager   Random number manager for pop build process.
+        PopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
         /// Builds a Population. The steps are:
-        /// - Preliminaries (check input data, rnManager, contactLogger).
+        /// - Preliminaries (check input data).
         /// - Read persons from file and instatiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
-        /// @return              Pointer to the population.
-        std::shared_ptr<Population> Build();
+        void Build(std::shared_ptr<Population> pop);
 
 private:
         /// Fills up the contact pool system.
-        void MakePoolSys();
+        void MakePoolSys(std::shared_ptr<Population> pop);
 
-        /// generates persons.
-        void MakePersons();
-
-        /// Preliminary setup.
-        void Preliminaries();
+        /// Generates persons.
+        void MakePersons(std::shared_ptr<Population> pop);
 
 private:
-        boost::property_tree::ptree m_config_pt;  ///< Configuration property tree
-        std::shared_ptr<Population> m_pop;        ///< The population.
-        util::RNManager             m_rn_manager; ///< Random numbere generation management.
+        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree
+        util::RNManager&                   m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride
