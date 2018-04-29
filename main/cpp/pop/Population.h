@@ -21,10 +21,12 @@
 
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
+#include "pop/PopBuilder.h"
 #include "util/Any.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <spdlog/spdlog.h>
+#include <memory>
 #include <vector>
 
 namespace stride {
@@ -35,13 +37,11 @@ namespace stride {
 class Population : public std::vector<Person>
 {
 public:
-        ///
-        Population() = default;
+        /// Create a population initialized by the configuration in property tree.
+        static std::shared_ptr<Population> Create(const boost::property_tree::ptree& configPt);
 
-        /// New Person in the population.
-        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+        /// For use in python environment: create using configuration string i.o ptree.
+        static std::shared_ptr<Population> Create(const std::string& configString);
 
         ///
         unsigned int GetAdoptedCount() const;
@@ -60,17 +60,26 @@ public:
 
 private:
         ///
+        Population() = default;
+
+        /// New Person in the population.
+        void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
+                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+
+        ///
         template <typename BeliefPolicy>
         void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
                        unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
                        Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
 
+        friend class PopBuilder;
+
 private:
+        util::Any                       beliefs_container;
         ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
 
-private:
-        util::Any beliefs_container;
 };
 
 } // namespace stride

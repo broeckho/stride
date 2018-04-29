@@ -23,6 +23,10 @@
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
 #include "disease/Health.h"
+#include "util/FileSys.h"
+#include "util/LogUtils.h"
+#include "util/RNManager.h"
+#include "util/RunConfigManager.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -30,8 +34,46 @@
 
 using namespace boost::property_tree;
 using namespace std;
+using namespace stride::util;
 
 namespace stride {
+
+std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree& configPt)
+{
+        // --------------------------------------------------------------
+        // Create (empty) population & and give it a ContactLogger.
+        // --------------------------------------------------------------
+        struct make_shared_enabler : public Population
+        {
+        };
+        auto pop = make_shared<make_shared_enabler>();
+        if (configPt.get<bool>("run.contact_output_file", true)) {
+                const auto prefix         = configPt.get<string>("run.output_prefix");
+                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
+                pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
+                pop->GetContactLogger()->set_pattern("%v");
+        } else {
+                pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
+        }
+
+        // ------------------------------------------------
+        // Setup RNManager.
+        // ------------------------------------------------
+        RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
+                                            configPt.get<unsigned long>("run.rng_seed", 101UL), "",
+                                            configPt.get<unsigned int>("run.num_threads")});
+
+        // -----------------------------------------------------------------------------------------
+        // Build population (at later date multiple builder or build instances ...).
+        // -----------------------------------------------------------------------------------------
+        PopBuilder(configPt, rnManager).Build(pop);
+        return pop;
+}
+
+std::shared_ptr<Population> Population::Create(const string& configString)
+{
+        return Create(RunConfigManager::FromString(configString));
+}
 
 unsigned int Population::GetAdoptedCount() const
 {

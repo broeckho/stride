@@ -48,7 +48,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt) { 
 
 std::shared_ptr<Sim> Sim::Create(const string& configString)
 {
-        return SimBuilder(RunConfigManager::FromString(configString)).Build();
+        return Create(RunConfigManager::FromString(configString));
 }
 
 void Sim::TimeStep()
