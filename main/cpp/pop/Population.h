@@ -25,8 +25,8 @@
 #include "util/Any.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <spdlog/spdlog.h>
 #include <memory>
+#include <spdlog/spdlog.h>
 #include <vector>
 
 namespace stride {
@@ -79,7 +79,6 @@ private:
         util::Any                       beliefs_container;
         ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-
 };
 
 } // namespace stride

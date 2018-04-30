@@ -48,8 +48,8 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         };
         auto pop = make_shared<make_shared_enabler>();
         if (configPt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix         = configPt.get<string>("run.output_prefix");
-                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
+                const auto prefix       = configPt.get<string>("run.output_prefix");
+                const auto logPath      = FileSys::BuildPath(prefix, "contact_log.txt");
                 pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
                 pop->GetContactLogger()->set_pattern("%v");
         } else {
@@ -66,8 +66,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // -----------------------------------------------------------------------------------------
         // Build population (at later date multiple builder or build instances ...).
         // -----------------------------------------------------------------------------------------
-        PopBuilder(configPt, rnManager).Build(pop);
-        return pop;
+        return PopBuilder(configPt, rnManager).Build(pop);
 }
 
 std::shared_ptr<Population> Population::Create(const string& configString)

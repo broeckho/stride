@@ -34,13 +34,18 @@ class Population;
 class SurveySeeder
 {
 public:
-        /// Seeds the population with survey participants.
-        ///
+        /// Initialize Seeder.
         /// \param configPt         Configuration parameters.
-        /// \param pop               Population.
         /// \param rnManager         Random number manager.
-        static void Seed(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop,
-                         util::RNManager& rnManager);
+        SurveySeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+
+        /// Seeds the population with survey participants.
+        /// \param pop               Population.
+        std::shared_ptr<Population> Seed(std::shared_ptr<Population> pop);
+
+private:
+        const boost::property_tree::ptree& m_config_pt;  ///< Run config.
+        util::RNManager&                   m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

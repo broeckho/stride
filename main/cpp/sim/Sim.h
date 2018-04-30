@@ -24,6 +24,7 @@
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
+#include "pop/Population.h"
 #include "sim/python/SimulatorObserver.h"
 #include "sim/python/Subject.h"
 #include "util/RNManager.h"
@@ -34,7 +35,6 @@
 namespace stride {
 
 class Calendar;
-class Population;
 
 /**
  * Simulator can time step and reveal some of the key data.

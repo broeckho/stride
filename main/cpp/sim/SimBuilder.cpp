@@ -44,16 +44,8 @@ using namespace ContactPoolType;
 
 SimBuilder::SimBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 
-std::shared_ptr<Sim> SimBuilder::Build()
+shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim)
 {
-        // --------------------------------------------------------------
-        // Preliminaries.
-        // --------------------------------------------------------------
-        struct make_shared_enabler : public Sim
-        {
-        };
-        shared_ptr<Sim> sim          = make_shared<make_shared_enabler>();
-
         // --------------------------------------------------------------
         // Read config info and setup random number manager
         // --------------------------------------------------------------
@@ -89,13 +81,8 @@ std::shared_ptr<Sim> SimBuilder::Build()
         // --------------------------------------------------------------
         // Initialize the transmission profile (fixes rates).
         // --------------------------------------------------------------
-        const auto diseasePt    = ReadDiseasePtree();
+        const auto diseasePt = ReadDiseasePtree();
         sim->m_transmission_profile.Initialize(m_config_pt, diseasePt);
-
-        // -----------------------------------------------------------------------------------------
-        // Initialize population.
-        // -----------------------------------------------------------------------------------------
-        sim->m_population = Population::Create(m_config_pt);
 
         // --------------------------------------------------------------
         // Seed the population with health data.

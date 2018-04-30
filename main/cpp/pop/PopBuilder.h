@@ -39,19 +39,20 @@ public:
         /// \param rnManager   Random number manager for pop build process.
         PopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
-        /// Builds a Population. The steps are:
-        /// - Preliminaries (check input data).
+        /// Build Population and return it afterwards.
+        /// The steps are:
+        /// - Check input data.
         /// - Read persons from file and instatiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
-        void Build(std::shared_ptr<Population> pop);
+        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
 
 private:
-        /// Fills up the contact pool system.
-        void MakePoolSys(std::shared_ptr<Population> pop);
+        /// Fills up pop's contact pool system and return pop.
+        std::shared_ptr<Population> MakePoolSys(std::shared_ptr<Population> pop);
 
-        /// Generates persons.
-        void MakePersons(std::shared_ptr<Population> pop);
+        /// Generates pop's individuals and return pop.
+        std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree

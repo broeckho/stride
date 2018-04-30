@@ -20,7 +20,7 @@ class Simulation:
             self.dataDir = os.path.join("..", "data")
         else:
             self.dataDir = dataDir
-             
+
     def loadRunConfig(self, filename: str):
         self.runConfig = Config(filename)
         self.diseaseConfig = Config(os.path.join(self.dataDir, self.runConfig.getParameter("disease_config_file")))
@@ -104,7 +104,7 @@ class Simulation:
             print("Exception while running the simulator. Closing down.")
             exit(1)
 
-    def runForks(self, *args, **kwargs):      
+    def runForks(self, *args, **kwargs):
         """ Run all forks but not the root simulation. """
         for fork in self.forks:
             fork.run(*args, **kwargs)
@@ -119,15 +119,15 @@ class Simulation:
 
     def __setstate__(self, state):
         pass
-    
+
     def aggregateForkOutput(self):
         summary_file  = open(os.path.join(self.getOutputDirectory(), self.getLabel()+ '_summary.csv'), 'w')
         cases_file    = open(os.path.join(self.getOutputDirectory(), self.getLabel()+ '_cases.csv'), 'w')
         is_first = True
-        
+
         parser = LogParser()
 
-        for fork in self.forks:            
+        for fork in self.forks:
             if is_first:
                 summary_file.write(open(os.path.join(fork.getOutputDirectory(),'summary.csv'),'r').read())
                 is_first = False
@@ -135,11 +135,11 @@ class Simulation:
                 fork_summary_lines = open(os.path.join(fork.getOutputDirectory(), 'summary.csv'), 'r').readlines()
                 for line in fork_summary_lines[1:]:
                     summary_file.write(line)
-        
+
             cases_file.write(open(os.path.join(fork.getOutputDirectory(), 'cases.csv'), 'r').read())
             parser.run(fork.getOutputDirectory())
-    
+
         summary_file.close()
         cases_file.close()
-        
+
 from .Fork import Fork

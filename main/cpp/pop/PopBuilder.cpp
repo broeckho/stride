@@ -32,10 +32,9 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager)
-        : m_config_pt(configPt), m_rn_manager(rnManager) {}
+PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
-void PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
+shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 {
         using namespace ContactPoolType;
         auto& population = *pop;
@@ -76,9 +75,11 @@ void PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
                         }
                 }
         }
+
+        return pop;
 }
 
-void PopBuilder::MakePersons(std::shared_ptr<Population> pop)
+shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Read persosns from file.
@@ -117,9 +118,10 @@ void PopBuilder::MakePersons(std::shared_ptr<Population> pop)
         }
 
         pop_file.close();
+        return pop;
 }
 
-void PopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> PopBuilder::Build(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Check validity of input data.
@@ -132,9 +134,8 @@ void PopBuilder::Build(std::shared_ptr<Population> pop)
         //------------------------------------------------
         // Add persons & fill pools & surveyseeding.
         //------------------------------------------------
-        MakePersons(pop);
-        MakePoolSys(pop);
-        SurveySeeder::Seed(m_config_pt, pop, m_rn_manager);
+        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePoolSys(MakePersons(pop)));
+        return pop;
 }
 
 } // namespace stride
