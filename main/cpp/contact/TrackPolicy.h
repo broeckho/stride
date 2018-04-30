@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -15,35 +16,28 @@
 
 /**
  * @file
- * Implementation of the CasesFile class.
+ * Implementation of Infector algorithms.
  */
 
-#include "CasesFile.h"
-#include "util/FileSys.h"
+#include "pop/Person.h"
 
 namespace stride {
-namespace output {
 
-using namespace std;
-using namespace stride::util;
-
-CasesFile::CasesFile(const std::string& output_prefix) : m_fstream() { Initialize(output_prefix); }
-
-CasesFile::~CasesFile() { m_fstream.close(); }
-
-void CasesFile::Initialize(const std::string& output_prefix)
+/// Primary R0_POLICY: do nothing i.e. track all cases.
+/// \tparam TIC         TrackIndexCase
+template <bool TIC>
+class TRACK_POLICY
 {
-        const auto p = FileSys::BuildPath(output_prefix, "cases.csv");
-        m_fstream.open(p.c_str());
-}
+public:
+        static void Exec(Person*) {}
+};
 
-void CasesFile::Print(const vector<unsigned int>& cases)
+/// Specialized R0_POLICY: track only the index case.
+template <>
+class TRACK_POLICY<true>
 {
-        for (unsigned int i = 0; i < (cases.size() - 1); i++) {
-                m_fstream << cases[i] << ",";
-        }
-        m_fstream << cases[cases.size() - 1] << endl;
-}
+public:
+        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
+};
 
-} // namespace output
 } // namespace stride

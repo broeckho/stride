@@ -22,7 +22,7 @@
 
 #include "util/FileSys.h"
 
-#include <omp.h>
+#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 namespace output {

@@ -23,8 +23,10 @@
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
-#include "util/LogUtils.h"
+#include "util/RNManager.h"
 #include "util/StringUtils.h"
+
+#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 

@@ -20,18 +20,13 @@
 
 #include "SimBuilder.h"
 
-#include "calendar/Calendar.h"
 #include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
-#include "pop/PopBuilder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
-#include "util/LogUtils.h"
 
-#include <boost/filesystem.hpp>
-#include <boost/property_tree/xml_parser.hpp>
 #include <trng/uniform01_dist.hpp>
 
 namespace stride {

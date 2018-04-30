@@ -16,28 +16,34 @@
 
 /**
  * @file
- * Implementation of Infector algorithms.
+ * Header for the CasesFile class.
  */
 
-#include "pop/Person.h"
+#include <fstream>
+#include <string>
+#include <vector>
 
 namespace stride {
+namespace output {
 
-/// Primary R0_POLICY: do nothing i.e. track all cases.
-/// \tparam TIC         TrackIndexCase
-template <bool TIC>
-class R0_POLICY
+/**
+ * Produces a file with daily cases count.
+ */
+class InfectedFile
 {
 public:
-        static void Exec(Person*) {}
+        /// Constructor: initialize.
+        explicit InfectedFile(const std::string& output_dir = "output");
+
+        /// Destructor: close the file stream.
+        ~InfectedFile();
+
+        /// Print the given cases with corresponding tag.
+        void Print(const std::vector<unsigned int>& infectionCounts);
+
+private:
+        std::ofstream m_fstream; ///< The file stream.
 };
 
-/// Specialized R0_POLICY: track only the index case.
-template <>
-class R0_POLICY<true>
-{
-public:
-        static void Exec(Person* p) { p->GetHealth().StopInfection(); }
-};
-
+} // namespace output
 } // namespace stride

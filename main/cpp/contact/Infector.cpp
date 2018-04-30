@@ -22,7 +22,7 @@
 
 #include "calendar/Calendar.h"
 #include "contact/LogPolicy.h"
-#include "contact/R0Policy.h"
+#include "contact/TrackPolicy.h"
 #include "pool/ContactPool.h"
 
 using namespace std;
@@ -64,7 +64,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                       unsigned short int sim_day, shared_ptr<spdlog::logger> c_logger)
 {
         using LP = LOG_POLICY<LL>;
-        using RP = R0_POLICY<TIC>;
+        using RP = TRACK_POLICY<TIC>;
 
         // set up some stuff
         const auto  p_type    = pool.m_pool_type;
@@ -124,7 +124,8 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
 }
 
 //-------------------------------------------------------------------------------------------
-// Time optimized implementation for NoLocalInformationPolicy and None || Transmission logging.
+// Time optimized implementation for NoLocalInformationPolicy in
+// combination with None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
@@ -133,7 +134,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
                                                        shared_ptr<spdlog::logger> c_logger)
 {
         using LP = LOG_POLICY<LL>;
-        using RP = R0_POLICY<TIC>;
+        using RP = TRACK_POLICY<TIC>;
 
         // check for infected members and sort
         bool   infectious_cases;

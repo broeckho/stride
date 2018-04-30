@@ -21,14 +21,10 @@
 
 #include "util/Stopwatch.h"
 
-//#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>
 #include <string>
-#include <tuple>
-#include <utility>
-#include <vector>
 
 namespace stride {
 

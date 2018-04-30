@@ -22,7 +22,7 @@
 
 #include "calendar/Calendar.h"
 #include "output/AdoptedFile.h"
-#include "output/CasesFile.h"
+#include "output/InfectedFile.h"
 #include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "pop/Population.h"

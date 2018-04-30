@@ -18,7 +18,7 @@
  * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "CasesViewer.h"
+#include "InfectedViewer.h"
 
 #include "pop/Population.h"
 #include "sim/Sim.h"
@@ -30,21 +30,21 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void CasesViewer::Update(const sim_event::Id id)
+void InfectedViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::AtStart: {
                 const auto pop = m_runner->GetSim()->GetPopulation();
-                m_cases.push_back(pop->GetInfectedCount());
+                m_infected.push_back(pop->GetInfectedCount());
                 break;
         }
         case Id::Stepped: {
                 const auto pop = m_runner->GetSim()->GetPopulation();
-                m_cases.push_back(pop->GetInfectedCount());
+                m_infected.push_back(pop->GetInfectedCount());
                 break;
         }
         case Id::Finished: {
-                m_cases_file.Print(m_cases);
+                m_infected_file.Print(m_infected);
                 break;
         }
         default: break;

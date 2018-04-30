@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -16,38 +15,33 @@
 
 /**
  * @file
- * Header for the CasesFile class.
+ * Implementation of the CasesFile class.
  */
 
-#include <fstream>
-#include <string>
-#include <vector>
+#include "InfectedFile.h"
+#include "util/FileSys.h"
 
 namespace stride {
 namespace output {
 
-/**
- * Produces a file with daily cases count.
- */
-class CasesFile
+using namespace std;
+using namespace stride::util;
+
+InfectedFile::InfectedFile(const std::string& output_prefix) : m_fstream()
 {
-public:
-        /// Constructor: initialize.
-        explicit CasesFile(const std::string& output_dir = "output");
+        const auto p = FileSys::BuildPath(output_prefix, "cases.csv");
+        m_fstream.open(p.c_str());
+}
 
-        /// Destructor: close the file stream.
-        ~CasesFile();
+InfectedFile::~InfectedFile() { m_fstream.close(); }
 
-        /// Print the given cases with corresponding tag.
-        void Print(const std::vector<unsigned int>& cases);
-
-private:
-        /// Generate file name and open the file stream.
-        void Initialize(const std::string& output_dir);
-
-private:
-        std::ofstream m_fstream; ///< The file stream.
-};
+void InfectedFile::Print(const vector<unsigned int>& infectionCounts)
+{
+        for (unsigned int i = 0; i < (infectionCounts.size() - 1); i++) {
+                m_fstream << infectionCounts[i] << ",";
+        }
+        m_fstream << infectionCounts[infectionCounts.size() - 1] << endl;
+}
 
 } // namespace output
 } // namespace stride

@@ -23,6 +23,7 @@
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
 #include "disease/Health.h"
+#include "pop/PopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/RNManager.h"

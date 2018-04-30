@@ -19,14 +19,15 @@
  * Initialize populations.
  */
 
-#include "util/RNManager.h"
-
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 
 namespace stride {
 
 class Population;
+namespace util {
+class RNManager;
+}
 
 /**
  * Initializes Population objects.

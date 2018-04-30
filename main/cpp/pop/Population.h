@@ -21,13 +21,11 @@
 
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
-#include "pop/PopBuilder.h"
 #include "util/Any.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>
-#include <vector>
 
 namespace stride {
 
@@ -76,9 +74,9 @@ private:
         friend class PopBuilder;
 
 private:
-        util::Any                       beliefs_container;
-        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
+        util::Any                       beliefs_container; ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;        ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger;  ///< Logger for contact/transmission.
 };
 
 } // namespace stride
