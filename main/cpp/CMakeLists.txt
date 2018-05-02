@@ -46,7 +46,6 @@ set(LIB_SRC
 	contact/InfectorExec.h
 	contact/InfectorMap.h
 	contact/LogPolicy.h
-	contact/R0Policy.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
@@ -55,7 +54,7 @@ set(LIB_SRC
 	disease/Immunizer.cpp
 #---
 	output/AdoptedFile.cpp
-	output/CasesFile.cpp
+    output/InfectedFile.cpp
     output/PersonsFile.cpp
 	output/SummaryFile.cpp
 #---
@@ -95,7 +94,7 @@ set(LIB_SRC
     util/TimeToString.h
 #---
 	viewers/AdoptedViewer.cpp
-	viewers/CasesViewer.cpp
+	viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp
     viewers/PersonsViewer.cpp
 	viewers/SummaryViewer.cpp

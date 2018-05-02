@@ -41,7 +41,7 @@ class Population;
 class Sim
 {
 public:
-        /// Create a simulator initialized by the configuration ptree.
+        /// Create a simulator initialized by the configuration in property tree.
         static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt);
 
         /// For use in python environment: create using configuration string i.o ptree.

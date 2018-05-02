@@ -2,7 +2,11 @@
 Class to create .csv files from logfiles.
 
 """
+<<<<<<< HEAD
 '''
+=======
+
+>>>>>>> master
 import csv
 import random
 import os
@@ -90,4 +94,7 @@ class LogParser():
         p.close()
         c.close()
         t.close()
+<<<<<<< HEAD
         '''
+=======
+>>>>>>> master

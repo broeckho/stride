@@ -39,8 +39,8 @@ public:
         {
         }
 
-        static void Transmission(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*,
-                                 ContactPoolType::Id, unsigned short int sim_day)
+        static void Trans(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
+                          unsigned short int sim_day)
         {
         }
 };
@@ -55,10 +55,10 @@ public:
         {
         }
 
-        static void Transmission(const std::shared_ptr<spdlog::logger>& contact_logger, const Person* p1,
-                                 const Person* p2, ContactPoolType::Id type, unsigned short int sim_day)
+        static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
+                          ContactPoolType::Id type, unsigned short int sim_day)
         {
-                contact_logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
 };
 
@@ -67,20 +67,22 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
-        static void Contact(const std::shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
+        static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                             ContactPoolType::Id type, unsigned short int sim_day)
         {
-                contact_logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
+                if (p1->IsSurveyParticipant()) {
+                        logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Household),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::School),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Work),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::SecondaryCommunity),
                                      sim_day);
+                }
         }
 
-        static void Transmission(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                                 ContactPoolType::Id type, unsigned short int sim_day)
+        static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
+                          ContactPoolType::Id type, unsigned short int sim_day)
         {
                 logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
         }
@@ -91,16 +93,16 @@ template <>
 class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
-        static void Contact(const std::shared_ptr<spdlog::logger>& contact_logger, const Person* p1, const Person* p2,
+        static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                             ContactPoolType::Id, unsigned short int)
         {
-                if (p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
-                        contact_logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
+                if (p1->IsSurveyParticipant() && p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
+                        logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
                 }
         }
 
-        static void Transmission(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*,
-                                 ContactPoolType::Id, unsigned short int)
+        static void Trans(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
+                          unsigned short int)
         {
         }
 };

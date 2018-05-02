@@ -22,7 +22,7 @@
 
 #include "calendar/Calendar.h"
 #include "output/AdoptedFile.h"
-#include "output/CasesFile.h"
+#include "output/InfectedFile.h"
 #include "output/PersonsFile.h"
 #include "output/SummaryFile.h"
 #include "pop/Population.h"
@@ -93,7 +93,6 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         // OpenMP.
         // -----------------------------------------------------------------------------------------
         unsigned int num_threads;
-
 #pragma omp parallel
         {
                 num_threads = static_cast<unsigned int>(omp_get_num_threads());
@@ -107,18 +106,9 @@ void StrideRunner::Setup(bool track_index_case, const string& config_file_name, 
         // -----------------------------------------------------------------------------------------
         // Configuration.
         // -----------------------------------------------------------------------------------------
-        // track_index_case (-r switch on commandline)
         m_pt_config.put("run.track_index_case", track_index_case);
-
-        // use_install_dirs (-w or --working_dir switch on commandline)
         m_pt_config.put("run.use_install_dirs", use_install_dirs);
-
-        // num_threads
         m_pt_config.put("run.num_threads", num_threads);
-
-        // -----------------------------------------------------------------------------------------
-        // Set output path prefix.
-        // -----------------------------------------------------------------------------------------
         m_output_prefix = m_pt_config.get<string>("run.output_prefix", "");
         if (m_output_prefix.length() == 0) {
                 m_output_prefix = TimeStamp().ToTag();

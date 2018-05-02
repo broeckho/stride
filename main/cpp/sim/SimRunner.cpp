@@ -21,20 +21,10 @@
 #include "SimRunner.h"
 
 #include "calendar/Calendar.h"
-#include "pop/PopBuilder.h"
 #include "pop/Population.h"
 #include "sim/Sim.h"
-#include "sim/SimBuilder.h"
-#include "util/FileSys.h"
-#include "util/LogUtils.h"
-#include "util/TimeStamp.h"
-
-#include <boost/property_tree/xml_parser.hpp>
-#include <sstream>
 
 using namespace stride::sim_event;
-using namespace stride::util;
-using namespace boost::filesystem;
 using namespace boost::property_tree;
 using namespace std;
 

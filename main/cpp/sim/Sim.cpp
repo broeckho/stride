@@ -22,7 +22,6 @@
 
 #include "behaviour/information_policies/LocalDiscussion.h"
 #include "behaviour/information_policies/NoLocalInformation.h"
-#include "calendar/Calendar.h"
 #include "calendar/DaysOffStandard.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
@@ -44,11 +43,20 @@ Sim::Sim()
 {
 }
 
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt) { return SimBuilder(configPt).Build(); }
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt)
+{
+        struct make_shared_enabler : public Sim
+        {
+        };
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
+        sim->m_population   = Population::Create(configPt);
+        SimBuilder(configPt).Build(sim);
+        return sim;
+}
 
 std::shared_ptr<Sim> Sim::Create(const string& configString)
 {
-        return SimBuilder(RunConfigManager::FromString(configString)).Build();
+        return Create(RunConfigManager::FromString(configString));
 }
 
 void Sim::TimeStep()
@@ -78,12 +86,13 @@ void Sim::TimeStep()
                         population[i].Update(isWorkOff, isSchoolOff);
                 }
 
-                // Loop over types of contact pool systems (household, school, etc.)
-                // Infector updates individuals for contacts & transmission within a pool.
+                // Loop over types of contact pool (household, etc.) and over pools of that type.
+                // Infector updates individuals for contacts & transmission within each pool.
+                // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
 #pragma omp for schedule(static)
-                        for (size_t i = 0; i < poolSys[typ].size(); i++) { // NOLINT
+                        for (size_t i = 1; i < poolSys[typ].size(); i++) { // NOLINT
                                 infector(poolSys[typ][i], m_contact_profiles[typ], m_transmission_profile,
                                          m_handlers[thread_num], simDay, contactLogger);
                         }
