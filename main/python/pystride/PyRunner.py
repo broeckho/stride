@@ -1,17 +1,15 @@
-'''
 import time
 
-from pystride.stride.stride import Simulator, SimulatorBuilder
+from pystride.stride.stride import Sim
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch
 from .Subject import Subject
 
-
 class PyRunner(Subject):
     """
-            Class responsible for the actual simulation loop.
-            Functions as the 'model' in the MVC pattern.
+        Class responsible for the actual simulation loop.
+        Functions as the 'model' in the MVC pattern.
     """
     def __init__(self):
         super(PyRunner, self).__init__()
@@ -31,17 +29,12 @@ class PyRunner(Subject):
     def setup(self, run_config):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
-        status = True
+        # TODO status = True
         self.runConfig = run_config
-        # TODO write config to file?
-        # TODO output prefix?
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-
         print("Starting simulator build")
-        builder = SimulatorBuilder(self.runConfig.toString())
-        self.simulator = builder.Build()
+        self.simulator = Sim.Create(self.runConfig.toString())
         print("Simulator build done")
-
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
         print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
@@ -52,12 +45,11 @@ class PyRunner(Subject):
         num_days = int(self.runConfig.getParameter("num_days"))
         print("Beginning actual simulation run at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
         self.notifyObservers(Event(EventType.AtStart))
+        # Actual simulation loop
         for day in range(num_days):
             self.simulator.TimeStep()
             print("Stepped: timestep " + str(day))
             self.notifyObservers(SteppedEvent(day))
-
-        self.notifyObservers(Event(EventType.Finished))
+        self.notifyObservers(Event(EventType.AtFinished))
         self.stopwatch.stop()
         print("Simulation run finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-    '''
