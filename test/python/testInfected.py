@@ -7,7 +7,7 @@ from pystride.PyController import PyController
 
 
 # Callback to check if number of cases produced by sim is acceptable
-def checkNumCases(simulator):
+def checkNumCases(simulator, event):
     # Target for total number of cases after simulation
     targetCases = 118925
     actualCases = simulator.GetPopulation().GetInfectedCount()
