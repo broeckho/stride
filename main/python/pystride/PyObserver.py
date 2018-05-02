@@ -1,4 +1,3 @@
-'''
 from .Event import EventType
 from .Observer import Observer
 
@@ -21,4 +20,3 @@ class PyObserver(Observer):
                 callback(self.simulator)
             except Exception as e:
                 print(e)
-'''
