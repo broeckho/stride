@@ -1,11 +1,7 @@
-'''
-from pystride.Simulation import Simulation
+import pystride
+from pystride.PyController import PyController
 
-# Load run configuration
-simulation = Simulation()
-simulation.loadRunConfig("../config/run_default.xml")
-
+# Configure simulation
+sim = PyController(config_path="../config/run_default.xml")
 # Run the simulation
-simulation.run()
-
-'''
+sim.run()

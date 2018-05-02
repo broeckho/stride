@@ -1,3 +1,6 @@
+import pystride
+from pystride.PyController import PyController
+
 '''
 import sys
 from pystride.Simulation import Simulation

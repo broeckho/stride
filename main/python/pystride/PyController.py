@@ -1,3 +1,11 @@
+
+class PyController:
+    def __init__(self, config_path=None, data_dir="../data"):
+        pass
+
+    def run(self):
+        pass
+
 '''
 import os
 import time
