@@ -8,7 +8,7 @@ from .PyRunner import PyRunner
 
 class PyController:
     def __init__(self, config_path=None, data_dir="../data"):
-        # self.forks = list()
+        self.forks = list()
         self.runner = PyRunner()
         self.dataDir = data_dir
         self.timestamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
@@ -30,6 +30,12 @@ class PyController:
             return self.timestamp
         return output_prefix
 
+    def getWorkingDirectory(self):
+        return pystride.workspace
+
+    def getOutputDirectory(self):
+        return os.path.join(self.getWorkingDirectory(), self.getOutputPrefix())
+
     def linkData(self):
         file_params = [
             "population_file",
@@ -41,18 +47,6 @@ class PyController:
             src = os.path.join(self.dataDir, os.path.basename(self.runConfig.getParameter(param)))
             self.runConfig.setParameter(param, src)
 
-    '''
-        def _linkData(self):
-            dataDestDir = os.path.join(self.getWorkingDirectory(), "data_sim")
-            os.makedirs(dataDestDir, exist_ok=True)
-            for param in file_params:
-                src = os.path.realpath(os.path.join(self.dataDir,self.runConfig.getParameter(param)))
-                dst = os.path.join(dataDestDir, self.runConfig.getParameter(param))
-                self.runConfig.setParameter(param, dst)
-                if (os.path.isfile(src)) and (not (os.path.isfile(dst))):
-                    os.symlink(src, dst)
-    '''
-
     def registerCallback(self, callback, event_type):
         self.observer.registerCallback(callback, event_type)
 
@@ -61,21 +55,20 @@ class PyController:
             Create a new simulation instance from this one.
             :param str name: the name of the fork.
         """
-        '''
         f = Fork(name, self)
         return f
-        '''
-        pass
 
     def run(self):
         """
             Run the current simulation.
         """
         print("PyController starting run at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-        # TODO create output directory
-        #os.makedirs(self.getOutputDirectory(), exist_ok=True)
-        # TODO save configuration to file
+
+        # Set correct links to data files in configuration
         self.linkData()
+        # Create output directory and write configuration to file
+        os.makedirs(self.getOutputDirectory(), exist_ok=True)
+        self.runConfig.toFile(os.path.join(self.getOutputDirectory(), self.getOutputPrefix() + ".xml"))
 
         # Setup runner (build simulator etc...)
         self.runner.setup(self.runConfig)
@@ -86,13 +79,6 @@ class PyController:
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
     def runForks(self):
-        pass
-
-    def runAll(self):
-        pass
-
-'''
-    def runForks(self):
         """ Run all forks but not the root simulation. """
         for fork in self.forks:
             fork.run()
@@ -102,33 +88,6 @@ class PyController:
         self.run()
         self.runForks()
 
-
-from .Fork import Fork
-'''
-
-'''
-
-    def getWorkingDirectory(self):
-        return pystride.workspace
-
-    def getOutputDirectory(self):
-        return os.path.join(self.getWorkingDirectory(), self.getLabel()+"/")
-
-    def _setup(self, linkData=True):
-        """
-            Create folder in workspace to run simulation.
-            Copy config and link to data
-        """
-        if linkData:
-            self._linkData()
-        os.makedirs(self.getOutputDirectory(), exist_ok=True)
-        # Store the run configuration
-        configPath = os.path.join(self.getOutputDirectory(), self.getLabel() + ".xml")
-        oldLabel = self.getLabel()
-        self.runConfig.setParameter("output_prefix", self.getOutputDirectory())
-        self.runConfig.toFile(configPath)
-        self.runConfig.setParameter('output_prefix', oldLabel)
-'''
 '''
     def aggregateForkOutput(self):
         summary_file  = open(os.path.join(self.getOutputDirectory(), self.getLabel()+ '_summary.csv'), 'w')
@@ -152,3 +111,5 @@ from .Fork import Fork
         summary_file.close()
         cases_file.close()
 '''
+
+from .Fork import Fork

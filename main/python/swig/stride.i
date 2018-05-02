@@ -22,4 +22,3 @@
 %include "./health.i";
 %include "./population.i";
 %include "./sim.i";
-%include "./simbuilder.i";

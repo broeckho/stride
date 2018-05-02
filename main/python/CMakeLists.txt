@@ -27,8 +27,7 @@ set(SWIG_IFACE
     swig/contactpooltype.i
 	swig/health.i
 	swig/population.i
-	swig/simulator.i
-	swig/simbuilder.i
+	swig/sim.i
 	swig/stride.i
 )
 

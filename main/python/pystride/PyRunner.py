@@ -29,7 +29,6 @@ class PyRunner(Subject):
     def setup(self, run_config):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
-        # TODO status = True
         self.runConfig = run_config
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
         print("Starting simulator build")
@@ -38,7 +37,6 @@ class PyRunner(Subject):
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
         print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
-        # TODO return status?
 
     def run(self):
         self.stopwatch.start()
