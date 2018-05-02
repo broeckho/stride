@@ -1,4 +1,3 @@
-'''
 import time
 
 class Stopwatch:
@@ -41,5 +40,3 @@ class Stopwatch:
             else:
                 temp = (now - self.last_start)
         return temp
-
-'''
