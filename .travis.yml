@@ -75,6 +75,7 @@ before_install:
         cd $TRAVIS_BUILD_DIR;
       else
         echo "Already have swig cache"
+        ls -l $HOME/swig_3.0.12_cache/
       fi
     fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
