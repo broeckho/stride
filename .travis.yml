@@ -63,7 +63,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb;
+      wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.12-1_amd64.deb.deb;
       sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb;
     fi
 
