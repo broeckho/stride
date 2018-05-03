@@ -63,10 +63,15 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.12-1_amd64.deb.deb;
-      sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb;
+      sudo wget -O swig-3.0.12.tar.gz http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz -q
+      sudo tar xf swig-3.0.12.tar.gz > /dev/null 2>&1
+      # Move into source directory
+      cd swig-3.0.12/
+      # Configure swig build   --prefix: install dir
+      ./configure --prefix=$Home/swig_3.0.12_cache
+      make install
+      export PATH=$HOME/swig_3.0.12_cache:$PATH
     fi
-
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
   - export GTEST_COLOR=1
