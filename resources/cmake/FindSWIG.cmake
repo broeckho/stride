@@ -25,7 +25,7 @@
 # to be found can be changed from the command line by means of setting
 # SWIG_EXECUTABLE
 
-find_program(SWIG_EXECUTABLE NAMES swig3.0 swig2.0 swig PATHS $ENV{HOME}/swig_3.0.12_cache)
+find_program(SWIG_EXECUTABLE NAMES swig3.0 swig2.0 swig PATHS $ENV{HOME}/swig_3.0.12_cache/bin)
 
 if(SWIG_EXECUTABLE)
     execute_process(COMMAND ${SWIG_EXECUTABLE} -swiglib
