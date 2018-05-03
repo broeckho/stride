@@ -20,10 +20,10 @@
 #================================================================================================
 INSTALL(FILES
 		create_contactmatrix.py
+		experimenter.py
 		interactive_maps.py
 		log2csv.py
 		plot_maps.py
-		runExperiments.py
 		runExperimentsR0.py
 		runManualConfig.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
