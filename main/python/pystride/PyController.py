@@ -62,7 +62,7 @@ class PyController:
         f = Fork(name, self)
         return f
 
-    def run(self):
+    def control(self):
         """
             Run the current simulation.
         """
@@ -81,15 +81,15 @@ class PyController:
         self.runner.run()
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
-    def runForks(self):
+    def controlForks(self):
         """ Run all forks but not the root simulation. """
         for fork in self.forks:
-            fork.run()
+            fork.control()
 
-    def runAll(self):
+    def controlAll(self):
         """ Run the root simulation and all forks. """
-        self.run()
-        self.runForks()
+        self.control()
+        self.controlForks()
 
 '''
     def aggregateForkOutput(self):

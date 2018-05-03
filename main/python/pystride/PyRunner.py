@@ -52,4 +52,4 @@ class PyRunner(Subject):
             self.notifyObservers(SteppedEvent(day))
         self.notifyObservers(Event(EventType.AtFinished))
         self.stopwatch.stop()
-        print("Simulation run finished.")
+        print("Simulation run finished after {} seconds.".format(self.stopwatch.get()))

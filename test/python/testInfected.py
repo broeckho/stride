@@ -16,16 +16,16 @@ def checkNumCases(simulator, event):
 
 
 # Configure simulation
-sim = PyController(config_path="../config/run_default.xml")
-sim.runConfig.setParameter("output_prefix", "testInfected")
-sim.runConfig.setParameter("use_install_dirs", "true")
+controller = PyController(config_path="../config/run_default.xml")
+controller.runConfig.setParameter("output_prefix", "testInfected")
+controller.runConfig.setParameter("use_install_dirs", "true")
 
 # Clean up leftover of previous failed testrun
 if os.path.isdir("testInfected"):
     rmtree("testInfected")
 
 # Register callback
-sim.registerCallback(checkNumCases, EventType.AtFinished)
+controller.registerCallback(checkNumCases, EventType.AtFinished)
 
-# Run the simulation
-sim.run()
+# Let controller run the simulation.
+controller.control()

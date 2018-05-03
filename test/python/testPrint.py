@@ -11,12 +11,12 @@ def printInfected(simulator, event):
     sys.stdout.flush()
 
 # Configure Simulation
-sim = PyController(config_path="../config/run_default.xml")
-sim.runConfig.setParameter("population_file", "pop_antwerp.csv")
-sim.runConfig.setParameter("num_days", 10)
-sim.runConfig.setParameter("output_prefix", "testPrint")
+controller = PyController(config_path="../config/run_default.xml")
+controller.runConfig.setParameter("population_file", "pop_antwerp.csv")
+controller.runConfig.setParameter("num_days", 10)
+controller.runConfig.setParameter("output_prefix", "testPrint")
 
 # Register callback
-sim.registerCallback(printInfected, EventType.Stepped)
-# Run simulation
-sim.run()
+controller.registerCallback(printInfected, EventType.Stepped)
+# Let controller run the simulation
+controller.control()

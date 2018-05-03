@@ -17,9 +17,9 @@ def check(simulator, event):
         assert(sim.GetPopulation().GetInfectedCount() == check.value), "Infection count still changing on day {}".format(event.timestep)
 
 # Configure simulation
-sim = PyController(config_path="../config/run_default.xml")
+controller = PyController(config_path="../config/run_default.xml")
 # Register callbacks
-sim.registerCallback(vaccinate, EventType.Stepped)
-sim.registerCallback(check, EventType.Stepped)
-
-sim.run()
+controller.registerCallback(vaccinate, EventType.Stepped)
+controller.registerCallback(check, EventType.Stepped)
+# Let controller run the simulation
+controller.control()
