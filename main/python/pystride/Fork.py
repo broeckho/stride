@@ -2,7 +2,7 @@ from .PyController import PyController
 
 class Fork(PyController):
     def __init__(self, name: str, parent):
-        super().__init__(parent.dataDir)
+        super().__init__(data_dir=parent.dataDir)
         # Copy configuration from parent
         self.runConfig = parent.runConfig.copy()
         self.runConfig.setParameter("output_prefix", name)

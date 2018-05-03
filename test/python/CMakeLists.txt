@@ -18,6 +18,7 @@
 # Install the python test scripts.
 #============================================================================
 set (SCRIPTS
+	testForker.py
 	testInfected.py
     testPrint.py
 	testSmoke.py
@@ -32,6 +33,10 @@ INSTALL (FILES
 #============================================================================
 # Define tests.
 #============================================================================
+add_test(NAME forker_py
+	WORKING_DIRECTORY ${TESTS_DIR}
+	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testForker.py"
+	)
 add_test(NAME infected_py
 	WORKING_DIRECTORY ${TESTS_DIR}
 	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py > /dev/null"

@@ -8,7 +8,7 @@ from .Subject import Subject
 
 class PyRunner(Subject):
     """
-        Class responsible for the actual simulation loop.
+        Class responsible for driving the simulation loop.
         Functions as the 'model' in the MVC pattern.
     """
     def __init__(self):
@@ -32,14 +32,10 @@ class PyRunner(Subject):
     def setup(self, run_config, population):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
-        print("PyRunner setup starting.")
         self.runConfig = run_config
         self.simulator = Sim.Create(self.runConfig.toString(), population)
-
-
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
-        print("PyRunner setup finished.")
 
     def run(self):
         self.stopwatch.start()

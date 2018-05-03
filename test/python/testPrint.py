@@ -4,7 +4,6 @@ import pystride
 from pystride.Event import EventType
 from pystride.PyController import PyController
 
-
 def printInfected(simulator, event):
     day = event.timestep
     print("Infected at day {}: {}".format(day, simulator.GetPopulation().GetInfectedCount()))
