@@ -1,6 +1,6 @@
 import time
 
-from pystride.stride.stride import Sim
+from pystride.stride.stride import Population, Sim
 
 from .Event import EventType, Event, SteppedEvent
 from .Stopwatch import Stopwatch
@@ -12,8 +12,9 @@ class PyRunner(Subject):
         Functions as the 'model' in the MVC pattern.
     """
     def __init__(self):
-        super(PyRunner, self).__init__()
+        super().__init__()
         self.stopwatch = Stopwatch("run_clock")
+        self.population = None
         self.simulator = None
         self.runConfig = None
 
@@ -23,17 +24,28 @@ class PyRunner(Subject):
     def getConfig(self):
         return self.runConfig
 
+    def setConfig(self, run_config):
+        self.runConfig = run_config
+
+    def getPopulation(self):
+        return self.population
+
     def getSimulator(self):
         return self.simulator
 
     def setup(self, run_config):
         self.notifyObservers(Event(EventType.SetupBegin))
         self.stopwatch.start()
-        self.runConfig = run_config
         print("Setup starting at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
+        self.runConfig = run_config
+
+        print("Starting population build")
+        print("Population build done")
+        self.population = Population.Create(self.runConfig.toString())
         print("Starting simulator build")
-        self.simulator = Sim.Create(self.runConfig.toString())
+        self.simulator = Sim.Create(self.runConfig.toString(), self.population)
         print("Simulator build done")
+
         self.stopwatch.stop()
         self.notifyObservers(Event(EventType.SetupEnd))
         print("Setup finished at: " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))

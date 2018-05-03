@@ -9,13 +9,15 @@ from .PyRunner import PyRunner
 class PyController:
     def __init__(self, config_path=None, data_dir="../data"):
         self.forks = list()
-        self.runner = PyRunner()
         self.dataDir = data_dir
         self.timestamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
+
+        self.runner = PyRunner()
         self.observer = PyObserver()
         self.runner.registerObserver(self.observer)
+
         if config_path != None:
-            # Load run config from files
+            # Load run config from file
             self.loadRunConfig(config_path)
         else:
             self.runConfig = Config(root="run")
@@ -70,12 +72,11 @@ class PyController:
         os.makedirs(self.getOutputDirectory(), exist_ok=True)
         self.runConfig.toFile(os.path.join(self.getOutputDirectory(), self.getOutputPrefix() + ".xml"))
 
-        # Setup runner (build simulator etc...)
+        # Build population and simulator
         self.runner.setup(self.runConfig)
         self.observer.setSimulator(self.runner.getSimulator())
         # Run simulation
         self.runner.run()
-
         print("PyController closing off at " + time.strftime("%d/%m/%Y %H:%M:%S", time.localtime()))
 
     def runForks(self):

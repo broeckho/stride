@@ -11,6 +11,7 @@ using namespace stride;
 %}
 
 %include <std_vector.i>
+%include <std_string.i>
 %include <std_shared_ptr.i>
 
 %include "pop/Person.h"
