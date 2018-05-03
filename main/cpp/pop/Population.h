@@ -22,6 +22,7 @@
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
 #include "util/Any.h"
+#include "util/SegmentedVector.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
@@ -32,7 +33,7 @@ namespace stride {
 /**
  * Container for persons in population.
  */
-class Population : public std::vector<Person>
+class Population : public util::SegmentedVector<Person>
 {
 public:
         /// Create a population initialized by the configuration in property tree.
