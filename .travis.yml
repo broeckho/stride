@@ -13,6 +13,7 @@ cache:
   directories:
     - $HOME/.ccache
     - $HOME/boost_1_66_0_cache
+    - $HOME/swig_3.0.12_cache
 
 addons:
   apt:
@@ -69,7 +70,7 @@ before_install:
       cd swig-3.0.12/
       # Configure swig build   --prefix: install dir
       ./configure --prefix=$Home/swig_3.0.12_cache
-      make install
+      sudo make install
       export PATH=$HOME/swig_3.0.12_cache:$PATH
     fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
