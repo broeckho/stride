@@ -107,9 +107,9 @@ script:
   # Arbitrarily chosen one platform for Debug build.
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
-      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      CMAKE_PROGRAM_PATH=$HOME/swig_3.0.12_cache CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       CMAKE_BUILD_TYPE=Debug make test
     else
-      STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      CMAKE_PROGRAM_PATH=$HOME/swig_3.0.12_cache STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       make test
     fi
