@@ -65,7 +65,9 @@ before_install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo wget -O swig-3.0.12.tar.gz http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz -q
+      umask 000
       sudo tar xf swig-3.0.12.tar.gz > /dev/null 2>&1
+      sudo apt-get install libpcre3-dev
       # Move into source directory
       cd swig-3.0.12/
       # Configure swig build   --prefix: install dir
