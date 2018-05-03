@@ -6,7 +6,7 @@ from pystride.PyController import PyController
 
 
 def printInfected(simulator, event):
-    day = event.timestep - 1
+    day = event.timestep
     print("Infected at day {}: {}".format(day, simulator.GetPopulation().GetInfectedCount()))
     sys.stdout.flush()
 
