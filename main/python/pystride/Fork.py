@@ -1,4 +1,3 @@
-
 from .PyController import PyController
 
 class Fork(PyController):
@@ -12,3 +11,5 @@ class Fork(PyController):
         else:
             self.parent = parent
         self.parent.forks.append(self)
+
+# TODO working directory = parent directory ?
