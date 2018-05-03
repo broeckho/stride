@@ -70,6 +70,7 @@ before_install:
       cd swig-3.0.12/
       # Configure swig build   --prefix: install dir
       ./configure --prefix=$Home/swig_3.0.12_cache
+      make
       sudo make install
       export PATH=$HOME/swig_3.0.12_cache:$PATH
     fi
