@@ -64,15 +64,18 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      cd /tmp/;
-      curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
-      tar zxf swig-3.0.12.tar.gz;
-      cd swig-3.0.12;
-      ./configure --prefix $HOME/swig_3.0.12_cache/;
-      make;
-      make install;
-      cd $TRAVIS_BUILD_DIR;
-      export PATH=$HOME/swig_3.0.12_cache:$PATH
+      if [[ -z "$(ls -A $HOME/swig_3.0.12_cache)" ]]; then
+        cd /tmp/;
+        curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
+        tar zxf swig-3.0.12.tar.gz;
+        cd swig-3.0.12;
+        ./configure --prefix $HOME/swig_3.0.12_cache/;
+        make;
+        make install;
+        cd $TRAVIS_BUILD_DIR;
+      else
+        echo "Already have swig cache"
+      fi
     fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
