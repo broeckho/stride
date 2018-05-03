@@ -64,16 +64,14 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo wget -O swig-3.0.12.tar.gz http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz -q
-      umask 000
-      sudo tar xf swig-3.0.12.tar.gz > /dev/null 2>&1
-      sudo apt-get install libpcre3-dev
-      # Move into source directory
-      cd swig-3.0.12/
-      # Configure swig build   --prefix: install dir
-      ./configure --prefix=$Home/swig_3.0.12_cache
-      make
-      sudo make install
+      cd /tmp/;
+      curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
+      tar zxf swig-3.0.12.tar.gz;
+      cd swig-3.0.12;
+      ./configure --prefix $HOME/swig_3.0.12_cache/;
+      make;
+      make install;
+      cd $TRAVIS_BUILD_DIR;
       export PATH=$HOME/swig_3.0.12_cache:$PATH
     fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
