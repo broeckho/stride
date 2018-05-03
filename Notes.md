@@ -11,3 +11,25 @@ The C++ code has been refactored to reflect MVC more clearly.
 How does this fit in with the python environment? Clearly the python env needs to take on the resposibilities of the controller and needs to develop its own viewers. In the future we may hook up python directly with SimRunner, but for now we 'll leave StrideRunner in place and start stripping it of responsibilities that do not fit the the above MVC picture. That refers to (a) eliminating patches to the run_config is the StrideRunner setup, (b) eliminating the GenerateOutputFiles.
 
 Anticipate that evolution when you develop scripts in the python environment and be ready to revisit old scripts if necessary.
+
+
+## 2018/05/03 Conceptual structure & Python environment
+
+In terms of modelling, the situation is now:
+ 
+* A number of configuration and data files is required to run a simulation. The runConfiguration file is the root file. Aside from key parameters related to the simualtion algorithm, to the output requested etc., it will contain names of other configuration and data files (disease profile data, population data, etc.) that may be used in the simulation.
+
+* Conceptually the steps you go through are (in sequence):
+	* build a population using the runConfiguration
+	* build a simulation runner using the runConfiguration and population
+	* organise the ouput that has been requested via the runConfiguration
+	* run the simulator (number of steps according to the runConfiguration or step by step if you are using the Gui version of the application).
+
+* To execute a simulation you start up the stride executable with *-e sim* or *--execute sim*. Use the *-h* or *--help* option to list all options and arguments that can be passed to the executable. The most important ones relate to specifying the file with the runConfiguration and commandline overrides of parameters in that file. 
+
+* The execution of a simulation is organised internally as follows:
+	* main parses commandline arguments, builds a runConfiguration property tree and instantiates a CliController with it	
+	* the CliController goes through the conceptual steps outlined above, using Population (Persons and ContactPools), SimRunner (builds Sim, seeds the population, drives the simulator to take steps while sending notification to viewers at the apropriate moments) and Sim (logic for having contacts and transmissions in the population)
+	* the CliController cleans up (nothing much there) and passes back to main for the exit
+
+* Stride functionality is made available in python using SWIG and some high level driver scripts that are counterparts. The acutal bridge is defined through Swig's interface (.i) files. The c++/python contact points (there's an interface file for each - see directory *python/swig*) are: sim.i, population.i,  health.i and contactpooltype.i.). There is and additional interface file stride.i that deals with c++ exceptions. The high level python scripts are (see directory *python/pystride*) PyController and PyRunner. In addition there's some infrastructure for the Subject/Observer construct and for timing.
