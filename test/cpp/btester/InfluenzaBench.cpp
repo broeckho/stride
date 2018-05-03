@@ -19,6 +19,7 @@
  */
 
 #include "myhayai/BenchmarkRunner.hpp"
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -38,7 +39,7 @@ void InfluenzaBench()
                 return [s, configPt]() {
                         return Test([s, configPt]() {
                                 configPt->put("run.contact_log_level", s);
-                                SimRunner(*configPt).Run();
+                                SimRunner(*configPt, Population::Create(*configPt)).Run();
                         });
                 };
         };

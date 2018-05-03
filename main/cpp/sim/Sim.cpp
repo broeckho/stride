@@ -43,20 +43,19 @@ Sim::Sim()
 {
 }
 
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt)
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop)
 {
         struct make_shared_enabler : public Sim
         {
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
-        sim->m_population   = Population::Create(configPt);
-        SimBuilder(configPt).Build(sim);
+        SimBuilder(configPt).Build(sim, pop);
         return sim;
 }
 
-std::shared_ptr<Sim> Sim::Create(const string& configString)
+std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop)
 {
-        return Create(RunConfigManager::FromString(configString));
+        return Create(RunConfigManager::FromString(configString), pop);
 }
 
 void Sim::TimeStep()

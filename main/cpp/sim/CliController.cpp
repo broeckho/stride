@@ -20,6 +20,7 @@
 
 #include "sim/CliController.h"
 
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
@@ -84,9 +85,10 @@ void CliController::CheckOutputPrefix()
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Instantiate SimRunner & register viewers & run.
+        // Build population, instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(m_config_pt);
+        auto pop    = Population::Create(m_config_pt);
+        auto runner = make_shared<SimRunner>(m_config_pt, pop);
         RegisterViewers(runner);
         runner->Run();
         m_stride_logger->info("CliController shutting down.");

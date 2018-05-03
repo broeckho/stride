@@ -19,6 +19,7 @@
  */
 
 #include "myhayai/BenchmarkRunner.hpp"
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -38,7 +39,7 @@ void MeaslesBench()
                 return [n, configPt]() {
                         return Test([n, configPt]() {
                                 configPt->put("run.num_threads", n);
-                                SimRunner(*configPt).Run();
+                                SimRunner(*configPt, Population::Create(*configPt)).Run();
                         });
                 };
         };

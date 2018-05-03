@@ -19,7 +19,6 @@
  * Header for the SimRunner class.
  */
 
-
 #include "sim/event/Id.h"
 #include "sim/event/Subject.h"
 #include "util/Stopwatch.h"
@@ -31,6 +30,7 @@
 namespace stride {
 
 class Sim;
+class Population;
 
 /**
  * The simulation runner:
@@ -44,7 +44,7 @@ class SimRunner : public util::Subject<stride::sim_event::Id>
 public:
         /// Initialization with property tree.
         /// \param configPt config info for run and for config of simulator
-        explicit SimRunner(const boost::property_tree::ptree& configPt);
+        explicit SimRunner(const boost::property_tree::ptree& configPt, std::shared_ptr<Population> pop);
 
         /// Destructor
         virtual ~SimRunner() = default;

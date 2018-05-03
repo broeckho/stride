@@ -39,12 +39,13 @@ using namespace ContactPoolType;
 
 SimBuilder::SimBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 
-shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim)
+shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> pop)
 {
         // --------------------------------------------------------------
         // Read config info and setup random number manager
         // --------------------------------------------------------------
         sim->m_config_pt         = m_config_pt;
+        sim->m_population        = pop;
         sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
         sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
         sim->m_calendar          = make_shared<Calendar>(m_config_pt);
