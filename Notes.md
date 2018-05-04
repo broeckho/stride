@@ -19,11 +19,10 @@ In terms of modelling, the situation is now:
  
 * A number of configuration and data files is required to run a simulation. The runConfiguration file is the root file. Aside from key parameters related to the simualtion algorithm, to the output requested etc., it will contain names of other configuration and data files (disease profile data, population data, etc.) that may be used in the simulation.
 
-* Conceptually the steps you go through are (in sequence):
-	* build a population using the runConfiguration
-	* build a simulation runner using the runConfiguration and population
-	* organise the ouput that has been requested via the runConfiguration
-	* run the simulator (number of steps according to the runConfiguration or step by step if you are using the Gui version of the application).
+* Conceptually the steps are:
+	* build a population using the runConfiguration; his population implements a demographic/geo-spatial model and neutral w.r.t. the diease that will be studied
+	* build a simulation runner using the runConfiguration and population; prior to time stepping with the simulator the siumlation runner will seed population with health/vaccination/immunity profiles specific to the disease studied with the simulator
+	* organise the ouput that has been requested via the runConfiguration	* run the simulator (number of steps according to the runConfiguration or step by step if you are using the Gui version of the application).
 
 * To execute a simulation you start up the stride executable with *-e sim* or *--execute sim*. Use the *-h* or *--help* option to list all options and arguments that can be passed to the executable. The most important ones relate to specifying the file with the runConfiguration and commandline overrides of parameters in that file. 
 
