@@ -76,6 +76,7 @@ before_install:
       else
         echo "Already have swig cache"
       fi
+      export CMAKE_PREFIX_PATH=$HOME/swig_3.0.12_cache/
     fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
@@ -110,11 +111,8 @@ script:
   # Arbitrarily chosen one platform for Debug build.
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
-      CMAKE_PREFIX_PATH=$HOME/swig_3.0.12_cache CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       CMAKE_BUILD_TYPE=Debug make test
-    elif [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      CMAKE_PREFIX_PATH=$HOME/swig_3.0.12_cache STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-      make test
     else
       STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       make test
