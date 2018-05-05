@@ -12,7 +12,7 @@ env:
 cache:
   directories:
     - $HOME/.ccache
-    - $HOME/deps_cache
+    - $HOME/deps
 
 addons:
   apt:
@@ -58,43 +58,46 @@ before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@6 && brew link --force --overwrite llvm@6; fi
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew upgrade python
-      brew install ccache swig
-      brew upgrade cmake
-    fi
   # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
-  - export GTEST_COLOR=1
 
 install:
+  #--------- Linux
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      if [[ -z "$(ls -A $HOME/deps_cache/swig_3.0.12)" ]]; then
+      SWIGHOME=$HOME/deps/swig_3.0.12
+      if [[ -z "$(ls -A $SWIGHOME)" ]]; then
         cd /tmp/;
         curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
         tar zxf swig-3.0.12.tar.gz;
         cd swig-3.0.12;
-        ./configure --prefix $HOME/deps_cache/swig_3.0.12;
+        ./configure --prefix $SWIGHOME;
         make;
         make install;
         cd $TRAVIS_BUILD_DIR;
       else
         echo "Already have swig cache"
       fi
-      export CMAKE_PREFIX_PATH=$HOME/deps_cache/swig_3.0.12/
+      export CMAKE_PREFIX_PATH=$SWIGHOME/
     fi
-  # Check for presence of boost cache, otherwise build boost
+  #--------- OSX
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+        brew upgrade python
+        brew install ccache swig
+        brew upgrade cmake
+      fi
+  #--------- All platforms
   - |
-    if [[ -z "$(ls -A $HOME/deps_cache/boost_1_66_0)" ]]; then
+    export BOOSTHOME=$HOME/deps/boost_1_66_0
+    if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
       # Download & unpack
       sudo wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       # Move into source directory
       cd boost_1_66_0/
       # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-      sudo ./bootstrap.sh --prefix=$HOME/deps_cache/boost_1_66_0 --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      sudo ./bootstrap.sh --prefix=$BOOSTHOME --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       # Build boost
       sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       # Move out of boost source directory
@@ -102,9 +105,9 @@ install:
     else
       echo "Already have boost cache"
     fi
-    export LD_LIBRARY_PATH=$HOME/deps_cache/boost_1_66_0/lib
+    export LD_LIBRARY_PATH=$BOOSTHOME/lib
     sudo rm -f /usr/local/lib/libboost*.dylib*
-    sudo ln -s $HOME/deps_cache/boost_1_66_0/lib/*.{so,dylib}* /usr/local/lib
+    sudo ln -s $BOOSTHOME/lib/*.{so,dylib}* /usr/local/lib
 
 script:
   # Build stride and run tests
@@ -113,9 +116,9 @@ script:
   # Arbitrarily chosen one platform for Debug build.
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
-      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/deps_cache/boost_1_66_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$BOOSTHOME STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       CMAKE_BUILD_TYPE=Debug make test
     else
-      STRIDE_BOOST_ROOT=$HOME/deps_cache/boost_1_66_0 STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
+      STRIDE_BOOST_ROOT=$BOOSTHOME STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       make test
     fi
