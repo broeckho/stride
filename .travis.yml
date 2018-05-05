@@ -27,17 +27,17 @@ matrix:
     - os: linux
       compiler: gcc
       env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
-      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
+      addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
       env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
-      addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
+      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
       compiler: clang
       env: CXX_COMPILER_NAME='clang++-6.0' CXX_COMPILER_ID=LLVM
-      addons: { apt: { packages: [*default_packages, clang-6.0], sources:  [*default_sources, llvm-toolchain-trusty-6.0] } }
+      addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
 
     - os: osx
       osx_image: xcode8.3
@@ -56,9 +56,13 @@ matrix:
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
-  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@6 && brew link --force --overwrite llvm@6; fi
-  # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
+  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
+      brew install --with-clang llvm@6
+      brew link --force --overwrite llvm@6
+    fi
+  # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
   - export CXX="$CXX_COMPILER_NAME"
 
 install:
@@ -70,10 +74,8 @@ install:
         cd /tmp/;
         curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
         tar zxf swig-3.0.12.tar.gz;
-        cd swig-3.0.12;
-        ./configure --prefix $SWIGHOME;
-        make;
-        make install;
+        cd swig-3.0.12 && ./configure --prefix $SWIGHOME;
+        make && make install;
         cd $TRAVIS_BUILD_DIR;
       else
         echo "Already have swig cache"
@@ -83,26 +85,21 @@ install:
     #--------- OSX
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      brew upgrade python
+      brew upgrade python cmake
       brew install ccache swig
-      brew upgrade cmake
     fi
     #--------- All platforms
   - |
     export BOOSTHOME=$HOME/deps/boost_1_66_0
     if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
       cd /tmp/
-      # Download & unpack
       wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
-      # Move into source directory
       cd boost_1_66_0/
-      # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
+      # Configure & build  --prefix: install dir for boost  --with-libraries: only build libraries that we actually need
       ./bootstrap.sh --prefix=$BOOSTHOME --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
-      # Build boost
       ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      # Move out of boost source directory
-      cd ..
+      cd $TRAVIS_BUILD_DIR;
     else
       echo "Already have boost cache"
     fi
