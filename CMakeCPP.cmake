@@ -136,11 +136,7 @@ endif()
 
 #----------------------------------------------------------------------------
 # Qt : not a definitive list of components yet; these are placeholders
-# On Apple, iff macports qt5 installed, give it precedence over native qt5.
 #----------------------------------------------------------------------------
-if(APPLE AND EXISTS /usr/local/opt/qt5)
-    list(APPEND CMAKE_PREFIX_PATH "/usr/local/opt/qt5")
-endif()
 find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
 if (Qt5_FOUND)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=true")

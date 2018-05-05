@@ -78,7 +78,7 @@ install:
       else
         echo "Already have swig cache"
       fi
-      export CMAKE_PREFIX_PATH=$SWIGHOME/
+      export CMAKE_PREFIX_PATH=$SWIGHOME:$CMAKE_PREFIX_PATH
     fi
     #--------- OSX
   - |
@@ -91,21 +91,22 @@ install:
   - |
     export BOOSTHOME=$HOME/deps/boost_1_66_0
     if [[ -z "$(ls -A $BOOSTHOME)" ]]; then
+      cd /tmp/
       # Download & unpack
-      sudo wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
-      sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
+      wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
+      tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       # Move into source directory
       cd boost_1_66_0/
       # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-      sudo ./bootstrap.sh --prefix=$BOOSTHOME --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      ./bootstrap.sh --prefix=$BOOSTHOME --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       # Build boost
-      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
+      ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       # Move out of boost source directory
       cd ..
     else
       echo "Already have boost cache"
     fi
-    export LD_LIBRARY_PATH=$BOOSTHOME/lib
+    export LD_LIBRARY_PATH=$BOOSTHOME/lib:$LD_LIBRARY_PATH
     sudo rm -f /usr/local/lib/libboost*.dylib*
     sudo ln -s $BOOSTHOME/lib/*.{so,dylib}* /usr/local/lib
 
