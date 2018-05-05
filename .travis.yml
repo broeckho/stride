@@ -62,7 +62,7 @@ before_install:
   - export CXX="$CXX_COMPILER_NAME"
 
 install:
-  #--------- Linux
+    #--------- Linux
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       SWIGHOME=$HOME/deps/swig_3.0.12
@@ -80,14 +80,14 @@ install:
       fi
       export CMAKE_PREFIX_PATH=$SWIGHOME/
     fi
-  #--------- OSX
-    - |
-      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        brew upgrade python
-        brew install ccache swig
-        brew upgrade cmake
-      fi
-  #--------- All platforms
+    #--------- OSX
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew upgrade python
+      brew install ccache swig
+      brew upgrade cmake
+    fi
+    #--------- All platforms
   - |
     export BOOSTHOME=$HOME/deps/boost_1_66_0
     if [[ -z "$(ls -A $BOOSTHOME)" ]]; then

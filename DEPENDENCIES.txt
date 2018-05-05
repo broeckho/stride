@@ -12,7 +12,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 The project depends on a number of resources. Non-included dependencies need
@@ -33,6 +33,17 @@ Boost headers are REQUIRED, as are libraries filesystem, thread, date_time,
 and system.
 See www.boost.org.
 
+-----------------------------------------------------------------------------
+    SWIG:
+-----------------------------------------------------------------------------
+The Simplified Wrapper and Interface Generator (SWIG) is a tool to generate
+wrappers that make it possible to call C++ code from programs built in
+other languages, Python in our case. In case you are installing on a Mac
+using macports, you need to install the swig base and swig-python packages.
+If you do not have SWIG, then the build procedure will skip all steps
+related to building the Stride python environment.
+See www.swig.org
+
 #############################################################################
 #     Included dependencies:
 #############################################################################
@@ -44,6 +55,12 @@ A OpenMP placeholder library with implementations of OpenMP primitives that
 are appropriate for a sequential program. Makes it possible to avoid
 conditional compilations. We have slightly extended the implementation.
 See https://github.com/chipbuster/libdomp
+
+-----------------------------------------------------------------------------
+    SHA-1: see src/main/resources/lib/sha1
+-----------------------------------------------------------------------------
+Code to compute the sha-1 hash of a string.
+See http://www.zedwood.com/article/cpp-sha1-function
 
 -----------------------------------------------------------------------------
     SPDLOG: see src/main/resources/lib/spdlog
@@ -59,7 +76,7 @@ A templatized C++ command line parser library developped by M. E. Smoot and
 D. Arano. Available at http://http://tclap.sourceforge.net/
 
 -----------------------------------------------------------------------------
-    TRNG4: see src/main/resources/lib/trng-4.15
+    TRNG4: see src/main/resources/lib/trng-4.20
 -----------------------------------------------------------------------------
 Version 4.0 of Tina's Random Number Generators Library developed by Heiko
 Bauke and available at htt:/http://numbercrunch.de/trng/. Tina's Random Number
