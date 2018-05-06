@@ -72,11 +72,11 @@ install:
       SWIGHOME=$HOME/deps/swig_3.0.12
       if [[ -z "$(ls -A $SWIGHOME)" ]]; then
         cd /tmp/;
-        curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download';
-        tar zxf swig-3.0.12.tar.gz;
-        cd swig-3.0.12 && ./configure --prefix $SWIGHOME;
-        make && make install;
-        cd $TRAVIS_BUILD_DIR;
+        curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download'
+        tar xf swig-3.0.12.tar.gz > /dev/null 2>&1
+        cd swig-3.0.12 && ./configure --prefix $SWIGHOME
+        make && make install
+        cd $TRAVIS_BUILD_DIR
       else
         echo "Already have swig cache"
       fi
