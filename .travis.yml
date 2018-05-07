@@ -81,12 +81,25 @@ install:
         echo "Already have swig cache"
       fi
       export CMAKE_PREFIX_PATH=$SWIGHOME:$CMAKE_PREFIX_PATH
+    #--------- Linux - qt 5.10.1 from Stephan Beiner's ppa
+      sudo add-apt-repository ppa:beineri/opt-qt-5.10.1-trusty -y && sudo apt-get update -qq
+      sudo apt-get install -qq qt510base qt510charts-no-lgpl && source /opt/qt510/bin/qt510-env.sh
+      sudo ldconfig /opt/qt510/lib
+      export CMAKE_PREFIX_PATH=/opt/qt510/:$CMAKE_PREFIX_PATH
+      export LD_LIBRARY_PATH=/opt/qt510/lib/
     fi
     #--------- OSX
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       brew upgrade python cmake
-      brew install ccache swig
+      brew install ccache swig qt && brew link --force qt
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs
+      export CMAKE_PREFIX_PATH=/usr/local/opt/qt5:$CMAKE_PREFIX_PATH
+      export LD_LIBRARY_PATH=/usr/local/opt/qt5/lib/
+      ls -l /usr/local
+      ls -l /usr/local/bin
+      ls -l /usr/local/opt/qt5/bin
     fi
     #--------- All platforms
   - |
