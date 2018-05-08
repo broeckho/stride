@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 #include "behaviour/belief_policies/Belief.h"
@@ -30,9 +30,10 @@ enum class VariableState
 class HBM : public Belief
 {
 public:
-        HBM(const boost::property_tree::ptree& pt)
-            : Belief(pt), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
-              m_perceived_severity(0), m_perceived_susceptibility(0), m_perceived_benefit(1), m_perceived_barriers(1)
+        HBM()
+            : Belief(), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
+              m_perceived_severity(VariableState::Low), m_perceived_susceptibility(VariableState::Low),
+              m_perceived_benefit(VariableState::High), m_perceived_barriers(VariableState::High)
         {
         }
 

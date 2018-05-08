@@ -37,18 +37,15 @@ class Person
 public:
         /// Default construction (for population vector).
         Person()
-            : m_age(0.0), m_belief(), m_gender(' '), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools()
+            : m_age(0.0), m_belief(nullptr), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools()
         {
         }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
-               unsigned int primaryCommunityId, unsigned int secondaryCommunityId, Health health = Health(),
-               double risk_averseness = 0, Belief* bp = nullptr)
-            : m_age(age), m_belief(bp), m_gender('M'), m_health(health), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
-                                                  secondaryCommunityId},
-              m_in_pools(true)
+               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
+            : m_age(age), m_belief(nullptr), m_health(), m_id(id), m_is_participant(false),
+              m_pool_ids{householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId}, m_in_pools(true)
         {
         }
 
@@ -66,9 +63,6 @@ public:
 
         /// Get ID of contactpool_type
         unsigned int GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
-
-        /// Return person's gender.
-        char GetGender() const { return m_gender; }
 
         /// Return person's health status.
         Health& GetHealth() { return m_health; }
@@ -88,6 +82,9 @@ public:
         /// Participate in social contact study and log person details
         void ParticipateInSurvey() { m_is_participant = true; }
 
+        /// Set the beliefs. Pointer into Population's beliefcontainer.
+        void SetBelief(Belief* belief) { m_belief = belief; };
+
         /// Update the health status and presence in contactpools.
         void Update(bool isWorkOff, bool isSchoolOff);
 
@@ -97,7 +94,6 @@ public:
 private:
         double       m_age;            ///< The age.
         Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
-        char         m_gender;         ///< The gender.
         Health       m_health;         ///< Health info for this person.
         unsigned int m_id;             ///< The id.
         bool         m_is_participant; ///< Is participating in the social contact study

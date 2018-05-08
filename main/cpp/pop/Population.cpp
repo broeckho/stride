@@ -97,39 +97,21 @@ unsigned int Population::GetInfectedCount() const
 }
 
 void Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                              unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                              Health health, const ptree& beliefPt, double riskAverseness)
+                              unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
-        string policy = beliefPt.get<string>("name");
-
-        if (policy == "NoBelief") {
-                NewPerson<NoBelief>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                    health, beliefPt, riskAverseness);
-        } else if (policy == "Imitation") {
-                NewPerson<Imitation>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                     health, beliefPt, riskAverseness);
-        } else {
-                throw runtime_error(string(__func__) + "No valid belief policy!");
-        }
+        this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));
 }
 
 template <typename BeliefPolicy>
-void Population::NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                           unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                           Health health, const ptree& beliefPt, double riskAverseness)
+void Population::SetBeliefPolicy(const BeliefPolicy& belief, Person& person)
 {
         if (!m_beliefs_container) {
                 m_beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
         }
         auto container = m_beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
 
-        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
-
-        BeliefPolicy* bp = container->emplace_back(beliefPt);
-        this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                  health, riskAverseness, bp));
-
-        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
+        BeliefPolicy* bp = container->emplace_back(belief);
+        person.SetBelief(bp);
 }
 
 } // namespace stride

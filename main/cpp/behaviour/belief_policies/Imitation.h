@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -21,6 +21,8 @@
 
 #include "behaviour/belief_policies/Belief.h"
 
+#include <boost/property_tree/ptree.hpp>
+
 namespace stride {
 
 class Imitation : public Belief
@@ -28,8 +30,8 @@ class Imitation : public Belief
 public:
         /// Initializing constructor, for now with ptree.
         Imitation(const boost::property_tree::ptree& pt)
-            : Belief(pt), m_accept_threshold(pt.get<double>("accept_threshold")),
-              m_no_accept_threshold(pt.get<double>("no_accept_threshold")), m_accept(false)
+            : Belief(), m_accept(false), m_accept_threshold(pt.get<double>("accept_threshold")),
+              m_no_accept_threshold(pt.get<double>("no_accept_threshold"))
         {
                 // TODO belief strength
                 // TODO stickiness
@@ -40,10 +42,9 @@ public:
         // TODO update
 
 private:
+        bool   m_accept;
         double m_accept_threshold;
         double m_no_accept_threshold;
-
-        bool m_accept;
 
         // double m_belief_strength; ///< The 'strength' of someone's belief, varying from -1 (very negative attitude to
         ///< behaviour) to 1 (very positive attitude to behaviour).

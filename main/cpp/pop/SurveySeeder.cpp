@@ -54,8 +54,8 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work));
+                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetPoolId(Id::School),
+                                             p.GetPoolId(Id::Work));
                                 num_samples++;
                         }
                 }

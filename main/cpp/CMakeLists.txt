@@ -20,6 +20,7 @@
 #============================================================================
 set(LIB_SRC
 #---
+	behaviour/BeliefSeeder.cpp
 	behaviour/behaviour_policies/NoBehaviour.h
 	behaviour/behaviour_policies/Vaccination.h
 	behaviour/belief_policies/Belief.h

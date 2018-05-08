@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -26,7 +26,7 @@ namespace stride {
 class NoBelief : public Belief
 {
 public:
-        NoBelief(const boost::property_tree::ptree& pt) : Belief(pt) {}
+        NoBelief() : Belief() {}
 };
 
 } // namespace stride

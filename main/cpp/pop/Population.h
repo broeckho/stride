@@ -63,16 +63,17 @@ private:
 
         /// New Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
         ///
+        /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
+        /// \param belief        belief object that wille be associated with the person
+        /// \param person        person associated with this belief object
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+        void SetBeliefPolicy(const BeliefPolicy& belief, Person& person);
 
         friend class PopBuilder;
+        friend class BeliefSeeder;
 
 private:
         util::Any                       m_beliefs_container; ///< Holds belief data for the persons.
