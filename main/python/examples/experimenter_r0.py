@@ -8,15 +8,15 @@ import pystride
 from pystride.PyRunner import PyRunner
 from pystride.PyController import PyController
 
-
 t_start = time.perf_counter()
 
 # Configure simulation
 controller = PyController("../config/run_default.xml")
 controller.runConfig.setParameter("output_prefix", "R0Runs")
+controller.runConfig.setParameter("num_days", "3")
 
 # Create forks with different values for R0
-r0_values = [0, 4, 8, 12, 16]
+r0_values = [0, 4, 8]
 for r0 in r0_values:
     # Create fork
     fork = controller.fork("r0_" + str(r0))

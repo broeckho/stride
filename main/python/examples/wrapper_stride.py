@@ -128,7 +128,6 @@ def main(argv):
     # Create (summary) output dir with subdir for experiment output
     time_stamp  = datetime.datetime.now().strftime("%m%d%H%M%S") # add '%Y to add year and '%f' for milisec
     file_tag    = time_stamp + name_sep + config['output_tag']
-
     output_dir        = os.path.join('output', time_stamp + name_sep + config['output_tag'])
     experiments_dirs  = os.path.join(output_dir, 'experiments')
     if not os.path.isdir(experiments_dirs):
