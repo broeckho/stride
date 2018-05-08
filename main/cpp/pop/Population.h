@@ -75,9 +75,9 @@ private:
         friend class PopBuilder;
 
 private:
-        util::Any                       beliefs_container; ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;        ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger;  ///< Logger for contact/transmission.
+        util::Any                       m_beliefs_container; ///< Holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;          ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger;    ///< Logger for contact/transmission.
 };
 
 } // namespace stride

@@ -8,7 +8,7 @@ import pystride
 from pystride.PyRunner import PyRunner
 from pystride.PyController import PyController
 
-t_start = time.perf_counter()
+t_start = time.mktime(time.localtime())
 
 # Configure simulation
 controller = PyController("../config/run_default.xml")
@@ -30,5 +30,5 @@ for fork in controller.forks:
     r0 = fork.runConfig.getParameter("r0")
     print("R0 = {0:2d} : infection count = {1:7d}".format(int(r0), num_infected))
 
-t_end = time.perf_counter()
-print("Total time elapsed: " + str(round(t_end - t_start)) + " seconds")
+t_elapsed = time.mktime(time.localtime()) - t_start
+print("Total time elapsed: " + str(round(t_elapsed)) + " seconds")

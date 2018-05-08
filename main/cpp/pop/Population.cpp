@@ -100,12 +100,12 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
                               unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
                               Health health, const ptree& beliefPt, double riskAverseness)
 {
-        string belief_policy = beliefPt.get<string>("name");
+        string policy = beliefPt.get<string>("name");
 
-        if (belief_policy == "NoBelief") {
+        if (policy == "NoBelief") {
                 NewPerson<NoBelief>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
                                     health, beliefPt, riskAverseness);
-        } else if (belief_policy == "Imitation") {
+        } else if (policy == "Imitation") {
                 NewPerson<Imitation>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
                                      health, beliefPt, riskAverseness);
         } else {
@@ -118,10 +118,10 @@ void Population::NewPerson(unsigned int id, double age, unsigned int householdId
                            unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
                            Health health, const ptree& beliefPt, double riskAverseness)
 {
-        if (!beliefs_container) {
-                beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
+        if (!m_beliefs_container) {
+                m_beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
         }
-        auto container = beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
+        auto container = m_beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
 
         assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
 

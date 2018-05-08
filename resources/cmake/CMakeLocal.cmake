@@ -42,11 +42,15 @@ set(STRIDE_COMPILER_ID      GNU)
 # To help find modules.
 #============================================================================
 if(APPLE)
-    set(CMAKE_PREFIX_PATH "/opt/local/Library/Frameworks/Python.framework/Versions/3.6;$ENV{PATH}")
+    set(CMAKE_PREFIX_PATH
+            "/opt/local/Library/Frameworks/Python.framework/Versions/3.6;$ENV{PATH};${CMAKE_PREFIX_PATH}")
 endif()
+if(LINUX)
 # For Ubuntu 14.04
-set(Python_ADDITIONAL_VERSIONS 3.4)
-
+    set(Python_ADDITIONAL_VERSIONS 3.4)
+    set(CMAKE_PREFIX_PATH "/opt/swig ${CMAKE_PREFIX_PATH}")
+    message (STATUS "${CMAKE_PREFIX_PATH}")
+endif()
 #============================================================================
 # Install dir.
 #============================================================================
@@ -61,6 +65,7 @@ if(LINUX)
     if(STRIDE_COMPILER_ID STREQUAL "GNU")
         set(CMAKE_C_COMPILER   /usr/bin/gcc  CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /usr/bin/g++  CACHE PATH "CXX compiler path")
+        message(STATUS "${CMAKE_CXX_COMPILER}")
     elseif(STRIDE_COMPILER_ID STREQUAL "Clang")
         set(CMAKE_C_COMPILER   /opt/clang/bin/clang    CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/clang/bin/clang++  CACHE PATH "CXX compiler path")
