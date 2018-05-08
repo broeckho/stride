@@ -20,6 +20,7 @@
 
 #include "SimBuilder.h"
 
+#include "behaviour/BeliefSeeder.h"
 #include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
@@ -89,6 +90,11 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
         DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
+
+        // --------------------------------------------------------------
+        // Seed population wrt belief policies.
+        // --------------------------------------------------------------
+        //BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.
