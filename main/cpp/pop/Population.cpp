@@ -102,16 +102,4 @@ void Population::CreatePerson(unsigned int id, double age, unsigned int househol
         this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));
 }
 
-template <typename BeliefPolicy>
-void Population::SetBeliefPolicy(const BeliefPolicy& belief, Person& person)
-{
-        if (!m_beliefs_container) {
-                m_beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
-        }
-        auto container = m_beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
-
-        BeliefPolicy* bp = container->emplace_back(belief);
-        person.SetBelief(bp);
-}
-
 } // namespace stride

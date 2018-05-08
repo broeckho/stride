@@ -61,16 +61,24 @@ private:
         ///
         Population() = default;
 
-        /// New Person in the population.
+        /// Create Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
                           unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
-        ///
+        /// Assign the belief policy.
         /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
         /// \param belief        belief object that wille be associated with the person
         /// \param person        person associated with this belief object
+        // Cannot follow my preference for declaration of required explicit specializations, because SWIG
+        // does not like that. Hence include of the template method definition in the header file.
         template <typename BeliefPolicy>
-        void SetBeliefPolicy(const BeliefPolicy& belief, Person& person);
+        void SetBeliefPolicy(const BeliefPolicy& belief, Person& person)
+        {
+                if (!m_beliefs_container) {
+                        m_beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
+                }
+                person.SetBelief(m_beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>()->emplace_back(belief));
+        }
 
         friend class PopBuilder;
         friend class BeliefSeeder;

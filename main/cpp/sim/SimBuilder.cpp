@@ -94,7 +94,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Seed population wrt belief policies.
         // --------------------------------------------------------------
-        //BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
+        BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.
