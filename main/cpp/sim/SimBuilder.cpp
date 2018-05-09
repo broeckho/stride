@@ -84,7 +84,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
-        HealthSeeder(diseasePt, sim->m_rn_manager).Seed(sim->m_population);
+        HealthSeeder(diseasePt).Seed(sim->m_population, sim->m_handlers);
 
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.

@@ -23,6 +23,7 @@
 #include "pop/Population.h"
 #include "util/RNManager.h"
 
+#include <omp.h>
 #include <trng/uniform01_dist.hpp>
 
 using namespace boost::property_tree;
@@ -31,13 +32,12 @@ using namespace std;
 
 namespace stride {
 
-HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt, util::RNManager& rnManager)
+HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt)
 {
         GetDistribution(m_distrib_start_infectiousness, diseasePt, "disease.start_infectiousness");
         GetDistribution(m_distrib_start_symptomatic, diseasePt, "disease.start_symptomatic");
         GetDistribution(m_distrib_time_infectious, diseasePt, "disease.time_infectious");
         GetDistribution(m_distrib_time_symptomatic, diseasePt, "disease.time_symptomatic");
-        m_uniform01_generator = rnManager.GetGenerator(trng::uniform01_dist<double>());
 
         assert((abs(m_distrib_start_infectiousness.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in start_infectiousness distribution!");
@@ -69,14 +69,22 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution, doub
         return ret;
 }
 
-void HealthSeeder::Seed(std::shared_ptr<stride::Population> pop)
+void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<ContactHandler>& handlers)
 {
-        for (auto& p : *pop) {
-                const auto startInfectiousness = Sample(m_distrib_start_infectiousness, m_uniform01_generator());
-                const auto startSymptomatic    = Sample(m_distrib_start_symptomatic, m_uniform01_generator());
-                const auto timeInfectious      = Sample(m_distrib_time_infectious, m_uniform01_generator());
-                const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic, m_uniform01_generator());
-                p.GetHealth() = Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
+        auto& population = *pop;
+
+#pragma omp parallel num_threads(handlers.size())
+        {
+                auto& gen01 = handlers[static_cast<size_t>(omp_get_thread_num())];
+#pragma omp for
+                for (size_t i = 0; i < population.size(); ++i) {
+                        const auto startInfectiousness = Sample(m_distrib_start_infectiousness, gen01());
+                        const auto startSymptomatic = Sample(m_distrib_start_symptomatic, gen01());
+                        const auto timeInfectious = Sample(m_distrib_time_infectious, gen01());
+                        const auto timeSymptomatic = Sample(m_distrib_time_symptomatic, gen01());
+                        population[i].GetHealth()
+                                = Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
+                }
         }
 }
 

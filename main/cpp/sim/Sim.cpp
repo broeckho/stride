@@ -60,11 +60,9 @@ std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Populati
 
 void Sim::TimeStep()
 {
-        std::shared_ptr<DaysOffInterface> daysOff{nullptr};
-
         // Logic where you compute (on the basis of input/config for initial day or on the basis of
         // number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you apply.
-        daysOff                = std::make_shared<DaysOffStandard>(m_calendar);
+        const auto daysOff     = std::make_shared<DaysOffStandard>(m_calendar);
         const bool isWorkOff   = daysOff->IsWorkOff();
         const bool isSchoolOff = daysOff->IsSchoolOff();
 
@@ -77,14 +75,13 @@ void Sim::TimeStep()
 
 #pragma omp parallel num_threads(m_num_threads)
         {
-                // Update health status presence/absence in pools
+                // Update health status and presence/absence in pools
                 // depending on health status, work/school day.
 #pragma omp for schedule(static)
                 for (size_t i = 0; i < population.size(); ++i) {
                         population[i].Update(isWorkOff, isSchoolOff);
                 }
 
-                // Loop over types of contact pool (household, etc.) and over pools of that type.
                 // Infector updates individuals for contacts & transmission within each pool.
                 // Skip pools with id = 0, because it means Not Applicable.
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
