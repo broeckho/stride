@@ -49,11 +49,8 @@ private:
         void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& rootPt,
                              const std::string& xmlTag);
 
-        /// Generate a health item by sample from distributions.
-        Health Sample();
-
         /// Sample for each of the health data item individually.
-        unsigned short int Sample(const std::vector<double>& distribution);
+        unsigned short int Sample(const std::vector<double>& distribution, double random01);
 
 private:
         std::vector<double>     m_distrib_start_infectiousness;

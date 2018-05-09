@@ -57,22 +57,11 @@ void HealthSeeder::GetDistribution(vector<double>& distribution, const ptree& ro
         }
 }
 
-Health HealthSeeder::Sample()
+unsigned short int HealthSeeder::Sample(const vector<double>& distribution, double random01)
 {
-        const auto startInfectiousness = Sample(m_distrib_start_infectiousness);
-        const auto startSymptomatic    = Sample(m_distrib_start_symptomatic);
-        const auto timeInfectious      = Sample(m_distrib_time_infectious);
-        const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic);
-
-        return Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
-}
-
-unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
-{
-        const auto rn  = m_uniform01_generator();
-        auto       ret = static_cast<unsigned short int>(distribution.size());
+        auto ret = static_cast<unsigned short int>(distribution.size());
         for (unsigned short int i = 0; i < distribution.size(); i++) {
-                if (rn <= distribution[i]) {
+                if (random01 <= distribution[i]) {
                         ret = i;
                         break;
                 }
@@ -83,7 +72,11 @@ unsigned short int HealthSeeder::Sample(const vector<double>& distribution)
 void HealthSeeder::Seed(std::shared_ptr<stride::Population> pop)
 {
         for (auto& p : *pop) {
-                p.GetHealth() = Sample();
+                const auto startInfectiousness = Sample(m_distrib_start_infectiousness, m_uniform01_generator());
+                const auto startSymptomatic    = Sample(m_distrib_start_symptomatic, m_uniform01_generator());
+                const auto timeInfectious      = Sample(m_distrib_time_infectious, m_uniform01_generator());
+                const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic, m_uniform01_generator());
+                p.GetHealth() = Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
         }
 }
 
