@@ -21,8 +21,11 @@
 
 #include "DaysOffInterface.h"
 
+#include <memory>
+
 namespace stride {
 
+class Calendar;
 /**
  * No  days off work or school.
  */
@@ -30,7 +33,7 @@ class DaysOffAll : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        explicit DaysOffAll(std::shared_ptr<Calendar> cal) {}
+        explicit DaysOffAll(std::shared_ptr<Calendar>) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return true; }

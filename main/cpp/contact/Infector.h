@@ -66,9 +66,9 @@ class Infector
 {
 public:
         ///
-        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& trans_profile,
-                         ContactHandler& c_handler, unsigned short int sim_day,
-                         std::shared_ptr<spdlog::logger> c_logger);
+        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& transProfile,
+                         ContactHandler& cHandler, unsigned short int simDay,
+                         std::shared_ptr<spdlog::logger> cLogger);
 };
 
 /// Time-optimized version (Only for NoLocalInformation policy in combination with None || Transmission logging).
@@ -79,9 +79,9 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& trans_profile,
-                         ContactHandler& c_handler, unsigned short int sim_day,
-                         std::shared_ptr<spdlog::logger> c_logger);
+        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& transProfile,
+                         ContactHandler& cHandler, unsigned short int simDay,
+                         std::shared_ptr<spdlog::logger> cLogger);
 };
 
 /// Explicit instantiations in cpp file.

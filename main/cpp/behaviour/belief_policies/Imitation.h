@@ -29,7 +29,7 @@ class Imitation : public Belief
 {
 public:
         /// Initializing constructor, for now with ptree.
-        Imitation(const boost::property_tree::ptree& pt)
+        explicit Imitation(const boost::property_tree::ptree& pt)
             : Belief(), m_accept(false), m_accept_threshold(pt.get<double>("accept_threshold")),
               m_no_accept_threshold(pt.get<double>("no_accept_threshold"))
         {
@@ -37,7 +37,7 @@ public:
                 // TODO stickiness
         }
 
-        bool HasAdopted() const { return m_accept; }
+        bool HasAdopted() const override { return m_accept; }
 
         // TODO update
 

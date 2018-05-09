@@ -11,11 +11,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018Kuylen E, Willem L, Broeckhove J
  */
 
 namespace stride {
 
+class Person;
 /**
  * Class for global information policy 'NoGlobalInformation'.
  * This means that there is no globally available information

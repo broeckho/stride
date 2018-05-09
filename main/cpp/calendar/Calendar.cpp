@@ -52,12 +52,12 @@ void Calendar::InitializeHolidays(const ptree& configPt)
         // Load json file
         ptree holidaysPt;
         {
-                const string file_name{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
-                const path   file_path{FileSys::GetDataDir() /= file_name};
-                if (!is_regular_file(file_path)) {
-                        throw runtime_error(string(__func__) + "Holidays file " + file_path.string() + " not present.");
+                const string fName{configPt.get<string>("run.holidays_file", "holidays_flanders_2017.json")};
+                const path   fPath{FileSys::GetDataDir() /= fName};
+                if (!is_regular_file(fPath)) {
+                        throw runtime_error(string(__func__) + "Holidays file " + fPath.string() + " not present.");
                 }
-                read_json(file_path.string(), holidaysPt);
+                read_json(fPath.string(), holidaysPt);
         }
 
         // Read in holidays

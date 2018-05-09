@@ -23,6 +23,7 @@
 #include "calendar/Calendar.h"
 #include "contact/LogPolicy.h"
 #include "pool/ContactPool.h"
+#include "pop/Person.h"
 
 using namespace std;
 
@@ -59,53 +60,53 @@ namespace stride {
 //-------------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
 void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                      const TransmissionProfile& trans_profile, ContactHandler& c_handler,
-                                      unsigned short int sim_day, shared_ptr<spdlog::logger> c_logger)
+                                      const TransmissionProfile& transProfile, ContactHandler& cHandler,
+                                      unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
         // set up some stuff
-        const auto  p_type    = pool.m_pool_type;
-        const auto& p_members = pool.m_members;
-        const auto  p_size    = p_members.size();
-        const auto  t_rate    = trans_profile.GetRate();
+        const auto  pType    = pool.m_pool_type;
+        const auto& pMembers = pool.m_members;
+        const auto  pSize    = pMembers.size();
+        const auto  tRate    = transProfile.GetRate();
 
         // check all contacts
-        for (size_t i_person1 = 0; i_person1 < p_size; i_person1++) {
+        for (size_t i_person1 = 0; i_person1 < pSize; i_person1++) {
                 // check if member is present today
-                const auto p1 = p_members[i_person1];
-                if (p1->IsInPool(p_type)) {
-                        const double c_rate = GetContactRate(profile, p1, p_size);
+                const auto p1 = pMembers[i_person1];
+                if (p1->IsInPool(pType)) {
+                        const double c_rate = GetContactRate(profile, p1, pSize);
                         // loop over possible contacts (contacts can be initiated by each member)
-                        for (size_t i_person2 = 0; i_person2 < p_size; i_person2++) {
+                        for (size_t i_person2 = 0; i_person2 < pSize; i_person2++) {
                                 // check if not the same person
                                 if (i_person1 != i_person2) {
                                         // check if member is present today
-                                        const auto p2 = p_members[i_person2];
-                                        if (p2->IsInPool(p_type)) {
+                                        const auto p2 = pMembers[i_person2];
+                                        if (p2->IsInPool(pType)) {
                                                 // check for contact
-                                                if (c_handler.HasContact(c_rate)) {
+                                                if (cHandler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
-                                                        LP::Contact(c_logger, p1, p2, p_type, sim_day);
+                                                        LP::Contact(cLogger, p1, p2, pType, simDay);
                                                         // log contact if person 2 is participating in survey
-                                                        LP::Contact(c_logger, p2, p1, p_type, sim_day);
+                                                        LP::Contact(cLogger, p2, p1, pType, simDay);
 
                                                         // exchange info about health state & beliefs
                                                         LIP::Update(p1, p2);
 
                                                         // transmission & infection.
-                                                        if (c_handler.HasTransmission(t_rate)) {
+                                                        if (cHandler.HasTransmission(tRate)) {
                                                                 auto& h1 = p1->GetHealth();
                                                                 auto& h2 = p2->GetHealth();
                                                                 // No secondary infections with TIC; just mark
                                                                 // p2 as being recovered
                                                                 if (h1.IsInfectious() && h2.IsSusceptible()) {
-                                                                        LP::Trans(c_logger, p1, p2, p_type, sim_day);
+                                                                        LP::Trans(cLogger, p1, p2, pType, simDay);
                                                                         h2.StartInfection();
                                                                         if (TIC)
                                                                                 h2.StopInfection();
                                                                 } else if (h2.IsInfectious() && h1.IsSusceptible()) {
-                                                                        LP::Trans(c_logger, p2, p1, p_type, sim_day);
+                                                                        LP::Trans(cLogger, p2, p1, pType, simDay);
                                                                         h1.StartInfection();
                                                                         if (TIC)
                                                                                 h1.StopInfection();
@@ -125,9 +126,9 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                                       const TransmissionProfile& trans_profile,
-                                                       ContactHandler& c_handler, unsigned short int sim_day,
-                                                       shared_ptr<spdlog::logger> c_logger)
+                                                       const TransmissionProfile& transProfile,
+                                                       ContactHandler& cHandler, unsigned short int simDay,
+                                                       shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
@@ -145,7 +146,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
         const auto  c_immune  = pool.m_index_immune;
         const auto& c_members = pool.m_members;
         const auto  c_size    = c_members.size();
-        const auto  t_rate    = trans_profile.GetRate();
+        const auto  t_rate    = transProfile.GetRate();
 
         // match infectious and susceptible members, skip last part (immune members)
         for (size_t i_infected = 0; i_infected < num_cases; i_infected++) {
@@ -161,8 +162,8 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
                                         const auto p2 = c_members[i_contact];
                                         if (p2->IsInPool(c_type)) {
                                                 const double c_rate_p2 = GetContactRate(profile, p2, c_size);
-                                                if (c_handler.HasContactAndTransmission(c_rate_p1, t_rate) ||
-                                                    c_handler.HasContactAndTransmission(c_rate_p2, t_rate)) {
+                                                if (cHandler.HasContactAndTransmission(c_rate_p1, t_rate) ||
+                                                    cHandler.HasContactAndTransmission(c_rate_p2, t_rate)) {
                                                         auto& h2 = p2->GetHealth();
                                                         if (h1.IsInfectious() && h2.IsSusceptible()) {
                                                                 h2.StartInfection();
@@ -170,7 +171,7 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
                                                                 // p2 as being recovered
                                                                 if (TIC)
                                                                         h2.StopInfection();
-                                                                LP::Trans(c_logger, p1, p2, c_type, sim_day);
+                                                                LP::Trans(cLogger, p1, p2, c_type, simDay);
                                                         }
                                                 }
                                         }

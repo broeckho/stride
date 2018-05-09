@@ -16,10 +16,17 @@
 
 #include "behaviour/belief_policies/Belief.h"
 
+namespace {
+constexpr double odds_ratio_0              = -1;
+constexpr double odds_ratio_severity       = 0.626;
+constexpr double odds_ratio_susceptibility = 1.07;
+constexpr double odds_ratio_benefit        = 0;
+constexpr double odds_ratio_barriers       = -0.4;
+}
+
 namespace stride {
 
-// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod
-// ORi^xi))
+// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod ORi^xi))
 
 enum class VariableState
 {
@@ -38,20 +45,12 @@ public:
         }
 
 private:
-        unsigned int m_num_contacts;
-        unsigned int m_num_contacts_infected;
-        unsigned int m_num_contacts_adopted;
-
+        unsigned int  m_num_contacts;
+        unsigned int  m_num_contacts_infected;
+        unsigned int  m_num_contacts_adopted;
         VariableState m_perceived_severity;
         VariableState m_perceived_susceptibility;
         VariableState m_perceived_benefit;
         VariableState m_perceived_barriers;
-
-private:
-        static const double m_odds_ratio_0              = -1;
-        static const double m_odds_ratio_severity       = 0.626;
-        static const double m_odds_ratio_susceptibility = 1.07;
-        static const double m_odds_ratio_benefit        = 0;
-        static const double m_odds_ratio_barriers       = -0.4;
 };
 } // namespace stride

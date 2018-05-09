@@ -22,9 +22,8 @@ namespace stride {
 
 /**
  * Class for behaviour policy 'NoBehaviour'.
- * This means that whatever beliefs a person holds, or whatever information they
- * gather,
- * this will not result in a change in their behaviour.
+ * This means that whatever beliefs a person holds, or whatever information
+ * they gather, this will not result in a change in their behaviour.
  */
 template <typename belief_policy>
 class NoBehaviour

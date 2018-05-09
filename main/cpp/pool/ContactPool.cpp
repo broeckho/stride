@@ -23,6 +23,8 @@
 #include "pop/Age.h"
 #include "pop/Person.h"
 
+#include <algorithm>
+
 namespace stride {
 
 using namespace std;

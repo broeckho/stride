@@ -37,7 +37,7 @@ SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop)
         Notify(Id::SetupBegin);
 
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
-        m_sim           = Sim::Create(m_config_pt, pop);
+        m_sim           = Sim::Create(m_config_pt, std::move(pop));
 
         Notify(Id::SetupEnd);
         m_clock.Stop();

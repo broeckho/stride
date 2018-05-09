@@ -49,13 +49,13 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, sh
         {
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
-        SimBuilder(configPt).Build(sim, pop);
+        SimBuilder(configPt).Build(sim, std::move(pop));
         return sim;
 }
 
 std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop)
 {
-        return Create(RunConfigManager::FromString(configString), pop);
+        return Create(RunConfigManager::FromString(configString), std::move(pop));
 }
 
 void Sim::TimeStep()
