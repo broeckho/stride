@@ -45,7 +45,7 @@ public:
 
 private:
         boost::property_tree::ptree m_config_pt;
-        std::function<double()> m_uniform01_generator;
+        std::function<double()>     m_uniform01_generator;
 };
 
 } // namespace stride

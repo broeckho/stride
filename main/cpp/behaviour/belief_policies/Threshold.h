@@ -37,8 +37,8 @@ private:
         unsigned int m_num_contacts;          ///< The total number of contacts the person has had.
         unsigned int m_num_contacts_infected; ///< Number of contacts that is symptomatic.
         unsigned int m_num_contacts_adopted;  ///< Number of contacts that have adopted the behaviour.
-        double       m_threshold_infected; ///< Fraction of contacts that needs to be infected to adopt behaviour.
-        double       m_threshold_adopted;  ///< Fraction of contacts that needs to have adopted to adopt behaviour.
+        double       m_threshold_infected;    ///< Fraction of contacts that needs to be infected to adopt behaviour.
+        double       m_threshold_adopted;     ///< Fraction of contacts that needs to have adopted to adopt behaviour.
 };
 
 } // namespace stride

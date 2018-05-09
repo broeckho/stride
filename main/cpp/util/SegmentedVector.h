@@ -34,7 +34,8 @@ namespace util {
 
 /**
  * Container that stores objects "almost contiguously" and guarantees that
- * pointers/iterators are not invalidated when the container grows.
+ * pointers/iterators are not invalidated when the container grows, either
+ * through push_back/emplace_back of elements or resevation of capacity.
  * It combines vector properties (high data locality) with queue properties
  * (can increase capacity without pointer/iterator invalidation). Actually,
  * its implementation is much like a queue but with a limited interface
@@ -63,42 +64,48 @@ public:
         // Construction / Copy / Move / Destruction
         // ==================================================================
 
-        /// Construct
-        SegmentedVector() : m_size(0){};
+        /// Construct empty SegmentedVector.
+        explicit SegmentedVector() : m_blocks(), m_size(0) {}
 
-        /// Copy constructor
-        SegmentedVector(const self_type& other) : m_size(0)
+        /// Copy constructor (copies elements & capacity). If excess capacity
+        /// not needed, do shrink_to_fit.
+        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
-                m_blocks.reserve(other.m_blocks.size());
+                reserve(other.capacity());
                 for (const auto& elem : other) {
                         push_back(elem);
                 }
                 assert(m_size == other.m_size);
                 assert(m_blocks.size() == other.m_blocks.size());
+                assert(this->capacity() == other.capacity());
         }
 
-        /// Move constructor
+        /// Move constructor (moves elements & capacity). If excess capacity
+        /// not needed, do shrink_to_fit.
         SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
 
-        /// Copy assignment
+        /// Copy assignment (copies elements & capacity). If excess capacity
+        /// not needed, do shrink_to_fit.
         SegmentedVector& operator=(const self_type& other)
         {
                 if (this != &other) {
                         clear();
-                        m_blocks.reserve(other.m_blocks.size());
+                        reserve(other.capacity());
                         for (const auto& elem : other) {
                                 push_back(elem);
                         }
                         assert(m_size == other.m_size);
                         assert(m_blocks.size() == other.m_blocks.size());
+                        assert(this->capacity() == other.capacity());
                 }
                 return *this;
         }
 
-        /// Move assignment
+        /// Move assignment (copies elements & capacity). If excess capacity
+        /// not needed, do shrink_to_fit.
         SegmentedVector& operator=(self_type&& other) noexcept
         {
                 if (this != &other) {
@@ -182,6 +189,9 @@ public:
         // Capacity
         // ==================================================================
 
+        /// Returns number of elements that can be stored without allocating additional blocks.
+        std::size_t capacity() const { return N * m_blocks.size(); }
+
         /// Checks whether container is empty.
         bool empty() const { return m_size == 0; }
 
@@ -198,6 +208,23 @@ public:
         // Modifiers
         // ==================================================================
 
+        /// Allocates aditional blocks to achieve requested capacity.
+        void reserve(size_type new_capacity)
+        {
+                while (new_capacity > capacity()) {
+                        m_blocks.push_back(new Chunk[N]);
+                }
+        }
+
+        /// Deallocates (empty) blocks to schrink capacity to fit current size.
+        void shrink_to_fit()
+        {
+                size_type req_blocks = 1 + (size() - 1) / N;
+                while (req_blocks < m_blocks.size()) {
+                        delete[] m_blocks.back();
+                        m_blocks.pop_back();
+                }
+        }
         /// Clears the content.
         void clear()
         {

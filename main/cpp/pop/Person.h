@@ -37,15 +37,18 @@ class Person
 public:
         /// Default construction (for population vector).
         Person()
-            : m_age(0.0), m_belief(nullptr), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(), m_in_pools()
+            : m_age(0.0), m_belief(nullptr), m_gender('M'), m_health(), m_id(0), m_is_participant(), m_pool_ids(),
+              m_in_pools()
         {
         }
 
         /// Constructor: set the person data.
         Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
                unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
-            : m_age(age), m_belief(nullptr), m_gender('M'), m_health(), m_id(id), m_is_participant(false),
-              m_pool_ids{householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId}, m_in_pools(true)
+            : m_age(age), m_belief(nullptr), m_gender('M'), m_health(), m_id(id),
+              m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
+                                                  secondaryCommunityId},
+              m_in_pools(true)
         {
         }
 
@@ -95,8 +98,8 @@ public:
         void Update(Person* p);
 
 private:
-        double       m_age;            ///< The age.
-        Belief*      m_belief;         ///< Health beliefs related data (raw pointer intentional).
+        double       m_age;    ///< The age.
+        Belief*      m_belief; ///< Health beliefs related data (raw pointer intentional).
         char         m_gender;
         Health       m_health;         ///< Health info for this person.
         unsigned int m_id;             ///< The id.

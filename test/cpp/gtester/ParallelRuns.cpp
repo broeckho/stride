@@ -86,7 +86,8 @@ TEST_P(ParallelRuns, Run)
         // -----------------------------------------------------------------------------------------
         for (const auto n : numThreads) {
                 configPt.put("run.num_threads", n);
-                auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
+                auto pop    = Population::Create(configPt);
+                auto runner = make_shared<SimRunner>(configPt, pop);
                 runner->Run();
                 const auto result = runner->GetSim()->GetPopulation()->GetInfectedCount();
                 EXPECT_NEAR(result, target, target * margin)

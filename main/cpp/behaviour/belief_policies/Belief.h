@@ -28,21 +28,12 @@ class Belief
 {
 public:
         ///
-        Belief() {}
+        Belief() = default;
 
         ///
-        virtual ~Belief() {}
-
-        ///
-        // boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
+        virtual ~Belief() = default;
 
         virtual bool HasAdopted() const { return false; }
-
-private:
-
 };
 
 } // namespace stride
