@@ -14,9 +14,9 @@
 #   create a gh-pages branch.
 #
 # Required global variables:
-# - TRAVIS_BUILD_NUMBER : The number of the current build.
-# - TRAVIS_COMMIT       : The commit that the current build is testing.
-# - DOXYFILE            : The Doxygen configuration file.
+# #- TRAVIS_BUILD_NUMBER : The number of the current build.
+# #- TRAVIS_COMMIT       : The commit that the current build is testing.
+# #- DOXYFILE            : The Doxygen configuration file.
 # - GH_REPO_TOKEN       : Secure token to the github repository.
 #
 # For information on how to encrypt variables for Travis CI please go to
@@ -32,8 +32,10 @@
 # 
 ################################################################################
 
+
 ################################################################################
 ##### Setup this script and get the current gh-pages branch.               #####
+################################################################################
 echo 'Setting up the script...'
 # Exit with nonzero exit code if anything fails
 set -e
@@ -43,11 +45,6 @@ GH_REPO_ORG=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 1`
 GH_REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 2`
 GH_REPO_REF="github.com/$GH_REPO_ORG/$GH_REPO_NAME.git"
 
-echo $GH_REPO_ORG
-echo $GH_REPO_NAME
-echo $GH_REPO_REF
-exit 0
-
 # Create a clean working directory for this script.
 # Get the current gh-pages branch
 git clone -b gh-pages https://git@$GH_REPO_REF code_docs
@@ -55,8 +52,8 @@ cd code_docs
 
 ##### Configure git.
 # Set the push default to simple i.e. push only the current branch.
-git config --global push.default simple
 # Pretend to be an user called Travis CI.
+git config --global push.default simple
 git config user.name "Travis CI"
 git config user.email "travis@travis-ci.org"
 
@@ -75,14 +72,22 @@ git reset --soft $CURRENTCOMMIT # Move HEAD back to where it was
 # to NO, which it is by default. So creating the file just in case.
 echo "" > .nojekyll
 
+
 ################################################################################
 ##### Generate the Doxygen code documentation and log the output.          #####
+################################################################################
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file AND the console.
-doxygen $DOXYFILE 2>&1 | tee doxygen.log
+cd $TRAVIS_BUILD_DIR && make -DSTRIDE_INCLUDE_DOC=TRUE configure
+cd cmake_build_release/doc/doxygen && make all && mv html $TRAVIS_BUILD_DIR/code_docs
+cd $TRAVIS_BUILD_DIR && mv doc/doxygen/ReferenceManual.html code_docs/index.html
+#doxygen $DOXYFILE 2>&1 | tee doxygen.log
+
+exit 0
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
+################################################################################
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
