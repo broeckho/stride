@@ -20,13 +20,18 @@ addons:
       - ubuntu-toolchain-r-test
     packages: &default_packages
       # - libhdf5-dev
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
 
 matrix:
   include:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
+      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU TRAVIS_BUILD_DOCS=true
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
@@ -129,4 +134,14 @@ script:
     else
       STRIDE_BOOST_ROOT=$BOOSTHOME STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
       make test
+    fi
+
+
+after_success:
+    # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
+  - |
+    if [[ "$TRAVIS_BRANCH" = "master" && "$TRAVIS_BUILD_DOCS" = "true" && "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+      cd $TRAVIS_BUILD_DIR
+      chmod +x resources/sh/generate-doxygen.sh
+      resources/sh/generate-doxygen.sh
     fi
