@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SummaryViewer.h Source File</title>
+<title>Stride Reference Manual: TimeStamp.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SummaryViewer.h</div>  </div>
+<div class="title">TimeStamp.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d53/a00169.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,53 +119,73 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">output/SummaryFile.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d38/a00160.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">sim/event/Id.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>util {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/db3/a00066.html">SummaryViewer</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html#aa0d17dc54d8062a4215f740451d56de0">   37</a></span>&#160;        <a class="code" href="../../d9/db3/a00066.html#aa0d17dc54d8062a4215f740451d56de0">SummaryViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../d9/db3/a00066.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>(output_prefix), <a class="code" href="../../d9/db3/a00066.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>(std::move(runner))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d2e/a00056.html">TimeStamp</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a13a61188e51c4e05d05a91e459c33ffc">   40</a></span>&#160;        <a class="code" href="../../d9/d2e/a00056.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a>() : <a class="code" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>(std::chrono::system_clock::now()) {}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/db3/a00066.html#a5cea96dec638995509a87d5c9874e904">Update</a>(<a class="code" href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html#a1435e55b1fb34ad7f685e335696768a6">   46</a></span>&#160;        <a class="code" href="../../d1/dc6/a00037.html">output::SummaryFile</a>        <a class="code" href="../../d9/db3/a00066.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d9/db3/a00066.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">   47</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d9/db3/a00066.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00066_html_aa0d17dc54d8062a4215f740451d56de0"><div class="ttname"><a href="../../d9/db3/a00066.html#aa0d17dc54d8062a4215f740451d56de0">stride::viewers::SummaryViewer::SummaryViewer</a></div><div class="ttdeci">SummaryViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00037">SummaryViewer.h:37</a></div></div>
-<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">SummaryFile.h</a></div><div class="ttdoc">Header for the SummaryFile class. </div></div>
-<div class="ttc" id="a00066_html_a1435e55b1fb34ad7f685e335696768a6"><div class="ttname"><a href="../../d9/db3/a00066.html#a1435e55b1fb34ad7f685e335696768a6">stride::viewers::SummaryViewer::m_summary_file</a></div><div class="ttdeci">output::SummaryFile m_summary_file</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00046">SummaryViewer.h:46</a></div></div>
-<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
-<div class="ttc" id="a00200_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00066_html"><div class="ttname"><a href="../../d9/db3/a00066.html">stride::viewers::SummaryViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00033">SummaryViewer.h:33</a></div></div>
-<div class="ttc" id="a00037_html"><div class="ttname"><a href="../../d1/dc6/a00037.html">stride::output::SummaryFile</a></div><div class="ttdoc">Produces a file with simulation summary output. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00032">SummaryFile.h:32</a></div></div>
-<div class="ttc" id="a00066_html_a5cea96dec638995509a87d5c9874e904"><div class="ttname"><a href="../../d9/db3/a00066.html#a5cea96dec638995509a87d5c9874e904">stride::viewers::SummaryViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00034">SummaryViewer.cpp:34</a></div></div>
-<div class="ttc" id="a00066_html_ab1c531a8a9d1f309aa3762f5ef9b30e2"><div class="ttname"><a href="../../d9/db3/a00066.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">stride::viewers::SummaryViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00047">SummaryViewer.h:47</a></div></div>
-<div class="ttc" id="a00160_html"><div class="ttname"><a href="../../de/d38/a00160.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#aea42ff56713aa57c0aafe5efc92f29e5">   43</a></span>&#160;        std::string <a class="code" href="../../d9/d2e/a00056.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::time_t t   = std::chrono::system_clock::to_time_t(<a class="code" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                std::string str = std::ctime(&amp;t);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="comment">// str[str.length() - 1] = &#39; &#39;;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> str.substr(0, str.length() - 1);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a5f6eefbc6871a229b1c45dbbd98b41fe">   52</a></span>&#160;        std::string <a class="code" href="../../d9/d2e/a00056.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">// This is the C++11 implementation but clang 5 on Travis Linux VM&#39;s</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// still does not implement std::put_time.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="comment">// auto now = std::chrono::system_clock::now();</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">// auto in_time_t = std::chrono::system_clock::to_time_t(now);</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="comment">// std::stringstream ss;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="comment">// ss &lt;&lt; std::put_time(std::localtime(&amp;in_time_t), &quot;%Y-%m-%d-%X&quot;);</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="comment">// return ss.str();</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                time_t    now = time(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">struct </span>tm tstruct;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordtype">char</span>      buf[80];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                tstruct = *localtime_r(&amp;now, &amp;tstruct);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                strftime(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;%Y%m%d_%H%M%S&quot;</span>, &amp;tstruct);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> std::string(buf);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#aef8a6ec8cb71ef8ed01506fa614e398f">   70</a></span>&#160;        std::time_t <a class="code" href="../../d9/d2e/a00056.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::chrono::system_clock::to_time_t(<a class="code" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">   73</a></span>&#160;        std::chrono::system_clock::time_point <a class="code" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d3/d2a/a00195.html#a93f9f2ea967f7688a4ed4ef10852b566">   79</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="../../d3/d2a/a00195.html#abecfc8507900bdeb7a71e664c111b0be">operator&lt;&lt;</a>(std::ostream&amp; os, <a class="code" href="../../d9/d2e/a00056.html">TimeStamp</a> t) { <span class="keywordflow">return</span> (os &lt;&lt; t.<a class="code" href="../../d9/d2e/a00056.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a>()); }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00036">TimeStamp.h:36</a></div></div>
+<div class="ttc" id="a00195_html_abecfc8507900bdeb7a71e664c111b0be"><div class="ttname"><a href="../../d3/d2a/a00195.html#abecfc8507900bdeb7a71e664c111b0be">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const CSVRow &amp;row)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d7d/a00093_source.html#l00069">CSVRow.cpp:69</a></div></div>
+<div class="ttc" id="a00056_html_aef8a6ec8cb71ef8ed01506fa614e398f"><div class="ttname"><a href="../../d9/d2e/a00056.html#aef8a6ec8cb71ef8ed01506fa614e398f">stride::util::TimeStamp::ToTimeT</a></div><div class="ttdeci">std::time_t ToTimeT() const </div><div class="ttdoc">Returns time stamp as a time_t. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00070">TimeStamp.h:70</a></div></div>
+<div class="ttc" id="a00056_html_a13a61188e51c4e05d05a91e459c33ffc"><div class="ttname"><a href="../../d9/d2e/a00056.html#a13a61188e51c4e05d05a91e459c33ffc">stride::util::TimeStamp::TimeStamp</a></div><div class="ttdeci">TimeStamp()</div><div class="ttdoc">Constructor marks the time for the time stamp. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00040">TimeStamp.h:40</a></div></div>
+<div class="ttc" id="a00056_html_a04acbf03cad1f6a0f62dd3e1128726b6"><div class="ttname"><a href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">stride::util::TimeStamp::m_tp</a></div><div class="ttdeci">std::chrono::system_clock::time_point m_tp</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00073">TimeStamp.h:73</a></div></div>
+<div class="ttc" id="a00056_html_a5f6eefbc6871a229b1c45dbbd98b41fe"><div class="ttname"><a href="../../d9/d2e/a00056.html#a5f6eefbc6871a229b1c45dbbd98b41fe">stride::util::TimeStamp::ToTag</a></div><div class="ttdeci">std::string ToTag() const </div><div class="ttdoc">Returns string with the time stamp after eliminating newline. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00052">TimeStamp.h:52</a></div></div>
+<div class="ttc" id="a00056_html_aea42ff56713aa57c0aafe5efc92f29e5"><div class="ttname"><a href="../../d9/d2e/a00056.html#aea42ff56713aa57c0aafe5efc92f29e5">stride::util::TimeStamp::ToString</a></div><div class="ttdeci">std::string ToString() const </div><div class="ttdoc">Returns string with the time stamp after eliminating newline. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00043">TimeStamp.h:43</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">SummaryViewer.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

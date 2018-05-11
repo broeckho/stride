@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: InfectedViewer.h Source File</title>
+<title>Stride Reference Manual: InfectorMap.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('df/dc8/a00122_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InfectedViewer.h</div>  </div>
+<div class="title">InfectorMap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/dc8/a00122.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,55 +122,62 @@ $(document).ready(function(){initNavTree('df/dc8/a00122_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d98/a00120.html">output/InfectedFile.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d38/a00160.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">sim/event/Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">contact/ContactLogMode.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d98/a00120.html">contact/Infector.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/dfa/a00121.html">contact/InfectorExec.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">InfectedViewer</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#aae44b0fd20d9193b61d065d08e57e8f3">   37</a></span>&#160;        <a class="code" href="../../df/d5f/a00064.html#aae44b0fd20d9193b61d065d08e57e8f3">InfectedViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../df/d5f/a00064.html#a613860070a4a0778c61631fc4f343028">m_infected</a>(), <a class="code" href="../../df/d5f/a00064.html#abf3638fe4dad03b5adb58b56ebd8a926">m_infected_file</a>(output_prefix), <a class="code" href="../../df/d5f/a00064.html#a13b27fd1d407a15fe3b542952168ba33">m_runner</a>(std::move(runner))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a0a02401197ff8238052068ecaa10c505">   43</a></span>&#160;        <span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; <a class="code" href="../../df/d5f/a00064.html#a0a02401197ff8238052068ecaa10c505">GetInfectionCounts</a>() { <span class="keywordflow">return</span> <a class="code" href="../../df/d5f/a00064.html#a613860070a4a0778c61631fc4f343028">m_infected</a>; }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#ac539c7549cc8c19530813f0bdb35a14d">Update</a>(<a class="code" href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a613860070a4a0778c61631fc4f343028">   49</a></span>&#160;        std::vector&lt;unsigned int&gt;  <a class="code" href="../../df/d5f/a00064.html#a613860070a4a0778c61631fc4f343028">m_infected</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#abf3638fe4dad03b5adb58b56ebd8a926">   50</a></span>&#160;        <a class="code" href="../../d4/d8c/a00035.html">output::InfectedFile</a>       <a class="code" href="../../df/d5f/a00064.html#abf3638fe4dad03b5adb58b56ebd8a926">m_infected_file</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a13b27fd1d407a15fe3b542952168ba33">   51</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../df/d5f/a00064.html#a13b27fd1d407a15fe3b542952168ba33">m_runner</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00064_html_a13b27fd1d407a15fe3b542952168ba33"><div class="ttname"><a href="../../df/d5f/a00064.html#a13b27fd1d407a15fe3b542952168ba33">stride::viewers::InfectedViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00051">InfectedViewer.h:51</a></div></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">stride::viewers::InfectedViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00033">InfectedViewer.h:33</a></div></div>
-<div class="ttc" id="a00035_html"><div class="ttname"><a href="../../d4/d8c/a00035.html">stride::output::InfectedFile</a></div><div class="ttdoc">Produces a file with daily count of infected persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d98/a00120_source.html#l00032">InfectedFile.h:32</a></div></div>
-<div class="ttc" id="a00064_html_a0a02401197ff8238052068ecaa10c505"><div class="ttname"><a href="../../df/d5f/a00064.html#a0a02401197ff8238052068ecaa10c505">stride::viewers::InfectedViewer::GetInfectionCounts</a></div><div class="ttdeci">const std::vector&lt; unsigned int &gt; &amp; GetInfectionCounts()</div><div class="ttdoc">Access the vector with the infection counts. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00043">InfectedViewer.h:43</a></div></div>
-<div class="ttc" id="a00064_html_abf3638fe4dad03b5adb58b56ebd8a926"><div class="ttname"><a href="../../df/d5f/a00064.html#abf3638fe4dad03b5adb58b56ebd8a926">stride::viewers::InfectedViewer::m_infected_file</a></div><div class="ttdeci">output::InfectedFile m_infected_file</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00050">InfectedViewer.h:50</a></div></div>
-<div class="ttc" id="a00064_html_ac539c7549cc8c19530813f0bdb35a14d"><div class="ttname"><a href="../../df/d5f/a00064.html#ac539c7549cc8c19530813f0bdb35a14d">stride::viewers::InfectedViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dfa/a00121_source.html#l00033">InfectedViewer.cpp:33</a></div></div>
-<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
-<div class="ttc" id="a00200_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00120_html"><div class="ttname"><a href="../../d4/d98/a00120.html">InfectedFile.h</a></div><div class="ttdoc">Header for the InfectedFile class. </div></div>
-<div class="ttc" id="a00160_html"><div class="ttname"><a href="../../de/d38/a00160.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00064_html_a613860070a4a0778c61631fc4f343028"><div class="ttname"><a href="../../df/d5f/a00064.html#a613860070a4a0778c61631fc4f343028">stride::viewers::InfectedViewer::m_infected</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; m_infected</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00049">InfectedViewer.h:49</a></div></div>
-<div class="ttc" id="a00064_html_aae44b0fd20d9193b61d065d08e57e8f3"><div class="ttname"><a href="../../df/d5f/a00064.html#aae44b0fd20d9193b61d065d08e57e8f3">stride::viewers::InfectedViewer::InfectedViewer</a></div><div class="ttdeci">InfectedViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00037">InfectedViewer.h:37</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d21/a00006.html">Calendar</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d8c/a00036.html">Population</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/de2/a00024.html">InfectorMap</a> : <span class="keyword">public</span> std::map&lt;std::tuple&lt;stride::ContactLogMode::Id, bool, std::string&gt;, InfectorExec*&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a389bcbbddf547f27cb2e60feadca12af">   43</a></span>&#160;        <a class="code" href="../../dc/de2/a00024.html#a389bcbbddf547f27cb2e60feadca12af">InfectorMap</a>()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Add&lt;NoLocalInformation, true&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                Add&lt;NoLocalInformation, false&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                Add&lt;LocalDiscussion, true&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                Add&lt;LocalDiscussion, false&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">bool</span> B&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/de2/a00024.html#a2abaaf56ff495aa37bfead7eea5405de">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dc/de2/a00024.html#a2abaaf56ff495aa37bfead7eea5405de">Add</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">using namespace </span>ContactLogMode;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Suscep = Id::Susceptibles;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Transm = Id::Transmissions;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Suscep, B, name), &amp;<a class="code" href="../../d7/de0/a00022.html">Infector&lt;Suscep, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Transm, B, name), &amp;<a class="code" href="../../d7/de0/a00022.html">Infector&lt;Transm, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::All, B, name), &amp;<a class="code" href="../../d7/de0/a00022.html">Infector&lt;Id::All, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::None, B, name), &amp;<a class="code" href="../../d7/de0/a00022.html">Infector&lt;Id::None, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">stride::InfectorMap</a></div><div class="ttdoc">Simulator can time step and reveal some of the key data. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00039">InfectorMap.h:39</a></div></div>
+<div class="ttc" id="a00022_html"><div class="ttname"><a href="../../d7/de0/a00022.html">stride::Infector</a></div><div class="ttdoc">Actual contacts and transmission in contactpool (primary template). </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d98/a00120_source.html#l00068">Infector.h:68</a></div></div>
+<div class="ttc" id="a00121_html"><div class="ttname"><a href="../../d8/dfa/a00121.html">InfectorExec.h</a></div><div class="ttdoc">Header for the InfectorExec class. </div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">stride::Calendar</a></div><div class="ttdoc">Class that keeps track of the &#39;state&#39; of simulated world. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/df8/a00076_source.html#l00036">Calendar.h:36</a></div></div>
+<div class="ttc" id="a00024_html_a389bcbbddf547f27cb2e60feadca12af"><div class="ttname"><a href="../../dc/de2/a00024.html#a389bcbbddf547f27cb2e60feadca12af">stride::InfectorMap::InfectorMap</a></div><div class="ttdeci">InfectorMap()</div><div class="ttdoc">Fully initialized. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00043">InfectorMap.h:43</a></div></div>
+<div class="ttc" id="a00024_html_a2abaaf56ff495aa37bfead7eea5405de"><div class="ttname"><a href="../../dc/de2/a00024.html#a2abaaf56ff495aa37bfead7eea5405de">stride::InfectorMap::Add</a></div><div class="ttdeci">void Add(const std::string &amp;name)</div><div class="ttdoc">Filling up the InfectorMap. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00054">InfectorMap.h:54</a></div></div>
+<div class="ttc" id="a00120_html"><div class="ttname"><a href="../../d4/d98/a00120.html">Infector.h</a></div><div class="ttdoc">Header for the Infector class. </div></div>
+<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
+<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00037">Population.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/dc8/a00122.html">InfectedViewer.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../df/dc8/a00122.html">InfectorMap.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

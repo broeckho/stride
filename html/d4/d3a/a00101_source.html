@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DaysOffNone.h Source File</title>
+<title>Stride Reference Manual: DiseaseSeeder.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d4/d3a/a00101_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DaysOffNone.h</div>  </div>
+<div class="title">DiseaseSeeder.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/d3a/a00101.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,39 +119,55 @@ $(document).ready(function(){initNavTree('d4/d3a/a00101_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dec/a00080.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d61/a00100.html">calendar/DaysOffInterface.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/dd4/a00013.html">DaysOffNone</a> : <span class="keyword">public</span> <a class="code" href="../../df/d86/a00012.html">DaysOffInterface</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html#a14d76fd72838aa5d10c53b0115d1ff3a">   34</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/dd4/a00013.html#a14d76fd72838aa5d10c53b0115d1ff3a">DaysOffNone</a>(std::shared_ptr&lt;Calendar&gt;) {}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html#a6287fa68ca109373fc9be31f3941079d">   37</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d7/dd4/a00013.html#a6287fa68ca109373fc9be31f3941079d">IsWorkOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html#a939df1a48d594f56ec3099d1edcfdca7">   40</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d7/dd4/a00013.html#a939df1a48d594f56ec3099d1edcfdca7">IsSchoolOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d1e/a00087.html">pool/ContactPool.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d82/a00142.html">pop/Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db6/a00146.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>Sim;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d7a/a00016.html">DiseaseSeeder</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d7/d7a/a00016.html#a47b0a54271fcce196ed8546690563c4c">DiseaseSeeder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../d5/de0/a00050.html">util::RNManager</a>&amp; rnManager);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00012_html"><div class="ttname"><a href="../../df/d86/a00012.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00027">DaysOffInterface.h:27</a></div></div>
-<div class="ttc" id="a00100_html"><div class="ttname"><a href="../../d0/d61/a00100.html">DaysOffInterface.h</a></div><div class="ttdoc">Interface for DaysOff classes. </div></div>
-<div class="ttc" id="a00013_html"><div class="ttname"><a href="../../d7/dd4/a00013.html">stride::DaysOffNone</a></div><div class="ttdoc">No days off work or school. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00030">DaysOffNone.h:30</a></div></div>
-<div class="ttc" id="a00013_html_a14d76fd72838aa5d10c53b0115d1ff3a"><div class="ttname"><a href="../../d7/dd4/a00013.html#a14d76fd72838aa5d10c53b0115d1ff3a">stride::DaysOffNone::DaysOffNone</a></div><div class="ttdeci">DaysOffNone(std::shared_ptr&lt; Calendar &gt;)</div><div class="ttdoc">Initialize calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00034">DaysOffNone.h:34</a></div></div>
-<div class="ttc" id="a00013_html_a6287fa68ca109373fc9be31f3941079d"><div class="ttname"><a href="../../d7/dd4/a00013.html#a6287fa68ca109373fc9be31f3941079d">stride::DaysOffNone::IsWorkOff</a></div><div class="ttdeci">bool IsWorkOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00037">DaysOffNone.h:37</a></div></div>
-<div class="ttc" id="a00080_html"><div class="ttname"><a href="../../da/dec/a00080.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00013_html_a939df1a48d594f56ec3099d1edcfdca7"><div class="ttname"><a href="../../d7/dd4/a00013.html#a939df1a48d594f56ec3099d1edcfdca7">stride::DaysOffNone::IsSchoolOff</a></div><div class="ttdeci">bool IsSchoolOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00040">DaysOffNone.h:40</a></div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#adc5b1f152367382afe3dade9421357da">Seed</a>(std::shared_ptr&lt;Population&gt; pop);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/d7a/a00016.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a>(<span class="keyword">const</span> std::string&amp; immunityType, <span class="keyword">const</span> std::string&amp; immunizationProfile,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                       std::vector&lt;ContactPool&gt;&amp; immunityPools);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">   52</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../d7/d7a/a00016.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>;  </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d7/d7a/a00016.html#afd5a1be8a601cb5f5d07ee0a12a10547">   53</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html">util::RNManager</a>&amp;                   <a class="code" href="../../d7/d7a/a00016.html#afd5a1be8a601cb5f5d07ee0a12a10547">m_rn_manager</a>; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00142_html"><div class="ttname"><a href="../../d2/d82/a00142.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00087_html"><div class="ttname"><a href="../../d1/d1e/a00087.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
+<div class="ttc" id="a00016_html_a564d8b1346c1160f4e68f3ab8ad0bf8a"><div class="ttname"><a href="../../d7/d7a/a00016.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">stride::DiseaseSeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00052">DiseaseSeeder.h:52</a></div></div>
+<div class="ttc" id="a00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00016_html_afd5a1be8a601cb5f5d07ee0a12a10547"><div class="ttname"><a href="../../d7/d7a/a00016.html#afd5a1be8a601cb5f5d07ee0a12a10547">stride::DiseaseSeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00053">DiseaseSeeder.h:53</a></div></div>
+<div class="ttc" id="a00016_html_a48f13b3f9815374425e9618f152026d8"><div class="ttname"><a href="../../d7/d7a/a00016.html#a48f13b3f9815374425e9618f152026d8">stride::DiseaseSeeder::Vaccinate</a></div><div class="ttdeci">void Vaccinate(const std::string &amp;immunityType, const std::string &amp;immunizationProfile, std::vector&lt; ContactPool &gt; &amp;immunityPools)</div><div class="ttdoc">Seed for vaccination/natural immunity. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00080">DiseaseSeeder.cpp:80</a></div></div>
+<div class="ttc" id="a00016_html_adc5b1f152367382afe3dade9421357da"><div class="ttname"><a href="../../d7/d7a/a00016.html#adc5b1f152367382afe3dade9421357da">stride::DiseaseSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Build the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00046">DiseaseSeeder.cpp:46</a></div></div>
+<div class="ttc" id="a00016_html_a47b0a54271fcce196ed8546690563c4c"><div class="ttname"><a href="../../d7/d7a/a00016.html#a47b0a54271fcce196ed8546690563c4c">stride::DiseaseSeeder::DiseaseSeeder</a></div><div class="ttdeci">DiseaseSeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initializing DiseaseSeeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00041">DiseaseSeeder.cpp:41</a></div></div>
+<div class="ttc" id="a00016_html"><div class="ttname"><a href="../../d7/d7a/a00016.html">stride::DiseaseSeeder</a></div><div class="ttdoc">Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00037">DiseaseSeeder.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">DaysOffNone.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">DiseaseSeeder.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

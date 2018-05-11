@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::LOG_POLICY&lt; LL &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::NoBehaviour&lt; belief_policy &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -106,88 +106,54 @@ $(document).ready(function(){initNavTree('d6/d5b/a00026.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../dd/dfd/a00438.html">List of all members</a>  </div>
+<a href="../../dc/de3/a00373.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::LOG_POLICY&lt; LL &gt; Class Template Reference</div>  </div>
+<div class="title">stride::NoBehaviour&lt; belief_policy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Primary <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy, implements LogMode::None.  
+<p><a class="el" href="../../d6/d5b/a00026.html" title="NoBehaviour means that whatever beliefs a person holds, or whatever information they gather...">NoBehaviour</a> means that whatever beliefs a person holds, or whatever information they gather, will not result in a change in their behaviour.  
  <a href="../../d6/d5b/a00026.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d47/a00129_source.html">NoBehaviour.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::LOG_POLICY&lt; LL &gt;:</div>
+Collaboration diagram for stride::NoBehaviour&lt; belief_policy &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d3a/a00439.gif" border="0" usemap="#stride_1_1LOG__POLICY_3_01LL_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1LOG__POLICY_3_01LL_01_4_coll__map" id="stride_1_1LOG__POLICY_3_01LL_01_4_coll__map">
+<div class="center"><img src="../../d5/db5/a00374.gif" border="0" usemap="#stride_1_1NoBehaviour_3_01belief__policy_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1NoBehaviour_3_01belief__policy_01_4_coll__map" id="stride_1_1NoBehaviour_3_01belief__policy_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7cf3f2e1dd8992100c17b509476da43"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#ac7cf3f2e1dd8992100c17b509476da43">Contact</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>, unsigned short int)</td></tr>
-<tr class="separator:ac7cf3f2e1dd8992100c17b509476da43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbe45c5ce1034da744f700ac10ca6a4e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#abbe45c5ce1034da744f700ac10ca6a4e">Trans</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>, unsigned short int)</td></tr>
-<tr class="separator:abbe45c5ce1034da744f700ac10ca6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77e7cffe3ae02df94e056652d81f95c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#af77e7cffe3ae02df94e056652d81f95c">PracticesSocialDistancing</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:af77e7cffe3ae02df94e056652d81f95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a96614d1bc60097efb38a07cbcf554"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d5b/a00026.html#a17a96614d1bc60097efb38a07cbcf554">PracticesVaccination</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:a17a96614d1bc60097efb38a07cbcf554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL&gt;<br/>
-class stride::LOG_POLICY&lt; LL &gt;</h3>
+<div class="textblock"><h3>template&lt;typename belief_policy&gt;<br/>
+class stride::NoBehaviour&lt; belief_policy &gt;</h3>
 
-<p>Primary <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy, implements LogMode::None. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p><a class="el" href="../../d6/d5b/a00026.html" title="NoBehaviour means that whatever beliefs a person holds, or whatever information they gather...">NoBehaviour</a> means that whatever beliefs a person holds, or whatever information they gather, will not result in a change in their behaviour. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00035">35</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d47/a00129_source.html#l00028">28</a> of file <a class="el" href="../../d9/d47/a00129_source.html">NoBehaviour.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac7cf3f2e1dd8992100c17b509476da43"></a>
+<a class="anchor" id="af77e7cffe3ae02df94e056652d81f95c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ContactLogMode::Id LL&gt; </div>
+template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; LL &gt;::Contact </td>
+          <td class="memname">static bool <a class="el" href="../../d6/d5b/a00026.html">stride::NoBehaviour</a>&lt; belief_policy &gt;::PracticesSocialDistancing </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>int</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -197,53 +163,25 @@ template&lt;ContactLogMode::Id LL&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00038">38</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d47/a00129_source.html#l00031">31</a> of file <a class="el" href="../../d9/d47/a00129_source.html">NoBehaviour.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abbe45c5ce1034da744f700ac10ca6a4e"></a>
+<a class="anchor" id="a17a96614d1bc60097efb38a07cbcf554"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ContactLogMode::Id LL&gt; </div>
+template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; LL &gt;::Trans </td>
+          <td class="memname">static bool <a class="el" href="../../d6/d5b/a00026.html">stride::NoBehaviour</a>&lt; belief_policy &gt;::PracticesVaccination </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>int</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -253,20 +191,20 @@ template&lt;ContactLogMode::Id LL&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00043">43</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d47/a00129_source.html#l00033">33</a> of file <a class="el" href="../../d9/d47/a00129_source.html">NoBehaviour.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a></li>
+<li><a class="el" href="../../d9/d47/a00129_source.html">NoBehaviour.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d5b/a00026.html">LOG_POLICY</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/deb/a00189.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/d5b/a00026.html">NoBehaviour</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

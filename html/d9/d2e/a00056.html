@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::RunConfigManager Class Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -105,57 +105,53 @@ $(document).ready(function(){initNavTree('d9/d2e/a00056.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d5/dee/a00518.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../dc/d19/a00515.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RunConfigManager Class Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produce run config ptree.  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../d9/d2e/a00056.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d01/a00153_source.html">RunConfigManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RunConfigManager:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d4d/a00519.gif" border="0" usemap="#stride_1_1util_1_1RunConfigManager_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1RunConfigManager_coll__map" id="stride_1_1util_1_1RunConfigManager_coll__map">
+<div class="center"><img src="../../d4/d40/a00516.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#ac2f08ab87856eaeb81a229c6553e9cc8">CleanConfigFile</a> (boost::property_tree::ptree pt)</td></tr>
-<tr class="memdesc:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean (i.e. indent, sort and produde the sha1) the ptree config file.  <a href="#ac2f08ab87856eaeb81a229c6553e9cc8">More...</a><br/></td></tr>
-<tr class="separator:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4007f793a1924a65458824fef455208"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#ab4007f793a1924a65458824fef455208">Create</a> (const std::string &amp;configName)</td></tr>
-<tr class="separator:ab4007f793a1924a65458824fef455208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a98f5da96c60f3c35ac54e7bda35d9"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a99a98f5da96c60f3c35ac54e7bda35d9">CreateBenchInfluenza</a> ()</td></tr>
-<tr class="separator:a99a98f5da96c60f3c35ac54e7bda35d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b303e0f49927acd1463db3a8883ed56"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a3b303e0f49927acd1463db3a8883ed56">CreateBenchMeasles</a> ()</td></tr>
-<tr class="separator:a3b303e0f49927acd1463db3a8883ed56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae981d7a6d9a41f62815541ba874e59a0"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#ae981d7a6d9a41f62815541ba874e59a0">CreateNumThreads</a> (unsigned int max=<a class="el" href="../../d4/dca/a00048.html#ada59da077e51cbd44e829a88c5cc62e3">ConfigInfo::ProcessorCount</a>())</td></tr>
-<tr class="separator:ae981d7a6d9a41f62815541ba874e59a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea458cf7a74a6e916f41d91365d0686c"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#aea458cf7a74a6e916f41d91365d0686c">CreateTestsInfluenza</a> ()</td></tr>
-<tr class="separator:aea458cf7a74a6e916f41d91365d0686c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24a1382f4060ba632218220a50483ed9"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a24a1382f4060ba632218220a50483ed9">CreateTestsMeasles</a> ()</td></tr>
-<tr class="separator:a24a1382f4060ba632218220a50483ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">FromString</a> (const std::string &amp;s)</td></tr>
-<tr class="separator:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af968f949efaf2876f48a86da65faa5ca"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#af968f949efaf2876f48a86da65faa5ca">ToString</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="separator:af968f949efaf2876f48a86da65faa5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ec1961852a81d4873a519f6bea1e36"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a32ec1961852a81d4873a519f6bea1e36">ToSha1</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="separator:a32ec1961852a81d4873a519f6bea1e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#ad91f6d29e307567fdb3b0a2e7c7772c0">ToShortSha1</a> (const boost::property_tree::ptree &amp;pt, unsigned int n=7U)</td></tr>
-<tr class="separator:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br/></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br/></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br/></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br/></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produce run config ptree. </p>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Definition at line <a class="el" href="../../da/d01/a00153_source.html#l00034">34</a> of file <a class="el" href="../../da/d01/a00153_source.html">RunConfigManager.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac2f08ab87856eaeb81a229c6553e9cc8"></a>
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00036">36</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -163,61 +159,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RunConfigManager::CleanConfigFile </td>
-          <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clean (i.e. indent, sort and produde the sha1) the ptree config file. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00037">37</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab4007f793a1924a65458824fef455208"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::Create </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>configName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00046">46</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a99a98f5da96c60f3c35ac54e7bda35d9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::CreateBenchInfluenza </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -225,16 +167,19 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00063">63</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
+<p>Constructor marks the time for the time stamp. </p>
+
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00040">40</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b303e0f49927acd1463db3a8883ed56"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -242,24 +187,30 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::CreateBenchMeasles </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00102">102</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00043">43</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d53/a00169_source.html#l00073">m_tp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d53/a00169_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae981d7a6d9a41f62815541ba874e59a0"></a>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -267,50 +218,26 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; unsigned int &gt; stride::util::RunConfigManager::CreateNumThreads </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>max</em> = <code><a class="el" href="../../d4/dca/a00048.html#ada59da077e51cbd44e829a88c5cc62e3">ConfigInfo::ProcessorCount</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00143">143</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aea458cf7a74a6e916f41d91365d0686c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::CreateTestsInfluenza </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00167">167</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00052">52</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a24a1382f4060ba632218220a50483ed9"></a>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -318,24 +245,29 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::CreateTestsMeasles </td>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00206">206</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
+<p>Returns time stamp as a time_t. </p>
+
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00070">70</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d53/a00169_source.html#l00073">m_tp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aff61de3ee9dfe5b0aac9b0b1fb950ebb"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -343,125 +275,32 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::FromString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00245">245</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d53/a00169_source.html#l00073">73</a> of file <a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d53/a00169_source.html#l00043">ToString()</a>, and <a class="el" href="../../de/d53/a00169_source.html#l00070">ToTimeT()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af968f949efaf2876f48a86da65faa5ca"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::ToString </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00253">253</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a32ec1961852a81d4873a519f6bea1e36"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00260">260</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/ddf/a00088_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad91f6d29e307567fdb3b0a2e7c7772c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToShortSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em> = <code>7U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00262">262</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../da/d01/a00153_source.html">RunConfigManager.h</a></li>
-<li><a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../de/d53/a00169_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d2e/a00056.html">RunConfigManager</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/deb/a00189.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d2a/a00195.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d2e/a00056.html">TimeStamp</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

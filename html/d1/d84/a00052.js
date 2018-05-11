@@ -1,11 +1,14 @@
 var a00052 =
 [
-    [ "Dirs", "d1/d84/a00052.html#a1258b8c979f0e1b985dfe8e6c78a82b6", null ],
-    [ "m_current_dir", "d1/d84/a00052.html#a0f2510f1e56e9702540ae0ee41ae082a", null ],
-    [ "m_exec_path", "d1/d84/a00052.html#af9e0a5016367c19e14e102efcbf6ff4b", null ],
-    [ "m_bin_dir", "d1/d84/a00052.html#aa84e5bea799040c78f75190d7fa242e9", null ],
-    [ "m_config_dir", "d1/d84/a00052.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef", null ],
-    [ "m_data_dir", "d1/d84/a00052.html#ad844a270ca421636f164982233789d2f", null ],
-    [ "m_root_dir", "d1/d84/a00052.html#a02d39f43d1e81ea01c51c6715c4b7041", null ],
-    [ "m_tests_dir", "d1/d84/a00052.html#a7b91aab4bd5ca85b91fad338a228b7b9", null ]
+    [ "CleanConfigFile", "d1/d84/a00052.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
+    [ "Create", "d1/d84/a00052.html#ab4007f793a1924a65458824fef455208", null ],
+    [ "CreateBenchInfluenza", "d1/d84/a00052.html#a99a98f5da96c60f3c35ac54e7bda35d9", null ],
+    [ "CreateBenchMeasles", "d1/d84/a00052.html#a3b303e0f49927acd1463db3a8883ed56", null ],
+    [ "CreateNumThreads", "d1/d84/a00052.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
+    [ "CreateTestsInfluenza", "d1/d84/a00052.html#aea458cf7a74a6e916f41d91365d0686c", null ],
+    [ "CreateTestsMeasles", "d1/d84/a00052.html#a24a1382f4060ba632218220a50483ed9", null ],
+    [ "FromString", "d1/d84/a00052.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
+    [ "ToString", "d1/d84/a00052.html#af968f949efaf2876f48a86da65faa5ca", null ],
+    [ "ToSha1", "d1/d84/a00052.html#a32ec1961852a81d4873a519f6bea1e36", null ],
+    [ "ToShortSha1", "d1/d84/a00052.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::NoLocalInformation Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -106,40 +106,35 @@ $(document).ready(function(){initNavTree('d5/d16/a00029.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../de/df8/a00440.html">List of all members</a>  </div>
+<a href="../../d9/da1/a00396.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt; Class Template Reference</div>  </div>
+<div class="title">stride::NoLocalInformation Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Specialized <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy LogMode::Transmissions.  
+<p><a class="el" href="../../d5/d16/a00029.html" title="NoLocalInformation means that no information about beliefs or health status is exchanged between indi...">NoLocalInformation</a> means that no information about beliefs or health status is exchanged between individuals upon contact.  
  <a href="../../d5/d16/a00029.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/deb/a00132_source.html">NoLocalInformation.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt;:</div>
+Collaboration diagram for stride::NoLocalInformation:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d66/a00441.gif" border="0" usemap="#stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1Transmissions_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1Transmissions_01_4_coll__map" id="stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1Transmissions_01_4_coll__map">
+<div class="center"><img src="../../d7/d93/a00397.gif" border="0" usemap="#stride_1_1NoLocalInformation_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1NoLocalInformation_coll__map" id="stride_1_1NoLocalInformation_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4029fe93d6d5a913497231f343f686ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a4029fe93d6d5a913497231f343f686ab">Contact</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>, unsigned short int)</td></tr>
-<tr class="separator:a4029fe93d6d5a913497231f343f686ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52603e3ed1e5a67a20110c339ce25872"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a52603e3ed1e5a67a20110c339ce25872">Trans</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;logger, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p1, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p2, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type, unsigned short int sim_day)</td></tr>
-<tr class="separator:a52603e3ed1e5a67a20110c339ce25872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b2e25dbfe3b1a6aa498c415029b81a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html#a02b2e25dbfe3b1a6aa498c415029b81a">Update</a> (<a class="el" href="../../db/df3/a00034.html">Person</a> *, <a class="el" href="../../db/df3/a00034.html">Person</a> *)</td></tr>
+<tr class="separator:a02b2e25dbfe3b1a6aa498c415029b81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;&gt;<br/>
-class stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt;</h3>
+<div class="textblock"><p><a class="el" href="../../d5/d16/a00029.html" title="NoLocalInformation means that no information about beliefs or health status is exchanged between indi...">NoLocalInformation</a> means that no information about beliefs or health status is exchanged between individuals upon contact. </p>
 
-<p>Specialized <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy LogMode::Transmissions. </p>
-
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00051">51</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00028">28</a> of file <a class="el" href="../../d5/deb/a00132_source.html">NoLocalInformation.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4029fe93d6d5a913497231f343f686ab"></a>
+<a class="anchor" id="a02b2e25dbfe3b1a6aa498c415029b81a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -147,34 +142,16 @@ class stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; <a class="el" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">ContactLogMode::Id::Transmissions</a> &gt;::Contact </td>
+          <td class="memname">static void stride::NoLocalInformation::Update </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/df3/a00034.html">Person</a> *&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>int</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/df3/a00034.html">Person</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -189,76 +166,20 @@ class stride::LOG_POLICY&lt; ContactLogMode::Id::Transmissions &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00054">54</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a52603e3ed1e5a67a20110c339ce25872"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; <a class="el" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">ContactLogMode::Id::Transmissions</a> &gt;::Trans </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
-          <td class="paramname"><em>logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname"><em>p1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
-          <td class="paramname"><em>p2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>sim_day</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00059">59</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
-
-<p>References <a class="el" href="../../de/d14/a00139_source.html#l00080">stride::Person::GetId()</a>, and <a class="el" href="../../db/ddf/a00088_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00031">31</a> of file <a class="el" href="../../d5/deb/a00132_source.html">NoLocalInformation.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a></li>
+<li><a class="el" href="../../d5/deb/a00132_source.html">NoLocalInformation.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/d16/a00029.html">LOG_POLICY< ContactLogMode::Id::Transmissions ></a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/deb/a00189.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/d16/a00029.html">NoLocalInformation</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
+<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -106,67 +106,48 @@ $(document).ready(function(){initNavTree('d5/db6/a00042.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d5/d26/a00474.html">List of all members</a>  </div>
+<a href="../../dc/d0c/a00430.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimBuilder Class Reference</div>  </div>
+<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a simulator based a configuration property tree.  
+<p>Transmission rates from disease data.  
  <a href="../../d5/db6/a00042.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d6/db8/a00158_source.html">SimBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SimBuilder:</div>
+Collaboration diagram for stride::TransmissionProfile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d92/a00475.gif" border="0" usemap="#stride_1_1SimBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SimBuilder_coll__map" id="stride_1_1SimBuilder_coll__map">
-</map>
+<div class="center"><img src="../../df/d70/a00431.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
+<area shape="rect" id="node2" href="../../d8/d72/a00199.html" title="{double\n||}" alt="" coords="63,5,123,83"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada7d6656e97857b9bacd2285f7784021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ada7d6656e97857b9bacd2285f7784021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d5/db6/a00042.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#ada7d6656e97857b9bacd2285f7784021">More...</a><br/></td></tr>
-<tr class="separator:ada7d6656e97857b9bacd2285f7784021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ce5fb3cae915f0bdb261498f31c444"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a> (std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../db/d3a/a00040.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a94ce5fb3cae915f0bdb261498f31c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a94ce5fb3cae915f0bdb261498f31c444">More...</a><br/></td></tr>
-<tr class="separator:a94ce5fb3cae915f0bdb261498f31c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
-<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br/></td></tr>
-<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
-<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br/></td></tr>
-<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
+<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br/></td></tr>
+<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d72/a00199.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
+<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br/></td></tr>
+<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br/></td></tr>
+<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24875cf5b77b860f11ed1327d71dce5f"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td></tr>
-<tr class="memdesc:a24875cf5b77b860f11ed1327d71dce5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#a24875cf5b77b860f11ed1327d71dce5f">More...</a><br/></td></tr>
-<tr class="separator:a24875cf5b77b860f11ed1327d71dce5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d72/a00199.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
+<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
-<p>It </p>
-<ul>
-<li>reads any additional configuration files (disease, contact, ...) </li>
-<li>initializes calendar and random number manager for the simulator </li>
-<li>builds a population and contact pool system (<dl class="section see"><dt>See Also</dt><dd>PopulationBuilder) </dd></dl>
-</li>
-<li>deals with health and immunity (<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../dd/da2/a00019.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
-<dd>
-DiseaseBuilder) </dd></dl>
-</li>
-</ul>
+<div class="textblock"><p>Transmission rates from disease data. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00038">38</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dfb/a00172_source.html#l00029">29</a> of file <a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada7d6656e97857b9bacd2285f7784021"></a>
+<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -174,42 +155,72 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimBuilder::SimBuilder </td>
+          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../d5/db6/a00042.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+<p>Initialize. </p>
 
-<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00041">41</a> of file <a class="el" href="../../d1/db7/a00157_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/dfb/a00172_source.html#l00033">33</a> of file <a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a94ce5fb3cae915f0bdb261498f31c444"></a>
+<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/d72/a00199.html">double</a> stride::TransmissionProfile::GetRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return transmission rate. </p>
+
+<p>Definition at line <a class="el" href="../../d6/dfb/a00172_source.html#l00036">36</a> of file <a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/dfb/a00172_source.html#l00042">m_transmission_rate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/d6a/a00119_source.html#l00144">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, and <a class="el" href="../../df/d6a/a00119_source.html#l00210">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Sim</a> &gt; stride::SimBuilder::Build </td>
+          <td class="memname">void stride::TransmissionProfile::Initialize </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Sim</a> &gt;&#160;</td>
-          <td class="paramname"><em>sim</em>, </td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/d3a/a00040.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -219,78 +230,14 @@ DiseaseBuilder) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Build the simulator and return it afterwards. </p>
+<p>Initialize. </p>
 
-<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00043">43</a> of file <a class="el" href="../../d1/db7/a00157_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dc/d54/a00094_source.html#l00058">stride::ContactPoolType::IdList</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00055">m_config_pt</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00105">ReadAgeContactPtree()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00112">ReadDiseasePtree()</a>, <a class="el" href="../../d1/d09/a00077_source.html#l00040">stride::BeliefSeeder::Seed()</a>, <a class="el" href="../../d0/dc2/a00104_source.html#l00046">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../dd/d6d/a00111_source.html#l00072">stride::HealthSeeder::Seed()</a>, and <a class="el" href="../../db/ddf/a00088_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the contact configuration data. </p>
-
-<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00105">105</a> of file <a class="el" href="../../d1/db7/a00157_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d98/a00107_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d7/d70/a00106_source.html#l00198">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00043">Build()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the disease configuration data. </p>
-
-<p>Definition at line <a class="el" href="../../d1/db7/a00157_source.html#l00112">112</a> of file <a class="el" href="../../d1/db7/a00157_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d98/a00107_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../d7/d70/a00106_source.html#l00198">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00043">Build()</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d0d/a00171_source.html#l00030">30</a> of file <a class="el" href="../../d1/d0d/a00171_source.html">TransmissionProfile.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a24875cf5b77b860f11ed1327d71dce5f"></a>
+<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -298,7 +245,7 @@ DiseaseBuilder) </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config_pt</td>
+          <td class="memname"><a class="el" href="../../d8/d72/a00199.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
         </tr>
       </table>
   </td>
@@ -308,25 +255,23 @@ DiseaseBuilder) </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Run config in ptree. </p>
+<p>Definition at line <a class="el" href="../../d6/dfb/a00172_source.html#l00042">42</a> of file <a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00055">55</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SimBuilder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00043">Build()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00105">ReadAgeContactPtree()</a>, and <a class="el" href="../../d1/db7/a00157_source.html#l00112">ReadDiseasePtree()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/dfb/a00172_source.html#l00036">GetRate()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d6/db8/a00158_source.html">SimBuilder.h</a></li>
-<li><a class="el" href="../../d1/db7/a00157_source.html">SimBuilder.cpp</a></li>
+<li><a class="el" href="../../d6/dfb/a00172_source.html">TransmissionProfile.h</a></li>
+<li><a class="el" href="../../d1/d0d/a00171_source.html">TransmissionProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/db6/a00042.html">SimBuilder</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/deb/a00189.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/db6/a00042.html">TransmissionProfile</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

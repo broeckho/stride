@@ -1,5 +1,8 @@
 var a00030 =
 [
-    [ "PracticesSocialDistancing", "d5/d79/a00030.html#af77e7cffe3ae02df94e056652d81f95c", null ],
-    [ "PracticesVaccination", "d5/d79/a00030.html#a17a96614d1bc60097efb38a07cbcf554", null ]
+    [ "AdoptedFile", "d5/d79/a00030.html#aa24c13053bcf131ad878b465a4125828", null ],
+    [ "~AdoptedFile", "d5/d79/a00030.html#a3ffdabc86a3d9e8300cdbde251ab4763", null ],
+    [ "Print", "d5/d79/a00030.html#aa93f976e835a7255e7d479252eca28c9", null ],
+    [ "Initialize", "d5/d79/a00030.html#aefdeb0e49b52e1fb5844bb311a6319cb", null ],
+    [ "m_fstream", "d5/d79/a00030.html#aa82a130d557abb519a61bde42e626103", null ]
 ];

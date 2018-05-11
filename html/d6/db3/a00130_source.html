@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: LogUtils.h Source File</title>
+<title>Stride Reference Manual: NoBelief.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit be2ce7c</span>
+   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d6/db3/a00130_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">LogUtils.h</div>  </div>
+<div class="title">NoBelief.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d6/db3/a00130.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,44 +119,31 @@ $(document).ready(function(){initNavTree('d6/db3/a00130_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d2c/a00072.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dee/a00053.html">LogUtils</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../dc/dee/a00053.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                               <span class="keyword">const</span> std::string&amp; file_name);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../dc/dee/a00053.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                                                <span class="keyword">const</span> std::string&amp; file_name);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../dc/dee/a00053.html#ab89be4aea714eff74a2d4143023840a6">CreateNullLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../dc/dee/a00053.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a>(<span class="keyword">const</span> std::string&amp; logger_name,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                                                    <span class="keyword">const</span> std::string&amp; file_name);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00053_html_a52920faed22a1733b580a42ea065ed0d"><div class="ttname"><a href="../../dc/dee/a00053.html#a52920faed22a1733b580a42ea065ed0d">stride::util::LogUtils::CreateFileLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateFileLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) commandline logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00053">LogUtils.cpp:53</a></div></div>
-<div class="ttc" id="a00053_html_a137e01100d0d79b122f731bb1292179d"><div class="ttname"><a href="../../dc/dee/a00053.html#a137e01100d0d79b122f731bb1292179d">stride::util::LogUtils::CreateRotatingLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateRotatingLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) rotating logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00088">LogUtils.cpp:88</a></div></div>
-<div class="ttc" id="a00053_html_a106af93dd3f814adf8b87ffaaf3ef3bb"><div class="ttname"><a href="../../dc/dee/a00053.html#a106af93dd3f814adf8b87ffaaf3ef3bb">stride::util::LogUtils::CreateCliLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateCliLogger(const std::string &amp;logger_name, const std::string &amp;file_name)</div><div class="ttdoc">Return a (not-yet-registered) commandline logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00032">LogUtils.cpp:32</a></div></div>
-<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">stride::util::LogUtils</a></div><div class="ttdoc">Utilities for logging (spdlog). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db3/a00130_source.html#l00032">LogUtils.h:32</a></div></div>
-<div class="ttc" id="a00053_html_ab89be4aea714eff74a2d4143023840a6"><div class="ttname"><a href="../../dc/dee/a00053.html#ab89be4aea714eff74a2d4143023840a6">stride::util::LogUtils::CreateNullLogger</a></div><div class="ttdeci">static std::shared_ptr&lt; spdlog::logger &gt; CreateNullLogger(const std::string &amp;logger_name)</div><div class="ttdoc">Return a (not-yet-registered) null logger, without registering it. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00071">LogUtils.cpp:71</a></div></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d33/a00027.html">NoBelief</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d0b/a00004.html">Belief</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#aa0c36cb9e72aa68edd7671767b1e86b7">   32</a></span>&#160;        <a class="code" href="../../d0/d33/a00027.html#aa0c36cb9e72aa68edd7671767b1e86b7">NoBelief</a>() : <a class="code" href="../../d0/d0b/a00004.html">Belief</a>() {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00027_html_aa0c36cb9e72aa68edd7671767b1e86b7"><div class="ttname"><a href="../../d0/d33/a00027.html#aa0c36cb9e72aa68edd7671767b1e86b7">stride::NoBelief::NoBelief</a></div><div class="ttdeci">NoBelief()</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db3/a00130_source.html#l00032">NoBelief.h:32</a></div></div>
+<div class="ttc" id="a00027_html"><div class="ttname"><a href="../../d0/d33/a00027.html">stride::NoBelief</a></div><div class="ttdoc">No beliefs w.r.t vaccination. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db3/a00130_source.html#l00029">NoBelief.h:29</a></div></div>
+<div class="ttc" id="a00072_html"><div class="ttname"><a href="../../d6/d2c/a00072.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2c/a00072_source.html#l00027">Belief.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/db3/a00130.html">LogUtils.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 13:26:57 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d6/db3/a00130.html">NoBelief.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
