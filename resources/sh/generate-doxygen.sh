@@ -52,7 +52,7 @@ echo "" > .nojekyll
 echo 'Generating Doxygen code documentation...'
 cd $TRAVIS_BUILD_DIR && make STRIDE_INCLUDE_DOC=TRUE configure
 cd cmake-build-release/doc/doxygen && make all && mv html $TRAVIS_BUILD_DIR/code_docs
-cd $TRAVIS_BUILD_DIR && mv doc/doxygen/ReferenceManual.html code_docs/index.html
+cd $TRAVIS_BUILD_DIR && mv doc/doxygen/index.html code_docs
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
