@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Calendar.cpp Source File</title>
+<title>Stride Reference Manual: CliViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,104 +103,65 @@ $(document).ready(function(){initNavTree('df/d5d/a00084_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Calendar.cpp</div>  </div>
+<div class="title">CliViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d5d/a00084.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d57/a00112.html">util/FileSys.h</a>&quot;</span></div>
+<a href="../../df/d5d/a00084.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d38/a00160.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">sim/event/Id.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/json_parser.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>boost::property_tree::json_parser;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using</span> boost::property_tree::ptree;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a2f1b3543ea350957ea793e6b2d3ae851">   35</a></span>&#160;<a class="code" href="../../d4/dee/a00008.html#a2f1b3543ea350957ea793e6b2d3ae851">Calendar::Calendar</a>(<span class="keyword">const</span> ptree&amp; configPt) : m_date(), m_day(0U), m_holidays(), m_school_holidays()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">// Set start date</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d4/dee/a00008.html#a4e568c007754d69f3cec842ef23358fa">m_date</a> = boost::gregorian::from_simple_string(configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.start_date&quot;</span>, <span class="stringliteral">&quot;2016-01-01&quot;</span>));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d6f/a00063.html">CliViewer</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a4ddb15ac567fd751c2be3a9d973d1666">   35</a></span>&#160;        <a class="code" href="../../d1/d6f/a00063.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, std::shared_ptr&lt;spdlog::logger&gt; logger)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="../../d1/d6f/a00063.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>(std::move(logger)), <a class="code" href="../../d1/d6f/a00063.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">// Set holidays &amp; school holidays</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d4/dee/a00008.html#acfc5f6f917fe7d81ead2fecdeb85eb70">InitializeHolidays</a>(configPt);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a73664cd7c25b08adff14429ca3291394">   44</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/dee/a00008.html#a73664cd7c25b08adff14429ca3291394">Calendar::AdvanceDay</a>()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="../../d4/dee/a00008.html#a9d8a87a703604c326355557e1b72d119">m_day</a>++;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d4/dee/a00008.html#a4e568c007754d69f3cec842ef23358fa">m_date</a> = <a class="code" href="../../d4/dee/a00008.html#a4e568c007754d69f3cec842ef23358fa">m_date</a> + boost::gregorian::date_duration(1);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#acfc5f6f917fe7d81ead2fecdeb85eb70">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/dee/a00008.html#acfc5f6f917fe7d81ead2fecdeb85eb70">Calendar::InitializeHolidays</a>(<span class="keyword">const</span> ptree&amp; configPt)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Load json file</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        ptree holidaysPt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">string</span> fName{configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.holidays_file&quot;</span>, <span class="stringliteral">&quot;holidays_flanders_2017.json&quot;</span>)};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">const</span> path   fPath{<a class="code" href="../../d9/d2e/a00056.html#aafd39e698c442fd0917915d085c9aa1a">FileSys::GetDataDir</a>() /= fName};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (!is_regular_file(fPath)) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <span class="keywordflow">throw</span> runtime_error(<span class="keywordtype">string</span>(__func__) + <span class="stringliteral">&quot;Holidays file &quot;</span> + fPath.string() + <span class="stringliteral">&quot; not present.&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                read_json(fPath.string(), holidaysPt);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// Read in holidays</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; 13; i++) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> month = to_string(i);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> year  = holidaysPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;year&quot;</span>, <span class="stringliteral">&quot;2017&quot;</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> lead  = string(year).append(<span class="stringliteral">&quot;-&quot;</span>).append(month).append(<span class="stringliteral">&quot;-&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="comment">// read in general holidays</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; date : holidaysPt.get_child(<span class="stringliteral">&quot;general.&quot;</span> + month)) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> d = string(lead).append(date.second.get_value&lt;<span class="keywordtype">string</span>&gt;());</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <a class="code" href="../../d4/dee/a00008.html#abed522a5161bd1e54e4b646ced1a49a6">m_holidays</a>.push_back(boost::gregorian::from_simple_string(d));</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="comment">// read in school holidays</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; date : holidaysPt.get_child(<span class="stringliteral">&quot;school.&quot;</span> + month)) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">string</span> d = string(lead).append(date.second.get_value&lt;<span class="keywordtype">string</span>&gt;());</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        <a class="code" href="../../d4/dee/a00008.html#a1f064668c0e083b638465627131c35f7">m_school_holidays</a>.push_back(boost::gregorian::from_simple_string(d));</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00008_html_acfc5f6f917fe7d81ead2fecdeb85eb70"><div class="ttname"><a href="../../d4/dee/a00008.html#acfc5f6f917fe7d81ead2fecdeb85eb70">stride::Calendar::InitializeHolidays</a></div><div class="ttdeci">void InitializeHolidays(const boost::property_tree::ptree &amp;configPt)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00050">Calendar.cpp:50</a></div></div>
-<div class="ttc" id="a00056_html_aafd39e698c442fd0917915d085c9aa1a"><div class="ttname"><a href="../../d9/d2e/a00056.html#aafd39e698c442fd0917915d085c9aa1a">stride::util::FileSys::GetDataDir</a></div><div class="ttdeci">static boost::filesystem::path GetDataDir()</div><div class="ttdoc">/// Return data dir (only relevant when use_install_dirs mode is active) </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00077">FileSys.h:77</a></div></div>
-<div class="ttc" id="a00008_html_a9d8a87a703604c326355557e1b72d119"><div class="ttname"><a href="../../d4/dee/a00008.html#a9d8a87a703604c326355557e1b72d119">stride::Calendar::m_day</a></div><div class="ttdeci">unsigned short int m_day</div><div class="ttdoc">Current day since start of simulation. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00079">Calendar.h:79</a></div></div>
-<div class="ttc" id="a00008_html_a73664cd7c25b08adff14429ca3291394"><div class="ttname"><a href="../../d4/dee/a00008.html#a73664cd7c25b08adff14429ca3291394">stride::Calendar::AdvanceDay</a></div><div class="ttdeci">void AdvanceDay()</div><div class="ttdoc">Advance the simulated calendar by one day. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00044">Calendar.cpp:44</a></div></div>
-<div class="ttc" id="a00112_html"><div class="ttname"><a href="../../db/d57/a00112.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00008_html_a4e568c007754d69f3cec842ef23358fa"><div class="ttname"><a href="../../d4/dee/a00008.html#a4e568c007754d69f3cec842ef23358fa">stride::Calendar::m_date</a></div><div class="ttdeci">boost::gregorian::date m_date</div><div class="ttdoc">Current simulated date. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00078">Calendar.h:78</a></div></div>
-<div class="ttc" id="a00008_html_a1f064668c0e083b638465627131c35f7"><div class="ttname"><a href="../../d4/dee/a00008.html#a1f064668c0e083b638465627131c35f7">stride::Calendar::m_school_holidays</a></div><div class="ttdeci">std::vector&lt; boost::gregorian::date &gt; m_school_holidays</div><div class="ttdoc">Vector of school holidays. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00081">Calendar.h:81</a></div></div>
-<div class="ttc" id="a00008_html_a2f1b3543ea350957ea793e6b2d3ae851"><div class="ttname"><a href="../../d4/dee/a00008.html#a2f1b3543ea350957ea793e6b2d3ae851">stride::Calendar::Calendar</a></div><div class="ttdeci">Calendar(const boost::property_tree::ptree &amp;configPt)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00035">Calendar.cpp:35</a></div></div>
-<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00008_html_abed522a5161bd1e54e4b646ced1a49a6"><div class="ttname"><a href="../../d4/dee/a00008.html#abed522a5161bd1e54e4b646ced1a49a6">stride::Calendar::m_holidays</a></div><div class="ttdeci">std::vector&lt; boost::gregorian::date &gt; m_holidays</div><div class="ttdoc">Vector of general holidays. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00080">Calendar.h:80</a></div></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a>(<a class="code" href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#acc77dad91899a0d4183493023e082e9f">   44</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d1/d6f/a00063.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#af789850b449fdadcc8572def4a0eb4af">   45</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt;      <a class="code" href="../../d1/d6f/a00063.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00063_html_a9f3a2f9efda499fa6a80f3871c7298d7"><div class="ttname"><a href="../../d1/d6f/a00063.html#a9f3a2f9efda499fa6a80f3871c7298d7">stride::viewers::CliViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00039">CliViewer.cpp:39</a></div></div>
+<div class="ttc" id="a00063_html"><div class="ttname"><a href="../../d1/d6f/a00063.html">stride::viewers::CliViewer</a></div><div class="ttdoc">Viewer of Simulator for commandline interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00031">CliViewer.h:31</a></div></div>
+<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00200_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d3/db1/a00200.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00063_html_acc77dad91899a0d4183493023e082e9f"><div class="ttname"><a href="../../d1/d6f/a00063.html#acc77dad91899a0d4183493023e082e9f">stride::viewers::CliViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00044">CliViewer.h:44</a></div></div>
+<div class="ttc" id="a00063_html_a4ddb15ac567fd751c2be3a9d973d1666"><div class="ttname"><a href="../../d1/d6f/a00063.html#a4ddb15ac567fd751c2be3a9d973d1666">stride::viewers::CliViewer::CliViewer</a></div><div class="ttdeci">CliViewer(std::shared_ptr&lt; SimRunner &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Instantiate cli viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00035">CliViewer.h:35</a></div></div>
+<div class="ttc" id="a00160_html"><div class="ttname"><a href="../../de/d38/a00160.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00063_html_af789850b449fdadcc8572def4a0eb4af"><div class="ttname"><a href="../../d1/d6f/a00063.html#af789850b449fdadcc8572def4a0eb4af">stride::viewers::CliViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00045">CliViewer.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">Calendar.cpp</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">CliViewer.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

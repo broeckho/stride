@@ -1,11 +1,16 @@
 var a00057 =
 [
-    [ "Dirs", "d1/d22/a00057.html#a1258b8c979f0e1b985dfe8e6c78a82b6", null ],
-    [ "m_current_dir", "d1/d22/a00057.html#a0f2510f1e56e9702540ae0ee41ae082a", null ],
-    [ "m_exec_path", "d1/d22/a00057.html#af9e0a5016367c19e14e102efcbf6ff4b", null ],
-    [ "m_bin_dir", "d1/d22/a00057.html#aa84e5bea799040c78f75190d7fa242e9", null ],
-    [ "m_config_dir", "d1/d22/a00057.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef", null ],
-    [ "m_data_dir", "d1/d22/a00057.html#ad844a270ca421636f164982233789d2f", null ],
-    [ "m_root_dir", "d1/d22/a00057.html#a02d39f43d1e81ea01c51c6715c4b7041", null ],
-    [ "m_tests_dir", "d1/d22/a00057.html#a7b91aab4bd5ca85b91fad338a228b7b9", null ]
+    [ "TClock", "d1/d22/a00057.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
+    [ "Stopwatch", "d1/d22/a00057.html#a925b07b32b747a519b37c549ba7f1531", null ],
+    [ "Start", "d1/d22/a00057.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
+    [ "Stop", "d1/d22/a00057.html#a4b6145f590e94467a0048817f348ac75", null ],
+    [ "Reset", "d1/d22/a00057.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
+    [ "IsRunning", "d1/d22/a00057.html#a6afa0761326b35e675517b6a81ffef1f", null ],
+    [ "GetName", "d1/d22/a00057.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
+    [ "Get", "d1/d22/a00057.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
+    [ "ToString", "d1/d22/a00057.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
+    [ "m_accumulated", "d1/d22/a00057.html#a765784978119de616443c956d98166c4", null ],
+    [ "m_last_start", "d1/d22/a00057.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
+    [ "m_name", "d1/d22/a00057.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
+    [ "m_running", "d1/d22/a00057.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::FileSys::Dirs Struct Reference</title>
+<title>Stride Reference Manual: stride::util::Stopwatch&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -105,60 +105,149 @@ $(document).ready(function(){initNavTree('d1/d22/a00057.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d7/def/a00521.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/de7/a00523.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::FileSys::Dirs Struct Reference</div>  </div>
+<div class="title">stride::util::Stopwatch&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Using this to avoid global variables &amp; their initialization.  
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  
  <a href="../../d1/d22/a00057.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::FileSys::Dirs:</div>
+Collaboration diagram for stride::util::Stopwatch&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d14/a00522.gif" border="0" usemap="#stride_1_1util_1_1FileSys_1_1Dirs_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1FileSys_1_1Dirs_coll__map" id="stride_1_1util_1_1FileSys_1_1Dirs_coll__map">
-</map>
+<div class="center"><img src="../../d9/d24/a00524.gif" border="0" usemap="#stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map" id="stride_1_1util_1_1Stopwatch_3_01T_01_4_coll__map">
+<area shape="rect" id="node5" title="STL class. " alt="" coords="351,149,429,227"/><area shape="rect" id="node6" title="STL class. " alt="" coords="327,6,453,98"/></map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aedbb343fde64ffebcdb371dd862aae7f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> = T</td></tr>
+<tr class="separator:aedbb343fde64ffebcdb371dd862aae7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1258b8c979f0e1b985dfe8e6c78a82b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a1258b8c979f0e1b985dfe8e6c78a82b6">Dirs</a> ()=default</td></tr>
-<tr class="separator:a1258b8c979f0e1b985dfe8e6c78a82b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925b07b32b747a519b37c549ba7f1531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a925b07b32b747a519b37c549ba7f1531">Stopwatch</a> (std::string name=&quot;stopwatch&quot;, bool running=false)</td></tr>
+<tr class="memdesc:a925b07b32b747a519b37c549ba7f1531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializes stopwatch.  <a href="#a925b07b32b747a519b37c549ba7f1531">More...</a><br/></td></tr>
+<tr class="separator:a925b07b32b747a519b37c549ba7f1531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf0b5f9f645a7dd6420420443de5a96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a> ()</td></tr>
+<tr class="memdesc:acaf0b5f9f645a7dd6420420443de5a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts stopwatch if it was stopped.  <a href="#acaf0b5f9f645a7dd6420420443de5a96">More...</a><br/></td></tr>
+<tr class="separator:acaf0b5f9f645a7dd6420420443de5a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6145f590e94467a0048817f348ac75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a4b6145f590e94467a0048817f348ac75">Stop</a> ()</td></tr>
+<tr class="memdesc:a4b6145f590e94467a0048817f348ac75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch if it was running.  <a href="#a4b6145f590e94467a0048817f348ac75">More...</a><br/></td></tr>
+<tr class="separator:a4b6145f590e94467a0048817f348ac75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a45e66e4b53acb9c8f1edb7d5fda4f451">Reset</a> ()</td></tr>
+<tr class="memdesc:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared.  <a href="#a45e66e4b53acb9c8f1edb7d5fda4f451">More...</a><br/></td></tr>
+<tr class="separator:a45e66e4b53acb9c8f1edb7d5fda4f451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6afa0761326b35e675517b6a81ffef1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a6afa0761326b35e675517b6a81ffef1f">IsRunning</a> () const </td></tr>
+<tr class="memdesc:a6afa0761326b35e675517b6a81ffef1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether stopwatch has been started.  <a href="#a6afa0761326b35e675517b6a81ffef1f">More...</a><br/></td></tr>
+<tr class="separator:a6afa0761326b35e675517b6a81ffef1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#abcec896fa075fcb4b54b13e4bf1fd088">GetName</a> () const </td></tr>
+<tr class="memdesc:abcec896fa075fcb4b54b13e4bf1fd088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return name of this stopwatch.  <a href="#abcec896fa075fcb4b54b13e4bf1fd088">More...</a><br/></td></tr>
+<tr class="separator:abcec896fa075fcb4b54b13e4bf1fd088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a> () const </td></tr>
+<tr class="memdesc:afe36cf7e76eb1de8cda4490fc5b41829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the accumulated value without altering the stopwatch state.  <a href="#afe36cf7e76eb1de8cda4490fc5b41829">More...</a><br/></td></tr>
+<tr class="separator:afe36cf7e76eb1de8cda4490fc5b41829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a1a068a66f6b5db8cf68dabe5a8935f22">ToString</a> () const </td></tr>
+<tr class="memdesc:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of readout.  <a href="#a1a068a66f6b5db8cf68dabe5a8935f22">More...</a><br/></td></tr>
+<tr class="separator:a1a068a66f6b5db8cf68dabe5a8935f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a0f2510f1e56e9702540ae0ee41ae082a"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a0f2510f1e56e9702540ae0ee41ae082a">m_current_dir</a></td></tr>
-<tr class="separator:a0f2510f1e56e9702540ae0ee41ae082a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e0a5016367c19e14e102efcbf6ff4b"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a></td></tr>
-<tr class="separator:af9e0a5016367c19e14e102efcbf6ff4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa84e5bea799040c78f75190d7fa242e9"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a></td></tr>
-<tr class="separator:aa84e5bea799040c78f75190d7fa242e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ed650fa0f4f0fd3f5d57f2b5e3088ef"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a></td></tr>
-<tr class="separator:a5ed650fa0f4f0fd3f5d57f2b5e3088ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad844a270ca421636f164982233789d2f"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ad844a270ca421636f164982233789d2f">m_data_dir</a></td></tr>
-<tr class="separator:ad844a270ca421636f164982233789d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02d39f43d1e81ea01c51c6715c4b7041"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a></td></tr>
-<tr class="separator:a02d39f43d1e81ea01c51c6715c4b7041"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b91aab4bd5ca85b91fad338a228b7b9"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a></td></tr>
-<tr class="separator:a7b91aab4bd5ca85b91fad338a228b7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a765784978119de616443c956d98166c4"><td class="memItemLeft" align="right" valign="top">T::duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a765784978119de616443c956d98166c4">m_accumulated</a></td></tr>
+<tr class="separator:a765784978119de616443c956d98166c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memItemLeft" align="right" valign="top">T::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a></td></tr>
+<tr class="separator:ab9c7ba8e093b3c7d933ed5511d16cde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a></td></tr>
+<tr class="separator:aa22d2b26b456a8895b2e5c8ce62fe071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a></td></tr>
+<tr class="separator:a20bfb79938c423d71cde68c8d2d42fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Using this to avoid global variables &amp; their initialization. </p>
+<div class="textblock"><h3>template&lt;typename T = std::chrono::steady_clock&gt;<br/>
+class stride::util::Stopwatch&lt; T &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00087">87</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1258b8c979f0e1b985dfe8e6c78a82b6"></a>
+<p>Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00034">34</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="aedbb343fde64ffebcdb371dd862aae7f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d1/d22/a00057.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> =  T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00037">37</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a925b07b32b747a519b37c549ba7f1531"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::FileSys::Dirs::Dirs </td>
+          <td class="memname"><a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::<a class="el" href="../../d1/d22/a00057.html">Stopwatch</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;stopwatch&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>running</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor initializes stopwatch. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00040">40</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="acaf0b5f9f645a7dd6420420443de5a96"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::Start </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -166,136 +255,326 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Starts stopwatch if it was stopped. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00049">49</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b6145f590e94467a0048817f348ac75"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::Stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the stopwatch if it was running. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00059">59</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00046">stride::SimRunner::Run()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00033">stride::SimRunner::SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45e66e4b53acb9c8f1edb7d5fda4f451"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a>&amp; <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00069">69</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6afa0761326b35e675517b6a81ffef1f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::IsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether stopwatch has been started. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00077">77</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abcec896fa075fcb4b54b13e4bf1fd088"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return name of this stopwatch. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00080">80</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00116">stride::util::Stopwatch&lt; T &gt;::m_name</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe36cf7e76eb1de8cda4490fc5b41829"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T::duration <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the accumulated value without altering the stopwatch state. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00083">83</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00114">stride::util::Stopwatch&lt; T &gt;::m_accumulated</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00115">stride::util::Stopwatch&lt; T &gt;::m_last_start</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00117">stride::util::Stopwatch&lt; T &gt;::m_running</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00093">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a068a66f6b5db8cf68dabe5a8935f22"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string representation of readout. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00093">93</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/d7d/a00161_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, and <a class="el" href="../../de/d45/a00175_source.html#l00038">stride::util::TimeToString::ToColonString()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a0f2510f1e56e9702540ae0ee41ae082a"></a>
+<a class="anchor" id="a765784978119de616443c956d98166c4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_current_dir</td>
+          <td class="memname">T::duration <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::m_accumulated</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00091">91</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00114">114</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00058">stride::util::FileSys::GetCurrentDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00069">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af9e0a5016367c19e14e102efcbf6ff4b"></a>
+<a class="anchor" id="ab9c7ba8e093b3c7d933ed5511d16cde4"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_exec_path</td>
+          <td class="memname">T::time_point <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::m_last_start</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00092">92</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00115">115</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00061">stride::util::FileSys::GetExecPath()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00040">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa84e5bea799040c78f75190d7fa242e9"></a>
+<a class="anchor" id="aa22d2b26b456a8895b2e5c8ce62fe071"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_bin_dir</td>
+          <td class="memname">std::string <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::m_name</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00095">95</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00116">116</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00071">stride::util::FileSys::GetBinDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00080">stride::util::Stopwatch&lt; T &gt;::GetName()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5ed650fa0f4f0fd3f5d57f2b5e3088ef"></a>
+<a class="anchor" id="a20bfb79938c423d71cde68c8d2d42fbb"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T  = std::chrono::steady_clock&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_config_dir</td>
+          <td class="memname">bool <a class="el" href="../../d1/d22/a00057.html">stride::util::Stopwatch</a>&lt; T &gt;::m_running</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00096">96</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00117">117</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00074">stride::util::FileSys::GetConfigDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad844a270ca421636f164982233789d2f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_data_dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00097">97</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00077">stride::util::Stopwatch&lt; T &gt;::IsRunning()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00069">stride::util::Stopwatch&lt; T &gt;::Reset()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, <a class="el" href="../../d6/d7d/a00161_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>, and <a class="el" href="../../d6/d7d/a00161_source.html#l00040">stride::util::Stopwatch&lt; T &gt;::Stopwatch()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a02d39f43d1e81ea01c51c6715c4b7041"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_root_dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00098">98</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00080">stride::util::FileSys::GetRootDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b91aab4bd5ca85b91fad338a228b7b9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_tests_dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00099">99</a> of file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d57/a00112_source.html#l00083">stride::util::FileSys::GetTestsDir()</a>, and <a class="el" href="../../dd/d6d/a00111_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d6/d7d/a00161_source.html">Stopwatch.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d72/a00204.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d2e/a00056.html">FileSys</a></li><li class="navelem"><a class="el" href="../../d1/d22/a00057.html">Dirs</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d22/a00057.html">Stopwatch</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

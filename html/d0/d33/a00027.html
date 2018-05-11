@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::LocalDiscussion Class Reference</title>
+<title>Stride Reference Manual: stride::LOG_POLICY&lt; ContactLogMode::Id::All &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,42 +106,40 @@ $(document).ready(function(){initNavTree('d0/d33/a00027.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
-<a href="../../de/de8/a00405.html">List of all members</a>  </div>
+<a href="../../db/d34/a00442.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::LocalDiscussion Class Reference</div>  </div>
+<div class="title">stride::LOG_POLICY&lt; ContactLogMode::Id::All &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class for local information policy '<a class="el" href="../../d0/d33/a00027.html" title="Class for local information policy &#39;LocalDiscussion&#39;. ">LocalDiscussion</a>'.  
+<p>Specialized <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy LogMode::All.  
  <a href="../../d0/d33/a00027.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/deb/a00132_source.html">LocalDiscussion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::LocalDiscussion:</div>
+Collaboration diagram for stride::LOG_POLICY&lt; ContactLogMode::Id::All &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d8b/a00406.gif" border="0" usemap="#stride_1_1LocalDiscussion_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1LocalDiscussion_coll__map" id="stride_1_1LocalDiscussion_coll__map">
-<area shape="rect" id="node2" href="../../dc/d31/a00208.html" title="{double\n||}" alt="" coords="54,5,113,83"/></map>
+<div class="center"><img src="../../d0/dc4/a00443.gif" border="0" usemap="#stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1All_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1All_01_4_coll__map" id="stride_1_1LOG__POLICY_3_01ContactLogMode_1_1Id_1_1All_01_4_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae927760d0eb3e5a3114305c53ebe70e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ae927760d0eb3e5a3114305c53ebe70e3">Update</a> (<a class="el" href="../../db/d3a/a00040.html">Person</a> *, <a class="el" href="../../db/d3a/a00040.html">Person</a> *)</td></tr>
-<tr class="separator:ae927760d0eb3e5a3114305c53ebe70e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:abec64aa38907d3ffde96d9f848bd1d0d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d31/a00208.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#abec64aa38907d3ffde96d9f848bd1d0d">m_discussion_probability</a></td></tr>
-<tr class="separator:abec64aa38907d3ffde96d9f848bd1d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac571c931677ef5dd82de6cc46a085dbd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ac571c931677ef5dd82de6cc46a085dbd">Contact</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;logger, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p1, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p2, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type, unsigned short int sim_day)</td></tr>
+<tr class="separator:ac571c931677ef5dd82de6cc46a085dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a1c733f931d13419e338a64a759f6c9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a2a1c733f931d13419e338a64a759f6c9">Trans</a> (const std::shared_ptr&lt; spdlog::logger &gt; &amp;logger, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p1, const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p2, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type, unsigned short int sim_day)</td></tr>
+<tr class="separator:a2a1c733f931d13419e338a64a759f6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class for local information policy '<a class="el" href="../../d0/d33/a00027.html" title="Class for local information policy &#39;LocalDiscussion&#39;. ">LocalDiscussion</a>'. </p>
-<p>Upon contact, members of a contactpool discuss their beliefs/health status/... with each other with a certain probability. TODO make this probability configurable </p>
+<div class="textblock"><h3>template&lt;&gt;<br/>
+class stride::LOG_POLICY&lt; ContactLogMode::Id::All &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00027">27</a> of file <a class="el" href="../../d5/deb/a00132_source.html">LocalDiscussion.h</a>.</p>
+<p>Specialized <a class="el" href="../../d6/d5b/a00026.html" title="Primary LOG_POLICY policy, implements LogMode::None. ">LOG_POLICY</a> policy LogMode::All. </p>
+
+<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00068">68</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae927760d0eb3e5a3114305c53ebe70e3"></a>
+<a class="anchor" id="ac571c931677ef5dd82de6cc46a085dbd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -149,16 +147,34 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void stride::LocalDiscussion::Update </td>
+          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; <a class="el" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">ContactLogMode::Id::All</a> &gt;::Contact </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d3a/a00040.html">Person</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
+          <td class="paramname"><em>logger</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d3a/a00040.html">Person</a> *&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>sim_day</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,12 +189,13 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00030">30</a> of file <a class="el" href="../../d5/deb/a00132_source.html">LocalDiscussion.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00071">71</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d14/a00139_source.html#l00059">stride::Person::GetAge()</a>, <a class="el" href="../../de/d14/a00139_source.html#l00080">stride::Person::GetId()</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Household</a>, <a class="el" href="../../de/d14/a00139_source.html#l00086">stride::Person::IsSurveyParticipant()</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::PrimaryCommunity</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">stride::ContactPoolType::School</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::SecondaryCommunity</a>, and <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Work</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="abec64aa38907d3ffde96d9f848bd1d0d"></a>
+<a class="anchor" id="a2a1c733f931d13419e338a64a759f6c9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -186,30 +203,64 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d31/a00208.html">double</a> stride::LocalDiscussion::m_discussion_probability</td>
+          <td class="memname">static void <a class="el" href="../../d6/d5b/a00026.html">stride::LOG_POLICY</a>&lt; <a class="el" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">ContactLogMode::Id::All</a> &gt;::Trans </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; spdlog::logger &gt; &amp;&#160;</td>
+          <td class="paramname"><em>logger</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>sim_day</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00038">38</a> of file <a class="el" href="../../d5/deb/a00132_source.html">LocalDiscussion.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00085">85</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d14/a00139_source.html#l00080">stride::Person::GetId()</a>, and <a class="el" href="../../db/ddf/a00088_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/deb/a00132_source.html">LocalDiscussion.h</a></li>
+<li><a class="el" href="../../d1/d88/a00128_source.html">LogPolicy.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d33/a00027.html">LocalDiscussion</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/d33/a00027.html">LOG_POLICY< ContactLogMode::Id::All ></a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CSVRow.h Source File</title>
+<title>Stride Reference Manual: DaysOffStandard.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d5/d1e/a00103_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CSVRow.h</div>  </div>
+<div class="title">DaysOffStandard.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d5/d1e/a00103.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,74 +122,45 @@ $(document).ready(function(){initNavTree('d5/d1e/a00103_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">util/StringUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/dec/a00080.html">calendar/Calendar.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d61/a00100.html">calendar/DaysOffInterface.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// forward declaration</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html">   31</a></span>&#160;<span class="keyword">class </span>CSV;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d6d/a00055.html">CSVRow</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#ad55069b481e186eb07f62f60883aed25">   40</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d1/dea/a00054.html">CSV</a>*               <a class="code" href="../../d4/d6d/a00055.html#ad55069b481e186eb07f62f60883aed25">parent</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a7e09d44ea70848180bfb09233ce66433">   41</a></span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="../../d4/d6d/a00055.html#a7e09d44ea70848180bfb09233ce66433">values</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a>(<span class="keyword">const</span> <a class="code" href="../../d1/dea/a00054.html">CSV</a>* <a class="code" href="../../d4/d6d/a00055.html#ad55069b481e186eb07f62f60883aed25">parent</a>, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; <a class="code" href="../../d4/d6d/a00055.html#a7e09d44ea70848180bfb09233ce66433">values</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d1b/a00015.html">DaysOffStandard</a> : <span class="keyword">public</span> <a class="code" href="../../df/d86/a00012.html">DaysOffInterface</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a06edf10647a556a135c345995b2309be">   36</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../dd/d1b/a00015.html#a06edf10647a556a135c345995b2309be">DaysOffStandard</a>(std::shared_ptr&lt;Calendar&gt; cal) : <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>(std::move(cal)) {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a5f55ab77243cf483c5c47e8f81bf3b2a">   39</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015.html#a5f55ab77243cf483c5c47e8f81bf3b2a">IsWorkOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>-&gt;IsWeekend() || <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>-&gt;IsHoliday(); }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#ad27b8f2efdbb153c71d1a5dbdce42537">   42</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../dd/d1b/a00015.html#ad27b8f2efdbb153c71d1a5dbdce42537">IsSchoolOff</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>-&gt;IsWeekend() || <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>-&gt;IsHoliday() || <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>-&gt;IsSchoolHoliday();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::<span class="keywordtype">string</span>&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        T <a class="code" href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a>(<span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">   48</a></span>&#160;        std::shared_ptr&lt;Calendar&gt; <a class="code" href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">m_calendar</a>; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::<span class="keywordtype">string</span>&gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        T <a class="code" href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a>(<span class="keyword">const</span> std::string&amp; label) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d4/d6d/a00055.html#a8bec120b3295f500c637c4219ec5f873">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d6d/a00055.html">CSVRow</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="../../d4/d6d/a00055.html#a0ec2f92503adc2a968a848d3fddf087d">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../d4/d6d/a00055.html">CSVRow</a>&amp; row);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;std::string CSVRow::GetValue&lt;std::string&gt;(<span class="keywordtype">size_t</span> index) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;std::string CSVRow::GetValue&lt;std::string&gt;(<span class="keyword">const</span> std::string&amp; label) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">   72</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keywordtype">size_t</span> index)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> FromString&lt;T&gt;(GetValue&lt;std::string&gt;(index));</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a70dfc26893fa920410a7e4a049a1578a">   79</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">CSVRow::GetValue</a>(<span class="keyword">const</span> std::string&amp; label)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> FromString&lt;T&gt;(GetValue&lt;std::string&gt;(label));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00055_html_a0ec2f92503adc2a968a848d3fddf087d"><div class="ttname"><a href="../../d4/d6d/a00055.html#a0ec2f92503adc2a968a848d3fddf087d">stride::util::CSVRow::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const CSVRow &amp;row)</div><div class="ttdoc">Print to stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcc/a00102_source.html#l00069">CSVRow.cpp:69</a></div></div>
-<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
-<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">stride::util::CSVRow</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00036">CSVRow.h:36</a></div></div>
-<div class="ttc" id="a00055_html_ad55069b481e186eb07f62f60883aed25"><div class="ttname"><a href="../../d4/d6d/a00055.html#ad55069b481e186eb07f62f60883aed25">stride::util::CSVRow::parent</a></div><div class="ttdeci">const CSV * parent</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00040">CSVRow.h:40</a></div></div>
-<div class="ttc" id="a00055_html_ab60a313ff2e75d0ae07bc7624c27a861"><div class="ttname"><a href="../../d4/d6d/a00055.html#ab60a313ff2e75d0ae07bc7624c27a861">stride::util::CSVRow::CSVRow</a></div><div class="ttdeci">CSVRow(const CSV *parent, const std::vector&lt; std::string &gt; &amp;values)</div><div class="ttdoc">CSVRow initialized with values. Should no be called by user code. CSV has convenience functions...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcc/a00102_source.html#l00038">CSVRow.cpp:38</a></div></div>
-<div class="ttc" id="a00054_html"><div class="ttname"><a href="../../d1/dea/a00054.html">stride::util::CSV</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00036">CSV.h:36</a></div></div>
-<div class="ttc" id="a00055_html_a7e09d44ea70848180bfb09233ce66433"><div class="ttname"><a href="../../d4/d6d/a00055.html#a7e09d44ea70848180bfb09233ce66433">stride::util::CSVRow::values</a></div><div class="ttdeci">std::vector&lt; std::string &gt; values</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00041">CSVRow.h:41</a></div></div>
-<div class="ttc" id="a00055_html_a8bec120b3295f500c637c4219ec5f873"><div class="ttname"><a href="../../d4/d6d/a00055.html#a8bec120b3295f500c637c4219ec5f873">stride::util::CSVRow::operator==</a></div><div class="ttdeci">bool operator==(const CSVRow &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcc/a00102_source.html#l00067">CSVRow.cpp:67</a></div></div>
-<div class="ttc" id="a00055_html_a6462fb781526ce386453ea4ee8e353e5"><div class="ttname"><a href="../../d4/d6d/a00055.html#a6462fb781526ce386453ea4ee8e353e5">stride::util::CSVRow::GetValue</a></div><div class="ttdeci">T GetValue(size_t index) const </div><div class="ttdoc">Get value at index. When T is specified, StringUtils are used to try to convert the value to type T...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00072">CSVRow.h:72</a></div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00015_html_a2ee41292bda3236f6c3fb77fddcdf882"><div class="ttname"><a href="../../dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882">stride::DaysOffStandard::m_calendar</a></div><div class="ttdeci">std::shared_ptr&lt; Calendar &gt; m_calendar</div><div class="ttdoc">Management of calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00048">DaysOffStandard.h:48</a></div></div>
+<div class="ttc" id="a00015_html"><div class="ttname"><a href="../../dd/d1b/a00015.html">stride::DaysOffStandard</a></div><div class="ttdoc">Standard situation for days off from work and school. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00032">DaysOffStandard.h:32</a></div></div>
+<div class="ttc" id="a00012_html"><div class="ttname"><a href="../../df/d86/a00012.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00027">DaysOffInterface.h:27</a></div></div>
+<div class="ttc" id="a00100_html"><div class="ttname"><a href="../../d0/d61/a00100.html">DaysOffInterface.h</a></div><div class="ttdoc">Interface for DaysOff classes. </div></div>
+<div class="ttc" id="a00015_html_ad27b8f2efdbb153c71d1a5dbdce42537"><div class="ttname"><a href="../../dd/d1b/a00015.html#ad27b8f2efdbb153c71d1a5dbdce42537">stride::DaysOffStandard::IsSchoolOff</a></div><div class="ttdeci">bool IsSchoolOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00042">DaysOffStandard.h:42</a></div></div>
+<div class="ttc" id="a00015_html_a5f55ab77243cf483c5c47e8f81bf3b2a"><div class="ttname"><a href="../../dd/d1b/a00015.html#a5f55ab77243cf483c5c47e8f81bf3b2a">stride::DaysOffStandard::IsWorkOff</a></div><div class="ttdeci">bool IsWorkOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00039">DaysOffStandard.h:39</a></div></div>
+<div class="ttc" id="a00015_html_a06edf10647a556a135c345995b2309be"><div class="ttname"><a href="../../dd/d1b/a00015.html#a06edf10647a556a135c345995b2309be">stride::DaysOffStandard::DaysOffStandard</a></div><div class="ttdeci">DaysOffStandard(std::shared_ptr&lt; Calendar &gt; cal)</div><div class="ttdoc">Initialize calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00036">DaysOffStandard.h:36</a></div></div>
+<div class="ttc" id="a00080_html"><div class="ttname"><a href="../../da/dec/a00080.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d1e/a00103.html">CSVRow.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d5/d1e/a00103.html">DaysOffStandard.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

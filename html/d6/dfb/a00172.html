@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SummaryFile.h File Reference</title>
+<title>Stride Reference Manual: SVIterator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,58 +106,63 @@ $(document).ready(function(){initNavTree('d6/dfb/a00172.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SummaryFile.h File Reference</div>  </div>
+<div class="title">SVIterator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the SummaryFile class.  
+<p>Interface/Implementation for SVIterator.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
-<code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br/>
+<code>#include &lt;cstddef&gt;</code><br/>
+<code>#include &lt;iterator&gt;</code><br/>
+<code>#include &lt;limits&gt;</code><br/>
+<code>#include &lt;type_traits&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SummaryFile.h:</div>
+Include dependency graph for SVIterator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/de1/a00356.gif" border="0" usemap="#SummaryFile_8h" alt=""/></div>
-<map name="SummaryFile_8h" id="SummaryFile_8h">
+<div class="center"><img src="../../d7/ddb/a00361.gif" border="0" usemap="#SVIterator_8h" alt=""/></div>
+<map name="SVIterator_8h" id="SVIterator_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/df1/a00357.gif" border="0" usemap="#SummaryFile_8hdep" alt=""/></div>
-<map name="SummaryFile_8hdep" id="SummaryFile_8hdep">
-<area shape="rect" id="node2" href="../../d1/d0d/a00171.html" title="Implementation of the SummaryFile class. " alt="" coords="5,80,128,107"/><area shape="rect" id="node3" href="../../d8/df1/a00174.html" title="Observer for Persons output. " alt="" coords="153,80,281,107"/><area shape="rect" id="node4" href="../../da/d2a/a00086.html" title="Header for the command line controller. " alt="" coords="81,155,199,181"/><area shape="rect" id="node5" href="../../d7/d3f/a00173.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="223,155,365,181"/></map>
+<div class="center"><img src="../../de/dd7/a00362.gif" border="0" usemap="#SVIterator_8hdep" alt=""/></div>
+<map name="SVIterator_8hdep" id="SVIterator_8hdep">
+<area shape="rect" id="node2" href="../../d3/d65/a00154.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="617,80,753,107"/><area shape="rect" id="node3" href="../../d0/d4a/a00147.html" title="Header file for the core Population class. " alt="" coords="851,155,945,181"/><area shape="rect" id="node11" href="../../d9/db6/a00146.html" title="Core Population class. " alt="" coords="5,229,112,256"/><area shape="rect" id="node4" href="../../d1/d09/a00077.html" title="Implementation for HelthSeeder class. " alt="" coords="137,229,257,256"/><area shape="rect" id="node5" href="../../d3/d32/a00105.html" title="Header for the DiseaseSeeder class. " alt="" coords="333,229,456,256"/><area shape="rect" id="node6" href="../../d0/dc2/a00104.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="228,304,363,331"/><area shape="rect" id="node8" href="../../dd/d6d/a00111.html" title="Implementation for HelthSeeder class. " alt="" coords="481,229,607,256"/><area shape="rect" id="node9" href="../../d5/db1/a00140.html" title="Implementation of the CasesFile class. " alt="" coords="631,229,747,256"/><area shape="rect" id="node10" href="../../d5/da7/a00144.html" title="Initialize populations: implementation. " alt="" coords="771,229,881,256"/><area shape="rect" id="node12" href="../../d5/dcb/a00170.html" title="Implementation for the SurveySeeder class. " alt="" coords="906,229,1035,256"/><area shape="rect" id="node13" href="../../d8/d53/a00081.html" title="Header for the command line controller. " alt="" coords="1059,229,1177,256"/><area shape="rect" id="node14" href="../../d3/df8/a00155.html" title="Implementation for the Simulator class. " alt="" coords="1202,229,1272,256"/><area shape="rect" id="node15" href="../../de/db9/a00159.html" title="Implementation for SimRunner. " alt="" coords="1296,229,1407,256"/><area shape="rect" id="node16" href="../../d4/d31/a00069.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1433,229,1567,256"/><area shape="rect" id="node17" href="../../d2/d1f/a00083.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1591,229,1693,256"/><area shape="rect" id="node18" href="../../d8/dfa/a00121.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1718,229,1852,256"/><area shape="rect" id="node19" href="../../dd/da7/a00168.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1877,229,2019,256"/><area shape="rect" id="node7" href="../../d1/db7/a00157.html" title="Implementation for the SimBuilder class. " alt="" coords="389,304,499,331"/></map>
 </div>
 </div>
 <p><a href="../../d6/dfb/a00172_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html">stride::output::SummaryFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../d3/de7/a00039.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html">stride::util::SegmentedVector&lt; T, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container that stores objects "almost contiguously" and guarantees that pointers/iterators are not invalidated when the container grows, either through push_back/emplace_back of elements or resevation of capacity.  <a href="../../d7/d46/a00002.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of iterator for <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; and guarantees that pointers/iterators are not in...">SegmentedVector</a>.  <a href="../../d3/d8b/a00059.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride</a></td></tr>
-<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contact rates as a function of age. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/de3/a00201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html">stride::output</a></td></tr>
-<tr class="memdesc:dd/de3/a00201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br/></td></tr>
+<tr class="memitem:dd/de3/a00201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html">stride::util</a></td></tr>
+<tr class="memdesc:dd/de3/a00201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the SummaryFile class. </p>
+<div class="textblock"><p>Interface/Implementation for SVIterator. </p>
 
-<p>Definition in file <a class="el" href="../../d6/dfb/a00172_source.html">SummaryFile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d6/dfb/a00172_source.html">SVIterator.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d6/dfb/a00172.html">SummaryFile.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/dfb/a00172.html">SVIterator.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

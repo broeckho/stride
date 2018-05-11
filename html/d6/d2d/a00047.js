@@ -1,10 +1,12 @@
 var a00047 =
 [
-    [ "Threshold", "d6/d2d/a00047.html#a8da3ada04e2f53f0d6a8424c58e0065f", null ],
-    [ "m_is_aware", "d6/d2d/a00047.html#ac4b88b840219d9df9585234a67cb7240", null ],
-    [ "m_num_contacts", "d6/d2d/a00047.html#a4ae3466c106da6e6f9e074d6b0841e86", null ],
-    [ "m_num_contacts_infected", "d6/d2d/a00047.html#a3c6f98311139eaa035d84d2c6d951f7f", null ],
-    [ "m_num_contacts_adopted", "d6/d2d/a00047.html#a788abd97461a417f3acf3db796c62514", null ],
-    [ "m_threshold_infected", "d6/d2d/a00047.html#a9fcb580f7bc164aceb380a3ccb71b337", null ],
-    [ "m_threshold_adopted", "d6/d2d/a00047.html#aae2cf98f557c4be064d719fc3e6caaba", null ]
+    [ "Any", "d6/d2d/a00047.html#a78136d1eb13e5df0bd7f8043adff152a", null ],
+    [ "Any", "d6/d2d/a00047.html#aa37a30a7324377f7afe3b614d3c8f1eb", null ],
+    [ "operator=", "d6/d2d/a00047.html#ad1330eaf1df07a82065354e88a87a6fd", null ],
+    [ "operator=", "d6/d2d/a00047.html#aac5387b1910deeba0f0fb319c8a6e710", null ],
+    [ "emplace", "d6/d2d/a00047.html#a8aee74d02cb317ad6a8212f9a84c9254", null ],
+    [ "cast", "d6/d2d/a00047.html#a25363f8f215051caae46e3094da0bff8", null ],
+    [ "operator bool", "d6/d2d/a00047.html#a60543e81cc55aee3d0a2d8e02779825b", null ],
+    [ "m_ptr", "d6/d2d/a00047.html#a581dd8c8a98e7470e351687980a7f41d", null ],
+    [ "m_destroy", "d6/d2d/a00047.html#a43e14abfb952e01348cb11cb50649daf", null ]
 ];

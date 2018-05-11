@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::CliController Class Reference</title>
+<title>Stride Reference Manual: stride::ContactPool Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -108,170 +108,130 @@ $(document).ready(function(){initNavTree('da/da0/a00009.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d4a/a00479.html">List of all members</a>  </div>
+<a href="#friends">Friends</a> &#124;
+<a href="../../de/d87/a00456.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::CliController Class Reference</div>  </div>
+<div class="title">stride::ContactPool Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="../../da/da0/a00009.html" title="The CliController controls execution of a simulation run (. ">CliController</a> controls execution of a simulation run (.  
+<p>Represents a group of Persons that potentially have contacts.  
  <a href="../../da/da0/a00009.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::CliController:</div>
+Collaboration diagram for stride::ContactPool:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d8e/a00482.gif" border="0" usemap="#stride_1_1CliController_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1CliController_coll__map" id="stride_1_1CliController_coll__map">
-<area shape="rect" id="node6" href="../../df/d03/a00062.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="484,291,665,471"/><area shape="rect" id="node4" title="STL class. " alt="" coords="201,149,280,227"/><area shape="rect" id="node5" title="STL class. " alt="" coords="178,6,304,98"/></map>
+<div class="center"><img src="../../da/d65/a00458.gif" border="0" usemap="#stride_1_1ContactPool_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1ContactPool_coll__map" id="stride_1_1ContactPool_coll__map">
+<area shape="rect" id="node3" href="../../d8/d41/a00038.html" title="Store and handle person data. " alt="" coords="557,989,661,1213"/><area shape="rect" id="node4" href="../../d5/d13/a00205.html" title="{double\n||}" alt="" coords="1157,752,1216,829"/><area shape="rect" id="node5" href="../../d8/d84/a00001.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="100,708,321,873"/><area shape="rect" id="node6" title="STL class. " alt="" coords="95,249,237,341"/><area shape="rect" id="node9" title="STL class. " alt="" coords="202,147,400,224"/><area shape="rect" id="node19" title="STL class. " alt="" coords="5,555,120,632"/><area shape="rect" id="node8" href="../../d8/d84/a00001.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="208,365,371,531"/><area shape="rect" id="node11" href="../../d7/dec/a00010.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="417,708,591,873"/><area shape="rect" id="node12" title="STL class. " alt="" coords="411,409,597,487"/><area shape="rect" id="node15" href="../../d1/d2b/a00018.html" title="Holds a person&#39;s health data. " alt="" coords="802,657,992,925"/><area shape="rect" id="node18" href="../../d0/d0b/a00004.html" title="Base class for all belief policies. " alt="" coords="1017,737,1132,844"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6c1780a5ff62df746e6f8328c16a3c62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a6c1780a5ff62df746e6f8328c16a3c62">CliController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a6c1780a5ff62df746e6f8328c16a3c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a6c1780a5ff62df746e6f8328c16a3c62">More...</a><br/></td></tr>
-<tr class="separator:a6c1780a5ff62df746e6f8328c16a3c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126fe70ea36234d7db97a53db9912338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a126fe70ea36234d7db97a53db9912338">Control</a> ()</td></tr>
-<tr class="memdesc:a126fe70ea36234d7db97a53db9912338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#a126fe70ea36234d7db97a53db9912338">More...</a><br/></td></tr>
-<tr class="separator:a126fe70ea36234d7db97a53db9912338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8823b3c4a242f11f02e8c41b03ccd032"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a8823b3c4a242f11f02e8c41b03ccd032">ContactPool</a> (std::size_t pool_id, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type)</td></tr>
+<tr class="memdesc:a8823b3c4a242f11f02e8c41b03ccd032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a8823b3c4a242f11f02e8c41b03ccd032">More...</a><br/></td></tr>
+<tr class="separator:a8823b3c4a242f11f02e8c41b03ccd032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d78d0a3fd422a09f39e87d83c391d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a1d78d0a3fd422a09f39e87d83c391d47">AddMember</a> (const <a class="el" href="../../d8/d41/a00038.html">Person</a> *p)</td></tr>
+<tr class="memdesc:a1d78d0a3fd422a09f39e87d83c391d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given <a class="el" href="../../d8/d41/a00038.html" title="Store and handle person data. ">Person</a>.  <a href="#a1d78d0a3fd422a09f39e87d83c391d47">More...</a><br/></td></tr>
+<tr class="separator:a1d78d0a3fd422a09f39e87d83c391d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7962d506db44920ed1fd99471cabc50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#ae7962d506db44920ed1fd99471cabc50">GetMember</a> (unsigned int index) const </td></tr>
+<tr class="memdesc:ae7962d506db44920ed1fd99471cabc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get member at index.  <a href="#ae7962d506db44920ed1fd99471cabc50">More...</a><br/></td></tr>
+<tr class="separator:ae7962d506db44920ed1fd99471cabc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d8/d41/a00038.html">Person</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#afb9a65718e51a5afa72e9f34724f1fe0">GetPool</a> () const </td></tr>
+<tr class="memdesc:afb9a65718e51a5afa72e9f34724f1fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entire pool of members.  <a href="#afb9a65718e51a5afa72e9f34724f1fe0">More...</a><br/></td></tr>
+<tr class="separator:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a206057a57bf75587c303c41f27f3bf23"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a206057a57bf75587c303c41f27f3bf23">GetSize</a> () const </td></tr>
+<tr class="memdesc:a206057a57bf75587c303c41f27f3bf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get size (number of members).  <a href="#a206057a57bf75587c303c41f27f3bf23">More...</a><br/></td></tr>
+<tr class="separator:a206057a57bf75587c303c41f27f3bf23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a0915246b08e7cb4bc0586a9eadcfc381"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a0915246b08e7cb4bc0586a9eadcfc381">CliController</a> ()</td></tr>
-<tr class="memdesc:a0915246b08e7cb4bc0586a9eadcfc381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as taget for delegation.  <a href="#a0915246b08e7cb4bc0586a9eadcfc381">More...</a><br/></td></tr>
-<tr class="separator:a0915246b08e7cb4bc0586a9eadcfc381"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a4bee813e33ac0b5c9a44f727d5c7b0aa">CheckEnv</a> ()</td></tr>
-<tr class="memdesc:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#a4bee813e33ac0b5c9a44f727d5c7b0aa">More...</a><br/></td></tr>
-<tr class="separator:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2872b036cfffe4153a5ee33d0c669424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a2872b036cfffe4153a5ee33d0c669424">CheckOutputPrefix</a> ()</td></tr>
-<tr class="separator:a2872b036cfffe4153a5ee33d0c669424"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#abef1ddddf5dc91741dfc8e94fd80fbf1">LogSetup</a> ()</td></tr>
-<tr class="memdesc:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#abef1ddddf5dc91741dfc8e94fd80fbf1">More...</a><br/></td></tr>
-<tr class="separator:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4282046a0987af420cdf32c73c203579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a4282046a0987af420cdf32c73c203579">MakeLogger</a> ()</td></tr>
-<tr class="memdesc:a4282046a0987af420cdf32c73c203579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a4282046a0987af420cdf32c73c203579">More...</a><br/></td></tr>
-<tr class="separator:a4282046a0987af420cdf32c73c203579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#ac0ad454c9dd6a2456d7078484a4ccec8">RegisterViewers</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">SimRunner</a> &gt; runner)</td></tr>
-<tr class="memdesc:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d6/d97/a00045.html" title="The simulation runner: ">SimRunner</a>.  <a href="#ac0ad454c9dd6a2456d7078484a4ccec8">More...</a><br/></td></tr>
-<tr class="separator:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a6c90e9734ee7c6566bdf1f4416e99fd8">SortMembers</a> ()</td></tr>
+<tr class="memdesc:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.  <a href="#a6c90e9734ee7c6566bdf1f4416e99fd8">More...</a><br/></td></tr>
+<tr class="separator:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8166a5fc94c70797882dab5337a7ae61"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a8166a5fc94c70797882dab5337a7ae61">m_config_pt</a></td></tr>
-<tr class="memdesc:a8166a5fc94c70797882dab5337a7ae61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#a8166a5fc94c70797882dab5337a7ae61">More...</a><br/></td></tr>
-<tr class="separator:a8166a5fc94c70797882dab5337a7ae61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f6ad6a773127d0a1c5e9468be25ea2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#ae0f6ad6a773127d0a1c5e9468be25ea2">m_output_prefix</a></td></tr>
-<tr class="separator:ae0f6ad6a773127d0a1c5e9468be25ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeff91fe883e6e3cfee972c37d197d40f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d03/a00062.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#aeff91fe883e6e3cfee972c37d197d40f">m_run_clock</a></td></tr>
-<tr class="memdesc:aeff91fe883e6e3cfee972c37d197d40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#aeff91fe883e6e3cfee972c37d197d40f">More...</a><br/></td></tr>
-<tr class="separator:aeff91fe883e6e3cfee972c37d197d40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0172dba37040fa790070d9c61a4e51f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#ad0172dba37040fa790070d9c61a4e51f">m_stride_logger</a></td></tr>
-<tr class="memdesc:ad0172dba37040fa790070d9c61a4e51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#ad0172dba37040fa790070d9c61a4e51f">More...</a><br/></td></tr>
-<tr class="separator:ad0172dba37040fa790070d9c61a4e51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c6d564e6fa43ecc69be45551627dbaf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a4c6d564e6fa43ecc69be45551627dbaf">m_use_install_dirs</a></td></tr>
-<tr class="separator:a4c6d564e6fa43ecc69be45551627dbaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b89a6990328cbbb99d580e1a716da08"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a2b89a6990328cbbb99d580e1a716da08">m_pool_id</a></td></tr>
+<tr class="memdesc:a2b89a6990328cbbb99d580e1a716da08"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes).  <a href="#a2b89a6990328cbbb99d580e1a716da08">More...</a><br/></td></tr>
+<tr class="separator:a2b89a6990328cbbb99d580e1a716da08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f177c0e74c8749112841384c640c749"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a7f177c0e74c8749112841384c640c749">m_pool_type</a></td></tr>
+<tr class="memdesc:a7f177c0e74c8749112841384c640c749"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes).  <a href="#a7f177c0e74c8749112841384c640c749">More...</a><br/></td></tr>
+<tr class="separator:a7f177c0e74c8749112841384c640c749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c93d5ae7d1981ca160bb01b543ee93"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a></td></tr>
+<tr class="memdesc:a62c93d5ae7d1981ca160bb01b543ee93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the first immune member in the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>.  <a href="#a62c93d5ae7d1981ca160bb01b543ee93">More...</a><br/></td></tr>
+<tr class="separator:a62c93d5ae7d1981ca160bb01b543ee93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a672b69837fbd57d9a61f8acb18fec82e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d8/d41/a00038.html">Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a></td></tr>
+<tr class="memdesc:a672b69837fbd57d9a61f8acb18fec82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to contactpool members (raw pointers intentional).  <a href="#a672b69837fbd57d9a61f8acb18fec82e">More...</a><br/></td></tr>
+<tr class="separator:a672b69837fbd57d9a61f8acb18fec82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a346978e3da1a4b6079c313de8fde0e52"><td class="memTemplParams" colspan="2">template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </td></tr>
+<tr class="memitem:a346978e3da1a4b6079c313de8fde0e52"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/da0/a00009.html#a346978e3da1a4b6079c313de8fde0e52">Infector</a></td></tr>
+<tr class="memdesc:a346978e3da1a4b6079c313de8fde0e52"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/de0/a00022.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions.  <a href="#a346978e3da1a4b6079c313de8fde0e52">More...</a><br/></td></tr>
+<tr class="separator:a346978e3da1a4b6079c313de8fde0e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="../../da/da0/a00009.html" title="The CliController controls execution of a simulation run (. ">CliController</a> controls execution of a simulation run (. </p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d6/d97/a00045.html" title="The simulation runner: ">SimRunner</a>) from the command line interface (cli). The <a class="el" href="../../da/da0/a00009.html" title="The CliController controls execution of a simulation run (. ">CliController</a> setup <ul>
-<li>accepts the commandline arguments </li>
-<li>checks the OpenMP environment </li>
-<li>checks the file system environment </li>
-<li>reads the config file specified on the cli </li>
-<li>effects cli overides of config parameters </li>
-<li>patches the config file for any remaining defaults </li>
-<li>interprets and executes the ouput prefix </li>
-<li>makes a <a class="el" href="../../d7/da0/a00198.html" title="Main namespace for the project. ">stride</a> logger The <a class="el" href="../../da/da0/a00009.html" title="The CliController controls execution of a simulation run (. ">CliController</a> execution </li>
-<li>creates a simulation runner (</li>
-</ul>
-</dd>
-<dd>
-<a class="el" href="../../d6/d97/a00045.html" title="The simulation runner: ">SimRunner</a>) <ul>
-<li>registers the appropriate <a class="el" href="../../d5/d13/a00205.html">viewers</a> </li>
-<li>runs the simulation </li>
-</ul>
-</dd></dl>
+<div class="textblock"><p>Represents a group of Persons that potentially have contacts. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00050">50</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00035">35</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6c1780a5ff62df746e6f8328c16a3c62"></a>
+<a class="anchor" id="a8823b3c4a242f11f02e8c41b03ccd032"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::CliController::CliController </td>
+          <td class="memname">stride::ContactPool::ContactPool </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>pool_id</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Straight initialization. </p>
-
-</div>
-</div>
-<a class="anchor" id="a0915246b08e7cb4bc0586a9eadcfc381"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">stride::CliController::CliController </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Empty controller: used as taget for delegation. </p>
+<p>Initializing constructor. </p>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00045">45</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dec/a00090_source.html#l00032">32</a> of file <a class="el" href="../../d9/dec/a00090_source.html">ContactPool.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a126fe70ea36234d7db97a53db9912338"></a>
+<a class="anchor" id="a1d78d0a3fd422a09f39e87d83c391d47"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::CliController::Control </td>
+          <td class="memname">void stride::ContactPool::AddMember </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Actual run of the simulator. </p>
+<p>Add the given <a class="el" href="../../d8/d41/a00038.html" title="Store and handle person data. ">Person</a>. </p>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00085">85</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dec/a00090_source.html#l00037">37</a> of file <a class="el" href="../../d9/dec/a00090_source.html">ContactPool.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/db2/a00151_source.html#l00042">stride::Population::Create()</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00083">m_stride_logger</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00107">RegisterViewers()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d5e/a00136_source.html#l00040">main()</a>.</p>
+<p>References <a class="el" href="../../da/d82/a00091_source.html#l00064">m_index_immune</a>, and <a class="el" href="../../da/d82/a00091_source.html#l00065">m_members</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4bee813e33ac0b5c9a44f727d5c7b0aa"></a>
+<a class="anchor" id="ae7962d506db44920ed1fd99471cabc50"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -279,7 +239,99 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::CliController::CheckEnv </td>
+          <td class="memname"><a class="el" href="../../d8/d41/a00038.html">Person</a>* stride::ContactPool::GetMember </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get member at index. </p>
+
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00045">45</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d82/a00091_source.html#l00065">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d4b/a00117_source.html#l00035">stride::Immunizer::Random()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb9a65718e51a5afa72e9f34724f1fe0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d8/d41/a00038.html">Person</a>*&gt;&amp; stride::ContactPool::GetPool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the entire pool of members. </p>
+
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00048">48</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d82/a00091_source.html#l00065">m_members</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a206057a57bf75587c303c41f27f3bf23"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t stride::ContactPool::GetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get size (number of members). </p>
+
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00051">51</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d82/a00091_source.html#l00065">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d4b/a00117_source.html#l00035">stride::Immunizer::Random()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c90e9734ee7c6566bdf1f4416e99fd8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; bool, size_t &gt; stride::ContactPool::SortMembers </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -292,133 +344,45 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check install environment. </p>
+<p>Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </p>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00063">63</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dec/a00090_source.html#l00043">43</a> of file <a class="el" href="../../d9/dec/a00090_source.html">ContactPool.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d6d/a00111_source.html#l00064">stride::util::FileSys::CheckInstallEnv()</a>, and <a class="el" href="../../d1/d1e/a00087_source.html#l00084">m_use_install_dirs</a>.</p>
+<p>References <a class="el" href="../../da/d82/a00091_source.html#l00064">m_index_immune</a>, and <a class="el" href="../../da/d82/a00091_source.html#l00065">m_members</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d36/a00123_source.html#l00128">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2872b036cfffe4153a5ee33d0c669424"></a>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a346978e3da1a4b6079c313de8fde0e52"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::CliController::CheckOutputPrefix </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="../../d7/de0/a00022.html">Infector</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00073">73</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
+<p><a class="el" href="../../d7/de0/a00022.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions. </p>
 
-<p>References <a class="el" href="../../dd/d6d/a00111_source.html#l00192">stride::util::FileSys::IsDirectoryString()</a>, and <a class="el" href="../../d1/d1e/a00087_source.html#l00081">m_output_prefix</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abef1ddddf5dc91741dfc8e94fd80fbf1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::CliController::LogSetup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Logs info on setup for cli environment to stride_logger. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00143">143</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d57/a00112_source.html#l00074">stride::util::FileSys::GetConfigDir()</a>, <a class="el" href="../../db/d57/a00112_source.html#l00058">stride::util::FileSys::GetCurrentDir()</a>, <a class="el" href="../../db/d57/a00112_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../db/d57/a00112_source.html#l00061">stride::util::FileSys::GetExecPath()</a>, <a class="el" href="../../db/d57/a00112_source.html#l00080">stride::util::FileSys::GetRootDir()</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00033">stride::util::ConfigInfo::GitRevision()</a>, <a class="el" href="../../da/d82/a00091_source.html#l00034">stride::util::ConfigInfo::HaveOpenMP()</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00081">m_output_prefix</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00083">m_stride_logger</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00084">m_use_install_dirs</a>, <a class="el" href="../../d9/dec/a00090_source.html#l00042">stride::util::ConfigInfo::NumberAvailableThreads()</a>, and <a class="el" href="../../d4/d7d/a00093_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4282046a0987af420cdf32c73c203579"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::CliController::MakeLogger </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Make the appropriate logger for cli environment and register as stride_logger. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00098">98</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/d6d/a00111_source.html#l00051">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00032">stride::util::LogUtils::CreateCliLogger()</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00081">m_output_prefix</a>, and <a class="el" href="../../d1/d1e/a00087_source.html#l00083">m_stride_logger</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac0ad454c9dd6a2456d7078484a4ccec8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::CliController::RegisterViewers </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Register the viewers of the <a class="el" href="../../d6/d97/a00045.html" title="The simulation runner: ">SimRunner</a>. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00107">107</a> of file <a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d1e/a00087_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00081">m_output_prefix</a>, <a class="el" href="../../d1/d1e/a00087_source.html#l00083">m_stride_logger</a>, <a class="el" href="../../db/ddf/a00088_source.html#l00039">stride::viewers::CliViewer::Update()</a>, <a class="el" href="../../db/db6/a00074_source.html#l00033">stride::viewers::AdoptedViewer::Update()</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00034">stride::viewers::SummaryViewer::Update()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00031">stride::viewers::PersonsViewer::Update()</a>, and <a class="el" href="../../d7/d12/a00126_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00085">Control()</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00059">59</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8166a5fc94c70797882dab5337a7ae61"></a>
+<a class="anchor" id="a2b89a6990328cbbb99d580e1a716da08"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -426,7 +390,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::CliController::m_config_pt</td>
+          <td class="memname">std::size_t stride::ContactPool::m_pool_id</td>
         </tr>
       </table>
   </td>
@@ -436,15 +400,13 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Main configuration for run and sim. </p>
+<p>The ID of the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes). </p>
 
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00080">80</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00085">Control()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00143">LogSetup()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00107">RegisterViewers()</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00062">62</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae0f6ad6a773127d0a1c5e9468be25ea2"></a>
+<a class="anchor" id="a7f177c0e74c8749112841384c640c749"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -452,7 +414,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::CliController::m_output_prefix</td>
+          <td class="memname"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> stride::ContactPool::m_pool_type</td>
         </tr>
       </table>
   </td>
@@ -462,13 +424,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00081">81</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
+<p>The type of the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes). </p>
 
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00073">CheckOutputPrefix()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00143">LogSetup()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00107">RegisterViewers()</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00063">63</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d36/a00123_source.html#l00062">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00128">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aeff91fe883e6e3cfee972c37d197d40f"></a>
+<a class="anchor" id="a62c93d5ae7d1981ca160bb01b543ee93"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -476,7 +440,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d03/a00062.html">util::Stopwatch</a> stride::CliController::m_run_clock</td>
+          <td class="memname">std::size_t stride::ContactPool::m_index_immune</td>
         </tr>
       </table>
   </td>
@@ -486,14 +450,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prefix to output (name prefix or prefix dir) </p>
-<p>Stopwatch for timing the computation. </p>
+<p>Index of the first immune member in the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00082">82</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00064">64</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dec/a00090_source.html#l00037">AddMember()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00128">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../d9/dec/a00090_source.html#l00043">SortMembers()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad0172dba37040fa790070d9c61a4e51f"></a>
+<a class="anchor" id="a672b69837fbd57d9a61f8acb18fec82e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -501,7 +466,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::CliController::m_stride_logger</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d8/d41/a00038.html">Person</a>*&gt; stride::ContactPool::m_members</td>
         </tr>
       </table>
   </td>
@@ -511,49 +476,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>General logger. </p>
+<p>Pointers to contactpool members (raw pointers intentional). </p>
 
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00083">83</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d82/a00091_source.html#l00065">65</a> of file <a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00085">Control()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00143">LogSetup()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00107">RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4c6d564e6fa43ecc69be45551627dbaf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::CliController::m_use_install_dirs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d1/d1e/a00087_source.html#l00084">84</a> of file <a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00063">CheckEnv()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00143">LogSetup()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/dec/a00090_source.html#l00037">AddMember()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00062">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00128">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, <a class="el" href="../../da/d82/a00091_source.html#l00045">GetMember()</a>, <a class="el" href="../../da/d82/a00091_source.html#l00048">GetPool()</a>, <a class="el" href="../../da/d82/a00091_source.html#l00051">GetSize()</a>, and <a class="el" href="../../d9/dec/a00090_source.html#l00043">SortMembers()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/d1e/a00087_source.html">CliController.h</a></li>
-<li><a class="el" href="../../da/d2a/a00086_source.html">CliController.cpp</a></li>
+<li><a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a></li>
+<li><a class="el" href="../../d9/dec/a00090_source.html">ContactPool.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../da/da0/a00009.html">CliController</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../da/da0/a00009.html">ContactPool</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

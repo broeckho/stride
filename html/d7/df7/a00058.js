@@ -1,7 +1,12 @@
 var a00058 =
 [
-    [ "CreateCliLogger", "d7/df7/a00058.html#a106af93dd3f814adf8b87ffaaf3ef3bb", null ],
-    [ "CreateFileLogger", "d7/df7/a00058.html#a52920faed22a1733b580a42ea065ed0d", null ],
-    [ "CreateNullLogger", "d7/df7/a00058.html#ab89be4aea714eff74a2d4143023840a6", null ],
-    [ "CreateRotatingLogger", "d7/df7/a00058.html#a137e01100d0d79b122f731bb1292179d", null ]
+    [ "EventType", "d7/df7/a00058.html#ac4fa78f455203ba23ab4442d14822895", null ],
+    [ "CallbackType", "d7/df7/a00058.html#a3face8040dba107d2ddcfc5f766aa58d", null ],
+    [ "Subject", "d7/df7/a00058.html#a18bf85fe174743915fc17bcc86254e25", null ],
+    [ "~Subject", "d7/df7/a00058.html#ade16fa2818574a0a42874b5f15b1d3ec", null ],
+    [ "Register", "d7/df7/a00058.html#acddc520ab930ec98e120790b91fb8021", null ],
+    [ "Unregister", "d7/df7/a00058.html#aaa38f379243ec0d27b47b5bd110ebe75", null ],
+    [ "UnregisterAll", "d7/df7/a00058.html#a8e0f20cb6cc045cf215f5d5a0963046f", null ],
+    [ "Notify", "d7/df7/a00058.html#a9496d626bbde63eb55836f0af402522c", null ],
+    [ "m_observers", "d7/df7/a00058.html#a3d7c672aaa180fc9b0a8c272639bd821", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConfigInfo.cpp File Reference</title>
+<title>Stride Reference Manual: ContactPool.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,95 +103,45 @@ $(document).ready(function(){initNavTree('d9/dec/a00090.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ConfigInfo.cpp File Reference</div>  </div>
+<div class="title">ContactPool.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Info on configuration.  
+<p>Implementation for the core ContcatPool class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d82/a00091_source.html">ConfigInfo.h</a>&quot;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;unistd.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d82/a00091_source.html">ContactPool.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/d89/a00071_source.html">pop/Age.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d14/a00139_source.html">pop/Person.h</a>&quot;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ConfigInfo.cpp:</div>
+Include dependency graph for ContactPool.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d08/a00237.gif" border="0" usemap="#ConfigInfo_8cpp" alt=""/></div>
-<map name="ConfigInfo_8cpp" id="ConfigInfo_8cpp">
-<area shape="rect" id="node2" href="../../da/d82/a00091.html" title="Info on configuration. " alt="" coords="5,80,99,107"/></map>
+<div class="center"><img src="../../d2/dc8/a00242.gif" border="0" usemap="#ContactPool_8cpp" alt=""/></div>
+<map name="ContactPool_8cpp" id="ContactPool_8cpp">
+<area shape="rect" id="node2" href="../../da/d82/a00091.html" title="Header for the core ContactPool class. " alt="" coords="48,245,152,272"/><area shape="rect" id="node11" href="../../d0/d89/a00071.html" title="Helpers for age. " alt="" coords="272,80,352,107"/><area shape="rect" id="node12" href="../../de/d14/a00139.html" title="Header file for the Person class. " alt="" coords="148,80,247,107"/><area shape="rect" id="node3" href="../../db/dab/a00089.html" title="Header for the ContactLogMode class. " alt="" coords="143,320,322,347"/><area shape="rect" id="node5" href="../../dc/d54/a00094.html" title="Definition of ContactPoolType. " alt="" coords="346,320,508,347"/><area shape="rect" id="node13" href="../../d4/d81/a00110.html" title="Header for the Health class. " alt="" coords="468,163,588,189"/><area shape="rect" id="node14" href="../../d2/da3/a00115.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="285,163,443,189"/></map>
 </div>
 </div>
 <p><a href="../../d9/dec/a00090_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride</a></td></tr>
-<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contact rates as a function of age. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d1/d72/a00204"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d72/a00204.html">stride::util</a></td></tr>
-<tr class="memdesc:d1/d72/a00204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)&#160;&#160;&#160;#x</td></tr>
-<tr class="separator:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9063e80f8777300c93afde6e6f4c9cea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dec/a00090.html#a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</a>(x)&#160;&#160;&#160;<a class="el" href="../../d9/dec/a00090.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)</td></tr>
-<tr class="separator:a9063e80f8777300c93afde6e6f4c9cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Info on configuration. </p>
+<div class="textblock"><p>Implementation for the core ContcatPool class. </p>
 
-<p>Definition in file <a class="el" href="../../d9/dec/a00090_source.html">ConfigInfo.cpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a6df1d22fb5f09eccc23b9f399670cfd7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STRINGIFY</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;#x</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/dec/a00090_source.html#l00027">27</a> of file <a class="el" href="../../d9/dec/a00090_source.html">ConfigInfo.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9063e80f8777300c93afde6e6f4c9cea"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TOSTRING</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="../../d9/dec/a00090.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/dec/a00090_source.html#l00028">28</a> of file <a class="el" href="../../d9/dec/a00090_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dec/a00090_source.html#l00033">stride::util::ConfigInfo::GitRevision()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d9/dec/a00090_source.html">ContactPool.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/dec/a00090.html">ConfigInfo.cpp</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d9/dec/a00090.html">ContactPool.cpp</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

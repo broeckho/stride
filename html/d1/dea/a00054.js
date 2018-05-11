@@ -1,14 +1,20 @@
 var a00054 =
 [
-    [ "CSV", "d1/dea/a00054.html#ac8d180042e0dd5717d655d9cbd1dc59b", null ],
-    [ "CSV", "d1/dea/a00054.html#a637e43bf563fb9b4420a2aafd557875a", null ],
-    [ "CSV", "d1/dea/a00054.html#a6aadfb52b95c349f14469a203d21472b", null ],
-    [ "operator==", "d1/dea/a00054.html#a2f700f0aa2b27d664adb69e27a6eb4b1", null ],
-    [ "AddRow", "d1/dea/a00054.html#a1ae467f9599974c0f180c529f8a9f298", null ],
-    [ "AddRow", "d1/dea/a00054.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85", null ],
-    [ "GetColumnCount", "d1/dea/a00054.html#a63ffba1157ea6381bbce102c430e189b", null ],
-    [ "GetIndexForLabel", "d1/dea/a00054.html#aed99cf47769a6284b45c2815b08d1bd0", null ],
-    [ "Write", "d1/dea/a00054.html#a11a080486a81df3276cabfac0f7a2b41", null ],
-    [ "labels", "d1/dea/a00054.html#a4298638a8f9c9871d800338bdf77bd50", null ],
-    [ "columnCount", "d1/dea/a00054.html#a598821720121beeaed01a7a7216e5601", null ]
+    [ "Info", "d4/d6d/a00055.html", "d4/d6d/a00055" ],
+    [ "RNManager", "d1/dea/a00054.html#a30121f0f47cf4c23bed8da7521b2b904", null ],
+    [ "RNManager", "d1/dea/a00054.html#a09c7ac5ae3b2ecffe9ee9b373d035e57", null ],
+    [ "operator=", "d1/dea/a00054.html#a546d57ebd3d79450abc641b3ebe5d23c", null ],
+    [ "GetInfo", "d1/dea/a00054.html#a3faf18a9fdd2400012612a2cafde01a3", null ],
+    [ "GetGenerator", "d1/dea/a00054.html#a6508932485d419a6e7ab3cac60754ae6", null ],
+    [ "RandomShuffle", "d1/dea/a00054.html#a5a7dc58c76f112c8d808866cac5a272d", null ],
+    [ "Initialize", "d1/dea/a00054.html#a8c78f40f38b8a3fc25e2c21be2de505a", null ],
+    [ "m_seed", "d1/dea/a00054.html#af9b36fdeadaea938995a293c940b90a4", null ],
+    [ "m_stream_count", "d1/dea/a00054.html#a56d4de95212dccdd02652c477673297c", null ],
+    [ "m_type_id", "d1/dea/a00054.html#a74b3b62e58d9dc935287af1f403e3a88", null ],
+    [ "m_lcg64", "d1/dea/a00054.html#a138adbebf56ee6aff14f4a5d657eb582", null ],
+    [ "m_lcg64_shift", "d1/dea/a00054.html#a47e49d570a9cef2fee04ef084c93e09a", null ],
+    [ "m_mrg2", "d1/dea/a00054.html#aef24d7bf005b199b20bbc26111bac570", null ],
+    [ "m_mrg3", "d1/dea/a00054.html#a03cc6bedd665abb75073633f6bef0a73", null ],
+    [ "m_yarn2", "d1/dea/a00054.html#a769a08942e570dd9d257f12e5db009c5", null ],
+    [ "m_yarn3", "d1/dea/a00054.html#a7488be1e53338d26888543c134065392", null ]
 ];

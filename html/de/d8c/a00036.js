@@ -1,8 +1,8 @@
 var a00036 =
 [
-    [ "AdoptedFile", "de/d8c/a00036.html#aa24c13053bcf131ad878b465a4125828", null ],
-    [ "~AdoptedFile", "de/d8c/a00036.html#a3ffdabc86a3d9e8300cdbde251ab4763", null ],
-    [ "Print", "de/d8c/a00036.html#aa93f976e835a7255e7d479252eca28c9", null ],
-    [ "Initialize", "de/d8c/a00036.html#aefdeb0e49b52e1fb5844bb311a6319cb", null ],
-    [ "m_fstream", "de/d8c/a00036.html#aa82a130d557abb519a61bde42e626103", null ]
+    [ "PersonsFile", "de/d8c/a00036.html#ab2c1e70237152817647dded0f5906c6b", null ],
+    [ "~PersonsFile", "de/d8c/a00036.html#aafacf4448a2354eff812e02d2048e114", null ],
+    [ "Print", "de/d8c/a00036.html#ac72a90d142c34ca2137bdf09760ba2c4", null ],
+    [ "Initialize", "de/d8c/a00036.html#a70798ee06674e243f7dad24ae2dca7fd", null ],
+    [ "m_fstream", "de/d8c/a00036.html#a426f21983cf23767cfa51c0f4b9fb068", null ]
 ];

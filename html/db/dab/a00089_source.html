@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliViewer.h Source File</title>
+<title>Stride Reference Manual: ContactLogMode.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CliViewer.h</div>  </div>
+<div class="title">ContactLogMode.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/dab/a00089.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,49 +119,45 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d48/a00165.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d6a/a00119.html">sim/event/Id.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../da/d24/a00068.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d24/a00068.html">CliViewer</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../da/d24/a00068.html#a4ddb15ac567fd751c2be3a9d973d1666">   35</a></span>&#160;        <a class="code" href="../../da/d24/a00068.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, std::shared_ptr&lt;spdlog::logger&gt; logger)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="../../da/d24/a00068.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>(std::move(logger)), <a class="code" href="../../da/d24/a00068.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>(std::move(runner))</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../da/d24/a00068.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a>(<a class="code" href="../../de/d79/a00203.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../da/d24/a00068.html#acc77dad91899a0d4183493023e082e9f">   44</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../da/d24/a00068.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../da/d24/a00068.html#af789850b449fdadcc8572def4a0eb4af">   45</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt;      <a class="code" href="../../da/d24/a00068.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">stride::viewers::CliViewer</a></div><div class="ttdoc">Viewer of Simulator for commandline interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00031">CliViewer.h:31</a></div></div>
-<div class="ttc" id="a00068_html_a4ddb15ac567fd751c2be3a9d973d1666"><div class="ttname"><a href="../../da/d24/a00068.html#a4ddb15ac567fd751c2be3a9d973d1666">stride::viewers::CliViewer::CliViewer</a></div><div class="ttdeci">CliViewer(std::shared_ptr&lt; SimRunner &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Instantiate cli viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00035">CliViewer.h:35</a></div></div>
-<div class="ttc" id="a00068_html_acc77dad91899a0d4183493023e082e9f"><div class="ttname"><a href="../../da/d24/a00068.html#acc77dad91899a0d4183493023e082e9f">stride::viewers::CliViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00044">CliViewer.h:44</a></div></div>
-<div class="ttc" id="a00068_html_af789850b449fdadcc8572def4a0eb4af"><div class="ttname"><a href="../../da/d24/a00068.html#af789850b449fdadcc8572def4a0eb4af">stride::viewers::CliViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00045">CliViewer.h:45</a></div></div>
-<div class="ttc" id="a00068_html_a9f3a2f9efda499fa6a80f3871c7298d7"><div class="ttname"><a href="../../da/d24/a00068.html#a9f3a2f9efda499fa6a80f3871c7298d7">stride::viewers::CliViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00039">CliViewer.cpp:39</a></div></div>
-<div class="ttc" id="a00203_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../de/d79/a00203.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00165_html"><div class="ttname"><a href="../../d0/d48/a00165.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>ContactLogMode {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">   33</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">None</a>          = 0U,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Transmissions</a> = 1U,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">All</a>           = 2U,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Susceptibles</a>  = 3U</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;std::string <a class="code" href="../../d3/d2a/a00195.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> w);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d3/d2a/a00195.html#a3242678fd1548cd6dd420490dc06fcff">IsMode</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> <a class="code" href="../../d3/d2a/a00195.html#a12707c23b43baa1a0f5bed51db72756d">ToMode</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace ContactLogMode</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00195_html_a025f9ff3cf2df8c0c8b95e48724d9b7c"><div class="ttname"><a href="../../d3/d2a/a00195.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a></div><div class="ttdeci">string ToString(Id l)</div><div class="ttdoc">Converts a LogMode value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00032">ContactLogMode.cpp:32</a></div></div>
+<div class="ttc" id="a00195_html_a12707c23b43baa1a0f5bed51db72756d"><div class="ttname"><a href="../../d3/d2a/a00195.html#a12707c23b43baa1a0f5bed51db72756d">stride::ContactLogMode::ToMode</a></div><div class="ttdeci">Id ToMode(const string &amp;s)</div><div class="ttdoc">Converts a string with name to LogMode value. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00039">ContactLogMode.cpp:39</a></div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a></div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">stride::ContactLogMode::Id::Susceptibles</a></div></div>
+<div class="ttc" id="a00195_html_a3242678fd1548cd6dd420490dc06fcff"><div class="ttname"><a href="../../d3/d2a/a00195.html#a3242678fd1548cd6dd420490dc06fcff">stride::ContactLogMode::IsMode</a></div><div class="ttdeci">bool IsMode(const std::string &amp;s)</div><div class="ttdoc">Check whether string is name of LogMode value. </div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">stride::ContactLogMode::Id::All</a></div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">stride::ContactLogMode::Id::Transmissions</a></div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00033">ContactLogMode.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">CliViewer.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">ContactLogMode.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,28 +1,8 @@
 var a00020 =
 [
-    [ "Health", "db/db2/a00020.html#a29ca39e47180884b3c7681636d1c550d", null ],
-    [ "GetEndInfectiousness", "db/db2/a00020.html#a8e8b3c6fe823b70820f868bb597ade73", null ],
-    [ "GetEndSymptomatic", "db/db2/a00020.html#aac2a22ae31603c4dbaea3f440974d0d5", null ],
-    [ "GetStartInfectiousness", "db/db2/a00020.html#a9eab117bce0fe7009188aad7e534ca82", null ],
-    [ "GetStartSymptomatic", "db/db2/a00020.html#adf2c4f06cd9ad0dac95c5a2ffdd39489", null ],
-    [ "IsImmune", "db/db2/a00020.html#a7c9caae07db1dd15732f726cec514dc2", null ],
-    [ "IsInfected", "db/db2/a00020.html#aa54f0be8ce25462aaf62847ded75a29d", null ],
-    [ "IsInfectious", "db/db2/a00020.html#a84c0cb686c22ec8504942b84105eaed2", null ],
-    [ "IsRecovered", "db/db2/a00020.html#a4dae2bfe69375adb5dd89819f6798090", null ],
-    [ "IsSusceptible", "db/db2/a00020.html#ae2a3b14e79e08a261ca7122afba9b95c", null ],
-    [ "IsSymptomatic", "db/db2/a00020.html#aaf92d0eeeee7fac8c98854f4ae5a38ac", null ],
-    [ "SetImmune", "db/db2/a00020.html#a2ed35c613838b7cc9fab87fb494f87a1", null ],
-    [ "SetSusceptible", "db/db2/a00020.html#a8edeec79c050faabe2c09a1bc4860261", null ],
-    [ "StartInfection", "db/db2/a00020.html#a5d85541b8e22aeaa75b364a454f59088", null ],
-    [ "StopInfection", "db/db2/a00020.html#af6a2ca202696ba2f39744a5381918922", null ],
-    [ "Update", "db/db2/a00020.html#a26b7fd4e8c9107413d09592734bae3ce", null ],
-    [ "GetDiseaseCounter", "db/db2/a00020.html#a0c07c78dcaca9cade5b5a762faa36dd6", null ],
-    [ "IncrementDiseaseCounter", "db/db2/a00020.html#af86e0e738953615c5d63613d2054d9e8", null ],
-    [ "ResetDiseaseCounter", "db/db2/a00020.html#a468c554771acc883799456c14373e9db", null ],
-    [ "m_disease_counter", "db/db2/a00020.html#a75bc9a662485465d4de779b5cbaf979a", null ],
-    [ "m_status", "db/db2/a00020.html#a8026c3ff228a052fb849251910bde83b", null ],
-    [ "m_start_infectiousness", "db/db2/a00020.html#ad925abd929c25a1c404adc3c73639815", null ],
-    [ "m_start_symptomatic", "db/db2/a00020.html#a7be1828a7863a4f1e89a3181770fd759", null ],
-    [ "m_end_infectiousness", "db/db2/a00020.html#af68b0d0713728f5981e4830eb9f0ad4a", null ],
-    [ "m_end_symptomatic", "db/db2/a00020.html#a61cba0b10ed32b10e72a334ce7f9a34d", null ]
+    [ "Imitation", "db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12", null ],
+    [ "HasAdopted", "db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b", null ],
+    [ "m_accept", "db/db2/a00020.html#aa094646da3221985f97440760244df5e", null ],
+    [ "m_accept_threshold", "db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c", null ],
+    [ "m_no_accept_threshold", "db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d", null ]
 ];

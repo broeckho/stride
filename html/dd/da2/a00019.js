@@ -1,11 +1,11 @@
 var a00019 =
 [
-    [ "HBM", "dd/da2/a00019.html#a7585ba2adebbb683d257f4fabbd2f3b1", null ],
-    [ "m_num_contacts", "dd/da2/a00019.html#a3a5d4864f02e70e780fb427763d50aa3", null ],
-    [ "m_num_contacts_infected", "dd/da2/a00019.html#a3c3349b5d5d1003e875fb31016ee6578", null ],
-    [ "m_num_contacts_adopted", "dd/da2/a00019.html#a9eea259a8ceafe84d5ee819c620107c7", null ],
-    [ "m_perceived_severity", "dd/da2/a00019.html#a2acbb360276a70f7f774e3be6826a7f9", null ],
-    [ "m_perceived_susceptibility", "dd/da2/a00019.html#a123b1b98d61ec00ee6052531d61a696c", null ],
-    [ "m_perceived_benefit", "dd/da2/a00019.html#aca9896e5cfbd7c13086b35a45f571644", null ],
-    [ "m_perceived_barriers", "dd/da2/a00019.html#a9b2585958b898ee28d539f6a97304ad6", null ]
+    [ "HealthSeeder", "dd/da2/a00019.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
+    [ "Seed", "dd/da2/a00019.html#ad6a9061857cee5335745fe5501bcb73d", null ],
+    [ "GetDistribution", "dd/da2/a00019.html#a7b240a326b204767217481b3fcc46237", null ],
+    [ "Sample", "dd/da2/a00019.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
+    [ "m_distrib_start_infectiousness", "dd/da2/a00019.html#a2933ce9d9b3e17d11edb4d50bc005a1a", null ],
+    [ "m_distrib_start_symptomatic", "dd/da2/a00019.html#a09f22ca66e79edf806a249517ec6ac35", null ],
+    [ "m_distrib_time_infectious", "dd/da2/a00019.html#a520743c093005b7ccda658475107f0c2", null ],
+    [ "m_distrib_time_symptomatic", "dd/da2/a00019.html#a6d190e53a3a83864d7a40cb78b2188e4", null ]
 ];

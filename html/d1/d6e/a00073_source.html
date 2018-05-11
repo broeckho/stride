@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: AdoptedFile.h Source File</title>
+<title>Stride Reference Manual: AgeContactProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d1/d6e/a00073_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AdoptedFile.h</div>  </div>
+<div class="title">AgeContactProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d6e/a00073.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,44 +122,35 @@ $(document).ready(function(){initNavTree('d1/d6e/a00073_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>output {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../de/d8c/a00036.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d8c/a00036.html">AdoptedFile</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d8c/a00036.html#aa24c13053bcf131ad878b465a4125828">AdoptedFile</a>(<span class="keyword">const</span> std::string&amp; output_dir = <span class="stringliteral">&quot;output&quot;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../de/d8c/a00036.html#a3ffdabc86a3d9e8300cdbde251ab4763">~AdoptedFile</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d54/a00094.html">pool/ContactPoolType.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d89/a00071.html">pop/Age.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d8c/a00036.html#aa93f976e835a7255e7d479252eca28c9">Print</a>(<span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; adopters);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d8c/a00036.html#aefdeb0e49b52e1fb5844bb311a6319cb">Initialize</a>(<span class="keyword">const</span> std::string&amp; output_dir);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../de/d8c/a00036.html#aa82a130d557abb519a61bde42e626103">   41</a></span>&#160;        std::ofstream <a class="code" href="../../de/d8c/a00036.html#aa82a130d557abb519a61bde42e626103">m_fstream</a>; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace output</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00036_html_aa82a130d557abb519a61bde42e626103"><div class="ttname"><a href="../../de/d8c/a00036.html#aa82a130d557abb519a61bde42e626103">stride::output::AdoptedFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdoc">The file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6e/a00073_source.html#l00041">AdoptedFile.h:41</a></div></div>
-<div class="ttc" id="a00036_html_aa93f976e835a7255e7d479252eca28c9"><div class="ttname"><a href="../../de/d8c/a00036.html#aa93f976e835a7255e7d479252eca28c9">stride::output::AdoptedFile::Print</a></div><div class="ttdeci">void Print(const std::vector&lt; unsigned int &gt; &amp;adopters)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2c/a00072_source.html#l00029">AdoptedFile.cpp:29</a></div></div>
-<div class="ttc" id="a00036_html_aa24c13053bcf131ad878b465a4125828"><div class="ttname"><a href="../../de/d8c/a00036.html#aa24c13053bcf131ad878b465a4125828">stride::output::AdoptedFile::AdoptedFile</a></div><div class="ttdeci">AdoptedFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2c/a00072_source.html#l00025">AdoptedFile.cpp:25</a></div></div>
-<div class="ttc" id="a00036_html_a3ffdabc86a3d9e8300cdbde251ab4763"><div class="ttname"><a href="../../de/d8c/a00036.html#a3ffdabc86a3d9e8300cdbde251ab4763">stride::output::AdoptedFile::~AdoptedFile</a></div><div class="ttdeci">~AdoptedFile()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2c/a00072_source.html#l00027">AdoptedFile.cpp:27</a></div></div>
-<div class="ttc" id="a00036_html_aefdeb0e49b52e1fb5844bb311a6319cb"><div class="ttname"><a href="../../de/d8c/a00036.html#aefdeb0e49b52e1fb5844bb311a6319cb">stride::output::AdoptedFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d2c/a00072_source.html#l00037">AdoptedFile.cpp:37</a></div></div>
-<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">stride::output::AdoptedFile</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6e/a00073_source.html#l00024">AdoptedFile.h:24</a></div></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d7c/a00003.html">AgeContactProfile</a> : <span class="keyword">public</span> std::array&lt;double, MaximumAge() + 1&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d1/d7c/a00003.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d1/d7c/a00003.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>(<a class="code" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, <span class="keyword">const</span> boost::property_tree::ptree&amp; contactPt);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00003_html"><div class="ttname"><a href="../../d1/d7c/a00003.html">stride::AgeContactProfile</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6e/a00073_source.html#l00033">AgeContactProfile.h:33</a></div></div>
+<div class="ttc" id="a00196_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00003_html_abcac910ea28f2cefae9efd6f462aa34d"><div class="ttname"><a href="../../d1/d7c/a00003.html#abcac910ea28f2cefae9efd6f462aa34d">stride::AgeContactProfile::AgeContactProfile</a></div><div class="ttdeci">AgeContactProfile()=default</div><div class="ttdoc">Need to keep the default constructor available. </div></div>
+<div class="ttc" id="a00094_html"><div class="ttname"><a href="../../dc/d54/a00094.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
+<div class="ttc" id="a00071_html"><div class="ttname"><a href="../../d0/d89/a00071.html">Age.h</a></div><div class="ttdoc">Helpers for age. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d1/d6e/a00073.html">AdoptedFile.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d1/d6e/a00073.html">AgeContactProfile.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

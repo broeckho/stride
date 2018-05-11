@@ -1,5 +1,5 @@
 var a00027 =
 [
-    [ "Update", "d0/d33/a00027.html#ae927760d0eb3e5a3114305c53ebe70e3", null ],
-    [ "m_discussion_probability", "d0/d33/a00027.html#abec64aa38907d3ffde96d9f848bd1d0d", null ]
+    [ "Contact", "d0/d33/a00027.html#ac571c931677ef5dd82de6cc46a085dbd", null ],
+    [ "Trans", "d0/d33/a00027.html#a2a1c733f931d13419e338a64a759f6c9", null ]
 ];

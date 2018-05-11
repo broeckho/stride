@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HealthSeeder.cpp Source File</title>
+<title>Stride Reference Manual: Imitation.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,106 +103,74 @@ $(document).ready(function(){initNavTree('d4/d3e/a00116_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">HealthSeeder.cpp</div>  </div>
+<div class="title">Imitation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d4/d3e/a00116.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d4b/a00117.html">HealthSeeder.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9a/a00152.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d34/a00156.html">util/RNManager.h</a>&quot;</span></div>
+<a href="../../d4/d3e/a00116.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/df8/a00076.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;trng/uniform01_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a7b4785c0728c9f154aa1426034d6e1b5">   35</a></span>&#160;HealthSeeder::HealthSeeder(<span class="keyword">const</span> boost::property_tree::ptree&amp; diseasePt)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        GetDistribution(m_distrib_start_infectiousness, diseasePt, <span class="stringliteral">&quot;disease.start_infectiousness&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        GetDistribution(m_distrib_start_symptomatic, diseasePt, <span class="stringliteral">&quot;disease.start_symptomatic&quot;</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        GetDistribution(m_distrib_time_infectious, diseasePt, <span class="stringliteral">&quot;disease.time_infectious&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        GetDistribution(m_distrib_time_symptomatic, diseasePt, <span class="stringliteral">&quot;disease.time_symptomatic&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/db2/a00020.html">Imitation</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d0b/a00004.html">Belief</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">   32</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">Imitation</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            : <a class="code" href="../../d0/d0b/a00004.html">Belief</a>(), <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>(false), <a class="code" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d5/d13/a00205.html">double</a>&gt;(<span class="stringliteral">&quot;accept_threshold&quot;</span>)),</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;              <a class="code" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d5/d13/a00205.html">double</a>&gt;(<span class="stringliteral">&quot;no_accept_threshold&quot;</span>))</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="comment">// TODO belief strength</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="comment">// TODO stickiness</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">   40</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">HasAdopted</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>; }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        assert((abs(m_distrib_start_infectiousness.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in start_infectiousness distribution!&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        assert((abs(m_distrib_start_symptomatic.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in start_symptomatic distribution!&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert((abs(m_distrib_time_infectious.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in time_infectious distribution!&quot;</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        assert((abs(m_distrib_time_symptomatic.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in time_symptomatic distribution!&quot;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a7b240a326b204767217481b3fcc46237">   52</a></span>&#160;<span class="keywordtype">void</span> HealthSeeder::GetDistribution(vector&lt;double&gt;&amp; distribution, <span class="keyword">const</span> ptree&amp; rootPt, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; xmlTag)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; subtree = rootPt.get_child(xmlTag);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; tree : subtree) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                distribution.push_back(tree.second.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a562b022d2c7f2836b4400e7d19e1b040">   60</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> HealthSeeder::Sample(<span class="keyword">const</span> vector&lt;double&gt;&amp; distribution, <span class="keywordtype">double</span> random01)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">auto</span> ret = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(distribution.size());</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> i = 0; i &lt; distribution.size(); i++) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">if</span> (random01 &lt;= distribution[i]) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        ret = i;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#ad6a9061857cee5335745fe5501bcb73d">   72</a></span>&#160;<span class="keywordtype">void</span> HealthSeeder::Seed(<span class="keyword">const</span> std::shared_ptr&lt;stride::Population&gt;&amp; pop, vector&lt;ContactHandler&gt;&amp; handlers)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">auto</span>&amp; population = *pop;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#pragma omp parallel num_threads(handlers.size())</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>        {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keyword">auto</span>&amp; gen01 = handlers[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(omp_get_thread_num())];</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#pragma omp for</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> startInfectiousness = Sample(m_distrib_start_infectiousness, gen01());</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> startSymptomatic = Sample(m_distrib_start_symptomatic, gen01());</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> timeInfectious = Sample(m_distrib_time_infectious, gen01());</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> timeSymptomatic = Sample(m_distrib_time_symptomatic, gen01());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        population[i].GetHealth()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                = <a class="code" href="../../db/db2/a00020.html">Health</a>(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00156_html"><div class="ttname"><a href="../../d2/d34/a00156.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00117_html"><div class="ttname"><a href="../../d9/d4b/a00117.html">HealthSeeder.h</a></div><div class="ttdoc">Header file for the HealthSeeder. </div></div>
-<div class="ttc" id="a00020_html"><div class="ttname"><a href="../../db/db2/a00020.html">stride::Health</a></div><div class="ttdoc">Holds a person&#39;s health data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/da3/a00115_source.html#l00037">Health.h:37</a></div></div>
-<div class="ttc" id="a00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// TODO update</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">   45</a></span>&#160;        <span class="keywordtype">bool</span>   <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">   46</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">   47</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// double m_belief_strength; ///&lt; The &#39;strength&#39; of someone&#39;s belief, varying from -1 (very negative attitude to</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>        <span class="comment">// double m_stickiness;      ///&lt; How likely the belief is to change</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// TODO influence of belonging to same household?</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">// TODO awareness?</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00020_html_a78b384d9972e06d7e1e2c516a9c82d12"><div class="ttname"><a href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">stride::Imitation::Imitation</a></div><div class="ttdeci">Imitation(const boost::property_tree::ptree &amp;pt)</div><div class="ttdoc">Initializing constructor, for now with ptree. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00032">Imitation.h:32</a></div></div>
+<div class="ttc" id="a00020_html_a043184f95908e3cbace4b79547ac908c"><div class="ttname"><a href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">stride::Imitation::m_accept_threshold</a></div><div class="ttdeci">double m_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00046">Imitation.h:46</a></div></div>
+<div class="ttc" id="a00076_html"><div class="ttname"><a href="../../db/df8/a00076.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
+<div class="ttc" id="a00020_html_a53716b9bed3d3352c60ef758e3b25d6b"><div class="ttname"><a href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">stride::Imitation::HasAdopted</a></div><div class="ttdeci">bool HasAdopted() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00040">Imitation.h:40</a></div></div>
+<div class="ttc" id="a00020_html_a286d3ecef9366a78e645a4a3f7cb634d"><div class="ttname"><a href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">stride::Imitation::m_no_accept_threshold</a></div><div class="ttdeci">double m_no_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00047">Imitation.h:47</a></div></div>
+<div class="ttc" id="a00205_html"><div class="ttname"><a href="../../d5/d13/a00205.html">double</a></div></div>
+<div class="ttc" id="a00020_html"><div class="ttname"><a href="../../db/db2/a00020.html">stride::Imitation</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00028">Imitation.h:28</a></div></div>
+<div class="ttc" id="a00020_html_aa094646da3221985f97440760244df5e"><div class="ttname"><a href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">stride::Imitation::m_accept</a></div><div class="ttdeci">bool m_accept</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3e/a00116_source.html#l00045">Imitation.h:45</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/df8/a00076_source.html#l00027">Belief.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d4/d3e/a00116.html">HealthSeeder.cpp</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d4/d3e/a00116.html">Imitation.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

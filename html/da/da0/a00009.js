@@ -1,16 +1,14 @@
 var a00009 =
 [
-    [ "CliController", "da/da0/a00009.html#a6c1780a5ff62df746e6f8328c16a3c62", null ],
-    [ "CliController", "da/da0/a00009.html#a0915246b08e7cb4bc0586a9eadcfc381", null ],
-    [ "Control", "da/da0/a00009.html#a126fe70ea36234d7db97a53db9912338", null ],
-    [ "CheckEnv", "da/da0/a00009.html#a4bee813e33ac0b5c9a44f727d5c7b0aa", null ],
-    [ "CheckOutputPrefix", "da/da0/a00009.html#a2872b036cfffe4153a5ee33d0c669424", null ],
-    [ "LogSetup", "da/da0/a00009.html#abef1ddddf5dc91741dfc8e94fd80fbf1", null ],
-    [ "MakeLogger", "da/da0/a00009.html#a4282046a0987af420cdf32c73c203579", null ],
-    [ "RegisterViewers", "da/da0/a00009.html#ac0ad454c9dd6a2456d7078484a4ccec8", null ],
-    [ "m_config_pt", "da/da0/a00009.html#a8166a5fc94c70797882dab5337a7ae61", null ],
-    [ "m_output_prefix", "da/da0/a00009.html#ae0f6ad6a773127d0a1c5e9468be25ea2", null ],
-    [ "m_run_clock", "da/da0/a00009.html#aeff91fe883e6e3cfee972c37d197d40f", null ],
-    [ "m_stride_logger", "da/da0/a00009.html#ad0172dba37040fa790070d9c61a4e51f", null ],
-    [ "m_use_install_dirs", "da/da0/a00009.html#a4c6d564e6fa43ecc69be45551627dbaf", null ]
+    [ "ContactPool", "da/da0/a00009.html#a8823b3c4a242f11f02e8c41b03ccd032", null ],
+    [ "AddMember", "da/da0/a00009.html#a1d78d0a3fd422a09f39e87d83c391d47", null ],
+    [ "GetMember", "da/da0/a00009.html#ae7962d506db44920ed1fd99471cabc50", null ],
+    [ "GetPool", "da/da0/a00009.html#afb9a65718e51a5afa72e9f34724f1fe0", null ],
+    [ "GetSize", "da/da0/a00009.html#a206057a57bf75587c303c41f27f3bf23", null ],
+    [ "SortMembers", "da/da0/a00009.html#a6c90e9734ee7c6566bdf1f4416e99fd8", null ],
+    [ "Infector", "da/da0/a00009.html#a346978e3da1a4b6079c313de8fde0e52", null ],
+    [ "m_pool_id", "da/da0/a00009.html#a2b89a6990328cbbb99d580e1a716da08", null ],
+    [ "m_pool_type", "da/da0/a00009.html#a7f177c0e74c8749112841384c640c749", null ],
+    [ "m_index_immune", "da/da0/a00009.html#a62c93d5ae7d1981ca160bb01b543ee93", null ],
+    [ "m_members", "da/da0/a00009.html#a672b69837fbd57d9a61f8acb18fec82e", null ]
 ];

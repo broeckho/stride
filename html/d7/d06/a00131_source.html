@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: InfectorMap.h Source File</title>
+<title>Stride Reference Manual: main.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,79 +103,158 @@ $(document).ready(function(){initNavTree('d7/d06/a00131_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InfectorMap.h</div>  </div>
+<div class="title">main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/d06/a00131.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d54/a00094.html">contact/ContactLogMode.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d47/a00129.html">contact/Infector.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/db3/a00130.html">contact/InfectorExec.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>Calendar;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>Population;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d5b/a00026.html">InfectorMap</a> : <span class="keyword">public</span> std::map&lt;std::tuple&lt;stride::ContactLogMode::Id, bool, std::string&gt;, InfectorExec*&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a389bcbbddf547f27cb2e60feadca12af">   43</a></span>&#160;        <a class="code" href="../../d6/d5b/a00026.html#a389bcbbddf547f27cb2e60feadca12af">InfectorMap</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Add&lt;NoLocalInformation, true&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                Add&lt;NoLocalInformation, false&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                Add&lt;LocalDiscussion, true&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                Add&lt;LocalDiscussion, false&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">bool</span> B&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d6/d5b/a00026.html#a2abaaf56ff495aa37bfead7eea5405de">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d6/d5b/a00026.html#a2abaaf56ff495aa37bfead7eea5405de">Add</a>(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">using namespace </span>ContactLogMode;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Suscep = Id::Susceptibles;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Transm = Id::Transmissions;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Suscep, B, name), &amp;<a class="code" href="../../dc/de2/a00024.html">Infector&lt;Suscep, B, T&gt;::Exec</a>));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Transm, B, name), &amp;<a class="code" href="../../dc/de2/a00024.html">Infector&lt;Transm, B, T&gt;::Exec</a>));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::All, B, name), &amp;<a class="code" href="../../dc/de2/a00024.html">Infector&lt;Id::All, B, T&gt;::Exec</a>));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::None, B, name), &amp;<a class="code" href="../../dc/de2/a00024.html">Infector&lt;Id::None, B, T&gt;::Exec</a>));</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<a href="../../d7/d06/a00131.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d63/a00082.html">sim/CliController.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d98/a00107.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d01/a00153.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d44/a00162.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/a00174.html">util/TimeStamp.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;tclap/CmdLine.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using namespace </span>stride;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>TCLAP;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/d06/a00131.html#a3c04138a5bfe5d72780bb7e82a18e627">   40</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d7/d06/a00131.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">int</span> exitStatus = EXIT_SUCCESS;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="comment">// Parse command line.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                CmdLine cmd(<span class="stringliteral">&quot;stride&quot;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="stringliteral">&quot;1.0&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                vector&lt;string&gt;           execs{<span class="stringliteral">&quot;clean&quot;</span>, <span class="stringliteral">&quot;dump&quot;</span>, <span class="stringliteral">&quot;sim&quot;</span>, <span class="stringliteral">&quot;simgui&quot;</span>, <span class="stringliteral">&quot;geopop&quot;</span>};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                ValuesConstraint&lt;string&gt; vc(execs);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordtype">string</span> se = <span class="stringliteral">&quot;Execute the indicated function. The clean function takes the configuration file &quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                            <span class="stringliteral">&quot;specified by the --config file=&lt;file&gt; parameter, cleans it (indent, sort) and &quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                            <span class="stringliteral">&quot;rewrites it to a new file. The dump function takes the built-in configuration &quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                            <span class="stringliteral">&quot;(used for testing/benchmarking) specified by the --config name=&lt;name&gt; parameter &quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                            <span class="stringliteral">&quot;and writes it, cleanly (i.e. indented, sorted) to a new file. The sim function &quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                            <span class="stringliteral">&quot;runs the simulator using the configuration specified by the --config parameter.&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                            <span class="stringliteral">&quot;The latter may use either --config file=&lt;file&gt; or --config name=&lt;name&gt;. The sim&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                            <span class="stringliteral">&quot;function is the default. The simgui function runs the simulator with a graphical&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                            <span class="stringliteral">&quot;interface. The geopop executes the geospatial synthetic population generator&quot;</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                ValueArg&lt;string&gt; execArg(<span class="stringliteral">&quot;e&quot;</span>, <span class="stringliteral">&quot;exec&quot;</span>, se, <span class="keyword">false</span>, <span class="stringliteral">&quot;sim&quot;</span>, &amp;vc, cmd);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordtype">string</span> so = <span class="stringliteral">&quot;Override configuration parameters in the configuration file. The format is &quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                            <span class="stringliteral">&quot;--override &lt;name&gt;=&lt;value&gt;. It can be used multiple times.&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                MultiArg&lt;string&gt; overrideArg(<span class="stringliteral">&quot;o&quot;</span>, <span class="stringliteral">&quot;override&quot;</span>, so, <span class="keyword">false</span>, <span class="stringliteral">&quot;&lt;NAME&gt;=&lt;VALUE&gt;&quot;</span>, cmd);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00024_html"><div class="ttname"><a href="../../dc/de2/a00024.html">stride::Infector</a></div><div class="ttdoc">Actual contacts and transmission in contactpool (primary template). </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d47/a00129_source.html#l00065">Infector.h:65</a></div></div>
-<div class="ttc" id="a00130_html"><div class="ttname"><a href="../../d6/db3/a00130.html">InfectorExec.h</a></div><div class="ttdoc">Header for the InfectorExec class. </div></div>
-<div class="ttc" id="a00026_html"><div class="ttname"><a href="../../d6/d5b/a00026.html">stride::InfectorMap</a></div><div class="ttdoc">Simulator can time step and reveal some of the key data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d06/a00131_source.html#l00039">InfectorMap.h:39</a></div></div>
-<div class="ttc" id="a00129_html"><div class="ttname"><a href="../../d9/d47/a00129.html">Infector.h</a></div><div class="ttdoc">Header for the Infector class. </div></div>
-<div class="ttc" id="a00026_html_a2abaaf56ff495aa37bfead7eea5405de"><div class="ttname"><a href="../../d6/d5b/a00026.html#a2abaaf56ff495aa37bfead7eea5405de">stride::InfectorMap::Add</a></div><div class="ttdeci">void Add(const std::string &amp;name)</div><div class="ttdoc">Filling up the InfectorMap. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d06/a00131_source.html#l00054">InfectorMap.h:54</a></div></div>
-<div class="ttc" id="a00026_html_a389bcbbddf547f27cb2e60feadca12af"><div class="ttname"><a href="../../d6/d5b/a00026.html#a389bcbbddf547f27cb2e60feadca12af">stride::InfectorMap::InfectorMap</a></div><div class="ttdeci">InfectorMap()</div><div class="ttdoc">Fully initialized. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d06/a00131_source.html#l00043">InfectorMap.h:43</a></div></div>
-<div class="ttc" id="a00094_html"><div class="ttname"><a href="../../dc/d54/a00094.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordtype">string</span> sc = <span class="stringliteral">&quot;Specifies the run configuration parameters to be used. It may be either &quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            <span class="stringliteral">&quot;-c file=&lt;file&gt; or -c name=&lt;name&gt;. The first is most commonly used and may be &quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                            <span class="stringliteral">&quot;shortened to -c &lt;file&gt;.&quot;</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                ValueArg&lt;string&gt; configArg(<span class="stringliteral">&quot;c&quot;</span>, <span class="stringliteral">&quot;config&quot;</span>, sc, <span class="keyword">false</span>, <span class="stringliteral">&quot;run_default.xml&quot;</span>, <span class="stringliteral">&quot;RUN CONFIGURATION&quot;</span>, cmd);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">string</span> si = <span class="stringliteral">&quot;Look for configuration file specified by the -c file=&lt;file&gt; or -c &lt;file&gt; in the &quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                            <span class="stringliteral">&quot;stride install directories&quot;</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                SwitchArg installedArg(<span class="stringliteral">&quot;i&quot;</span>, <span class="stringliteral">&quot;installed&quot;</span>, si, cmd, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                cmd.parse(argc, static_cast&lt;const char* const*&gt;(argv));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="comment">// Get configuration and path with overrides (if any).</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keyword">auto</span>  config = configArg.getValue();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                ptree configPt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">if</span> (regex_search(config, regex(<span class="stringliteral">&quot;^name=&quot;</span>))) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        config   = regex_replace(config, regex(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;^name=&quot;</span>)), <span class="keywordtype">string</span>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        configPt = RunConfigManager::Create(config);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        config = regex_replace(config, regex(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;^file=&quot;</span>)), <span class="keywordtype">string</span>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keyword">const</span> boost::filesystem::path configPath =</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                            (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : config;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        configPt = FileSys::ReadPtreeFile(configPath);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p_assignment : overrideArg.getValue()) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> v = <a class="code" href="../../dd/de3/a00201.html#a919ad6efcd17eb2bda30b1c6e044bc3c">util::Tokenize</a>(p_assignment, <span class="stringliteral">&quot;=&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        configPt.put(<span class="stringliteral">&quot;run.&quot;</span> + v[0], v[1]);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="comment">// If run simulation in cli ...</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">if</span> (execArg.getValue() == <span class="stringliteral">&quot;sim&quot;</span>) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="keywordflow">if</span> (configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>, <span class="stringliteral">&quot;&quot;</span>).empty()) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                configPt.put(<span class="stringliteral">&quot;run.output_prefix&quot;</span>, <a class="code" href="../../d9/d73/a00060.html">TimeStamp</a>().ToTag().append(<span class="stringliteral">&quot;/&quot;</span>));</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        configPt.sort();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <a class="code" href="../../de/d5e/a00007.html">CliController</a>(configPt).<a class="code" href="../../de/d5e/a00007.html#a126fe70ea36234d7db97a53db9912338">Control</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="comment">// If run simulation in gui ...</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (execArg.getValue() == <span class="stringliteral">&quot;simgui&quot;</span>) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                        cout &lt;&lt; <span class="stringliteral">&quot;Not implented here yet ...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="comment">// If geopop ...</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (execArg.getValue() == <span class="stringliteral">&quot;geopop&quot;</span>) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        cout &lt;&lt; <span class="stringliteral">&quot;Not implented here yet ...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="comment">// If clean/dump ...</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (execArg.getValue() == <span class="stringliteral">&quot;clean&quot;</span> || execArg.getValue() == <span class="stringliteral">&quot;dump&quot;</span>) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        RunConfigManager::CleanConfigFile(configPt);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        } <span class="keywordflow">catch</span> (exception&amp; e) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                exitStatus = EXIT_FAILURE;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                cerr &lt;&lt; <span class="stringliteral">&quot;\nEXCEPION THROWN: &quot;</span> &lt;&lt; e.what() &lt;&lt; endl;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                exitStatus = EXIT_FAILURE;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                cerr &lt;&lt; <span class="stringliteral">&quot;\nEXCEPION THROWN: Unknown exception.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">return</span> exitStatus;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="ttc" id="a00007_html_a126fe70ea36234d7db97a53db9912338"><div class="ttname"><a href="../../de/d5e/a00007.html#a126fe70ea36234d7db97a53db9912338">stride::CliController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Actual run of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d53/a00081_source.html#l00085">CliController.cpp:85</a></div></div>
+<div class="ttc" id="a00162_html"><div class="ttname"><a href="../../db/d44/a00162.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="ttc" id="a00082_html"><div class="ttname"><a href="../../d4/d63/a00082.html">CliController.h</a></div><div class="ttdoc">Header for the command line controller. </div></div>
+<div class="ttc" id="a00131_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="../../d7/d06/a00131.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Main program of the stride simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d06/a00131_source.html#l00040">main.cpp:40</a></div></div>
+<div class="ttc" id="a00201_html_a919ad6efcd17eb2bda30b1c6e044bc3c"><div class="ttname"><a href="../../dd/de3/a00201.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Tokenize(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Tokenize a string (in order of occurence) with the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00054">StringUtils.h:54</a></div></div>
+<div class="ttc" id="a00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
+<div class="ttc" id="a00060_html"><div class="ttname"><a href="../../d9/d73/a00060.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00036">TimeStamp.h:36</a></div></div>
+<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00007_html"><div class="ttname"><a href="../../de/d5e/a00007.html">stride::CliController</a></div><div class="ttdoc">The CliController controls execution of a simulation run (. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d63/a00082_source.html#l00050">CliController.h:50</a></div></div>
+<div class="ttc" id="a00107_html"><div class="ttname"><a href="../../df/d98/a00107.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d7/d06/a00131.html">InfectorMap.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d7/d06/a00131.html">main.cpp</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

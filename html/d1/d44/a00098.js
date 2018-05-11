@@ -1,6 +1,6 @@
 var a00098 =
 [
-    [ "IsType", "d1/d44/a00098.html#a1269217f56908f0da981dbe4e43bb73d", null ],
-    [ "ToString", "d1/d44/a00098.html#a0cf9d3425b406cd76acdc02ef9c0286d", null ],
-    [ "ToType", "d1/d44/a00098.html#af529300a78547c29c95b81ad8ac62afe", null ]
+    [ "CSVRow", "d5/de0/a00050.html", "d5/de0/a00050" ],
+    [ "CSVRow::GetValue< std::string >", "d1/d44/a00098.html#a9dce01f32b092253d815beac1cd52010", null ],
+    [ "CSVRow::GetValue< std::string >", "d1/d44/a00098.html#a7c45b2cf6c75aee55004e27edb10e745", null ]
 ];

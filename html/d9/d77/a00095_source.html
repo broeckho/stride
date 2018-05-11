@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactPool.cpp Source File</title>
+<title>Stride Reference Manual: CSV.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d9/d77/a00095_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactPool.cpp</div>  </div>
+<div class="title">CSV.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d77/a00095.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -121,81 +121,137 @@ $(document).ready(function(){initNavTree('d9/d77/a00095_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df8/a00096.html">ContactPool.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df8/a00096.html">CSV.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/df8/a00076.html">pop/Age.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/da7/a00144.html">pop/Person.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>boost;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a8823b3c4a242f11f02e8c41b03ccd032">   32</a></span>&#160;<a class="code" href="../../da/d45/a00011.html#a8823b3c4a242f11f02e8c41b03ccd032">ContactPool::ContactPool</a>(std::size_t pool_id, <a class="code" href="../../d3/db1/a00200.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    : m_pool_id(pool_id), m_pool_type(type), m_index_immune(0), m_members()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a1d78d0a3fd422a09f39e87d83c391d47">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/d45/a00011.html#a1d78d0a3fd422a09f39e87d83c391d47">ContactPool::AddMember</a>(<span class="keyword">const</span> <a class="code" href="../../db/d3a/a00040.html">Person</a>* p)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>.emplace_back(const_cast&lt;Person*&gt;(p));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../da/d45/a00011.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a>++;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a6c90e9734ee7c6566bdf1f4416e99fd8">   43</a></span>&#160;std::tuple&lt;bool, size_t&gt; <a class="code" href="../../da/d45/a00011.html#a6c90e9734ee7c6566bdf1f4416e99fd8">ContactPool::SortMembers</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span>   infectious_cases = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">size_t</span> num_cases        = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> filesystem::path check(<span class="keyword">const</span> filesystem::path&amp; filename,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                             <span class="keyword">const</span> filesystem::path&amp; root = boost::filesystem::current_path())</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> filesystem::path file_path = canonical(complete(filename, root));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (!is_regular_file(file_path)) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(std::string(__func__) + <span class="stringliteral">&quot;&gt;File &quot;</span> + file_path.string() +</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                         <span class="stringliteral">&quot; not present. Aborting.&quot;</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> file_path;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i_member = 0; i_member &lt; <a class="code" href="../../da/d45/a00011.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a>; i_member++) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="comment">// if immune, move to back</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsImmune()) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        <span class="keywordtype">bool</span>   swapped   = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="keywordtype">size_t</span> new_place = m_index_immune - 1;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        m_index_immune--;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        <span class="keywordflow">while</span> (!swapped &amp;&amp; new_place &gt; i_member) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[new_place]-&gt;GetHealth().IsImmune()) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                        m_index_immune--;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                        new_place--;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                        swap(<a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member], <a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[new_place]);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                        swapped = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">// else, if not susceptible, move to front</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsSusceptible()) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">if</span> (!infectious_cases &amp;&amp; <a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member]-&gt;GetHealth().IsInfectious()) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                infectious_cases = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">if</span> (i_member &gt; num_cases) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                swap(<a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[i_member], <a class="code" href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a>[num_cases]);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        num_cases++;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> std::make_tuple(infectious_cases, num_cases);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00011_html_a8823b3c4a242f11f02e8c41b03ccd032"><div class="ttname"><a href="../../da/d45/a00011.html#a8823b3c4a242f11f02e8c41b03ccd032">stride::ContactPool::ContactPool</a></div><div class="ttdeci">ContactPool(std::size_t pool_id, ContactPoolType::Id type)</div><div class="ttdoc">Initializing constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00032">ContactPool.cpp:32</a></div></div>
-<div class="ttc" id="a00144_html"><div class="ttname"><a href="../../d5/da7/a00144.html">Person.h</a></div><div class="ttdoc">Header file for the Person class. </div></div>
-<div class="ttc" id="a00076_html"><div class="ttname"><a href="../../db/df8/a00076.html">Age.h</a></div><div class="ttdoc">Helpers for age. </div></div>
-<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
-<div class="ttc" id="a00011_html_a6c90e9734ee7c6566bdf1f4416e99fd8"><div class="ttname"><a href="../../da/d45/a00011.html#a6c90e9734ee7c6566bdf1f4416e99fd8">stride::ContactPool::SortMembers</a></div><div class="ttdeci">std::tuple&lt; bool, size_t &gt; SortMembers()</div><div class="ttdoc">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00043">ContactPool.cpp:43</a></div></div>
-<div class="ttc" id="a00011_html_a62c93d5ae7d1981ca160bb01b543ee93"><div class="ttname"><a href="../../da/d45/a00011.html#a62c93d5ae7d1981ca160bb01b543ee93">stride::ContactPool::m_index_immune</a></div><div class="ttdeci">std::size_t m_index_immune</div><div class="ttdoc">Index of the first immune member in the ContactPool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00064">ContactPool.h:64</a></div></div>
-<div class="ttc" id="a00200_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d3/db1/a00200.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d74/a00099_source.html#l00033">ContactPoolType.h:33</a></div></div>
-<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/a00144_source.html#l00035">Person.h:35</a></div></div>
-<div class="ttc" id="a00011_html_a1d78d0a3fd422a09f39e87d83c391d47"><div class="ttname"><a href="../../da/d45/a00011.html#a1d78d0a3fd422a09f39e87d83c391d47">stride::ContactPool::AddMember</a></div><div class="ttdeci">void AddMember(const Person *p)</div><div class="ttdoc">Add the given Person. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00037">ContactPool.cpp:37</a></div></div>
-<div class="ttc" id="a00011_html_a672b69837fbd57d9a61f8acb18fec82e"><div class="ttname"><a href="../../da/d45/a00011.html#a672b69837fbd57d9a61f8acb18fec82e">stride::ContactPool::m_members</a></div><div class="ttdeci">std::vector&lt; Person * &gt; m_members</div><div class="ttdoc">Pointers to contactpool members (raw pointers intentional). </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00065">ContactPool.h:65</a></div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;CSV::CSV(<span class="keyword">const</span> boost::filesystem::path&amp; path, initializer_list&lt;string&gt; optLabels) : columnCount(0)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                boost::filesystem::path     full_path = check(path);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                boost::filesystem::ifstream file;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                file.open(full_path.string());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Error opening csv file: &quot;</span> + full_path.string());</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordtype">string</span> line;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="comment">// header</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                getline(file, line);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                line = <a class="code" href="../../dd/de3/a00201.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(line);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">// Split is bad! There is no option to escape &quot;,&quot;.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                vector&lt;string&gt; headerLabels = <a class="code" href="../../dd/de3/a00201.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label : headerLabels) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        labels.push_back(<a class="code" href="../../dd/de3/a00201.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(label, <span class="stringliteral">&quot;\&quot;&quot;</span>));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                columnCount = labels.size();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="comment">// body</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">while</span> (getline(file, line)) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        line = <a class="code" href="../../dd/de3/a00201.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(line);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        <span class="keywordflow">if</span> (!line.empty()) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                <span class="comment">// Split is bad! There is no option to escape &quot;,&quot;.</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                vector&lt;string&gt; values = <a class="code" href="../../dd/de3/a00201.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                AddRow(values);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        } <span class="keywordflow">catch</span> (runtime_error&amp; error) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> (optLabels.size() == 0) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">throw</span> error;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        labels      = optLabels;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        columnCount = labels.size();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="../../d2/dee/a00049.html#a6aadfb52b95c349f14469a203d21472b">CSV::CSV</a>(initializer_list&lt;string&gt; labels) : labels(labels), columnCount(labels.size()) {}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a2f700f0aa2b27d664adb69e27a6eb4b1">   93</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d2/dee/a00049.html#a2f700f0aa2b27d664adb69e27a6eb4b1">CSV::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d2/dee/a00049.html">CSV</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a> == other.<a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a> &amp;&amp; (<span class="keyword">const</span> vector&lt;CSVRow&gt;&amp;)*<span class="keyword">this</span> == (<span class="keyword">const</span> vector&lt;CSVRow&gt;&amp;)other;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/dee/a00049.html#a1ae467f9599974c0f180c529f8a9f298">CSV::AddRow</a>(vector&lt;string&gt; values)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="../../d5/de0/a00050.html">CSVRow</a> csvRow(<span class="keyword">this</span>, values);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        this-&gt;push_back(csvRow);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#aed99cf47769a6284b45c2815b08d1bd0">  104</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="../../d2/dee/a00049.html#aed99cf47769a6284b45c2815b08d1bd0">CSV::GetIndexForLabel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0; index &lt; <a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size(); ++index) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.at(index) == label)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Label: &quot;</span> + label + <span class="stringliteral">&quot; not found in CSV&quot;</span>);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d2/dee/a00049.html#a11a080486a81df3276cabfac0f7a2b41">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/dee/a00049.html#a11a080486a81df3276cabfac0f7a2b41">CSV::Write</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        boost::filesystem::ofstream file;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        file.open(path.string());</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Error opening csv file: &quot;</span> + path.string());</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size(); ++i) {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label = <a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.at(i);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                file &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; label &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">if</span> (i != <a class="code" href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size() - 1) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        file &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        file &lt;&lt; endl;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../d5/de0/a00050.html">CSVRow</a>&amp; row : *<span class="keyword">this</span>) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                file &lt;&lt; row &lt;&lt; endl;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        file.close();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00049_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d2/dee/a00049.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor. Mainly used for swig. </div></div>
+<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00035">CSVRow.h:35</a></div></div>
+<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00201_html_a01882a252a5e262d442f9a8b8f64e3ef"><div class="ttname"><a href="../../dd/de3/a00201.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at both ends of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00126">StringUtils.h:126</a></div></div>
+<div class="ttc" id="a00049_html_a2f700f0aa2b27d664adb69e27a6eb4b1"><div class="ttname"><a href="../../d2/dee/a00049.html#a2f700f0aa2b27d664adb69e27a6eb4b1">stride::util::CSV::operator==</a></div><div class="ttdeci">bool operator==(const CSV &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00093">CSV.cpp:93</a></div></div>
+<div class="ttc" id="a00049_html_aed99cf47769a6284b45c2815b08d1bd0"><div class="ttname"><a href="../../d2/dee/a00049.html#aed99cf47769a6284b45c2815b08d1bd0">stride::util::CSV::GetIndexForLabel</a></div><div class="ttdeci">size_t GetIndexForLabel(const std::string &amp;label) const </div><div class="ttdoc">Convert label to index for more user friendly and robuust implementation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00104">CSV.cpp:104</a></div></div>
+<div class="ttc" id="a00201_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../dd/de3/a00201.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00045">StringUtils.h:45</a></div></div>
+<div class="ttc" id="a00049_html_a11a080486a81df3276cabfac0f7a2b41"><div class="ttname"><a href="../../d2/dee/a00049.html#a11a080486a81df3276cabfac0f7a2b41">stride::util::CSV::Write</a></div><div class="ttdeci">void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00113">CSV.cpp:113</a></div></div>
+<div class="ttc" id="a00049_html"><div class="ttname"><a href="../../d2/dee/a00049.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00037">CSV.h:37</a></div></div>
+<div class="ttc" id="a00049_html_a1ae467f9599974c0f180c529f8a9f298"><div class="ttname"><a href="../../d2/dee/a00049.html#a1ae467f9599974c0f180c529f8a9f298">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(const T &amp;...values)</div><div class="ttdoc">Add row of values. Will all be converted to string with StringUtils::ToString. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00081">CSV.h:81</a></div></div>
+<div class="ttc" id="a00049_html_a4298638a8f9c9871d800338bdf77bd50"><div class="ttname"><a href="../../d2/dee/a00049.html#a4298638a8f9c9871d800338bdf77bd50">stride::util::CSV::labels</a></div><div class="ttdeci">std::vector&lt; std::string &gt; labels</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00076">CSV.h:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">ContactPool.cpp</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">CSV.cpp</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:42 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

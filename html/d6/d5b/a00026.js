@@ -1,5 +1,5 @@
 var a00026 =
 [
-    [ "InfectorMap", "d6/d5b/a00026.html#a389bcbbddf547f27cb2e60feadca12af", null ],
-    [ "Add", "d6/d5b/a00026.html#a2abaaf56ff495aa37bfead7eea5405de", null ]
+    [ "Contact", "d6/d5b/a00026.html#ac7cf3f2e1dd8992100c17b509476da43", null ],
+    [ "Trans", "d6/d5b/a00026.html#abbe45c5ce1034da744f700ac10ca6a4e", null ]
 ];

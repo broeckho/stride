@@ -1,9 +1,7 @@
 var a00053 =
 [
-    [ "HaveOpenMP", "dc/dee/a00053.html#ad6fc5f3f3e32a15f059c64b74dfea905", null ],
-    [ "HaveQt5", "dc/dee/a00053.html#a9842e76d67b4e02e5c31a3071ec286d0", null ],
-    [ "GitRevision", "dc/dee/a00053.html#aea2c9d397f10f54b7ae47f4b0f181799", null ],
-    [ "GetHostname", "dc/dee/a00053.html#a502bd4410a3e77792ea575f77f470d41", null ],
-    [ "NumberAvailableThreads", "dc/dee/a00053.html#a6b4240ce29160e778c69f9e246e1747d", null ],
-    [ "ProcessorCount", "dc/dee/a00053.html#ada59da077e51cbd44e829a88c5cc62e3", null ]
+    [ "CreateCliLogger", "dc/dee/a00053.html#a106af93dd3f814adf8b87ffaaf3ef3bb", null ],
+    [ "CreateFileLogger", "dc/dee/a00053.html#a52920faed22a1733b580a42ea065ed0d", null ],
+    [ "CreateNullLogger", "dc/dee/a00053.html#ab89be4aea714eff74a2d4143023840a6", null ],
+    [ "CreateRotatingLogger", "dc/dee/a00053.html#a137e01100d0d79b122f731bb1292179d", null ]
 ];

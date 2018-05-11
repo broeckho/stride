@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::RNManager::Info Struct Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,52 +106,52 @@ $(document).ready(function(){initNavTree('d9/d73/a00060.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d9/d44/a00527.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/d2a/a00531.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RNManager::Info Struct Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>POD representation of the <a class="el" href="../../d3/d8b/a00059.html" title="Manages random number generation in parallel (OpenMP) calculations. ">RNManager</a>'s state.  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../d9/d73/a00060.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RNManager::Info:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d81/a00528.gif" border="0" usemap="#stride_1_1util_1_1RNManager_1_1Info_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1RNManager_1_1Info_coll__map" id="stride_1_1util_1_1RNManager_1_1Info_coll__map">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="132,149,211,227"/><area shape="rect" id="node4" title="STL class. " alt="" coords="109,6,235,98"/></map>
+<div class="center"><img src="../../d7/d41/a00532.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e5ec406a473f68ca95c7d81651d6aac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a2e5ec406a473f68ca95c7d81651d6aac">Info</a> (std::string type=&quot;mrg2&quot;, unsigned long seed=1UL, std::string state=&quot;&quot;, unsigned int stream_count=1U)</td></tr>
-<tr class="separator:a2e5ec406a473f68ca95c7d81651d6aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br/></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br/></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br/></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br/></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:abefb5eab599569a9ee18079889c2d11b"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#abefb5eab599569a9ee18079889c2d11b">m_seed</a></td></tr>
-<tr class="memdesc:abefb5eab599569a9ee18079889c2d11b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for the engine.  <a href="#abefb5eab599569a9ee18079889c2d11b">More...</a><br/></td></tr>
-<tr class="separator:abefb5eab599569a9ee18079889c2d11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae73dd6b56912771808eeb8d9aa095389"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#ae73dd6b56912771808eeb8d9aa095389">m_state</a></td></tr>
-<tr class="memdesc:ae73dd6b56912771808eeb8d9aa095389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long string reperesting current state.  <a href="#ae73dd6b56912771808eeb8d9aa095389">More...</a><br/></td></tr>
-<tr class="separator:ae73dd6b56912771808eeb8d9aa095389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2275a26478b89ec7b7d0f02f02b0b0af"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a2275a26478b89ec7b7d0f02f02b0b0af">m_stream_count</a></td></tr>
-<tr class="memdesc:a2275a26478b89ec7b7d0f02f02b0b0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of streams set up with the engine.  <a href="#a2275a26478b89ec7b7d0f02f02b0b0af">More...</a><br/></td></tr>
-<tr class="separator:a2275a26478b89ec7b7d0f02f02b0b0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7280978393526b5420e330cd87888b41"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a7280978393526b5420e330cd87888b41">m_type</a></td></tr>
-<tr class="memdesc:a7280978393526b5420e330cd87888b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type id (see <a class="el" href="../../db/d53/a00202.html">RNEngineType</a>).  <a href="#a7280978393526b5420e330cd87888b41">More...</a><br/></td></tr>
-<tr class="separator:a7280978393526b5420e330cd87888b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>POD representation of the <a class="el" href="../../d3/d8b/a00059.html" title="Manages random number generation in parallel (OpenMP) calculations. ">RNManager</a>'s state. </p>
-<p>If no state is available, i.e. state is an empty string, the initial state corresponding to the seed is implied. If a state is available, the seed is disregarded. </p>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00047">47</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00036">36</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2e5ec406a473f68ca95c7d81651d6aac"></a>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -159,129 +159,148 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::RNManager::Info::Info </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>type</em> = <code>&quot;mrg2&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>seed</em> = <code>1UL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>state</em> = <code>&quot;&quot;</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>stream_count</em> = <code>1U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00049">49</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
+<p>Constructor marks the time for the time stamp. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00040">40</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00043">43</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00073">m_tp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00052">52</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns time stamp as a time_t. </p>
+
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00070">70</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/df1/a00174_source.html#l00073">m_tp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="abefb5eab599569a9ee18079889c2d11b"></a>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long stride::util::RNManager::Info::m_seed</td>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Seed for the engine. </p>
+<p>Definition at line <a class="el" href="../../d8/df1/a00174_source.html#l00073">73</a> of file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00051">51</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00073">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/df8/a00155_source.html#l00094">stride::util::RNManager::Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00043">ToString()</a>, and <a class="el" href="../../d8/df1/a00174_source.html#l00070">ToTimeT()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae73dd6b56912771808eeb8d9aa095389"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RNManager::Info::m_state</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Long string reperesting current state. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00054">54</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00073">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/df8/a00155_source.html#l00094">stride::util::RNManager::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2275a26478b89ec7b7d0f02f02b0b0af"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::util::RNManager::Info::m_stream_count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of streams set up with the engine. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00055">55</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00073">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/df8/a00155_source.html#l00094">stride::util::RNManager::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7280978393526b5420e330cd87888b41"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RNManager::Info::m_type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type id (see <a class="el" href="../../db/d53/a00202.html">RNEngineType</a>). </p>
-
-<p>Definition at line <a class="el" href="../../d2/d34/a00156_source.html#l00056">56</a> of file <a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/df8/a00155_source.html#l00073">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/df8/a00155_source.html#l00094">stride::util::RNManager::Initialize()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d2/d34/a00156_source.html">RNManager.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d72/a00204.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">RNManager</a></li><li class="navelem"><a class="el" href="../../d9/d73/a00060.html">Info</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d73/a00060.html">TimeStamp</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

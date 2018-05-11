@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: FileSys.h File Reference</title>
+<title>Stride Reference Manual: HealthSeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,63 +106,59 @@ $(document).ready(function(){initNavTree('db/d57/a00112.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">FileSys.h File Reference</div>  </div>
+<div class="title">HealthSeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface for install directory queries.  
+<p>Header file for the HealthSeeder.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/filesystem.hpp&gt;</code><br/>
-<code>#include &lt;boost/filesystem/path.hpp&gt;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d81/a00110_source.html">Health.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d1e/a00087_source.html">contact/ContactHandler.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
 <code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for FileSys.h:</div>
+Include dependency graph for HealthSeeder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d2a/a00270.gif" border="0" usemap="#FileSys_8h" alt=""/></div>
-<map name="FileSys_8h" id="FileSys_8h">
-</map>
+<div class="center"><img src="../../d0/d19/a00273.gif" border="0" usemap="#HealthSeeder_8h" alt=""/></div>
+<map name="HealthSeeder_8h" id="HealthSeeder_8h">
+<area shape="rect" id="node2" href="../../d4/d81/a00110.html" title="Header for the Health class. " alt="" coords="5,88,75,115"/><area shape="rect" id="node3" href="../../d1/d1e/a00087.html" title="Header for the ContactHandler class. " alt="" coords="929,88,1100,115"/><area shape="rect" id="node4" href="../../dd/db2/a00151.html" title="Interface of RNManager. " alt="" coords="801,171,924,197"/><area shape="rect" id="node5" href="../../da/d1e/a00149.html" title="Interface of Random Engine Type. " alt="" coords="151,245,273,272"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d86/a00271.gif" border="0" usemap="#FileSys_8hdep" alt=""/></div>
-<map name="FileSys_8hdep" id="FileSys_8hdep">
-<area shape="rect" id="node2" href="../../df/d5d/a00084.html" title="Implementation file for the Calendar class. " alt="" coords="5,80,104,107"/><area shape="rect" id="node3" href="../../dd/d42/a00109.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="128,80,263,107"/><area shape="rect" id="node4" href="../../d6/d2c/a00072.html" title="AdoptedFile.cpp" alt="" coords="289,80,404,107"/><area shape="rect" id="node5" href="../../da/d72/a00124.html" title="Implementation of the CasesFile class. " alt="" coords="429,80,544,107"/><area shape="rect" id="node6" href="../../da/ddb/a00145.html" title="Implementation of the CasesFile class. " alt="" coords="569,80,684,107"/><area shape="rect" id="node7" href="../../d1/d0d/a00171.html" title="Implementation of the SummaryFile class. " alt="" coords="709,80,832,107"/><area shape="rect" id="node8" href="../../da/d1e/a00149.html" title="Initialize populations: implementation. " alt="" coords="857,80,967,107"/><area shape="rect" id="node9" href="../../dd/db2/a00151.html" title="Core Population class. " alt="" coords="991,80,1099,107"/><area shape="rect" id="node10" href="../../da/d2a/a00086.html" title="Header for the command line controller. " alt="" coords="1123,80,1241,107"/><area shape="rect" id="node11" href="../../d0/d5e/a00136.html" title="Main program: command line handling. " alt="" coords="1265,80,1339,107"/><area shape="rect" id="node12" href="../../db/d44/a00162.html" title="Implementation for the SimBuilder class. " alt="" coords="1365,80,1475,107"/><area shape="rect" id="node13" href="../../dd/d6d/a00111.html" title="Utilities for interaction with filesystem. " alt="" coords="1500,80,1591,107"/><area shape="rect" id="node14" href="../../d1/db7/a00157.html" title="Implementation of ptree utils. " alt="" coords="1615,80,1773,107"/></map>
+<div class="center"><img src="../../dd/d56/a00274.gif" border="0" usemap="#HealthSeeder_8hdep" alt=""/></div>
+<map name="HealthSeeder_8hdep" id="HealthSeeder_8hdep">
+<area shape="rect" id="node2" href="../../dd/d6d/a00111.html" title="Implementation for HelthSeeder class. " alt="" coords="5,80,131,107"/><area shape="rect" id="node3" href="../../d1/db7/a00157.html" title="Implementation for the SimBuilder class. " alt="" coords="155,80,265,107"/></map>
 </div>
 </div>
 <p><a href="../../db/d57/a00112_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d2e/a00056.html">stride::util::FileSys</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for interaction with filesystem.  <a href="../../d9/d2e/a00056.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d22/a00057.html">stride::util::FileSys::Dirs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../d1/d22/a00057.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00019.html">stride::HealthSeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d1/d2b/a00018.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../dd/da2/a00019.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride</a></td></tr>
-<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d1/d72/a00204"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d72/a00204.html">stride::util</a></td></tr>
-<tr class="memdesc:d1/d72/a00204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contact rates as a function of age. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for install directory queries. </p>
+<div class="textblock"><p>Header file for the HealthSeeder. </p>
 
-<p>Definition in file <a class="el" href="../../db/d57/a00112_source.html">FileSys.h</a>.</p>
+<p>Definition in file <a class="el" href="../../db/d57/a00112_source.html">HealthSeeder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">FileSys.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">HealthSeeder.h</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

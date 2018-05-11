@@ -1,8 +1,8 @@
 var a00060 =
 [
-    [ "Info", "d9/d73/a00060.html#a2e5ec406a473f68ca95c7d81651d6aac", null ],
-    [ "m_seed", "d9/d73/a00060.html#abefb5eab599569a9ee18079889c2d11b", null ],
-    [ "m_state", "d9/d73/a00060.html#ae73dd6b56912771808eeb8d9aa095389", null ],
-    [ "m_stream_count", "d9/d73/a00060.html#a2275a26478b89ec7b7d0f02f02b0b0af", null ],
-    [ "m_type", "d9/d73/a00060.html#a7280978393526b5420e330cd87888b41", null ]
+    [ "TimeStamp", "d9/d73/a00060.html#a13a61188e51c4e05d05a91e459c33ffc", null ],
+    [ "ToString", "d9/d73/a00060.html#aea42ff56713aa57c0aafe5efc92f29e5", null ],
+    [ "ToTag", "d9/d73/a00060.html#a5f6eefbc6871a229b1c45dbbd98b41fe", null ],
+    [ "ToTimeT", "d9/d73/a00060.html#aef8a6ec8cb71ef8ed01506fa614e398f", null ],
+    [ "m_tp", "d9/d73/a00060.html#a04acbf03cad1f6a0f62dd3e1128726b6", null ]
 ];

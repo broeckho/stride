@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::LocalDiscussion Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,88 +106,59 @@ $(document).ready(function(){initNavTree('d3/dfe/a00025.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d0/dc4/a00443.html">List of all members</a>  </div>
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
+<a href="../../d9/d95/a00400.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt; Class Template Reference</div>  </div>
+<div class="title">stride::LocalDiscussion Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Time-optimized version (Only for <a class="el" href="../../d4/d8c/a00035.html" title="Class for local information policy &#39;NoLocalInformation&#39;. ">NoLocalInformation</a> policy in combination with None || Transmission logging).  
+<p>Class for local information policy '<a class="el" href="../../d3/dfe/a00025.html" title="Class for local information policy &#39;LocalDiscussion&#39;. ">LocalDiscussion</a>'.  
  <a href="../../d3/dfe/a00025.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../df/dcd/a00127_source.html">LocalDiscussion.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;:</div>
+Collaboration diagram for stride::LocalDiscussion:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/dea/a00444.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01NoLocalInformation_00_01true_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01NoLocalInformation_00_01true_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01NoLocalInformation_00_01true_01_4_coll__map">
-</map>
+<div class="center"><img src="../../d7/d00/a00401.gif" border="0" usemap="#stride_1_1LocalDiscussion_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1LocalDiscussion_coll__map" id="stride_1_1LocalDiscussion_coll__map">
+<area shape="rect" id="node2" href="../../d5/d13/a00205.html" title="{double\n||}" alt="" coords="54,5,113,83"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e10dc57119090c30ba818420bbd7b94"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#a3e10dc57119090c30ba818420bbd7b94">Exec</a> (<a class="el" href="../../da/d45/a00011.html">ContactPool</a> &amp;pool, const <a class="el" href="../../dd/dad/a00005.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d4/dca/a00048.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../d7/dec/a00010.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
-<tr class="separator:a3e10dc57119090c30ba818420bbd7b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae927760d0eb3e5a3114305c53ebe70e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#ae927760d0eb3e5a3114305c53ebe70e3">Update</a> (<a class="el" href="../../d8/d41/a00038.html">Person</a> *, <a class="el" href="../../d8/d41/a00038.html">Person</a> *)</td></tr>
+<tr class="separator:ae927760d0eb3e5a3114305c53ebe70e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:abec64aa38907d3ffde96d9f848bd1d0d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dfe/a00025.html#abec64aa38907d3ffde96d9f848bd1d0d">m_discussion_probability</a></td></tr>
+<tr class="separator:abec64aa38907d3ffde96d9f848bd1d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC&gt;<br/>
-class stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;</h3>
+<div class="textblock"><p>Class for local information policy '<a class="el" href="../../d3/dfe/a00025.html" title="Class for local information policy &#39;LocalDiscussion&#39;. ">LocalDiscussion</a>'. </p>
+<p>Upon contact, members of a contactpool discuss their beliefs/health status/... with each other with a certain probability. TODO make this probability configurable </p>
 
-<p>Time-optimized version (Only for <a class="el" href="../../d4/d8c/a00035.html" title="Class for local information policy &#39;NoLocalInformation&#39;. ">NoLocalInformation</a> policy in combination with None || Transmission logging). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
-    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d9/d47/a00129_source.html#l00078">78</a> of file <a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00032">32</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LocalDiscussion.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a3e10dc57119090c30ba818420bbd7b94"></a>
+<a class="anchor" id="ae927760d0eb3e5a3114305c53ebe70e3"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dc/de2/a00024.html">stride::Infector</a>&lt; LL, TIC, <a class="el" href="../../d4/d8c/a00035.html">NoLocalInformation</a>, true &gt;::Exec </td>
+          <td class="memname">static void stride::LocalDiscussion::Update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d45/a00011.html">ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>pool</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/dad/a00005.html">AgeContactProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>profile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/dca/a00048.html">TransmissionProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>transProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/dec/a00010.html">ContactHandler</a> &amp;&#160;</td>
-          <td class="paramname"><em>cHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>simDay</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>cLogger</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d8/d41/a00038.html">Person</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -197,28 +168,48 @@ template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00128">128</a> of file <a class="el" href="../../d1/d88/a00128_source.html">Infector.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d25/a00182_source.html#l00033">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d1/dc1/a00092_source.html#l00041">stride::ContactHandler::HasContactAndTransmission()</a>, <a class="el" href="../../d9/df8/a00096_source.html#l00064">stride::ContactPool::m_index_immune</a>, <a class="el" href="../../d9/df8/a00096_source.html#l00065">stride::ContactPool::m_members</a>, <a class="el" href="../../d9/df8/a00096_source.html#l00063">stride::ContactPool::m_pool_type</a>, and <a class="el" href="../../d9/d77/a00095_source.html#l00043">stride::ContactPool::SortMembers()</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00035">35</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LocalDiscussion.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a></li>
-<li><a class="el" href="../../d1/d88/a00128_source.html">Infector.cpp</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="abec64aa38907d3ffde96d9f848bd1d0d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d13/a00205.html">double</a> stride::LocalDiscussion::m_discussion_probability</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00043">43</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LocalDiscussion.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../df/dcd/a00127_source.html">LocalDiscussion.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">Infector< LL, TIC, NoLocalInformation, true ></a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/dfe/a00025.html">LocalDiscussion</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

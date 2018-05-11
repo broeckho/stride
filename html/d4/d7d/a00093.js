@@ -1,5 +1,6 @@
 var a00093 =
 [
-    [ "ToString", "d4/d7d/a00093.html#a025f9ff3cf2df8c0c8b95e48724d9b7c", null ],
-    [ "ToMode", "d4/d7d/a00093.html#a12707c23b43baa1a0f5bed51db72756d", null ]
+    [ "IsType", "d4/d7d/a00093.html#a1269217f56908f0da981dbe4e43bb73d", null ],
+    [ "ToString", "d4/d7d/a00093.html#a0cf9d3425b406cd76acdc02ef9c0286d", null ],
+    [ "ToType", "d4/d7d/a00093.html#af529300a78547c29c95b81ad8ac62afe", null ]
 ];

@@ -1,7 +1,9 @@
 var a00048 =
 [
-    [ "TransmissionProfile", "d4/dca/a00048.html#a1645757a571f63d0583d54a6838ca1fb", null ],
-    [ "GetRate", "d4/dca/a00048.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
-    [ "Initialize", "d4/dca/a00048.html#a5e67e9eab813de18fff32722ee6f1437", null ],
-    [ "m_transmission_rate", "d4/dca/a00048.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
+    [ "HaveOpenMP", "d4/dca/a00048.html#ad6fc5f3f3e32a15f059c64b74dfea905", null ],
+    [ "HaveQt5", "d4/dca/a00048.html#a9842e76d67b4e02e5c31a3071ec286d0", null ],
+    [ "GitRevision", "d4/dca/a00048.html#aea2c9d397f10f54b7ae47f4b0f181799", null ],
+    [ "GetHostname", "d4/dca/a00048.html#a502bd4410a3e77792ea575f77f470d41", null ],
+    [ "NumberAvailableThreads", "d4/dca/a00048.html#a6b4240ce29160e778c69f9e246e1747d", null ],
+    [ "ProcessorCount", "d4/dca/a00048.html#ada59da077e51cbd44e829a88c5cc62e3", null ]
 ];

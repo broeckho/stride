@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::BeliefSeeder Class Reference</title>
+<title>Stride Reference Manual: stride::CliController Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -106,101 +106,95 @@ $(document).ready(function(){initNavTree('de/d5e/a00007.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/da0/a00403.html">List of all members</a>  </div>
+<a href="../../df/d38/a00468.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::BeliefSeeder Class Reference</div>  </div>
+<div class="title">stride::CliController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds the population with <a class="el" href="../../db/db2/a00020.html" title="Holds a person&#39;s health data. ">Health</a> data.  
+<p>The <a class="el" href="../../de/d5e/a00007.html" title="The CliController controls execution of a simulation run (. ">CliController</a> controls execution of a simulation run (.  
  <a href="../../de/d5e/a00007.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d2/d1f/a00083_source.html">BeliefSeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::BeliefSeeder:</div>
+Collaboration diagram for stride::CliController:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/de6/a00404.gif" border="0" usemap="#stride_1_1BeliefSeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1BeliefSeeder_coll__map" id="stride_1_1BeliefSeeder_coll__map">
-</map>
+<div class="center"><img src="../../d4/d4b/a00471.gif" border="0" usemap="#stride_1_1CliController_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1CliController_coll__map" id="stride_1_1CliController_coll__map">
+<area shape="rect" id="node6" href="../../d1/d22/a00057.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="484,291,665,471"/><area shape="rect" id="node4" title="STL class. " alt="" coords="201,149,280,227"/><area shape="rect" id="node5" title="STL class. " alt="" coords="178,6,304,98"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a10e523b7ce6b4d819812b0a75f1e443b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a10e523b7ce6b4d819812b0a75f1e443b">BeliefSeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d3/d8b/a00059.html">util::RNManager</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a10e523b7ce6b4d819812b0a75f1e443b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor requires diease data and random number manager.  <a href="#a10e523b7ce6b4d819812b0a75f1e443b">More...</a><br/></td></tr>
-<tr class="separator:a10e523b7ce6b4d819812b0a75f1e443b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a0f7876d2c8d1a4c2bc8057da26f82df5">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d5/db6/a00042.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../db/db2/a00020.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="#a0f7876d2c8d1a4c2bc8057da26f82df5">More...</a><br/></td></tr>
-<tr class="separator:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1780a5ff62df746e6f8328c16a3c62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a6c1780a5ff62df746e6f8328c16a3c62">CliController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
+<tr class="memdesc:a6c1780a5ff62df746e6f8328c16a3c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a6c1780a5ff62df746e6f8328c16a3c62">More...</a><br/></td></tr>
+<tr class="separator:a6c1780a5ff62df746e6f8328c16a3c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a126fe70ea36234d7db97a53db9912338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a126fe70ea36234d7db97a53db9912338">Control</a> ()</td></tr>
+<tr class="memdesc:a126fe70ea36234d7db97a53db9912338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#a126fe70ea36234d7db97a53db9912338">More...</a><br/></td></tr>
+<tr class="separator:a126fe70ea36234d7db97a53db9912338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a0915246b08e7cb4bc0586a9eadcfc381"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a0915246b08e7cb4bc0586a9eadcfc381">CliController</a> ()</td></tr>
+<tr class="memdesc:a0915246b08e7cb4bc0586a9eadcfc381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as taget for delegation.  <a href="#a0915246b08e7cb4bc0586a9eadcfc381">More...</a><br/></td></tr>
+<tr class="separator:a0915246b08e7cb4bc0586a9eadcfc381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a4bee813e33ac0b5c9a44f727d5c7b0aa">CheckEnv</a> ()</td></tr>
+<tr class="memdesc:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#a4bee813e33ac0b5c9a44f727d5c7b0aa">More...</a><br/></td></tr>
+<tr class="separator:a4bee813e33ac0b5c9a44f727d5c7b0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2872b036cfffe4153a5ee33d0c669424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a2872b036cfffe4153a5ee33d0c669424">CheckOutputPrefix</a> ()</td></tr>
+<tr class="separator:a2872b036cfffe4153a5ee33d0c669424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#abef1ddddf5dc91741dfc8e94fd80fbf1">LogSetup</a> ()</td></tr>
+<tr class="memdesc:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#abef1ddddf5dc91741dfc8e94fd80fbf1">More...</a><br/></td></tr>
+<tr class="separator:abef1ddddf5dc91741dfc8e94fd80fbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4282046a0987af420cdf32c73c203579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a4282046a0987af420cdf32c73c203579">MakeLogger</a> ()</td></tr>
+<tr class="memdesc:a4282046a0987af420cdf32c73c203579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a4282046a0987af420cdf32c73c203579">More...</a><br/></td></tr>
+<tr class="separator:a4282046a0987af420cdf32c73c203579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ac0ad454c9dd6a2456d7078484a4ccec8">RegisterViewers</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">SimRunner</a> &gt; runner)</td></tr>
+<tr class="memdesc:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d6/d42/a00043.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#ac0ad454c9dd6a2456d7078484a4ccec8">More...</a><br/></td></tr>
+<tr class="separator:ac0ad454c9dd6a2456d7078484a4ccec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ab4d508461f5bd220425e75ee6e6c443c"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a></td></tr>
-<tr class="separator:ab4d508461f5bd220425e75ee6e6c443c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8166a5fc94c70797882dab5337a7ae61"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a8166a5fc94c70797882dab5337a7ae61">m_config_pt</a></td></tr>
+<tr class="memdesc:a8166a5fc94c70797882dab5337a7ae61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#a8166a5fc94c70797882dab5337a7ae61">More...</a><br/></td></tr>
+<tr class="separator:a8166a5fc94c70797882dab5337a7ae61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f6ad6a773127d0a1c5e9468be25ea2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ae0f6ad6a773127d0a1c5e9468be25ea2">m_output_prefix</a></td></tr>
+<tr class="separator:ae0f6ad6a773127d0a1c5e9468be25ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeff91fe883e6e3cfee972c37d197d40f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d22/a00057.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#aeff91fe883e6e3cfee972c37d197d40f">m_run_clock</a></td></tr>
+<tr class="memdesc:aeff91fe883e6e3cfee972c37d197d40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#aeff91fe883e6e3cfee972c37d197d40f">More...</a><br/></td></tr>
+<tr class="separator:aeff91fe883e6e3cfee972c37d197d40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0172dba37040fa790070d9c61a4e51f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ad0172dba37040fa790070d9c61a4e51f">m_stride_logger</a></td></tr>
+<tr class="memdesc:ad0172dba37040fa790070d9c61a4e51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#ad0172dba37040fa790070d9c61a4e51f">More...</a><br/></td></tr>
+<tr class="separator:ad0172dba37040fa790070d9c61a4e51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c6d564e6fa43ecc69be45551627dbaf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a4c6d564e6fa43ecc69be45551627dbaf">m_use_install_dirs</a></td></tr>
+<tr class="separator:a4c6d564e6fa43ecc69be45551627dbaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds the population with <a class="el" href="../../db/db2/a00020.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
+<div class="textblock"><p>The <a class="el" href="../../de/d5e/a00007.html" title="The CliController controls execution of a simulation run (. ">CliController</a> controls execution of a simulation run (. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d6/d42/a00043.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>) from the command line interface (cli). The <a class="el" href="../../de/d5e/a00007.html" title="The CliController controls execution of a simulation run (. ">CliController</a> setup <ul>
+<li>accepts the commandline arguments </li>
+<li>checks the OpenMP environment </li>
+<li>checks the file system environment </li>
+<li>reads the config file specified on the cli </li>
+<li>effects cli overides of config parameters </li>
+<li>patches the config file for any remaining defaults </li>
+<li>interprets and executes the ouput prefix </li>
+<li>makes a <a class="el" href="../../dc/d57/a00194.html" title="Contact rates as a function of age. ">stride</a> logger The <a class="el" href="../../de/d5e/a00007.html" title="The CliController controls execution of a simulation run (. ">CliController</a> execution </li>
+<li>creates a simulation runner (</li>
+</ul>
+</dd>
+<dd>
+<a class="el" href="../../d6/d42/a00043.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>) <ul>
+<li>registers the appropriate <a class="el" href="../../db/d53/a00202.html" title="Namespace for MVC-viewers that may be registered with SimRunner. ">viewers</a> </li>
+<li>runs the simulation </li>
+</ul>
+</dd></dl>
 
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00037">37</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">BeliefSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00050">50</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a10e523b7ce6b4d819812b0a75f1e443b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::BeliefSeeder::BeliefSeeder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d8b/a00059.html">util::RNManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor requires diease data and random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00035">35</a> of file <a class="el" href="../../d4/d63/a00082_source.html">BeliefSeeder.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0f7876d2c8d1a4c2bc8057da26f82df5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BeliefSeeder::Seed </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/db6/a00042.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Seeds the population with <a class="el" href="../../db/db2/a00020.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00040">40</a> of file <a class="el" href="../../d4/d63/a00082_source.html">BeliefSeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d9a/a00152_source.html#l00073">stride::Population::InitBeliefPolicy()</a>, and <a class="el" href="../../d2/d1f/a00083_source.html#l00047">m_config_pt</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d44/a00162_source.html#l00043">stride::SimBuilder::Build()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab4d508461f5bd220425e75ee6e6c443c"></a>
+<a class="anchor" id="a6c1780a5ff62df746e6f8328c16a3c62"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -208,7 +202,87 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::BeliefSeeder::m_config_pt</td>
+          <td class="memname">stride::CliController::CliController </td>
+          <td>(</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Straight initialization. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0915246b08e7cb4bc0586a9eadcfc381"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::CliController::CliController </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Empty controller: used as taget for delegation. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00045">45</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a126fe70ea36234d7db97a53db9912338"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::Control </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actual run of the simulator. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00085">85</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/db6/a00146_source.html#l00042">stride::Population::Create()</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00083">m_stride_logger</a>, and <a class="el" href="../../d8/d53/a00081_source.html#l00107">RegisterViewers()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d7/d06/a00131_source.html#l00040">main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bee813e33ac0b5c9a44f727d5c7b0aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::CheckEnv </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -218,23 +292,268 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00047">47</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">BeliefSeeder.h</a>.</p>
+<p>Check install environment. </p>
 
-<p>Referenced by <a class="el" href="../../d4/d63/a00082_source.html#l00040">Seed()</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00063">63</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d70/a00106_source.html#l00064">stride::util::FileSys::CheckInstallEnv()</a>, and <a class="el" href="../../d4/d63/a00082_source.html#l00084">m_use_install_dirs</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2872b036cfffe4153a5ee33d0c669424"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::CheckOutputPrefix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00073">73</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d70/a00106_source.html#l00192">stride::util::FileSys::IsDirectoryString()</a>, and <a class="el" href="../../d4/d63/a00082_source.html#l00081">m_output_prefix</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abef1ddddf5dc91741dfc8e94fd80fbf1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::LogSetup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs info on setup for cli environment to stride_logger. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00143">143</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../df/d98/a00107_source.html#l00074">stride::util::FileSys::GetConfigDir()</a>, <a class="el" href="../../df/d98/a00107_source.html#l00058">stride::util::FileSys::GetCurrentDir()</a>, <a class="el" href="../../df/d98/a00107_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../df/d98/a00107_source.html#l00061">stride::util::FileSys::GetExecPath()</a>, <a class="el" href="../../df/d98/a00107_source.html#l00080">stride::util::FileSys::GetRootDir()</a>, <a class="el" href="../../df/d13/a00085_source.html#l00033">stride::util::ConfigInfo::GitRevision()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00034">stride::util::ConfigInfo::HaveOpenMP()</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00081">m_output_prefix</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00083">m_stride_logger</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00084">m_use_install_dirs</a>, <a class="el" href="../../df/d13/a00085_source.html#l00042">stride::util::ConfigInfo::NumberAvailableThreads()</a>, and <a class="el" href="../../db/ddf/a00088_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4282046a0987af420cdf32c73c203579"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::MakeLogger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Make the appropriate logger for cli environment and register as stride_logger. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00098">98</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d7/d70/a00106_source.html#l00051">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d9/d47/a00129_source.html#l00032">stride::util::LogUtils::CreateCliLogger()</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00081">m_output_prefix</a>, and <a class="el" href="../../d4/d63/a00082_source.html#l00083">m_stride_logger</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0ad454c9dd6a2456d7078484a4ccec8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::CliController::RegisterViewers </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d42/a00043.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register the viewers of the <a class="el" href="../../d6/d42/a00043.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d53/a00081_source.html#l00107">107</a> of file <a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d63/a00082_source.html#l00080">m_config_pt</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00081">m_output_prefix</a>, <a class="el" href="../../d4/d63/a00082_source.html#l00083">m_stride_logger</a>, <a class="el" href="../../d2/d1f/a00083_source.html#l00039">stride::viewers::CliViewer::Update()</a>, <a class="el" href="../../d4/d31/a00069_source.html#l00033">stride::viewers::AdoptedViewer::Update()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00034">stride::viewers::SummaryViewer::Update()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00031">stride::viewers::PersonsViewer::Update()</a>, and <a class="el" href="../../d8/dfa/a00121_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00085">Control()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a8166a5fc94c70797882dab5337a7ae61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree stride::CliController::m_config_pt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main configuration for run and sim. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00080">80</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00085">Control()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00143">LogSetup()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../d8/d53/a00081_source.html#l00107">RegisterViewers()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0f6ad6a773127d0a1c5e9468be25ea2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::CliController::m_output_prefix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00081">81</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00073">CheckOutputPrefix()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00143">LogSetup()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../d8/d53/a00081_source.html#l00107">RegisterViewers()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeff91fe883e6e3cfee972c37d197d40f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d22/a00057.html">util::Stopwatch</a> stride::CliController::m_run_clock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefix to output (name prefix or prefix dir) </p>
+<p>Stopwatch for timing the computation. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00082">82</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0172dba37040fa790070d9c61a4e51f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::CliController::m_stride_logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>General logger. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00083">83</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00085">Control()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00143">LogSetup()</a>, <a class="el" href="../../d8/d53/a00081_source.html#l00098">MakeLogger()</a>, and <a class="el" href="../../d8/d53/a00081_source.html#l00107">RegisterViewers()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c6d564e6fa43ecc69be45551627dbaf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::CliController::m_use_install_dirs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00084">84</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00063">CheckEnv()</a>, and <a class="el" href="../../d8/d53/a00081_source.html#l00143">LogSetup()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/d1f/a00083_source.html">BeliefSeeder.h</a></li>
-<li><a class="el" href="../../d4/d63/a00082_source.html">BeliefSeeder.cpp</a></li>
+<li><a class="el" href="../../d4/d63/a00082_source.html">CliController.h</a></li>
+<li><a class="el" href="../../d8/d53/a00081_source.html">CliController.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">BeliefSeeder</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">CliController</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,14 +1,10 @@
 var a00045 =
 [
-    [ "SimRunner", "d6/d97/a00045.html#a54fb61460204e0f78cf9619691e98abc", null ],
-    [ "~SimRunner", "d6/d97/a00045.html#a4ec23da1044ab058df5f1d65f4321685", null ],
-    [ "GetClock", "d6/d97/a00045.html#aceb24930d50702acfa88bdfe5cb13a1b", null ],
-    [ "GetConfig", "d6/d97/a00045.html#a9eeaa63450413a62f31bcee07df29fa3", null ],
-    [ "GetSim", "d6/d97/a00045.html#a99014dd891a3422214c2a088dd38cde9", null ],
-    [ "Run", "d6/d97/a00045.html#a81720a1766d513eb248cb443d948567f", null ],
-    [ "Run", "d6/d97/a00045.html#a233f76f6af0cef8c5971112b6d2235d0", null ],
-    [ "m_clock", "d6/d97/a00045.html#ae2de72162f806fe5b7008e81854bdc2d", null ],
-    [ "m_config_pt", "d6/d97/a00045.html#a1c4778adb0be5161932d107c2a84d477", null ],
-    [ "m_output_prefix", "d6/d97/a00045.html#a78babbce6074c1f0d612c67febfb388e", null ],
-    [ "m_sim", "d6/d97/a00045.html#a4ff961d97649b68ef661d38c098baaf0", null ]
+    [ "Threshold", "d6/d97/a00045.html#a8da3ada04e2f53f0d6a8424c58e0065f", null ],
+    [ "m_is_aware", "d6/d97/a00045.html#ac4b88b840219d9df9585234a67cb7240", null ],
+    [ "m_num_contacts", "d6/d97/a00045.html#a4ae3466c106da6e6f9e074d6b0841e86", null ],
+    [ "m_num_contacts_infected", "d6/d97/a00045.html#a3c6f98311139eaa035d84d2c6d951f7f", null ],
+    [ "m_num_contacts_adopted", "d6/d97/a00045.html#a788abd97461a417f3acf3db796c62514", null ],
+    [ "m_threshold_infected", "d6/d97/a00045.html#a9fcb580f7bc164aceb380a3ccb71b337", null ],
+    [ "m_threshold_adopted", "d6/d97/a00045.html#aae2cf98f557c4be064d719fc3e6caaba", null ]
 ];

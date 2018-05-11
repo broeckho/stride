@@ -1,12 +1,11 @@
 var a00052 =
 [
-    [ "Any", "d1/d84/a00052.html#a78136d1eb13e5df0bd7f8043adff152a", null ],
-    [ "Any", "d1/d84/a00052.html#aa37a30a7324377f7afe3b614d3c8f1eb", null ],
-    [ "operator=", "d1/d84/a00052.html#ad1330eaf1df07a82065354e88a87a6fd", null ],
-    [ "operator=", "d1/d84/a00052.html#aac5387b1910deeba0f0fb319c8a6e710", null ],
-    [ "emplace", "d1/d84/a00052.html#a8aee74d02cb317ad6a8212f9a84c9254", null ],
-    [ "cast", "d1/d84/a00052.html#a25363f8f215051caae46e3094da0bff8", null ],
-    [ "operator bool", "d1/d84/a00052.html#a60543e81cc55aee3d0a2d8e02779825b", null ],
-    [ "m_ptr", "d1/d84/a00052.html#a581dd8c8a98e7470e351687980a7f41d", null ],
-    [ "m_destroy", "d1/d84/a00052.html#a43e14abfb952e01348cb11cb50649daf", null ]
+    [ "Dirs", "d1/d84/a00052.html#a1258b8c979f0e1b985dfe8e6c78a82b6", null ],
+    [ "m_current_dir", "d1/d84/a00052.html#a0f2510f1e56e9702540ae0ee41ae082a", null ],
+    [ "m_exec_path", "d1/d84/a00052.html#af9e0a5016367c19e14e102efcbf6ff4b", null ],
+    [ "m_bin_dir", "d1/d84/a00052.html#aa84e5bea799040c78f75190d7fa242e9", null ],
+    [ "m_config_dir", "d1/d84/a00052.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef", null ],
+    [ "m_data_dir", "d1/d84/a00052.html#ad844a270ca421636f164982233789d2f", null ],
+    [ "m_root_dir", "d1/d84/a00052.html#a02d39f43d1e81ea01c51c6715c4b7041", null ],
+    [ "m_tests_dir", "d1/d84/a00052.html#a7b91aab4bd5ca85b91fad338a228b7b9", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, LIP, TO &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::InfectorMap Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -105,121 +105,120 @@ $(document).ready(function(){initNavTree('dc/de2/a00024.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d6/d66/a00441.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="../../d1/d7e/a00434.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, LIP, TO &gt; Class Template Reference</div>  </div>
+<div class="title">stride::InfectorMap Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Actual contacts and transmission in contactpool (primary template).  
+<p>Simulator can time step and reveal some of the key data.  
  <a href="../../dc/de2/a00024.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d12/a00126_source.html">InfectorMap.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Infector&lt; LL, TIC, LIP, TO &gt;:</div>
+Inheritance diagram for stride::InfectorMap:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d34/a00442.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01LIP_00_01TO_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01LIP_00_01TO_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01LIP_00_01TO_01_4_coll__map">
-</map>
+<div class="center"><img src="../../d4/d82/a00436.gif" border="0" usemap="#stride_1_1InfectorMap_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1InfectorMap_inherit__map" id="stride_1_1InfectorMap_inherit__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,179,141"/></map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::InfectorMap:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/da8/a00437.gif" border="0" usemap="#stride_1_1InfectorMap_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1InfectorMap_coll__map" id="stride_1_1InfectorMap_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="5,147,179,269"/></map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a45b455fb644270329ae1d53aad9de4db"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a45b455fb644270329ae1d53aad9de4db">Exec</a> (<a class="el" href="../../da/d45/a00011.html">ContactPool</a> &amp;pool, const <a class="el" href="../../dd/dad/a00005.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d4/dca/a00048.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../d7/dec/a00010.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
-<tr class="separator:a45b455fb644270329ae1d53aad9de4db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a389bcbbddf547f27cb2e60feadca12af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a389bcbbddf547f27cb2e60feadca12af">InfectorMap</a> ()</td></tr>
+<tr class="memdesc:a389bcbbddf547f27cb2e60feadca12af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fully initialized.  <a href="#a389bcbbddf547f27cb2e60feadca12af">More...</a><br/></td></tr>
+<tr class="separator:a389bcbbddf547f27cb2e60feadca12af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2abaaf56ff495aa37bfead7eea5405de"><td class="memTemplParams" colspan="2">template&lt;typename T , bool B&gt; </td></tr>
+<tr class="memitem:a2abaaf56ff495aa37bfead7eea5405de"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a2abaaf56ff495aa37bfead7eea5405de">Add</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:a2abaaf56ff495aa37bfead7eea5405de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filling up the <a class="el" href="../../dc/de2/a00024.html" title="Simulator can time step and reveal some of the key data. ">InfectorMap</a>.  <a href="#a2abaaf56ff495aa37bfead7eea5405de">More...</a><br/></td></tr>
+<tr class="separator:a2abaaf56ff495aa37bfead7eea5405de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC, typename LIP, bool TO = UseOptimizedInfector&lt;LL, LIP&gt;::value&gt;<br/>
-class stride::Infector&lt; LL, TIC, LIP, TO &gt;</h3>
+<div class="textblock"><p>Simulator can time step and reveal some of the key data. </p>
+<p>The Subject base class used for the interaction with the python environment only. </p>
 
-<p>Actual contacts and transmission in contactpool (primary template). </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
-    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
-    <tr><td class="paramname">LIP</td><td>LocalInformationPolicy </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d9/d47/a00129_source.html#l00065">65</a> of file <a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a45b455fb644270329ae1d53aad9de4db"></a>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00039">39</a> of file <a class="el" href="../../d7/d12/a00126_source.html">InfectorMap.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a389bcbbddf547f27cb2e60feadca12af"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO = UseOptimizedInfector&lt;LL, LIP&gt;::value&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../dc/de2/a00024.html">stride::Infector</a>&lt; LL, TIC, LIP, TO &gt;::Exec </td>
+          <td class="memname">stride::InfectorMap::InfectorMap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d45/a00011.html">ContactPool</a> &amp;&#160;</td>
-          <td class="paramname"><em>pool</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/dad/a00005.html">AgeContactProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>profile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d4/dca/a00048.html">TransmissionProfile</a> &amp;&#160;</td>
-          <td class="paramname"><em>transProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/dec/a00010.html">ContactHandler</a> &amp;&#160;</td>
-          <td class="paramname"><em>cHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned short int&#160;</td>
-          <td class="paramname"><em>simDay</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>cLogger</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00062">62</a> of file <a class="el" href="../../d1/d88/a00128_source.html">Infector.cpp</a>.</p>
+<p>Fully initialized. </p>
 
-<p>References <a class="el" href="../../d7/d25/a00182_source.html#l00033">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d1/dc1/a00092_source.html#l00047">stride::ContactHandler::HasContact()</a>, <a class="el" href="../../d1/dc1/a00092_source.html#l00050">stride::ContactHandler::HasTransmission()</a>, <a class="el" href="../../d9/df8/a00096_source.html#l00065">stride::ContactPool::m_members</a>, and <a class="el" href="../../d9/df8/a00096_source.html#l00063">stride::ContactPool::m_pool_type</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00043">43</a> of file <a class="el" href="../../d7/d12/a00126_source.html">InfectorMap.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d47/a00129_source.html">Infector.h</a></li>
-<li><a class="el" href="../../d1/d88/a00128_source.html">Infector.cpp</a></li>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2abaaf56ff495aa37bfead7eea5405de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool B&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::InfectorMap::Add </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Filling up the <a class="el" href="../../dc/de2/a00024.html" title="Simulator can time step and reveal some of the key data. ">InfectorMap</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d7/d12/a00126_source.html#l00054">54</a> of file <a class="el" href="../../d7/d12/a00126_source.html">InfectorMap.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d7/d12/a00126_source.html">InfectorMap.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/de2/a00024.html">Infector</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/de2/a00024.html">InfectorMap</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

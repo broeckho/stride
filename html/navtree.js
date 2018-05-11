@@ -1,8 +1,10 @@
 var NAVTREE =
 [
   [ "Stride Reference Manual", "index.html", [
-    [ "The Stride project.", "index.html", [
+    [ "Stride: Simulation of TRansmission of Infectious DisEases.", "index.html", [
+      [ "Links", "index.html#Links", null ],
       [ "Documentation", "index.html#Documentation", null ],
+      [ "Contributors", "index.html#Contributors", null ],
       [ "License", "index.html#License", null ]
     ] ],
     [ "Namespaces", null, [
@@ -42,9 +44,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d31/a00069.html#ac539c7549cc8c19530813f0bdb35a14d",
-"d9/d2e/a00056.html#a01b3eb32bba2b55a62086271185f8832",
-"dd/d32/a00041.html#a1af858cc7f2a9c6a9273009e3db8e764"
+"d4/d3a/a00101_source.html",
+"d8/d17/a00114.html#acdde1acea1c3f4536af74bb4b126a739",
+"dd/d1b/a00015.html#a06edf10647a556a135c345995b2309be"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

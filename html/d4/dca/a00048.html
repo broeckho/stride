@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
+<title>Stride Reference Manual: stride::util::ConfigInfo Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">- generated for commit 58035f4</span>
    </div>
   </td>
  </tr>
@@ -105,45 +105,46 @@ $(document).ready(function(){initNavTree('d4/dca/a00048.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d1/dbd/a00457.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d8/db6/a00501.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
+<div class="title">stride::util::ConfigInfo Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a>&gt;</code></p>
+<p>Config information.  
+ <a href="../../d4/dca/a00048.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::TransmissionProfile:</div>
+Collaboration diagram for stride::util::ConfigInfo:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d65/a00458.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
-<area shape="rect" id="node2" href="../../dc/d31/a00208.html" title="{double\n||}" alt="" coords="63,5,123,83"/></map>
+<div class="center"><img src="../../d0/da2/a00502.gif" border="0" usemap="#stride_1_1util_1_1ConfigInfo_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1ConfigInfo_coll__map" id="stride_1_1util_1_1ConfigInfo_coll__map">
+</map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
-<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br/></td></tr>
-<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d31/a00208.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
-<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br/></td></tr>
-<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
-<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br/></td></tr>
-<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d31/a00208.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
-<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a> ()</td></tr>
+<tr class="separator:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a9842e76d67b4e02e5c31a3071ec286d0">HaveQt5</a> ()</td></tr>
+<tr class="separator:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a> ()</td></tr>
+<tr class="separator:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502bd4410a3e77792ea575f77f470d41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a> ()</td></tr>
+<tr class="separator:a502bd4410a3e77792ea575f77f470d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4240ce29160e778c69f9e246e1747d"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a> ()</td></tr>
+<tr class="separator:a6b4240ce29160e778c69f9e246e1747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada59da077e51cbd44e829a88c5cc62e3"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html#ada59da077e51cbd44e829a88c5cc62e3">ProcessorCount</a> ()</td></tr>
+<tr class="separator:ada59da077e51cbd44e829a88c5cc62e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="../../d7/d25/a00182_source.html#l00026">26</a> of file <a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
+<div class="textblock"><p>Config information. </p>
+
+<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00030">30</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad6fc5f3f3e32a15f059c64b74dfea905"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -151,7 +152,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
+          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveOpenMP </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -159,19 +160,18 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initialize. </p>
+<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00034">34</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d7/d25/a00182_source.html#l00030">30</a> of file <a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00143">stride::CliController::LogSetup()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
+<a class="anchor" id="a9842e76d67b4e02e5c31a3071ec286d0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -179,61 +179,24 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d31/a00208.html">double</a> stride::TransmissionProfile::GetRate </td>
+          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveQt5 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return transmission rate. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d25/a00182_source.html#l00033">33</a> of file <a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a>.</p>
-
-<p>References <a class="el" href="../../d7/d25/a00182_source.html#l00039">m_transmission_rate</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/d88/a00128_source.html#l00062">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, and <a class="el" href="../../d1/d88/a00128_source.html#l00128">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00044">44</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::TransmissionProfile::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>diseasePt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize. </p>
-
-<p>Definition at line <a class="el" href="../../d8/d64/a00181_source.html#l00030">30</a> of file <a class="el" href="../../d8/d64/a00181_source.html">TransmissionProfile.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
+<a class="anchor" id="aea2c9d397f10f54b7ae47f4b0f181799"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -241,33 +204,115 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d31/a00208.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
+          <td class="memname">std::string stride::util::ConfigInfo::GitRevision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d25/a00182_source.html#l00039">39</a> of file <a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d13/a00085_source.html#l00033">33</a> of file <a class="el" href="../../df/d13/a00085_source.html">ConfigInfo.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/d25/a00182_source.html#l00033">GetRate()</a>.</p>
+<p>References <a class="el" href="../../df/d13/a00085_source.html#l00028">TOSTRING</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00143">stride::CliController::LogSetup()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a502bd4410a3e77792ea575f77f470d41"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::ConfigInfo::GetHostname </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../df/d13/a00085_source.html#l00035">35</a> of file <a class="el" href="../../df/d13/a00085_source.html">ConfigInfo.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b4240ce29160e778c69f9e246e1747d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int stride::util::ConfigInfo::NumberAvailableThreads </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../df/d13/a00085_source.html#l00042">42</a> of file <a class="el" href="../../df/d13/a00085_source.html">ConfigInfo.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d53/a00081_source.html#l00143">stride::CliController::LogSetup()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada59da077e51cbd44e829a88c5cc62e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr unsigned int stride::util::ConfigInfo::ProcessorCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00056">56</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/d25/a00182_source.html">TransmissionProfile.h</a></li>
-<li><a class="el" href="../../d8/d64/a00181_source.html">TransmissionProfile.cpp</a></li>
+<li><a class="el" href="../../da/d2a/a00086_source.html">ConfigInfo.h</a></li>
+<li><a class="el" href="../../df/d13/a00085_source.html">ConfigInfo.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d7/da0/a00198.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/dca/a00048.html">TransmissionProfile</a></li>
-    <li class="footer">Generated on Fri May 11 2018 09:11:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">util</a></li><li class="navelem"><a class="el" href="../../d4/dca/a00048.html">ConfigInfo</a></li>
+    <li class="footer">Generated on Fri May 11 2018 12:46:43 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
