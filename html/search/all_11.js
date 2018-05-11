@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['subject_2eh',['Subject.h',['../d5/dcb/a00170.html',1,'']]],
+  ['unregister',['Unregister',['../d1/d6f/a00063.html#aaa38f379243ec0d27b47b5bd110ebe75',1,'stride::util::Subject']]],
+  ['unregisterall',['UnregisterAll',['../d1/d6f/a00063.html#a8e0f20cb6cc045cf215f5d5a0963046f',1,'stride::util::Subject']]],
+  ['update',['Update',['../d0/d33/a00027.html#ae927760d0eb3e5a3114305c53ebe70e3',1,'stride::LocalDiscussion::Update()'],['../db/df3/a00034.html#ae8df514c2c3f876dc620c2423091967c',1,'stride::NoGlobalInformation::Update()'],['../d4/d8c/a00035.html#a02b2e25dbfe3b1a6aa498c415029b81a',1,'stride::NoLocalInformation::Update()'],['../db/db2/a00020.html#a26b7fd4e8c9107413d09592734bae3ce',1,'stride::Health::Update()'],['../db/d3a/a00040.html#ad807fffd2d9a8c6302a25d959b2b9b4d',1,'stride::Person::Update(bool isWorkOff, bool isSchoolOff)'],['../db/d3a/a00040.html#a7817141d9072654dae557adccaa62991',1,'stride::Person::Update(Person *p)'],['../dc/ddf/a00067.html#ac36ba5df119a6774611d57cbc47657f1',1,'stride::viewers::AdoptedViewer::Update()'],['../da/d24/a00068.html#a9f3a2f9efda499fa6a80f3871c7298d7',1,'stride::viewers::CliViewer::Update()'],['../d4/d31/a00069.html#ac539c7549cc8c19530813f0bdb35a14d',1,'stride::viewers::InfectedViewer::Update()'],['../d2/db1/a00070.html#a6b1d3096869e9ed29d62eaec72a0a89c',1,'stride::viewers::PersonsViewer::Update()'],['../d0/d89/a00071.html#a5cea96dec638995509a87d5c9874e904',1,'stride::viewers::SummaryViewer::Update()']]],
+  ['useoptimizedinfector',['UseOptimizedInfector',['../d2/dee/a00049.html',1,'stride']]],
+  ['useoptimizedinfector_3c_20contactlogmode_3a_3aid_3a_3anone_2c_20nolocalinformation_20_3e',['UseOptimizedInfector&lt; ContactLogMode::Id::None, NoLocalInformation &gt;',['../d5/de0/a00050.html',1,'stride']]],
+  ['useoptimizedinfector_3c_20contactlogmode_3a_3aid_3a_3atransmissions_2c_20nolocalinformation_20_3e',['UseOptimizedInfector&lt; ContactLogMode::Id::Transmissions, NoLocalInformation &gt;',['../d2/d79/a00051.html',1,'stride']]]
+];
