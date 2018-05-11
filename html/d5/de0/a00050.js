@@ -7,6 +7,6 @@ var a00050 =
     [ "GetValue", "d5/de0/a00050.html#a65777e0c58ce4632c96009ce1180250a", null ],
     [ "GetValue", "d5/de0/a00050.html#a03e8149406514c601f7095c55460977d", null ],
     [ "operator<<", "d5/de0/a00050.html#a0ec2f92503adc2a968a848d3fddf087d", null ],
-    [ "parent", "d5/de0/a00050.html#ad55069b481e186eb07f62f60883aed25", null ],
-    [ "values", "d5/de0/a00050.html#a7e09d44ea70848180bfb09233ce66433", null ]
+    [ "m_parent", "d5/de0/a00050.html#aa89bb5ef10f89f4eae23cc0536bf01c1", null ],
+    [ "m_values", "d5/de0/a00050.html#a6e59d67d64bb1bf8681d7718be92d74f", null ]
 ];
