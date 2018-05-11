@@ -32,7 +32,6 @@
 
 namespace {
 
-
 using namespace stride;
 
 /// Indicates whether optimized implementation may be used.
@@ -56,7 +55,6 @@ struct UseOptimizedInfector<ContactLogMode::Id::Transmissions, NoLocalInformatio
 };
 
 }
-
 
 namespace stride {
 

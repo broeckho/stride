@@ -23,6 +23,9 @@
 
 namespace stride {
 
+/**
+ * No beliefs w.r.t vaccination.
+ */
 class NoBelief : public Belief
 {
 public:

@@ -25,11 +25,11 @@
 #include <boost/property_tree/ptree.hpp>
 #include <array>
 
+namespace stride {
+
 /**
  * Contact rates as a function of age.
  */
-namespace stride {
-
 class AgeContactProfile : public std::array<double, MaximumAge() + 1>
 {
 public:

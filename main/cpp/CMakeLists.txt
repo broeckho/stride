@@ -46,7 +46,6 @@ set(LIB_SRC
 	contact/Infector.cpp
 	contact/InfectorExec.h
 	contact/InfectorMap.h
-	contact/LogPolicy.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
