@@ -22,8 +22,7 @@ namespace stride {
 
 class Person;
 /**
- * NoGlobalInformation means that there is no globally available
- * information about the disease, number of infected,... .
+ * No global information about the disease, number of infected,... .
  */
 class NoGlobalInformation
 {

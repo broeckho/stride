@@ -14,7 +14,6 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
-
 /**
  * @file Header for NoLocalInformation policy
  */
@@ -22,8 +21,7 @@
 namespace stride {
 
 /**
- * NoLocalInformation means that no information about beliefs or
- * health status is exchanged between individuals upon contact.
+ * No information about beliefs or health status is exchanged upon contact.
  */
 class NoLocalInformation
 {

@@ -23,8 +23,8 @@
 #include "pop/Population.h"
 #include "util/RNManager.h"
 
-#include <omp.h>
 #include <trng/uniform01_dist.hpp>
+#include <omp.h>
 
 using namespace boost::property_tree;
 using namespace stride::util;
@@ -79,11 +79,11 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
 #pragma omp for
                 for (size_t i = 0; i < population.size(); ++i) {
                         const auto startInfectiousness = Sample(m_distrib_start_infectiousness, gen01());
-                        const auto startSymptomatic = Sample(m_distrib_start_symptomatic, gen01());
-                        const auto timeInfectious = Sample(m_distrib_time_infectious, gen01());
-                        const auto timeSymptomatic = Sample(m_distrib_time_symptomatic, gen01());
-                        population[i].GetHealth()
-                                = Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
+                        const auto startSymptomatic    = Sample(m_distrib_start_symptomatic, gen01());
+                        const auto timeInfectious      = Sample(m_distrib_time_infectious, gen01());
+                        const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic, gen01());
+                        population[i].GetHealth() =
+                            Health(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);
                 }
         }
 }

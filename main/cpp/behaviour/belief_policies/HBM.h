@@ -27,7 +27,7 @@ constexpr double odds_ratio_severity       = 0.626;
 constexpr double odds_ratio_susceptibility = 1.07;
 constexpr double odds_ratio_benefit        = 0;
 constexpr double odds_ratio_barriers       = -0.4;
-}
+} // namespace
 
 namespace stride {
 
