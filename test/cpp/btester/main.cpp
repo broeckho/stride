@@ -42,10 +42,9 @@ int main(int argc, char** argv)
 
         /// Go ahead and set them up, run hem.
         try {
-                CliController controller;
-                controller.ParseArgs(argc, argv);
-                controller.Control();
-
+                CliController c;
+                c.ParseArgs(argc, argv);
+                c.Control();
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

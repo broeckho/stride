@@ -18,8 +18,8 @@
 ################################################################################
 ##### Exit with nonzero exit code if anything fails; set up variables.
 set -e
-GH_REPO_ORG=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 1`
-GH_REPO_NAME=`echo $TRAVIS_REPO_SLUG | cut -d "/" -f 2`
+GH_REPO_ORG=$(echo $TRAVIS_REPO_SLUG | cut -d "/" -f 1)
+GH_REPO_NAME=$(echo $TRAVIS_REPO_SLUG | cut -d "/" -f 2)
 GH_REPO_REF="github.com/$GH_REPO_ORG/$GH_REPO_NAME.git"
 
 ##### Create a clean working directory with gh-pages branch
@@ -36,8 +36,9 @@ git config user.email "travis@travis-ci.org"
 # GitHub is smart enough to know which files have changed and which not and will
 # only update the changed files. So the gh-pages branch can be safely cleaned, and
 # it is sure that everything pushed later is the new documentation.
-CURRENTCOMMIT=`git rev-parse HEAD`
-git reset --hard `git rev-list HEAD | tail -n 1` # Reset working tree to initial commit
+CURRENTCOMMIT=$(git rev-parse HEAD)
+##### Reset working tree to initial commit.
+git reset --hard $(git rev-list HEAD | tail -n 1)
 git reset --soft $CURRENTCOMMIT # Move HEAD back to where it was
 
 ##### Need to create a .nojekyll file to allow filenames starting with an underscore

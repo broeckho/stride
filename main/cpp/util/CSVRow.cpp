@@ -35,14 +35,14 @@ inline bool IsFloat(const std::string& s)
 namespace stride {
 namespace util {
 
-CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : parent(parent)
+CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : m_parent(parent)
 {
         if (values.size() != parent->GetColumnCount()) {
                 throw std::runtime_error("Tried adding row with " + ToString(values.size()) + " value(s) to CSV with " +
                                          ToString(parent->GetColumnCount()) + " columns.");
         }
         for (const std::string& value : values) {
-                this->values.push_back(Trim(value, "\""));
+                this->m_values.push_back(Trim(value, "\""));
         }
 }
 
@@ -50,26 +50,26 @@ CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : pare
 template <>
 std::string CSVRow::GetValue<std::string>(size_t index) const
 {
-        if (index >= parent->GetColumnCount()) {
+        if (index >= m_parent->GetColumnCount()) {
                 throw std::runtime_error("Index out of range for CSV: " + ToString(index));
         }
-        return values.at(index);
+        return m_values.at(index);
 }
 
 /// specialization for string
 template <>
 std::string CSVRow::GetValue<std::string>(const std::string& label) const
 {
-        size_t index = parent->GetIndexForLabel(label);
+        size_t index = m_parent->GetIndexForLabel(label);
         return GetValue(index);
 }
 
-bool CSVRow::operator==(const CSVRow& other) const { return values == other.values; }
+bool CSVRow::operator==(const CSVRow& other) const { return m_values == other.m_values; }
 
 std::ostream& operator<<(std::ostream& os, const CSVRow& row)
 {
-        for (unsigned int i = 0; i < row.values.size(); ++i) {
-                const std::string& value = row.values.at(i);
+        for (unsigned int i = 0; i < row.m_values.size(); ++i) {
+                const std::string& value = row.m_values.at(i);
                 if (!IsFloat(value)) {
                         os << "\"";
                 }
@@ -77,7 +77,7 @@ std::ostream& operator<<(std::ostream& os, const CSVRow& row)
                 if (!IsFloat(value)) {
                         os << "\"";
                 }
-                if (i != row.values.size() - 1) {
+                if (i != row.m_values.size() - 1) {
                         os << ",";
                 }
         }

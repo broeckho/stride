@@ -75,7 +75,6 @@ int main(int argc, char** argv)
                 CliController controller;
                 controller.ParseArgs(argc, argv);
                 controller.Control();
-
         } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
                 cerr << "\nEXCEPION THROWN: " << e.what() << endl;

@@ -122,8 +122,7 @@ ptree RunConfigManager::CreateBenchMeasles()
         pt.put("run.num_participants_survey", 10);
         pt.put("run.num_threads", 1U);
         pt.put("run.output_prefix", "bench");
-        // pt.put("run.population_file", "pop_flanders1600.csv");
-        pt.put("run.population_file", "pop_flanders600.csv");
+        pt.put("run.population_file", "pop_flanders1600.csv");
         pt.put("run.rng_seed", 1U);
         pt.put("run.rng_type", "mrg2");
         pt.put("run.r0", 15U);
@@ -169,7 +168,7 @@ ptree RunConfigManager::CreateTestsInfluenza()
 {
         ptree pt;
 
-        pt.put("stride.pop.rng_seed", 20);
+        pt.put("stride.pop.rng_seed", 10);
         pt.put("stride.pop.rng_type", "lcg64");
 
         pt.put("run.age_contact_matrix_file", "contact_matrix_flanders_subpop.xml");
@@ -189,7 +188,7 @@ ptree RunConfigManager::CreateTestsInfluenza()
         pt.put("run.num_threads", 1);
         pt.put("run.output_prefix", "BenchRuns");
         pt.put("run.population_file", "pop_flanders600.csv");
-        pt.put("run.rng_seed", 2015);
+        pt.put("run.rng_seed", 2001);
         pt.put("run.rng_type", "mrg2");
         pt.put("run.r0", 3.0);
         pt.put("run.seeding_rate", 0.0009);

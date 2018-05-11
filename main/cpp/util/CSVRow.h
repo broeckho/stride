@@ -53,9 +53,8 @@ public:
         friend std::ostream& operator<<(std::ostream& os, const CSVRow& row);
 
 protected:
-        const CSV*               parent;
-        std::vector<std::string> values;
-
+        const CSV*               m_parent;
+        std::vector<std::string> m_values;
 };
 
 /// Declaration of specialization
