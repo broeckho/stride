@@ -28,7 +28,7 @@ class Sim;
 class Population;
 
 /**
- * Builds a simulator (@see Sim) based a configuration property tree.
+ * Builds a simulator based a configuration property tree.
  * It
  * \li reads any additional configuration files (disease, contact, ...)
  * \li initializes calendar and random number manager for the simulator

@@ -15,15 +15,14 @@
  */
 
 /**
- * @file
+ * @file Header for NoBehaviour policy
  */
 
 namespace stride {
 
 /**
- * Class for behaviour policy 'NoBehaviour'.
- * This means that whatever beliefs a person holds, or whatever information
- * they gather, this will not result in a change in their behaviour.
+ * NoBehaviour means that whatever beliefs a person holds, or whatever
+ * information they gather, will not result in a change in their behaviour.
  */
 template <typename belief_policy>
 class NoBehaviour

@@ -14,6 +14,11 @@
  *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Header file for LocalDiscussion info policy..
+ */
+
 namespace stride {
 
 class Person;

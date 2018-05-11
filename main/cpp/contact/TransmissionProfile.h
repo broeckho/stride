@@ -23,6 +23,9 @@
 
 namespace stride {
 
+/**
+ * Transmission rates from disease data.
+ */
 class TransmissionProfile
 {
 public:

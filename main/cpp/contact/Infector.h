@@ -30,32 +30,37 @@
 #include <memory>
 #include <spdlog/spdlog.h>
 
-namespace stride {
+namespace {
 
-class ContactPool;
+
+using namespace stride;
 
 /// Indicates whether optimized implementation may be used.
 /// \tparam LL          LogLevel
 /// \tparam LIP         LocalInformationPolicy
-template <ContactLogMode::Id LL, typename LIP>
-struct UseOptimizedInfector
-{
+template<ContactLogMode::Id LL, typename LIP>
+struct UseOptimizedInfector {
         static constexpr bool value = false;
 };
 
 /// Indicates whether optimized implementation may be used.
-template <>
-struct UseOptimizedInfector<ContactLogMode::Id::None, NoLocalInformation>
-{
+template<>
+struct UseOptimizedInfector<ContactLogMode::Id::None, NoLocalInformation> {
         static constexpr bool value = true;
 };
 
 /// Indicates whether optimized implementation may be used.
-template <>
-struct UseOptimizedInfector<ContactLogMode::Id::Transmissions, NoLocalInformation>
-{
+template<>
+struct UseOptimizedInfector<ContactLogMode::Id::Transmissions, NoLocalInformation> {
         static constexpr bool value = true;
 };
+
+}
+
+
+namespace stride {
+
+class ContactPool;
 
 /// Actual contacts and transmission in contactpool (primary template).
 /// \tparam LL          LogLevel

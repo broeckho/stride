@@ -14,6 +14,11 @@
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Header for the AdoptedFile class.
+ */
+
 #include <fstream>
 #include <string>
 #include <vector>
@@ -21,6 +26,9 @@
 namespace stride {
 namespace output {
 
+/**
+ * Produces a file with daily count of person having adopted a belief.
+ */
 class AdoptedFile
 {
 public:

@@ -12,7 +12,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2016, 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================

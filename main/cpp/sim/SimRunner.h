@@ -33,7 +33,8 @@ class Sim;
 class Population;
 
 /**
- * The simulation runner:
+ * The simulation runner drive simulator throufgh time steps.
+ * It's functions are:
  * \li invokes the simulator builder (@see SimulatorBuilder)
  * \li manages elapsed time clock
  * \li manages time steps

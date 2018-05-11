@@ -14,6 +14,11 @@
  *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
+/**
+ * @file
+ * Header file for HBM belief.
+ */
+
 #include "behaviour/belief_policies/Belief.h"
 
 namespace {
