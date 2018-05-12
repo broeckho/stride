@@ -171,7 +171,7 @@ def create_slider(districts_file, population_file, households_file, persons_file
         """
         Update the plot according to the value of the slider.
         """
-        day = int(round(sday.val))
+        day = int(round(val))
 
         xs = []
         ys = []

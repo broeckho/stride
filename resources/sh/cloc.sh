@@ -14,7 +14,6 @@
 # permissions and limitations under the Licence.
 #############################################################################
 
-
 OUTPUTDIR=$1
 
 if [ $# -eq 0 ]; then
@@ -27,12 +26,18 @@ if [ ! -d $OUTPUTDIR ]; then
 	echo cloc will create it if permission are ok
 fi
 
-cloc --out $OUTPUTDIR/cloc_summary_main.txt --exclude-dir src/main/resources/lib src/main
+cloc-1.76.pl --md --out $OUTPUTDIR/cloc_summary_main.md --exclude-dir=lib main
 
-cloc --out $OUTPUTDIR/cloc_summary_test.txt --exclude-dir src/test/resources/lib src/test
+cloc-1.76.pl --md --out $OUTPUTDIR/cloc_summary_test.md --exclude-dir=lib test
 
-cloc --out $OUTPUTDIR/cloc_by_file.xml --by-file --xml \
-	--exclude-dir src/main/resources/lib,src/main/resources/data,src/doc,src/test/resources/lib,src/test/cpp/gtester/data src
+cloc-1.76.pl --md --out $OUTPUTDIR/cloc_summary_all.md \
+    --exclude-dir=lib,data,doc,cmake,cmake-build-release,cmake-build-debug,.idea .
 
-xsltproc --output $OUTPUTDIR/cloc_overview.sc src/doc/resources/cloc/sloccount.xsl $OUTPUTDIR/cloc_by_file.xml
+cloc-1.76.pl --md --by-file --out $OUTPUTDIR/cloc_by_file.md \
+    --exclude-dir=lib,data,doc,cmake,cmake-build-release,cmake-build-debug,.idea .
+
+cloc-1.76.pl --xml --by-file --out $OUTPUTDIR/cloc_by_file.xml \
+    --exclude-dir=lib,data,doc,cmake,cmake-build-release,cmake-build-debug,.idea .
+
+xsltproc --output $OUTPUTDIR/cloc_overview.sc resources/sh/sloccount.xsl $OUTPUTDIR/cloc_by_file.xml
 

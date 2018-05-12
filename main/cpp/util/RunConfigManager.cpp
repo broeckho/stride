@@ -129,9 +129,9 @@ string RunConfigManager::CreateDefault()
         <r0>11</r0>
         <seeding_age_max>99</seeding_age_max>
         <seeding_age_min>1</seeding_age_min>
-        <seeding_rate>0.002</seeding_rate>
+        <seeding_rate>0.003</seeding_rate>
         <start_date>2017-01-01</start_date>
-        <stride_log_level>info</stride_log_level>
+        <stride_log_level>critical</stride_log_level>
         <track_index_case>false</track_index_case>
         <use_install_dirs>true</use_install_dirs>
         <vaccine_link_probability>0</vaccine_link_probability>
@@ -171,7 +171,7 @@ string RunConfigManager::CreateBenchMeasles()
         <seeding_age_min>1</seeding_age_min>
         <seeding_rate>0.02</seeding_rate>
         <start_date>2017-01-01</start_date>
-        <stride_log_level>info</stride_log_level>
+        <stride_log_level>critical</stride_log_level>
         <track_index_case>false</track_index_case>
         <use_install_dirs>true</use_install_dirs>
         <vaccine_link_probability>0</vaccine_link_probability>
