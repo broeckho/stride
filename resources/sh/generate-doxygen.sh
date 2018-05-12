@@ -66,6 +66,8 @@ if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
 
+    echo "Stride [documentation](https://${GH_USER}.github.io/${GH_REPO}/)" > README.md
+
     ##### Add everything in this directory (the Doxygen doc) to gh-pages branch.
     # GitHub is smart and knows which files have changed and which have not,
     # and will only update changed files.
@@ -77,7 +79,7 @@ if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     ##### Force push to remote gh-pages branch. Output redirected to /dev/null
     # to hide any sensitive credential data that might otherwise be exposed.
-    git push --force "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
+    git push --force --quiet "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
 else
     echo '' >&2
     echo 'Warning: No documentation (html) files have been found!' >&2

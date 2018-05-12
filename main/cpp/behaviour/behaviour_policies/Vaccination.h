@@ -28,7 +28,7 @@ public:
 
         static bool PracticesVaccination(const typename belief_policy::Data& belief_data)
         {
-                return belief_policy::HasAdopted(belief_data)) {
+                return belief_policy::HasAdopted(belief_data);
         }
 };
 

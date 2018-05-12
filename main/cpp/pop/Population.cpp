@@ -61,7 +61,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // Setup RNManager.
         // ------------------------------------------------
         RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
-                                            configPt.get<unsigned long>("run.rng_seed", 101UL), "",
+                                            configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
                                             configPt.get<unsigned int>("run.num_threads")});
 
         // -----------------------------------------------------------------------------------------

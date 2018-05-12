@@ -35,7 +35,7 @@ using boost::property_tree::ptree;
 void MeaslesBench()
 {
         auto builder = [](unsigned int n) {
-                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
+                auto configPt = make_shared<ptree>(RunConfigManager::Create("BenchMeasles"));
                 return [n, configPt]() {
                         return Test([n, configPt]() {
                                 configPt->put("run.num_threads", n);

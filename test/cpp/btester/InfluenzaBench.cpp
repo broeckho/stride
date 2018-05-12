@@ -35,7 +35,7 @@ using boost::property_tree::ptree;
 void InfluenzaBench()
 {
         auto builder = [](string s) {
-                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchInfluenza());
+                auto configPt = make_shared<ptree>(RunConfigManager::Create("BenchInfluenza"));
                 return [s, configPt]() {
                         return Test([s, configPt]() {
                                 configPt->put("run.contact_log_level", s);
