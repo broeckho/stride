@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Vaccination.h Source File</title>
+<title>Stride Reference Manual: TransmissionProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
+   &#160;<span id="projectnumber">- generated for commit b314f7c</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d7/d3f/a00173_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Vaccination.h</div>  </div>
+<div class="title">TransmissionProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/d3f/a00173.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,28 +122,36 @@ $(document).ready(function(){initNavTree('d7/d3f/a00173_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> belief_policy&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>Vaccination</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> PracticesSocialDistancing(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> PracticesVaccination(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> belief_policy::HasAdopted(belief_data)) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/db6/a00042.html">TransmissionProfile</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html#a1645757a571f63d0583d54a6838ca1fb">   33</a></span>&#160;        <a class="code" href="../../d5/db6/a00042.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a>() : <a class="code" href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>(0.0) {}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html#a51ffe104253ffd5bcf12ab299fa6f2e2">   36</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../d5/db6/a00042.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>; }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/db6/a00042.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <span class="keyword">const</span> boost::property_tree::ptree&amp; diseasePt);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">   42</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">stride::TransmissionProfile</a></div><div class="ttdoc">Transmission rates from disease data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00029">TransmissionProfile.h:29</a></div></div>
+<div class="ttc" id="a00042_html_a51ffe104253ffd5bcf12ab299fa6f2e2"><div class="ttname"><a href="../../d5/db6/a00042.html#a51ffe104253ffd5bcf12ab299fa6f2e2">stride::TransmissionProfile::GetRate</a></div><div class="ttdeci">double GetRate() const </div><div class="ttdoc">Return transmission rate. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00036">TransmissionProfile.h:36</a></div></div>
+<div class="ttc" id="a00042_html_afbb8227d4d8b61b291fa521f33dce3ce"><div class="ttname"><a href="../../d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce">stride::TransmissionProfile::m_transmission_rate</a></div><div class="ttdeci">double m_transmission_rate</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00042">TransmissionProfile.h:42</a></div></div>
+<div class="ttc" id="a00042_html_a1645757a571f63d0583d54a6838ca1fb"><div class="ttname"><a href="../../d5/db6/a00042.html#a1645757a571f63d0583d54a6838ca1fb">stride::TransmissionProfile::TransmissionProfile</a></div><div class="ttdeci">TransmissionProfile()</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00033">TransmissionProfile.h:33</a></div></div>
+<div class="ttc" id="a00042_html_a5e67e9eab813de18fff32722ee6f1437"><div class="ttname"><a href="../../d5/db6/a00042.html#a5e67e9eab813de18fff32722ee6f1437">stride::TransmissionProfile::Initialize</a></div><div class="ttdeci">void Initialize(const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/dfb/a00172_source.html#l00030">TransmissionProfile.cpp:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_6619f542450013781d0ff5d08067d16d.html">behaviour_policies</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">Vaccination.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d7/d3f/a00173.html">TransmissionProfile.h</a></li>
+    <li class="footer">Generated on Sat May 12 2018 09:52:38 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

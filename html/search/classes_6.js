@@ -7,7 +7,7 @@ var searchData=
   ['imitation',['Imitation',['../db/db2/a00020.html',1,'stride']]],
   ['immunizer',['Immunizer',['../de/d11/a00021.html',1,'stride']]],
   ['infectedfile',['InfectedFile',['../df/d61/a00031.html',1,'stride::output']]],
-  ['infectedviewer',['InfectedViewer',['../d9/d73/a00060.html',1,'stride::viewers']]],
+  ['infectedviewer',['InfectedViewer',['../d4/de8/a00061.html',1,'stride::viewers']]],
   ['infector',['Infector',['../d7/de0/a00022.html',1,'stride']]],
   ['infector_3c_20ll_2c_20tic_2c_20nolocalinformation_2c_20true_20_3e',['Infector&lt; LL, TIC, NoLocalInformation, true &gt;',['../d3/d52/a00023.html',1,'stride']]],
   ['infectormap',['InfectorMap',['../dc/de2/a00024.html',1,'stride']]],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactHandler.h Source File</title>
+<title>Stride Reference Manual: ConfigInfo.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
+   &#160;<span id="projectnumber">- generated for commit b314f7c</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d2/d1f/a00083_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactHandler.h</div>  </div>
+<div class="title">ConfigInfo.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d2/d1f/a00083.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,58 +119,53 @@ $(document).ready(function(){initNavTree('d2/d1f/a00083_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db6/a00146.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">ContactHandler</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#acd8b09e759ed6049412de25662d1301d">   35</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d4/dee/a00008.html#acd8b09e759ed6049412de25662d1301d">ContactHandler</a>(std::function&lt;<span class="keywordtype">double</span>()&gt; gen) : <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>(std::move(gen)) {}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#ac03cd0d69d17bb0a97189c24ed537fdf">   38</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../d4/dee/a00008.html#ac03cd0d69d17bb0a97189c24ed537fdf">operator()</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>(); }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a65ae0c571176ea267cf980ce31408f35">   41</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d4/dee/a00008.html#a65ae0c571176ea267cf980ce31408f35">HasContactAndTransmission</a>(<span class="keywordtype">double</span> contact_rate, <span class="keywordtype">double</span> transmission_rate)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(transmission_rate * contact_rate);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/df9/a00044.html">ConfigInfo</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html#ad6fc5f3f3e32a15f059c64b74dfea905">   34</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d5/df9/a00044.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span>        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html#a9842e76d67b4e02e5c31a3071ec286d0">   44</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d5/df9/a00044.html#a9842e76d67b4e02e5c31a3071ec286d0">HaveQt5</a>() { <span class="keywordflow">return</span> Qt5_FOUND; }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a4a6ef10cff06328c9bc5b7f6337339ad">   47</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d4/dee/a00008.html#a4a6ef10cff06328c9bc5b7f6337339ad">HasContact</a>(<span class="keywordtype">double</span> contact_rate) { <span class="keywordflow">return</span> <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(contact_rate); }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../d5/df9/a00044.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a94d8f2bdeff1e99b1e6380060e8fb622">   50</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d4/dee/a00008.html#a94d8f2bdeff1e99b1e6380060e8fb622">HasTransmission</a>(<span class="keywordtype">double</span> transmission_rate)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>() &lt; <a class="code" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(transmission_rate);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../d5/df9/a00044.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/df9/a00044.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">   57</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a>(<span class="keywordtype">double</span> rate) { <span class="keywordflow">return</span> 1.0 - exp(-rate); }</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">   56</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">ProcessorCount</a>() { <span class="keywordflow">return</span> PROCCOUNT; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">   60</a></span>&#160;        std::function&lt;double()&gt; <a class="code" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a>; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00008_html_a4a6ef10cff06328c9bc5b7f6337339ad"><div class="ttname"><a href="../../d4/dee/a00008.html#a4a6ef10cff06328c9bc5b7f6337339ad">stride::ContactHandler::HasContact</a></div><div class="ttdeci">bool HasContact(double contact_rate)</div><div class="ttdoc">Check if two individuals have contact. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00047">ContactHandler.h:47</a></div></div>
-<div class="ttc" id="a00008_html_a94d8f2bdeff1e99b1e6380060e8fb622"><div class="ttname"><a href="../../d4/dee/a00008.html#a94d8f2bdeff1e99b1e6380060e8fb622">stride::ContactHandler::HasTransmission</a></div><div class="ttdeci">bool HasTransmission(double transmission_rate)</div><div class="ttdoc">Check whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00050">ContactHandler.h:50</a></div></div>
-<div class="ttc" id="a00008_html_ad89329d01eda188d96ac8fea0386cdc4"><div class="ttname"><a href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">stride::ContactHandler::m_uniform01_generator</a></div><div class="ttdeci">std::function&lt; double()&gt; m_uniform01_generator</div><div class="ttdoc">Random number generator: double in [0.0, 1.0) </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00060">ContactHandler.h:60</a></div></div>
-<div class="ttc" id="a00008_html_ac03cd0d69d17bb0a97189c24ed537fdf"><div class="ttname"><a href="../../d4/dee/a00008.html#ac03cd0d69d17bb0a97189c24ed537fdf">stride::ContactHandler::operator()</a></div><div class="ttdeci">double operator()()</div><div class="ttdoc">Make a draw on the uniform generator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00038">ContactHandler.h:38</a></div></div>
-<div class="ttc" id="a00008_html_a65ae0c571176ea267cf980ce31408f35"><div class="ttname"><a href="../../d4/dee/a00008.html#a65ae0c571176ea267cf980ce31408f35">stride::ContactHandler::HasContactAndTransmission</a></div><div class="ttdeci">bool HasContactAndTransmission(double contact_rate, double transmission_rate)</div><div class="ttdoc">Check if two individuals have contact and transmission. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00041">ContactHandler.h:41</a></div></div>
-<div class="ttc" id="a00008_html_acd8b09e759ed6049412de25662d1301d"><div class="ttname"><a href="../../d4/dee/a00008.html#acd8b09e759ed6049412de25662d1301d">stride::ContactHandler::ContactHandler</a></div><div class="ttdeci">ContactHandler(std::function&lt; double()&gt; gen)</div><div class="ttdoc">Constructor sets the transmission rate and random number generator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00035">ContactHandler.h:35</a></div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">stride::ContactHandler</a></div><div class="ttdoc">Processes the contacts between persons and determines whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00031">ContactHandler.h:31</a></div></div>
-<div class="ttc" id="a00008_html_a51fd44b433163a1bd2a9fb424a003344"><div class="ttname"><a href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">stride::ContactHandler::RateToProbability</a></div><div class="ttdeci">double RateToProbability(double rate)</div><div class="ttdoc">Convert rate into probability. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00057">ContactHandler.h:57</a></div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00044_html"><div class="ttname"><a href="../../d5/df9/a00044.html">stride::util::ConfigInfo</a></div><div class="ttdoc">Config information. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00030">ConfigInfo.h:30</a></div></div>
+<div class="ttc" id="a00044_html_a6b4240ce29160e778c69f9e246e1747d"><div class="ttname"><a href="../../d5/df9/a00044.html#a6b4240ce29160e778c69f9e246e1747d">stride::util::ConfigInfo::NumberAvailableThreads</a></div><div class="ttdeci">static unsigned int NumberAvailableThreads()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d63/a00082_source.html#l00042">ConfigInfo.cpp:42</a></div></div>
+<div class="ttc" id="a00044_html_aea2c9d397f10f54b7ae47f4b0f181799"><div class="ttname"><a href="../../d5/df9/a00044.html#aea2c9d397f10f54b7ae47f4b0f181799">stride::util::ConfigInfo::GitRevision</a></div><div class="ttdeci">static std::string GitRevision()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d63/a00082_source.html#l00033">ConfigInfo.cpp:33</a></div></div>
+<div class="ttc" id="a00044_html_ad6fc5f3f3e32a15f059c64b74dfea905"><div class="ttname"><a href="../../d5/df9/a00044.html#ad6fc5f3f3e32a15f059c64b74dfea905">stride::util::ConfigInfo::HaveOpenMP</a></div><div class="ttdeci">static constexpr bool HaveOpenMP()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00034">ConfigInfo.h:34</a></div></div>
+<div class="ttc" id="a00044_html_a9842e76d67b4e02e5c31a3071ec286d0"><div class="ttname"><a href="../../d5/df9/a00044.html#a9842e76d67b4e02e5c31a3071ec286d0">stride::util::ConfigInfo::HaveQt5</a></div><div class="ttdeci">static constexpr bool HaveQt5()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00044">ConfigInfo.h:44</a></div></div>
+<div class="ttc" id="a00044_html_a502bd4410a3e77792ea575f77f470d41"><div class="ttname"><a href="../../d5/df9/a00044.html#a502bd4410a3e77792ea575f77f470d41">stride::util::ConfigInfo::GetHostname</a></div><div class="ttdeci">static std::string GetHostname()</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d63/a00082_source.html#l00035">ConfigInfo.cpp:35</a></div></div>
+<div class="ttc" id="a00044_html_ada59da077e51cbd44e829a88c5cc62e3"><div class="ttname"><a href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">stride::util::ConfigInfo::ProcessorCount</a></div><div class="ttdeci">static constexpr unsigned int ProcessorCount()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d1f/a00083_source.html#l00056">ConfigInfo.h:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d2/d1f/a00083.html">ContactHandler.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d1f/a00083.html">ConfigInfo.h</a></li>
+    <li class="footer">Generated on Sat May 12 2018 09:52:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

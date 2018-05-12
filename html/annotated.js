@@ -1,4 +1,4 @@
 var annotated =
 [
-    [ "stride", "da/deb/a00189.html", "da/deb/a00189" ]
+    [ "stride", "d7/d6e/a00190.html", "d7/d6e/a00190" ]
 ];

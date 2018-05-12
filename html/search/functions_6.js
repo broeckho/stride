@@ -31,7 +31,7 @@ var searchData=
   ['getid',['GetId',['../db/df3/a00034.html#afab3ab2a1a33004f9e25d4873c3c1921',1,'stride::Person']]],
   ['getindexforlabel',['GetIndexForLabel',['../d6/d97/a00045.html#aed99cf47769a6284b45c2815b08d1bd0',1,'stride::util::CSV']]],
   ['getinfectedcount',['GetInfectedCount',['../de/d8c/a00036.html#a5ffab38c3407832dcc0f1ecbf4e11cbd',1,'stride::Population']]],
-  ['getinfectioncounts',['GetInfectionCounts',['../d9/d73/a00060.html#a0a02401197ff8238052068ecaa10c505',1,'stride::viewers::InfectedViewer']]],
+  ['getinfectioncounts',['GetInfectionCounts',['../d4/de8/a00061.html#a0a02401197ff8238052068ecaa10c505',1,'stride::viewers::InfectedViewer']]],
   ['getinfo',['GetInfo',['../d5/de0/a00050.html#a3faf18a9fdd2400012612a2cafde01a3',1,'stride::util::RNManager']]],
   ['getmember',['GetMember',['../da/da0/a00009.html#ae7962d506db44920ed1fd99471cabc50',1,'stride::ContactPool']]],
   ['getmonth',['GetMonth',['../de/d21/a00006.html#a1321c2a696a5cdbc8ffa0c2313084989',1,'stride::Calendar']]],

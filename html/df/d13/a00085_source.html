@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactLogMode.h Source File</title>
+<title>Stride Reference Manual: ContactLogMode.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
+   &#160;<span id="projectnumber">- generated for commit b314f7c</span>
    </div>
   </td>
  </tr>
@@ -103,61 +103,68 @@ $(document).ready(function(){initNavTree('df/d13/a00085_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactLogMode.h</div>  </div>
+<div class="title">ContactLogMode.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../df/d13/a00085.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>ContactLogMode {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2ba">   33</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">None</a>          = 0U,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Transmissions</a> = 1U,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">All</a>           = 2U,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Susceptibles</a>  = 3U</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;std::string <a class="code" href="../../d7/d6e/a00190.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(<a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> w);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/d6e/a00190.html#a3242678fd1548cd6dd420490dc06fcff">IsMode</a>(<span class="keyword">const</span> std::string&amp; s);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2ba">ContactLogMode::Id</a> <a class="code" href="../../d7/d6e/a00190.html#a12707c23b43baa1a0f5bed51db72756d">ToMode</a>(<span class="keyword">const</span> std::string&amp; s);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace ContactLogMode</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00190_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00033">ContactLogMode.h:33</a></div></div>
-<div class="ttc" id="a00190_html_a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a></div></div>
-<div class="ttc" id="a00190_html_a3242678fd1548cd6dd420490dc06fcff"><div class="ttname"><a href="../../d7/d6e/a00190.html#a3242678fd1548cd6dd420490dc06fcff">stride::ContactLogMode::IsMode</a></div><div class="ttdeci">bool IsMode(const std::string &amp;s)</div><div class="ttdoc">Check whether string is name of LogMode value. </div></div>
-<div class="ttc" id="a00190_html_a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c"><div class="ttname"><a href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">stride::ContactLogMode::Id::Susceptibles</a></div></div>
-<div class="ttc" id="a00190_html_a12707c23b43baa1a0f5bed51db72756d"><div class="ttname"><a href="../../d7/d6e/a00190.html#a12707c23b43baa1a0f5bed51db72756d">stride::ContactLogMode::ToMode</a></div><div class="ttdeci">Id ToMode(const string &amp;s)</div><div class="ttdoc">Converts a string with name to LogMode value. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00039">ContactLogMode.cpp:39</a></div></div>
-<div class="ttc" id="a00190_html_a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">stride::ContactLogMode::Id::All</a></div></div>
-<div class="ttc" id="a00190_html_a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5"><div class="ttname"><a href="../../d7/d6e/a00190.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">stride::ContactLogMode::Id::Transmissions</a></div></div>
-<div class="ttc" id="a00190_html_a025f9ff3cf2df8c0c8b95e48724d9b7c"><div class="ttname"><a href="../../d7/d6e/a00190.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a></div><div class="ttdeci">string ToString(Id l)</div><div class="ttdoc">Converts a LogMode value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00032">ContactLogMode.cpp:32</a></div></div>
+<a href="../../df/d13/a00085.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d2a/a00086.html">ContactLogMode.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d9/dd0/a00191.html">   27</a></span>&#160;<span class="keyword">namespace </span>ContactLogMode {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> boost::to_upper;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d9/dd0/a00191.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">   32</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d9/dd0/a00191.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> l)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> map&lt;Id, string&gt; names{make_pair(<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">Id::None</a>, <span class="stringliteral">&quot;None&quot;</span>), make_pair(<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Id::Transmissions</a>, <span class="stringliteral">&quot;Transmissions&quot;</span>),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                     make_pair(<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">Id::All</a>, <span class="stringliteral">&quot;All&quot;</span>), make_pair(<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Id::Susceptibles</a>, <span class="stringliteral">&quot;Susceptibles&quot;</span>)};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> names.at(l);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d9/dd0/a00191.html#a12707c23b43baa1a0f5bed51db72756d">   39</a></span>&#160;<a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d9/dd0/a00191.html#a12707c23b43baa1a0f5bed51db72756d">ToMode</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; modes{make_pair(<span class="stringliteral">&quot;NONE&quot;</span>, <a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">Id::None</a>), make_pair(<span class="stringliteral">&quot;TRANSMISSIONS&quot;</span>, <a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Id::Transmissions</a>),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                     make_pair(<span class="stringliteral">&quot;ALL&quot;</span>, <a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">Id::All</a>), make_pair(<span class="stringliteral">&quot;SUSCEPTIBLES&quot;</span>, <a class="code" href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Id::Susceptibles</a>)};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string            t{s};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        to_upper(t);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> modes.at(t);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace ContactLogMode</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00191_html_a025f9ff3cf2df8c0c8b95e48724d9b7c"><div class="ttname"><a href="../../d9/dd0/a00191.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a></div><div class="ttdeci">string ToString(Id l)</div><div class="ttdoc">Converts a LogMode value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00032">ContactLogMode.cpp:32</a></div></div>
+<div class="ttc" id="a00191_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d2a/a00086_source.html#l00033">ContactLogMode.h:33</a></div></div>
+<div class="ttc" id="a00191_html_a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">stride::ContactLogMode::Id::All</a></div></div>
+<div class="ttc" id="a00191_html_a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5"><div class="ttname"><a href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">stride::ContactLogMode::Id::Transmissions</a></div></div>
+<div class="ttc" id="a00191_html_a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a></div></div>
+<div class="ttc" id="a00191_html_a12707c23b43baa1a0f5bed51db72756d"><div class="ttname"><a href="../../d9/dd0/a00191.html#a12707c23b43baa1a0f5bed51db72756d">stride::ContactLogMode::ToMode</a></div><div class="ttdeci">Id ToMode(const string &amp;s)</div><div class="ttdoc">Converts a string with name to LogMode value. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00039">ContactLogMode.cpp:39</a></div></div>
+<div class="ttc" id="a00191_html_a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c"><div class="ttname"><a href="../../d9/dd0/a00191.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">stride::ContactLogMode::Id::Susceptibles</a></div></div>
+<div class="ttc" id="a00086_html"><div class="ttname"><a href="../../da/d2a/a00086.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">ContactLogMode.h</a></li>
-    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">ContactLogMode.cpp</a></li>
+    <li class="footer">Generated on Sat May 12 2018 09:52:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

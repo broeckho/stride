@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 521f37a</span>
+   &#160;<span id="projectnumber">- generated for commit b314f7c</span>
    </div>
   </td>
  </tr>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('d7/d46/a00002.html','../../');});
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
-<a href="../../dc/d1c/a00504.html">List of all members</a>  </div>
+<a href="../../d1/d69/a00507.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">stride::util::SegmentedVector&lt; T, N &gt; Class Template Reference</div>  </div>
 </div><!--header-->
@@ -120,20 +120,20 @@ $(document).ready(function(){initNavTree('d7/d46/a00002.html','../../');});
 <p>Container that stores objects "almost contiguously" and guarantees that pointers/iterators are not invalidated when the container grows, either through push_back/emplace_back of elements or resevation of capacity.  
  <a href="../../d7/d46/a00002.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for stride::util::SegmentedVector&lt; T, N &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d37/a00505.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_inherit__map" alt="Inheritance graph"/></div>
+<div class="center"><img src="../../dc/d30/a00508.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_inherit__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_inherit__map">
 <area shape="rect" id="node2" href="../../d7/d46/a00002.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\l+ back()\l+ back()\land 20 more...\l&#45; get_chunk()\l}" alt="" coords="5,339,195,607"/><area shape="rect" id="node3" href="../../de/d8c/a00036.html" title="Container for persons in population. " alt="" coords="21,659,179,912"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for stride::util::SegmentedVector&lt; T, N &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d1f/a00506.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_coll__map" alt="Collaboration graph"/></div>
+<div class="center"><img src="../../df/db6/a00509.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_coll__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_01_4_coll__map">
-<area shape="rect" id="node2" href="../../dd/dd7/a00248.html" title="{size_t\n||}" alt="" coords="19,288,76,365"/><area shape="rect" id="node4" href="../../dd/db5/a00365.html" title="{Chunk *\n||}" alt="" coords="91,147,160,224"/><area shape="rect" id="node5" title="STL class. " alt="" coords="185,147,300,224"/></map>
+<area shape="rect" id="node2" href="../../de/dbc/a00249.html" title="{size_t\n||}" alt="" coords="19,288,76,365"/><area shape="rect" id="node4" href="../../d2/d3e/a00366.html" title="{Chunk *\n||}" alt="" coords="91,147,160,224"/><area shape="rect" id="node5" title="STL class. " alt="" coords="185,147,300,224"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -181,10 +181,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4dd5967396f25e6d532f52975f22ad9c"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a4dd5967396f25e6d532f52975f22ad9c">back</a> () const </td></tr>
 <tr class="memdesc:a4dd5967396f25e6d532f52975f22ad9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#a4dd5967396f25e6d532f52975f22ad9c">More...</a><br/></td></tr>
 <tr class="separator:a4dd5967396f25e6d532f52975f22ad9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24affe32628175dd249c9f11b020c010"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a24affe32628175dd249c9f11b020c010">operator[]</a> (<a class="el" href="../../dd/dd7/a00248.html">size_t</a> pos)</td></tr>
+<tr class="memitem:a24affe32628175dd249c9f11b020c010"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a24affe32628175dd249c9f11b020c010">operator[]</a> (<a class="el" href="../../de/dbc/a00249.html">size_t</a> pos)</td></tr>
 <tr class="memdesc:a24affe32628175dd249c9f11b020c010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#a24affe32628175dd249c9f11b020c010">More...</a><br/></td></tr>
 <tr class="separator:a24affe32628175dd249c9f11b020c010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5e663074808f17fecc70f7ba38c1a37"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#ad5e663074808f17fecc70f7ba38c1a37">operator[]</a> (<a class="el" href="../../dd/dd7/a00248.html">size_t</a> pos) const </td></tr>
+<tr class="memitem:ad5e663074808f17fecc70f7ba38c1a37"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#ad5e663074808f17fecc70f7ba38c1a37">operator[]</a> (<a class="el" href="../../de/dbc/a00249.html">size_t</a> pos) const </td></tr>
 <tr class="memdesc:ad5e663074808f17fecc70f7ba38c1a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#ad5e663074808f17fecc70f7ba38c1a37">More...</a><br/></td></tr>
 <tr class="separator:ad5e663074808f17fecc70f7ba38c1a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a791aa44786b4ddc3daf501154afa8d5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d46/a00002.html#a97faf27d49290367846621b0bceb279a">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a791aa44786b4ddc3daf501154afa8d5c">begin</a> ()</td></tr>
@@ -260,7 +260,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a1ef03be3bb1fbd821e875beb0a04db4f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d46/a00002.html#a4c927a57ee4938742fe0eed7663a1f80">Chunk</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a1ef03be3bb1fbd821e875beb0a04db4f">m_blocks</a></td></tr>
 <tr class="memdesc:a1ef03be3bb1fbd821e875beb0a04db4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector registers pointers to blocks of chunks.  <a href="#a1ef03be3bb1fbd821e875beb0a04db4f">More...</a><br/></td></tr>
 <tr class="separator:a1ef03be3bb1fbd821e875beb0a04db4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d86806335990c2894e28fcf74c1e70f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/dd7/a00248.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a6d86806335990c2894e28fcf74c1e70f">m_size</a></td></tr>
+<tr class="memitem:a6d86806335990c2894e28fcf74c1e70f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dbc/a00249.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html#a6d86806335990c2894e28fcf74c1e70f">m_size</a></td></tr>
 <tr class="memdesc:a6d86806335990c2894e28fcf74c1e70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of first free chunk when indexed contiguously.  <a href="#a6d86806335990c2894e28fcf74c1e70f">More...</a><br/></td></tr>
 <tr class="separator:a6d86806335990c2894e28fcf74c1e70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -279,7 +279,7 @@ class stride::util::SegmentedVector&lt; T, N &gt;</h3>
 <p>It combines vector properties (high data locality) with queue properties (can increase capacity without pointer/iterator invalidation). Actually, its implementation is much like a queue but with a limited interface e.g. no insertions. The reason for the <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; and guarantees that pointers/iterators are not in...">SegmentedVector</a> is that one cannot control the block size for std:queue (where it is small) and we need that control to make the block size flexible and rather large.</p>
 <p>Template parameters: T type of elements stored in the container N block size i.e. number of elements per block </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00051">51</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00051">51</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="adef2bb7c09e2781334be0d1a3ff544f5"></a>
 <div class="memitem">
@@ -293,7 +293,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00057">57</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00057">57</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -309,7 +309,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00058">58</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00058">58</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00059">59</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00059">59</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +341,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00060">60</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00060">60</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -357,7 +357,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00061">61</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00061">61</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +383,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>POD type with same alignment requirement as for T's. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00285">285</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00285">285</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +413,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Construct empty <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; and guarantees that pointers/iterators are not in...">SegmentedVector</a>. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00068">68</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00068">68</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -444,7 +444,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 <p>Copy constructor (copies elements &amp; capacity). </p>
 <p>If excess capacity not needed, do shrink_to_fit. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00072">72</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00072">72</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -475,7 +475,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 <p>Move constructor (moves elements &amp; capacity). </p>
 <p>If excess capacity not needed, do shrink_to_fit. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00085">85</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00085">85</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -504,7 +504,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00120">120</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00120">120</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +536,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 <p>Copy assignment (copies elements &amp; capacity). </p>
 <p>If excess capacity not needed, do shrink_to_fit. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00092">92</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00092">92</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +567,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 <p>Move assignment (copies elements &amp; capacity). </p>
 <p>If excess capacity not needed, do shrink_to_fit. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00109">109</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00109">109</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -597,9 +597,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access specified element with bounds checking. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00127">127</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00127">127</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>.</p>
 
 </div>
 </div>
@@ -629,7 +629,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access specified element with bounds checking. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00138">138</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00138">138</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -658,7 +658,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access the last element. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00149">149</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00149">149</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +687,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access the last element. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00152">152</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00152">152</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -703,7 +703,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
         <tr>
           <td class="memname">T&amp; <a class="el" href="../../d7/d46/a00002.html">stride::util::SegmentedVector</a>&lt; T, N &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/dd7/a00248.html">size_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/dbc/a00249.html">size_t</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td></td>
         </tr>
@@ -717,7 +717,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access specified element (no bounds checking). </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00158">158</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00158">158</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -733,7 +733,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
         <tr>
           <td class="memname">const T&amp; <a class="el" href="../../d7/d46/a00002.html">stride::util::SegmentedVector</a>&lt; T, N &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dd/dd7/a00248.html">size_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/dbc/a00249.html">size_t</a>&#160;</td>
           <td class="paramname"><em>pos</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -747,7 +747,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Access specified element (no bounds checking). </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00161">161</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00161">161</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -776,7 +776,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns an iterator to the beginning of the container. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00171">171</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00171">171</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -805,7 +805,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns a const_iterator to the beginning of the container. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00174">174</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00174">174</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -834,7 +834,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns a const_iterator to the beginning of the container. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00177">177</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00177">177</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -863,9 +863,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns an iterator to the end of the container. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00180">180</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00180">180</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00171">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00177">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00171">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00177">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>.</p>
 
 </div>
 </div>
@@ -894,7 +894,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns a const_iterator to the end of the container. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00183">183</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00183">183</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -923,7 +923,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns a const_iterator to the end. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00186">186</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00186">186</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -952,9 +952,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns number of elements that can be stored without allocating additional blocks. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00193">193</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00193">193</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00212">stride::util::SegmentedVector&lt; Person &gt;::reserve()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00212">stride::util::SegmentedVector&lt; Person &gt;::reserve()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
 
 </div>
 </div>
@@ -983,7 +983,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Checks whether container is empty. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00196">196</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00196">196</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1012,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns number of currently allocated blocks. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00199">199</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00199">199</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1041,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns number of elements block (template parameter 'N'). </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00202">202</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00202">202</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1070,9 +1070,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Returns the number of elements. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00205">205</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00205">205</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d48/a00165_source.html#l00039">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::shrink_to_fit()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00061">stride::Sim::TimeStep()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d38/a00166_source.html#l00039">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::shrink_to_fit()</a>, and <a class="el" href="../../dd/db2/a00151_source.html#l00061">stride::Sim::TimeStep()</a>.</p>
 
 </div>
 </div>
@@ -1102,9 +1102,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Allocates aditional blocks to achieve requested capacity. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00212">212</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00212">212</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1133,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Deallocates (empty) blocks to schrink capacity to fit current size. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00220">220</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00220">220</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1162,9 +1162,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Clears the content. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00229">229</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00229">229</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00120">stride::util::SegmentedVector&lt; Person &gt;::~SegmentedVector()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00120">stride::util::SegmentedVector&lt; Person &gt;::~SegmentedVector()</a>.</p>
 
 </div>
 </div>
@@ -1196,7 +1196,7 @@ template&lt;class... Args&gt; </div>
 
 <p>Constructs element in-place at the end. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00243">243</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00243">243</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1225,7 +1225,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Removes the last element. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00250">250</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00250">250</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1255,9 +1255,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Adds element to end. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00270">270</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00270">270</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
 
 </div>
 </div>
@@ -1287,7 +1287,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Adds element to end. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00277">277</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00277">277</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1316,9 +1316,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Get next available chunk for element construction with placement new. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00293">293</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00293">293</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00243">stride::util::SegmentedVector&lt; Person &gt;::emplace_back()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00270">stride::util::SegmentedVector&lt; Person &gt;::push_back()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00243">stride::util::SegmentedVector&lt; Person &gt;::emplace_back()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00270">stride::util::SegmentedVector&lt; Person &gt;::push_back()</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1343,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00288">288</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00288">288</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1367,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00289">289</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00289">289</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
 </div>
 </div>
@@ -1394,9 +1394,9 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Vector registers pointers to blocks of chunks. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00307">307</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00307">307</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00127">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00149">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00193">stride::util::SegmentedVector&lt; Person &gt;::capacity()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00229">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00199">stride::util::SegmentedVector&lt; Person &gt;::get_block_count()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00158">stride::util::SegmentedVector&lt; Person &gt;::operator[]()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00212">stride::util::SegmentedVector&lt; Person &gt;::reserve()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::shrink_to_fit()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00127">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00149">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00193">stride::util::SegmentedVector&lt; Person &gt;::capacity()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00229">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00199">stride::util::SegmentedVector&lt; Person &gt;::get_block_count()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00158">stride::util::SegmentedVector&lt; Person &gt;::operator[]()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00212">stride::util::SegmentedVector&lt; Person &gt;::reserve()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::shrink_to_fit()</a>.</p>
 
 </div>
 </div>
@@ -1410,7 +1410,7 @@ template&lt;typename T, size_t N = 512&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/dd7/a00248.html">size_t</a> <a class="el" href="../../d7/d46/a00002.html">stride::util::SegmentedVector</a>&lt; T, N &gt;::m_size</td>
+          <td class="memname"><a class="el" href="../../de/dbc/a00249.html">size_t</a> <a class="el" href="../../d7/d46/a00002.html">stride::util::SegmentedVector</a>&lt; T, N &gt;::m_size</td>
         </tr>
       </table>
   </td>
@@ -1422,22 +1422,22 @@ template&lt;typename T, size_t N = 512&gt; </div>
 
 <p>Index of first free chunk when indexed contiguously. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00308">308</a> of file <a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00308">308</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00127">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00149">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00171">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00177">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00229">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00196">stride::util::SegmentedVector&lt; Person &gt;::empty()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00205">stride::util::SegmentedVector&lt; Person &gt;::size()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00127">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00149">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00171">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00177">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00229">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00196">stride::util::SegmentedVector&lt; Person &gt;::empty()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00293">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00092">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00250">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00072">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../d9/d7d/a00150_source.html#l00205">stride::util::SegmentedVector&lt; Person &gt;::size()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/d1e/a00149_source.html">SegmentedVector.h</a></li>
+<li><a class="el" href="../../d9/d7d/a00150_source.html">SegmentedVector.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/deb/a00189.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d2a/a00195.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d46/a00002.html">SegmentedVector</a></li>
-    <li class="footer">Generated on Fri May 11 2018 14:02:10 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ded/a00196.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d46/a00002.html">SegmentedVector</a></li>
+    <li class="footer">Generated on Sat May 12 2018 09:52:38 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,1 +1,1 @@
-Stride gh-pages
+Stride [documentation](https://.github.io//)

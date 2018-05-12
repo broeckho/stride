@@ -72,18 +72,19 @@ var hierarchy =
     [ "stride::util::Subject< E >", "d1/dea/a00054.html", null ],
     [ "stride::util::TimeStamp", "d9/d2e/a00056.html", null ],
     [ "stride::util::TimeToString", "d1/d22/a00057.html", null ],
-    [ "stride::viewers::AdoptedViewer", "d7/df7/a00058.html", null ],
-    [ "stride::viewers::CliViewer", "d3/d8b/a00059.html", null ],
-    [ "stride::viewers::InfectedViewer", "d9/d73/a00060.html", null ],
-    [ "stride::viewers::PersonsViewer", "d4/de8/a00061.html", null ],
-    [ "stride::viewers::SummaryViewer", "df/d03/a00062.html", null ],
+    [ "stride::Vaccination< belief_policy >", "d7/df7/a00058.html", null ],
+    [ "stride::viewers::AdoptedViewer", "d3/d8b/a00059.html", null ],
+    [ "stride::viewers::CliViewer", "d9/d73/a00060.html", null ],
+    [ "stride::viewers::InfectedViewer", "d4/de8/a00061.html", null ],
+    [ "stride::viewers::PersonsViewer", "df/d03/a00062.html", null ],
+    [ "stride::viewers::SummaryViewer", "d1/d6f/a00063.html", null ],
     [ "stride::util::Subject< stride::sim_event::Id >", "d1/dea/a00054.html", [
       [ "stride::SimRunner", "d3/de7/a00039.html", null ]
     ] ],
-    [ "CallbackType", "d9/d9b/a00363.html", null ],
-    [ "Chunk *", "dd/db5/a00365.html", null ],
-    [ "const void", "df/dc2/a00367.html", null ],
-    [ "double", "d8/d72/a00199.html", null ],
-    [ "size_t", "dd/dd7/a00248.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "d6/d80/a00371.html", null ]
+    [ "CallbackType", "dc/d59/a00364.html", null ],
+    [ "Chunk *", "d2/d3e/a00366.html", null ],
+    [ "const void", "d8/d21/a00368.html", null ],
+    [ "double", "d3/db1/a00200.html", null ],
+    [ "size_t", "de/dbc/a00249.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "db/d7e/a00372.html", null ]
 ];
