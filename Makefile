@@ -100,9 +100,7 @@ endif
 #============================================================================
 #   Targets
 #============================================================================
-.PHONY: help configure bootstrap all build_all build_main build_test
-.PHONY: install install_all install_main install_test package
-.PHONY: test installcheck distclean remove_build
+.PHONY: help cores configure all install test gtest format clean distclean
 
 help:
 

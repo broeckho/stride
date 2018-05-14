@@ -44,6 +44,8 @@ set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g"   )
+#
+include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
@@ -62,8 +64,6 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
 endif()
-#
-include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Standard math lib
