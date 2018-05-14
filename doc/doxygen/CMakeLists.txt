@@ -18,24 +18,24 @@
 #============================================================================
 # api_doc
 #============================================================================
-find_package( Doxygen )
+find_package(Doxygen)
 
 if( DOXYGEN_FOUND )	
 
 	#=== dot tool ===
-	if( DOXYGEN_DOT_FOUND )
-		set( DOXY_HAVE_DOT YES )
+	if(DOXYGEN_DOT_FOUND)
+		set(DOXY_HAVE_DOT YES)
 	else()
-		set( DOXY_HAVE_DOT NO )
+		set(DOXY_HAVE_DOT NO)
 	endif()
 	
 	#=== setup ===			
-	set( DOXY_HTML_DIR 	"html" )
+	set(DOXY_HTML_DIR 	"html")
 	configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.cmake.in 
 					${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )	
 
 	#=== target ===
-	add_custom_target( api_doc ALL	${DOXYGEN_EXECUTABLE} Doxyfile )
+	add_custom_target(api_doc ALL	${DOXYGEN_EXECUTABLE} Doxyfile)
 			 
 	#=== install ===
 	install(DIRECTORY		${CMAKE_CURRENT_BINARY_DIR}/${DOXY_HTML_DIR}
