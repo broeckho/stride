@@ -131,7 +131,7 @@ install:
     sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
-  - make all & make test
+  - make configure && make all & make test
 
 after_success:
     # Generate the docs only if master, the travis_build_docs is true and we can use secure variables

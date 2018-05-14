@@ -98,16 +98,16 @@ help:
 	@ $(CMAKE) -E echo " "
 
 cores:
-	@ echo "\nMake invocation using -j"$(NCORES) "\n"
+	@ echo "\nMake invocation using -j"$(NCORES)
 
-configure: cores
+configure:
 	$(CMAKE) -E make_directory $(BUILD_DIR)
 	$(CMAKE) -E chdir $(BUILD_DIR) $(CMAKE) $(CMAKE_ARGS) ..
 
-all: configure
+all: cores configure
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory all
 
-install: cores
+install:
 	$(MAKE) $(PARALLEL_MAKE) -C $(BUILD_DIR) --no-print-directory install
 
 clean: cores
