@@ -39,24 +39,13 @@ CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
 ifeq ($(CMAKE),)
 	CMAKE = cmake
 endif
-ifeq ($(CMAKE_GENERATOR),)
-	CMAKE_GENERATOR = "Unix Makefiles"
-endif
 
 #============================================================================
 #   MACRO definitions to pass on to cmake
 #============================================================================
-ifneq ($(CMAKE_GENERATOR),)
-	CMAKE_ARGS += -DCMAKE_GENERATOR=$(CMAKE_GENERATOR)
-endif
+CMAKE_ARGS += -DCMAKE_GENERATOR="Unix Makefiles"
 ifneq ($(CMAKE_C_COMPILER),)
 	CMAKE_ARGS += -DCMAKE_C_COMPILER:FILEPATH=$(CMAKE_C_COMPILER)
-endif
-ifneq ($(CMAKE_CXX_COMPILER),)
-	CMAKE_ARGS += -DCMAKE_CXX_COMPILER:FILEPATH=$(CMAKE_CXX_COMPILER)
-endif
-ifneq ($(CMAKE_CXX_FLAGS),)
-	CMAKE_ARGS += -DCMAKE_CXX_FLAGS:STRING=$(CMAKE_CXX_FLAGS)
 endif
 ifneq ($(CMAKE_BUILD_TYPE),)
 	CMAKE_ARGS += -DCMAKE_BUILD_TYPE:STRING=$(CMAKE_BUILD_TYPE)
@@ -64,17 +53,8 @@ endif
 ifneq ($(CMAKE_INSTALL_PREFIX),)
 	CMAKE_ARGS += -DCMAKE_INSTALL_PREFIX:PATH=$(CMAKE_INSTALL_PREFIX)
 endif
-ifneq ($(CMAKE_PREFIX_PATH),)
-	CMAKE_ARGS += -DCMAKE_PREFIX_PATH:PATH=$(CMAKE_PREFIX_PATH)
-endif
 ifneq ($(STRIDE_INCLUDE_DOC),)
 	CMAKE_ARGS += -DSTRIDE_INCLUDE_DOC:BOOL=$(STRIDE_INCLUDE_DOC)
-endif
-ifneq ($(STRIDE_BOOST_ROOT),)
-	CMAKE_ARGS += -DSTRIDE_BOOST_ROOT:STRING=$(STRIDE_BOOST_ROOT)
-endif
-ifneq ($(STRIDE_BOOST_NO_SYSTEM_PATHS),)
-	CMAKE_ARGS += -DSTRIDE_BOOST_NO_SYSTEM_PATHS:STRING=$(STRIDE_BOOST_NO_SYSTEM_PATHS)
 endif
 ifneq ($(STRIDE_FORCE_NO_OPENMP),)
 	CMAKE_ARGS += -DSTRIDE_FORCE_NO_OPENMP:BOOL=$(STRIDE_FORCE_NO_OPENMP)
@@ -100,28 +80,21 @@ endif
 #============================================================================
 #   Targets
 #============================================================================
-.PHONY: help cores configure all install test gtest format clean distclean
+.PHONY: help cores configure all install clean distclean test gtest format
 
 help:
-
 	@ $(CMAKE) -E echo " Read INSTALL.txt in this directory for a brief overview."
 	@ $(CMAKE) -E echo " Current macro values are:"
-
 	@ $(CMAKE) -E echo "   BUILD_DIR                     : " $(BUILD_DIR)
 	@ $(CMAKE) -E echo " "
 	@ $(CMAKE) -E echo "   CMAKE_GENERATOR               : " $(CMAKE_GENERATOR)
-	@ $(CMAKE) -E echo "   CMAKE_CXX_COMPILER            : " $(CMAKE_CXX_COMPILER)
-	@ $(CMAKE) -E echo "   CMAKE_CXX_FLAGS               : " $(CMAKE_CXX_FLAGS)
 	@ $(CMAKE) -E echo "   CMAKE_BUILD_TYPE              : " $(CMAKE_BUILD_TYPE)
 	@ $(CMAKE) -E echo "   CMAKE_INSTALL_PREFIX          : " $(CMAKE_INSTALL_PREFIX)
 	@ $(CMAKE) -E echo " "
 	@ $(CMAKE) -E echo "   STRIDE_INCLUDE_DOC            : " $(STRIDE_INCLUDE_DOC)
-	@ $(CMAKE) -E echo "   STRIDE_BOOST_ROOT             : " $(STRIDE_BOOST_ROOT)
-	@ $(CMAKE) -E echo "   STRIDE_BOOST_NO_SYSTEM_PATHS  : " $(STRIDE_BOOST_NO_SYSTEM_PATHS)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_OPENMP        : " $(STRIDE_FORCE_NO_OPENMP)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_PYTHON        : " $(STRIDE_FORCE_NO_PYTHON)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_HDF5          : " $(STRIDE_FORCE_NO_HDF5)
-
 	@ $(CMAKE) -E echo " "
 
 cores:
