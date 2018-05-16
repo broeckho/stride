@@ -113,7 +113,7 @@ install:
     export BOOST_NO_SYSTEM_PATHS=ON
     if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
       cd /tmp/
-      wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
+      wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       cd boost_1_66_0/
       ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
