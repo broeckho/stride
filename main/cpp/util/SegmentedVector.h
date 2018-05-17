@@ -216,6 +216,21 @@ public:
                 }
         }
 
+        /// Changes the number of elements and adds (initializing with value)
+        /// or pops (running the elements destructor) elements.
+        void resize(size_type new_size, T value = T())
+        {
+                if (new_size < size()) {
+                        for (size_type i = m_size-1; new_size - 1 < i; --i) {
+                                pop_back();
+                        }
+                } else if (new_size > size()) {
+                        for (size_type i = size(); i < new_size; ++i) {
+                                push_back(value);
+                        }
+                }
+        }
+
         /// Deallocates (empty) blocks to schrink capacity to fit current size.
         void shrink_to_fit()
         {
