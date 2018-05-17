@@ -90,6 +90,16 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                         immunityDistribution.push_back(immunityRate);
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);
+        } else if (immunizationProfile == "AgeDependent") {
+        			const auto immunityFile = m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution");
+        			std::cout << immunityFile << std::endl;
+
+                    const auto immunityRate = m_config_pt.get<double>("run." + ToLower(immunityType) + "_rate");
+                    for (unsigned int index_age = 0; index_age < 100; index_age++) {
+                            immunityDistribution.push_back(immunityRate);
+                    }
+                    immunizer.Random(immunityPools, immunityDistribution, linkProbability);
+
         } else if (immunizationProfile == "Cocoon") {
                 immunizer.Cocoon(immunityPools, immunityDistribution, linkProbability);
         }
