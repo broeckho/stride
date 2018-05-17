@@ -30,6 +30,7 @@ var a00002 =
     [ "get_elements_per_block", "d7/d46/a00002.html#a9cf4550926be51834d162161024d49c1", null ],
     [ "size", "d7/d46/a00002.html#a1aed19758fbcade387509591dddbe84d", null ],
     [ "reserve", "d7/d46/a00002.html#aee4426cebcad6959c47fbda00de3d38c", null ],
+    [ "resize", "d7/d46/a00002.html#aca7d6204261057542bce34a862f5ef5f", null ],
     [ "shrink_to_fit", "d7/d46/a00002.html#a2ea960df40acb237a92e444f55689ed8", null ],
     [ "clear", "d7/d46/a00002.html#ad7e4d8ed7d4f063da1e45a840a4e6217", null ],
     [ "emplace_back", "d7/d46/a00002.html#aef7ef18b08527ead44c6d76453660ca4", null ],

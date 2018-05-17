@@ -1,7 +1,7 @@
 var searchData=
 [
   ['idsubscriptarray',['IdSubscriptArray',['../d8/d84/a00001.html#a8a466955aa99ecf658752ce112e07779',1,'stride::ContactPoolType::IdSubscriptArray::IdSubscriptArray(T t=T())'],['../d8/d84/a00001.html#a033a9fb4863417f94c4c8c8b02877adf',1,'stride::ContactPoolType::IdSubscriptArray::IdSubscriptArray(std::initializer_list&lt; T &gt; l)'],['../d7/dec/a00010.html#afa98360b18191924317dce92e50135df',1,'stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::IdSubscriptArray(bool t=bool())'],['../d7/dec/a00010.html#a9be463390b642d1510f1d19e992dd7ac',1,'stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::IdSubscriptArray(std::initializer_list&lt; bool &gt; l)']]],
-  ['imitation',['Imitation',['../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12',1,'stride::Imitation']]],
+  ['imitation',['Imitation',['../db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d',1,'stride::Imitation::Imitation()'],['../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12',1,'stride::Imitation::Imitation(const boost::property_tree::ptree &amp;pt)']]],
   ['immunizer',['Immunizer',['../de/d11/a00021.html#a68e68d5d0ac6181162e82261083dfb0f',1,'stride::Immunizer']]],
   ['incrementdiseasecounter',['IncrementDiseaseCounter',['../d1/d2b/a00018.html#af86e0e738953615c5d63613d2054d9e8',1,'stride::Health']]],
   ['infectedfile',['InfectedFile',['../df/d61/a00031.html#a1f9b3fab4125e26c2eebd32ee27dd977',1,'stride::output::InfectedFile']]],

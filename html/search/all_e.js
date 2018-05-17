@@ -12,6 +12,7 @@ var searchData=
   ['reserve',['reserve',['../d7/d46/a00002.html#aee4426cebcad6959c47fbda00de3d38c',1,'stride::util::SegmentedVector']]],
   ['reset',['Reset',['../dc/dee/a00053.html#a45e66e4b53acb9c8f1edb7d5fda4f451',1,'stride::util::Stopwatch']]],
   ['resetdiseasecounter',['ResetDiseaseCounter',['../d1/d2b/a00018.html#a468c554771acc883799456c14373e9db',1,'stride::Health']]],
+  ['resize',['resize',['../d7/d46/a00002.html#aca7d6204261057542bce34a862f5ef5f',1,'stride::util::SegmentedVector']]],
   ['rnenginetype_2ecpp',['RNEngineType.cpp',['../d5/da7/a00144.html',1,'']]],
   ['rnenginetype_2eh',['RNEngineType.h',['../da/ddb/a00145.html',1,'']]],
   ['rnmanager',['RNManager',['../d5/de0/a00050.html#a30121f0f47cf4c23bed8da7521b2b904',1,'stride::util::RNManager::RNManager(const Info &amp;info=Info())'],['../d5/de0/a00050.html#a09c7ac5ae3b2ecffe9ee9b373d035e57',1,'stride::util::RNManager::RNManager(const RNManager &amp;)=delete']]],

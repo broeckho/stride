@@ -1,5 +1,6 @@
 var a00020 =
 [
+    [ "Imitation", "db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d", null ],
     [ "Imitation", "db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12", null ],
     [ "HasAdopted", "db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b", null ],
     [ "m_accept", "db/db2/a00020.html#aa094646da3221985f97440760244df5e", null ],

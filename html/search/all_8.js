@@ -11,7 +11,7 @@ var searchData=
   ['idsubscriptarray_3c_20bool_20_3e',['IdSubscriptArray&lt; bool &gt;',['../d7/dec/a00010.html',1,'stride::ContactPoolType']]],
   ['idsubscriptarray_3c_20unsigned_20int_20_3e',['IdSubscriptArray&lt; unsigned int &gt;',['../d8/d84/a00001.html',1,'stride::ContactPoolType']]],
   ['imitation',['Imitation',['../db/db2/a00020.html',1,'stride']]],
-  ['imitation',['Imitation',['../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12',1,'stride::Imitation']]],
+  ['imitation',['Imitation',['../db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d',1,'stride::Imitation::Imitation()'],['../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12',1,'stride::Imitation::Imitation(const boost::property_tree::ptree &amp;pt)']]],
   ['imitation_2eh',['Imitation.h',['../d3/d00/a00113.html',1,'']]],
   ['immune',['Immune',['../d7/d6e/a00190.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb',1,'stride']]],
   ['immunizer',['Immunizer',['../de/d11/a00021.html',1,'stride']]],
