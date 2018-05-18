@@ -513,41 +513,22 @@ TEST(UnitSegmentedVector, PolyNoAny)
         }
 }
 
-TEST(UnitSegmentedVector, AnyNoPoly)
-{
-        Any m_seg;
-        m_seg.emplace<SegmentedVector<Derived>>();
-        m_seg.cast<SegmentedVector<Derived>>()->resize(5);
-
-        for (int i = 0; i < 4; i++) {
-                m_seg.cast<SegmentedVector<Derived>>()->operator[](i) = Derived();
-        }
-        for (int i = 0; i < 4; i++) {
-                EXPECT_EQ(2, m_seg.cast<SegmentedVector<Derived>>()->operator[](i).Get2());
-        }
-}
-
 TEST(UnitSegmentedVector, AnyPoly1)
 {
         Any m_seg;
-        m_seg.emplace<SegmentedVector<Derived>>();
-        m_seg.cast<SegmentedVector<Derived>>()->resize(4);
-
+        m_seg.emplace<SegmentedVector<Derived, 3>>(4);
         for (int i = 0; i < 4; i++) {
                 m_seg.cast<SegmentedVector<Derived>>()->emplace(i, Derived());
         }
         for (int i = 0; i < 4; i++) {
                 EXPECT_EQ(1, m_seg.cast<SegmentedVector<Derived>>()->operator[](i).Get1());
         }
-
 }
 
 TEST(UnitSegmentedVector, AnyPoly3)
 {
         Any m_seg;
-        m_seg.emplace<SegmentedVector<Derived>>();
-        m_seg.cast<SegmentedVector<Derived>>()->resize(4);
-
+        m_seg.emplace<SegmentedVector<Derived, 3>>(4);
         for (int i = 0; i < 4; i++) {
                 m_seg.cast<SegmentedVector<Derived>>()->emplace(i, Derived());
         }
@@ -556,6 +537,6 @@ TEST(UnitSegmentedVector, AnyPoly3)
         }
 }
 
-} // namespace 
+} // namespace
 } // namespace
 } // namespace
