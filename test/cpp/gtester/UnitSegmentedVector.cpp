@@ -518,7 +518,7 @@ TEST(UnitSegmentedVector, AnyPoly1)
         Any m_seg;
         m_seg.emplace<SegmentedVector<Derived, 3>>(4);
         for (int i = 0; i < 4; i++) {
-                m_seg.cast<SegmentedVector<Derived>>()->emplace(i, Derived());
+                m_seg.cast<SegmentedVector<Derived, 3>>()->emplace(i, Derived());
         }
         for (int i = 0; i < 4; i++) {
                 EXPECT_EQ(1, m_seg.cast<SegmentedVector<Derived>>()->operator[](i).Get1());
@@ -530,10 +530,10 @@ TEST(UnitSegmentedVector, AnyPoly3)
         Any m_seg;
         m_seg.emplace<SegmentedVector<Derived, 3>>(4);
         for (int i = 0; i < 4; i++) {
-                m_seg.cast<SegmentedVector<Derived>>()->emplace(i, Derived());
+                m_seg.cast<SegmentedVector<Derived, 3>>()->emplace(i, Derived());
         }
         for (int i = 0; i < 4; i++) {
-                EXPECT_EQ(3, m_seg.cast<SegmentedVector<Derived>>()->operator[](i).Get3());
+                EXPECT_EQ(3, m_seg.cast<SegmentedVector<Derived, 3>>()->operator[](i).Get3());
         }
 }
 
