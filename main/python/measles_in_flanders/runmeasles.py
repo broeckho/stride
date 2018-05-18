@@ -12,9 +12,6 @@ from pystride.PyController import PyController
 def trackRandomCases(simulator, event):
     num_cases = simulator.GetPopulation().GetInfectedCount()
     filename = os.path.join("Random", "cases.csv")
-    if not os.path.isfile(filename):
-        f = open(filename, "w")
-        f.close()
     with open(filename, "a", newline='') as csvfile:
         fieldnames = ["timestep", "cases"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -25,15 +22,23 @@ def trackRandomCases(simulator, event):
 def trackAgeDependentCases(simulator, event):
     num_cases = simulator.GetPopulation().GetInfectedCount()
     filename = os.path.join("AgeDependent", "cases.csv")
-    if not os.path.isfile(filename):
-        f = open(filename, "w")
-        f.close()
     with open(filename, "a", newline='') as csvfile:
         fieldnames = ["timestep", "cases"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         if event.timestep == 0:
             writer.writeheader()
         writer.writerow({'timestep': event.timestep, 'cases': num_cases})
+
+
+def trackClusteringCases(simulator, event):
+    num_cases = simulator.GetPopulation().GetInfectedCount()
+    filename = os.path.join("Clustering", "cases.csv")
+    with open(filename, "a", newline="") as csvfile:
+        fieldnames = ["timestep", "cases"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        if event.timestep == 0:
+            writer.writeheader()
+        writer.writerow({'timestep': event.timestep, 'cases' : num_cases})
 
 
 def runRandom():
@@ -79,7 +84,7 @@ def runAgeProfiles():
 def runClustering():
     control = PyController("../config/run_default.xml")
     # control.runConfig.setParameter("contact_log_level", "Susceptibles")
-    # control.runConfig.setParameter("immunity_profile", "Random" + 35)
+    control.runConfig.setParameter("immunity_profile", "Random")
     # control.runConfig.setParameter("immunity_rate", ?)
     control.runConfig.setParameter("num_days", 100)
     # control.runConfig.setParameter("num_participants_survey", 10 000)
@@ -88,6 +93,23 @@ def runClustering():
     # vaccine_profile
     # vaccine_rate
     control.control()
+
+    '''
+        control = PyController("../config/run_default.xml")
+        #control.runConfig.setParameter("contact_log_level", "Susceptibles")
+        control.runConfig.setParameter("immunity_profile", "AgeDependent")
+        #control.runConfig.setParameter("immunity_rate", 0.7)
+        control.runConfig.setParameter("immunity_distribution", "../data/measles_natural_immunity.xml")
+        control.runConfig.setParameter("num_days", 100)
+        # control.runConfig.setParameter("num_participants_survey", 10 000)
+        control.runConfig.setParameter("output_prefix", "AgeDependent")
+        control.runConfig.setParameter("vaccine_link_probability", 0)
+        control.runConfig.setParameter("vaccine_profile", "Random")
+        control.runConfig.setParameter("vaccine_distribution", "../data/measles_vaccination.xml")
+        #control.runConfig.setParameter("vaccine_rate", 0.0)
+        control.registerCallback(trackAgeDependentCases, EventType.Stepped)
+        control.control()
+    '''
 
 def postProcessing():
     timesteps = []
