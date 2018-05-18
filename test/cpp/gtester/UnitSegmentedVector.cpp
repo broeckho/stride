@@ -492,7 +492,7 @@ TEST(UnitSegmentedVector, PolyNoAnyNoPoly)
 TEST(UnitSegmentedVector, PolyNoAny)
 {
         SegmentedVector<Derived, 3> c;
-        c.resize(11);
+        c.resize(4);
         for (int i = 0; i < 4; i++) {
                 c.emplace(i, Derived());
         }
@@ -556,6 +556,6 @@ TEST(UnitSegmentedVector, AnyPoly3)
         }
 }
 
-} // namespace Tests
-} // namespace Container
-} // namespace SimPT_Sim
+} // namespace 
+} // namespace
+} // namespace
