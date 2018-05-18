@@ -513,6 +513,30 @@ TEST(UnitSegmentedVector, PolyNoAny)
         }
 }
 
+TEST(UnitSegmentedVector, PolyNoAny2)
+{
+        SegmentedVector<Derived, 3> c;
+        c.resize(11);
+        for (int i = 0; i < 4; i++) {
+                c.emplace(i, Derived());
+        }
+
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(1, c[i].Get1());
+        }
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(2, c[i].Get2());
+        }
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(3, c[i].Get3());
+        }
+
+        vector<Base*> v{&c[0], &c[1], &c[2], &c[3]};
+        for (auto& p : v) {
+                EXPECT_EQ(1, p->Get1());
+        }
+}
+
 TEST(UnitSegmentedVector, AnyPoly1)
 {
         Any m_seg;
@@ -522,6 +546,19 @@ TEST(UnitSegmentedVector, AnyPoly1)
         }
         for (int i = 0; i < 4; i++) {
                 const auto v = m_seg.cast<SegmentedVector<Derived, 3>>()->operator[](i).Get1();
+                EXPECT_EQ(1, v);
+        }
+}
+
+TEST(UnitSegmentedVector, AnyPoly2)
+{
+        Any m_seg;
+        m_seg.emplace<SegmentedVector<Derived, 5>>(4);
+        for (int i = 0; i < 4; i++) {
+                m_seg.cast<SegmentedVector<Derived, 5>>()->emplace(i, Derived());
+        }
+        for (int i = 0; i < 4; i++) {
+                const auto v = m_seg.cast<SegmentedVector<Derived, 5>>()->operator[](i).Get1();
                 EXPECT_EQ(1, v);
         }
 }
