@@ -10,7 +10,7 @@ var a00036 =
     [ "GetContactPoolSys", "de/d8c/a00036.html#a590df694a5ec7f41695a5bfec5fcd6e6", null ],
     [ "CreatePerson", "de/d8c/a00036.html#aa8220931e5e6dacd22be3460872a5125", null ],
     [ "InitBeliefPolicy", "de/d8c/a00036.html#a452f55c55c494f5db179d36dd7e8161b", null ],
-    [ "SetBeliefPolicy", "de/d8c/a00036.html#ae97469ac0911ad1cf6db54c2cd42a464", null ],
+    [ "SetBeliefPolicy", "de/d8c/a00036.html#a934a9192dbb0ade72b8c3e099c27a035", null ],
     [ "PopBuilder", "de/d8c/a00036.html#a43273f3b77748b0d253be3591d41bfd9", null ],
     [ "BeliefSeeder", "de/d8c/a00036.html#afae93b872e0c2fe1b06b220da218827b", null ],
     [ "m_beliefs", "de/d8c/a00036.html#a7c20d8e769460e68cbcbe4078bd554a8", null ],

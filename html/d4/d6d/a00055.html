@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 54abfad</span>
+   &#160;<span id="projectnumber">- generated for commit b6b9362</span>
    </div>
   </td>
  </tr>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('d4/d6d/a00055.html','../../');});
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of iterator for <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; and guarantees that pointers/iterators are not in...">SegmentedVector</a>.  
+<p>Implementation of iterator for <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>.  
  <a href="../../d4/d6d/a00055.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../dd/da7/a00168_source.html">SVIterator.h</a>&gt;</code></p>
@@ -246,7 +246,7 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, std::size_t N, typename P = const T*, typename R = const T&amp;, bool is_const_iterator = true&gt;<br/>
 class stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;</h3>
 
-<p>Implementation of iterator for <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; and guarantees that pointers/iterators are not in...">SegmentedVector</a>. </p>
+<p>Implementation of iterator for <a class="el" href="../../d7/d46/a00002.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>. </p>
 <p>It will provide both const and non-const iterators.</p>
 <p>Possible states for the iterator are: (a) Default constructed: m_c == nullptr &amp;&amp; m_p == m_end. This is the singular state in which the iterator can be assigned, but not incremented or compared. (b) Past-the-end: m_c != nullptr &amp;&amp; m_p == m_end. The iterator cannot be dereferenced. (c) Dereferencable: m_c != nullptr &amp;&amp; m_p &lt; mc-&gt;size(). Notice that m_p is of type size_t and hence always non-negative. Thus the above reuires !m_c-&gt;empty().</p>
 <p>Template parameters: T value type of iterator and of its container. N block size of its container P pointer-to-T type (can be const qualified). R reference-to-T type (can be const qualified). is_const_iterator to make it a const_iterator </p>
@@ -1112,7 +1112,7 @@ template&lt;typename T , std::size_t N, typename P  = const T*, typename R  = co
 
 <p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00202">202</a> of file <a class="el" href="../../dd/da7/a00168_source.html">SVIterator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00186">stride::util::SegmentedVector&lt; Person &gt;::cend()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00180">stride::util::SegmentedVector&lt; Person &gt;::end()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00217">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::IsDefaultContructed()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00220">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::IsPastTheEnd()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00097">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00156">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00117">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00165">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator-=()</a>, and <a class="el" href="../../dd/da7/a00168_source.html#l00147">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d7d/a00150_source.html#l00178">stride::util::SegmentedVector&lt; Person &gt;::cend()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00172">stride::util::SegmentedVector&lt; Person &gt;::end()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00217">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::IsDefaultContructed()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00220">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::IsPastTheEnd()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00097">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator++()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00156">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator+=()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00117">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator--()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00165">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator-=()</a>, and <a class="el" href="../../dd/da7/a00168_source.html#l00147">stride::util::SVIterator&lt; T, N, P, R, is_const_iterator &gt;::operator[]()</a>.</p>
 
 </div>
 </div>
@@ -1151,7 +1151,7 @@ template&lt;typename T , std::size_t N, typename P  = const T*, typename R  = co
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ded/a00196.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d6d/a00055.html">SVIterator</a></li>
-    <li class="footer">Generated on Thu May 17 2018 21:22:14 for Stride Reference Manual by
+    <li class="footer">Generated on Fri May 18 2018 09:19:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
