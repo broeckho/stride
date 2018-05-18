@@ -73,8 +73,7 @@ private:
         void InitBeliefPolicy()
         {
                 if (!m_beliefs) {
-                        m_beliefs.emplace<util::SegmentedVector<BeliefPolicy>>();
-                        m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->resize(this->size());
+                        m_beliefs.emplace<util::SegmentedVector<BeliefPolicy>>(this->size());
                 } else {
                         throw std::runtime_error("_func_ : Error, already initialized!");
                 }
@@ -87,9 +86,9 @@ private:
         // Cannot follow my preference for declaration of required explicit specializations, because SWIG
         // does not like that. Hence include of the template method definition in the header file.
         template <typename BeliefPolicy>
-        void SetBeliefPolicy(std::size_t i, const BeliefPolicy belief = BeliefPolicy())
+        void SetBeliefPolicy(std::size_t i, const BeliefPolicy& belief = BeliefPolicy())
         {
-                (*this)[i].SetBelief(&(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->operator[](i) = belief));
+                (*this)[i].SetBelief(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->emplace(i, belief));
         }
 
         friend class PopBuilder;
