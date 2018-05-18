@@ -515,8 +515,7 @@ TEST(UnitSegmentedVector, PolyNoAny)
 
 TEST(UnitSegmentedVector, PolyNoAny2)
 {
-        SegmentedVector<Derived, 3> c;
-        c.resize(11);
+        SegmentedVector<Derived, 3> c(4);
         for (int i = 0; i < 4; i++) {
                 c.emplace(i, Derived());
         }
