@@ -15,7 +15,7 @@ var searchData=
   ['personsviewer',['PersonsViewer',['../df/d03/a00062.html',1,'stride::viewers']]],
   ['personsviewer_2ecpp',['PersonsViewer.cpp',['../d4/ddd/a00138.html',1,'']]],
   ['personsviewer_2eh',['PersonsViewer.h',['../de/d14/a00139.html',1,'']]],
-  ['pop_5fback',['pop_back',['../d7/d46/a00002.html#ad65afdb979d87ab8ddb385266765a1af',1,'stride::util::SegmentedVector']]],
+  ['pop_5fback',['pop_back',['../d7/d46/a00002.html#a4e0b15a5f6a72420feedc9a006d17fa7',1,'stride::util::SegmentedVector']]],
   ['popbuilder',['PopBuilder',['../de/d8c/a00036.html#a43273f3b77748b0d253be3591d41bfd9',1,'stride::Population::PopBuilder()'],['../d4/d8c/a00035.html#af2585945d602672e4bdcac2532d9af1c',1,'stride::PopBuilder::PopBuilder()']]],
   ['popbuilder',['PopBuilder',['../d4/d8c/a00035.html',1,'stride']]],
   ['popbuilder_2ecpp',['PopBuilder.cpp',['../d5/db1/a00140.html',1,'']]],
@@ -29,5 +29,5 @@ var searchData=
   ['primarycommunity',['PrimaryCommunity',['../dd/da2/a00192.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6',1,'stride::ContactPoolType']]],
   ['print',['Print',['../d5/d79/a00030.html#aa93f976e835a7255e7d479252eca28c9',1,'stride::output::AdoptedFile::Print()'],['../df/d61/a00031.html#ae42038f7696374e29aef434de61d386d',1,'stride::output::InfectedFile::Print()'],['../dc/d87/a00032.html#ac72a90d142c34ca2137bdf09760ba2c4',1,'stride::output::PersonsFile::Print()'],['../d0/dc0/a00033.html#a9b4fb82839ddf6a7c8d10fc119bf22fb',1,'stride::output::SummaryFile::Print()']]],
   ['processorcount',['ProcessorCount',['../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3',1,'stride::util::ConfigInfo']]],
-  ['push_5fback',['push_back',['../d7/d46/a00002.html#a582dc02e5654aae74fc37ad36a1e0357',1,'stride::util::SegmentedVector::push_back(const T &amp;obj)'],['../d7/d46/a00002.html#a40ed270184dc1bc8b2df29be0a730ccd',1,'stride::util::SegmentedVector::push_back(T &amp;&amp;obj)']]]
+  ['push_5fback',['push_back',['../d7/d46/a00002.html#a74bf9839c2e38750216689f965a647de',1,'stride::util::SegmentedVector::push_back(const T &amp;obj)'],['../d7/d46/a00002.html#a63f248bcd2fc8b5f6f9fb2f75266c81c',1,'stride::util::SegmentedVector::push_back(T &amp;&amp;obj)']]]
 ];

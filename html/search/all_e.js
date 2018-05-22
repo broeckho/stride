@@ -11,7 +11,7 @@ var searchData=
   ['registerviewers',['RegisterViewers',['../de/d5e/a00007.html#ac0ad454c9dd6a2456d7078484a4ccec8',1,'stride::CliController']]],
   ['reset',['Reset',['../dc/dee/a00053.html#a45e66e4b53acb9c8f1edb7d5fda4f451',1,'stride::util::Stopwatch']]],
   ['resetdiseasecounter',['ResetDiseaseCounter',['../d1/d2b/a00018.html#a468c554771acc883799456c14373e9db',1,'stride::Health']]],
-  ['resize',['resize',['../d7/d46/a00002.html#aed90fe7326b6f34beb5053abfd98f05d',1,'stride::util::SegmentedVector']]],
+  ['resize',['resize',['../d7/d46/a00002.html#aa9ed4e4bbfdbff03a55d378cdf7f5707',1,'stride::util::SegmentedVector::resize(size_type new_size)'],['../d7/d46/a00002.html#a61b8157733abf6be32ed20fe0fc5e57b',1,'stride::util::SegmentedVector::resize(size_type new_size, const value_type &amp;value)']]],
   ['rnenginetype_2ecpp',['RNEngineType.cpp',['../d5/da7/a00144.html',1,'']]],
   ['rnenginetype_2eh',['RNEngineType.h',['../da/ddb/a00145.html',1,'']]],
   ['rnmanager',['RNManager',['../d5/de0/a00050.html#a30121f0f47cf4c23bed8da7521b2b904',1,'stride::util::RNManager::RNManager(const Info &amp;info=Info())'],['../d5/de0/a00050.html#a09c7ac5ae3b2ecffe9ee9b373d035e57',1,'stride::util::RNManager::RNManager(const RNManager &amp;)=delete']]],

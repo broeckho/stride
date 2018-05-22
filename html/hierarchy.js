@@ -13,7 +13,7 @@ var hierarchy =
       [ "stride::ContactPoolType::IdSubscriptArray< bool >", "d7/dec/a00010.html", null ]
     ] ],
     [ "iterator", null, [
-      [ "stride::util::SVIterator< T, N, P, R, is_const_iterator >", "d4/d6d/a00055.html", null ]
+      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d4/d6d/a00055.html", null ]
     ] ],
     [ "std::map< K, T >", null, [
       [ "stride::InfectorMap", "dc/de2/a00024.html", null ]
@@ -67,7 +67,7 @@ var hierarchy =
     [ "stride::util::RNManager", "d5/de0/a00050.html", null ],
     [ "stride::util::RNManager::Info", "d2/d79/a00051.html", null ],
     [ "stride::util::RunConfigManager", "d1/d84/a00052.html", null ],
-    [ "stride::util::SegmentedVector< T, N >", "d7/d46/a00002.html", null ],
+    [ "stride::util::SegmentedVector< T, N, Safe >", "d7/d46/a00002.html", null ],
     [ "stride::util::Stopwatch< T >", "dc/dee/a00053.html", null ],
     [ "stride::util::Subject< E >", "d1/dea/a00054.html", null ],
     [ "stride::util::TimeStamp", "d9/d2e/a00056.html", null ],

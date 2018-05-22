@@ -2,7 +2,7 @@ var searchData=
 [
   ['sample',['Sample',['../dd/da2/a00019.html#a562b022d2c7f2836b4400e7d19e1b040',1,'stride::HealthSeeder']]],
   ['seed',['Seed',['../dd/dad/a00005.html#a0f7876d2c8d1a4c2bc8057da26f82df5',1,'stride::BeliefSeeder::Seed()'],['../d7/d7a/a00016.html#adc5b1f152367382afe3dade9421357da',1,'stride::DiseaseSeeder::Seed()'],['../dd/da2/a00019.html#ad6a9061857cee5335745fe5501bcb73d',1,'stride::HealthSeeder::Seed()'],['../db/d3a/a00040.html#a81b191380f9a2c93768ff0efcec47f6b',1,'stride::SurveySeeder::Seed()']]],
-  ['segmentedvector',['SegmentedVector',['../d7/d46/a00002.html#ab2cde057e757b121275249b81b60e891',1,'stride::util::SegmentedVector::SegmentedVector(size_type i=0)'],['../d7/d46/a00002.html#aa1becc3a92dec731ea9a0107c5c96651',1,'stride::util::SegmentedVector::SegmentedVector(const self_type &amp;other)'],['../d7/d46/a00002.html#afb1b71095532ce031e746cdc4c7b38f7',1,'stride::util::SegmentedVector::SegmentedVector(self_type &amp;&amp;other) noexcept']]],
+  ['segmentedvector',['SegmentedVector',['../d7/d46/a00002.html#ada0935b74686a1ab1a513c310ffbe90c',1,'stride::util::SegmentedVector::SegmentedVector()'],['../d7/d46/a00002.html#abe518edf461ce52cc405357f1a074673',1,'stride::util::SegmentedVector::SegmentedVector(size_type i)'],['../d7/d46/a00002.html#ab9dc137bd2fc3f337a106e8bffcecf4a',1,'stride::util::SegmentedVector::SegmentedVector(size_type i, const value_type &amp;value)'],['../d7/d46/a00002.html#ae4f9b0a0e5d4dace47647217f084242c',1,'stride::util::SegmentedVector::SegmentedVector(const self_type &amp;other)'],['../d7/d46/a00002.html#a7c2307e98e036cab31da16a478b4227d',1,'stride::util::SegmentedVector::SegmentedVector(self_type &amp;&amp;other) noexcept']]],
   ['setbelief',['SetBelief',['../db/df3/a00034.html#a6154cfa75159d1dd882448eb21522010',1,'stride::Person']]],
   ['setbeliefpolicy',['SetBeliefPolicy',['../de/d8c/a00036.html#a934a9192dbb0ade72b8c3e099c27a035',1,'stride::Population']]],
   ['setimmune',['SetImmune',['../d1/d2b/a00018.html#a2ed35c613838b7cc9fab87fb494f87a1',1,'stride::Health']]],
@@ -10,7 +10,7 @@ var searchData=
   ['sim',['Sim',['../d1/dc6/a00037.html#a669d30fcc9d14fc6cce7deae4e4661f2',1,'stride::Sim']]],
   ['simbuilder',['SimBuilder',['../d8/d41/a00038.html#ada7d6656e97857b9bacd2285f7784021',1,'stride::SimBuilder']]],
   ['simrunner',['SimRunner',['../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc',1,'stride::SimRunner']]],
-  ['size',['size',['../d7/d46/a00002.html#a1aed19758fbcade387509591dddbe84d',1,'stride::util::SegmentedVector']]],
+  ['size',['size',['../d7/d46/a00002.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector']]],
   ['sortmembers',['SortMembers',['../da/da0/a00009.html#a6c90e9734ee7c6566bdf1f4416e99fd8',1,'stride::ContactPool']]],
   ['split',['Split',['../d7/ded/a00196.html#a600b27c06281da416f50a129c50b19f2',1,'stride::util']]],
   ['start',['Start',['../dc/dee/a00053.html#acaf0b5f9f645a7dd6420420443de5a96',1,'stride::util::Stopwatch']]],
@@ -22,5 +22,5 @@ var searchData=
   ['summaryfile',['SummaryFile',['../d0/dc0/a00033.html#a1f848c3aa92042b2fa7d399ad31b0e33',1,'stride::output::SummaryFile']]],
   ['summaryviewer',['SummaryViewer',['../d1/d6f/a00063.html#aa0d17dc54d8062a4215f740451d56de0',1,'stride::viewers::SummaryViewer']]],
   ['surveyseeder',['SurveySeeder',['../db/d3a/a00040.html#ac54faf22994cbab9fd2452002a0fcf59',1,'stride::SurveySeeder']]],
-  ['sviterator',['SVIterator',['../d4/d6d/a00055.html#a3ef979556a491de00e3d51fa381914dc',1,'stride::util::SVIterator::SVIterator()'],['../d4/d6d/a00055.html#a88531dffbc1d6b7f9a5303bf628a2b94',1,'stride::util::SVIterator::SVIterator(const self_type &amp;other)'],['../d4/d6d/a00055.html#a328a897f847ce0ed4e5417d3fc7732cc',1,'stride::util::SVIterator::SVIterator(std::size_t p, container_pointer_type c)']]]
+  ['sviterator',['SVIterator',['../d4/d6d/a00055.html#a314396936e46da86a1da0cc811225e27',1,'stride::util::SVIterator::SVIterator()'],['../d4/d6d/a00055.html#ab481d9aa2bf4f1dd132a36fe2554be28',1,'stride::util::SVIterator::SVIterator(const self_type &amp;other)'],['../d4/d6d/a00055.html#ac34d8cbf117630096864be24e5f3bca0',1,'stride::util::SVIterator::SVIterator(std::size_t p, container_pointer_type c)']]]
 ];

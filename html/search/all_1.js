@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['back',['back',['../d7/d46/a00002.html#aceea062ece1970e9d1a89a31d633dfe6',1,'stride::util::SegmentedVector::back()'],['../d7/d46/a00002.html#a4dd5967396f25e6d532f52975f22ad9c',1,'stride::util::SegmentedVector::back() const ']]],
-  ['begin',['begin',['../d7/d46/a00002.html#a791aa44786b4ddc3daf501154afa8d5c',1,'stride::util::SegmentedVector::begin()'],['../d7/d46/a00002.html#aeb988de71bd6050c07a6f000cd8e872d',1,'stride::util::SegmentedVector::begin() const ']]],
+  ['back',['back',['../d7/d46/a00002.html#aea25c3c1ac7a825c74601087fc91ee97',1,'stride::util::SegmentedVector::back()'],['../d7/d46/a00002.html#aa2bdeb712ab515db9dc7fbe900233eb4',1,'stride::util::SegmentedVector::back() const ']]],
+  ['begin',['begin',['../d7/d46/a00002.html#a0178098bae26c74f6d0d48cf77d057f7',1,'stride::util::SegmentedVector::begin()'],['../d7/d46/a00002.html#a2342f7a0b6cea1bbc7a7fecf8a864fa0',1,'stride::util::SegmentedVector::begin() const ']]],
   ['belief',['Belief',['../d0/d0b/a00004.html#a4c6ab9b7c9f11aa7651337c30aa50dc8',1,'stride::Belief']]],
   ['belief',['Belief',['../d0/d0b/a00004.html',1,'stride']]],
   ['belief_2eh',['Belief.h',['../d1/d6e/a00073.html',1,'']]],

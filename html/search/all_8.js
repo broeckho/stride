@@ -44,8 +44,8 @@ var searchData=
   ['initbeliefpolicy',['InitBeliefPolicy',['../de/d8c/a00036.html#a452f55c55c494f5db179d36dd7e8161b',1,'stride::Population']]],
   ['initialize',['Initialize',['../d5/db6/a00042.html#a5e67e9eab813de18fff32722ee6f1437',1,'stride::TransmissionProfile::Initialize()'],['../d5/d79/a00030.html#aefdeb0e49b52e1fb5844bb311a6319cb',1,'stride::output::AdoptedFile::Initialize()'],['../dc/d87/a00032.html#a70798ee06674e243f7dad24ae2dca7fd',1,'stride::output::PersonsFile::Initialize()'],['../d0/dc0/a00033.html#a73334b641e8aeb7edff5cc8b6affc86c',1,'stride::output::SummaryFile::Initialize()'],['../d6/d2d/a00047.html#a6f86062b82181245b6b483926eea62f1',1,'stride::util::FileSys::Initialize()'],['../d5/de0/a00050.html#a8c78f40f38b8a3fc25e2c21be2de505a',1,'stride::util::RNManager::Initialize()']]],
   ['initializeholidays',['InitializeHolidays',['../de/d21/a00006.html#acfc5f6f917fe7d81ead2fecdeb85eb70',1,'stride::Calendar']]],
-  ['isdefaultcontructed',['IsDefaultContructed',['../d4/d6d/a00055.html#a9ff076ee2c859a18d0d87a181fcc4809',1,'stride::util::SVIterator']]],
-  ['isdereferencable',['IsDereferencable',['../d4/d6d/a00055.html#a6b670e50da9d2c64843e4d05c13ac0d9',1,'stride::util::SVIterator']]],
+  ['isdefaultcontructed',['IsDefaultContructed',['../d4/d6d/a00055.html#a91882048ea140b85399d530aeaf4310e',1,'stride::util::SVIterator']]],
+  ['isdereferencable',['IsDereferencable',['../d4/d6d/a00055.html#a3eebb587f325fbb95c8116df7f7ddf89',1,'stride::util::SVIterator']]],
   ['isdirectorystring',['IsDirectoryString',['../d6/d2d/a00047.html#a33c582aaa9397e6ba22efc14b1a44189',1,'stride::util::FileSys']]],
   ['isholiday',['IsHoliday',['../de/d21/a00006.html#a9d4a023834f98c6ab8af55bbae7bc6df',1,'stride::Calendar']]],
   ['isimmune',['IsImmune',['../d1/d2b/a00018.html#a7c9caae07db1dd15732f726cec514dc2',1,'stride::Health']]],
@@ -53,7 +53,7 @@ var searchData=
   ['isinfectious',['IsInfectious',['../d1/d2b/a00018.html#a84c0cb686c22ec8504942b84105eaed2',1,'stride::Health']]],
   ['isinpool',['IsInPool',['../db/df3/a00034.html#acc03f26895f6fc1054fa78e480900ebb',1,'stride::Person']]],
   ['ismode',['IsMode',['../d9/dd0/a00191.html#a3242678fd1548cd6dd420490dc06fcff',1,'stride::ContactLogMode']]],
-  ['ispasttheend',['IsPastTheEnd',['../d4/d6d/a00055.html#a52806a07ec19f0c1fb0365b489127e92',1,'stride::util::SVIterator']]],
+  ['ispasttheend',['IsPastTheEnd',['../d4/d6d/a00055.html#acbbf6b7a22c93b938ee4fbef3244143f',1,'stride::util::SVIterator']]],
   ['isrecovered',['IsRecovered',['../d1/d2b/a00018.html#a4dae2bfe69375adb5dd89819f6798090',1,'stride::Health']]],
   ['isrunning',['IsRunning',['../dc/dee/a00053.html#a6afa0761326b35e675517b6a81ffef1f',1,'stride::util::Stopwatch']]],
   ['isschoolholiday',['IsSchoolHoliday',['../de/d21/a00006.html#a497cee60c64a52c36dbf44536b3c2d3d',1,'stride::Calendar']]],
@@ -64,5 +64,5 @@ var searchData=
   ['istype',['IsType',['../dd/da2/a00192.html#a1269217f56908f0da981dbe4e43bb73d',1,'stride::ContactPoolType::IsType()'],['../d3/d2a/a00195.html#a43c0310b3eef6024b540ffaa5c4c39b2',1,'stride::sim_event::IsType()'],['../dc/d57/a00194.html#a0d22d904ddff0d21494405335e5fc744',1,'stride::RNEngineType::IsType(const string &amp;s)'],['../dc/d57/a00194.html#a5c2a5d8f1812dfead0b91defc7c28a83',1,'stride::RNEngineType::IsType(std::string s)']]],
   ['isweekend',['IsWeekend',['../de/d21/a00006.html#a3569df106b24b3df5bf6836849b150a4',1,'stride::Calendar']]],
   ['isworkoff',['IsWorkOff',['../da/d45/a00011.html#a61f87cc93335185f90d9d772f168b1bb',1,'stride::DaysOffAll::IsWorkOff()'],['../df/d86/a00012.html#a2ae431c15cddca106e2a0753fde99f83',1,'stride::DaysOffInterface::IsWorkOff()'],['../d7/dd4/a00013.html#a6287fa68ca109373fc9be31f3941079d',1,'stride::DaysOffNone::IsWorkOff()'],['../d2/de7/a00014.html#a633453bbe4892b56891c42a4f4ac72fd',1,'stride::DaysOffSchool::IsWorkOff()'],['../dd/d1b/a00015.html#a5f55ab77243cf483c5c47e8f81bf3b2a',1,'stride::DaysOffStandard::IsWorkOff()']]],
-  ['iterator',['iterator',['../d7/d46/a00002.html#a97faf27d49290367846621b0bceb279a',1,'stride::util::SegmentedVector']]]
+  ['iterator',['iterator',['../d7/d46/a00002.html#ac336ef543eb696055a43b39bbe70499f',1,'stride::util::SegmentedVector']]]
 ];

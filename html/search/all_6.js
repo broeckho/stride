@@ -1,9 +1,9 @@
 var searchData=
 [
   ['get',['Get',['../d6/d2d/a00047.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../dc/dee/a00053.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
-  ['get_5fblock_5fcount',['get_block_count',['../d7/d46/a00002.html#a2d43817e6f2106d03bf2e8f132369590',1,'stride::util::SegmentedVector']]],
-  ['get_5fchunk',['get_chunk',['../d7/d46/a00002.html#aa29f6e6621dfcb2caba4189ff2dedb4f',1,'stride::util::SegmentedVector']]],
-  ['get_5felements_5fper_5fblock',['get_elements_per_block',['../d7/d46/a00002.html#a9cf4550926be51834d162161024d49c1',1,'stride::util::SegmentedVector']]],
+  ['get_5fblock_5fcount',['get_block_count',['../d7/d46/a00002.html#a87837cab9ccde57c5179dc7f9245f9fc',1,'stride::util::SegmentedVector']]],
+  ['get_5fchunk',['get_chunk',['../d7/d46/a00002.html#a4f98e9e54da37bbf7c6ed0c2b40361d9',1,'stride::util::SegmentedVector']]],
+  ['get_5felements_5fper_5fblock',['get_elements_per_block',['../d7/d46/a00002.html#aa93e6b50e8a1f177829b52d8a41ce979',1,'stride::util::SegmentedVector']]],
   ['getadoptedcount',['GetAdoptedCount',['../de/d8c/a00036.html#a0e53e57d363f53cf4777e932f625da3a',1,'stride::Population']]],
   ['getage',['GetAge',['../db/df3/a00034.html#ad85ecf5500764ae2c025f7e2aab8003c',1,'stride::Person']]],
   ['getbelief',['GetBelief',['../db/df3/a00034.html#a4b98f1f23a3c4ebabe949e69e0d7e979',1,'stride::Person::GetBelief()'],['../db/df3/a00034.html#ac31cb2e01da0e2348bb6e7aef0630d4a',1,'stride::Person::GetBelief() const ']]],

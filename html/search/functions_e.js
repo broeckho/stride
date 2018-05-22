@@ -10,7 +10,7 @@ var searchData=
   ['registerviewers',['RegisterViewers',['../de/d5e/a00007.html#ac0ad454c9dd6a2456d7078484a4ccec8',1,'stride::CliController']]],
   ['reset',['Reset',['../dc/dee/a00053.html#a45e66e4b53acb9c8f1edb7d5fda4f451',1,'stride::util::Stopwatch']]],
   ['resetdiseasecounter',['ResetDiseaseCounter',['../d1/d2b/a00018.html#a468c554771acc883799456c14373e9db',1,'stride::Health']]],
-  ['resize',['resize',['../d7/d46/a00002.html#aed90fe7326b6f34beb5053abfd98f05d',1,'stride::util::SegmentedVector']]],
+  ['resize',['resize',['../d7/d46/a00002.html#aa9ed4e4bbfdbff03a55d378cdf7f5707',1,'stride::util::SegmentedVector::resize(size_type new_size)'],['../d7/d46/a00002.html#a61b8157733abf6be32ed20fe0fc5e57b',1,'stride::util::SegmentedVector::resize(size_type new_size, const value_type &amp;value)']]],
   ['rnmanager',['RNManager',['../d5/de0/a00050.html#a30121f0f47cf4c23bed8da7521b2b904',1,'stride::util::RNManager::RNManager(const Info &amp;info=Info())'],['../d5/de0/a00050.html#a09c7ac5ae3b2ecffe9ee9b373d035e57',1,'stride::util::RNManager::RNManager(const RNManager &amp;)=delete']]],
   ['run',['Run',['../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f',1,'stride::SimRunner::Run()'],['../d3/de7/a00039.html#a233f76f6af0cef8c5971112b6d2235d0',1,'stride::SimRunner::Run(unsigned int numSteps)']]]
 ];
