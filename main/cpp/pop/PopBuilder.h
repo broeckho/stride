@@ -19,14 +19,15 @@
  * Initialize populations.
  */
 
-#include "util/RNManager.h"
-
-#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 
 namespace stride {
 
 class Population;
+namespace util {
+class RNManager;
+}
 
 /**
  * Initializes Population objects.
@@ -36,30 +37,27 @@ class PopBuilder
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
-        explicit PopBuilder(const boost::property_tree::ptree& configPt);
+        /// \param rnManager   Random number manager for pop build process.
+        PopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
 
-        /// Builds a Population. The steps are:
-        /// - Preliminaries (check input data, rnManager, contactLogger).
+        /// Build Population and return it afterwards.
+        /// The steps are:
+        /// - Check input data.
         /// - Read persons from file and instatiate them.
         /// - Fill up the various type of contactpools.
         /// - Seed the population with contact survey participants.
-        /// @return              Pointer to the population.
-        std::shared_ptr<Population> Build();
+        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
 
 private:
-        /// Fills up the contact pool system.
-        void MakePoolSys();
+        /// Fills up pop's contact pool system and return pop.
+        std::shared_ptr<Population> MakePoolSys(std::shared_ptr<Population> pop);
 
-        /// generates persons.
-        void MakePersons();
-
-        /// Preliminary setup.
-        void Preliminaries();
+        /// Generates pop's individuals and return pop.
+        std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
 
 private:
-        boost::property_tree::ptree m_config_pt;  ///< Configuration property tree
-        std::shared_ptr<Population> m_pop;        ///< The population.
-        util::RNManager             m_rn_manager; ///< Random numbere generation management.
+        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree
+        util::RNManager&                   m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

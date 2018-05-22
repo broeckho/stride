@@ -27,7 +27,7 @@
 namespace stride {
 namespace util {
 
-template <typename T, size_t N>
+template <typename T, size_t N, bool Safe>
 class SegmentedVector;
 
 /**
@@ -51,7 +51,7 @@ class SegmentedVector;
  * 	R	reference-to-T type (can be const qualified).
  * 	is_const_iterator	to make it a const_iterator
  */
-template <typename T, std::size_t N, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
+template <typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
 class SVIterator : public std::iterator<std::random_access_iterator_tag, T, std::ptrdiff_t, P, R>
 {
 public:
@@ -60,7 +60,7 @@ public:
         // base class (i.e. value_type, difference_type, pointer, reference,
         // iterator_category).
         // ==================================================================
-        using self_type = SVIterator<T, N, P, R, is_const_iterator>;
+        using self_type = SVIterator<T, N, Safe, P, R, is_const_iterator>;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
@@ -192,7 +192,7 @@ public:
         bool operator>=(const self_type& other) const { return m_p >= other.m_p; }
 
 private:
-        friend class SegmentedVector<T, N>;
+        friend class SegmentedVector<T, N, Safe>;
 
 private:
         /// Current iterator position in the container.
@@ -204,7 +204,7 @@ private:
 private:
         /// Type of pointer-to-container (i.e. its const qualification).
         using container_pointer_type =
-            typename std::conditional<is_const_iterator, const SegmentedVector<T, N>*, SegmentedVector<T, N>*>::type;
+            typename std::conditional<is_const_iterator, const SegmentedVector<T, N, Safe>*, SegmentedVector<T, N, Safe>*>::type;
 
         // Container that the iterator points into.
         container_pointer_type m_c;

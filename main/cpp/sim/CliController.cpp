@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -20,14 +20,15 @@
 
 #include "sim/CliController.h"
 
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
 #include "viewers/AdoptedViewer.h"
-#include "viewers/CasesViewer.h"
 #include "viewers/CliViewer.h"
+#include "viewers/InfectedViewer.h"
 #include "viewers/PersonsViewer.h"
 #include "viewers/SummaryViewer.h"
 
@@ -84,9 +85,10 @@ void CliController::CheckOutputPrefix()
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
-        // Instantiate SimRunner & register viewers & run.
+        // Build population, instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(m_config_pt);
+        auto pop    = Population::Create(m_config_pt);
+        auto runner = make_shared<SimRunner>(m_config_pt, pop);
         RegisterViewers(runner);
         runner->Run();
         m_stride_logger->info("CliController shutting down.");
@@ -116,11 +118,11 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
                 runner->Register(v, bind(&viewers::AdoptedViewer::Update, v, placeholders::_1));
         }
 
-        // Cases viewer
+        // Infection counts viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_stride_logger->info("Registering CasesViewer");
-                const auto v = make_shared<viewers::CasesViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::CasesViewer::Update, v, placeholders::_1));
+                m_stride_logger->info("Registering InfectedViewer");
+                const auto v = make_shared<viewers::InfectedViewer>(runner, m_output_prefix);
+                runner->Register(v, bind(&viewers::InfectedViewer::Update, v, placeholders::_1));
         }
 
         // Persons viewer

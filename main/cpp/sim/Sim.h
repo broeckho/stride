@@ -24,8 +24,6 @@
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
-#include "sim/python/SimulatorObserver.h"
-#include "sim/python/Subject.h"
 #include "util/RNManager.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -40,14 +38,15 @@ class Population;
  * Simulator can time step and reveal some of the key data.
  * The Subject base class used for the interaction with the python environment only.
  */
-class Sim : public python::Subject<unsigned int, python::SimulatorObserver>
+class Sim
 {
 public:
-        /// Create a simulator initialized by the configuration ptree.
-        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt);
+        /// Create Sim initialized by the configuration in property tree and population.
+        static std::shared_ptr<Sim> Create(const boost::property_tree::ptree& configPt,
+                                           std::shared_ptr<Population>        pop);
 
         /// For use in python environment: create using configuration string i.o ptree.
-        static std::shared_ptr<Sim> Create(const std::string& configString);
+        static std::shared_ptr<Sim> Create(const std::string& configString, std::shared_ptr<Population> pop);
 
         /// Calendar for the simulated world. Initialized with the start date in the simulation
         /// world. Use GetCalendar()->GetSimulationDay() for the number of days simulated.

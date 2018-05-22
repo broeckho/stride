@@ -19,6 +19,7 @@
  */
 
 #include "myhayai/BenchmarkRunner.hpp"
+#include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -34,11 +35,11 @@ using boost::property_tree::ptree;
 void MeaslesBench()
 {
         auto builder = [](unsigned int n) {
-                auto configPt = make_shared<ptree>(RunConfigManager::CreateBenchMeasles());
+                auto configPt = make_shared<ptree>(RunConfigManager::Create("BenchMeasles"));
                 return [n, configPt]() {
                         return Test([n, configPt]() {
                                 configPt->put("run.num_threads", n);
-                                SimRunner(*configPt).Run();
+                                SimRunner(*configPt, Population::Create(*configPt)).Run();
                         });
                 };
         };

@@ -55,10 +55,8 @@ void BenchmarkRunner::RunTests(const vector<string>& canonicalNames)
 
         // Run through all the test_descriptors in ascending order.
         for (const auto& name : canonicalNames) {
-
-                const auto& t_d = test_descriptors[name];
-
                 // If test is disabled, then skip it.
+                const auto& t_d = test_descriptors[name];
                 if (t_d.m_is_disabled) {
                         Notify(event::Payload(event::Id::SkipTest, name));
                         continue;

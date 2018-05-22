@@ -30,9 +30,9 @@
 #include <memory>
 #include <spdlog/spdlog.h>
 
-namespace stride {
+namespace {
 
-class ContactPool;
+using namespace stride;
 
 /// Indicates whether optimized implementation may be used.
 /// \tparam LL          LogLevel
@@ -57,6 +57,12 @@ struct UseOptimizedInfector<ContactLogMode::Id::Transmissions, NoLocalInformatio
         static constexpr bool value = true;
 };
 
+} // namespace
+
+namespace stride {
+
+class ContactPool;
+
 /// Actual contacts and transmission in contactpool (primary template).
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
@@ -66,12 +72,11 @@ class Infector
 {
 public:
         ///
-        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& trans_profile,
-                         ContactHandler& c_handler, unsigned short int sim_day,
-                         std::shared_ptr<spdlog::logger> c_logger);
+        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& transProfile,
+                         ContactHandler& cHandler, unsigned short int simDay, std::shared_ptr<spdlog::logger> cLogger);
 };
 
-/// Time-optimized version (Only for NoLocalInformation policy in combination with None || Transmission logging).
+/// Time-optimized version (For NoLocalInformation && (None || Transmission logging)).
 /// \tparam LL          LogLevel
 /// \tparam TIC         TrackIndexCase
 template <ContactLogMode::Id LL, bool TIC>
@@ -79,9 +84,8 @@ class Infector<LL, TIC, NoLocalInformation, true>
 {
 public:
         ///
-        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& trans_profile,
-                         ContactHandler& c_handler, unsigned short int sim_day,
-                         std::shared_ptr<spdlog::logger> c_logger);
+        static void Exec(ContactPool& pool, const AgeContactProfile& profile, const TransmissionProfile& transProfile,
+                         ContactHandler& cHandler, unsigned short int simDay, std::shared_ptr<spdlog::logger> cLogger);
 };
 
 /// Explicit instantiations in cpp file.

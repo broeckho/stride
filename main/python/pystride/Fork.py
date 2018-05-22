@@ -1,28 +1,15 @@
-import os
+from .PyController import PyController
 
-import pystride
-
-from .Simulation import Simulation
-
-class Fork(Simulation):
+class Fork(PyController):
     def __init__(self, name: str, parent):
-        super().__init__(parent.dataDir)
-        # Copy config from parent
+        super().__init__(data_dir=parent.dataDir)
+        # Copy configuration from parent
         self.runConfig = parent.runConfig.copy()
-        self.runConfig.setParameter('output_prefix', name)
-        self.diseaseConfig = parent.diseaseConfig.copy()
-
+        self.runConfig.setParameter("output_prefix", name)
         if isinstance(parent, Fork):
-            self.parent = parent.parent # Flattened fork
+            self.parent = parent.parent # Flattened Fork
         else:
             self.parent = parent
         self.parent.forks.append(self)
 
-    def getWorkingDirectory(self):
-        return os.path.join(pystride.workspace, self.parent.getLabel())
-
-    def __getstate__(self):
-        return dict()
-
-    def __setstate__(self, state):
-        pass
+# TODO working directory = parent directory ?

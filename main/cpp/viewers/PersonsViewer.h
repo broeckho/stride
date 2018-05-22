@@ -40,7 +40,7 @@ public:
         }
 
         /// Let viewer perform update.
-        void Update(const sim_event::Id id);
+        void Update(sim_event::Id id);
 
 private:
         output::PersonsFile        m_persons_file;

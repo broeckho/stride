@@ -31,7 +31,7 @@ class DaysOffSchool : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        explicit DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(cal) {}
+        explicit DaysOffSchool(std::shared_ptr<Calendar> cal) : m_calendar(std::move(cal)) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return m_calendar->IsWeekend() || m_calendar->IsHoliday(); }

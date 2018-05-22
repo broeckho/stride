@@ -1,35 +1,25 @@
-import sys
-from pystride.Simulation import Simulation
+import pystride
+from pystride.Event import EventType
+from pystride.PyController import PyController
 
-status = True
-
-def vaccinate(sim, timestep):
-    if timestep == 20:
-        pop = sim.GetSimulator().GetPopulation()
+def vaccinate(simulator, event):
+    if event.timestep == 20:
+        pop = simulator.GetPopulation()
         for pIndex in range(pop.size()):
             if pop[pIndex].GetHealth().IsSusceptible():
                 pop[pIndex].GetHealth().SetImmune()
 
-def check(sim, timestep):
-    timestop = timestep
-    if timestep == 20:
+def check(simulator, event):
+    if event.timestep == 20:
         check.value = getattr(check, 'value', 0)
-        check.value = sim.GetSimulator().GetPopulation().GetInfectedCount()
-    if timestep > 20:
-        if sim.GetSimulator().GetPopulation().GetInfectedCount() != check.value:
-            print("Infection count still changing on day ", timestep)
-            sim.Stop()
-            status = False
+        check.value = sim.GetPopulation().GetInfectedCount()
+    if event.timestep > 20:
+        assert(sim.GetPopulation().GetInfectedCount() == check.value), "Infection count still changing on day {}".format(event.timestep)
 
-# Build simulation
-simulation = Simulation()
-simulation.loadRunConfig("../config/run_default.xml")
-
-# Register the callbacks
-simulation.registerCallback(vaccinate)
-simulation.registerCallback(check)
-
-simulation.run()
-if not status:
-    print("Vaccination test failed.")
-    sys.exit(1)
+# Configure simulation
+controller = PyController(config_path="../config/run_default.xml")
+# Register callbacks
+controller.registerCallback(vaccinate, EventType.Stepped)
+controller.registerCallback(check, EventType.Stepped)
+# Let controller run the simulation
+controller.control()

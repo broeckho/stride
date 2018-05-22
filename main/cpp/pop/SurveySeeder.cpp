@@ -32,16 +32,19 @@ using namespace std;
 
 namespace stride {
 
-void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop, RNManager& rnManager)
+SurveySeeder::SurveySeeder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
 {
-        const string log_level = configPt.get<string>("run.contact_log_level", "None");
-        if (log_level != "None") {
+}
 
+shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
+{
+        const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
+        if (log_level == "All" || log_level == "Susceptibles") {
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
-                auto        generator    = rnManager.GetGenerator(trng::uniform_int_dist(0, max_index));
-                const auto  participants = configPt.get<unsigned int>("run.num_participants_survey");
+                auto        generator    = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_index));
+                const auto  participants = m_config_pt.get<unsigned int>("run.num_participants_survey");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).
                 // A for loop will not do because we might draw the same person twice.
@@ -50,16 +53,13 @@ void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work),
-											p.GetHealth().IsSusceptible(),
-											p.GetHealth().IsInfected(),
-											p.GetHealth().IsRecovered(),
-											p.GetHealth().IsImmune());
+                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
+                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work));
                                 num_samples++;
                         }
                 }
         }
+        return pop;
 }
 
 } // namespace stride

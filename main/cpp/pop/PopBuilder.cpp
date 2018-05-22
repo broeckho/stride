@@ -23,8 +23,10 @@
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
-#include "util/LogUtils.h"
+#include "util/RNManager.h"
 #include "util/StringUtils.h"
+
+#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 
@@ -32,16 +34,16 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt), m_pop(make_shared<Population>()) {}
+PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
-void PopBuilder::MakePoolSys()
+shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 {
         using namespace ContactPoolType;
-        auto& population = *m_pop;
+        auto& population = *pop;
         auto& poolSys    = population.GetContactPoolSys();
 
         // --------------------------------------------------------------
-        // Determine number of contact pools from ids in population.
+        // Determine maximum pool ids in population.
         // --------------------------------------------------------------
         IdSubscriptArray<unsigned int> max_ids{0U};
         for (const auto& p : population) {
@@ -50,20 +52,22 @@ void PopBuilder::MakePoolSys()
                 }
         }
         // --------------------------------------------------------------
-        // Keep separate id counter to provide a unique id for every
-        // contactpool. Start at 1 (see next item for pool_id==0).
+        // Initialize poolSys with empty ContactPools (even for Id=0).
         // --------------------------------------------------------------
-        unsigned int id = 1;
         for (Id typ : IdList) {
-                for (size_t i = 0; i <= max_ids[typ]; i++) {
-                        poolSys[typ].emplace_back(ContactPool(id, typ));
-                        id++;
+                for (size_t i = 0; i < max_ids[typ] + 1; i++) {
+                        poolSys[typ].emplace_back(ContactPool(i, typ));
                 }
         }
+
         // --------------------------------------------------------------
-        // Insert persons (pointers) in their contactpools. Having
-        // contactpool id '0' means "not belonging pool of that type"
-        // (school / work - belong to both).
+        // Insert persons (pointers) in their contactpools. Having Id 0
+        // means "not belonging pool of that type" (e.g. school/ work -
+        // cannot belong to both, or e.g. out-of-work).
+        //
+        // Pools are uniquely identified by (typ, subscript) and a Person
+        // belongs, for typ, to pool with subscrip p.GetPoolId(typ).
+        // Defensive measure: we have a pool for Id 0 and leave it empty.
         // --------------------------------------------------------------
         for (auto& p : population) {
                 for (Id typ : IdList) {
@@ -73,14 +77,15 @@ void PopBuilder::MakePoolSys()
                         }
                 }
         }
+
+        return pop;
 }
 
-void PopBuilder::MakePersons()
+shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Read persosns from file.
         //------------------------------------------------
-        const auto belief_pt        = m_config_pt.get_child("run.belief_policy");
         const auto file_name        = m_config_pt.get<string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
         const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
@@ -100,7 +105,6 @@ void PopBuilder::MakePersons()
 
         while (getline(pop_file, line)) {
                 const auto values                 = Split(line, ",");
-                const auto risk_averseness        = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
                 const auto age                    = FromString<unsigned int>(values[0]);
                 const auto household_id           = FromString<unsigned int>(values[1]);
                 const auto school_id              = FromString<unsigned int>(values[2]);
@@ -108,23 +112,16 @@ void PopBuilder::MakePersons()
                 const auto primary_community_id   = FromString<unsigned int>(values[4]);
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
-                m_pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                    secondary_community_id, Health(), belief_pt, risk_averseness);
+                pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
+                                  secondary_community_id);
                 ++person_id;
         }
 
         pop_file.close();
+        return pop;
 }
 
-std::shared_ptr<Population> PopBuilder::Build()
-{
-        Preliminaries();
-        MakePersons();
-        MakePoolSys();
-        return m_pop;
-}
-
-void PopBuilder::Preliminaries()
+shared_ptr<Population> PopBuilder::Build(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
         // Check validity of input data.
@@ -134,24 +131,11 @@ void PopBuilder::Preliminaries()
                 throw runtime_error(string(__func__) + "> Bad input data for seeding_rate.");
         }
 
-        // ------------------------------------------------
-        // Setup RNManager.
-        // ------------------------------------------------
-        m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("pop.rng_type", "lcg64"),
-                                                m_config_pt.get<unsigned long>("run.rng_seed", 101UL), "",
-                                                m_config_pt.get<unsigned int>("run.num_threads")});
-
-        // -----------------------------------------------------------------------------------------
-        // Create contact_logger to log contacts/transmissions. Do NOT register it.
-        // -----------------------------------------------------------------------------------------
-        if (m_config_pt.get<bool>("run.contact_output_file", true)) {
-                const auto prefix         = m_config_pt.get<string>("run.output_prefix");
-                const auto logPath        = FileSys::BuildPath(prefix, "contact_log.txt");
-                m_pop->GetContactLogger() = LogUtils::CreateRotatingLogger("contact_logger", logPath.string());
-                m_pop->GetContactLogger()->set_pattern("%v");
-        } else {
-                m_pop->GetContactLogger() = LogUtils::CreateNullLogger("contact_logger");
-        }
+        //------------------------------------------------
+        // Add persons & fill pools & surveyseeding.
+        //------------------------------------------------
+        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePoolSys(MakePersons(pop)));
+        return pop;
 }
 
 } // namespace stride

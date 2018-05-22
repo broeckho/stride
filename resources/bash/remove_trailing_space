@@ -58,7 +58,7 @@ function trim_trailing_space_all_source_files() {
 
 SRC_FILES_EXTENSIONS="cpp|h|hpp|py"
 
-for d in main/cpp test/cpp main/python
+for d in main/cpp test/cpp main/python test/python
 do
     trim_trailing_space_all_source_files $d
     find $d -name "CMakeLists.txt" -type f -exec sed -E -i '' 's/[[:space:]]*$//' {} \; -exec echo {} \;

@@ -21,33 +21,23 @@
 #include "SimRunner.h"
 
 #include "calendar/Calendar.h"
-#include "pop/PopBuilder.h"
 #include "pop/Population.h"
 #include "sim/Sim.h"
-#include "sim/SimBuilder.h"
-#include "util/FileSys.h"
-#include "util/LogUtils.h"
-#include "util/TimeStamp.h"
-
-#include <boost/property_tree/xml_parser.hpp>
-#include <sstream>
 
 using namespace stride::sim_event;
-using namespace stride::util;
-using namespace boost::filesystem;
 using namespace boost::property_tree;
 using namespace std;
 
 namespace stride {
 
-SimRunner::SimRunner(const ptree& configPt)
+SimRunner::SimRunner(const ptree& configPt, shared_ptr<Population> pop)
     : m_clock("total_clock"), m_config_pt(configPt), m_output_prefix(""), m_sim(nullptr)
 {
         m_clock.Start();
         Notify(Id::SetupBegin);
 
         m_output_prefix = m_config_pt.get<string>("run.output_prefix");
-        m_sim           = Sim::Create(m_config_pt);
+        m_sim           = Sim::Create(m_config_pt, std::move(pop));
 
         Notify(Id::SetupEnd);
         m_clock.Stop();

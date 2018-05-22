@@ -1,108 +1,139 @@
-# This .travis.yml on:
-# https://github.com/loot/loot/blob/dev/.travis.yml
-# https://genbattle.bitbucket.io/blog/2016/01/17/c++-travis-ci/?
-
 language: cpp
 dist: trusty
 
 env:
   global:
-    #- MAKEFLAGS="-j 2"
+    secure: EROUAjbfrAVF4dwimkwN5wvrDqQVkFpHKOl2eGHNKR79GDGIVZqtfeAC8O2WlzHSvIuB+8HOdkQV+FQ39pjrfWtLwLDuUd31Qeye0HxFo+h+gnP+6n/I/TGfo2dUcUSVVOH3FsHZ8qfsBSsU+qoTt1TbaUnp7qdjNIT1mE7mX1D9g1bwoZyBDJCbd3+NBUzhyBtKfNDmW7iTzRKFeHN/bWXQ5FT2bkt+QwARL08nNl1BLh+EqhhiLnMusqmmPPtCgG2FqYva0ADFVQ2UK7sm/xL61WsvRMzps2CJoVedGrUKHBj/gOSBpO7yEjk27cECvnP3Xw149e4bofV36wAYY3kC6hvBiHT/+8v1HqJf0jyAK5I3SqQfzspOlc4rYdI5kuRP4gYCWIW8PE+8bADaP/q71DSX54KOdVDgXy2oQAuSiNXoPLP/vNHHfmljavL4krw4uKVXSh7AMfUfKgpT0F1/92OW1z+s/w37wVIxoBFFGCaq7ZQeG0MzN6j/WrJFR9A4iZ6kUd0pl1z78ziZylCzD4+WpAf00ufiUL40gwER0f1wO58IcKj1b8l3JwR0LFAWZOfG/SlN6VkY5AJx16JK33KjknWzl/CCUPl4ee/xDRdIWA6mSeyXN8wzVM0mUUN29+OIul7to2YVlYYwKZObPX0nFUYhjLtkYddMTnM=
 
 cache:
   directories:
     - $HOME/.ccache
-    - $HOME/boost_1_66_0_cache
+    - $HOME/deps
 
 addons:
   apt:
+    update: true
     sources: &default_sources
       - ubuntu-toolchain-r-test
     packages: &default_packages
       # - libhdf5-dev
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
 
 matrix:
   include:
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-6' CXX_COMPILER_ID=GNU
-      addons: { apt: { packages: [*default_packages, g++-6], sources: [*default_sources]} }
+      env: CXX_NAME='g++-6' TRAVIS_BUILD_DOCS=true
+      addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
-      env: CXX_COMPILER_NAME='g++-7' CXX_COMPILER_ID=GNU
-      addons: { apt: { packages: [*default_packages, g++-7], sources: [*default_sources]} }
+      env: CXX_NAME='g++-6' CMAKE_BUILD_TYPE=Debug
+      addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
+
+    - os: linux
+      compiler: gcc
+      env: CXX_NAME='g++-7'
+      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++-6.0' CXX_COMPILER_ID=LLVM
-      addons: { apt: { packages: [*default_packages, clang-6.0], sources:  [*default_sources, llvm-toolchain-trusty-6.0] } }
+      env: CXX_NAME='clang++-6.0'
+      addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
 
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+      env: CXX_NAME='c++'
 
     - os: osx
       osx_image: xcode9.2
       compiler: clang
-      env: CXX_COMPILER_NAME='c++' CXX_COMPILER_ID=APPLE
+      env: CXX_NAME='c++'
 
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9.3
       compiler: clang
-      env: CXX_COMPILER_NAME='clang++' CXX_COMPILER_ID=LLVM
+      env: CXX_NAME='clang++'
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
-  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit $(git rev-parse HEAD) doesn't match expected commit $TRAVIS_COMMIT"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then brew install --with-clang llvm@6 && brew link --force --overwrite llvm@6; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ccache swig; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade cmake; fi
+  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
   - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.8-0ubuntu3_amd64.deb;
-      sudo dpkg -i swig3.0_3.0.8-0ubuntu3_amd64.deb;
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "clang++" ]]; then
+      brew install --with-clang llvm@6
+      brew link --force --overwrite llvm@6
     fi
-
-  # This needs to be done because we want to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
-  - export CXX="$CXX_COMPILER_NAME"
-  - export GTEST_COLOR=1
+  # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
+  - export CXX="$CXX_NAME"
 
 install:
-  # Check for presence of boost cache, otherwise build boost
+    #--------- Linux
   - |
-    if [[ -z "$(ls -A $HOME/boost_1_66_0_cache)" ]]; then
-      # Download & unpack
-      sudo wget -O boost_1_66_0.tar.gz https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
-      sudo tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
-      # Move into source directory
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      SWIGHOME=$HOME/deps/swig_3.0.12
+      if [[ -z "$(ls -A $SWIGHOME)" ]]; then
+        cd /tmp/;
+        curl -s -J -O -k -L 'https://sourceforge.net/projects/swig/files/swig/swig-3.0.12/swig-3.0.12.tar.gz/download'
+        tar xf swig-3.0.12.tar.gz > /dev/null 2>&1
+        cd swig-3.0.12 && ./configure --prefix $SWIGHOME
+        make && make install
+        cd $TRAVIS_BUILD_DIR
+      else
+        echo "Already have swig cache"
+      fi
+      export CMAKE_PREFIX_PATH=$SWIGHOME:$CMAKE_PREFIX_PATH
+      #--------- Linux - qt 5.10.1 from Stephan Beiner's ppa
+      sudo add-apt-repository ppa:beineri/opt-qt-5.10.1-trusty -y && sudo apt-get update -qq
+      sudo apt-get install -qq qt510base qt510charts-no-lgpl && source /opt/qt510/bin/qt510-env.sh
+      sudo ldconfig /opt/qt510/lib
+      export CMAKE_PREFIX_PATH=/opt/qt510/:$CMAKE_PREFIX_PATH
+      export LD_LIBRARY_PATH=/opt/qt510/lib/
+    fi
+    #--------- OSX
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew upgrade python cmake
+      brew install ccache swig qt && brew link --force qt
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/plugins /usr/local/plugins
+      sudo ln -s /usr/local/Cellar/qt/5.10.1/mkspecs/ /usr/local/mkspecs
+      export CMAKE_PREFIX_PATH=/usr/local/opt/qt5:$CMAKE_PREFIX_PATH
+      export LD_LIBRARY_PATH=/usr/local/opt/qt5/lib/
+    fi
+    #--------- All platforms
+  - |
+    #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
+    #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
+    export BOOST_ROOT=$HOME/deps/boost_1_66_0
+    export BOOST_NO_SYSTEM_PATHS=ON
+    if [[ -z "$(ls -A $BOOST_ROOT)" ]]; then
+      cd /tmp/
+      wget https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz -q
+      tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       cd boost_1_66_0/
-      # Configure boost build   --prefix: install dir for boost   --with-libraries: only build libraries that we actually need
-      sudo ./bootstrap.sh --prefix=$HOME/boost_1_66_0_cache --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
-      # Build boost
-      sudo ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      # Move out of boost source directory
-      cd ..
+      ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
+      ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
+      cd $TRAVIS_BUILD_DIR;
     else
       echo "Already have boost cache"
     fi
-    export LD_LIBRARY_PATH=$HOME/boost_1_66_0_cache/lib
+    export LD_LIBRARY_PATH=$BOOST_ROOT/lib:$LD_LIBRARY_PATH
     sudo rm -f /usr/local/lib/libboost*.dylib*
-    sudo ln -s $HOME/boost_1_66_0_cache/lib/*.{so,dylib}* /usr/local/lib
+    sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
-  # Build stride and run tests
-  #			STRIDE_BOOST_ROOT: specify where the correct version of boost can be found
-  #			STRIDE_BOOST_NO_SYSTEM_PATHS: should be ON to prevent mixing different versions of boost
-  # Arbitrarily chosen one platform for Debug build.
+  - make all && make test
+
+after_success:
+    # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
   - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX_COMPILER_ID" == "LLVM" ]]; then
-      CMAKE_BUILD_TYPE=Debug STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-      CMAKE_BUILD_TYPE=Debug make test
-    else
-      STRIDE_BOOST_ROOT=$HOME/boost_1_66_0_cache STRIDE_BOOST_NO_SYSTEM_PATHS=ON make all
-      make test
+    if [[ "$TRAVIS_BRANCH" = "master" && "$TRAVIS_BUILD_DOCS" = "true" && "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+      cd $TRAVIS_BUILD_DIR
+      chmod +x resources/sh/generate-doxygen.sh
+      resources/sh/generate-doxygen.sh
     fi

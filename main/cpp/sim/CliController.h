@@ -21,23 +21,18 @@
 
 #include "util/Stopwatch.h"
 
-//#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <spdlog/spdlog.h>
 #include <string>
-#include <tuple>
-#include <utility>
-#include <vector>
 
 namespace stride {
 
 class SimRunner;
 
 /**
- * The CliController controls execution of a simulation run (@see SimRunner) from the
- * command line interface (cli).
- * The CliController setup
+ * Controls a simulation run initiated with the command line interface (cli).
+ * CliController functions include:
  * \li accepts the commandline arguments
  * \li checks the OpenMP environment
  * \li checks the file system environment

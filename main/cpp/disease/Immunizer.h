@@ -29,6 +29,9 @@ namespace util {
 class RNManager;
 }
 
+/**
+ * Deals with immunization strategies.
+ */
 class Immunizer
 {
 public:

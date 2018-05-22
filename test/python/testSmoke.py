@@ -1,8 +1,7 @@
-from pystride.Simulation import Simulation
+import pystride
+from pystride.PyController import PyController
 
-# Load run configuration
-simulation = Simulation()
-simulation.loadRunConfig("../config/run_default.xml")
-
-# Run the simulation
-simulation.run()
+# Configure simulation
+controller = PyController(config_path="../config/run_default.xml")
+# Let controller run the simulation
+controller.control()

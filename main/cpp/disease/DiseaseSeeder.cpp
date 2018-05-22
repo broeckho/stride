@@ -57,22 +57,21 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Seed infected persons.
         // --------------------------------------------------------------
-        const auto seeding_rate    = m_config_pt.get<double>("run.seeding_rate");
-        const auto seeding_age_min = m_config_pt.get<double>("run.seeding_age_min", 1);
-        const auto seeding_age_max = m_config_pt.get<double>("run.seeding_age_max", 99);
-        const auto pop_size        = pop->size() - 1;
-        const auto max_pop_index   = static_cast<unsigned int>(pop_size);
-        auto       int_generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_pop_index));
-        auto&      contactLogger   = pop->GetContactLogger();
+        const auto sRate       = m_config_pt.get<double>("run.seeding_rate");
+        const auto sAgeMin     = m_config_pt.get<double>("run.seeding_age_min", 1);
+        const auto sAgeMax     = m_config_pt.get<double>("run.seeding_age_max", 99);
+        const auto popSize     = pop->size();
+        const auto maxPopIndex = static_cast<unsigned int>(popSize - 1);
+        auto       generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
+        auto&      logger      = pop->GetContactLogger();
 
-        auto num_infected = static_cast<unsigned int>(floor(static_cast<double>(pop_size + 1) * seeding_rate));
-        while (num_infected > 0) {
-                Person& p = pop->at(static_cast<size_t>(int_generator()));
-                if (p.GetHealth().IsSusceptible() && (p.GetAge() >= seeding_age_min) &&
-                    (p.GetAge() <= seeding_age_max)) {
+        auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
+        while (numInfected > 0) {
+                Person& p = pop->at(static_cast<size_t>(generator()));
+                if (p.GetHealth().IsSusceptible() && (p.GetAge() >= sAgeMin) && (p.GetAge() <= sAgeMax)) {
                         p.GetHealth().StartInfection();
-                        num_infected--;
-                        contactLogger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        numInfected--;
+                        logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
                 }
         }
 }

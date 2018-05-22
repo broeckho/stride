@@ -53,7 +53,9 @@ set(STRIDE_INCLUDE_DOC	FALSE
 	CACHE BOOL "Exclude doc directory from build and install.")
 set(STRIDE_FORCE_NO_OPENMP	FALSE
 	CACHE BOOL "Do NOT use OpenMP even if available.")
-set(STRIDE_FORCE_NO_PYHTHON FALSE
+set(STRIDE_FORCE_NO_QT5	FALSE
+	CACHE BOOL "Do NOT use Qt5 even if available.")
+set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
 set(STRIDE_FORCE_NO_HDF5	FALSE
 	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
@@ -67,7 +69,6 @@ list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
 # Distinguish Linux from Aplle in UNIX family.
 #============================================================================
 if(UNIX AND NOT APPLE)
-	message(STATUS "setting Linux TRUE")
     set(LINUX TRUE)
 endif()
 

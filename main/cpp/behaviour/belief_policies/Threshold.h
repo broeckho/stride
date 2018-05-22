@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
+ *  Copyright 2017, 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
  */
 
 /**
@@ -26,8 +26,8 @@ namespace stride {
 class Threshold : public Belief
 {
 public:
-        Threshold(const boost::property_tree::ptree& pt)
-            : Belief(pt), m_is_aware(false), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
+        Threshold()
+            : Belief(), m_is_aware(false), m_num_contacts(0), m_num_contacts_infected(0), m_num_contacts_adopted(0),
               m_threshold_infected(1), m_threshold_adopted(1)
         {
         }
@@ -36,13 +36,9 @@ private:
         bool         m_is_aware;              ///< Whether the person is aware of the current epidemic.
         unsigned int m_num_contacts;          ///< The total number of contacts the person has had.
         unsigned int m_num_contacts_infected; ///< Number of contacts that is symptomatic.
-        unsigned int m_num_contacts_adopted;  ///< Number of contacts that have adopted
-                                              /// the behaviour.
-
-        double m_threshold_infected; ///< The fraction of contacts that needs to be
-                                     /// infected to adopt behaviour.
-        double m_threshold_adopted;  ///< The fraction of contacts that needs to have
-                                     /// adopted to adopt behaviour.
+        unsigned int m_num_contacts_adopted;  ///< Number of contacts that have adopted the behaviour.
+        double       m_threshold_infected;    ///< Fraction of contacts that needs to be infected to adopt behaviour.
+        double       m_threshold_adopted;     ///< Fraction of contacts that needs to have adopted to adopt behaviour.
 };
 
 } // namespace stride

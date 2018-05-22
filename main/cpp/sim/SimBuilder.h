@@ -28,7 +28,7 @@ class Sim;
 class Population;
 
 /**
- * Builds a simulator (@see Sim) based a configuration property tree.
+ * Builds a simulator based a configuration property tree.
  * It
  * \li reads any additional configuration files (disease, contact, ...)
  * \li initializes calendar and random number manager for the simulator
@@ -41,8 +41,8 @@ public:
         /// Initializing SimBuilder.
         explicit SimBuilder(const boost::property_tree::ptree& configPt);
 
-        /// Build the simulator.
-        std::shared_ptr<Sim> Build();
+        /// Build the simulator and return it afterwards.
+        std::shared_ptr<Sim> Build(std::shared_ptr<Sim> sim, std::shared_ptr<Population> pop);
 
 private:
         /// Get the contact configuration data.

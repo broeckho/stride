@@ -27,19 +27,13 @@
 namespace stride {
 namespace util {
 
-// forward declaration
 class CSV;
 
 /**
- * @class Row in CSV file.
+ * Row in CSV file.
  */
 class CSVRow
 {
-private:
-protected:
-        const CSV*               parent;
-        std::vector<std::string> values;
-
 public:
         /// CSVRow initialized with values. Should no be called by user code. CSV has convenience functions.
         CSVRow(const CSV* parent, const std::vector<std::string>& values);
@@ -57,6 +51,10 @@ public:
 
         /// Print to stream.
         friend std::ostream& operator<<(std::ostream& os, const CSVRow& row);
+
+protected:
+        const CSV*               m_parent;
+        std::vector<std::string> m_values;
 };
 
 /// Declaration of specialization

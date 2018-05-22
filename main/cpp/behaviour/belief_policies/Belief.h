@@ -11,15 +11,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
  * Header file for Belief.
  */
-
-#include <boost/property_tree/ptree.hpp>
 
 namespace stride {
 
@@ -30,21 +28,12 @@ class Belief
 {
 public:
         ///
-        Belief(const boost::property_tree::ptree&) {}
+        Belief() = default;
 
         ///
-        virtual ~Belief() {}
-
-        ///
-        // boost::property_tree::ptree Get() { return m_pt; }
-
-        ///
-        // void Set(const boost::property_tree::ptree& pt) { m_pt = pt; }
+        virtual ~Belief() = default;
 
         virtual bool HasAdopted() const { return false; }
-
-private:
-        // boost::property_tree::ptree m_pt; ///<
 };
 
 } // namespace stride

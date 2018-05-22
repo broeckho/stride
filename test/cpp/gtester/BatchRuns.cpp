@@ -61,23 +61,23 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
-        const string test_tag  = GetParam();
-        const auto   d         = ScenarioData::Get(test_tag);
-        auto         config_pt = get<0>(d);
-        const auto   target    = get<1>(d);
-        const auto   margin    = get<2>(d);
+        const string testTag  = GetParam();
+        const auto   d        = ScenarioData::Get(testTag);
+        auto         configPt = get<0>(d);
+        const auto   target   = get<1>(d);
+        const auto   margin   = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(config_pt);
+        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
         const unsigned int result = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(result, target, target * margin) << "!! Failure:" << test_tag;
+        EXPECT_NEAR(result, target, target * margin) << "!! Failure:" << testTag;
 }
 
 namespace {

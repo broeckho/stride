@@ -1,21 +1,21 @@
 import sys
-from pystride.Simulation import Simulation
 
-# The callback function
-def printInfected(sim, timestep):
-    print("Infected at day {}: {}".format(timestep-1, sim.GetSimulator().GetPopulation().GetInfectedCount()))
+import pystride
+from pystride.Event import EventType
+from pystride.PyController import PyController
+
+def printInfected(simulator, event):
+    day = event.timestep
+    print("Infected at day {}: {}".format(day, simulator.GetPopulation().GetInfectedCount()))
     sys.stdout.flush()
 
-# Build simulation
-simulation = Simulation()
-simulation.loadRunConfig("../config/run_default.xml")
-
-# reconfigure some of the default parameters
-simulation.runConfig.setParameter("population_file", "pop_antwerp.csv")
-simulation.runConfig.setParameter("num_days", 10)
-simulation.runConfig.setParameter("output_prefix", "testPrint")
+# Configure Simulation
+controller = PyController(config_path="../config/run_default.xml")
+controller.runConfig.setParameter("population_file", "pop_antwerp.csv")
+controller.runConfig.setParameter("num_days", 10)
+controller.runConfig.setParameter("output_prefix", "testPrint")
 
 # Register callback
-simulation.registerCallback(printInfected)
-
-simulation.run()
+controller.registerCallback(printInfected, EventType.Stepped)
+# Let controller run the simulation
+controller.control()
