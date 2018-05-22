@@ -27,11 +27,11 @@ message(STATUS "\nReading configuration info from CMakeLocal.cmake! \n")
 # MACRO (WARNING: CLion overrides the setting of CMAKE_BUILD_TYPE)
 #============================================================================
 set(STRIDE_INCLUDE_DOC      FALSE)
+#set(STRIDE_VERBOSE_TESTING  TRUE)
 set(STRIDE_FORCE_NO_OPENMP  FALSE)
-set(STRIDE_FORCE_NO_PYTHON  FALSE)
-set(STRIDE_COMPILER_ID      GNU)
+#set(STRIDE_COMPILER_ID      GNU)
 #set(STRIDE_COMPILER_ID      Clang)
-#set(STRIDE_COMPILER_ID      Apple)
+set(STRIDE_COMPILER_ID      Apple)
 
 #set(CMAKE_CXX_FLAGS “—Weffc++ Wextra -pedantic")
 #set(CMAKE_CXX_FLAGS "-UNDEBUG")
@@ -42,21 +42,17 @@ set(STRIDE_COMPILER_ID      GNU)
 # To help find modules.
 #============================================================================
 if(APPLE)
-    set(CMAKE_PREFIX_PATH
-            "/opt/local/Library/Frameworks/Python.framework/Versions/3.6;$ENV{PATH};${CMAKE_PREFIX_PATH}")
+    set(CMAKE_PREFIX_PATH "/opt/local/Library/Frameworks/Python.framework/Versions/3.6;$ENV{PATH}")
 endif()
-if(LINUX)
 # For Ubuntu 14.04
-    set(Python_ADDITIONAL_VERSIONS 3.4)
-    set(CMAKE_PREFIX_PATH "/opt/swig ${CMAKE_PREFIX_PATH}")
-    message (STATUS "${CMAKE_PREFIX_PATH}")
-endif()
+set(Python_ADDITIONAL_VERSIONS 3.4)
+
 #============================================================================
 # Install dir.
 #============================================================================
 execute_process(COMMAND git rev-list HEAD --count
-        OUTPUT_VARIABLE STRIDE_GIT_SHA OUTPUT_STRIP_TRAILING_WHITESPACE)
-set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_SHA})
+        OUTPUT_VARIABLE STRIDE_GIT_LABEL OUTPUT_STRIP_TRAILING_WHITESPACE)
+set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_LABEL})
 
 #============================================================================
 # Compiler.
@@ -65,7 +61,6 @@ if(LINUX)
     if(STRIDE_COMPILER_ID STREQUAL "GNU")
         set(CMAKE_C_COMPILER   /usr/bin/gcc  CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /usr/bin/g++  CACHE PATH "CXX compiler path")
-        message(STATUS "${CMAKE_CXX_COMPILER}")
     elseif(STRIDE_COMPILER_ID STREQUAL "Clang")
         set(CMAKE_C_COMPILER   /opt/clang/bin/clang    CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/clang/bin/clang++  CACHE PATH "CXX compiler path")
@@ -76,12 +71,18 @@ if(APPLE)
     if(STRIDE_COMPILER_ID STREQUAL "GNU")
         set(CMAKE_C_COMPILER   /opt/local/bin/gcc  CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/local/bin/g++  CACHE PATH "CXX compiler path")
+        set(BOOST_ROOT /opt/boost-1.66.0)
+        set(BOOST_NO_SYSTEM_PATHS ON)
     elseif(STRIDE_COMPILER_ID STREQUAL "Clang")
         set(CMAKE_C_COMPILER   /opt/local/bin/clang   CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/local/bin/clang++ CACHE PATH "CXX compiler path")
+        set(BOOST_ROOT /opt/local)
+        set(BOOST_NO_SYSTEM_PATHS ON)
     elseif(STRIDE_COMPILER_ID STREQUAL "Apple")
         set(CMAKE_C_COMPILER   /usr/bin/cc   CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /usr/bin/c++  CACHE PATH "CXX compiler path")
+        set(BOOST_ROOT /opt/local)
+        set(BOOST_NO_SYSTEM_PATHS ON)
     endif()
 endif()
 

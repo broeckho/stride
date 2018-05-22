@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Implementation for HelthSeeder class.
+ * Implementation for BeliefSeeder class.
  */
 
 #include "BeliefSeeder.h"
@@ -29,6 +29,9 @@
 using namespace boost::property_tree;
 using namespace stride::util;
 using namespace std;
+
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma gcc   diagnostic ignored "-Wunused-variable"
 
 namespace stride {
 

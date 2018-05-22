@@ -74,16 +74,16 @@ private:
 
 class Base{
 public:
-        virtual int Get1() const {return 0;}
+        virtual size_t Get1() const {return 0;}
         virtual ~Base() {}
 };
 
 class Derived : public Base
 {
 public:
-        int Get1() const override {return 1;}
-        int Get2() const {return 2;}
-        virtual int Get3() const {return 3;}
+        size_t Get1() const override {return 1;}
+        size_t Get2() const {return 2;}
+        virtual size_t Get3() const {return 3;}
 };
 
 class TestType
@@ -572,6 +572,61 @@ TEST(UnitSegmentedVector, AnyPoly3)
         for (int i = 0; i < 4; i++) {
                 const auto v = m_seg.cast<SegmentedVector<Derived, 3>>()->operator[](i).Get3();
                 EXPECT_EQ(3, v);
+        }
+}
+
+TEST(UnitSegmentedVector, Resize1)
+{
+        SegmentedVector<size_t, 7, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        c.resize(7);
+        EXPECT_EQ(7, c.size());
+        EXPECT_EQ(1, c.get_block_count());
+
+        c.resize(8);
+        EXPECT_EQ(8, c.size());
+        EXPECT_EQ(2, c.get_block_count());
+
+        c.resize(32);
+        EXPECT_EQ(32, c.size());
+        EXPECT_EQ(5, c.get_block_count());
+
+        c.resize(19);
+        EXPECT_EQ(19, c.size());
+        EXPECT_EQ(3, c.get_block_count());
+}
+
+TEST(UnitSegmentedVector, Resize2)
+{
+        SegmentedVector<Derived, 7, false> c;
+        c.resize(17, Derived());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
+        }
+        c.resize(6, Derived());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
+        }
+}
+
+TEST(UnitSegmentedVector, Resize3)
+{
+        SegmentedVector<Derived, 4, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+        c.resize(5);
+        EXPECT_EQ(5, c.size());
+        EXPECT_EQ(2, c.get_block_count());
+        for (size_t i = 0; i < c.size(); ++i) {
+                c.emplace(i, Derived());
+        }
+        c.resize(3);
+        EXPECT_EQ(3, c.size());
+        EXPECT_EQ(1, c.get_block_count());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
         }
 }
 
