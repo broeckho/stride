@@ -15,6 +15,16 @@
 #  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
+require(XML)
+
+if(0==1) # for debugging
+{
+  #setwd('..')
+  project_dir <- './sim_output/20180427_115407/'
+  data_dir <- './data/'
+  plot_social_contacts(project_dir,data_dir)
+}
+
 #############################################################################
 # FUNCTION TO PLOT SOCIAL CONTACT MATRICES AND COUNTS                      ##
 #############################################################################
@@ -22,9 +32,7 @@ plot_social_contacts <- function(project_dir,data_dir)
 {
   
   project_dir_files <- dir(project_dir)
-  summary_data_file <- project_dir_files[grepl('summary',project_dir_files)]
-  summary_data_all	<- read.table(file.path(project_dir,summary_data_file),header=TRUE,sep=",",stringsAsFactors=F)
-  
+
   ######################
   ## GET DATA       ##
   ######################
@@ -41,9 +49,10 @@ plot_social_contacts <- function(project_dir,data_dir)
       
       cdata         <- read.table(file.path(project_dir,exp_dir[i_file],'contacts.csv'),sep=',',header=T)
       pdata         <- read.table(file.path(project_dir,exp_dir[i_file],'participants.csv'),sep=',',header=T)
-      summary_data  <- summary_data_all[i_file,]
-      num_days      <- as.double(summary_data$num_days)
       
+      config_xml    <- xmlParse(file.path(project_dir,exp_dir[i_file],'config.xml'))
+      config_list   <- xmlToList(config_xml)
+      num_days      <- as.double(config_list$num_days)
       
       if(dim(cdata)[1]>0 && dim(pdata)[1]>0)
       {
@@ -164,7 +173,7 @@ plot_social_contacts <- function(project_dir,data_dir)
         dim(mij_sec_comm)
         
         ref_data_tag <- 'ref_fl2010'
-        if(grepl('15touch',summary_data$age_contact_matrix_file)){
+        if(grepl('15touch',config_list$age_contact_matrix_file)){
           ref_data_tag <- 'ref_fl2010_15touch'
         }
         
