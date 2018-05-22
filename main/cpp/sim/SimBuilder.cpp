@@ -26,6 +26,7 @@
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
 #include "pop/PopBuilder.h"
+#include "pop/SurveySeeder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
@@ -111,6 +112,9 @@ std::shared_ptr<Sim> SimBuilder::Build()
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
         DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
+
+        // Seed the survey participants (and log them)
+        SurveySeeder::Seed(m_config_pt, sim->m_population, sim->m_rn_manager);
 
         // --------------------------------------------------------------
         // Done.

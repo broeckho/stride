@@ -121,7 +121,6 @@ std::shared_ptr<Population> PopBuilder::Build()
         Preliminaries();
         MakePersons();
         MakePoolSys();
-        SurveySeeder::Seed(m_config_pt, m_pop, m_rn_manager);
         return m_pop;
 }
 

@@ -35,7 +35,7 @@ namespace stride {
 void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop, RNManager& rnManager)
 {
         const string log_level = configPt.get<string>("run.contact_log_level", "None");
-        if (log_level == "All" || log_level == "Susceptibles") {
+        if (log_level != "None") {
 
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
@@ -50,8 +50,12 @@ void SurveySeeder::Seed(const boost::property_tree::ptree& configPt, shared_ptr<
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work));
+                                logger->info("[PART] {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
+                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work),
+											p.GetHealth().IsSusceptible(),
+											p.GetHealth().IsInfected(),
+											p.GetHealth().IsRecovered(),
+											p.GetHealth().IsImmune());
                                 num_samples++;
                         }
                 }
