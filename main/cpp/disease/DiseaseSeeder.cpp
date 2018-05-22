@@ -81,7 +81,7 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
                               std::vector<ContactPool>& immunityPools)
 {
         std::vector<double> immunityDistribution;
-        const double        linkProbability = 0;
+        double        linkProbability = 0;
         Immunizer           immunizer(m_rn_manager);
 
         if (immunizationProfile == "Random") {
@@ -93,6 +93,8 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
         } else if (immunizationProfile == "AgeDependent") {
         			const auto immunityFile = m_config_pt.get<string>("run." + ToLower(immunityType) + "_distribution");
         			const ptree& immunity_pt = FileSys::ReadPtreeFile(immunityFile);
+
+        			linkProbability = m_config_pt.get<double>("run." + ToLower(immunityType) + "_link_probability");
 
                     //const auto immunityRate = m_config_pt.get<double>("run." + ToLower(immunityType) + "_rate");
                     for (unsigned int index_age = 0; index_age < 100; index_age++) {

@@ -9,6 +9,10 @@ import matplotlib.pyplot as plt
 from pystride.Event import EventType
 from pystride.PyController import PyController
 
+############################################################
+#                    Callback functions                    #
+############################################################
+
 def trackCases(timestep, num_cases, filename):
     with open(filename, "a", newline="") as csvfile:
         fieldnames = ["timestep", "cases"]
@@ -67,6 +71,7 @@ def runRandom():
     # Set output prefix
     control.runConfig.setParameter("output_prefix", "Random")
     # Immunity profile
+    control.runConfig.setParameter("immunity_link_probability", 0)
     control.runConfig.setParameter("immunity_profile", "AgeDependent")
     control.runConfig.setParameter("immunity_distribution", "../data/measles_random_immunity.xml")
     # Vaccination profile is empty since random immunity was seeded
@@ -83,6 +88,7 @@ def runAgeProfiles():
     # Set output_prefix
     control.runConfig.setParameter("output_prefix", "AgeDependent")
     # Immunity profile
+    control.runConfig.setParameter("immunity_link_probability", 0)
     control.runConfig.setParameter("immunity_profile", "AgeDependent")
     control.runConfig.setParameter("immunity_distribution", "../data/measles_natural_immunity.xml")
     # Vaccination profile
@@ -93,65 +99,62 @@ def runAgeProfiles():
     control.registerCallback(trackAgeDependentCases, EventType.Stepped)
     control.control()
 
-'''
 def runClustering():
-    control = PyController("../config/run_default.xml")
-    # control.runConfig.setParameter("contact_log_level", "Susceptibles")
-    control.runConfig.setParameter("seeding_rate", 0.000001667)
-    control.runConfig.setParameter("immunity_profile", "AgeDependent")
-    # control.runConfig.setParameter("immunity_rate", ?)
-    control.runConfig.setParameter("immunity_distribution", "../data/measles_natural_immunity.xml")
-    control.runConfig.setParameter("num_days", 200)
-    # control.runConfig.setParameter("num_participants_survey", 10 000)
+    control = PyController()
+    # Set common parameters
+    setCommonParams(control)
+    # Set output prefix
     control.runConfig.setParameter("output_prefix", "Clustering")
-
+    # Immunity profile
+    control.runConfig.setParameter("immunity_link_probability", 0)
+    control.runConfig.setParameter("immunity_profile", "AgeDependent")
+    control.runConfig.setParameter("immunity_distribution", "../data/measles_natural_immunity.xml")
+    # Vaccination profile
     control.runConfig.setParameter("vaccine_link_probability", 1)
-    control.runConfig.ssetParam
-    # vaccine_profile
-    # vaccine_rate
+    control.runConfig.setParameter("vaccine_profile", "AgeDependent")
+    control.runConfig.setParameter("vaccine_distribution", "../data/measles_vaccination.xml")
+    control.registerCallback(trackClusteringCases, EventType.Stepped)
     control.control()
-'''
+
+
+#
+# Postprocessing functions
+#
+
+def getNewCasesPerDay(filename):
+    timesteps = []
+    new_cases = []
+
+    with open(filename) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            timestep = int(row["timestep"])
+            cases = int(row["cases"])
+            if timestep == 0:
+                last = cases
+            timesteps.append(timestep)
+            new_cases.append(cases - last)
+            last = cases
+    return (timesteps, new_cases)
 
 def postProcessing():
-    timesteps = []
-    cases_random = []
-    cases_agedependent = []
-
-    with open(os.path.join("Random", "cases.csv")) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            timesteps.append(int(row['timestep']))
-            cases_random.append(int(row["cases"]))
-
-    with open(os.path.join("AgeDependent", "cases.csv")) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            cases_agedependent.append(int(row["cases"]))
-
-    last = int(cases_random[0])
-    new_cases_random = []
-    for c in cases_random:
-        new_cases_random.append(int(c) - last)
-        last = int(c)
-
-    last = int(cases_agedependent[0])
-    new_cases_agedependent = []
-    for c in cases_agedependent:
-        new_cases_agedependent.append(int(c) - last)
-        last = int(c)
+    (timesteps, new_cases_random) = getNewCasesPerDay(os.path.join("Random", "cases.csv"))
+    (timesteps, new_cases_agedependent) = getNewCasesPerDay(os.path.join("AgeDependent", "cases.csv"))
+    (timesteps, new_cases_clustered) = getNewCasesPerDay(os.path.join("Clustering", "cases.csv"))
 
     plt.plot(timesteps, new_cases_random)
     plt.plot(timesteps, new_cases_agedependent)
-    plt.legend(["Random immunity", "Age-dependent immunity"])
+    plt.plot(timesteps, new_cases_clustered)
+    plt.legend(["Random immunity", "Age-dependent immunity", "Clustered + Age-dependent immunity"])
+    '''
+    # TODO Clustering
+    plt.xlabel("Day")
+    plt.ylabel("New cases")'''
+    plt.xlabel("Day")
+    plt.ylabel("New cases")
     plt.show()
 
-def main():
-    print("Running simulations for Measles In Flanders study")
-    runRandom()
-    runAgeProfiles()
-    #runClustering()
-    postProcessing()
-    '''
+def immunityProfile(self):
     ages = range(101)
     susc = [0.02] * 101
     susc[0] = 0.75
@@ -201,7 +204,14 @@ def main():
     for i in range(len(susc)):
         immune[i] = round(1 - susc[i], 2)
     print(immune)
-    print(float(sum(immune.values())) / float(len(immune.values())))'''
+    print(float(sum(immune.values())) / float(len(immune.values())))
+
+def main():
+    print("Running simulations for Measles In Flanders study")
+    runRandom()
+    runAgeProfiles()
+    runClustering()
+    postProcessing()
 
 if __name__=="__main__":
     main()
