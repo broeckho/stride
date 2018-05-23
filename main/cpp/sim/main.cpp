@@ -111,13 +111,13 @@ int main(int argc, char** argv)
                 // If run simulation in gui ...
                 // -----------------------------------------------------------------------------------------
                 else if (execArg.getValue() == "simgui") {
-                        cout << "Not implented here yet ..." << endl;
+                        cout << "Not implemented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...
                 // -----------------------------------------------------------------------------------------
                 else if (execArg.getValue() == "geopop") {
-                        cout << "Not implented here yet ..." << endl;
+                        cout << "Not implemented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------
                 // If clean/dump ...
