@@ -174,7 +174,7 @@ public:
         self_type operator+(std::ptrdiff_t n) { return self_type(m_p + n, m_c); }
 
         /// Return iterator pointing to n-th previous element.
-        //  self_type operator-(std::ptrdiff_t);
+        self_type operator-(std::ptrdiff_t n) { return self_type(m_p - n, m_c); };
 
         /// Return distance between iterators.
         long int operator-(const self_type& other) const { return m_p - other.m_p; }
@@ -221,6 +221,19 @@ private:
 
         /// See class description.
         bool IsDereferencable() { return m_c != nullptr && m_p < m_c->size(); }
+};
+
+template <typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
+SVIterator<T, N, Safe, P, R, is_const_iterator> operator+(std::ptrdiff_t i, SVIterator<T, N, Safe, P, R, is_const_iterator> p)
+{
+        return p.operator+(i);
+};
+
+
+template <typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&, bool is_const_iterator = true>
+SVIterator<T, N, Safe, P, R, is_const_iterator> operator-(std::ptrdiff_t i, SVIterator<T, N, Safe, P, R, is_const_iterator> p)
+{
+        return p.operator-(i);
 };
 
 } // namespace util

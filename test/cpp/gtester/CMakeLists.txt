@@ -29,6 +29,7 @@ set(SRC
     main.cpp
     BatchRuns.cpp
     ScenarioData.cpp
+    UnitRange.cpp
     UnitSegmentedVector.cpp
 )
 if (OPENMP_FOUND)

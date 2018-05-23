@@ -82,7 +82,7 @@ public:
         }
 
         /// Copy constructor.
-        SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
+        explicit SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
                 for (const auto& elem : other) {
                         push_back(elem);
@@ -92,7 +92,7 @@ public:
         }
 
         /// Move constructor.
-        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        explicit SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
