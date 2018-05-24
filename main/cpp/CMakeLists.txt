@@ -82,10 +82,12 @@ set(LIB_SRC
 	util/CSVRow.cpp
     util/FileSys.cpp
 	util/LogUtils.cpp
+	util/RangeIndexer.h
     util/RNEngineType.cpp
     util/RNManager.cpp
     util/RunConfigManager.cpp
     util/SegmentedVector.h
+    util/SliceIndexer.h
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h

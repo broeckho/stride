@@ -18,6 +18,7 @@
  * Unit tests of Range &SegmentedVector.
  */
 
+#include "util/RangeIndexer.h"
 #include "util/SegmentedVector.h"
 
 #include <boost/range.hpp>
@@ -26,11 +27,11 @@
 #include <boost/range/algorithm_ext.hpp>
 #include <boost/range/irange.hpp>
 #include <gtest/gtest.h>
-#include <iostream>
 #include <map>
 #include <ostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 using namespace std;
 using namespace stride::util;
@@ -38,85 +39,6 @@ using namespace stride::util;
 namespace SimPT_Sim {
 namespace Container {
 namespace Tests {
-
-class Base
-{
-public:
-        virtual size_t Get1() const { return 0; }
-        virtual ~Base() {}
-};
-
-class Derived : public Base
-{
-public:
-        size_t         Get1() const override { return 1; }
-        size_t         Get2() const { return 2; }
-        virtual size_t Get3() const { return 3; }
-};
-
-template <typename T>
-class RangeIndexer
-{
-public:
-        using range_type = boost::sub_range<T>;
-
-public:
-        ///
-        /// \param t
-        explicit RangeIndexer(T& t) : m_t(t) {}
-
-        /// Warning: range is [ibegin, iend) i.e. half-open, iend not included!
-        /// \param t
-        /// \param ibegin
-        /// \param iend
-        /// \param name
-        /// \return
-        range_type& SetRange(std::size_t ibegin, std::size_t iend, const std::string& name)
-        {
-                if (m_map.find(name) != m_map.end()) {
-                        throw std::range_error("RangeIndexer::Add> Name is a duplicate: " + name);
-                } else {
-                        m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.begin() + iend));
-                        m_map[name] = m_ranges.size() - 1;
-                }
-                return m_ranges.back();
-        }
-
-        range_type& SetRange(std::size_t ibegin, const std::string& name)
-        {
-                if (m_map.find(name) != m_map.end()) {
-                        throw std::range_error("RangeIndexer::Add> Name is a duplicate: " + name);
-                } else {
-                        m_ranges.emplace_back(range_type(m_t.begin() + ibegin, m_t.end()));
-                        m_map[name] = m_ranges.size() - 1;
-                }
-                return m_ranges.back();
-        }
-        ///
-        /// \param i
-        /// \return
-        range_type& GetRange(std::size_t i) { return m_ranges.at(i); }
-
-        ///
-        /// \param s
-        /// \return
-        range_type& GetRange(const std::string& s)
-        {
-                auto i = m_map.at(s);
-                return m_ranges.at(i);
-        }
-
-private:
-        std::map<std::string, std::size_t> m_map;
-        std::vector<range_type>            m_ranges;
-        T&                                 m_t;
-};
-
-template <typename T>
-RangeIndexer<T> make_range_indexer(T& t)
-{
-        return RangeIndexer<T>(t);
-}
 
 TEST(UnitRange, Setup)
 {
@@ -178,9 +100,62 @@ TEST(UnitRange, Content1)
         EXPECT_EQ(100, si.GetRange(2)[70]);
 }
 
+TEST(UnitRange, Content1bis)
+{
+        vector<int> c(101);
+        boost::range::copy(boost::irange(0, 101), c.begin());
+
+        auto si = make_range_indexer(c);
+        si.SetRange(0, 10, "first_10");
+        si.SetRange(10, 30, "next_20");
+        si.SetRange(30, 101, "last_71");
+
+        EXPECT_EQ(0, si.GetRange(0)[0]);
+        EXPECT_EQ(9, si.GetRange(0)[9]);
+
+        EXPECT_EQ(10, si.GetRange(1)[0]);
+        EXPECT_EQ(29, si.GetRange(1)[19]);
+
+        EXPECT_EQ(30, si.GetRange(2)[0]);
+        EXPECT_EQ(100, si.GetRange(2)[70]);
+}
+
 TEST(UnitRange, Content2)
 {
         SegmentedVector<int, 4> c(101, 0);
+        boost::range::copy(boost::irange(0, 101), c.begin());
+
+        auto si = make_range_indexer(c);
+        si.SetRange(0, 10, "first_10");
+        si.SetRange(10, 30, "next_20");
+        si.SetRange(30, "last_71");
+
+        int sub1 = 30;
+        for (auto e : si.GetRange(2)) {
+                EXPECT_EQ(sub1++, e);
+        }
+
+        int accum = 0;
+        for (auto e : si.GetRange(0)) {
+                accum += e;
+        }
+        EXPECT_EQ(45, accum);
+
+        auto s1 = si.GetRange("next_20");
+        for (size_t i = 0; i < s1.size(); ++i) {
+                EXPECT_EQ(i + 10, s1[i]);
+        }
+
+        auto s2   = si.GetRange("last_71");
+        int  sub2 = 30;
+        for (auto it = s2.begin(); it < s2.end(); ++it) {
+                EXPECT_EQ(sub2++, *it);
+        }
+}
+
+TEST(UnitRange, Content2bis)
+{
+        vector<int> c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_range_indexer(c);
