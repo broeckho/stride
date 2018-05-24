@@ -22,6 +22,7 @@
 
 #include <array>
 #include <cassert>
+#include <iostream>
 #include <iterator>
 #include <limits>
 #include <stdexcept>
@@ -67,27 +68,19 @@ public:
         /// CAVEAT: if you resize itbut do not subsequently initialize all
         /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
         /// fault because of the destructor call on unitilialezed elements.
-        explicit SegmentedVector() : m_blocks(), m_size(0)
-        {
-        }
+        explicit SegmentedVector() : m_blocks(), m_size(0) {}
 
         /// Construct with given number of elements but DO NOT INITIALIZE them.
         /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
         /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
         /// fault because of the destructor call on unitilialezed elements.
-        explicit SegmentedVector(size_type i) : m_blocks(), m_size(0)
-        {
-                resize(i);
-        }
+        explicit SegmentedVector(size_type i) : m_blocks(), m_size(0) { resize(i); }
 
         /// Construct with given number of elements and INITIALIZE them with value.
         /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
         /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
         /// fault because of the destructor call on unitilialezed elements.
-        explicit SegmentedVector(size_type i, const value_type& value) : m_blocks(), m_size(0)
-        {
-                resize(i, value);
-        }
+        explicit SegmentedVector(size_type i, const value_type& value) : m_blocks(), m_size(0) { resize(i, value); }
 
         /// Copy constructor.
         explicit SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
@@ -115,7 +108,6 @@ public:
                         }
                         assert(m_size == other.m_size);
                         assert(m_blocks.size() == other.m_blocks.size());
-                        assert(this->capacity() == other.capacity());
                 }
                 return *this;
         }
@@ -144,9 +136,7 @@ public:
                 if (pos >= m_size) {
                         throw std::out_of_range("CompactStorage: index out of range.");
                 }
-                const size_t b = pos / N;
-                const size_t i = pos % N;
-                return *static_cast<T*>(static_cast<void*>(&(m_blocks[b][i])));
+                return *static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
         }
 
         /// Access specified element with bounds checking.
@@ -155,9 +145,7 @@ public:
                 if (pos >= m_size) {
                         throw std::out_of_range("CompactStorage: index out of range.");
                 }
-                const size_t b = pos / N;
-                const size_t i = pos % N;
-                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[b][i])));
+                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[pos / N][pos % N])));
         }
 
         /// Access the last element.
@@ -236,9 +224,9 @@ public:
                                         pop_back();
                                 }
                         } else {
-                                const size_type new_block_count = 1 + (new_size-1)/N;
+                                const size_type new_block_count = 1 + (new_size - 1) / N;
                                 while (new_block_count < get_block_count()) {
-                                        delete[] m_blocks[m_blocks.size() -1];
+                                        delete[] m_blocks[m_blocks.size() - 1];
                                         m_blocks.pop_back();
                                 }
                                 m_size = new_size;
@@ -254,8 +242,9 @@ public:
                                 }
                                 m_size = new_size;
                         }
-                        assert((size() <= capacity()) && "SegmentedVector::Resize error.");
                 }
+                assert((size() == new_size));
+                assert((size() <= capacity()));
         }
 
         void resize(size_type new_size, const value_type& value)
@@ -266,9 +255,9 @@ public:
                                         pop_back();
                                 }
                         } else {
-                                const size_type new_block_count = 1 + (new_size-1)/N;
+                                const size_type new_block_count = 1 + (new_size - 1) / N;
                                 while (new_block_count < get_block_count()) {
-                                        delete[] m_blocks[m_blocks.size() -1];
+                                        delete[] m_blocks[m_blocks.size() - 1];
                                         m_blocks.pop_back();
                                 }
                                 m_size = new_size;
@@ -277,10 +266,10 @@ public:
                         for (size_type i = size(); i < new_size; ++i) {
                                 push_back(value);
                         }
-                        assert((size() <= capacity()) && "SegmentedVector::Resize error.");
                 }
+                assert((size() == new_size));
+                assert((size() <= capacity()));
         }
-
 
         /// Clears the content.
         void clear()
@@ -295,12 +284,15 @@ public:
                 }
                 m_blocks.clear();
                 m_size = 0;
+                assert(size() == 0);
+                assert(m_blocks.size() == 0);
         }
 
         /// Constructs element in-place at position pos.
         template <class... Args>
         T* emplace(size_type pos, Args&&... args)
         {
+                assert(0 <= pos && pos < m_size());
                 T* memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
                 return new (memory) T(std::forward<Args>(args)...); // construct new object
         }

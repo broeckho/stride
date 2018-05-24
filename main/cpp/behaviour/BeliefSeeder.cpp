@@ -31,7 +31,7 @@ using namespace stride::util;
 using namespace std;
 
 #pragma clang diagnostic ignored "-Wunused-variable"
-#pragma gcc   diagnostic ignored "-Wunused-variable"
+#pragma gcc diagnostic ignored "-Wunused-variable"
 
 namespace stride {
 

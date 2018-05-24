@@ -72,18 +72,19 @@ private:
         EventList m_event_list;
 };
 
-class Base{
+class Base
+{
 public:
-        virtual size_t Get1() const {return 0;}
+        virtual size_t Get1() const { return 0; }
         virtual ~Base() {}
 };
 
 class Derived : public Base
 {
 public:
-        size_t Get1() const override {return 1;}
-        size_t Get2() const {return 2;}
-        virtual size_t Get3() const {return 3;}
+        size_t         Get1() const override { return 1; }
+        size_t         Get2() const { return 2; }
+        virtual size_t Get3() const { return 3; }
 };
 
 class TestType
@@ -102,7 +103,7 @@ public:
         }
 
         TestType(TestType&& other) noexcept
-                : m_array(other.m_array), m_i(other.m_i), m_str(std::move(other.m_str)), m_t(other.m_t)
+            : m_array(other.m_array), m_i(other.m_i), m_str(std::move(other.m_str)), m_t(other.m_t)
         {
                 m_t.Moved();
                 other.m_array = nullptr;
@@ -126,12 +127,12 @@ public:
 template <class SegmentedVector>
 void RunBasicOperationsTest(SegmentedVector& c, size_t size)
 {
-        const size_t block_size       = c.get_elements_per_block();
+        const size_t block_size = c.get_elements_per_block();
 
         // Allocation of blocks when filling container.
         for (size_t i = 0; i < size; i++) {
                 c.push_back(i);
-                EXPECT_EQ( 1 + i / block_size, c.get_block_count());
+                EXPECT_EQ(1 + i / block_size, c.get_block_count());
         }
 
         // De-allocation of blocks when emptying container.
@@ -445,8 +446,8 @@ TEST(UnitSegmentedVector, IndexOperator)
 TEST(UnitSegmentedVector, IteratorForEmptyMBV)
 {
         SegmentedVector<int, 4> c;
-        auto it1 = c.begin();
-        auto it2 = c.end();
+        auto                    it1 = c.begin();
+        auto                    it2 = c.end();
         EXPECT_EQ(true, it1 == it2);
 }
 
@@ -576,6 +577,36 @@ TEST(UnitSegmentedVector, AnyPoly3)
         }
 }
 
+TEST(UnitSegmentedVector, Ctor1)
+{
+        SegmentedVector<size_t, 7> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        SegmentedVector<size_t, 7> d(4);
+        EXPECT_EQ(4, d.size());
+        EXPECT_EQ(1, d.get_block_count());
+
+        SegmentedVector<size_t, 7> e(9);
+        EXPECT_EQ(9, e.size());
+        EXPECT_EQ(2, e.get_block_count());
+}
+
+TEST(UnitSegmentedVector, Ctor2)
+{
+        SegmentedVector<size_t, 7, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        SegmentedVector<size_t, 7, false> d(4);
+        EXPECT_EQ(4, d.size());
+        EXPECT_EQ(1, d.get_block_count());
+
+        SegmentedVector<size_t, 7, false> e(9);
+        EXPECT_EQ(9, e.size());
+        EXPECT_EQ(2, e.get_block_count());
+}
+
 TEST(UnitSegmentedVector, Resize1)
 {
         SegmentedVector<size_t, 7, false> c;
@@ -631,6 +662,6 @@ TEST(UnitSegmentedVector, Resize3)
         }
 }
 
-} // namespace
-} // namespace
-} // namespace
+} // namespace Tests
+} // namespace Container
+} // namespace SimPT_Sim

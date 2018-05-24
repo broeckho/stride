@@ -29,8 +29,7 @@ class Imitation : public Belief
 {
 public:
         /// Required for SegmentedVector.
-        Imitation()
-                : m_accept(false), m_accept_threshold(0.0), m_no_accept_threshold(0.0) {}
+        Imitation() : m_accept(false), m_accept_threshold(0.0), m_no_accept_threshold(0.0) {}
 
         /// Initializing constructor, for now with ptree.
         explicit Imitation(const boost::property_tree::ptree& pt)

@@ -35,16 +35,16 @@ namespace Tests {
 class Base
 {
 public:
-        virtual size_t Get1() const {return 0;}
+        virtual size_t Get1() const { return 0; }
         virtual ~Base() {}
 };
 
 class Derived : public Base
 {
 public:
-        size_t Get1() const override {return 1;}
-        size_t Get2() const {return 2;}
-        virtual size_t Get3() const {return 3;}
+        size_t         Get1() const override { return 1; }
+        size_t         Get2() const { return 2; }
+        virtual size_t Get3() const { return 3; }
 };
 
 TEST(UnitSVIterator, Size)
@@ -110,22 +110,13 @@ TEST(UnitSVIterator, Loop3)
         EXPECT_EQ(c.end(), it);
 }
 
-TEST(UnitSVIterator, End1)
-{
-        SegmentedVector<int, 4, false> c(101);
-        boost::range::copy(boost::irange(0, 101), c.begin());
-
-        auto it = c.end();
-        EXPECT_EQ(++it, it);
-}
-
-TEST(UnitSVIterator, End2)
+TEST(UnitSVIterator, End)
 {
         SegmentedVector<int, 4, false> c(5);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        boost::range::copy(boost::irange(0, static_cast<int>(c.size())), c.begin());
 
         auto it = c.end();
-        for (size_t i = 0; i < 5 ; ++i) {
+        for (size_t i = 0; i < 5; ++i) {
                 --it;
         }
         EXPECT_EQ(c.begin(), it);
@@ -137,13 +128,13 @@ TEST(UnitSVIterator, Direct1)
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto it = c.begin();
-        for (size_t i = 0; i < 5 ; ++i) {
+        for (size_t i = 0; i < 5; ++i) {
                 ++it;
         }
         EXPECT_EQ(c.begin() + 5, it);
         EXPECT_EQ(5 + c.begin(), it);
         auto it5 = it;
-        for (size_t i = 0; i < 3 ; ++i) {
+        for (size_t i = 0; i < 3; ++i) {
                 --it;
         }
         EXPECT_EQ(it5 - 3, it);
@@ -151,6 +142,6 @@ TEST(UnitSVIterator, Direct1)
         EXPECT_EQ(c.begin() + 2, it);
 }
 
-} // namespace
-} // namespace
-} // namespace
+} // namespace Tests
+} // namespace Container
+} // namespace SimPT_Sim
