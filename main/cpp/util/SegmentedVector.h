@@ -63,20 +63,28 @@ public:
         // Construction / Copy / Move / Destruction
         // ==================================================================
 
-        /// Construct with given number of elements but DO NOT INITIALIZE them.
-        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// Construct empty SegmentedVector.
+        /// CAVEAT: if you resize itbut do not subsequently initialize all
         /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
         /// fault because of the destructor call on unitilialezed elements.
         explicit SegmentedVector() : m_blocks(), m_size(0)
         {
         }
 
-        explicit SegmentedVector(size_type i) : SegmentedVector()
+        /// Construct with given number of elements but DO NOT INITIALIZE them.
+        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        explicit SegmentedVector(size_type i) : m_blocks(), m_size(0)
         {
                 resize(i);
         }
 
-        explicit SegmentedVector(size_type i, const value_type& value) : SegmentedVector()
+        /// Construct with given number of elements and INITIALIZE them with value.
+        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        explicit SegmentedVector(size_type i, const value_type& value) : m_blocks(), m_size(0)
         {
                 resize(i, value);
         }
@@ -184,13 +192,13 @@ public:
         const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
         /// Returns an iterator to the end of the container.
-        iterator end() { return iterator(iterator::m_end, this); }
+        iterator end() { return iterator(size(), this); }
 
         /// Returns a const_iterator to the end of the container.
-        const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
+        const_iterator end() const { return const_iterator(size(), this); }
 
         /// Returns a const_iterator to the end.
-        const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
+        const_iterator cend() const { return const_iterator(size(), this); }
 
         // ==================================================================
         // Capacity

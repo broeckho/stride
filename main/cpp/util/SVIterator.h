@@ -19,6 +19,7 @@
  */
 
 #include <cassert>
+#include <cmath>
 #include <cstddef>
 #include <iterator>
 #include <limits>
@@ -66,7 +67,7 @@ public:
         // Construction / Copy / Move / Destruction
         // ==================================================================
         /// Default constructor
-        SVIterator() : m_p(m_end), m_c(nullptr) {}
+        SVIterator() : m_p(0), m_c(nullptr) {}
 
         /// Copy constructor
         SVIterator(const self_type& other) : m_p(other.m_p), m_c(other.m_c) {}
@@ -100,7 +101,7 @@ public:
                         if (m_p < m_c->m_size - 1)
                                 ++m_p;
                         else
-                                m_p = m_end;
+                                m_p = m_c->m_size;
                 }
                 return *this;
         }
@@ -117,9 +118,9 @@ public:
         self_type& operator--()
         {
                 if (m_c != nullptr) { // This is a nullptr only when default constructed
-                        if (m_p > 0 && m_p != m_end)
+                        if (m_p > 0 && m_p != m_c->m_size)
                                 --m_p;
-                        else if (m_p == m_end)
+                        else if (m_p == m_c->m_size)
                                 m_p = m_c->m_size - 1;
                 }
                 return *this;
@@ -146,7 +147,7 @@ public:
         /// Direct access to n-th element
         R operator[](std::size_t n) const
         {
-                assert(m_p + n != m_end);
+                assert(m_p + n < m_end);
                 size_t b = (m_p + n) / N; // index of buffer
                 size_t i = (m_p + n) % N; // index in buffer b
                 return *static_cast<T*>(static_cast<void*>(&(m_c->m_blocks[b][i])));
@@ -156,8 +157,8 @@ public:
         self_type& operator+=(std::ptrdiff_t n)
         {
                 m_p += n;
-                if (m_p > m_c->m_size)
-                        m_p = m_end;
+                if (m_p >= m_c->m_size)
+                        m_p = m_c->m_size;
                 return *this;
         }
 
@@ -166,7 +167,7 @@ public:
         {
                 m_p -= n;
                 if (m_p < 0)
-                        m_p = m_end;
+                        m_p = 0;
                 return *this;
         }
 
@@ -198,9 +199,6 @@ private:
         /// Current iterator position in the container.
         std::size_t m_p;
 
-        /// One past the last element iterator position.
-        constexpr static std::size_t m_end = std::numeric_limits<size_t>::max();
-
 private:
         /// Type of pointer-to-container (i.e. its const qualification).
         using container_pointer_type =
@@ -212,15 +210,6 @@ private:
 private:
         /// Private constructor, currently only container itself can create iterators.
         SVIterator(std::size_t p, container_pointer_type c) : m_p(p), m_c(c) {}
-
-        /// See class description.
-        bool IsDefaultContructed() { return m_c == nullptr && m_p == m_end; }
-
-        /// See class description.
-        bool IsPastTheEnd() { return m_c != nullptr && m_p == m_end; }
-
-        /// See class description.
-        bool IsDereferencable() { return m_c != nullptr && m_p < m_c->size(); }
 };
 
 template <typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&, bool is_const_iterator = true>

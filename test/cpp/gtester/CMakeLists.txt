@@ -27,13 +27,14 @@ add_definitions(-DGTEST_LANG_CXX11)
 set(EXEC gtester)
 set(SRC
     main.cpp
-    BatchRuns.cpp
-    ScenarioData.cpp
+    #BatchRuns.cpp
+    #ScenarioData.cpp
     UnitRange.cpp
+    UnitSVIterator.cpp
     UnitSegmentedVector.cpp
 )
 if (OPENMP_FOUND)
-    set(SRC ${SRC} ParallelRuns.cpp)
+#    set(SRC ${SRC} ParallelRuns.cpp)
 endif()
 
 add_executable(${EXEC}   ${SRC} )
