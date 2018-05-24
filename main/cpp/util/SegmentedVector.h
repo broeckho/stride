@@ -292,7 +292,7 @@ public:
         template <class... Args>
         T* emplace(size_type pos, Args&&... args)
         {
-                assert(0 <= pos && pos < m_size());
+                assert(0 <= pos && pos < m_size);
                 T* memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
                 return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
