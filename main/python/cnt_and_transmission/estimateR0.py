@@ -26,7 +26,7 @@ from pystride.Event import EventType
 from pystride.PyController import PyController
 
 # callback functions
-from outputUtil import getSummary, getCases
+from outputUtil import getSummary, getCases, parseLogfile
 
 # Set the workspace (default = .)
 pystride.workspace = "sim_output"
@@ -51,8 +51,10 @@ for r0, rng_seed in list(itertools.product(r0_opt,rng_opt)):
     fork = controller.fork("exp" + str(f_id))
     fork.runConfig.setParameter("rng_seed", f_id)
     fork.runConfig.setParameter("r0", r0)
-    fork.registerCallback(getSummary, EventType.AtFinished)
     fork.registerCallback(getCases, EventType.Stepped)
+    fork.registerCallback(getSummary, EventType.AtFinished)
+    fork.registerCallback(parseLogfile, EventType.AtFinished)
+    
     
     f_id = f_id + 1
 
