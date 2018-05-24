@@ -32,13 +32,15 @@ from outputUtil import getSummary, getCases, parseLogfile
 pystride.workspace = "sim_output"
 
 # Configure simulation
-controller = PyController(config_path = "./config/run_fully_suscpetible.xml",data_dir = "./data")
+controller = PyController(config_path = "./config/run_default.xml",data_dir = "./data")
+controller.runConfig.setParameter("vaccine_profile", "None")
 controller.runConfig.setParameter("num_days", 18)
 controller.runConfig.setParameter("num_participants_survey", 10)
 controller.runConfig.setParameter("contact_log_level", "Transmissions")
 controller.runConfig.setParameter("track_index_case", "true")
 controller.runConfig.setParameter("seeding_rate", "0.000002")
 controller.runConfig.setParameter("output_summary", "true")
+
 
 # Design of Experiement: parameter values
 rng_opt = range(1)
@@ -54,7 +56,6 @@ for r0, rng_seed in list(itertools.product(r0_opt,rng_opt)):
     fork.registerCallback(getCases, EventType.Stepped)
     fork.registerCallback(getSummary, EventType.AtFinished)
     fork.registerCallback(parseLogfile, EventType.AtFinished)
-    
     
     f_id = f_id + 1
 
