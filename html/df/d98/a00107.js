@@ -1,13 +1,8 @@
 var a00107 =
 [
-    [ "Health", "d1/d2b/a00018.html", "d1/d2b/a00018" ],
-    [ "HealthStatus", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070", [
-      [ "Susceptible", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311", null ],
-      [ "Exposed", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a", null ],
-      [ "Infectious", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215", null ],
-      [ "Symptomatic", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f", null ],
-      [ "InfectiousAndSymptomatic", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a", null ],
-      [ "Recovered", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca", null ],
-      [ "Immune", "df/d98/a00107.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb", null ]
+    [ "HBM", "d4/d51/a00017.html", "d4/d51/a00017" ],
+    [ "VariableState", "df/d98/a00107.html#a9d01e8d18496c1065ce04a29ec8b3470", [
+      [ "Low", "df/d98/a00107.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef", null ],
+      [ "High", "df/d98/a00107.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35", null ]
     ] ]
 ];

@@ -1,7 +1,7 @@
 var a00062 =
 [
-    [ "PersonsViewer", "df/d03/a00062.html#a942188b53eccb181ceb8be3866fe64c6", null ],
-    [ "Update", "df/d03/a00062.html#a6b1d3096869e9ed29d62eaec72a0a89c", null ],
-    [ "m_persons_file", "df/d03/a00062.html#a0aaa0c2c54d02a2d034c4667612f6be3", null ],
-    [ "m_runner", "df/d03/a00062.html#a67f4020c05e62dae36e8f6422dcc5c80", null ]
+    [ "CliViewer", "df/d03/a00062.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
+    [ "Update", "df/d03/a00062.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
+    [ "m_logger", "df/d03/a00062.html#acc77dad91899a0d4183493023e082e9f", null ],
+    [ "m_runner", "df/d03/a00062.html#af789850b449fdadcc8572def4a0eb4af", null ]
 ];

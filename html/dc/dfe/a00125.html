@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: LogUtils.cpp File Reference</title>
+<title>Stride Reference Manual: InfectorMap.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -103,47 +103,61 @@ $(document).ready(function(){initNavTree('dc/dfe/a00125.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">LogUtils.cpp File Reference</div>  </div>
+<div class="title">InfectorMap.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of file utils.  
+<p>Header for the InfectorMap.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d12/a00126_source.html">LogUtils.h</a>&quot;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;spdlog/sinks/null_sink.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/ddf/a00088_source.html">contact/ContactLogMode.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d36/a00123_source.html">contact/Infector.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d72/a00124_source.html">contact/InfectorExec.h</a>&quot;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;tuple&gt;</code><br/>
+<code>#include &lt;utility&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for LogUtils.cpp:</div>
+Include dependency graph for InfectorMap.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d5b/a00294.gif" border="0" usemap="#LogUtils_8cpp" alt=""/></div>
-<map name="LogUtils_8cpp" id="LogUtils_8cpp">
-<area shape="rect" id="node2" href="../../d7/d12/a00126.html" title="Logging (spdlog) utilities. " alt="" coords="115,80,196,107"/></map>
+<div class="center"><img src="../../d9/d5e/a00295.gif" border="0" usemap="#InfectorMap_8h" alt=""/></div>
+<map name="InfectorMap_8h" id="InfectorMap_8h">
+<area shape="rect" id="node2" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="5,163,184,189"/><area shape="rect" id="node4" href="../../de/d36/a00123.html" title="Header for the Infector class. " alt="" coords="650,80,773,107"/><area shape="rect" id="node33" href="../../da/d72/a00124.html" title="Header for the InfectorExec class. " alt="" coords="797,80,951,107"/><area shape="rect" id="node5" href="../../dd/d4c/a00177.html" title="Header for the TransmissionProfile class. " alt="" coords="419,163,567,189"/><area shape="rect" id="node7" href="../../d7/d12/a00126.html" title="Header file for LocalDiscussion info policy. " alt="" coords="805,155,989,197"/><area shape="rect" id="node8" href="../../d5/d5b/a00135.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="1014,155,1215,197"/><area shape="rect" id="node9" href="../../d1/d51/a00079.html" title="Header file for the Calendar class. " alt="" coords="643,163,781,189"/><area shape="rect" id="node15" href="../../d6/d2c/a00072.html" title="Contact profile. " alt="" coords="208,163,395,189"/><area shape="rect" id="node22" href="../../da/d2a/a00086.html" title="Header for the ContactHandler class. " alt="" coords="1240,163,1411,189"/><area shape="rect" id="node16" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="153,253,316,280"/><area shape="rect" id="node20" href="../../d2/db1/a00070.html" title="Helpers for age. " alt="" coords="341,253,421,280"/><area shape="rect" id="node23" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="1182,253,1305,280"/><area shape="rect" id="node24" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="1441,336,1564,363"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/d7b/a00296.gif" border="0" usemap="#InfectorMap_8hdep" alt=""/></div>
+<map name="InfectorMap_8hdep" id="InfectorMap_8hdep">
+<area shape="rect" id="node2" href="../../d2/d34/a00156.html" title="Implementation for the SimBuilder class. " alt="" coords="5,80,115,107"/></map>
 </div>
 </div>
 <p><a href="../../dc/dfe/a00125_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html">stride::InfectorMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../dc/de2/a00024.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/ded/a00196"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html">stride::util</a></td></tr>
-<tr class="memdesc:d7/ded/a00196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of file utils. </p>
+<div class="textblock"><p>Header for the InfectorMap. </p>
 
-<p>Definition in file <a class="el" href="../../dc/dfe/a00125_source.html">LogUtils.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/dfe/a00125_source.html">InfectorMap.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/dfe/a00125.html">LogUtils.cpp</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dc/dfe/a00125.html">InfectorMap.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

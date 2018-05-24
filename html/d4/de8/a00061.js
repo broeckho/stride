@@ -1,9 +1,8 @@
 var a00061 =
 [
-    [ "InfectedViewer", "d4/de8/a00061.html#aae44b0fd20d9193b61d065d08e57e8f3", null ],
-    [ "GetInfectionCounts", "d4/de8/a00061.html#a0a02401197ff8238052068ecaa10c505", null ],
-    [ "Update", "d4/de8/a00061.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
-    [ "m_infected", "d4/de8/a00061.html#a613860070a4a0778c61631fc4f343028", null ],
-    [ "m_infected_file", "d4/de8/a00061.html#abf3638fe4dad03b5adb58b56ebd8a926", null ],
-    [ "m_runner", "d4/de8/a00061.html#a13b27fd1d407a15fe3b542952168ba33", null ]
+    [ "AdoptedViewer", "d4/de8/a00061.html#ab738a150c36440e77462aa81e7c61542", null ],
+    [ "Update", "d4/de8/a00061.html#ac36ba5df119a6774611d57cbc47657f1", null ],
+    [ "m_adopted", "d4/de8/a00061.html#a174d3d560614d28923c90dfe9ce23d1b", null ],
+    [ "m_adopted_file", "d4/de8/a00061.html#a7de96aa3b18fbd439033e4ac4a51e806", null ],
+    [ "m_runner", "d4/de8/a00061.html#ae6a20e953d090b14fb0a093a3b04d408", null ]
 ];

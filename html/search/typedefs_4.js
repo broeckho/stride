@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['self_5ftype',['self_type',['../d7/d46/a00002.html#aa72e1f8f1437134e2ead160ca23c35bd',1,'stride::util::SegmentedVector::self_type()'],['../d4/d6d/a00055.html#acf4391226c3334af2ab02fdbfcbe81c8',1,'stride::util::SVIterator::self_type()']]],
-  ['size_5ftype',['size_type',['../d7/d46/a00002.html#a4344636a6d7dea3aff481c178b5ff008',1,'stride::util::SegmentedVector']]]
+  ['range_5ftype',['range_type',['../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d',1,'stride::util::RangeIndexer::range_type()'],['../d1/dea/a00054.html#ae2f8f5fde77de1bb59c21d3b75fb3698',1,'stride::util::SliceIndexer::range_type()']]]
 ];

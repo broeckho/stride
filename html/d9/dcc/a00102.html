@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DiseaseSeeder.h File Reference</title>
+<title>Stride Reference Manual: DaysOffStandard.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -106,58 +106,55 @@ $(document).ready(function(){initNavTree('d9/dcc/a00102.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">DiseaseSeeder.h File Reference</div>  </div>
+<div class="title">DaysOffStandard.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the DiseaseSeeder class.  
+<p>DaysOffStandard class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/ddf/a00088_source.html">pool/ContactPool.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d4a/a00147_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/d51/a00079_source.html">calendar/Calendar.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d74/a00099_source.html">calendar/DaysOffInterface.h</a>&quot;</code><br/>
 <code>#include &lt;memory&gt;</code><br/>
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for DiseaseSeeder.h:</div>
+Include dependency graph for DaysOffStandard.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d2f/a00259.gif" border="0" usemap="#DiseaseSeeder_8h" alt=""/></div>
-<map name="DiseaseSeeder_8h" id="DiseaseSeeder_8h">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html" title="Header for the core ContactPool class. " alt="" coords="988,336,1121,363"/><area shape="rect" id="node11" href="../../d7/dce/a00143.html" title="Header file for the core Population class. " alt="" coords="973,80,1091,107"/><area shape="rect" id="node35" href="../../d0/d4a/a00147.html" title="Interface of RNManager. " alt="" coords="1678,336,1801,363"/><area shape="rect" id="node3" href="../../da/d2a/a00086.html" title="Header for the ContactLogMode class. " alt="" coords="1092,411,1271,437"/><area shape="rect" id="node5" href="../../da/d82/a00091.html" title="Definition of ContactPoolType. " alt="" coords="780,411,943,437"/><area shape="rect" id="node12" href="../../db/dab/a00089.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="663,163,819,189"/><area shape="rect" id="node18" href="../../d5/d5b/a00135.html" title="Header file for the Person class. " alt="" coords="489,163,588,189"/><area shape="rect" id="node21" href="../../d6/d2c/a00072.html" title="Interface/Implementation of Any. " alt="" coords="1187,163,1263,189"/><area shape="rect" id="node25" href="../../d9/d7d/a00150.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="282,336,440,363"/><area shape="rect" id="node13" href="../../db/d57/a00112.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="543,253,701,280"/><area shape="rect" id="node19" href="../../df/d98/a00107.html" title="Header for the Health class. " alt="" coords="399,253,519,280"/><area shape="rect" id="node26" href="../../dd/da7/a00168.html" title="Interface/Implementation for SVIterator. " alt="" coords="257,411,348,437"/><area shape="rect" id="node36" href="../../da/ddb/a00145.html" title="Interface of Random Engine Type. " alt="" coords="1679,411,1801,437"/></map>
+<div class="center"><img src="../../dd/dd7/a00260.gif" border="0" usemap="#DaysOffStandard_8h" alt=""/></div>
+<map name="DaysOffStandard_8h" id="DaysOffStandard_8h">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Header file for the Calendar class. " alt="" coords="420,80,559,107"/><area shape="rect" id="node9" href="../../da/d74/a00099.html" title="Interface for DaysOff classes. " alt="" coords="665,80,852,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/dd7/a00260.gif" border="0" usemap="#DiseaseSeeder_8hdep" alt=""/></div>
-<map name="DiseaseSeeder_8hdep" id="DiseaseSeeder_8hdep">
-<area shape="rect" id="node2" href="../../d4/d3a/a00101.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,80,140,107"/><area shape="rect" id="node3" href="../../da/d01/a00153.html" title="Implementation for the SimBuilder class. " alt="" coords="166,80,276,107"/></map>
+<div class="center"><img src="../../dc/d6a/a00261.gif" border="0" usemap="#DaysOffStandard_8hdep" alt=""/></div>
+<map name="DaysOffStandard_8hdep" id="DaysOffStandard_8hdep">
+<area shape="rect" id="node2" href="../../d3/d65/a00154.html" title="Implementation for the Simulator class. " alt="" coords="37,80,107,107"/></map>
 </div>
 </div>
 <p><a href="../../d9/dcc/a00102_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html">stride::DiseaseSeeder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.  <a href="../../d7/d7a/a00016.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html">stride::DaysOffStandard</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard situation for days off from work and school.  <a href="../../dd/d1b/a00015.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the DiseaseSeeder class. </p>
+<div class="textblock"><p>DaysOffStandard class. </p>
 
-<p>Definition in file <a class="el" href="../../d9/dcc/a00102_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/dcc/a00102_source.html">DaysOffStandard.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d9/dcc/a00102.html">DiseaseSeeder.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d9/dcc/a00102.html">DaysOffStandard.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliController.cpp File Reference</title>
+<title>Stride Reference Manual: Calendar.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -105,52 +105,42 @@ $(document).ready(function(){initNavTree('d9/da4/a00078.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CliController.cpp File Reference</div>  </div>
+<div class="title">Calendar.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Implementation file for the Calendar class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/d51/a00079_source.html">sim/CliController.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d34/a00156_source.html">sim/SimRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d1f/a00083_source.html">util/ConfigInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/dc2/a00104_source.html">util/FileSys.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/d12/a00126_source.html">util/LogUtils.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/dcb/a00170_source.html">util/TimeStamp.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/ddf/a00067_source.html">viewers/AdoptedViewer.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/d53/a00081_source.html">viewers/CliViewer.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../df/d6a/a00119_source.html">viewers/InfectedViewer.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/d14/a00139_source.html">viewers/PersonsViewer.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">viewers/SummaryViewer.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/d51/a00079_source.html">Calendar.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CliController.cpp:</div>
+Include dependency graph for Calendar.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d28/a00223.gif" border="0" usemap="#CliController_8cpp" alt=""/></div>
-<map name="CliController_8cpp" id="CliController_8cpp">
-<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Header for the command line controller. " alt="" coords="1205,171,1335,197"/><area shape="rect" id="node13" href="../../d7/dce/a00143.html" title="Header file for the core Population class. " alt="" coords="2033,88,2151,115"/><area shape="rect" id="node30" href="../../d2/d34/a00156.html" title="Header for the SimRunner class. " alt="" coords="419,245,541,272"/><area shape="rect" id="node33" href="../../d2/d1f/a00083.html" title="Info on configuration. " alt="" coords="1544,88,1659,115"/><area shape="rect" id="node34" href="../../d0/dc2/a00104.html" title="Interface for install directory queries. " alt="" coords="1851,245,1949,272"/><area shape="rect" id="node37" href="../../d7/d12/a00126.html" title="Logging (spdlog) utilities. " alt="" coords="1361,171,1463,197"/><area shape="rect" id="node38" href="../../d5/dcb/a00170.html" title="TimeStamp class. " alt="" coords="15,411,136,437"/><area shape="rect" id="node41" href="../../dc/ddf/a00067.html" title="Observer for Adopted output. " alt="" coords="757,171,928,197"/><area shape="rect" id="node43" href="../../d8/d53/a00081.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="400,171,539,197"/><area shape="rect" id="node44" href="../../df/d6a/a00119.html" title="Observer for Cases output. " alt="" coords="145,171,313,197"/><area shape="rect" id="node46" href="../../de/d14/a00139.html" title="Observer for Persons output. " alt="" coords="563,171,733,197"/><area shape="rect" id="node48" href="../../d0/d48/a00165.html" title="Observer for Persons output. " alt="" coords="1003,171,1181,197"/><area shape="rect" id="node3" href="../../d1/db7/a00157.html" title="Definition of Stopwatch. " alt="" coords="667,328,783,355"/><area shape="rect" id="node4" href="../../d1/d0d/a00171.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="622,411,732,437"/><area shape="rect" id="node14" href="../../db/dab/a00089.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2437,171,2592,197"/><area shape="rect" id="node20" href="../../d5/d5b/a00135.html" title="Header file for the Person class. " alt="" coords="2095,171,2193,197"/><area shape="rect" id="node22" href="../../d6/d2c/a00072.html" title="Interface/Implementation of Any. " alt="" coords="2328,245,2404,272"/><area shape="rect" id="node25" href="../../d9/d7d/a00150.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2837,328,2995,355"/><area shape="rect" id="node15" href="../../db/ddf/a00088.html" title="Header for the core ContactPool class. " alt="" coords="2527,328,2660,355"/><area shape="rect" id="node16" href="../../da/d82/a00091.html" title="Definition of ContactPoolType. " alt="" coords="2408,411,2571,437"/><area shape="rect" id="node18" href="../../db/d57/a00112.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2607,245,2765,272"/><area shape="rect" id="node21" href="../../df/d98/a00107.html" title="Header for the Health class. " alt="" coords="2133,245,2253,272"/><area shape="rect" id="node26" href="../../dd/da7/a00168.html" title="Interface/Implementation for SVIterator. " alt="" coords="2954,411,3045,437"/><area shape="rect" id="node31" href="../../dd/d6d/a00111.html" title="Definition of EventId. " alt="" coords="406,411,511,437"/><area shape="rect" id="node32" href="../../de/d38/a00160.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="403,328,541,355"/><area shape="rect" id="node42" href="../../de/de1/a00065.html" title="Header for the AdoptedFile class. " alt="" coords="961,411,1103,437"/><area shape="rect" id="node45" href="../../d9/d4b/a00117.html" title="Header for the InfectedFile class. " alt="" coords="161,411,301,437"/><area shape="rect" id="node47" href="../../d2/df5/a00137.html" title="Header for the PersonFile class. " alt="" coords="667,245,809,272"/><area shape="rect" id="node49" href="../../dd/dae/a00163.html" title="Header for the SummaryFile class. " alt="" coords="1430,245,1580,272"/></map>
+<div class="center"><img src="../../d5/ddf/a00224.gif" border="0" usemap="#Calendar_8cpp" alt=""/></div>
+<map name="Calendar_8cpp" id="Calendar_8cpp">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Header file for the Calendar class. " alt="" coords="377,88,463,115"/><area shape="rect" id="node9" href="../../d7/d70/a00106.html" title="Interface for install directory queries. " alt="" coords="833,88,932,115"/></map>
 </div>
 </div>
 <p><a href="../../d9/da4/a00078_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Implementation file for the Calendar class. </p>
 
-<p>Definition in file <a class="el" href="../../d9/da4/a00078_source.html">CliController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/da4/a00078_source.html">Calendar.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d9/da4/a00078.html">CliController.cpp</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d9/da4/a00078.html">Calendar.cpp</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

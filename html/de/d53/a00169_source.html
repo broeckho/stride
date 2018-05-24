@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Threshold.h Source File</title>
+<title>Stride Reference Manual: SummaryViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Threshold.h</div>  </div>
+<div class="title">SummaryViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d53/a00169.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,49 +119,53 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Willem L, Kuylen E, Stijven S &amp; Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d6e/a00073.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">output/SummaryFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/db9/a00159.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d00/a00113.html">sim/event/Id.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d32/a00041.html">Threshold</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d0b/a00004.html">Belief</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a8da3ada04e2f53f0d6a8424c58e0065f">   29</a></span>&#160;        <a class="code" href="../../dd/d32/a00041.html#a8da3ada04e2f53f0d6a8424c58e0065f">Threshold</a>()</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            : <a class="code" href="../../d0/d0b/a00004.html">Belief</a>(), <a class="code" href="../../dd/d32/a00041.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a>(false), <a class="code" href="../../dd/d32/a00041.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a>(0), <a class="code" href="../../dd/d32/a00041.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a>(0), <a class="code" href="../../dd/d32/a00041.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a>(0),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;              <a class="code" href="../../dd/d32/a00041.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a>(1), <a class="code" href="../../dd/d32/a00041.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a>(1)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#ac4b88b840219d9df9585234a67cb7240">   36</a></span>&#160;        <span class="keywordtype">bool</span>         <a class="code" href="../../dd/d32/a00041.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a>;              </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a4ae3466c106da6e6f9e074d6b0841e86">   37</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/d32/a00041.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a>;          </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a3c6f98311139eaa035d84d2c6d951f7f">   38</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/d32/a00041.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a>; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a788abd97461a417f3acf3db796c62514">   39</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/d32/a00041.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a>;  </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a9fcb580f7bc164aceb380a3ccb71b337">   40</a></span>&#160;        <span class="keywordtype">double</span>       <a class="code" href="../../dd/d32/a00041.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a>;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#aae2cf98f557c4be064d719fc3e6caaba">   41</a></span>&#160;        <span class="keywordtype">double</span>       <a class="code" href="../../dd/d32/a00041.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a>;     </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00041_html_a9fcb580f7bc164aceb380a3ccb71b337"><div class="ttname"><a href="../../dd/d32/a00041.html#a9fcb580f7bc164aceb380a3ccb71b337">stride::Threshold::m_threshold_infected</a></div><div class="ttdeci">double m_threshold_infected</div><div class="ttdoc">Fraction of contacts that needs to be infected to adopt behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00040">Threshold.h:40</a></div></div>
-<div class="ttc" id="a00041_html"><div class="ttname"><a href="../../dd/d32/a00041.html">stride::Threshold</a></div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00026">Threshold.h:26</a></div></div>
-<div class="ttc" id="a00041_html_a4ae3466c106da6e6f9e074d6b0841e86"><div class="ttname"><a href="../../dd/d32/a00041.html#a4ae3466c106da6e6f9e074d6b0841e86">stride::Threshold::m_num_contacts</a></div><div class="ttdeci">unsigned int m_num_contacts</div><div class="ttdoc">The total number of contacts the person has had. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00037">Threshold.h:37</a></div></div>
-<div class="ttc" id="a00041_html_ac4b88b840219d9df9585234a67cb7240"><div class="ttname"><a href="../../dd/d32/a00041.html#ac4b88b840219d9df9585234a67cb7240">stride::Threshold::m_is_aware</a></div><div class="ttdeci">bool m_is_aware</div><div class="ttdoc">Whether the person is aware of the current epidemic. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00036">Threshold.h:36</a></div></div>
-<div class="ttc" id="a00041_html_a3c6f98311139eaa035d84d2c6d951f7f"><div class="ttname"><a href="../../dd/d32/a00041.html#a3c6f98311139eaa035d84d2c6d951f7f">stride::Threshold::m_num_contacts_infected</a></div><div class="ttdeci">unsigned int m_num_contacts_infected</div><div class="ttdoc">Number of contacts that is symptomatic. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00038">Threshold.h:38</a></div></div>
-<div class="ttc" id="a00041_html_a8da3ada04e2f53f0d6a8424c58e0065f"><div class="ttname"><a href="../../dd/d32/a00041.html#a8da3ada04e2f53f0d6a8424c58e0065f">stride::Threshold::Threshold</a></div><div class="ttdeci">Threshold()</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00029">Threshold.h:29</a></div></div>
-<div class="ttc" id="a00041_html_a788abd97461a417f3acf3db796c62514"><div class="ttname"><a href="../../dd/d32/a00041.html#a788abd97461a417f3acf3db796c62514">stride::Threshold::m_num_contacts_adopted</a></div><div class="ttdeci">unsigned int m_num_contacts_adopted</div><div class="ttdoc">Number of contacts that have adopted the behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00039">Threshold.h:39</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6e/a00073_source.html#l00027">Belief.h:27</a></div></div>
-<div class="ttc" id="a00073_html"><div class="ttname"><a href="../../d1/d6e/a00073.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
-<div class="ttc" id="a00041_html_aae2cf98f557c4be064d719fc3e6caaba"><div class="ttname"><a href="../../dd/d32/a00041.html#aae2cf98f557c4be064d719fc3e6caaba">stride::Threshold::m_threshold_adopted</a></div><div class="ttdeci">double m_threshold_adopted</div><div class="ttdoc">Fraction of contacts that needs to have adopted to adopt behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00041">Threshold.h:41</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/de1/a00065.html">SummaryViewer</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">   37</a></span>&#160;        <a class="code" href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">SummaryViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>(output_prefix), <a class="code" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/de1/a00065.html#a5cea96dec638995509a87d5c9874e904">Update</a>(<a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">   46</a></span>&#160;        <a class="code" href="../../d0/dc0/a00033.html">output::SummaryFile</a>        <a class="code" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">   47</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00065_html_a5cea96dec638995509a87d5c9874e904"><div class="ttname"><a href="../../de/de1/a00065.html#a5cea96dec638995509a87d5c9874e904">stride::viewers::SummaryViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00034">SummaryViewer.cpp:34</a></div></div>
+<div class="ttc" id="a00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">SummaryFile.h</a></div><div class="ttdoc">Header for the SummaryFile class. </div></div>
+<div class="ttc" id="a00065_html_ab1c531a8a9d1f309aa3762f5ef9b30e2"><div class="ttname"><a href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">stride::viewers::SummaryViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00047">SummaryViewer.h:47</a></div></div>
+<div class="ttc" id="a00065_html_a1435e55b1fb34ad7f685e335696768a6"><div class="ttname"><a href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">stride::viewers::SummaryViewer::m_summary_file</a></div><div class="ttdeci">output::SummaryFile m_summary_file</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00046">SummaryViewer.h:46</a></div></div>
+<div class="ttc" id="a00113_html"><div class="ttname"><a href="../../d3/d00/a00113.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00033_html"><div class="ttname"><a href="../../d0/dc0/a00033.html">stride::output::SummaryFile</a></div><div class="ttdoc">Produces a file with simulation summary output. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00032">SummaryFile.h:32</a></div></div>
+<div class="ttc" id="a00065_html"><div class="ttname"><a href="../../de/de1/a00065.html">stride::viewers::SummaryViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00033">SummaryViewer.h:33</a></div></div>
+<div class="ttc" id="a00065_html_aa0d17dc54d8062a4215f740451d56de0"><div class="ttname"><a href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">stride::viewers::SummaryViewer::SummaryViewer</a></div><div class="ttdeci">SummaryViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00037">SummaryViewer.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">Threshold.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">SummaryViewer.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

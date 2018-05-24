@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Imitation.h Source File</title>
+<title>Stride Reference Manual: Id.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d3/d00/a00113_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Imitation.h</div>  </div>
+<div class="title">Id.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d3/d00/a00113.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,61 +119,55 @@ $(document).ready(function(){initNavTree('d3/d00/a00113_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d6e/a00073.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>sim_event {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/db2/a00020.html">Imitation</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d0b/a00004.html">Belief</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d">   32</a></span>&#160;        <a class="code" href="../../db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d">Imitation</a>() : <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>(false), <a class="code" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>(0.0), <a class="code" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>(0.0) {}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">   35</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">Imitation</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="../../d0/d0b/a00004.html">Belief</a>(), <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>(false), <a class="code" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d3/db1/a00200.html">double</a>&gt;(<span class="stringliteral">&quot;run.accept_threshold&quot;</span>)),</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;              <a class="code" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d3/db1/a00200.html">double</a>&gt;(<span class="stringliteral">&quot;run.no_accept_threshold&quot;</span>))</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="comment">// TODO belief strength</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="comment">// TODO stickiness</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">   43</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">HasAdopted</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>; }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// TODO update</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d8/d72/a00199.html#afd464f4ca1769b7880cb27383a3cafd2">   39</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d8/d72/a00199.html#afd464f4ca1769b7880cb27383a3cafd2">NumOfTypes</a>() { <span class="keywordflow">return</span> 5U; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d8/d72/a00199.html#a43c0310b3eef6024b540ffaa5c4c39b2">IsType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d8/d72/a00199.html#acdde1acea1c3f4536af74bb4b126a739">   45</a></span>&#160;<span class="keyword">inline</span> std::size_t <a class="code" href="../../d8/d72/a00199.html#acdde1acea1c3f4536af74bb4b126a739">ToSizeT</a>(<a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(id); }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">   48</a></span>&#160;        <span class="keywordtype">bool</span>   <a class="code" href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">m_accept</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">   49</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">   50</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// double m_belief_strength; ///&lt; The &#39;strength&#39; of someone&#39;s belief, varying from -1 (very negative attitude to</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <span class="comment">// double m_stickiness;      ///&lt; How likely the belief is to change</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// TODO influence of belonging to same household?</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// TODO awareness?</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00020_html_a78b384d9972e06d7e1e2c516a9c82d12"><div class="ttname"><a href="../../db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12">stride::Imitation::Imitation</a></div><div class="ttdeci">Imitation(const boost::property_tree::ptree &amp;pt)</div><div class="ttdoc">Initializing constructor, for now with ptree. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00035">Imitation.h:35</a></div></div>
-<div class="ttc" id="a00020_html_a043184f95908e3cbace4b79547ac908c"><div class="ttname"><a href="../../db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c">stride::Imitation::m_accept_threshold</a></div><div class="ttdeci">double m_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00049">Imitation.h:49</a></div></div>
-<div class="ttc" id="a00020_html_a53716b9bed3d3352c60ef758e3b25d6b"><div class="ttname"><a href="../../db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b">stride::Imitation::HasAdopted</a></div><div class="ttdeci">bool HasAdopted() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00043">Imitation.h:43</a></div></div>
-<div class="ttc" id="a00020_html_a73e90bd17f74f35c4370dfa14a12fc0d"><div class="ttname"><a href="../../db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d">stride::Imitation::Imitation</a></div><div class="ttdeci">Imitation()</div><div class="ttdoc">Required for SegmentedVector. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00032">Imitation.h:32</a></div></div>
-<div class="ttc" id="a00200_html"><div class="ttname"><a href="../../d3/db1/a00200.html">double</a></div></div>
-<div class="ttc" id="a00020_html_a286d3ecef9366a78e645a4a3f7cb634d"><div class="ttname"><a href="../../db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d">stride::Imitation::m_no_accept_threshold</a></div><div class="ttdeci">double m_no_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00050">Imitation.h:50</a></div></div>
-<div class="ttc" id="a00020_html"><div class="ttname"><a href="../../db/db2/a00020.html">stride::Imitation</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00028">Imitation.h:28</a></div></div>
-<div class="ttc" id="a00020_html_aa094646da3221985f97440760244df5e"><div class="ttname"><a href="../../db/db2/a00020.html#aa094646da3221985f97440760244df5e">stride::Imitation::m_accept</a></div><div class="ttdeci">bool m_accept</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00048">Imitation.h:48</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6e/a00073_source.html#l00027">Belief.h:27</a></div></div>
-<div class="ttc" id="a00073_html"><div class="ttname"><a href="../../d1/d6e/a00073.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;std::string <a class="code" href="../../d8/d72/a00199.html#aaa54357f0c5b3af4e7905ed503167ede">ToString</a>(<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> w);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d8/d72/a00199.html#ac81b85da174b73232cac26f53bd6d3a0">ToType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace sim_event</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">stride::sim_event::Id::AtStart</a></div></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">stride::sim_event::Id::Finished</a></div></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">stride::sim_event::Id::SetupBegin</a></div></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">stride::sim_event::Id::Stepped</a></div></div>
+<div class="ttc" id="a00199_html_a43c0310b3eef6024b540ffaa5c4c39b2"><div class="ttname"><a href="../../d8/d72/a00199.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00032">Id.cpp:32</a></div></div>
+<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">stride::sim_event::Id::SetupEnd</a></div></div>
+<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00033">ContactLogMode.h:33</a></div></div>
+<div class="ttc" id="a00199_html_afd464f4ca1769b7880cb27383a3cafd2"><div class="ttname"><a href="../../d8/d72/a00199.html#afd464f4ca1769b7880cb27383a3cafd2">stride::sim_event::NumOfTypes</a></div><div class="ttdeci">constexpr unsigned int NumOfTypes()</div><div class="ttdoc">Number of ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00039">Id.h:39</a></div></div>
+<div class="ttc" id="a00199_html_aaa54357f0c5b3af4e7905ed503167ede"><div class="ttname"><a href="../../d8/d72/a00199.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00042">Id.cpp:42</a></div></div>
+<div class="ttc" id="a00199_html_ac81b85da174b73232cac26f53bd6d3a0"><div class="ttname"><a href="../../d8/d72/a00199.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00050">Id.cpp:50</a></div></div>
+<div class="ttc" id="a00199_html_acdde1acea1c3f4536af74bb4b126a739"><div class="ttname"><a href="../../d8/d72/a00199.html#acdde1acea1c3f4536af74bb4b126a739">stride::sim_event::ToSizeT</a></div><div class="ttdeci">std::size_t ToSizeT(Id id)</div><div class="ttdoc">Cast to size_t for indexing. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00045">Id.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d3/d00/a00113.html">Imitation.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d3/d00/a00113.html">Id.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

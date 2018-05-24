@@ -1,8 +1,7 @@
 var a00197 =
 [
-    [ "AdoptedViewer", "d3/d8b/a00059.html", "d3/d8b/a00059" ],
-    [ "CliViewer", "d9/d73/a00060.html", "d9/d73/a00060" ],
-    [ "InfectedViewer", "d4/de8/a00061.html", "d4/de8/a00061" ],
-    [ "PersonsViewer", "df/d03/a00062.html", "df/d03/a00062" ],
-    [ "SummaryViewer", "d1/d6f/a00063.html", "d1/d6f/a00063" ]
+    [ "AdoptedFile", "d5/d79/a00030.html", "d5/d79/a00030" ],
+    [ "InfectedFile", "df/d61/a00031.html", "df/d61/a00031" ],
+    [ "PersonsFile", "dc/d87/a00032.html", "dc/d87/a00032" ],
+    [ "SummaryFile", "d0/dc0/a00033.html", "d0/dc0/a00033" ]
 ];

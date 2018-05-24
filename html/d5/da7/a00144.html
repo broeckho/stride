@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RNEngineType.cpp File Reference</title>
+<title>Stride Reference Manual: Population.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -103,59 +103,53 @@ $(document).ready(function(){initNavTree('d5/da7/a00144.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RNEngineType.cpp File Reference</div>  </div>
+<div class="title">Population.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of Random Engine Type.  
+<p>Core Population class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">RNEngineType.h</a>&quot;</code><br/>
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">Population.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d2/da3/a00115_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/de8/a00133_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/d42/a00109_source.html">disease/Health.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">pop/PopBuilder.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d88/a00128_source.html">util/LogUtils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d7d/a00150_source.html">util/RNManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d9a/a00152_source.html">util/RunConfigManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d01/a00153_source.html">util/SegmentedVector.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;utility&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RNEngineType.cpp:</div>
+Include dependency graph for Population.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/db8/a00316.gif" border="0" usemap="#RNEngineType_8cpp" alt=""/></div>
-<map name="RNEngineType_8cpp" id="RNEngineType_8cpp">
-<area shape="rect" id="node2" href="../../da/ddb/a00145.html" title="Interface of Random Engine Type. " alt="" coords="5,80,128,107"/></map>
+<div class="center"><img src="../../da/de0/a00317.gif" border="0" usemap="#Population_8cpp" alt=""/></div>
+<map name="Population_8cpp" id="Population_8cpp">
+<area shape="rect" id="node2" href="../../da/ddb/a00145.html" title="Header file for the core Population class. " alt="" coords="902,88,996,115"/><area shape="rect" id="node17" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="485,269,605,296"/><area shape="rect" id="node23" href="../../da/d01/a00153.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="286,269,444,296"/><area shape="rect" id="node33" href="../../d2/da3/a00115.html" title="Header file for Imitation belief policy. " alt="" coords="1393,81,1556,122"/><area shape="rect" id="node35" href="../../d0/de8/a00133.html" title="Header file for NoBelief class. " alt="" coords="1581,81,1744,122"/><area shape="rect" id="node36" href="../../d7/dce/a00143.html" title="Initialize populations. " alt="" coords="757,88,877,115"/><area shape="rect" id="node37" href="../../d7/d70/a00106.html" title="Interface for install directory queries. " alt="" coords="1892,179,1991,205"/><area shape="rect" id="node40" href="../../d1/d88/a00128.html" title="Logging (spdlog) utilities. " alt="" coords="1191,88,1293,115"/><area shape="rect" id="node41" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="2331,179,2455,205"/><area shape="rect" id="node49" href="../../d7/d9a/a00152.html" title="Produce run config ptree. " alt="" coords="1701,179,1867,205"/><area shape="rect" id="node3" href="../../da/d82/a00091.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="787,179,943,205"/><area shape="rect" id="node16" href="../../d2/df5/a00137.html" title="Header file for the Person class. " alt="" coords="581,179,680,205"/><area shape="rect" id="node19" href="../../db/db6/a00074.html" title="Interface/Implementation of Any. " alt="" coords="1259,179,1335,205"/><area shape="rect" id="node4" href="../../d9/dec/a00090.html" title="Header for the core ContactPool class. " alt="" coords="947,352,1080,379"/><area shape="rect" id="node7" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="795,427,957,453"/><area shape="rect" id="node13" href="../../d8/d17/a00114.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="662,269,820,296"/><area shape="rect" id="node5" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="1107,427,1285,453"/><area shape="rect" id="node24" href="../../d6/dfb/a00172.html" title="Interface/Implementation for SVIterator. " alt="" coords="118,352,209,379"/><area shape="rect" id="node34" href="../../d9/da5/a00075.html" title="Header file for Belief. " alt="" coords="1513,171,1676,213"/><area shape="rect" id="node42" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="2291,427,2413,453"/><area shape="rect" id="node50" href="../../df/d13/a00085.html" title="Info on configuration. " alt="" coords="1432,352,1547,379"/></map>
 </div>
 </div>
 <p><a href="../../d5/da7/a00144_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride::RNEngineType</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of random engines. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a0d22d904ddff0d21494405335e5fc744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a0d22d904ddff0d21494405335e5fc744">stride::RNEngineType::IsType</a> (const string &amp;s)</td></tr>
-<tr class="separator:a0d22d904ddff0d21494405335e5fc744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a120e2ae5e703cd5a7e1859a1c83ddcec">stride::RNEngineType::ToString</a> (Id b)</td></tr>
-<tr class="memdesc:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a type id to corresponding name.  <a href="#a120e2ae5e703cd5a7e1859a1c83ddcec">More...</a><br/></td></tr>
-<tr class="separator:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e0a5f256c9b615c606f90dabec96b2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a58e0a5f256c9b615c606f90dabec96b2">stride::RNEngineType::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a58e0a5f256c9b615c606f90dabec96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a58e0a5f256c9b615c606f90dabec96b2">More...</a><br/></td></tr>
-<tr class="separator:a58e0a5f256c9b615c606f90dabec96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of Random Engine Type. </p>
+<div class="textblock"><p>Core Population class. </p>
 
-<p>Definition in file <a class="el" href="../../d5/da7/a00144_source.html">RNEngineType.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/da7/a00144_source.html">Population.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">RNEngineType.cpp</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d5/da7/a00144.html">Population.cpp</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

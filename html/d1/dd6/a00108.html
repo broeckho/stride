@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HealthSeeder.cpp File Reference</title>
+<title>Stride Reference Manual: Health.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -105,44 +105,41 @@ $(document).ready(function(){initNavTree('d1/dd6/a00108.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HealthSeeder.cpp File Reference</div>  </div>
+<div class="title">Health.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation for HelthSeeder class.  
+<p>Implementation for the Health class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d42/a00109_source.html">HealthSeeder.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/d4a/a00147_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &lt;trng/uniform01_dist.hpp&gt;</code><br/>
-<code>#include &lt;omp.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d42/a00109_source.html">Health.h</a>&quot;</code><br/>
+<code>#include &lt;cassert&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HealthSeeder.cpp:</div>
+Include dependency graph for Health.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/dd4/a00267.gif" border="0" usemap="#HealthSeeder_8cpp" alt=""/></div>
-<map name="HealthSeeder_8cpp" id="HealthSeeder_8cpp">
-<area shape="rect" id="node2" href="../../dd/d42/a00109.html" title="Header file for the HealthSeeder. " alt="" coords="867,155,978,181"/><area shape="rect" id="node5" href="../../d0/d4a/a00147.html" title="Interface of RNManager. " alt="" coords="581,320,704,347"/><area shape="rect" id="node18" href="../../d7/dce/a00143.html" title="Header file for the core Population class. " alt="" coords="1242,80,1360,107"/><area shape="rect" id="node3" href="../../df/d98/a00107.html" title="Header for the Health class. " alt="" coords="1096,237,1166,264"/><area shape="rect" id="node4" href="../../df/d5d/a00084.html" title="Header for the ContactHandler class. " alt="" coords="640,237,811,264"/><area shape="rect" id="node6" href="../../da/ddb/a00145.html" title="Interface of Random Engine Type. " alt="" coords="883,395,1006,421"/><area shape="rect" id="node19" href="../../db/dab/a00089.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1661,155,1816,181"/><area shape="rect" id="node32" href="../../d5/d5b/a00135.html" title="Header file for the Person class. " alt="" coords="1296,155,1395,181"/><area shape="rect" id="node34" href="../../d6/d2c/a00072.html" title="Interface/Implementation of Any. " alt="" coords="1470,155,1546,181"/><area shape="rect" id="node36" href="../../d9/d7d/a00150.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2065,320,2223,347"/><area shape="rect" id="node20" href="../../db/ddf/a00088.html" title="Header for the core ContactPool class. " alt="" coords="1340,320,1474,347"/><area shape="rect" id="node22" href="../../da/d82/a00091.html" title="Definition of ContactPoolType. " alt="" coords="1614,395,1776,421"/><area shape="rect" id="node27" href="../../db/d57/a00112.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1718,237,1876,264"/><area shape="rect" id="node21" href="../../da/d2a/a00086.html" title="Header for the ContactLogMode class. " alt="" coords="1286,395,1464,421"/><area shape="rect" id="node37" href="../../dd/da7/a00168.html" title="Interface/Implementation for SVIterator. " alt="" coords="2260,395,2351,421"/></map>
+<div class="center"><img src="../../d5/d42/a00269.gif" border="0" usemap="#Health_8cpp" alt=""/></div>
+<map name="Health_8cpp" id="Health_8cpp">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="5,80,75,107"/></map>
 </div>
 </div>
 <p><a href="../../d1/dd6/a00108_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation for HelthSeeder class. </p>
+<div class="textblock"><p>Implementation for the Health class. </p>
 
-<p>Definition in file <a class="el" href="../../d1/dd6/a00108_source.html">HealthSeeder.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/dd6/a00108_source.html">Health.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d1/dd6/a00108.html">HealthSeeder.cpp</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d1/dd6/a00108.html">Health.cpp</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

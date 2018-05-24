@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PersonsFile.h File Reference</title>
+<title>Stride Reference Manual: Person.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -106,58 +106,56 @@ $(document).ready(function(){initNavTree('d2/df5/a00137.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PersonsFile.h File Reference</div>  </div>
+<div class="title">Person.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the PersonFile class.  
+<p>Header file for the Person class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;fstream&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d42/a00109_source.html">disease/Health.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d7d/a00093_source.html">pool/ContactPoolType.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d17/a00114_source.html">pool/IdSubscriptArray.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PersonsFile.h:</div>
+Include dependency graph for Person.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d07/a00305.gif" border="0" usemap="#PersonsFile_8h" alt=""/></div>
-<map name="PersonsFile_8h" id="PersonsFile_8h">
-</map>
+<div class="center"><img src="../../d1/de3/a00306.gif" border="0" usemap="#Person_8h" alt=""/></div>
+<map name="Person_8h" id="Person_8h">
+<area shape="rect" id="node2" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="5,88,125,115"/><area shape="rect" id="node3" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="396,245,559,272"/><area shape="rect" id="node9" href="../../d8/d17/a00114.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="274,88,432,115"/><area shape="rect" id="node10" href="../../d9/dec/a00090.html" title="Header for the core ContactPool class. " alt="" coords="680,171,813,197"/><area shape="rect" id="node11" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="657,245,836,272"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/de3/a00306.gif" border="0" usemap="#PersonsFile_8hdep" alt=""/></div>
-<map name="PersonsFile_8hdep" id="PersonsFile_8hdep">
-<area shape="rect" id="node2" href="../../d0/d5e/a00136.html" title="Implementation of the CasesFile class. " alt="" coords="5,80,120,107"/><area shape="rect" id="node3" href="../../de/d14/a00139.html" title="Observer for Persons output. " alt="" coords="145,80,265,107"/><area shape="rect" id="node4" href="../../d9/da4/a00078.html" title="Header for the command line controller. " alt="" coords="70,155,188,181"/><area shape="rect" id="node5" href="../../d4/ddd/a00138.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="213,155,347,181"/></map>
+<div class="center"><img src="../../d0/da2/a00307.gif" border="0" usemap="#Person_8hdep" alt=""/></div>
+<map name="Person_8hdep" id="Person_8hdep">
+<area shape="rect" id="node2" href="../../df/dc8/a00122.html" title="Implementation of Infector algorithms. " alt="" coords="420,80,511,107"/><area shape="rect" id="node3" href="../../d4/d3e/a00116.html" title="Implementation for the Immunizer class. " alt="" coords="535,80,643,107"/><area shape="rect" id="node4" href="../../db/dab/a00089.html" title="Implementation for the core ContcatPool class. " alt="" coords="667,80,785,107"/><area shape="rect" id="node5" href="../../d0/d5e/a00136.html" title="Header file for the Person class. " alt="" coords="811,80,899,107"/><area shape="rect" id="node6" href="../../da/ddb/a00145.html" title="Header file for the core Population class. " alt="" coords="923,80,1017,107"/><area shape="rect" id="node7" href="../../db/df8/a00076.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,155,125,181"/><area shape="rect" id="node8" href="../../d0/dc2/a00104.html" title="Header for the DiseaseSeeder class. " alt="" coords="201,155,324,181"/><area shape="rect" id="node9" href="../../d5/d1e/a00103.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="96,229,231,256"/><area shape="rect" id="node11" href="../../d4/d81/a00110.html" title="Implementation for HelthSeeder class. " alt="" coords="349,155,475,181"/><area shape="rect" id="node12" href="../../d4/ddd/a00138.html" title="Implementation of the CasesFile class. " alt="" coords="499,155,615,181"/><area shape="rect" id="node13" href="../../d2/d82/a00142.html" title="Initialize populations: implementation. " alt="" coords="639,155,749,181"/><area shape="rect" id="node14" href="../../d5/da7/a00144.html" title="Core Population class. " alt="" coords="774,155,881,181"/><area shape="rect" id="node15" href="../../d5/dcb/a00170.html" title="Implementation for the SurveySeeder class. " alt="" coords="906,155,1035,181"/><area shape="rect" id="node16" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="1059,155,1177,181"/><area shape="rect" id="node17" href="../../d3/d65/a00154.html" title="Implementation for the Simulator class. " alt="" coords="1202,155,1272,181"/><area shape="rect" id="node18" href="../../d6/db8/a00158.html" title="Implementation for SimRunner. " alt="" coords="1296,155,1407,181"/><area shape="rect" id="node19" href="../../da/d24/a00068.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1433,155,1567,181"/><area shape="rect" id="node20" href="../../d4/d63/a00082.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1591,155,1693,181"/><area shape="rect" id="node21" href="../../d4/d98/a00120.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1718,155,1852,181"/><area shape="rect" id="node22" href="../../dd/da7/a00168.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1877,155,2019,181"/><area shape="rect" id="node10" href="../../d2/d34/a00156.html" title="Implementation for the SimBuilder class. " alt="" coords="257,229,367,256"/></map>
 </div>
 </div>
 <p><a href="../../d2/df5/a00137_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html">stride::output::PersonsFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with daily cases count.  <a href="../../dc/d87/a00032.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html">stride::Person</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store and handle person data.  <a href="../../db/df3/a00034.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/df4/a00193"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df4/a00193.html">stride::output</a></td></tr>
-<tr class="memdesc:dd/df4/a00193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the PersonFile class. </p>
+<div class="textblock"><p>Header file for the Person class. </p>
 
-<p>Definition in file <a class="el" href="../../d2/df5/a00137_source.html">PersonsFile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/df5/a00137_source.html">Person.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">PersonsFile.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">Person.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

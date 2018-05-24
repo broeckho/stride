@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Vaccination.h File Reference</title>
+<title>Stride Reference Manual: TimeStamp.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -104,33 +104,70 @@ $(document).ready(function(){initNavTree('d8/df1/a00174.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Vaccination.h File Reference</div>  </div>
+<div class="title">TimeStamp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>TimeStamp class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;chrono&gt;</code><br/>
+<code>#include &lt;ctime&gt;</code><br/>
+<code>#include &lt;iomanip&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for TimeStamp.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/d9b/a00363.gif" border="0" usemap="#TimeStamp_8h" alt=""/></div>
+<map name="TimeStamp_8h" id="TimeStamp_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d59/a00364.gif" border="0" usemap="#TimeStamp_8hdep" alt=""/></div>
+<map name="TimeStamp_8hdep" id="TimeStamp_8hdep">
+<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="5,80,123,107"/><area shape="rect" id="node3" href="../../d9/d47/a00129.html" title="Main program: command line handling. " alt="" coords="147,80,220,107"/></map>
+</div>
+</div>
 <p><a href="../../d8/df1/a00174_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html">stride::Vaccination&lt; belief_policy &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/df7/a00058.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual.  <a href="../../d7/df7/a00058.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html">stride::util::TimeStamp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides wall-clock time stamp using the time call.  <a href="../../d7/df7/a00058.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/db1/a00200"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html">stride::util</a></td></tr>
+<tr class="memdesc:d3/db1/a00200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html#a93f9f2ea967f7688a4ed4ef10852b566">stride::util::operator&lt;&lt;</a> (std::ostream &amp;os, TimeStamp t)</td></tr>
+<tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/df7/a00058.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br/></td></tr>
+<tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>TimeStamp class. </p>
+
+<p>Definition in file <a class="el" href="../../d8/df1/a00174_source.html">TimeStamp.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_6619f542450013781d0ff5d08067d16d.html">behaviour_policies</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">Vaccination.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">TimeStamp.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

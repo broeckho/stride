@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SurveySeeder.h File Reference</title>
+<title>Stride Reference Manual: SummaryFile.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9227591</span>
+   &#160;<span id="projectnumber">- generated for commit 7071e9e</span>
    </div>
   </td>
  </tr>
@@ -106,55 +106,58 @@ $(document).ready(function(){initNavTree('dc/de6/a00167.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SurveySeeder.h File Reference</div>  </div>
+<div class="title">SummaryFile.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the SurveySeeder class.  
+<p>Header for the SummaryFile class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d4a/a00147_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SurveySeeder.h:</div>
+Include dependency graph for SummaryFile.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d9c/a00352.gif" border="0" usemap="#SurveySeeder_8h" alt=""/></div>
-<map name="SurveySeeder_8h" id="SurveySeeder_8h">
-<area shape="rect" id="node2" href="../../d0/d4a/a00147.html" title="Interface of RNManager. " alt="" coords="543,88,667,115"/><area shape="rect" id="node3" href="../../da/ddb/a00145.html" title="Interface of Random Engine Type. " alt="" coords="5,171,128,197"/></map>
+<div class="center"><img src="../../d6/d9c/a00352.gif" border="0" usemap="#SummaryFile_8h" alt=""/></div>
+<map name="SummaryFile_8h" id="SummaryFile_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/ddc/a00353.gif" border="0" usemap="#SurveySeeder_8hdep" alt=""/></div>
-<map name="SurveySeeder_8hdep" id="SurveySeeder_8hdep">
-<area shape="rect" id="node2" href="../../d5/db1/a00140.html" title="Initialize populations: implementation. " alt="" coords="5,80,115,107"/><area shape="rect" id="node3" href="../../d9/d38/a00166.html" title="Implementation for the SurveySeeder class. " alt="" coords="139,80,268,107"/></map>
+<div class="center"><img src="../../db/ddc/a00353.gif" border="0" usemap="#SummaryFile_8hdep" alt=""/></div>
+<map name="SummaryFile_8hdep" id="SummaryFile_8hdep">
+<area shape="rect" id="node2" href="../../d9/d38/a00166.html" title="Implementation of the SummaryFile class. " alt="" coords="5,80,128,107"/><area shape="rect" id="node3" href="../../de/d53/a00169.html" title="Observer for Persons output. " alt="" coords="153,80,281,107"/><area shape="rect" id="node4" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="81,155,199,181"/><area shape="rect" id="node5" href="../../dd/da7/a00168.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="223,155,365,181"/></map>
 </div>
 </div>
 <p><a href="../../dc/de6/a00167_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d3a/a00040.html">stride::SurveySeeder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with survey participants.  <a href="../../db/d3a/a00040.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html">stride::output::SummaryFile</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../d0/dc0/a00033.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d6e/a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d6e/a00190.html">stride</a></td></tr>
-<tr class="memdesc:d7/d6e/a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/db1/a00197"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db1/a00197.html">stride::output</a></td></tr>
+<tr class="memdesc:de/db1/a00197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the SurveySeeder class. </p>
+<div class="textblock"><p>Header for the SummaryFile class. </p>
 
-<p>Definition in file <a class="el" href="../../dc/de6/a00167_source.html">SurveySeeder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/de6/a00167_source.html">SummaryFile.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dc/de6/a00167.html">SurveySeeder.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../dc/de6/a00167.html">SummaryFile.h</a></li>
+    <li class="footer">Generated on Thu May 24 2018 14:27:51 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
