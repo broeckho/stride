@@ -17,16 +17,13 @@ var a00055 =
     [ "operator+=", "d4/d6d/a00055.html#aeb314b1a13eb4e1e574d6185ce6dde2c", null ],
     [ "operator-=", "d4/d6d/a00055.html#a9b77f04ccd9592100840b2c6a9ecc641", null ],
     [ "operator+", "d4/d6d/a00055.html#a8f3df14d67957c4d81353fba23692038", null ],
+    [ "operator-", "d4/d6d/a00055.html#a3b53d69869080a593d50d81ad0595d89", null ],
     [ "operator-", "d4/d6d/a00055.html#a6fc4c835552eb9b6e5d1f82001acd76e", null ],
     [ "operator<", "d4/d6d/a00055.html#a796aa7fced54362df28ce61f4454d1c8", null ],
     [ "operator<=", "d4/d6d/a00055.html#acc348d4847a4b0c0dc97ac3fb1cd3099", null ],
     [ "operator>", "d4/d6d/a00055.html#afd426a3e0883264570f3f94c3ac46d0a", null ],
     [ "operator>=", "d4/d6d/a00055.html#a28dcd0465b2e6ccfb619d59a07d931b9", null ],
-    [ "IsDefaultContructed", "d4/d6d/a00055.html#a91882048ea140b85399d530aeaf4310e", null ],
-    [ "IsPastTheEnd", "d4/d6d/a00055.html#acbbf6b7a22c93b938ee4fbef3244143f", null ],
-    [ "IsDereferencable", "d4/d6d/a00055.html#a3eebb587f325fbb95c8116df7f7ddf89", null ],
     [ "SegmentedVector< T, N, Safe >", "d4/d6d/a00055.html#a6e4dbcb9e54e5e90a020a9ff70ab8027", null ],
     [ "m_p", "d4/d6d/a00055.html#a7628f423353b90ced7f27cba20b71dbc", null ],
-    [ "m_end", "d4/d6d/a00055.html#a873543759765be4bc157055231e24317", null ],
     [ "m_c", "d4/d6d/a00055.html#af1f935137c5ee56139e6f9648e84c73c", null ]
 ];

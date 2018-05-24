@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit cf828a0</span>
+   &#160;<span id="projectnumber">- generated for commit e7dea56</span>
    </div>
   </td>
  </tr>
@@ -216,6 +216,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
 <tr class="memdesc:a01882a252a5e262d442f9a8b8f64e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at both ends of string.  <a href="#a01882a252a5e262d442f9a8b8f64e3ef">More...</a><br/></td></tr>
 <tr class="separator:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88962f88931891b1cc3666c0fba4ffc0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, bool Safe, typename P  = const T*, typename R  = const T&amp;, bool is_const_iterator = true&gt; </td></tr>
+<tr class="memitem:a88962f88931891b1cc3666c0fba4ffc0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt; T, N, Safe, P, R, <br class="typebreak"/>
+is_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a88962f88931891b1cc3666c0fba4ffc0">operator+</a> (std::ptrdiff_t i, <a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt; p)</td></tr>
+<tr class="separator:a88962f88931891b1cc3666c0fba4ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4ba6ea45982ec0ac63c0ad55b4f3fd"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, bool Safe, typename P  = const T*, typename R  = const T&amp;, bool is_const_iterator = true&gt; </td></tr>
+<tr class="memitem:ace4ba6ea45982ec0ac63c0ad55b4f3fd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt; T, N, Safe, P, R, <br class="typebreak"/>
+is_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#ace4ba6ea45982ec0ac63c0ad55b4f3fd">operator-</a> (std::ptrdiff_t i, <a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt; T, N, Safe, P, R, is_const_iterator &gt; p)</td></tr>
+<tr class="separator:ace4ba6ea45982ec0ac63c0ad55b4f3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a93f9f2ea967f7688a4ed4ef10852b566">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="../../d9/d2e/a00056.html">TimeStamp</a> t)</td></tr>
 <tr class="memdesc:a93f9f2ea967f7688a4ed4ef10852b566"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/d2e/a00056.html" title="Provides wall-clock time stamp using the time call. ">TimeStamp</a> helper inserts string representation in output stream.  <a href="#a93f9f2ea967f7688a4ed4ef10852b566">More...</a><br/></td></tr>
 <tr class="separator:a93f9f2ea967f7688a4ed4ef10852b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -810,6 +818,66 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a88962f88931891b1cc3666c0fba4ffc0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N, bool Safe, typename P  = const T*, typename R  = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt;T, N, Safe, P, R, is_const_iterator&gt; stride::util::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00216">216</a> of file <a class="el" href="../../dd/da7/a00168_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace4ba6ea45982ec0ac63c0ad55b4f3fd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N, bool Safe, typename P  = const T*, typename R  = const T&amp;, bool is_const_iterator = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d6d/a00055.html">SVIterator</a>&lt;T, N, Safe, P, R, is_const_iterator&gt; stride::util::operator- </td>
+          <td>(</td>
+          <td class="paramtype">std::ptrdiff_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SVIterator&lt; T, N, Safe, P, R, is_const_iterator &gt;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00223">223</a> of file <a class="el" href="../../dd/da7/a00168_source.html">SVIterator.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a93f9f2ea967f7688a4ed4ef10852b566"></a>
 <div class="memitem">
 <div class="memproto">
@@ -856,7 +924,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ded/a00196.html">util</a></li>
-    <li class="footer">Generated on Tue May 22 2018 08:01:28 for Stride Reference Manual by
+    <li class="footer">Generated on Thu May 24 2018 09:23:31 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

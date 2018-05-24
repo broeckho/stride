@@ -206,10 +206,7 @@ var files =
     [ "SurveySeeder.h", "dc/de6/a00167.html", [
       [ "SurveySeeder", "db/d3a/a00040.html", "db/d3a/a00040" ]
     ] ],
-    [ "SVIterator.h", "dd/da7/a00168.html", [
-      [ "SegmentedVector", "d7/d46/a00002.html", "d7/d46/a00002" ],
-      [ "SVIterator", "d4/d6d/a00055.html", "d4/d6d/a00055" ]
-    ] ],
+    [ "SVIterator.h", "dd/da7/a00168.html", "dd/da7/a00168" ],
     [ "Threshold.h", "de/d53/a00169.html", [
       [ "Threshold", "dd/d32/a00041.html", "dd/d32/a00041" ]
     ] ],
