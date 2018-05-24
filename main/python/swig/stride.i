@@ -22,3 +22,4 @@
 %include "./health.i";
 %include "./population.i";
 %include "./sim.i";
+%include "./transmissionprofile.i"
