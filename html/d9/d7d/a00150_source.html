@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit a4b50b2</span>
+   &#160;<span id="projectnumber">- generated for commit 9227591</span>
    </div>
   </td>
  </tr>
@@ -340,7 +340,7 @@ $(document).ready(function(){initNavTree('d9/d7d/a00150_source.html','../../');}
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
 <div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="../../d7/d46/a00002.html#aadda0fa9cba3c25598d83fc335dab5e4">  293</a></span>&#160;        T* <a class="code" href="../../d7/d46/a00002.html#aadda0fa9cba3c25598d83fc335dab5e4">emplace</a>(<a class="code" href="../../d7/d46/a00002.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> pos, Args&amp;&amp;... args)</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        {</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                assert(0 &lt;= pos &amp;&amp; pos &lt; <a class="code" href="../../d7/d46/a00002.html#af2c8760cd3a5b631432f37c55f5bc629">m_size</a>());</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                assert(0 &lt;= pos &amp;&amp; pos &lt; <a class="code" href="../../d7/d46/a00002.html#af2c8760cd3a5b631432f37c55f5bc629">m_size</a>);</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                T* memory = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(&amp;(<a class="code" href="../../d7/d46/a00002.html#a1511fa16b228094d921eff996c589a3c">m_blocks</a>[pos / N][pos % N])));</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">new</span> (memory) T(std::forward&lt;Args&gt;(args)...); <span class="comment">// construct new object</span></div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
@@ -461,7 +461,7 @@ $(document).ready(function(){initNavTree('d9/d7d/a00150_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d7d/a00150.html">SegmentedVector.h</a></li>
-    <li class="footer">Generated on Thu May 24 2018 13:12:54 for Stride Reference Manual by
+    <li class="footer">Generated on Thu May 24 2018 13:34:26 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
