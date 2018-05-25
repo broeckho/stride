@@ -23,6 +23,7 @@
 
 #include <boost/range/irange.hpp>
 #include <gtest/gtest.h>
+#include <type_traits>
 
 using namespace std;
 using namespace stride::util;
@@ -31,9 +32,18 @@ namespace SimPT_Sim {
 namespace Container {
 namespace Tests {
 
-TEST(UnitSlice, Setup)
+template<typename T>
+class UnitRangeIndex : public ::testing::Test
 {
-        SegmentedVector<int, 4, false> c(101);
+public:
+};
+
+typedef ::testing::Types<vector<int>, SegmentedVector<int, 4>, SegmentedVector<int, 4, false>> RandomAccessContainers;
+TYPED_TEST_CASE(UnitRangeIndex, RandomAccessContainers);
+
+TYPED_TEST(UnitRangeIndex, Setup)
+{
+        TypeParam c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
         EXPECT_EQ(0, c[0]);
         EXPECT_EQ(1, c[1]);
@@ -41,168 +51,178 @@ TEST(UnitSlice, Setup)
         EXPECT_EQ(100, c[100]);
 }
 
-TEST(UnitSlice, Size1)
+TYPED_TEST(UnitRangeIndex, Size1)
 {
-        SegmentedVector<int, 4, false> c(101);
+        TypeParam c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
-        SliceIndexer<SegmentedVector<int, 4, false>> si(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, 101, "last_71");
+        SliceIndexer<TypeParam> si(c);
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, 101, "last_71");
 
-        EXPECT_EQ(10, si.GetSlice(0).size());
-        EXPECT_EQ(20, si.GetSlice(1).size());
-        EXPECT_EQ(71, si.GetSlice(2).size());
+        const auto& rvec = si.Get();
+        EXPECT_EQ(10, rvec[0].size());
+        EXPECT_EQ(20, rvec[1].size());
+        EXPECT_EQ(71, rvec[2].size());
 }
 
-TEST(UnitSlice, Size2)
+TYPED_TEST(UnitRangeIndex, Size2)
 {
-        SegmentedVector<int, 4, false> c(101);
+        TypeParam c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, 101, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, 101, "last_71");
 
-        EXPECT_EQ(10, si.GetSlice("first_10").size());
-        EXPECT_EQ(20, si.GetSlice("next_20").size());
-        EXPECT_EQ(71, si.GetSlice("last_71").size());
+        EXPECT_EQ(10, si.Get("first_10").size());
+        EXPECT_EQ(20, si.Get("next_20").size());
+        EXPECT_EQ(71, si.Get("last_71").size());
 }
 
-TEST(UnitSlice, Content1)
+TYPED_TEST(UnitRangeIndex, Content1)
 {
-        SegmentedVector<int, 4, false> c(101);
+        TypeParam c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, 101, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, 101, "last_71");
 
-        EXPECT_EQ(0, si.GetSlice(0)[0]);
-        EXPECT_EQ(9, si.GetSlice(0)[9]);
-
-        EXPECT_EQ(10, si.GetSlice(1)[0]);
-        EXPECT_EQ(29, si.GetSlice(1)[19]);
-
-        EXPECT_EQ(30, si.GetSlice(2)[0]);
-        EXPECT_EQ(100, si.GetSlice(2)[70]);
+        const auto& rvec = si.Get();
+        EXPECT_EQ(0, rvec[0][0]);
+        EXPECT_EQ(9, rvec[0][9]);
+        EXPECT_EQ(10, rvec[1][0]);
+        EXPECT_EQ(29, rvec[1][19]);
+        EXPECT_EQ(30, rvec[2][0]);
+        EXPECT_EQ(100, rvec[2][70]);
 }
 
-TEST(UnitSlice, Content2)
+TYPED_TEST(UnitRangeIndex, Content2)
 {
-        SegmentedVector<int, 4> c(101, 0);
+        TypeParam c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, "last_71");
+        const auto& rvec = si.Get();
 
         int sub1 = 30;
-        for (auto e : si.GetSlice(2)) {
+        for (auto e : rvec[2]) {
                 EXPECT_EQ(sub1++, e);
         }
 
         int accum = 0;
-        for (auto e : si.GetSlice(0)) {
+        for (auto e : rvec[0]) {
                 accum += e;
         }
         EXPECT_EQ(45, accum);
 
-        auto s1 = si.GetSlice("next_20");
+        auto s1 = si.Get("next_20");
         for (size_t i = 0; i < s1.size(); ++i) {
                 EXPECT_EQ(i + 10, s1[i]);
         }
 
-        auto s2   = si.GetSlice("last_71");
+        auto s2   = si.Get("last_71");
         int  sub2 = 30;
         for (auto it = s2.begin(); it < s2.end(); ++it) {
                 EXPECT_EQ(sub2++, *it);
         }
 }
 
-TEST(UnitSlice, Resize1)
+TYPED_TEST(UnitRangeIndex, Resize1)
 {
-        SegmentedVector<int, 4> c(101, 0);
+        TypeParam c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, "last_71");
+        const auto& rvec = si.Get();
 
-        c.resize(201);
+        if (!is_same<TypeParam, vector<int>>::value) {
+                c.resize(201);
 
-        int accum = 0;
-        for (auto e : si.GetSlice(0)) {
-                accum += e;
-        }
-        EXPECT_EQ(45, accum);
+                int accum = 0;
+                for (auto e : rvec[0]) {
+                        accum += e;
+                }
+                EXPECT_EQ(45, accum);
 
-        auto s1 = si.GetSlice("next_20");
-        for (size_t i = 0; i < s1.size(); ++i) {
-                EXPECT_EQ(i + 10, s1[i]);
-        }
+                auto s1 = si.Get("next_20");
+                for (size_t i = 0; i < s1.size(); ++i) {
+                        EXPECT_EQ(i + 10, s1[i]);
+                }
 
-        auto s2   = si.GetSlice("last_71");
-        int  sub2 = 30;
-        for (auto it = s2.begin(); it < s2.end(); ++it) {
-                EXPECT_EQ(sub2++, *it);
+                auto s2   = si.Get("last_71");
+                int  sub2 = 30;
+                for (auto it = s2.begin(); it < s2.end(); ++it) {
+                        EXPECT_EQ(sub2++, *it);
+                }
         }
 }
 
-TEST(UnitSlice, Resize2)
+TYPED_TEST(UnitRangeIndex, Resize2)
 {
-        SegmentedVector<int, 4> c(101, 0);
+        TypeParam c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, "last_71");
 
-        c.resize(201);
-        si.SetSlice(101, "new_last");
-        boost::range::copy(boost::irange(101, 201), si.GetSlice("new_last").begin());
+        if (!is_same<TypeParam, vector<int>>::value) {
+                c.resize(201);
+                si.Set(101, "new_last");
+                boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
+        }
+
 }
 
-TEST(UnitSlice, Resize3)
+TYPED_TEST(UnitRangeIndex, Resize3)
 {
-        SegmentedVector<int, 4> c(101, 0);
+        TypeParam c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
-        si.SetSlice(0, 10, "first_10");
-        si.SetSlice(10, 30, "next_20");
-        si.SetSlice(30, "last_71");
+        si.Set(0, 10, "first_10");
+        si.Set(10, 30, "next_20");
+        si.Set(30, "last_71");
 
-        c.resize(201);
-        si.SetSlice(101, "new_last");
-        boost::range::copy(boost::irange(101, 201), si.GetSlice("new_last").begin());
+        if (!is_same<TypeParam, vector<int>>::value) {
+                c.resize(201);
 
-        int accum = 0;
-        for (auto e : si.GetSlice(0)) {
-                accum += e;
-        }
-        EXPECT_EQ(45, accum);
+                si.Set(101, "new_last");
+                boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
 
-        auto s1 = si.GetSlice("next_20");
-        for (size_t i = 0; i < s1.size(); ++i) {
-                EXPECT_EQ(i + 10, s1[i]);
-        }
+                int accum = 0;
+                for (auto e : si.Get("first_10")) {
+                        accum += e;
+                }
+                EXPECT_EQ(45, accum);
 
-        auto s2   = si.GetSlice("last_71");
-        int  sub2 = 30;
-        for (auto it = s2.begin(); it < s2.end(); ++it) {
-                EXPECT_EQ(sub2++, *it);
-        }
+                auto s1 = si.Get("next_20");
+                for (size_t i = 0; i < s1.size(); ++i) {
+                        EXPECT_EQ(i + 10, s1[i]);
+                }
 
-        int sub3 = 101;
-        for (auto e : si.GetSlice("new_last")) {
-                EXPECT_EQ(sub3++, e);
+                auto s2   = si.Get("last_71");
+                int  sub2 = 30;
+                for (auto it = s2.begin(); it < s2.end(); ++it) {
+                        EXPECT_EQ(sub2++, *it);
+                }
+
+                int sub3 = 101;
+                for (auto e : si.Get("new_last")) {
+                        EXPECT_EQ(sub3++, e);
+                }
         }
 }
 
