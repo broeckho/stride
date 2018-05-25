@@ -2,7 +2,7 @@ var searchData=
 [
   ['random',['Random',['../de/d11/a00021.html#a3b4663bfb6bfdb19e02f8cfd962e12b6',1,'stride::Immunizer']]],
   ['randomshuffle',['RandomShuffle',['../d2/d79/a00051.html#a5a7dc58c76f112c8d808866cac5a272d',1,'stride::util::RNManager']]],
-  ['range_5ftype',['range_type',['../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d',1,'stride::util::RangeIndexer::range_type()'],['../d1/dea/a00054.html#ae2f8f5fde77de1bb59c21d3b75fb3698',1,'stride::util::SliceIndexer::range_type()']]],
+  ['range_5ftype',['range_type',['../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d',1,'stride::util::RangeIndexer::range_type()'],['../d1/dea/a00054.html#a6703bee40414f1e6cdedba8dcd9c260c',1,'stride::util::SliceIndexer::range_type()']]],
   ['rangeindexer',['RangeIndexer',['../d5/de0/a00050.html',1,'stride::util']]],
   ['rangeindexer',['RangeIndexer',['../d5/de0/a00050.html#a96e5f76ed9de52ebae7dd2cd40a9eca9',1,'stride::util::RangeIndexer']]],
   ['rangeindexer_2eh',['RangeIndexer.h',['../d9/db6/a00146.html',1,'']]],

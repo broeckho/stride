@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get',['Get',['../d6/d2d/a00047.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../d4/d6d/a00055.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
+  ['get',['Get',['../d6/d2d/a00047.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../d1/dea/a00054.html#ae333d2bbdb2aa438790d597443fd8055',1,'stride::util::SliceIndexer::Get(const Id &amp;s)'],['../d1/dea/a00054.html#a3e918319070ebe379bd999ab8c97105a',1,'stride::util::SliceIndexer::Get(const Id &amp;s) const '],['../d1/dea/a00054.html#a15f2262c91293f087fb94465f6475f7e',1,'stride::util::SliceIndexer::Get()'],['../d4/d6d/a00055.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
   ['get_5fblock_5fcount',['get_block_count',['../d7/d46/a00002.html#a87837cab9ccde57c5179dc7f9245f9fc',1,'stride::util::SegmentedVector']]],
   ['get_5fchunk',['get_chunk',['../d7/d46/a00002.html#a4f98e9e54da37bbf7c6ed0c2b40361d9',1,'stride::util::SegmentedVector']]],
   ['get_5felements_5fper_5fblock',['get_elements_per_block',['../d7/d46/a00002.html#aa93e6b50e8a1f177829b52d8a41ce979',1,'stride::util::SegmentedVector']]],
@@ -46,7 +46,6 @@ var searchData=
   ['getsim',['GetSim',['../d3/de7/a00039.html#a99014dd891a3422214c2a088dd38cde9',1,'stride::SimRunner']]],
   ['getsimulationday',['GetSimulationDay',['../de/d21/a00006.html#a440b877497550ef988931917fc243809',1,'stride::Calendar']]],
   ['getsize',['GetSize',['../da/da0/a00009.html#a206057a57bf75587c303c41f27f3bf23',1,'stride::ContactPool']]],
-  ['getslice',['GetSlice',['../d1/dea/a00054.html#ae5cb46ba6c2fec9f7893c138d3300363',1,'stride::util::SliceIndexer::GetSlice(std::size_t i)'],['../d1/dea/a00054.html#a95272c334500597a9ad20622b16802a6',1,'stride::util::SliceIndexer::GetSlice(const std::string &amp;s)']]],
   ['getstartinfectiousness',['GetStartInfectiousness',['../d1/d2b/a00018.html#a9eab117bce0fe7009188aad7e534ca82',1,'stride::Health']]],
   ['getstartsymptomatic',['GetStartSymptomatic',['../d1/d2b/a00018.html#adf2c4f06cd9ad0dac95c5a2ffdd39489',1,'stride::Health']]],
   ['gettestsdir',['GetTestsDir',['../d6/d2d/a00047.html#a59f5c71c35d9170db7fc3d37ca8a36ba',1,'stride::util::FileSys']]],
