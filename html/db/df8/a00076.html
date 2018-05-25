@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BeliefSeeder.cpp File Reference</title>
+<title>Stride Reference Manual: BeliefSeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,46 +103,61 @@ $(document).ready(function(){initNavTree('db/df8/a00076.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">BeliefSeeder.cpp File Reference</div>  </div>
+<div class="title">BeliefSeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation for BeliefSeeder class.  
+<p>Header file for the HealthSeeder.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/d09/a00077_source.html">BeliefSeeder.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/d7d/a00150_source.html">util/RNManager.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d17/a00114_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d5/deb/a00132_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d48/a00148_source.html">util/RNManager.h</a>&quot;</code><br/>
 <code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;trng/uniform01_dist.hpp&gt;</code><br/>
+<code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for BeliefSeeder.cpp:</div>
+Include dependency graph for BeliefSeeder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d52/a00221.gif" border="0" usemap="#BeliefSeeder_8cpp" alt=""/></div>
-<map name="BeliefSeeder_8cpp" id="BeliefSeeder_8cpp">
-<area shape="rect" id="node2" href="../../d1/d09/a00077.html" title="Header file for the HealthSeeder. " alt="" coords="895,80,1001,107"/><area shape="rect" id="node7" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="931,163,1055,189"/><area shape="rect" id="node19" href="../../da/ddb/a00145.html" title="Header file for the core Population class. " alt="" coords="1586,80,1704,107"/><area shape="rect" id="node3" href="../../d2/da3/a00115.html" title="Header file for Imitation belief policy. " alt="" coords="163,155,327,197"/><area shape="rect" id="node6" href="../../d0/de8/a00133.html" title="Header file for NoBelief class. " alt="" coords="525,155,688,197"/><area shape="rect" id="node4" href="../../d9/da5/a00075.html" title="Header file for Belief. " alt="" coords="163,246,327,287"/><area shape="rect" id="node8" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="1092,336,1215,363"/><area shape="rect" id="node20" href="../../da/d82/a00091.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1774,163,1929,189"/><area shape="rect" id="node33" href="../../d2/df5/a00137.html" title="Header file for the Person class. " alt="" coords="1955,163,2053,189"/><area shape="rect" id="node35" href="../../db/db6/a00074.html" title="Interface/Implementation of Any. " alt="" coords="1351,163,1427,189"/><area shape="rect" id="node37" href="../../da/d01/a00153.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2209,336,2367,363"/><area shape="rect" id="node21" href="../../d9/dec/a00090.html" title="Header for the core ContactPool class. " alt="" coords="1519,336,1652,363"/><area shape="rect" id="node23" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="1716,411,1879,437"/><area shape="rect" id="node28" href="../../d8/d17/a00114.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1834,253,1992,280"/><area shape="rect" id="node22" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="1388,411,1567,437"/><area shape="rect" id="node34" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="2131,253,2251,280"/><area shape="rect" id="node38" href="../../d6/dfb/a00172.html" title="Interface/Implementation for SVIterator. " alt="" coords="2490,411,2581,437"/></map>
+<div class="center"><img src="../../d5/d0b/a00220.gif" border="0" usemap="#BeliefSeeder_8h" alt=""/></div>
+<map name="BeliefSeeder_8h" id="BeliefSeeder_8h">
+<area shape="rect" id="node2" href="../../d8/d17/a00114.html" title="Header file for Imitation belief policy. " alt="" coords="193,81,356,122"/><area shape="rect" id="node5" href="../../d5/deb/a00132.html" title="Header file for NoBelief class. " alt="" coords="5,81,168,122"/><area shape="rect" id="node6" href="../../db/d48/a00148.html" title="Interface of RNManager. " alt="" coords="755,88,879,115"/><area shape="rect" id="node3" href="../../db/db6/a00074.html" title="Header file for Belief. " alt="" coords="5,171,168,213"/><area shape="rect" id="node7" href="../../d9/db6/a00146.html" title="Interface of Random Engine Type. " alt="" coords="352,179,475,205"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d52/a00221.gif" border="0" usemap="#BeliefSeeder_8hdep" alt=""/></div>
+<map name="BeliefSeeder_8hdep" id="BeliefSeeder_8hdep">
+<area shape="rect" id="node2" href="../../d9/da5/a00075.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/><area shape="rect" id="node3" href="../../d3/d65/a00154.html" title="Implementation for the SimBuilder class. " alt="" coords="150,80,260,107"/></map>
 </div>
 </div>
 <p><a href="../../db/df8/a00076_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/a00005.html">stride::BeliefSeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d1/d2b/a00018.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../dd/dad/a00005.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
+<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation for BeliefSeeder class. </p>
+<div class="textblock"><p>Header file for the HealthSeeder. </p>
 
-<p>Definition in file <a class="el" href="../../db/df8/a00076_source.html">BeliefSeeder.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../db/df8/a00076_source.html">BeliefSeeder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">BeliefSeeder.cpp</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">BeliefSeeder.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactPoolType.cpp File Reference</title>
+<title>Stride Reference Manual: ContactPoolType.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -104,59 +104,97 @@ $(document).ready(function(){initNavTree('d1/dc1/a00092.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">ContactPoolType.cpp File Reference</div>  </div>
+<div class="title">ContactPoolType.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of ContactPoolType.  
+<p>Definition of ContactPoolType.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d7d/a00093_source.html">ContactPoolType.h</a>&quot;</code><br/>
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cstddef&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;iterator&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactPoolType.cpp:</div>
+Include dependency graph for ContactPoolType.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d9a/a00246.gif" border="0" usemap="#ContactPoolType_8cpp" alt=""/></div>
-<map name="ContactPoolType_8cpp" id="ContactPoolType_8cpp">
-<area shape="rect" id="node2" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="142,80,276,107"/></map>
+<div class="center"><img src="../../d6/d22/a00245.gif" border="0" usemap="#ContactPoolType_8h" alt=""/></div>
+<map name="ContactPoolType_8h" id="ContactPoolType_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d9a/a00246.gif" border="0" usemap="#ContactPoolType_8hdep" alt=""/></div>
+<map name="ContactPoolType_8hdep" id="ContactPoolType_8hdep">
+<area shape="rect" id="node2" href="../../d0/d89/a00071.html" title="Contact profile. " alt="" coords="535,155,673,181"/><area shape="rect" id="node4" href="../../d6/d2c/a00072.html" title="Contact profiles stored in simulator. " alt="" coords="652,229,799,256"/><area shape="rect" id="node7" href="../../d7/d9a/a00152.html" title="Implementation for the Simulator class. " alt="" coords="195,379,265,405"/><area shape="rect" id="node8" href="../../d3/d65/a00154.html" title="Implementation for the SimBuilder class. " alt="" coords="51,453,161,480"/><area shape="rect" id="node18" href="../../db/dab/a00089.html" title="Header for the core ContactPool class. " alt="" coords="979,80,1084,107"/><area shape="rect" id="node23" href="../../d9/dec/a00090.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="823,229,951,256"/><area shape="rect" id="node32" href="../../d3/d00/a00113.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="813,155,943,181"/><area shape="rect" id="node33" href="../../d0/d5e/a00136.html" title="Header file for the Person class. " alt="" coords="1197,229,1271,256"/><area shape="rect" id="node34" href="../../d5/d5b/a00135.html" title="Header file for the Person class. " alt="" coords="1579,304,1667,331"/><area shape="rect" id="node35" href="../../da/d82/a00091.html" title="Implementation of ContactPoolType. " alt="" coords="1545,80,1692,107"/><area shape="rect" id="node3" href="../../d2/db1/a00070.html" title="Contact profile. " alt="" coords="374,229,527,256"/><area shape="rect" id="node15" href="../../df/dc8/a00122.html" title="Header for the Infector class. " alt="" coords="551,229,627,256"/><area shape="rect" id="node5" href="../../da/d01/a00153.html" title="Header for the Simulator class. " alt="" coords="619,304,673,331"/><area shape="rect" id="node6" href="../../d9/dcc/a00102.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="1241,453,1376,480"/><area shape="rect" id="node9" href="../../d2/d34/a00156.html" title="Implementation for SimRunner. " alt="" coords="667,379,777,405"/><area shape="rect" id="node10" href="../../dc/ddf/a00067.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="803,379,937,405"/><area shape="rect" id="node11" href="../../d8/d53/a00081.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="962,379,1064,405"/><area shape="rect" id="node12" href="../../df/d6a/a00119.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1089,379,1223,405"/><area shape="rect" id="node13" href="../../de/d14/a00139.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="290,379,424,405"/><area shape="rect" id="node14" href="../../d9/d38/a00166.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="501,379,643,405"/><area shape="rect" id="node16" href="../../d8/dfa/a00121.html" title="Implementation of Infector algorithms. " alt="" coords="1069,304,1160,331"/><area shape="rect" id="node17" href="../../da/d72/a00124.html" title="Header for the InfectorMap. " alt="" coords="43,304,145,331"/><area shape="rect" id="node19" href="../../d5/d1e/a00103.html" title="Header for the DiseaseSeeder class. " alt="" coords="1248,379,1371,405"/><area shape="rect" id="node20" href="../../d4/d3e/a00116.html" title="Header for the Immunizer class. " alt="" coords="1374,229,1468,256"/><area shape="rect" id="node22" href="../../db/ddf/a00088.html" title="Implementation for the core ContcatPool class. " alt="" coords="1303,304,1421,331"/><area shape="rect" id="node21" href="../../d2/da3/a00115.html" title="Implementation for the Immunizer class. " alt="" coords="1446,304,1553,331"/><area shape="rect" id="node24" href="../../d5/da7/a00144.html" title="Header file for the core Population class. " alt="" coords="1185,304,1279,331"/><area shape="rect" id="node25" href="../../d9/da5/a00075.html" title="Implementation for BeliefSeeder class. " alt="" coords="2149,379,2269,405"/><area shape="rect" id="node26" href="../../dd/d42/a00109.html" title="Implementation for HelthSeeder class. " alt="" coords="2294,379,2420,405"/><area shape="rect" id="node27" href="../../d2/df5/a00137.html" title="Implementation of the CasesFile class. " alt="" coords="1446,379,1561,405"/><area shape="rect" id="node28" href="../../d5/d4e/a00141.html" title="Initialize populations: implementation. " alt="" coords="1586,379,1696,405"/><area shape="rect" id="node29" href="../../d7/dce/a00143.html" title="Core Population class. " alt="" coords="1721,379,1828,405"/><area shape="rect" id="node30" href="../../dd/da7/a00168.html" title="Implementation for the SurveySeeder class. " alt="" coords="1853,379,1981,405"/><area shape="rect" id="node31" href="../../d1/d51/a00079.html" title="Header for the command line controller. " alt="" coords="2006,379,2124,405"/></map>
 </div>
 </div>
 <p><a href="../../d1/dc1/a00092_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
+<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/ded/a00196"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html">stride::ContactPoolType</a></td></tr>
-<tr class="memdesc:d7/ded/a00196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride::ContactPoolType</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aaa214aee675050e781497b0dd15449ab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a> : std::size_t { <br/>
+&#160;&#160;<a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Id::Household</a>, 
+<a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">stride::ContactPoolType::Id::School</a>, 
+<a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Id::Work</a>, 
+<a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::Id::PrimaryCommunity</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::Id::SecondaryCommunity</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:aaa214aee675050e781497b0dd15449ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the ContactPool types.  <a href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449ab">More...</a><br/></td></tr>
+<tr class="separator:aaa214aee675050e781497b0dd15449ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a1269217f56908f0da981dbe4e43bb73d">More...</a><br/></td></tr>
+<tr class="memitem:af724b7d598645a8c1054b66306dee629"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#af724b7d598645a8c1054b66306dee629">stride::ContactPoolType::NumOfTypes</a> ()</td></tr>
+<tr class="memdesc:af724b7d598645a8c1054b66306dee629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="#af724b7d598645a8c1054b66306dee629">More...</a><br/></td></tr>
+<tr class="separator:af724b7d598645a8c1054b66306dee629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a1269217f56908f0da981dbe4e43bb73d">More...</a><br/></td></tr>
 <tr class="separator:a1269217f56908f0da981dbe4e43bb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br/></td></tr>
+<tr class="memitem:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#ac36d342acc9d969f5de3aa55e95b9fe6">stride::ContactPoolType::ToSizeT</a> (Id id)</td></tr>
+<tr class="memdesc:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#ac36d342acc9d969f5de3aa55e95b9fe6">More...</a><br/></td></tr>
+<tr class="separator:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../dc/d57/a00194.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br/></td></tr>
 <tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a> (const std::string &amp;s)</td></tr>
 <tr class="memdesc:af529300a78547c29c95b81ad8ac62afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#af529300a78547c29c95b81ad8ac62afe">More...</a><br/></td></tr>
 <tr class="separator:af529300a78547c29c95b81ad8ac62afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memItemLeft" align="right" valign="top">constexpr <br class="typebreak"/>
+std::initializer_list&lt; Id &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a></td></tr>
+<tr class="memdesc:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow iteration over the type ids.  <a href="#a19ba4d58aafc6ea7ff765e3a7cd54332">More...</a><br/></td></tr>
+<tr class="separator:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of ContactPoolType. </p>
+<div class="textblock"><p>Definition of ContactPoolType. </p>
 
-<p>Definition in file <a class="el" href="../../d1/dc1/a00092_source.html">ContactPoolType.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/dc1/a00092_source.html">ContactPoolType.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d1/dc1/a00092.html">ContactPoolType.cpp</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d1/dc1/a00092.html">ContactPoolType.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

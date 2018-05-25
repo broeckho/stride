@@ -1,7 +1,7 @@
 var a00064 =
 [
-    [ "PersonsViewer", "df/d5f/a00064.html#a942188b53eccb181ceb8be3866fe64c6", null ],
-    [ "Update", "df/d5f/a00064.html#a6b1d3096869e9ed29d62eaec72a0a89c", null ],
-    [ "m_persons_file", "df/d5f/a00064.html#a0aaa0c2c54d02a2d034c4667612f6be3", null ],
-    [ "m_runner", "df/d5f/a00064.html#a67f4020c05e62dae36e8f6422dcc5c80", null ]
+    [ "SummaryViewer", "df/d5f/a00064.html#aa0d17dc54d8062a4215f740451d56de0", null ],
+    [ "Update", "df/d5f/a00064.html#a5cea96dec638995509a87d5c9874e904", null ],
+    [ "m_summary_file", "df/d5f/a00064.html#a1435e55b1fb34ad7f685e335696768a6", null ],
+    [ "m_runner", "df/d5f/a00064.html#ab1c531a8a9d1f309aa3762f5ef9b30e2", null ]
 ];

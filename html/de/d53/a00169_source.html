@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SummaryViewer.h Source File</title>
+<title>Stride Reference Manual: SurveySeeder.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SummaryViewer.h</div>  </div>
+<div class="title">SurveySeeder.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d53/a00169.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,50 +122,42 @@ $(document).ready(function(){initNavTree('de/d53/a00169_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">output/SummaryFile.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/db9/a00159.html">sim/SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d00/a00113.html">sim/event/Id.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d48/a00148.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/de1/a00065.html">SummaryViewer</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">   37</a></span>&#160;        <a class="code" href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">SummaryViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>(output_prefix), <a class="code" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>(std::move(runner))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>Population;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../db/d3a/a00040.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d3a/a00040.html">SurveySeeder</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../db/d3a/a00040.html#ac54faf22994cbab9fd2452002a0fcf59">SurveySeeder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../d5/de0/a00050.html">util::RNManager</a>&amp; rnManager);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/de1/a00065.html#a5cea96dec638995509a87d5c9874e904">Update</a>(<a class="code" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">   46</a></span>&#160;        <a class="code" href="../../d0/dc0/a00033.html">output::SummaryFile</a>        <a class="code" href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">m_summary_file</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">   47</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">m_runner</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::shared_ptr&lt;Population&gt; <a class="code" href="../../db/d3a/a00040.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a>(std::shared_ptr&lt;Population&gt; pop);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../db/d3a/a00040.html#a8b56b25160ae00196ba33d418e2647a3">   47</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../db/d3a/a00040.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a>;  </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../db/d3a/a00040.html#af3321d86de17f08f6f00c968da18f84e">   48</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html">util::RNManager</a>&amp;                   <a class="code" href="../../db/d3a/a00040.html#af3321d86de17f08f6f00c968da18f84e">m_rn_manager</a>; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00199_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00065_html_a5cea96dec638995509a87d5c9874e904"><div class="ttname"><a href="../../de/de1/a00065.html#a5cea96dec638995509a87d5c9874e904">stride::viewers::SummaryViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00034">SummaryViewer.cpp:34</a></div></div>
-<div class="ttc" id="a00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">SummaryFile.h</a></div><div class="ttdoc">Header for the SummaryFile class. </div></div>
-<div class="ttc" id="a00065_html_ab1c531a8a9d1f309aa3762f5ef9b30e2"><div class="ttname"><a href="../../de/de1/a00065.html#ab1c531a8a9d1f309aa3762f5ef9b30e2">stride::viewers::SummaryViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00047">SummaryViewer.h:47</a></div></div>
-<div class="ttc" id="a00065_html_a1435e55b1fb34ad7f685e335696768a6"><div class="ttname"><a href="../../de/de1/a00065.html#a1435e55b1fb34ad7f685e335696768a6">stride::viewers::SummaryViewer::m_summary_file</a></div><div class="ttdeci">output::SummaryFile m_summary_file</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00046">SummaryViewer.h:46</a></div></div>
-<div class="ttc" id="a00113_html"><div class="ttname"><a href="../../d3/d00/a00113.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
-<div class="ttc" id="a00033_html"><div class="ttname"><a href="../../d0/dc0/a00033.html">stride::output::SummaryFile</a></div><div class="ttdoc">Produces a file with simulation summary output. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00032">SummaryFile.h:32</a></div></div>
-<div class="ttc" id="a00065_html"><div class="ttname"><a href="../../de/de1/a00065.html">stride::viewers::SummaryViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00033">SummaryViewer.h:33</a></div></div>
-<div class="ttc" id="a00065_html_aa0d17dc54d8062a4215f740451d56de0"><div class="ttname"><a href="../../de/de1/a00065.html#aa0d17dc54d8062a4215f740451d56de0">stride::viewers::SummaryViewer::SummaryViewer</a></div><div class="ttdeci">SummaryViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00037">SummaryViewer.h:37</a></div></div>
+<div class="ttc" id="a00040_html_a8b56b25160ae00196ba33d418e2647a3"><div class="ttname"><a href="../../db/d3a/a00040.html#a8b56b25160ae00196ba33d418e2647a3">stride::SurveySeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00047">SurveySeeder.h:47</a></div></div>
+<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00040_html_af3321d86de17f08f6f00c968da18f84e"><div class="ttname"><a href="../../db/d3a/a00040.html#af3321d86de17f08f6f00c968da18f84e">stride::SurveySeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00048">SurveySeeder.h:48</a></div></div>
+<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">stride::SurveySeeder</a></div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d53/a00169_source.html#l00034">SurveySeeder.h:34</a></div></div>
+<div class="ttc" id="a00040_html_a81b191380f9a2c93768ff0efcec47f6b"><div class="ttname"><a href="../../db/d3a/a00040.html#a81b191380f9a2c93768ff0efcec47f6b">stride::SurveySeeder::Seed</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00039">SurveySeeder.cpp:39</a></div></div>
+<div class="ttc" id="a00148_html"><div class="ttname"><a href="../../db/d48/a00148.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00040_html_ac54faf22994cbab9fd2452002a0fcf59"><div class="ttname"><a href="../../db/d3a/a00040.html#ac54faf22994cbab9fd2452002a0fcf59">stride::SurveySeeder::SurveySeeder</a></div><div class="ttdeci">SurveySeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initialize Seeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00035">SurveySeeder.cpp:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">SummaryViewer.h</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../de/d53/a00169.html">SurveySeeder.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

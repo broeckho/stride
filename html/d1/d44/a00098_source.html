@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DaysOffAll.h Source File</title>
+<title>Stride Reference Manual: DaysOffInterface.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d1/d44/a00098_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DaysOffAll.h</div>  </div>
+<div class="title">DaysOffInterface.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d44/a00098.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,37 +122,30 @@ $(document).ready(function(){initNavTree('d1/d44/a00098_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d74/a00099.html">DaysOffInterface.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>Calendar;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d45/a00011.html">DaysOffAll</a> : <span class="keyword">public</span> <a class="code" href="../../df/d86/a00012.html">DaysOffInterface</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a673773c659725f4dc92b0a262955af1c">   36</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../da/d45/a00011.html#a673773c659725f4dc92b0a262955af1c">DaysOffAll</a>(std::shared_ptr&lt;Calendar&gt;) {}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a61f87cc93335185f90d9d772f168b1bb">   39</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../da/d45/a00011.html#a61f87cc93335185f90d9d772f168b1bb">IsWorkOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/d45/a00011.html#a12a699d750a9b0a640db4ea47df0b11c">   42</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../da/d45/a00011.html#a12a699d750a9b0a640db4ea47df0b11c">IsSchoolOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00099_html"><div class="ttname"><a href="../../da/d74/a00099.html">DaysOffInterface.h</a></div><div class="ttdoc">Interface for DaysOff classes. </div></div>
-<div class="ttc" id="a00011_html_a673773c659725f4dc92b0a262955af1c"><div class="ttname"><a href="../../da/d45/a00011.html#a673773c659725f4dc92b0a262955af1c">stride::DaysOffAll::DaysOffAll</a></div><div class="ttdeci">DaysOffAll(std::shared_ptr&lt; Calendar &gt;)</div><div class="ttdoc">Initialize calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00036">DaysOffAll.h:36</a></div></div>
-<div class="ttc" id="a00012_html"><div class="ttname"><a href="../../df/d86/a00012.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d74/a00099_source.html#l00027">DaysOffInterface.h:27</a></div></div>
-<div class="ttc" id="a00011_html_a12a699d750a9b0a640db4ea47df0b11c"><div class="ttname"><a href="../../da/d45/a00011.html#a12a699d750a9b0a640db4ea47df0b11c">stride::DaysOffAll::IsSchoolOff</a></div><div class="ttdeci">bool IsSchoolOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00042">DaysOffAll.h:42</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">stride::DaysOffAll</a></div><div class="ttdoc">No days off work or school. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00032">DaysOffAll.h:32</a></div></div>
-<div class="ttc" id="a00011_html_a61f87cc93335185f90d9d772f168b1bb"><div class="ttname"><a href="../../da/d45/a00011.html#a61f87cc93335185f90d9d772f168b1bb">stride::DaysOffAll::IsWorkOff</a></div><div class="ttdeci">bool IsWorkOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00039">DaysOffAll.h:39</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../df/d86/a00012.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d86/a00012.html">DaysOffInterface</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d86/a00012.html#a2ae431c15cddca106e2a0753fde99f83">IsWorkOff</a>() = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../df/d86/a00012.html#a747d7b072b24545437aa9326ba024185">IsSchoolOff</a>() = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../df/d86/a00012.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00012_html"><div class="ttname"><a href="../../df/d86/a00012.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00027">DaysOffInterface.h:27</a></div></div>
+<div class="ttc" id="a00012_html_afec638f8fcc3e653e389f47bd30d63e1"><div class="ttname"><a href="../../df/d86/a00012.html#afec638f8fcc3e653e389f47bd30d63e1">stride::DaysOffInterface::~DaysOffInterface</a></div><div class="ttdeci">virtual ~DaysOffInterface()=default</div><div class="ttdoc">Virtual destructor. </div></div>
+<div class="ttc" id="a00012_html_a747d7b072b24545437aa9326ba024185"><div class="ttname"><a href="../../df/d86/a00012.html#a747d7b072b24545437aa9326ba024185">stride::DaysOffInterface::IsSchoolOff</a></div><div class="ttdeci">virtual bool IsSchoolOff()=0</div><div class="ttdoc">Whether today is school day. </div></div>
+<div class="ttc" id="a00012_html_a2ae431c15cddca106e2a0753fde99f83"><div class="ttname"><a href="../../df/d86/a00012.html#a2ae431c15cddca106e2a0753fde99f83">stride::DaysOffInterface::IsWorkOff</a></div><div class="ttdeci">virtual bool IsWorkOff()=0</div><div class="ttdoc">Whether today is a work day. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">DaysOffAll.h</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:13 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">DaysOffInterface.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

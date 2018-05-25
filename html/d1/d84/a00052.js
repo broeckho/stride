@@ -1,8 +1,15 @@
 var a00052 =
 [
-    [ "Info", "d1/d84/a00052.html#a2e5ec406a473f68ca95c7d81651d6aac", null ],
-    [ "m_seed", "d1/d84/a00052.html#abefb5eab599569a9ee18079889c2d11b", null ],
-    [ "m_state", "d1/d84/a00052.html#ae73dd6b56912771808eeb8d9aa095389", null ],
-    [ "m_stream_count", "d1/d84/a00052.html#a2275a26478b89ec7b7d0f02f02b0b0af", null ],
-    [ "m_type", "d1/d84/a00052.html#a7280978393526b5420e330cd87888b41", null ]
+    [ "CleanConfigFile", "d1/d84/a00052.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
+    [ "Create", "d1/d84/a00052.html#ab4007f793a1924a65458824fef455208", null ],
+    [ "CreateNumThreads", "d1/d84/a00052.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
+    [ "FromString", "d1/d84/a00052.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
+    [ "ToString", "d1/d84/a00052.html#af968f949efaf2876f48a86da65faa5ca", null ],
+    [ "ToSha1", "d1/d84/a00052.html#a32ec1961852a81d4873a519f6bea1e36", null ],
+    [ "ToShortSha1", "d1/d84/a00052.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
+    [ "CreateBenchInfluenza", "d1/d84/a00052.html#a7014479a2c8efe57b292b9f61435ab61", null ],
+    [ "CreateBenchMeasles", "d1/d84/a00052.html#abf62ab97dafdce994e503296fe5d9394", null ],
+    [ "CreateDefault", "d1/d84/a00052.html#a93470c7c74cc217254876c704fa81a0f", null ],
+    [ "CreateTestsInfluenza", "d1/d84/a00052.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
+    [ "CreateTestsMeasles", "d1/d84/a00052.html#aa430eb71461536d855db5725ebc59cda", null ]
 ];

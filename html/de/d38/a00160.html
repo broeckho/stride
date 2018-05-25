@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SliceIndexer.h File Reference</title>
+<title>Stride Reference Manual: StringUtils.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,62 +103,95 @@ $(document).ready(function(){initNavTree('de/d38/a00160.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SliceIndexer.h File Reference</div>  </div>
+<div class="title">StringUtils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface/Implementation for RangeIndexer.  
+<p>Miscellaneous string utilities.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/range.hpp&gt;</code><br/>
-<code>#include &lt;boost/range/adaptors.hpp&gt;</code><br/>
-<code>#include &lt;boost/range/algorithm.hpp&gt;</code><br/>
-<code>#include &lt;boost/range/algorithm_ext.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;cctype&gt;</code><br/>
+<code>#include &lt;iomanip&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SliceIndexer.h:</div>
+Include dependency graph for StringUtils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d93/a00341.gif" border="0" usemap="#SliceIndexer_8h" alt=""/></div>
-<map name="SliceIndexer_8h" id="SliceIndexer_8h">
+<div class="center"><img src="../../d3/d93/a00341.gif" border="0" usemap="#StringUtils_8h" alt=""/></div>
+<map name="StringUtils_8h" id="StringUtils_8h">
 </map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/d45/a00342.gif" border="0" usemap="#StringUtils_8hdep" alt=""/></div>
+<map name="StringUtils_8hdep" id="StringUtils_8hdep">
+<area shape="rect" id="node2" href="../../d9/dcc/a00102.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="4,80,139,107"/><area shape="rect" id="node3" href="../../d5/d4e/a00141.html" title="Initialize populations: implementation. " alt="" coords="165,80,275,107"/><area shape="rect" id="node4" href="../../d1/d88/a00128.html" title="Main program: command line handling. " alt="" coords="300,80,373,107"/><area shape="rect" id="node5" href="../../d9/df8/a00096.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="449,80,537,107"/><area shape="rect" id="node6" href="../../dc/d54/a00094.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="388,155,449,181"/><area shape="rect" id="node9" href="../../d0/dc2/a00104.html" title="Utilities for interaction with filesystem. " alt="" coords="561,80,652,107"/><area shape="rect" id="node8" href="../../d9/d77/a00095.html" title="Source file of CSVRow. " alt="" coords="442,229,544,256"/><area shape="rect" id="node7" href="../../d4/d7d/a00093.html" title="Source file of csv. " alt="" coords="343,229,416,256"/></map>
 </div>
 </div>
 <p><a href="../../de/d38/a00160_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">stride::util::SliceIndexer&lt; T, Id &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datastructure to index a container that supports RandomAccessIterators with ranges.  <a href="../../d1/dea/a00054.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
+<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/db1/a00200"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/db1/a00200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplItemLeft" align="right" valign="top">SliceIndexer&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html#adc11e43e4e7ef5743ad66f7b2e884782">stride::util::make_slice_indexer</a> (T &amp;t)</td></tr>
-<tr class="separator:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ae33774027798262390fbf95fbabc3f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a value of type T representation from a string.  <a href="#ae33774027798262390fbf95fbabc3f82">More...</a><br/></td></tr>
+<tr class="separator:ae33774027798262390fbf95fbabc3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600b27c06281da416f50a129c50b19f2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a> (const std::string &amp;str, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:a600b27c06281da416f50a129c50b19f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string (in order of occurence) by splitting it on the given delimiters.  <a href="#a600b27c06281da416f50a129c50b19f2">More...</a><br/></td></tr>
+<tr class="separator:a600b27c06281da416f50a129c50b19f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a> (const std::string &amp;str, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize a string (in order of occurence) with the given delimiters.  <a href="#a919ad6efcd17eb2bda30b1c6e044bc3c">More...</a><br/></td></tr>
+<tr class="separator:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:a256d75fffdad0f4f49c6e58c69f76e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation of a value of type T.  <a href="#a256d75fffdad0f4f49c6e58c69f76e20">More...</a><br/></td></tr>
+<tr class="separator:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#adb4ae75f64a04f4acd0c562fe2b8add0">stride::util::ToString</a> (const T &amp;value, int width, char fill= ' ')</td></tr>
+<tr class="memdesc:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation with minimum width of a value of type T.  <a href="#adb4ae75f64a04f4acd0c562fe2b8add0">More...</a><br/></td></tr>
+<tr class="separator:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a> (const std::string &amp;source)</td></tr>
+<tr class="memdesc:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with lower case characters only.  <a href="#aa45ab4a5a30f65dcd1bf25c3d095825b">More...</a><br/></td></tr>
+<tr class="separator:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#aeb06057f363c4ad2c5ac5eae719d392f">stride::util::ToUpper</a> (const std::string &amp;source)</td></tr>
+<tr class="memdesc:aeb06057f363c4ad2c5ac5eae719d392f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with upper case characters only.  <a href="#aeb06057f363c4ad2c5ac5eae719d392f">More...</a><br/></td></tr>
+<tr class="separator:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a9fa614ccd671679a0e1feff6e0f6da33">stride::util::TrimRight</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a9fa614ccd671679a0e1feff6e0f6da33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at right end of string.  <a href="#a9fa614ccd671679a0e1feff6e0f6da33">More...</a><br/></td></tr>
+<tr class="separator:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a2c5aacbb4d606af3e43a96e8aad692cf">stride::util::TrimLeft</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at left end of string.  <a href="#a2c5aacbb4d606af3e43a96e8aad692cf">More...</a><br/></td></tr>
+<tr class="separator:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
+<tr class="memdesc:a01882a252a5e262d442f9a8b8f64e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at both ends of string.  <a href="#a01882a252a5e262d442f9a8b8f64e3ef">More...</a><br/></td></tr>
+<tr class="separator:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface/Implementation for RangeIndexer. </p>
+<div class="textblock"><p>Miscellaneous string utilities. </p>
 
-<p>Definition in file <a class="el" href="../../de/d38/a00160_source.html">SliceIndexer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../de/d38/a00160_source.html">StringUtils.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">SliceIndexer.h</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">StringUtils.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

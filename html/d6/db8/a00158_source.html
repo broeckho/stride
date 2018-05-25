@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SimRunner.cpp Source File</title>
+<title>Stride Reference Manual: SliceIndexer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,108 +103,112 @@ $(document).ready(function(){initNavTree('d6/db8/a00158_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SimRunner.cpp</div>  </div>
+<div class="title">SliceIndexer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/db8/a00158.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/db9/a00159.html">SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d51/a00079.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddb/a00145.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<a href="../../d6/db8/a00158.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/range.hpp&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/range/adaptors.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/range/algorithm.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/range/algorithm_ext.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc">   33</a></span>&#160;<a class="code" href="../../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc">SimRunner::SimRunner</a>(<span class="keyword">const</span> ptree&amp; configPt, shared_ptr&lt;Population&gt; pop)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    : m_clock(<span class="stringliteral">&quot;total_clock&quot;</span>), m_config_pt(configPt), m_output_prefix(<span class="stringliteral">&quot;&quot;</span>), m_sim(nullptr)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d4/d6d/a00055.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::SetupBegin);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d3/de7/a00039.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a> = <a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>           = <a class="code" href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">Sim::Create</a>(<a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>, std::move(pop));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::SetupEnd);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d4/d6d/a00055.html#a4b6145f590e94467a0048817f348ac75">Stop</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a233f76f6af0cef8c5971112b6d2235d0">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">SimRunner::Run</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numSteps)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Saveguard against repeatedly firing AtStart, so bypass if numSteps == 0.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (numSteps != 0U) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">// Prelims.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d4/d6d/a00055.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> numDays = <a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">// We are AtStart: no steps have taken yet, so signal AtStart.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() == 0) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::AtStart);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="comment">// Tahe numSteps but do not go beyond numDays.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; numSteps; i++) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="comment">// This is not the last step: execute and signal Stepped.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() &lt; numDays - 1) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                <a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;TimeStep();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Stepped);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                <span class="comment">// This is the last step so execute and afterwards signal Stepped and Finished</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() == numDays - 1) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                <a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;TimeStep();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Stepped);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                <a class="code" href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Finished);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                <span class="comment">// We are apparently already at the end of the numDays so nothing to do or signal.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d4/d6d/a00055.html#a4b6145f590e94467a0048817f348ac75">Stop</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">SimRunner::Run</a>() { <a class="code" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">Run</a>(<a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>)); }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00037_html_aaca6f689398e298bf48610aa4f2126fe"><div class="ttname"><a href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">stride::Sim::Create</a></div><div class="ttdeci">static std::shared_ptr&lt; Sim &gt; Create(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Create Sim initialized by the configuration in property tree and population. </div></div>
-<div class="ttc" id="a00055_html_acaf0b5f9f645a7dd6420420443de5a96"><div class="ttname"><a href="../../d4/d6d/a00055.html#acaf0b5f9f645a7dd6420420443de5a96">stride::util::Stopwatch::Start</a></div><div class="ttdeci">Stopwatch &amp; Start()</div><div class="ttdoc">Starts stopwatch if it was stopped. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00049">Stopwatch.h:49</a></div></div>
-<div class="ttc" id="a00079_html"><div class="ttname"><a href="../../d1/d51/a00079.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00039_html_ae2de72162f806fe5b7008e81854bdc2d"><div class="ttname"><a href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">stride::SimRunner::m_clock</a></div><div class="ttdeci">util::Stopwatch m_clock</div><div class="ttdoc">Stopwatch for timing the computation. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00069">SimRunner.h:69</a></div></div>
-<div class="ttc" id="a00055_html_a4b6145f590e94467a0048817f348ac75"><div class="ttname"><a href="../../d4/d6d/a00055.html#a4b6145f590e94467a0048817f348ac75">stride::util::Stopwatch::Stop</a></div><div class="ttdeci">Stopwatch &amp; Stop()</div><div class="ttdoc">Stops the stopwatch if it was running. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00059">Stopwatch.h:59</a></div></div>
-<div class="ttc" id="a00039_html_a81720a1766d513eb248cb443d948567f"><div class="ttname"><a href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">stride::SimRunner::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run simulator for as many steps/days as indicated in config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00081">SimRunner.cpp:81</a></div></div>
-<div class="ttc" id="a00039_html_a4ff961d97649b68ef661d38c098baaf0"><div class="ttname"><a href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">stride::SimRunner::m_sim</a></div><div class="ttdeci">std::shared_ptr&lt; Sim &gt; m_sim</div><div class="ttdoc">Simulator object. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00072">SimRunner.h:72</a></div></div>
-<div class="ttc" id="a00039_html_a78babbce6074c1f0d612c67febfb388e"><div class="ttname"><a href="../../d3/de7/a00039.html#a78babbce6074c1f0d612c67febfb388e">stride::SimRunner::m_output_prefix</a></div><div class="ttdeci">std::string m_output_prefix</div><div class="ttdoc">Prefix for output data files. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00071">SimRunner.h:71</a></div></div>
-<div class="ttc" id="a00145_html"><div class="ttname"><a href="../../da/ddb/a00145.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00039_html_a54fb61460204e0f78cf9619691e98abc"><div class="ttname"><a href="../../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc">stride::SimRunner::SimRunner</a></div><div class="ttdeci">SimRunner(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Initialization with property tree. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00033">SimRunner.cpp:33</a></div></div>
-<div class="ttc" id="a00039_html_a1c4778adb0be5161932d107c2a84d477"><div class="ttname"><a href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">stride::SimRunner::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdoc">Ptree with configuration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00070">SimRunner.h:70</a></div></div>
-<div class="ttc" id="a00056_html_a9496d626bbde63eb55836f0af402522c"><div class="ttname"><a href="../../d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify</a></div><div class="ttdeci">void Notify(const EventType &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00165_source.html#l00060">util/Subject.h:60</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Id = std::<span class="keywordtype">string</span>&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dee/a00053.html">SliceIndexer</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">   43</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a> = boost::sliced_range&lt;T&gt;;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a2b9e6748075c16455425c346decad239">   47</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../dc/dee/a00053.html#a2b9e6748075c16455425c346decad239">SliceIndexer</a>(T&amp; t) : <a class="code" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">m_t</a>(t) {}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#ae333d2bbdb2aa438790d597443fd8055">   50</a></span>&#160;        <a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>&amp; <a class="code" href="../../dc/dee/a00053.html#ae333d2bbdb2aa438790d597443fd8055">Get</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&amp; s) { <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.at(<a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>.at(s)); }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a3e918319070ebe379bd999ab8c97105a">   53</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>&amp; <a class="code" href="../../dc/dee/a00053.html#a3e918319070ebe379bd999ab8c97105a">Get</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&amp; s)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.at(<a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>.at(s)); }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a15f2262c91293f087fb94465f6475f7e">   56</a></span>&#160;        <span class="keyword">const</span> std::vector&lt;range_type&gt;&amp; <a class="code" href="../../dc/dee/a00053.html#a15f2262c91293f087fb94465f6475f7e">Get</a>() { <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#aa2a9540c79e993e4d52b6a366cab80bd">   59</a></span>&#160;        <a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>&amp; <a class="code" href="../../dc/dee/a00053.html#aa2a9540c79e993e4d52b6a366cab80bd">Set</a>(std::size_t ibegin, std::size_t iend, <span class="keyword">const</span> <a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&amp; name)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee">check</a>(name);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.emplace_back(<a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>(<a class="code" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">m_t</a>, ibegin, iend));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>[name] = <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.size() - 1;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.back();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a8254dace8b3e011e0e59b76041d99ce7">   68</a></span>&#160;        <a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>&amp; <a class="code" href="../../dc/dee/a00053.html#a8254dace8b3e011e0e59b76041d99ce7">Set</a>(std::size_t ibegin, <span class="keyword">const</span> <a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&amp; name)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee">check</a>(name);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.emplace_back(<a class="code" href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">range_type</a>(<a class="code" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">m_t</a>, ibegin, boost::size(<a class="code" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">m_t</a>)));</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>[name] = <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.size() - 1;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>.back();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee">   78</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee">check</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>&amp; name)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>.find(name) != <a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>.end()) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keywordflow">throw</span> std::range_error(<span class="stringliteral">&quot;Indexer::Set&gt; Name is a duplicate: &quot;</span> + name);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">   86</a></span>&#160;        std::map&lt;Id, std::size_t&gt; <a class="code" href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">m_map</a>;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">   87</a></span>&#160;        std::vector&lt;range_type&gt;   <a class="code" href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">m_slices</a>; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">   88</a></span>&#160;        T&amp;                        <a class="code" href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">m_t</a>;      </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//-----------------------</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// Helpers</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//-----------------------</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d7/da0/a00198.html#adc11e43e4e7ef5743ad66f7b2e884782">   96</a></span>&#160;<a class="code" href="../../dc/dee/a00053.html">SliceIndexer&lt;T&gt;</a> <a class="code" href="../../d7/da0/a00198.html#adc11e43e4e7ef5743ad66f7b2e884782">make_slice_indexer</a>(T&amp; t)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dc/dee/a00053.html">SliceIndexer&lt;T&gt;</a>(t);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00053_html_a15f2262c91293f087fb94465f6475f7e"><div class="ttname"><a href="../../dc/dee/a00053.html#a15f2262c91293f087fb94465f6475f7e">stride::util::SliceIndexer::Get</a></div><div class="ttdeci">const std::vector&lt; range_type &gt; &amp; Get()</div><div class="ttdoc">Retrieve all the ranges,. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00056">SliceIndexer.h:56</a></div></div>
+<div class="ttc" id="a00198_html_adc11e43e4e7ef5743ad66f7b2e884782"><div class="ttname"><a href="../../d7/da0/a00198.html#adc11e43e4e7ef5743ad66f7b2e884782">stride::util::make_slice_indexer</a></div><div class="ttdeci">SliceIndexer&lt; T &gt; make_slice_indexer(T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00096">SliceIndexer.h:96</a></div></div>
+<div class="ttc" id="a00053_html_a0091652ae74074792ca7f6279ddbf3ee"><div class="ttname"><a href="../../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee">stride::util::SliceIndexer::check</a></div><div class="ttdeci">void check(const Id &amp;name)</div><div class="ttdoc">Check Id map for duplicate; throw iff duplicate. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00078">SliceIndexer.h:78</a></div></div>
+<div class="ttc" id="a00053_html_aa2a9540c79e993e4d52b6a366cab80bd"><div class="ttname"><a href="../../dc/dee/a00053.html#aa2a9540c79e993e4d52b6a366cab80bd">stride::util::SliceIndexer::Set</a></div><div class="ttdeci">range_type &amp; Set(std::size_t ibegin, std::size_t iend, const Id &amp;name)</div><div class="ttdoc">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00059">SliceIndexer.h:59</a></div></div>
+<div class="ttc" id="a00053_html_a85f463dc7e352409e8f0fd89d260b1e8"><div class="ttname"><a href="../../dc/dee/a00053.html#a85f463dc7e352409e8f0fd89d260b1e8">stride::util::SliceIndexer::m_slices</a></div><div class="ttdeci">std::vector&lt; range_type &gt; m_slices</div><div class="ttdoc">Contains the slices. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00087">SliceIndexer.h:87</a></div></div>
+<div class="ttc" id="a00053_html_a8254dace8b3e011e0e59b76041d99ce7"><div class="ttname"><a href="../../dc/dee/a00053.html#a8254dace8b3e011e0e59b76041d99ce7">stride::util::SliceIndexer::Set</a></div><div class="ttdeci">range_type &amp; Set(std::size_t ibegin, const Id &amp;name)</div><div class="ttdoc">Set a range, where the end is the end of the container. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00068">SliceIndexer.h:68</a></div></div>
+<div class="ttc" id="a00193_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d1e/a00087_source.html#l00033">ContactLogMode.h:33</a></div></div>
+<div class="ttc" id="a00053_html_a3e918319070ebe379bd999ab8c97105a"><div class="ttname"><a href="../../dc/dee/a00053.html#a3e918319070ebe379bd999ab8c97105a">stride::util::SliceIndexer::Get</a></div><div class="ttdeci">const range_type &amp; Get(const Id &amp;s) const </div><div class="ttdoc">Retrieve const reference to a range by its Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00053">SliceIndexer.h:53</a></div></div>
+<div class="ttc" id="a00053_html_a6703bee40414f1e6cdedba8dcd9c260c"><div class="ttname"><a href="../../dc/dee/a00053.html#a6703bee40414f1e6cdedba8dcd9c260c">stride::util::SliceIndexer::range_type</a></div><div class="ttdeci">boost::sliced_range&lt; T &gt; range_type</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00043">SliceIndexer.h:43</a></div></div>
+<div class="ttc" id="a00053_html_a034c6a8c610721a63e919b5c2c59458f"><div class="ttname"><a href="../../dc/dee/a00053.html#a034c6a8c610721a63e919b5c2c59458f">stride::util::SliceIndexer::m_t</a></div><div class="ttdeci">T &amp; m_t</div><div class="ttdoc">Refernec to container that gets sliced into ranges. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00088">SliceIndexer.h:88</a></div></div>
+<div class="ttc" id="a00053_html_a2b9e6748075c16455425c346decad239"><div class="ttname"><a href="../../dc/dee/a00053.html#a2b9e6748075c16455425c346decad239">stride::util::SliceIndexer::SliceIndexer</a></div><div class="ttdeci">SliceIndexer(T &amp;t)</div><div class="ttdoc">SliceIndexer holds a reference to the conatiner that it indexes. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00047">SliceIndexer.h:47</a></div></div>
+<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">stride::util::SliceIndexer</a></div><div class="ttdoc">Datastructure to index a container (supporting RandomAccessIterators) with slices. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00040">SliceIndexer.h:40</a></div></div>
+<div class="ttc" id="a00053_html_ac7b8a1aa7164facb50694557b8d1dcc5"><div class="ttname"><a href="../../dc/dee/a00053.html#ac7b8a1aa7164facb50694557b8d1dcc5">stride::util::SliceIndexer::m_map</a></div><div class="ttdeci">std::map&lt; Id, std::size_t &gt; m_map</div><div class="ttdoc">Maps Id values to subscripts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00086">SliceIndexer.h:86</a></div></div>
+<div class="ttc" id="a00053_html_ae333d2bbdb2aa438790d597443fd8055"><div class="ttname"><a href="../../dc/dee/a00053.html#ae333d2bbdb2aa438790d597443fd8055">stride::util::SliceIndexer::Get</a></div><div class="ttdeci">range_type &amp; Get(const Id &amp;s)</div><div class="ttdoc">Retrieve reference to a range by its Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00050">SliceIndexer.h:50</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">SimRunner.cpp</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">SliceIndexer.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

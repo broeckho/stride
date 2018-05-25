@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RangeIndexer.h Source File</title>
+<title>Stride Reference Manual: RNEngineType.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d9/db6/a00146_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">RangeIndexer.h</div>  </div>
+<div class="title">RNEngineType.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/db6/a00146.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,89 +122,50 @@ $(document).ready(function(){initNavTree('d9/db6/a00146_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/range.hpp&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/range/adaptors.hpp&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/range/algorithm.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/range/algorithm_ext.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>RNEngineType {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/de0/a00050.html">RangeIndexer</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">   38</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a> = boost::sub_range&lt;T&gt;;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a96e5f76ed9de52ebae7dd2cd40a9eca9">   42</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d5/de0/a00050.html#a96e5f76ed9de52ebae7dd2cd40a9eca9">RangeIndexer</a>(T&amp; t) : <a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>(t) {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">   28</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793">lcg64</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a">lcg64_shift</a>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5">mrg2</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3">mrg3</a>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1">yarn2</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7">yarn3</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/ded/a00196.html#a0d22d904ddff0d21494405335e5fc744">IsType</a>(std::string s);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/ded/a00196.html#aff4fcec0502d45699761bc02fe6a7a08">   42</a></span>&#160;<span class="keyword">inline</span> std::size_t <a class="code" href="../../d7/ded/a00196.html#aff4fcec0502d45699761bc02fe6a7a08">ToSizeT</a>(<a class="code" href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(id); }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a4e24f76683b49f5d1bdf33cf33e00031">   45</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>&amp; <a class="code" href="../../d5/de0/a00050.html#a4e24f76683b49f5d1bdf33cf33e00031">SetRange</a>(std::size_t ibegin, std::size_t iend, <span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>.find(name) != <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>.end()) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <span class="keywordflow">throw</span> std::range_error(<span class="stringliteral">&quot;RangeIndexer::SetRange&gt; Name is a duplicate: &quot;</span> + name);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.emplace_back(<a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>(<a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>.begin() + ibegin, <a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>.begin() + iend));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>[name] = <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.size() - 1;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.back();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a5dbd090d955d868a2864e9d90c924a37">   57</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>&amp; <a class="code" href="../../d5/de0/a00050.html#a5dbd090d955d868a2864e9d90c924a37">SetRange</a>(std::size_t ibegin, <span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>.find(name) != <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>.end()) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        <span class="keywordflow">throw</span> std::range_error(<span class="stringliteral">&quot;RangeIndexer::SetRange&gt; Name is a duplicate: &quot;</span> + name);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.emplace_back(<a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>(<a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>.begin() + ibegin, <a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>.end()));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>[name] = <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.size() - 1;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.back();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a68a986acb5835127a354f3e7b9c55466">   69</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>&amp; <a class="code" href="../../d5/de0/a00050.html#a68a986acb5835127a354f3e7b9c55466">GetRange</a>(std::size_t i) { <span class="keywordflow">return</span> <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.at(i); }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ad57aa42a188111017c25de6e708517fa">   72</a></span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">range_type</a>&amp; <a class="code" href="../../d5/de0/a00050.html#ad57aa42a188111017c25de6e708517fa">GetRange</a>(<span class="keyword">const</span> std::string&amp; s)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keyword">auto</span> i = <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>.at(s);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>.at(i);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">   79</a></span>&#160;        std::map&lt;std::string, std::size_t&gt; <a class="code" href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">m_map</a>;    </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">   80</a></span>&#160;        std::vector&lt;range_type&gt;            <a class="code" href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">m_ranges</a>; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">   81</a></span>&#160;        T&amp;                                 <a class="code" href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">m_t</a>;      </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//-----------------------</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">// Helpers</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//-----------------------</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a4f10665aadf9707b6524fa2b3e159004">   90</a></span>&#160;<a class="code" href="../../d5/de0/a00050.html">RangeIndexer&lt;T&gt;</a> <a class="code" href="../../d3/db1/a00200.html#a4f10665aadf9707b6524fa2b3e159004">make_range_indexer</a>(T&amp; t)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d5/de0/a00050.html">RangeIndexer&lt;T&gt;</a>(t);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00050_html_ad57aa42a188111017c25de6e708517fa"><div class="ttname"><a href="../../d5/de0/a00050.html#ad57aa42a188111017c25de6e708517fa">stride::util::RangeIndexer::GetRange</a></div><div class="ttdeci">range_type &amp; GetRange(const std::string &amp;s)</div><div class="ttdoc">Retrieve reference to a range by its name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00072">RangeIndexer.h:72</a></div></div>
-<div class="ttc" id="a00050_html_a96e5f76ed9de52ebae7dd2cd40a9eca9"><div class="ttname"><a href="../../d5/de0/a00050.html#a96e5f76ed9de52ebae7dd2cd40a9eca9">stride::util::RangeIndexer::RangeIndexer</a></div><div class="ttdeci">RangeIndexer(T &amp;t)</div><div class="ttdoc">RangeIndexer holds a reference to the conatiner that it indexes. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00042">RangeIndexer.h:42</a></div></div>
-<div class="ttc" id="a00050_html"><div class="ttname"><a href="../../d5/de0/a00050.html">stride::util::RangeIndexer</a></div><div class="ttdoc">Datastructure to index a container that supports RandomAccessIterators with subranges. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00035">RangeIndexer.h:35</a></div></div>
-<div class="ttc" id="a00050_html_ae95329e734ec2c9aa12b6d204ee3d959"><div class="ttname"><a href="../../d5/de0/a00050.html#ae95329e734ec2c9aa12b6d204ee3d959">stride::util::RangeIndexer::m_ranges</a></div><div class="ttdeci">std::vector&lt; range_type &gt; m_ranges</div><div class="ttdoc">Holds the ranges. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00080">RangeIndexer.h:80</a></div></div>
-<div class="ttc" id="a00050_html_a1b3f7a02302012fd9d233d55e1158ae8"><div class="ttname"><a href="../../d5/de0/a00050.html#a1b3f7a02302012fd9d233d55e1158ae8">stride::util::RangeIndexer::m_map</a></div><div class="ttdeci">std::map&lt; std::string, std::size_t &gt; m_map</div><div class="ttdoc">maps names to subscript values. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00079">RangeIndexer.h:79</a></div></div>
-<div class="ttc" id="a00050_html_a4e24f76683b49f5d1bdf33cf33e00031"><div class="ttname"><a href="../../d5/de0/a00050.html#a4e24f76683b49f5d1bdf33cf33e00031">stride::util::RangeIndexer::SetRange</a></div><div class="ttdeci">range_type &amp; SetRange(std::size_t ibegin, std::size_t iend, const std::string &amp;name)</div><div class="ttdoc">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00045">RangeIndexer.h:45</a></div></div>
-<div class="ttc" id="a00200_html_a4f10665aadf9707b6524fa2b3e159004"><div class="ttname"><a href="../../d3/db1/a00200.html#a4f10665aadf9707b6524fa2b3e159004">stride::util::make_range_indexer</a></div><div class="ttdeci">RangeIndexer&lt; T &gt; make_range_indexer(T &amp;t)</div><div class="ttdoc">Traditional helper to activate template type parameter deduction. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00090">RangeIndexer.h:90</a></div></div>
-<div class="ttc" id="a00050_html_a5dbd090d955d868a2864e9d90c924a37"><div class="ttname"><a href="../../d5/de0/a00050.html#a5dbd090d955d868a2864e9d90c924a37">stride::util::RangeIndexer::SetRange</a></div><div class="ttdeci">range_type &amp; SetRange(std::size_t ibegin, const std::string &amp;name)</div><div class="ttdoc">Set a range, where the end is the end of the container. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00057">RangeIndexer.h:57</a></div></div>
-<div class="ttc" id="a00050_html_a68a986acb5835127a354f3e7b9c55466"><div class="ttname"><a href="../../d5/de0/a00050.html#a68a986acb5835127a354f3e7b9c55466">stride::util::RangeIndexer::GetRange</a></div><div class="ttdeci">range_type &amp; GetRange(std::size_t i)</div><div class="ttdoc">Retrieve reference to a range by its subscipt in the indexer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00069">RangeIndexer.h:69</a></div></div>
-<div class="ttc" id="a00050_html_a26e54368c4764dad9628d4fcd02a320d"><div class="ttname"><a href="../../d5/de0/a00050.html#a26e54368c4764dad9628d4fcd02a320d">stride::util::RangeIndexer::range_type</a></div><div class="ttdeci">boost::sub_range&lt; T &gt; range_type</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00038">RangeIndexer.h:38</a></div></div>
-<div class="ttc" id="a00050_html_afa725a2fc8348c44d9522b6c09364e21"><div class="ttname"><a href="../../d5/de0/a00050.html#afa725a2fc8348c44d9522b6c09364e21">stride::util::RangeIndexer::m_t</a></div><div class="ttdeci">T &amp; m_t</div><div class="ttdoc">refers to container in which ranges are defined. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00081">RangeIndexer.h:81</a></div></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;std::string <a class="code" href="../../d7/ded/a00196.html#a120e2ae5e703cd5a7e1859a1c83ddcec">ToString</a>(<a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> b);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d7/ded/a00196.html#a58e0a5f256c9b615c606f90dabec96b2">ToType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace RNEngineType</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1">stride::RNEngineType::Id::yarn2</a></div></div>
+<div class="ttc" id="a00196_html_aff4fcec0502d45699761bc02fe6a7a08"><div class="ttname"><a href="../../d7/ded/a00196.html#aff4fcec0502d45699761bc02fe6a7a08">stride::RNEngineType::ToSizeT</a></div><div class="ttdeci">std::size_t ToSizeT(Id id)</div><div class="ttdoc">Cast to size_t for indexing. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00042">RNEngineType.h:42</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7">stride::RNEngineType::Id::yarn3</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793">stride::RNEngineType::Id::lcg64</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a">stride::RNEngineType::Id::lcg64_shift</a></div></div>
+<div class="ttc" id="a00196_html_a0d22d904ddff0d21494405335e5fc744"><div class="ttname"><a href="../../d7/ded/a00196.html#a0d22d904ddff0d21494405335e5fc744">stride::RNEngineType::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00032">RNEngineType.cpp:32</a></div></div>
+<div class="ttc" id="a00193_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../dd/df4/a00193.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d1e/a00087_source.html#l00033">ContactLogMode.h:33</a></div></div>
+<div class="ttc" id="a00196_html_a58e0a5f256c9b615c606f90dabec96b2"><div class="ttname"><a href="../../d7/ded/a00196.html#a58e0a5f256c9b615c606f90dabec96b2">stride::RNEngineType::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00049">RNEngineType.cpp:49</a></div></div>
+<div class="ttc" id="a00196_html_a120e2ae5e703cd5a7e1859a1c83ddcec"><div class="ttname"><a href="../../d7/ded/a00196.html#a120e2ae5e703cd5a7e1859a1c83ddcec">stride::RNEngineType::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Convert a type id to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00040">RNEngineType.cpp:40</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5">stride::RNEngineType::Id::mrg2</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192b"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">stride::RNEngineType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Random number engine type ids. We use a subset of engines provided by the trng library. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00028">RNEngineType.h:28</a></div></div>
+<div class="ttc" id="a00196_html_a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3"><div class="ttname"><a href="../../d7/ded/a00196.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3">stride::RNEngineType::Id::mrg3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">RangeIndexer.h</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">RNEngineType.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

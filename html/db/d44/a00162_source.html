@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: StringUtils.h Source File</title>
+<title>Stride Reference Manual: Subject.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 17e1e19</span>
+   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('db/d44/a00162_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">StringUtils.h</div>  </div>
+<div class="title">sim/event/Subject.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/d44/a00162.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,124 +119,28 @@ $(document).ready(function(){initNavTree('db/d44/a00162_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cctype&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d57/a00112.html">Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dae/a00163.html">util/Subject.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// Cannot declare this in sim_event as it has to be declared in enclosing namespace.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/d6d/a00055.html">stride::util::Subject&lt;sim_event::Id&gt;</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#ae33774027798262390fbf95fbabc3f82">   35</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d3/db1/a00200.html#ae33774027798262390fbf95fbabc3f82">FromString</a>(<span class="keyword">const</span> std::string&amp; s)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        std::stringstream ss(s);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        T                 t;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        ss &gt;&gt; t;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> t;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">   45</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">Split</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> std::string&amp; delimiters)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::vector&lt;std::string&gt; tokens;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        boost::algorithm::split(tokens, str, boost::is_any_of(delimiters));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> tokens;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a919ad6efcd17eb2bda30b1c6e044bc3c">   54</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d3/db1/a00200.html#a919ad6efcd17eb2bda30b1c6e044bc3c">Tokenize</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> std::string&amp; delimiters)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::vector&lt;std::string&gt; tokens;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Skip delimiters at beginning.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::string::size_type lastPos = str.find_first_not_of(delimiters, 0);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Find first non-delimiter.</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::string::size_type pos = str.find_first_of(delimiters, lastPos);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">while</span> (std::string::npos != pos || std::string::npos != lastPos) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">// Found a token, add it to the vector.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                tokens.push_back(str.substr(lastPos, pos - lastPos));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="comment">// Skip delimiters.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                lastPos = str.find_first_not_of(delimiters, pos);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="comment">// Find next non-delimiter.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                pos = str.find_first_of(delimiters, lastPos);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> tokens;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a256d75fffdad0f4f49c6e58c69f76e20">   77</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(<span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::stringstream ss;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        ss &lt;&lt; value;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#adb4ae75f64a04f4acd0c562fe2b8add0">   86</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(<span class="keyword">const</span> T&amp; value, <span class="keywordtype">int</span> width, <span class="keywordtype">char</span> fill = <span class="charliteral">&#39; &#39;</span>)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::stringstream ss;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ss &lt;&lt; std::setw(width) &lt;&lt; std::setfill(fill) &lt;&lt; value;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#aa45ab4a5a30f65dcd1bf25c3d095825b">   94</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(<span class="keyword">const</span> std::string&amp; source)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">auto</span>        lower = [](<span class="keywordtype">int</span> c) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> std::tolower(c); };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::string copy;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::transform(source.begin(), source.end(), std::back_inserter(copy), lower);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> copy;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#aeb06057f363c4ad2c5ac5eae719d392f">  103</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#aeb06057f363c4ad2c5ac5eae719d392f">ToUpper</a>(<span class="keyword">const</span> std::string&amp; source)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keyword">auto</span>        upper = [](<span class="keywordtype">int</span> c) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> std::toupper(c); };</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        std::string copy;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::transform(source.begin(), source.end(), std::back_inserter(copy), upper);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> copy;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a9fa614ccd671679a0e1feff6e0f6da33">  112</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#a9fa614ccd671679a0e1feff6e0f6da33">TrimRight</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        std::string str = source;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> str.erase(str.find_last_not_of(t) + 1);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a2c5aacbb4d606af3e43a96e8aad692cf">  119</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#a2c5aacbb4d606af3e43a96e8aad692cf">TrimLeft</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        std::string str = source;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> str.erase(0, source.find_first_not_of(t));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">  126</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d3/db1/a00200.html#a2c5aacbb4d606af3e43a96e8aad692cf">TrimLeft</a>(<a class="code" href="../../d3/db1/a00200.html#a9fa614ccd671679a0e1feff6e0f6da33">TrimRight</a>(source, t), t);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00200_html_a01882a252a5e262d442f9a8b8f64e3ef"><div class="ttname"><a href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at both ends of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00126">StringUtils.h:126</a></div></div>
-<div class="ttc" id="a00200_html_a2c5aacbb4d606af3e43a96e8aad692cf"><div class="ttname"><a href="../../d3/db1/a00200.html#a2c5aacbb4d606af3e43a96e8aad692cf">stride::util::TrimLeft</a></div><div class="ttdeci">std::string TrimLeft(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at left end of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00119">StringUtils.h:119</a></div></div>
-<div class="ttc" id="a00200_html_ae33774027798262390fbf95fbabc3f82"><div class="ttname"><a href="../../d3/db1/a00200.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a></div><div class="ttdeci">T FromString(const std::string &amp;s)</div><div class="ttdoc">Builds a value of type T representation from a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00035">StringUtils.h:35</a></div></div>
-<div class="ttc" id="a00200_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d3/db1/a00200.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00077">StringUtils.h:77</a></div></div>
-<div class="ttc" id="a00200_html_aeb06057f363c4ad2c5ac5eae719d392f"><div class="ttname"><a href="../../d3/db1/a00200.html#aeb06057f363c4ad2c5ac5eae719d392f">stride::util::ToUpper</a></div><div class="ttdeci">std::string ToUpper(const std::string &amp;source)</div><div class="ttdoc">Builds a string with upper case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00103">StringUtils.h:103</a></div></div>
-<div class="ttc" id="a00200_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00045">StringUtils.h:45</a></div></div>
-<div class="ttc" id="a00200_html_aa45ab4a5a30f65dcd1bf25c3d095825b"><div class="ttname"><a href="../../d3/db1/a00200.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a></div><div class="ttdeci">std::string ToLower(const std::string &amp;source)</div><div class="ttdoc">Builds a string with lower case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00094">StringUtils.h:94</a></div></div>
-<div class="ttc" id="a00200_html_a9fa614ccd671679a0e1feff6e0f6da33"><div class="ttname"><a href="../../d3/db1/a00200.html#a9fa614ccd671679a0e1feff6e0f6da33">stride::util::TrimRight</a></div><div class="ttdeci">std::string TrimRight(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at right end of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00112">StringUtils.h:112</a></div></div>
-<div class="ttc" id="a00200_html_a919ad6efcd17eb2bda30b1c6e044bc3c"><div class="ttname"><a href="../../d3/db1/a00200.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Tokenize(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Tokenize a string (in order of occurence) with the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00054">StringUtils.h:54</a></div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">stride::util::Subject</a></div><div class="ttdoc">Template for Subject/Observer (or Publish/Subscribe). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00035">util/Subject.h:35</a></div></div>
+<div class="ttc" id="a00163_html"><div class="ttname"><a href="../../dd/dae/a00163.html">Subject.h</a></div><div class="ttdoc">Interface/Implementation of Subject. </div></div>
+<div class="ttc" id="a00112_html"><div class="ttname"><a href="../../db/d57/a00112.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">StringUtils.h</a></li>
-    <li class="footer">Generated on Fri May 25 2018 13:15:14 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../db/d44/a00162.html">Subject.h</a></li>
+    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
