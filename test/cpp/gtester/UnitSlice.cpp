@@ -38,12 +38,30 @@ class UnitRangeIndex : public ::testing::Test
 public:
 };
 
-typedef ::testing::Types<vector<int>, SegmentedVector<int, 4>, SegmentedVector<int, 4, false>> RandomAccessContainers;
-TYPED_TEST_CASE(UnitRangeIndex, RandomAccessContainers);
+struct Type1
+{
+        using container_t = vector<int>;
+        using range_indexer_t = SliceIndexer<vector<int>>;
+};
+
+struct Type2
+{
+        using container_t = SegmentedVector<int, 4>;
+        using range_indexer_t = SliceIndexer<SegmentedVector<int, 4>>;
+};
+
+struct Type3
+{
+        using container_t = SegmentedVector<int, 4, false>;
+        using range_indexer_t = SliceIndexer<SegmentedVector<int, 4, false>>;
+};
+
+typedef ::testing::Types<Type1, Type2, Type3> TestCombos;
+TYPED_TEST_CASE(UnitRangeIndex, TestCombos);
 
 TYPED_TEST(UnitRangeIndex, Setup)
 {
-        TypeParam c(101);
+        typename TypeParam::container_t c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
         EXPECT_EQ(0, c[0]);
         EXPECT_EQ(1, c[1]);
@@ -53,10 +71,11 @@ TYPED_TEST(UnitRangeIndex, Setup)
 
 TYPED_TEST(UnitRangeIndex, Size1)
 {
-        TypeParam c(101);
+        typename TypeParam::container_t c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
-        SliceIndexer<TypeParam> si(c);
+        //auto si = make_slice_indexer(c);
+        typename TypeParam::range_indexer_t si(c);
         si.Set(0, 10, "first_10");
         si.Set(10, 30, "next_20");
         si.Set(30, 101, "last_71");
@@ -69,7 +88,7 @@ TYPED_TEST(UnitRangeIndex, Size1)
 
 TYPED_TEST(UnitRangeIndex, Size2)
 {
-        TypeParam c(101);
+        typename TypeParam::container_t c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -84,7 +103,7 @@ TYPED_TEST(UnitRangeIndex, Size2)
 
 TYPED_TEST(UnitRangeIndex, Content1)
 {
-        TypeParam c(101);
+        typename TypeParam::container_t c(101);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -103,7 +122,7 @@ TYPED_TEST(UnitRangeIndex, Content1)
 
 TYPED_TEST(UnitRangeIndex, Content2)
 {
-        TypeParam c(101, 0);
+        typename TypeParam::container_t c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -137,7 +156,7 @@ TYPED_TEST(UnitRangeIndex, Content2)
 
 TYPED_TEST(UnitRangeIndex, Resize1)
 {
-        TypeParam c(101, 0);
+        typename TypeParam::container_t c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -146,7 +165,7 @@ TYPED_TEST(UnitRangeIndex, Resize1)
         si.Set(30, "last_71");
         const auto& rvec = si.Get();
 
-        if (!is_same<TypeParam, vector<int>>::value) {
+        if (!is_same<typename TypeParam::container_t, vector<int>>::value) {
                 c.resize(201);
 
                 int accum = 0;
@@ -170,7 +189,7 @@ TYPED_TEST(UnitRangeIndex, Resize1)
 
 TYPED_TEST(UnitRangeIndex, Resize2)
 {
-        TypeParam c(101, 0);
+        typename TypeParam::container_t c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -178,7 +197,7 @@ TYPED_TEST(UnitRangeIndex, Resize2)
         si.Set(10, 30, "next_20");
         si.Set(30, "last_71");
 
-        if (!is_same<TypeParam, vector<int>>::value) {
+        if (!is_same<typename TypeParam::container_t, vector<int>>::value) {
                 c.resize(201);
                 si.Set(101, "new_last");
                 boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
@@ -188,7 +207,7 @@ TYPED_TEST(UnitRangeIndex, Resize2)
 
 TYPED_TEST(UnitRangeIndex, Resize3)
 {
-        TypeParam c(101, 0);
+        typename TypeParam::container_t c(101, 0);
         boost::range::copy(boost::irange(0, 101), c.begin());
 
         auto si = make_slice_indexer(c);
@@ -196,7 +215,7 @@ TYPED_TEST(UnitRangeIndex, Resize3)
         si.Set(10, 30, "next_20");
         si.Set(30, "last_71");
 
-        if (!is_same<TypeParam, vector<int>>::value) {
+        if (!is_same<typename TypeParam::container_t, vector<int>>::value) {
                 c.resize(201);
 
                 si.Set(101, "new_last");
