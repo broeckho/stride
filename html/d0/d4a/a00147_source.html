@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ae4ac32</span>
+   &#160;<span id="projectnumber">- generated for commit 957baf5</span>
    </div>
   </td>
  </tr>
@@ -183,30 +183,29 @@ $(document).ready(function(){initNavTree('d0/d4a/a00147_source.html','../../');}
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">case</span> Id::yarn2: <a class="code" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">para_seed</a>(<a class="code" href="../../d5/de0/a00050.html#a769a08942e570dd9d257f12e5db009c5">m_yarn2</a>, info); <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">case</span> Id::yarn3: <a class="code" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">para_seed</a>(<a class="code" href="../../d5/de0/a00050.html#a7488be1e53338d26888543c134065392">m_yarn3</a>, info); <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">   87</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">RNManager::para_seed</a>(vector&lt;T&gt;&amp; engines, <span class="keyword">const</span> <a class="code" href="../../d2/d79/a00051.html">Info</a>&amp; info)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">auto</span> state        = info.<a class="code" href="../../d2/d79/a00051.html#ae73dd6b56912771808eeb8d9aa095389">m_state</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        engines.resize(<a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (state.empty()) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>; ++i) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        engines[i].seed(<a class="code" href="../../d5/de0/a00050.html#af9b36fdeadaea938995a293c940b90a4">m_seed</a>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        engines[i].split(m_stream_count, i);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                stringstream ss(state);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>; ++i) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        ss &gt;&gt; engines[i];</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        engines[i].split(m_stream_count, i);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">RNManager::para_seed</a>(vector&lt;T&gt;&amp; engines, <span class="keyword">const</span> <a class="code" href="../../d2/d79/a00051.html">Info</a>&amp; info)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">auto</span> state        = info.<a class="code" href="../../d2/d79/a00051.html#ae73dd6b56912771808eeb8d9aa095389">m_state</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        engines.resize(<a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (state.empty()) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>; ++i) {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        engines[i].seed(<a class="code" href="../../d5/de0/a00050.html#af9b36fdeadaea938995a293c940b90a4">m_seed</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        engines[i].split(m_stream_count, i);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                stringstream ss(state);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">m_stream_count</a>; ++i) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                        ss &gt;&gt; engines[i];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        engines[i].split(m_stream_count, i);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace stride</span></div>
 <div class="ttc" id="a00050_html_af9b36fdeadaea938995a293c940b90a4"><div class="ttname"><a href="../../d5/de0/a00050.html#af9b36fdeadaea938995a293c940b90a4">stride::util::RNManager::m_seed</a></div><div class="ttdeci">unsigned long m_seed</div><div class="ttdoc">Actual seed used with random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00117">RNManager.h:117</a></div></div>
 <div class="ttc" id="a00198_html_a1437dc582cd8fb70c6873c692adde468"><div class="ttname"><a href="../../d7/da0/a00198.html#a1437dc582cd8fb70c6873c692adde468">stride::util::para_info</a></div><div class="ttdeci">void para_info(stringstream &amp;ss, const vector&lt; T &gt; &amp;engines)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00035">RNManager.cpp:35</a></div></div>
 <div class="ttc" id="a00194_html_af529300a78547c29c95b81ad8ac62afe"><div class="ttname"><a href="../../dc/d57/a00194.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d82/a00091_source.html#l00058">ContactPoolType.cpp:58</a></div></div>
@@ -219,7 +218,7 @@ $(document).ready(function(){initNavTree('d0/d4a/a00147_source.html','../../');}
 <div class="ttc" id="a00050_html_a56d4de95212dccdd02652c477673297c"><div class="ttname"><a href="../../d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c">stride::util::RNManager::m_stream_count</a></div><div class="ttdeci">unsigned int m_stream_count</div><div class="ttdoc">Number of streams set up with the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00118">RNManager.h:118</a></div></div>
 <div class="ttc" id="a00050_html_a8c78f40f38b8a3fc25e2c21be2de505a"><div class="ttname"><a href="../../d5/de0/a00050.html#a8c78f40f38b8a3fc25e2c21be2de505a">stride::util::RNManager::Initialize</a></div><div class="ttdeci">void Initialize(const Info &amp;info=Info())</div><div class="ttdoc">Initalize with data in Info. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00069">RNManager.cpp:69</a></div></div>
 <div class="ttc" id="a00198_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d7/da0/a00198.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00077">StringUtils.h:77</a></div></div>
-<div class="ttc" id="a00050_html_a22463a9beebea4645b63f92ae028adc2"><div class="ttname"><a href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">stride::util::RNManager::para_seed</a></div><div class="ttdeci">void para_seed(std::vector&lt; T &gt; &amp;engines, const Info &amp;info)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00087">RNManager.cpp:87</a></div></div>
+<div class="ttc" id="a00050_html_a22463a9beebea4645b63f92ae028adc2"><div class="ttname"><a href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">stride::util::RNManager::para_seed</a></div><div class="ttdeci">void para_seed(std::vector&lt; T &gt; &amp;engines, const Info &amp;info)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00086">RNManager.cpp:86</a></div></div>
 <div class="ttc" id="a00050_html_a7488be1e53338d26888543c134065392"><div class="ttname"><a href="../../d5/de0/a00050.html#a7488be1e53338d26888543c134065392">stride::util::RNManager::m_yarn3</a></div><div class="ttdeci">std::vector&lt; trng::yarn3 &gt; m_yarn3</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00127">RNManager.h:127</a></div></div>
 <div class="ttc" id="a00050_html_a74b3b62e58d9dc935287af1f403e3a88"><div class="ttname"><a href="../../d5/de0/a00050.html#a74b3b62e58d9dc935287af1f403e3a88">stride::util::RNManager::m_type_id</a></div><div class="ttdeci">RNEngineType::Id m_type_id</div><div class="ttdoc">Identifies type of random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00119">RNManager.h:119</a></div></div>
 <div class="ttc" id="a00050_html_aef24d7bf005b199b20bbc26111bac570"><div class="ttname"><a href="../../d5/de0/a00050.html#aef24d7bf005b199b20bbc26111bac570">stride::util::RNManager::m_mrg2</a></div><div class="ttdeci">std::vector&lt; trng::mrg2 &gt; m_mrg2</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00124">RNManager.h:124</a></div></div>
@@ -234,7 +233,7 @@ $(document).ready(function(){initNavTree('d0/d4a/a00147_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d4a/a00147.html">RNManager.cpp</a></li>
-    <li class="footer">Generated on Fri May 25 2018 16:15:37 for Stride Reference Manual by
+    <li class="footer">Generated on Fri May 25 2018 19:51:33 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
