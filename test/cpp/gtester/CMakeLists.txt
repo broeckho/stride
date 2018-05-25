@@ -29,8 +29,8 @@ set(SRC
     main.cpp
     BatchRuns.cpp
     ScenarioData.cpp
-    UnitRange.cpp
-    UnitSlice.cpp
+    UnitSlice1.cpp
+    UnitSlice2.cpp
     UnitSegmentedVector.cpp
     UnitSVIterator.cpp
 )

@@ -23,15 +23,16 @@
 #include <boost/range/adaptors.hpp>
 #include <boost/range/algorithm.hpp>
 #include <boost/range/algorithm_ext.hpp>
+#include <iterator>
 
 namespace stride {
 namespace util {
 
 /**
- * Datastructure to index a container that supports RandomAccessIterators with ranges.
- * We store those ranges in order in a vector and expose the vector because processing
+ * Datastructure to index a container (supporting RandomAccessIterators) with slices.
+ * We store those slices in order in a vector and expose the vector because processing
  * effiency may dictate that we retrieve the in that order. They can also be retrieved
- * by identifier.
+ * by identifier (defaults to a string).
  * @tparam T    Type of the container in whom the ranges are indexed.
  * @tparam Id   Type of Id that can be useld to retrieve the ranges.
  */
@@ -46,31 +47,32 @@ public:
         explicit SliceIndexer(T& t) : m_t(t) {}
 
         /// Retrieve reference to a range by its Id.
-        range_type& Get(const Id& s) { return m_ranges.at(m_map.at(s)); }
+        range_type& Get(const Id& s) { return m_slices.at(m_map.at(s)); }
 
         /// Retrieve const reference to a range by its Id.
-        const range_type& Get(const Id& s) const { return m_ranges.at(m_map.at(s)); }
+        const range_type& Get(const Id& s) const { return m_slices.at(m_map.at(s)); }
 
         /// Retrieve all the ranges,
-        const std::vector<range_type>& Get() { return m_ranges; }
+        const std::vector<range_type>& Get() { return m_slices; }
 
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const Id& name)
         {
                 check(name);
-                m_ranges.emplace_back(std::move(make_range(ibegin, iend)));
-                m_map[name] = m_ranges.size() - 1;
-                return m_ranges.back();
+                m_slices.emplace_back(range_type(m_t, ibegin, iend));
+                m_map[name] = m_slices.size() - 1;
+                return m_slices.back();
         }
 
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const Id& name)
         {
                 check(name);
-                m_ranges.emplace_back(std::move(make_range(ibegin, m_t.size())));
-                m_map[name] = m_ranges.size() - 1;
-                return m_ranges.back();
+                m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
+                m_map[name] = m_slices.size() - 1;
+                return m_slices.back();
         }
+
 private:
         /// Check Id map for duplicate; throw iff duplicate.
         void check(const Id& name)
@@ -80,16 +82,10 @@ private:
                 }
         }
 
-        ///
-        range_type make_range(std::size_t ibegin, std::size_t iend)
-        {
-                return range_type(m_t, ibegin, iend);
-        }
-
 private:
-        std::map<Id, std::size_t> m_map;     ///< Maps Id values to subscripts.
-        std::vector<range_type>  m_ranges;   ///< Contains the ranges.
-        T&                       m_t;        ///< Refernec to container that gets sliced into ranges.
+        std::map<Id, std::size_t> m_map;    ///< Maps Id values to subscripts.
+        std::vector<range_type>   m_slices; ///< Contains the slices.
+        T&                        m_t;      ///< Refernec to container that gets sliced into ranges.
 };
 
 //-----------------------
