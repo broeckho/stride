@@ -57,10 +57,8 @@ public:
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const Id& name)
         {
-                if (m_map.find(name) != m_map.end()) {
-                        throw std::range_error("Indexer::Set> Name is a duplicate: " + name);
-                }
-                m_ranges.emplace_back(range_type(m_t, ibegin, iend));
+                check(name);
+                m_ranges.emplace_back(std::move(make_range(ibegin, iend)));
                 m_map[name] = m_ranges.size() - 1;
                 return m_ranges.back();
         }
@@ -68,12 +66,24 @@ public:
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const Id& name)
         {
+                check(name);
+                m_ranges.emplace_back(std::move(make_range(ibegin, m_t.size())));
+                m_map[name] = m_ranges.size() - 1;
+                return m_ranges.back();
+        }
+private:
+        /// Check Id map for duplicate; throw iff duplicate.
+        void check(const Id& name)
+        {
                 if (m_map.find(name) != m_map.end()) {
                         throw std::range_error("Indexer::Set> Name is a duplicate: " + name);
                 }
-                m_ranges.emplace_back(range_type(m_t, ibegin, m_t.size()));
-                m_map[name] = m_ranges.size() - 1;
-                return m_ranges.back();
+        }
+
+        ///
+        range_type make_range(std::size_t ibegin, std::size_t iend)
+        {
+                return range_type(m_t, ibegin, iend);
         }
 
 private:
