@@ -8,6 +8,7 @@ var a00050 =
     [ "GetGenerator", "d5/de0/a00050.html#a6508932485d419a6e7ab3cac60754ae6", null ],
     [ "RandomShuffle", "d5/de0/a00050.html#a5a7dc58c76f112c8d808866cac5a272d", null ],
     [ "Initialize", "d5/de0/a00050.html#a8c78f40f38b8a3fc25e2c21be2de505a", null ],
+    [ "para_seed", "d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2", null ],
     [ "m_seed", "d5/de0/a00050.html#af9b36fdeadaea938995a293c940b90a4", null ],
     [ "m_stream_count", "d5/de0/a00050.html#a56d4de95212dccdd02652c477673297c", null ],
     [ "m_type_id", "d5/de0/a00050.html#a74b3b62e58d9dc935287af1f403e3a88", null ],

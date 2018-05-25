@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ed43f82</span>
+   &#160;<span id="projectnumber">- generated for commit ae4ac32</span>
    </div>
   </td>
  </tr>
@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('d5/de0/a00050.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../dc/d1c/a00504.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -158,6 +159,12 @@ D::result_type()&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a 
 <tr class="memitem:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a8c78f40f38b8a3fc25e2c21be2de505a">Initialize</a> (const <a class="el" href="../../d2/d79/a00051.html">Info</a> &amp;info=<a class="el" href="../../d2/d79/a00051.html">Info</a>())</td></tr>
 <tr class="memdesc:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize with data in <a class="el" href="../../d2/d79/a00051.html" title="POD representation of the RNManager&#39;s state. ">Info</a>.  <a href="#a8c78f40f38b8a3fc25e2c21be2de505a">More...</a><br/></td></tr>
 <tr class="separator:a8c78f40f38b8a3fc25e2c21be2de505a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a22463a9beebea4645b63f92ae028adc2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a22463a9beebea4645b63f92ae028adc2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2">para_seed</a> (std::vector&lt; T &gt; &amp;engines, const <a class="el" href="../../d2/d79/a00051.html">Info</a> &amp;info)</td></tr>
+<tr class="separator:a22463a9beebea4645b63f92ae028adc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -213,9 +220,9 @@ Private Attributes</h2></td></tr>
 
 <p>Initializes to default engine( trng::mrg2 with seed 1). </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00067">67</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00042">42</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>.</p>
+<p>References <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>.</p>
 
 </div>
 </div>
@@ -287,9 +294,9 @@ Private Attributes</h2></td></tr>
 
 <p>Return the state of the random engine. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00073">73</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00048">48</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00119">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00120">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00121">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00122">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00114">m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00054">stride::util::RNManager::Info::m_state</a>, <a class="el" href="../../db/d48/a00148_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00115">m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../db/d48/a00148_source.html#l00116">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_yarn2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_yarn3</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00035">stride::util::para_info()</a>, and <a class="el" href="../../de/d38/a00160_source.html#l00077">stride::util::ToString()</a>.</p>
+<p>References <a class="el" href="../../db/d48/a00148_source.html#l00122">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00125">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00117">m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00054">stride::util::RNManager::Info::m_state</a>, <a class="el" href="../../db/d48/a00148_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00118">m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../db/d48/a00148_source.html#l00119">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00126">m_yarn2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00127">m_yarn3</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00035">stride::util::para_info()</a>, and <a class="el" href="../../de/d38/a00160_source.html#l00077">stride::util::ToString()</a>.</p>
 
 </div>
 </div>
@@ -339,7 +346,7 @@ template&lt;typename D &gt; </div>
 
 <p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00077">77</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00119">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00120">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00121">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00122">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00116">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_yarn2</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00124">m_yarn3</a>.</p>
+<p>References <a class="el" href="../../db/d48/a00148_source.html#l00122">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00125">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00119">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00126">m_yarn2</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00127">m_yarn3</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d2/da3/a00115_source.html#l00035">stride::Immunizer::Random()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00039">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d9/dcc/a00102_source.html#l00046">stride::DiseaseSeeder::Seed()</a>.</p>
 
@@ -397,7 +404,7 @@ template&lt;typename RandomIt &gt; </div>
 
 <p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00097">97</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00119">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00120">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00121">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00122">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00116">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_yarn2</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00124">m_yarn3</a>.</p>
+<p>References <a class="el" href="../../db/d48/a00148_source.html#l00122">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00125">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00119">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00126">m_yarn2</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00127">m_yarn3</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d2/da3/a00115_source.html#l00035">stride::Immunizer::Random()</a>.</p>
 
@@ -419,11 +426,53 @@ template&lt;typename RandomIt &gt; </div>
 
 <p>Initalize with data in <a class="el" href="../../d2/d79/a00051.html" title="POD representation of the RNManager&#39;s state. ">Info</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00094">94</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00069">69</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
 
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00119">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00120">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00121">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00122">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00114">m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00054">stride::util::RNManager::Info::m_state</a>, <a class="el" href="../../db/d48/a00148_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00115">m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../db/d48/a00148_source.html#l00116">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_yarn2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_yarn3</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00045">stride::util::para_seed()</a>, and <a class="el" href="../../da/d82/a00091_source.html#l00058">stride::ContactPoolType::ToType()</a>.</p>
+<p>References <a class="el" href="../../db/d48/a00148_source.html#l00122">m_lcg64</a>, <a class="el" href="../../db/d48/a00148_source.html#l00123">m_lcg64_shift</a>, <a class="el" href="../../db/d48/a00148_source.html#l00124">m_mrg2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00125">m_mrg3</a>, <a class="el" href="../../db/d48/a00148_source.html#l00051">stride::util::RNManager::Info::m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00117">m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00055">stride::util::RNManager::Info::m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00118">m_stream_count</a>, <a class="el" href="../../db/d48/a00148_source.html#l00056">stride::util::RNManager::Info::m_type</a>, <a class="el" href="../../db/d48/a00148_source.html#l00119">m_type_id</a>, <a class="el" href="../../db/d48/a00148_source.html#l00126">m_yarn2</a>, <a class="el" href="../../db/d48/a00148_source.html#l00127">m_yarn3</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00087">para_seed()</a>, and <a class="el" href="../../da/d82/a00091_source.html#l00058">stride::ContactPoolType::ToType()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00067">RNManager()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00042">RNManager()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22463a9beebea4645b63f92ae028adc2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::util::RNManager::para_seed </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>engines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d2/d79/a00051.html">Info</a> &amp;&#160;</td>
+          <td class="paramname"><em>info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00087">87</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">RNManager.cpp</a>.</p>
+
+<p>References <a class="el" href="../../db/d48/a00148_source.html#l00117">m_seed</a>, <a class="el" href="../../db/d48/a00148_source.html#l00054">stride::util::RNManager::Info::m_state</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00118">m_stream_count</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>.</p>
 
 </div>
 </div>
@@ -448,9 +497,9 @@ template&lt;typename RandomIt &gt; </div>
 
 <p>Actual seed used with random engine. </p>
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00114">114</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00117">117</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, and <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../d0/d4a/a00147_source.html#l00087">para_seed()</a>.</p>
 
 </div>
 </div>
@@ -474,9 +523,9 @@ template&lt;typename RandomIt &gt; </div>
 
 <p>Number of streams set up with the engine. </p>
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00115">115</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00118">118</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, and <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../d0/d4a/a00147_source.html#l00087">para_seed()</a>.</p>
 
 </div>
 </div>
@@ -500,9 +549,9 @@ template&lt;typename RandomIt &gt; </div>
 
 <p>Identifies type of random engine. </p>
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00116">116</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00119">119</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -524,9 +573,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00119">119</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00122">122</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -548,9 +597,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00120">120</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00123">123</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -572,9 +621,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00121">121</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00124">124</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -596,9 +645,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00122">122</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00125">125</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -620,9 +669,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00123">123</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00126">126</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -644,9 +693,9 @@ template&lt;typename RandomIt &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00124">124</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
+<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00127">127</a> of file <a class="el" href="../../db/d48/a00148_source.html">RNManager.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00073">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00094">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
+<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00077">GetGenerator()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00048">GetInfo()</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00069">Initialize()</a>, and <a class="el" href="../../db/d48/a00148_source.html#l00097">RandomShuffle()</a>.</p>
 
 </div>
 </div>
@@ -660,7 +709,7 @@ template&lt;typename RandomIt &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/da2/a00192.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/da0/a00198.html">util</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">RNManager</a></li>
-    <li class="footer">Generated on Fri May 25 2018 15:21:59 for Stride Reference Manual by
+    <li class="footer">Generated on Fri May 25 2018 16:15:38 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

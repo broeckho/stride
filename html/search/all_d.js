@@ -1,7 +1,7 @@
 var searchData=
 [
   ['para_5finfo',['para_info',['../d7/da0/a00198.html#a1437dc582cd8fb70c6873c692adde468',1,'stride::util']]],
-  ['para_5fseed',['para_seed',['../d7/da0/a00198.html#a0c42ba6e336bed67e5a0bdd053802c2a',1,'stride::util::para_seed(vector&lt; T &gt; &amp;engines, unsigned int stream_count, unsigned long seed)'],['../d7/da0/a00198.html#a3457bcd24475b5a21953b08e7137736d',1,'stride::util::para_seed(vector&lt; T &gt; &amp;engines, unsigned int stream_count, const string &amp;state)']]],
+  ['para_5fseed',['para_seed',['../d5/de0/a00050.html#a22463a9beebea4645b63f92ae028adc2',1,'stride::util::RNManager']]],
   ['participateinsurvey',['ParticipateInSurvey',['../db/df3/a00034.html#a6c27c93e351ca63aa6e3a055cd9110b2',1,'stride::Person']]],
   ['person',['Person',['../db/df3/a00034.html',1,'stride']]],
   ['person',['Person',['../db/df3/a00034.html#a991cf4f69af6c6c75bf8a628dcccf986',1,'stride::Person::Person()'],['../db/df3/a00034.html#a145baff18e608df0c896ddf801786898',1,'stride::Person::Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)']]],
@@ -11,8 +11,8 @@ var searchData=
   ['personsfile',['PersonsFile',['../dc/d87/a00032.html#ab2c1e70237152817647dded0f5906c6b',1,'stride::output::PersonsFile']]],
   ['personsfile_2ecpp',['PersonsFile.cpp',['../d2/df5/a00137.html',1,'']]],
   ['personsfile_2eh',['PersonsFile.h',['../d4/ddd/a00138.html',1,'']]],
-  ['personsviewer',['PersonsViewer',['../d1/d6f/a00063.html#a942188b53eccb181ceb8be3866fe64c6',1,'stride::viewers::PersonsViewer']]],
   ['personsviewer',['PersonsViewer',['../d1/d6f/a00063.html',1,'stride::viewers']]],
+  ['personsviewer',['PersonsViewer',['../d1/d6f/a00063.html#a942188b53eccb181ceb8be3866fe64c6',1,'stride::viewers::PersonsViewer']]],
   ['personsviewer_2ecpp',['PersonsViewer.cpp',['../de/d14/a00139.html',1,'']]],
   ['personsviewer_2eh',['PersonsViewer.h',['../d5/db1/a00140.html',1,'']]],
   ['pop_5fback',['pop_back',['../d7/d46/a00002.html#a4e0b15a5f6a72420feedc9a006d17fa7',1,'stride::util::SegmentedVector']]],
