@@ -80,7 +80,6 @@ void RNManager::Initialize(const Info& info)
                 case Id::yarn2: para_seed(m_yarn2, info); break;
                 case Id::yarn3: para_seed(m_yarn3, info); break;
         }
-
 }
 
 template <typename T>

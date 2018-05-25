@@ -9,6 +9,7 @@ from pystride.Simulation import Simulation
 
 def measureSusceptiblesClustering(sim, timestep):
     """
+        Measure degree of clusterng among susceptible individuals.
     """
     if timestep == 9:
         # Count contacts between susceptibles after 10 timesteps
@@ -16,12 +17,14 @@ def measureSusceptiblesClustering(sim, timestep):
 
 def seedInfection(sim, timestep):
     """
+        Seed the population with infection.
     """
     if timestep == 9:
         pass
 
 def runBaseline():
     """
+        Execute the baseline case.
     """
     sim = Simulation()
     # Set parameters
