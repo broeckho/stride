@@ -39,33 +39,8 @@ void para_info(stringstream& ss, const vector<T>& engines)
         }
 }
 
-// This function is used as a quick utility routine.
-// Seed a vector of random number engines and split them in parallel streams.
-template <typename T>
-void para_seed(vector<T>& engines, unsigned int stream_count, unsigned long seed)
-{
-        engines.resize(stream_count);
-        for (size_t i = 0; i < stream_count; ++i) {
-                engines[i].seed(seed);
-                engines[i].split(stream_count, i);
-        }
-}
-
-// This function is used as a quick utility routine
-// Seed the state of a vector random number engines and split them in parallel streams.
-template <typename T>
-void para_seed(vector<T>& engines, unsigned int stream_count, const string& state)
-{
-        engines.resize(stream_count);
-        stringstream ss(state);
-        for (size_t i = 0; i < stream_count; ++i) {
-                ss >> engines[i];
-                engines[i].split(stream_count, i);
-        }
-}
-
 RNManager::RNManager(const Info& info)
-    : m_seed(), m_stream_count(), m_type_id(), m_lcg64(), m_lcg64_shift(), m_mrg2(), m_mrg3(), m_yarn2(), m_yarn3()
+        : m_seed(), m_stream_count(), m_type_id(), m_lcg64(), m_lcg64_shift(), m_mrg2(), m_mrg3(), m_yarn2(), m_yarn3()
 {
         Initialize(info);
 }
@@ -97,23 +72,32 @@ void RNManager::Initialize(const Info& info)
         m_stream_count = info.m_stream_count;
         m_type_id      = ToType(info.m_type);
 
-        if (info.m_state.empty()) {
-                switch (m_type_id) {
-                case Id::lcg64: para_seed(m_lcg64, m_stream_count, m_seed); break;
-                case Id::lcg64_shift: para_seed(m_lcg64_shift, m_stream_count, m_seed); break;
-                case Id::mrg2: para_seed(m_mrg2, m_stream_count, m_seed); break;
-                case Id::mrg3: para_seed(m_mrg3, m_stream_count, m_seed); break;
-                case Id::yarn2: para_seed(m_yarn2, m_stream_count, m_seed); break;
-                case Id::yarn3: para_seed(m_yarn3, m_stream_count, m_seed); break;
+        switch (m_type_id) {
+                case Id::lcg64: para_seed(m_lcg64, info); break;
+                case Id::lcg64_shift: para_seed(m_lcg64_shift, info); break;
+                case Id::mrg2: para_seed(m_mrg2, info); break;
+                case Id::mrg3: para_seed(m_mrg3, info); break;
+                case Id::yarn2: para_seed(m_yarn2, info); break;
+                case Id::yarn3: para_seed(m_yarn3, info); break;
+        }
+
+}
+
+template <typename T>
+void RNManager::para_seed(vector<T>& engines, const Info& info)
+{
+        auto state        = info.m_state;
+        engines.resize(m_stream_count);
+        if (state.empty()) {
+                for (size_t i = 0; i < m_stream_count; ++i) {
+                        engines[i].seed(m_seed);
+                        engines[i].split(m_stream_count, i);
                 }
         } else {
-                switch (m_type_id) {
-                case Id::lcg64: para_seed(m_lcg64, m_stream_count, info.m_state); break;
-                case Id::lcg64_shift: para_seed(m_lcg64_shift, m_stream_count, info.m_state); break;
-                case Id::mrg2: para_seed(m_mrg2, m_stream_count, info.m_state); break;
-                case Id::mrg3: para_seed(m_mrg3, m_stream_count, info.m_state); break;
-                case Id::yarn2: para_seed(m_yarn2, m_stream_count, info.m_state); break;
-                case Id::yarn3: para_seed(m_yarn3, m_stream_count, info.m_state); break;
+                stringstream ss(state);
+                for (size_t i = 0; i < m_stream_count; ++i) {
+                        ss >> engines[i];
+                        engines[i].split(m_stream_count, i);
                 }
         }
 }

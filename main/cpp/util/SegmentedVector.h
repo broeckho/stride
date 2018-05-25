@@ -251,18 +251,7 @@ public:
         void resize(size_type new_size, const value_type& value)
         {
                 if (new_size < size()) {
-                        if (Safe) {
-                                for (size_type i = m_size - 1; new_size - 1 < i; --i) {
-                                        pop_back();
-                                }
-                        } else {
-                                const size_type new_block_count = 1 + (new_size - 1) / N;
-                                while (new_block_count < get_block_count()) {
-                                        delete[] m_blocks[m_blocks.size() - 1];
-                                        m_blocks.pop_back();
-                                }
-                                m_size = new_size;
-                        }
+                        resize(new_size);
                 } else if (new_size > size()) {
                         for (size_type i = size(); i < new_size; ++i) {
                                 push_back(value);

@@ -54,17 +54,17 @@ TYPED_TEST(UnitSliceIndex2, Resize1)
         c.resize(201);
 
         int accum = 0;
-        for (auto e : rvec[0]) {
+        for (auto e : si.Get("first_10")) {
                 accum += e;
         }
         EXPECT_EQ(45, accum);
 
-        auto s1 = si.Get("next_20");
+        auto s1 = rvec[1];
         for (size_t i = 0; i < s1.size(); ++i) {
                 EXPECT_EQ(i + 10, s1[i]);
         }
 
-        auto s2   = si.Get("last_71");
+        auto s2   = rvec[2];
         int  sub2 = 30;
         for (auto it = s2.begin(); it < s2.end(); ++it) {
                 EXPECT_EQ(sub2++, *it);
