@@ -32,11 +32,11 @@ namespace util {
  * Datastructure to index a container (supporting RandomAccessIterators) with slices.
  * We store those slices in order in a vector and expose the vector because processing
  * effiency may dictate that we retrieve the in that order. They can also be retrieved
- * by identifier (defaults to a string).
+ * by ket (key type defaults to std::string).
  * @tparam T    Type of the container in whom the ranges are indexed.
- * @tparam Id   Type of Id that can be useld to retrieve the ranges.
+ * @tparam Key   Type of Id that can be useld to retrieve the ranges.
  */
-template <typename T, typename Id = std::string>
+template <typename T, typename Key = std::string>
 class SliceIndexer
 {
 public:
@@ -44,48 +44,41 @@ public:
 
 public:
         /// SliceIndexer holds a reference to the conatiner that it indexes.
-        explicit SliceIndexer(T& t) : m_t(t) {}
+        explicit SliceIndexer(T& t) : m_map(), m_slices(), m_t(t) {}
 
-        /// Retrieve reference to a range by its Id.
-        range_type& Get(const Id& s) { return m_slices.at(m_map.at(s)); }
+        /// Retrieve reference to a range by its key.
+        range_type& Get(const Key& s) { return m_slices.at(m_map.at(s)); }
 
         /// Retrieve const reference to a range by its Id.
-        const range_type& Get(const Id& s) const { return m_slices.at(m_map.at(s)); }
+        const range_type& Get(const Key& s) const { return m_slices.at(m_map.at(s)); }
 
         /// Retrieve all the ranges,
         const std::vector<range_type>& Get() { return m_slices; }
 
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
-        range_type& Set(std::size_t ibegin, std::size_t iend, const Id& name)
+        range_type& Set(std::size_t ibegin, std::size_t iend, const Key& name)
         {
-                check(name);
+                assert(m_map.find(name) != m_map.end() && "Name is a duplicate: " + name);
+                assert(0 < ibegin && iend <= m_t.size() && "Bad subscript!");
                 m_slices.emplace_back(range_type(m_t, ibegin, iend));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
         }
 
         /// Set a range, where the end is the end of the container.
-        range_type& Set(std::size_t ibegin, const Id& name)
+        range_type& Set(std::size_t ibegin, const Key& name)
         {
-                check(name);
+                assert(m_map.find(name) != m_map.end() && "Name is a duplicate: " + name);
+                assert(0 < ibegin && "Bad subscript!");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
         }
 
 private:
-        /// Check Id map for duplicate; throw iff duplicate.
-        void check(const Id& name)
-        {
-                if (m_map.find(name) != m_map.end()) {
-                        throw std::range_error("Indexer::Set> Name is a duplicate: " + name);
-                }
-        }
-
-private:
-        std::map<Id, std::size_t> m_map;    ///< Maps Id values to subscripts.
-        std::vector<range_type>   m_slices; ///< Contains the slices.
-        T&                        m_t;      ///< Refernec to container that gets sliced into ranges.
+        std::map<Key, std::size_t> m_map;    ///< Maps key values to subscripts.
+        std::vector<range_type>    m_slices; ///< Contains the slices.
+        T&                         m_t;      ///< Refernec to container that gets sliced into ranges.
 };
 
 //-----------------------
