@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get',['Get',['../d6/d2d/a00047.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../dc/dee/a00053.html#ae333d2bbdb2aa438790d597443fd8055',1,'stride::util::SliceIndexer::Get(const Id &amp;s)'],['../dc/dee/a00053.html#a3e918319070ebe379bd999ab8c97105a',1,'stride::util::SliceIndexer::Get(const Id &amp;s) const '],['../dc/dee/a00053.html#a15f2262c91293f087fb94465f6475f7e',1,'stride::util::SliceIndexer::Get()'],['../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
+  ['get',['Get',['../d6/d2d/a00047.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../dc/dee/a00053.html#ac63541daeed03c7731fb820005e64f06',1,'stride::util::SliceIndexer::Get(const Key &amp;s)'],['../dc/dee/a00053.html#aaa3ea63497e88e0f8673cecd56de8b57',1,'stride::util::SliceIndexer::Get(const Key &amp;s) const '],['../dc/dee/a00053.html#a7c0b86821b30ab6830b3846231b52b9f',1,'stride::util::SliceIndexer::Get()'],['../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
   ['get_5fblock_5fcount',['get_block_count',['../d7/d46/a00002.html#a87837cab9ccde57c5179dc7f9245f9fc',1,'stride::util::SegmentedVector']]],
   ['get_5fchunk',['get_chunk',['../d7/d46/a00002.html#a4f98e9e54da37bbf7c6ed0c2b40361d9',1,'stride::util::SegmentedVector']]],
   ['get_5felements_5fper_5fblock',['get_elements_per_block',['../d7/d46/a00002.html#aa93e6b50e8a1f177829b52d8a41ce979',1,'stride::util::SegmentedVector']]],

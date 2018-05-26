@@ -68,7 +68,7 @@ var hierarchy =
     [ "stride::util::RNManager::Info", "d2/d79/a00051.html", null ],
     [ "stride::util::RunConfigManager", "d1/d84/a00052.html", null ],
     [ "stride::util::SegmentedVector< T, N, Safe >", "d7/d46/a00002.html", null ],
-    [ "stride::util::SliceIndexer< T, Id >", "dc/dee/a00053.html", null ],
+    [ "stride::util::SliceIndexer< T, Key >", "dc/dee/a00053.html", null ],
     [ "stride::util::Stopwatch< T >", "d1/dea/a00054.html", null ],
     [ "stride::util::Subject< E >", "d4/d6d/a00055.html", null ],
     [ "stride::util::TimeStamp", "d1/d22/a00057.html", null ],

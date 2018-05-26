@@ -9,7 +9,6 @@ var searchData=
   ['cast',['cast',['../d6/d42/a00043.html#a25363f8f215051caae46e3094da0bff8',1,'stride::util::Any']]],
   ['cbegin',['cbegin',['../d7/d46/a00002.html#ace914c758677123e4a8d391cd711a5f8',1,'stride::util::SegmentedVector']]],
   ['cend',['cend',['../d7/d46/a00002.html#a661e877760bdf6cd246e4038b677434a',1,'stride::util::SegmentedVector']]],
-  ['check',['check',['../dc/dee/a00053.html#a0091652ae74074792ca7f6279ddbf3ee',1,'stride::util::SliceIndexer']]],
   ['checkenv',['CheckEnv',['../de/d5e/a00007.html#a4bee813e33ac0b5c9a44f727d5c7b0aa',1,'stride::CliController']]],
   ['checkinstallenv',['CheckInstallEnv',['../d6/d2d/a00047.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949',1,'stride::util::FileSys']]],
   ['checkoutputprefix',['CheckOutputPrefix',['../de/d5e/a00007.html#a2872b036cfffe4153a5ee33d0c669424',1,'stride::CliController']]],
