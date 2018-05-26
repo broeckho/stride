@@ -58,8 +58,8 @@ public:
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const Key& name)
         {
-                assert(m_map.find(name) != m_map.end() && "Name is a duplicate: " + name);
-                assert(0 < ibegin && iend <= m_t.size() && "Bad subscript!");
+                assert((m_map.find(name) != m_map.end()) && "Name is a duplicate: " + name);
+                assert((0 < ibegin && iend <= m_t.size()) && "Bad subscript!");
                 m_slices.emplace_back(range_type(m_t, ibegin, iend));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
@@ -68,7 +68,7 @@ public:
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const Key& name)
         {
-                assert(m_map.find(name) != m_map.end() && "Name is a duplicate: " + name);
+                assert((m_map.find(name) != m_map.end()) && "Name is a duplicate: " + name);
                 assert(0 < ibegin && "Bad subscript!");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 m_map[name] = m_slices.size() - 1;
