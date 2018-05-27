@@ -33,7 +33,7 @@ namespace util {
  * We store those slices in order in a vector and expose the vector because processing
  * effiency may dictate that we retrieve the in that order. They can also be retrieved
  * by ket (key type defaults to std::string).
- * @tparam T    Type of the container in whom the ranges are indexed.
+ * @tparam T     Type of the container in whom the ranges are indexed.
  * @tparam Key   Type of Id that can be useld to retrieve the ranges.
  */
 template <typename T, typename Key = std::string>
@@ -58,8 +58,8 @@ public:
         /// Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!
         range_type& Set(std::size_t ibegin, std::size_t iend, const Key& name)
         {
-                assert((m_map.find(name) != m_map.end()) && "Name is a duplicate.");
-                assert((0 < ibegin && iend <= m_t.size()) && "Bad subscript.");
+                check(name);
+                assert((0 < ibegin && iend <= iend && iend <= boost::size(m_t)) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, iend));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
@@ -68,11 +68,19 @@ public:
         /// Set a range, where the end is the end of the container.
         range_type& Set(std::size_t ibegin, const Key& name)
         {
-                assert((m_map.find(name) != m_map.end()) && "Name is a duplicate.");
-                assert(0 < ibegin && "Bad subscript.");
+                check(name);
+                assert(0 < ibegin && ibegin <= boost::size(m_t)&& "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
+        }
+private:
+        /// Check key map for duplicate; throw iff duplicate.
+        void check(const Key& name)
+        {
+                if (m_map.find(name) != m_map.end()) {
+                        throw std::range_error("Name is a duplicate: ");
+                }
         }
 
 private:
