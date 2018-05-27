@@ -7,6 +7,7 @@ var a00053 =
     [ "Get", "dc/dee/a00053.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
     [ "Set", "dc/dee/a00053.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
     [ "Set", "dc/dee/a00053.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
+    [ "check", "dc/dee/a00053.html#a194f218151d935420737a20c40c27a00", null ],
     [ "m_map", "dc/dee/a00053.html#ad7137d9d5caad8581de354a750b70403", null ],
     [ "m_slices", "dc/dee/a00053.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
     [ "m_t", "dc/dee/a00053.html#a00a95be5edf914ec430a0890a3c82005", null ]

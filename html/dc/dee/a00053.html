@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit c56476d</span>
+   &#160;<span id="projectnumber">- generated for commit 1b775f3</span>
    </div>
   </td>
  </tr>
@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('dc/dee/a00053.html','../../');});
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../da/def/a00513.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -151,6 +152,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dee/a00053.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a670eb7b0d4bec5445d5a30ea71384be5">Set</a> (std::size_t ibegin, const Key &amp;name)</td></tr>
 <tr class="memdesc:a670eb7b0d4bec5445d5a30ea71384be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a670eb7b0d4bec5445d5a30ea71384be5">More...</a><br/></td></tr>
 <tr class="separator:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a194f218151d935420737a20c40c27a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a194f218151d935420737a20c40c27a00">check</a> (const Key &amp;name)</td></tr>
+<tr class="memdesc:a194f218151d935420737a20c40c27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check key map for duplicate; throw iff duplicate.  <a href="#a194f218151d935420737a20c40c27a00">More...</a><br/></td></tr>
+<tr class="separator:a194f218151d935420737a20c40c27a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -256,7 +263,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00050">50</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
 
 </div>
 </div>
@@ -288,7 +295,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00053">53</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
 
 </div>
 </div>
@@ -319,7 +326,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00056">56</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
 
 </div>
 </div>
@@ -367,7 +374,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00059">59</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00081">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
 
 </div>
 </div>
@@ -409,7 +416,41 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00069">69</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00081">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a194f218151d935420737a20c40c27a00"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/dee/a00053.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::check </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check key map for duplicate; throw iff duplicate. </p>
+
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00079">79</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../d6/db8/a00158_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
@@ -436,9 +477,9 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Maps key values to subscripts. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00079">79</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00087">87</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00050">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../d6/db8/a00158_source.html#l00050">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
@@ -464,7 +505,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Contains the slices. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00080">80</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00088">88</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00050">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../d6/db8/a00158_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
@@ -492,7 +533,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 
 <p>Refernec to container that gets sliced into ranges. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00081">81</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/db8/a00158_source.html#l00089">89</a> of file <a class="el" href="../../d6/db8/a00158_source.html">SliceIndexer.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d6/db8/a00158_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
@@ -507,7 +548,7 @@ template&lt;typename T , typename Key  = std::string&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/da2/a00192.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/da0/a00198.html">util</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">SliceIndexer</a></li>
-    <li class="footer">Generated on Sat May 26 2018 20:01:48 for Stride Reference Manual by
+    <li class="footer">Generated on Sun May 27 2018 07:09:24 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
