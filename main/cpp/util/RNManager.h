@@ -113,6 +113,7 @@ public:
 private:
         template <typename T>
         void para_seed(std::vector<T>& engines, const Info& info);
+
 private:
         unsigned long    m_seed;         ///< Actual seed used with random engine.
         unsigned int     m_stream_count; ///< Number of streams set up with the engine.

@@ -29,6 +29,9 @@ set(SRC
     main.cpp
     BatchRuns.cpp
     ScenarioData.cpp
+    UnitPtreeUtilsHelper.h
+    UnitPtreeUtils1.cpp
+    UnitPtreeUtils2.cpp
     UnitSlice1.cpp
     UnitSlice2.cpp
     UnitSegmentedVector.cpp

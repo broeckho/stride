@@ -40,7 +40,7 @@ void para_info(stringstream& ss, const vector<T>& engines)
 }
 
 RNManager::RNManager(const Info& info)
-        : m_seed(), m_stream_count(), m_type_id(), m_lcg64(), m_lcg64_shift(), m_mrg2(), m_mrg3(), m_yarn2(), m_yarn3()
+    : m_seed(), m_stream_count(), m_type_id(), m_lcg64(), m_lcg64_shift(), m_mrg2(), m_mrg3(), m_yarn2(), m_yarn3()
 {
         Initialize(info);
 }
@@ -73,19 +73,19 @@ void RNManager::Initialize(const Info& info)
         m_type_id      = ToType(info.m_type);
 
         switch (m_type_id) {
-                case Id::lcg64: para_seed(m_lcg64, info); break;
-                case Id::lcg64_shift: para_seed(m_lcg64_shift, info); break;
-                case Id::mrg2: para_seed(m_mrg2, info); break;
-                case Id::mrg3: para_seed(m_mrg3, info); break;
-                case Id::yarn2: para_seed(m_yarn2, info); break;
-                case Id::yarn3: para_seed(m_yarn3, info); break;
+        case Id::lcg64: para_seed(m_lcg64, info); break;
+        case Id::lcg64_shift: para_seed(m_lcg64_shift, info); break;
+        case Id::mrg2: para_seed(m_mrg2, info); break;
+        case Id::mrg3: para_seed(m_mrg3, info); break;
+        case Id::yarn2: para_seed(m_yarn2, info); break;
+        case Id::yarn3: para_seed(m_yarn3, info); break;
         }
 }
 
 template <typename T>
 void RNManager::para_seed(vector<T>& engines, const Info& info)
 {
-        auto state        = info.m_state;
+        auto state = info.m_state;
         engines.resize(m_stream_count);
         if (state.empty()) {
                 for (size_t i = 0; i < m_stream_count; ++i) {

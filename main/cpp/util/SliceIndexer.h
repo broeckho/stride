@@ -69,11 +69,12 @@ public:
         range_type& Set(std::size_t ibegin, const Key& name)
         {
                 check(name);
-                assert(0 <= ibegin && ibegin <= boost::size(m_t)&& "Bad subscript.");
+                assert(0 <= ibegin && ibegin <= boost::size(m_t) && "Bad subscript.");
                 m_slices.emplace_back(range_type(m_t, ibegin, boost::size(m_t)));
                 m_map[name] = m_slices.size() - 1;
                 return m_slices.back();
         }
+
 private:
         /// Check key map for duplicate; throw iff duplicate.
         void check(const Key& name)
