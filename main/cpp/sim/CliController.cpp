@@ -49,13 +49,24 @@ CliController::CliController(const ptree& configPt) : ControlHelper(configPt)
 void CliController::Control()
 {
         // -----------------------------------------------------------------------------------------
+        // Prelims.
+        // -----------------------------------------------------------------------------------------
+        CheckEnv();
+        CheckOutputPrefix();
+        InstallLogger();
+        LogStartup();
+
+        // -----------------------------------------------------------------------------------------
         // Build population, instantiate SimRunner & register viewers & run.
         // -----------------------------------------------------------------------------------------
         auto pop    = Population::Create(m_config_pt);
         auto runner = make_shared<SimRunner>(m_config_pt, pop);
         RegisterViewers(runner);
         runner->Run();
-        m_stride_logger->info("ControlHelper shutting down.");
+
+        // -----------------------------------------------------------------------------------------
+        // Shutdown.
+        // -----------------------------------------------------------------------------------------
         LogShutdown();
         spdlog::drop_all();
 }

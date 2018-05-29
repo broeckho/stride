@@ -53,11 +53,6 @@ ControlHelper::ControlHelper(const ptree& configPt) : ControlHelper()
         m_config_pt        = configPt;
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        CheckEnv();
-        CheckOutputPrefix();
-        MakeLogger();
-        LogStartup();
 }
 
 void ControlHelper::CheckEnv()
@@ -82,7 +77,7 @@ void ControlHelper::CheckOutputPrefix()
         }
 }
 
-void ControlHelper::MakeLogger()
+void ControlHelper::InstallLogger()
 {
         const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
         const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
