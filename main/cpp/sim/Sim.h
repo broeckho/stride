@@ -64,6 +64,8 @@ public:
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 
+        std::string GetRunConfigParam(std::string param_name) const { return m_config_pt.get<std::string>(param_name); }
+
 private:
         /// Default constructor for empty Simulator.
         Sim();
