@@ -19,7 +19,7 @@
  * Header for the command line controller.
  */
 
-#include "sim/ControlHelper.h"
+#include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -46,18 +46,41 @@ class SimRunner;
  * \li registers the appropriate viewers
  * \li runs the simulation
  */
-class CliController : protected ControlHelper
+class ControlHelper
 {
 public:
         /// Straight initialization.
-        explicit CliController(const boost::property_tree::ptree& configPt);
+        explicit ControlHelper(const boost::property_tree::ptree& configPt);
 
-        /// Actual run of the simulator.
-        void Control();
+protected:
+        /// Empty controller: used as target for delegation.
+        explicit ControlHelper();
 
-private:
+        /// Check install environment.
+        void CheckEnv();
+
+        // Output_prefix: if it's a string not containing any / it gets interpreted as a
+        // filename prefix; otherwise we 'll create the corresponding directory.
+        void CheckOutputPrefix();
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void LogShutdown();
+
+        /// Logs info on setup for cli environment to stride_logger.
+        void LogStartup();
+
+        /// Make the appropriate logger for cli environment and register as stride_logger.
+        void MakeLogger();
+
         /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner);
+        //void RegisterViewers(std::shared_ptr<SimRunner> runner);
+
+protected:
+        boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.
+        std::string                     m_output_prefix;    ///< Prefix to output (name prefix or prefix dir)
+        util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
+        std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
+        bool                            m_use_install_dirs; ///< Working dir or install dir mode.
 };
 
 } // namespace stride

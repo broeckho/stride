@@ -42,44 +42,8 @@ using namespace boost::property_tree::xml_parser;
 
 namespace stride {
 
-CliController::CliController()
-    : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
+CliController::CliController(const ptree& configPt) : ControlHelper(configPt)
 {
-}
-
-CliController::CliController(const ptree& configPt) : CliController()
-{
-        m_run_clock.Start();
-        m_config_pt        = configPt;
-        m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
-        m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-
-        CheckEnv();
-        CheckOutputPrefix();
-        MakeLogger();
-        LogSetup();
-}
-
-void CliController::CheckEnv()
-{
-        if (m_use_install_dirs) {
-                auto log = [](const string& s) -> void { cerr << s << endl; };
-                if (!FileSys::CheckInstallEnv(log)) {
-                        throw runtime_error("CliController::CheckEnv> Install dirs not OK.");
-                }
-        }
-}
-
-void CliController::CheckOutputPrefix()
-{
-        if (FileSys::IsDirectoryString(m_output_prefix)) {
-                try {
-                        create_directories(m_output_prefix);
-                } catch (exception& e) {
-                        cerr << "CliController::Setup> Exception creating directory:  {}" << m_output_prefix << endl;
-                        throw;
-                }
-        }
 }
 
 void CliController::Control()
@@ -91,18 +55,11 @@ void CliController::Control()
         auto runner = make_shared<SimRunner>(m_config_pt, pop);
         RegisterViewers(runner);
         runner->Run();
-        m_stride_logger->info("CliController shutting down.");
+        m_stride_logger->info("ControlHelper shutting down.");
+        LogShutdown();
         spdlog::drop_all();
 }
 
-void CliController::MakeLogger()
-{
-        const auto path     = FileSys::BuildPath(m_output_prefix, "stride_log.txt");
-        const auto logLevel = m_config_pt.get<string>("run.stride_log_level");
-        m_stride_logger     = LogUtils::CreateCliLogger("stride_logger", path.string());
-        m_stride_logger->set_level(spdlog::level::from_str(logLevel));
-        m_stride_logger->flush_on(spdlog::level::err);
-}
 
 void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
 {
@@ -140,26 +97,5 @@ void CliController::RegisterViewers(shared_ptr<SimRunner> runner)
         }
 }
 
-void CliController::LogSetup()
-{
-        m_stride_logger->info("CliController stating up at: {}", TimeStamp().ToString());
-        m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
-        m_stride_logger->info("Creating dir:  {}", m_output_prefix);
-        m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
-        m_stride_logger->trace("Current directory:   {}", FileSys::GetCurrentDir().string());
-        if (m_use_install_dirs) {
-                m_stride_logger->trace("Install directory:   {}", FileSys::GetRootDir().string());
-                m_stride_logger->trace("Config  directory:   {}", FileSys::GetConfigDir().string());
-                m_stride_logger->trace("Data    directory:   {}", FileSys::GetDataDir().string());
-        }
-        if (ConfigInfo::HaveOpenMP()) {
-                m_stride_logger->info("Max number OpenMP threads in this environment: {}",
-                                      ConfigInfo::NumberAvailableThreads());
-                m_stride_logger->info("Configured number of threads: {}",
-                                      m_config_pt.get<unsigned int>("run.num_threads"));
-        } else {
-                m_stride_logger->info("Not using OpenMP threads.");
-        }
-}
 
 } // namespace stride

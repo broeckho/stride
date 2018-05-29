@@ -70,6 +70,7 @@ set(LIB_SRC
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
+    sim/ControlHelper.cpp
 	sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
