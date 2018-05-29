@@ -26,11 +26,11 @@
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
-#include "viewers/AdoptedViewer.h"
+#include "viewers/AdoptedFileViewer.h"
 #include "viewers/CliViewer.h"
-#include "viewers/InfectedViewer.h"
-#include "viewers/PersonsViewer.h"
-#include "viewers/SummaryViewer.h"
+#include "viewers/InfectedFileViewer.h"
+#include "viewers/PersonsFileViewer.h"
+#include "viewers/SummaryFileViewer.h"
 
 #include <boost/property_tree/xml_parser.hpp>
 
@@ -123,26 +123,30 @@ void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
 
         // Adopted viewer
         if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_stride_logger->info("registering AdoptedViewer,");
-                RegisterViewer<viewers::AdoptedViewer>(runner, m_output_prefix);
+                m_stride_logger->info("Registering AdoptedFileViewer,");
+                const auto v = make_shared<viewers::AdoptedFileViewer>(runner, m_output_prefix);
+                runner->Register(v, bind(&viewers::AdoptedFileViewer::Update, v, placeholders::_1));
         }
 
         // Infection counts viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_stride_logger->info("Registering InfectedViewer");
-                RegisterViewer<viewers::InfectedViewer>(runner, m_output_prefix);
+                m_stride_logger->info("Registering InfectedFileViewer");
+                const auto v = make_shared<viewers::InfectedFileViewer>(runner, m_output_prefix);
+                runner->Register(v, bind(&viewers::InfectedFileViewer::Update, v, placeholders::_1));
         }
 
         // Persons viewer
         if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_stride_logger->info("registering PersonsViewer.");
-                RegisterViewer<viewers::PersonsViewer>(runner, m_output_prefix);
+                m_stride_logger->info("Registering PersonsFileViewer.");
+                const auto v = make_shared<viewers::PersonsFileViewer>(runner, m_output_prefix);
+                runner->Register(v, bind(&viewers::PersonsFileViewer::Update, v, placeholders::_1));
         }
 
         // Summary viewer
         if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_stride_logger->info("Registering SummaryViewer");
-                RegisterViewer<viewers::SummaryViewer>(runner, m_output_prefix);
+                m_stride_logger->info("Registering SummaryFileViewer");
+                const auto v = make_shared<viewers::SummaryFileViewer>(runner, m_output_prefix);
+                runner->Register(v, bind(&viewers::SummaryFileViewer::Update, v, placeholders::_1));
         }
 }
 

@@ -18,30 +18,21 @@
  * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "SummaryViewer.h"
-
-#include "pop/Population.h"
+#include "PersonsFileViewer.h"
 #include "sim/Sim.h"
 #include "sim/SimRunner.h"
 
 using namespace std;
-using namespace std::chrono;
 using namespace stride::sim_event;
 
 namespace stride {
 namespace viewers {
 
-void SummaryViewer::Update(const sim_event::Id id)
+void PersonsFileViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::Finished: {
-                const auto configPt = m_runner->GetConfig();
-                const auto sim      = m_runner->GetSim();
-                const auto pop      = m_runner->GetSim()->GetPopulation();
-                const auto dur      = duration_cast<milliseconds>(m_runner->GetClock().Get());
-                const auto milli    = static_cast<unsigned int>(dur.count());
-                m_summary_file.Print(configPt, static_cast<unsigned int>(pop->size()), pop->GetInfectedCount(),
-                                     sim->GetTransmissionProfile().GetRate(), milli, milli);
+                m_persons_file.Print(m_runner->GetSim()->GetPopulation());
                 break;
         }
         default: break;

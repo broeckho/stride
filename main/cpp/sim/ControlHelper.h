@@ -19,7 +19,6 @@
  * Header for the command line controller.
  */
 
-#include "sim/SimRunner.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -28,6 +27,8 @@
 #include <string>
 
 namespace stride {
+
+class SimRunner;
 
 /**
  * Controls a simulation run initiated with the command line interface (cli).
@@ -64,13 +65,6 @@ protected:
 
         /// Logs info on setup for cli environment to stride_logger.
         void LogStartup();
-
-        template <typename T, typename... Targs>
-        void RegisterViewer(std::shared_ptr<SimRunner> runner, Targs&&... args)
-        {
-                auto v = std::make_shared<T>(runner, std::forward<Targs>(args)...);
-                runner->Register(v, bind(&T::Update, v, std::placeholders::_1));
-        }
 
         /// Register the viewers of the SimRunner.
         void RegisterViewers(std::shared_ptr<SimRunner> runner);

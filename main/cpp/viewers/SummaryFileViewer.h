@@ -16,10 +16,10 @@
 
 /**
  * @file
- * Observer for Cases output.
+ * Observer for Persons output.
  */
 
-#include "output/InfectedFile.h"
+#include "output/SummaryFile.h"
 #include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
@@ -30,24 +30,20 @@ namespace stride {
 namespace viewers {
 
 /// Viewer of Simulator for cases output.
-class InfectedViewer
+class SummaryFileViewer
 {
 public:
         /// Instantiate cases viewer.
-        InfectedViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_infected(), m_infected_file(output_prefix), m_runner(std::move(runner))
+        SummaryFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_summary_file(output_prefix), m_runner(std::move(runner))
         {
         }
-
-        /// Access the vector with the infection counts.
-        const std::vector<unsigned int>& GetInfectionCounts() { return m_infected; }
 
         /// Let viewer perform update.
         void Update(sim_event::Id id);
 
 private:
-        std::vector<unsigned int>  m_infected;
-        output::InfectedFile       m_infected_file;
+        output::SummaryFile        m_summary_file;
         std::shared_ptr<SimRunner> m_runner;
 };
 

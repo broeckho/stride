@@ -16,10 +16,10 @@
 
 /**
  * @file
- * Observer for Persons output.
+ * Observer for Adopted output.
  */
 
-#include "output/PersonsFile.h"
+#include "output/AdoptedFile.h"
 #include "sim/SimRunner.h"
 #include "sim/event/Id.h"
 
@@ -30,12 +30,12 @@ namespace stride {
 namespace viewers {
 
 /// Viewer of Simulator for cases output.
-class PersonsViewer
+class AdoptedFileViewer
 {
 public:
         /// Instantiate cases viewer.
-        PersonsViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
-            : m_persons_file(output_prefix), m_runner(std::move(runner))
+        AdoptedFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_adopted(), m_adopted_file(output_prefix), m_runner(std::move(runner))
         {
         }
 
@@ -43,7 +43,8 @@ public:
         void Update(sim_event::Id id);
 
 private:
-        output::PersonsFile        m_persons_file;
+        std::vector<unsigned int>  m_adopted;
+        output::AdoptedFile        m_adopted_file;
         std::shared_ptr<SimRunner> m_runner;
 };
 

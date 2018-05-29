@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -15,29 +16,37 @@
 
 /**
  * @file
- * Definition of Observer for SimEvents for commandline interface usage.
+ * Observer for Infected output.
  */
 
-#include "PersonsViewer.h"
-#include "sim/Sim.h"
+#include "output/InfectedFile.h"
 #include "sim/SimRunner.h"
+#include "sim/event/Id.h"
 
-using namespace std;
-using namespace stride::sim_event;
+#include <iostream>
+#include <spdlog/spdlog.h>
 
 namespace stride {
 namespace viewers {
 
-void PersonsViewer::Update(const sim_event::Id id)
+/// Viewer of Simulator for cases output.
+class InfectedFileViewer
 {
-        switch (id) {
-        case Id::Finished: {
-                m_persons_file.Print(m_runner->GetSim()->GetPopulation());
-                break;
+public:
+        /// Instantiate cases viewer.
+        InfectedFileViewer(std::shared_ptr<SimRunner> runner, const std::string& output_prefix)
+            : m_infected(), m_infected_file(output_prefix), m_runner(std::move(runner))
+        {
         }
-        default: break;
-        }
-}
+
+        /// Let viewer perform update.
+        void Update(sim_event::Id id);
+
+private:
+        std::vector<unsigned int>  m_infected;
+        output::InfectedFile       m_infected_file;
+        std::shared_ptr<SimRunner> m_runner;
+};
 
 } // namespace viewers
 } // namespace stride

@@ -18,7 +18,7 @@
  * Definition of Observer for SimEvents for commandline interface usage.
  */
 
-#include "AdoptedViewer.h"
+#include "AdoptedFileViewer.h"
 
 #include "pop/Population.h"
 #include "sim/Sim.h"
@@ -30,7 +30,7 @@ using namespace stride::sim_event;
 namespace stride {
 namespace viewers {
 
-void AdoptedViewer::Update(const sim_event::Id id)
+void AdoptedFileViewer::Update(const sim_event::Id id)
 {
         switch (id) {
         case Id::AtStart: {

@@ -96,11 +96,11 @@ set(LIB_SRC
     util/TimeStamp.h
     util/TimeToString.h
 #---
-	viewers/AdoptedViewer.cpp
-	viewers/InfectedViewer.cpp
+    viewers/AdoptedFileViewer.cpp
+    viewers/InfectedFileViewer.cpp
     viewers/CliViewer.cpp
-    viewers/PersonsViewer.cpp
-	viewers/SummaryViewer.cpp
+    viewers/PersonsFileViewer.cpp
+    viewers/SummaryFileViewer.cpp
 )
 
 #============================================================================
