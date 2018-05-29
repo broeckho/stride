@@ -98,6 +98,7 @@ set(LIB_SRC
 #---
     viewers/AdoptedFileViewer.cpp
     viewers/InfectedFileViewer.cpp
+    viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp
     viewers/PersonsFileViewer.cpp
     viewers/SummaryFileViewer.cpp
