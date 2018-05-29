@@ -85,47 +85,11 @@ void ControlHelper::InstallLogger()
         m_stride_logger->set_level(spdlog::level::from_str(logLevel));
         m_stride_logger->flush_on(spdlog::level::err);
 }
-/*
-void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
-{
-        // Command line viewer
-        m_stride_logger->info("Registering CliViewer");
-        const auto cli_v = make_shared<viewers::CliViewer>(runner, m_stride_logger);
-        runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
 
-        // Adopted viewer
-        if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_stride_logger->info("registering AdoptedViewer,");
-                const auto v = make_shared<viewers::AdoptedViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedViewer::Update, v, placeholders::_1));
-        }
-
-        // Infection counts viewer
-        if (m_config_pt.get<bool>("run.output_cases", false)) {
-                m_stride_logger->info("Registering InfectedViewer");
-                const auto v = make_shared<viewers::InfectedViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::InfectedViewer::Update, v, placeholders::_1));
-        }
-
-        // Persons viewer
-        if (m_config_pt.get<bool>("run.output_persons", false)) {
-                m_stride_logger->info("registering PersonsViewer.");
-                const auto v = make_shared<viewers::PersonsViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::PersonsViewer::Update, v, placeholders::_1));
-        }
-
-        // Summary viewer
-        if (m_config_pt.get<bool>("run.output_summary", false)) {
-                m_stride_logger->info("Registering SummaryViewer");
-                const auto v = make_shared<viewers::SummaryViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::SummaryViewer::Update, v, placeholders::_1));
-        }
-}
-*/
 void ControlHelper::LogShutdown()
 {
         m_run_clock.Stop();
-        m_stride_logger->info("ControlController shutting down after: {}", m_run_clock.ToString());
+        m_stride_logger->info("Controller shutting down after: {}", m_run_clock.ToString());
 }
 
 void ControlHelper::LogStartup()
@@ -147,6 +111,38 @@ void ControlHelper::LogStartup()
                                       m_config_pt.get<unsigned int>("run.num_threads"));
         } else {
                 m_stride_logger->info("Not using OpenMP threads.");
+        }
+}
+
+void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
+{
+        // Command line viewer
+        m_stride_logger->info("Registering CliViewer");
+        const auto cli_v = make_shared<viewers::CliViewer>(runner, m_stride_logger);
+        runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
+
+        // Adopted viewer
+        if (m_config_pt.get<bool>("run.output_adopted", false)) {
+                m_stride_logger->info("registering AdoptedViewer,");
+                RegisterViewer<viewers::AdoptedViewer>(runner, m_output_prefix);
+        }
+
+        // Infection counts viewer
+        if (m_config_pt.get<bool>("run.output_cases", false)) {
+                m_stride_logger->info("Registering InfectedViewer");
+                RegisterViewer<viewers::InfectedViewer>(runner, m_output_prefix);
+        }
+
+        // Persons viewer
+        if (m_config_pt.get<bool>("run.output_persons", false)) {
+                m_stride_logger->info("registering PersonsViewer.");
+                RegisterViewer<viewers::PersonsViewer>(runner, m_output_prefix);
+        }
+
+        // Summary viewer
+        if (m_config_pt.get<bool>("run.output_summary", false)) {
+                m_stride_logger->info("Registering SummaryViewer");
+                RegisterViewer<viewers::SummaryViewer>(runner, m_output_prefix);
         }
 }
 

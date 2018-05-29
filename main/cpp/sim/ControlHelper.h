@@ -19,6 +19,7 @@
  * Header for the command line controller.
  */
 
+#include "sim/SimRunner.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -28,23 +29,15 @@
 
 namespace stride {
 
-class SimRunner;
-
 /**
  * Controls a simulation run initiated with the command line interface (cli).
- * CliController functions include:
- * \li accepts the commandline arguments
+ *
+ * ControlHelper functions effected on behalf of the controller include:
  * \li checks the OpenMP environment
  * \li checks the file system environment
- * \li reads the config file specified on the cli
- * \li effects cli overides of config parameters
- * \li patches the config file for any remaining defaults
  * \li interprets and executes the ouput prefix
- * \li makes a stride logger
- * The CliController execution
- * \li creates a simulation runner (@see SimRunner)
- * \li registers the appropriate viewers
- * \li runs the simulation
+ * \li install a stride logger)
+ * \li a utility method to register the appropriate viewers
  */
 class ControlHelper
 {
@@ -63,17 +56,24 @@ protected:
         // filename prefix; otherwise we 'll create the corresponding directory.
         void CheckOutputPrefix();
 
+        /// Make the appropriate logger for cli environment and register as stride_logger.
+        void InstallLogger();
+
         /// Logs info on setup for cli environment to stride_logger.
         void LogShutdown();
 
         /// Logs info on setup for cli environment to stride_logger.
         void LogStartup();
 
-        /// Make the appropriate logger for cli environment and register as stride_logger.
-        void InstallLogger();
+        template <typename T, typename... Targs>
+        void RegisterViewer(std::shared_ptr<SimRunner> runner, Targs&&... args)
+        {
+                auto v = std::make_shared<T>(runner, std::forward<Targs>(args)...);
+                runner->Register(v, bind(&T::Update, v, std::placeholders::_1));
+        }
 
         /// Register the viewers of the SimRunner.
-        //void RegisterViewers(std::shared_ptr<SimRunner> runner);
+        void RegisterViewers(std::shared_ptr<SimRunner> runner);
 
 protected:
         boost::property_tree::ptree     m_config_pt;        ///< Main configuration for run and sim.

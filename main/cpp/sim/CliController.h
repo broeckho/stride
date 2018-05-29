@@ -21,27 +21,21 @@
 
 #include "sim/ControlHelper.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <memory>
-#include <spdlog/spdlog.h>
-#include <string>
+#include <boost/property_tree/ptree_fwd.hpp>
 
 namespace stride {
 
-class SimRunner;
-
 /**
  * Controls a simulation run initiated with the command line interface (cli).
- * CliController functions include:
- * \li accepts the commandline arguments
+ *
+ * CliController setup functions include (@see ControlHelper):
  * \li checks the OpenMP environment
  * \li checks the file system environment
- * \li reads the config file specified on the cli
- * \li effects cli overides of config parameters
- * \li patches the config file for any remaining defaults
  * \li interprets and executes the ouput prefix
- * \li makes a stride logger
+ * \li intalls a stride logger
+ *
  * The CliController execution
+ * \li creates a population (@see Population)
  * \li creates a simulation runner (@see SimRunner)
  * \li registers the appropriate viewers
  * \li runs the simulation
@@ -54,10 +48,6 @@ public:
 
         /// Actual run of the simulator.
         void Control();
-
-private:
-        /// Register the viewers of the SimRunner.
-        void RegisterViewers(std::shared_ptr<SimRunner> runner);
 };
 
 } // namespace stride
