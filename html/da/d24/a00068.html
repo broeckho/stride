@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: AdoptedViewer.h File Reference</title>
+<title>Stride Reference Manual: AdoptedViewer.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -103,63 +103,48 @@ $(document).ready(function(){initNavTree('da/d24/a00068.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">AdoptedViewer.h File Reference</div>  </div>
+<div class="title">AdoptedViewer.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Observer for Adopted output.  
+<p>Definition of Observer for SimEvents for commandline interface usage.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/db3/a00066_source.html">output/AdoptedFile.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/db7/a00157_source.html">sim/SimRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/d57/a00112_source.html">sim/event/Id.h</a>&quot;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d31/a00069_source.html">AdoptedViewer.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">pop/Population.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">sim/Sim.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/db9/a00159_source.html">sim/SimRunner.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AdoptedViewer.h:</div>
+Include dependency graph for AdoptedViewer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d31/a00208.gif" border="0" usemap="#AdoptedViewer_8h" alt=""/></div>
-<map name="AdoptedViewer_8h" id="AdoptedViewer_8h">
-<area shape="rect" id="node2" href="../../d9/db3/a00066.html" title="Header for the AdoptedFile class. " alt="" coords="86,80,228,107"/><area shape="rect" id="node6" href="../../d1/db7/a00157.html" title="Header for the SimRunner class. " alt="" coords="507,80,629,107"/><area shape="rect" id="node7" href="../../db/d57/a00112.html" title="Definition of EventId. " alt="" coords="574,245,679,272"/><area shape="rect" id="node9" href="../../db/d44/a00162.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="229,163,368,189"/><area shape="rect" id="node14" href="../../de/db9/a00159.html" title="Definition of Stopwatch. " alt="" coords="758,163,873,189"/><area shape="rect" id="node10" href="../../dd/dae/a00163.html" title="Interface/Implementation of Subject. " alt="" coords="56,245,155,272"/><area shape="rect" id="node15" href="../../d7/d3f/a00173.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="857,245,967,272"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/de5/a00209.gif" border="0" usemap="#AdoptedViewer_8hdep" alt=""/></div>
-<map name="AdoptedViewer_8hdep" id="AdoptedViewer_8hdep">
-<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Header for the command line controller. " alt="" coords="5,80,123,107"/><area shape="rect" id="node3" href="../../dc/ddf/a00067.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="147,80,281,107"/></map>
+<div class="center"><img src="../../da/de7/a00210.gif" border="0" usemap="#AdoptedViewer_8cpp" alt=""/></div>
+<map name="AdoptedViewer_8cpp" id="AdoptedViewer_8cpp">
+<area shape="rect" id="node2" href="../../d4/d31/a00069.html" title="Observer for Adopted output. " alt="" coords="1351,163,1471,189"/><area shape="rect" id="node7" href="../../de/db9/a00159.html" title="Header for the SimRunner class. " alt="" coords="1019,245,1142,272"/><area shape="rect" id="node16" href="../../da/ddb/a00145.html" title="Header file for the core Population class. " alt="" coords="2053,80,2171,107"/><area shape="rect" id="node38" href="../../d3/df8/a00155.html" title="Header for the Simulator class. " alt="" coords="1009,80,1090,107"/><area shape="rect" id="node3" href="../../dc/ddf/a00067.html" title="Header for the AdoptedFile class. " alt="" coords="1537,411,1679,437"/><area shape="rect" id="node8" href="../../d3/d00/a00113.html" title="Definition of EventId. " alt="" coords="1239,411,1343,437"/><area shape="rect" id="node10" href="../../db/ddf/a00164.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="1222,328,1361,355"/><area shape="rect" id="node11" href="../../d6/d7d/a00161.html" title="Definition of Stopwatch. " alt="" coords="740,411,855,437"/><area shape="rect" id="node17" href="../../da/d82/a00091.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2288,163,2443,189"/><area shape="rect" id="node25" href="../../d2/df5/a00137.html" title="Header file for the Person class. " alt="" coords="2469,163,2567,189"/><area shape="rect" id="node27" href="../../db/db6/a00074.html" title="Interface/Implementation of Any. " alt="" coords="1777,245,1853,272"/><area shape="rect" id="node30" href="../../da/d01/a00153.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2671,245,2829,272"/><area shape="rect" id="node18" href="../../d9/dec/a00090.html" title="Header for the core ContactPool class. " alt="" coords="1882,328,2015,355"/><area shape="rect" id="node20" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="2003,411,2166,437"/><area shape="rect" id="node22" href="../../d8/d17/a00114.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2292,245,2450,272"/><area shape="rect" id="node19" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="881,411,1059,437"/><area shape="rect" id="node26" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="2526,245,2646,272"/><area shape="rect" id="node31" href="../../d6/dfb/a00172.html" title="Interface/Implementation for SVIterator. " alt="" coords="2775,328,2866,355"/><area shape="rect" id="node39" href="../../d1/d6e/a00073.html" title="Contact profiles stored in simulator. " alt="" coords="1828,163,2021,189"/><area shape="rect" id="node41" href="../../da/d2a/a00086.html" title="Header for the ContactHandler class. " alt="" coords="774,163,945,189"/><area shape="rect" id="node42" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="599,245,722,272"/><area shape="rect" id="node49" href="../../da/d72/a00124.html" title="Header for the InfectorExec class. " alt="" coords="1497,163,1650,189"/><area shape="rect" id="node50" href="../../dd/d4c/a00177.html" title="Header for the TransmissionProfile class. " alt="" coords="1217,245,1411,272"/><area shape="rect" id="node40" href="../../d6/d2c/a00072.html" title="Contact profile. " alt="" coords="1979,245,2166,272"/><area shape="rect" id="node43" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="45,411,167,437"/></map>
 </div>
 </div>
 <p><a href="../../da/d24/a00068_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html">stride::viewers::AdoptedViewer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d9/d73/a00060.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
-<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d8/d72/a00199"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html">stride::viewers</a></td></tr>
-<tr class="memdesc:d8/d72/a00199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d3/de7/a00039.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
+<tr class="memitem:db/d53/a00202"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d53/a00202.html">stride::viewers</a></td></tr>
+<tr class="memdesc:db/d53/a00202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d3/de7/a00039.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Observer for Adopted output. </p>
+<div class="textblock"><p>Definition of Observer for SimEvents for commandline interface usage. </p>
 
-<p>Definition in file <a class="el" href="../../da/d24/a00068_source.html">AdoptedViewer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../da/d24/a00068_source.html">AdoptedViewer.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../da/d24/a00068.html">AdoptedViewer.h</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../da/d24/a00068.html">AdoptedViewer.cpp</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

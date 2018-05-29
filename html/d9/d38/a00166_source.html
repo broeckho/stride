@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SummaryViewer.cpp Source File</title>
+<title>Stride Reference Manual: SummaryFile.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d9/d38/a00166_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SummaryViewer.cpp</div>  </div>
+<div class="title">SummaryFile.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/d38/a00166.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,53 +118,72 @@ $(document).ready(function(){initNavTree('d9/d38/a00166_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">SummaryViewer.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">SummaryFile.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/da7/a00144.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d01/a00153.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/db7/a00157.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d70/a00106.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a5cea96dec638995509a87d5c9874e904">   34</a></span>&#160;<span class="keywordtype">void</span> SummaryViewer::Update(<span class="keyword">const</span> <a class="code" href="../../de/db1/a00197.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">case</span> Id::Finished: {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> configPt = m_runner-&gt;GetConfig();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> sim      = m_runner-&gt;GetSim();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> pop      = m_runner-&gt;GetSim()-&gt;GetPopulation();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> dur      = duration_cast&lt;milliseconds&gt;(m_runner-&gt;GetClock().Get());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> milli    = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(dur.count());</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                m_summary_file.Print(configPt, static_cast&lt;unsigned int&gt;(pop-&gt;size()), pop-&gt;GetInfectedCount(),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                     sim-&gt;GetTransmissionProfile().GetRate(), milli, milli);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>output {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d0/dc0/a00033.html#a1f848c3aa92042b2fa7d399ad31b0e33">   33</a></span>&#160;<a class="code" href="../../d0/dc0/a00033.html#a1f848c3aa92042b2fa7d399ad31b0e33">SummaryFile::SummaryFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix) : m_fstream() { <a class="code" href="../../d0/dc0/a00033.html#a73334b641e8aeb7edff5cc8b6affc86c">Initialize</a>(output_prefix); }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d0/dc0/a00033.html#ade602b6935ee6c38f21f15b5bcc77847">   35</a></span>&#160;<a class="code" href="../../d0/dc0/a00033.html#ade602b6935ee6c38f21f15b5bcc77847">SummaryFile::~SummaryFile</a>() { <a class="code" href="../../d0/dc0/a00033.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a>.close(); }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d0/dc0/a00033.html#a73334b641e8aeb7edff5cc8b6affc86c">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a73334b641e8aeb7edff5cc8b6affc86c">SummaryFile::Initialize</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> p = <a class="code" href="../../d4/dca/a00048.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(output_prefix, <span class="stringliteral">&quot;summary.csv&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d0/dc0/a00033.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a>.open(p.c_str());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// add header</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d0/dc0/a00033.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a> &lt;&lt; <span class="stringliteral">&quot;pop_file,num_days,pop_size,seeding_rate,R0,transmission_rate,&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                     <span class="stringliteral">&quot;immunity_rate,num_threads,rng_seed,&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                     <span class="stringliteral">&quot;run_time,total_time,num_cases,AR,output_prefix,start_date,age_&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                     <span class="stringliteral">&quot;contact_matrix_file,num_&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                     <span class="stringliteral">&quot;participants_survey,disease_config&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                  &lt;&lt; endl;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00144_html"><div class="ttname"><a href="../../d5/da7/a00144.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00197_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../de/db1/a00197.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">SummaryViewer.h</a></div><div class="ttdoc">Observer for Persons output. </div></div>
-<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00153_html"><div class="ttname"><a href="../../da/d01/a00153.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d0/dc0/a00033.html#a9b4fb82839ddf6a7c8d10fc119bf22fb">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a9b4fb82839ddf6a7c8d10fc119bf22fb">SummaryFile::Print</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; config_pt, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> population_size,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> num_cases, <span class="keywordtype">double</span> transmission_rate, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> run_time,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> total_time)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d0/dc0/a00033.html#a473d1c4d75f2e873e1b0ee256dabf73a">m_fstream</a> &lt;&lt; config_pt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.population_file&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; config_pt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; population_size &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; config_pt.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_rate&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.r0&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; transmission_rate &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.immunity_rate&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; config_pt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; config_pt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.rng_seed&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; run_time &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; total_time &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                  &lt;&lt; num_cases &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; static_cast&lt;double&gt;(num_cases) / population_size &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; config_pt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.start_date&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.age_contact_matrix_file&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_participants_survey&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                  &lt;&lt; config_pt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.disease_config_file&quot;</span>) &lt;&lt; endl;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace output</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00048_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d4/dca/a00048.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d32/a00105_source.html#l00051">FileSys.cpp:51</a></div></div>
+<div class="ttc" id="a00033_html_a73334b641e8aeb7edff5cc8b6affc86c"><div class="ttname"><a href="../../d0/dc0/a00033.html#a73334b641e8aeb7edff5cc8b6affc86c">stride::output::SummaryFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d38/a00166_source.html#l00037">SummaryFile.cpp:37</a></div></div>
+<div class="ttc" id="a00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">SummaryFile.h</a></div><div class="ttdoc">Header for the SummaryFile class. </div></div>
+<div class="ttc" id="a00106_html"><div class="ttname"><a href="../../d7/d70/a00106.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00033_html_a473d1c4d75f2e873e1b0ee256dabf73a"><div class="ttname"><a href="../../d0/dc0/a00033.html#a473d1c4d75f2e873e1b0ee256dabf73a">stride::output::SummaryFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdoc">The file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00050">SummaryFile.h:50</a></div></div>
+<div class="ttc" id="a00033_html_a9b4fb82839ddf6a7c8d10fc119bf22fb"><div class="ttname"><a href="../../d0/dc0/a00033.html#a9b4fb82839ddf6a7c8d10fc119bf22fb">stride::output::SummaryFile::Print</a></div><div class="ttdeci">void Print(const boost::property_tree::ptree &amp;config_pt, unsigned int population_size, unsigned int num_cases, double transmission_rate, unsigned int run_time, unsigned int total_time)</div><div class="ttdoc">Print the given output with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d38/a00166_source.html#l00051">SummaryFile.cpp:51</a></div></div>
+<div class="ttc" id="a00033_html_ade602b6935ee6c38f21f15b5bcc77847"><div class="ttname"><a href="../../d0/dc0/a00033.html#ade602b6935ee6c38f21f15b5bcc77847">stride::output::SummaryFile::~SummaryFile</a></div><div class="ttdeci">~SummaryFile()</div><div class="ttdoc">Destructor: close the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d38/a00166_source.html#l00035">SummaryFile.cpp:35</a></div></div>
+<div class="ttc" id="a00033_html_a1f848c3aa92042b2fa7d399ad31b0e33"><div class="ttname"><a href="../../d0/dc0/a00033.html#a1f848c3aa92042b2fa7d399ad31b0e33">stride::output::SummaryFile::SummaryFile</a></div><div class="ttdeci">SummaryFile(const std::string &amp;output_prefix=&quot;output&quot;)</div><div class="ttdoc">Constructor: initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d38/a00166_source.html#l00033">SummaryFile.cpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d9/d38/a00166.html">SummaryViewer.cpp</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d9/d38/a00166.html">SummaryFile.cpp</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

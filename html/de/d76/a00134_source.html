@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: NoLocalInformation.h Source File</title>
+<title>Stride Reference Manual: NoGlobalInformation.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d76/a00134_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">NoLocalInformation.h</div>  </div>
+<div class="title">NoGlobalInformation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d76/a00134.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,28 +119,29 @@ $(document).ready(function(){initNavTree('de/d76/a00134_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d5/d16/a00029.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d16/a00029.html">NoLocalInformation</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d5/d16/a00029.html#a02b2e25dbfe3b1a6aa498c415029b81a">   29</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d16/a00029.html#a02b2e25dbfe3b1a6aa498c415029b81a">Update</a>(<a class="code" href="../../db/df3/a00034.html">Person</a>*, <a class="code" href="../../db/df3/a00034.html">Person</a>*) {}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00029_html_a02b2e25dbfe3b1a6aa498c415029b81a"><div class="ttname"><a href="../../d5/d16/a00029.html#a02b2e25dbfe3b1a6aa498c415029b81a">stride::NoLocalInformation::Update</a></div><div class="ttdeci">static void Update(Person *, Person *)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00029">NoLocalInformation.h:29</a></div></div>
-<div class="ttc" id="a00029_html"><div class="ttname"><a href="../../d5/d16/a00029.html">stride::NoLocalInformation</a></div><div class="ttdoc">No information about beliefs or health status is exchanged upon contact. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00026">NoLocalInformation.h:26</a></div></div>
-<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d5e/a00136_source.html#l00035">Person.h:35</a></div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span>Person;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d3c/a00028.html">NoGlobalInformation</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#ae8df514c2c3f876dc620c2423091967c">   30</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d3c/a00028.html#ae8df514c2c3f876dc620c2423091967c">Update</a>(<a class="code" href="../../db/df3/a00034.html">Person</a>* p1, <a class="code" href="../../db/df3/a00034.html">Person</a>* p2) {}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00028_html_ae8df514c2c3f876dc620c2423091967c"><div class="ttname"><a href="../../dc/d3c/a00028.html#ae8df514c2c3f876dc620c2423091967c">stride::NoGlobalInformation::Update</a></div><div class="ttdeci">static void Update(Person *p1, Person *p2)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00030">NoGlobalInformation.h:30</a></div></div>
+<div class="ttc" id="a00034_html"><div class="ttname"><a href="../../db/df3/a00034.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/df5/a00137_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">stride::NoGlobalInformation</a></div><div class="ttdoc">No global information about the disease, number of infected,... </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00027">NoGlobalInformation.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_697403cd96b9981a35e127a5a5c069d8.html">information_policies</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">NoLocalInformation.h</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_697403cd96b9981a35e127a5a5c069d8.html">information_policies</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">NoGlobalInformation.h</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::Vaccination&lt; belief_policy &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -106,53 +106,59 @@ $(document).ready(function(){initNavTree('d3/d8b/a00059.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d8/d95/a00379.html">List of all members</a>  </div>
+<a href="../../d1/d0b/a00529.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Vaccination&lt; belief_policy &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../d3/d8b/a00059.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual.  
+<p>Utilities to tag clocks and to reformat number of ticks to a string.  
  <a href="../../d3/d8b/a00059.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/de9/a00176_source.html">Vaccination.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Vaccination&lt; belief_policy &gt;:</div>
+Collaboration diagram for stride::util::TimeToString:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/ddd/a00380.gif" border="0" usemap="#stride_1_1Vaccination_3_01belief__policy_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Vaccination_3_01belief__policy_01_4_coll__map" id="stride_1_1Vaccination_3_01belief__policy_01_4_coll__map">
+<div class="center"><img src="../../da/d7e/a00530.gif" border="0" usemap="#stride_1_1util_1_1TimeToString_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeToString_coll__map" id="stride_1_1util_1_1TimeToString_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8dcb01be7e194bb29d6a379322781a14"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a8dcb01be7e194bb29d6a379322781a14">PracticesSocialDistancing</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
-<tr class="separator:a8dcb01be7e194bb29d6a379322781a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a4db3031aaeba5b0de11bd821ece9adbe">PracticesVaccination</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
-<tr class="separator:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
+<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br/></td></tr>
+<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
+<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br/></td></tr>
+<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
+<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br/></td></tr>
+<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
+<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br/></td></tr>
+<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
+<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br/></td></tr>
+<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename belief_policy&gt;<br/>
-class stride::Vaccination&lt; belief_policy &gt;</h3>
+<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
 
-<p><a class="el" href="../../d3/d8b/a00059.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual. </p>
-
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00024">24</a> of file <a class="el" href="../../d5/de9/a00176_source.html">Vaccination.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00035">35</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a8dcb01be7e194bb29d6a379322781a14"></a>
+<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool <a class="el" href="../../d3/d8b/a00059.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesSocialDistancing </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
-          <td class="paramname"><em>belief_data</em></td><td>)</td>
+          <td class="paramtype">std::chrono::minutes&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -163,24 +169,26 @@ template&lt;typename belief_policy &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00027">27</a> of file <a class="el" href="../../d5/de9/a00176_source.html">Vaccination.h</a>.</p>
+<p>Produce string in hh:mm:ss format. </p>
+
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00038">38</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00093">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4db3031aaeba5b0de11bd821ece9adbe"></a>
+<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool <a class="el" href="../../d3/d8b/a00059.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesVaccination </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
-          <td class="paramname"><em>belief_data</em></td><td>)</td>
+          <td class="paramtype">std::chrono::seconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -191,20 +199,106 @@ template&lt;typename belief_policy &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/de9/a00176_source.html#l00029">29</a> of file <a class="el" href="../../d5/de9/a00176_source.html">Vaccination.h</a>.</p>
+<p>Produce string in hh:mm:ss format. </p>
+
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00053">53</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/de9/a00176_source.html">Vaccination.h</a></li>
+<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::milliseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:mus format. </p>
+
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00069">69</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::microseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:ms:mus format. </p>
+
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00086">86</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
+
+<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00104">104</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/da2/a00192.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">Vaccination</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">TimeToString</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

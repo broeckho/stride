@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PopBuilder.h File Reference</title>
+<title>Stride Reference Manual: PopBuilder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -103,60 +103,48 @@ $(document).ready(function(){initNavTree('d2/d82/a00142.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PopBuilder.h File Reference</div>  </div>
+<div class="title">PopBuilder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Initialize populations.  
+<p>Initialize populations: implementation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/dce/a00143_source.html">PopBuilder.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">pop/Population.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d0d/a00171_source.html">pop/SurveySeeder.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/d7d/a00150_source.html">util/RNManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d44/a00162_source.html">util/StringUtils.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PopBuilder.h:</div>
+Include dependency graph for PopBuilder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db3/a00313.gif" border="0" usemap="#PopBuilder_8h" alt=""/></div>
-<map name="PopBuilder_8h" id="PopBuilder_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d39/a00314.gif" border="0" usemap="#PopBuilder_8hdep" alt=""/></div>
-<map name="PopBuilder_8hdep" id="PopBuilder_8hdep">
-<area shape="rect" id="node2" href="../../d5/d4e/a00141.html" title="Initialize populations: implementation. " alt="" coords="5,80,115,107"/><area shape="rect" id="node3" href="../../d7/dce/a00143.html" title="Core Population class. " alt="" coords="139,80,247,107"/></map>
+<div class="center"><img src="../../d4/d6f/a00315.gif" border="0" usemap="#PopBuilder_8cpp" alt=""/></div>
+<map name="PopBuilder_8cpp" id="PopBuilder_8cpp">
+<area shape="rect" id="node2" href="../../d7/dce/a00143.html" title="Initialize populations. " alt="" coords="952,80,1048,107"/><area shape="rect" id="node5" href="../../da/ddb/a00145.html" title="Header file for the core Population class. " alt="" coords="734,80,852,107"/><area shape="rect" id="node33" href="../../d1/d0d/a00171.html" title="Header file for the SurveySeeder class. " alt="" coords="1228,80,1367,107"/><area shape="rect" id="node34" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="1497,163,1620,189"/><area shape="rect" id="node42" href="../../d7/d70/a00106.html" title="Interface for install directory queries. " alt="" coords="2267,163,2366,189"/><area shape="rect" id="node45" href="../../db/d44/a00162.html" title="Miscellaneous string utilities. " alt="" coords="2363,411,2478,437"/><area shape="rect" id="node6" href="../../da/d82/a00091.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="256,163,411,189"/><area shape="rect" id="node19" href="../../d2/df5/a00137.html" title="Header file for the Person class. " alt="" coords="436,163,535,189"/><area shape="rect" id="node22" href="../../db/db6/a00074.html" title="Interface/Implementation of Any. " alt="" coords="1143,163,1219,189"/><area shape="rect" id="node25" href="../../da/d01/a00153.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="514,336,672,363"/><area shape="rect" id="node7" href="../../d9/dec/a00090.html" title="Header for the core ContactPool class. " alt="" coords="828,336,962,363"/><area shape="rect" id="node10" href="../../d4/d7d/a00093.html" title="Definition of ContactPoolType. " alt="" coords="259,411,422,437"/><area shape="rect" id="node16" href="../../d8/d17/a00114.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="142,253,300,280"/><area shape="rect" id="node8" href="../../db/ddf/a00088.html" title="Header for the ContactLogMode class. " alt="" coords="1096,411,1275,437"/><area shape="rect" id="node20" href="../../dd/d42/a00109.html" title="Header for the Health class. " alt="" coords="427,253,547,280"/><area shape="rect" id="node26" href="../../d6/dfb/a00172.html" title="Interface/Implementation for SVIterator. " alt="" coords="548,411,639,437"/><area shape="rect" id="node35" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="1687,336,1810,363"/></map>
 </div>
 </div>
 <p><a href="../../d2/d82/a00142_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8c/a00035.html">stride::PopBuilder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="../../de/d8c/a00036.html" title="Container for persons in population. ">Population</a> objects.  <a href="../../d4/d8c/a00035.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
-<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride::util</a></td></tr>
-<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initialize populations. </p>
+<div class="textblock"><p>Initialize populations: implementation. </p>
 
-<p>Definition in file <a class="el" href="../../d2/d82/a00142_source.html">PopBuilder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/d82/a00142_source.html">PopBuilder.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">PopBuilder.h</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">PopBuilder.cpp</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

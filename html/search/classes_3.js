@@ -5,6 +5,6 @@ var searchData=
   ['daysoffnone',['DaysOffNone',['../d7/dd4/a00013.html',1,'stride']]],
   ['daysoffschool',['DaysOffSchool',['../d2/de7/a00014.html',1,'stride']]],
   ['daysoffstandard',['DaysOffStandard',['../dd/d1b/a00015.html',1,'stride']]],
-  ['dirs',['Dirs',['../d4/dca/a00048.html',1,'stride::util::FileSys']]],
+  ['dirs',['Dirs',['../d2/dee/a00049.html',1,'stride::util::FileSys']]],
   ['diseaseseeder',['DiseaseSeeder',['../d7/d7a/a00016.html',1,'stride']]]
 ];

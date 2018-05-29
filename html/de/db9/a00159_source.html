@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Stopwatch.h Source File</title>
+<title>Stride Reference Manual: SimRunner.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/db9/a00159_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Stopwatch.h</div>  </div>
+<div class="title">SimRunner.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/db9/a00159.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,123 +122,67 @@ $(document).ready(function(){initNavTree('de/db9/a00159_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d3f/a00173.html">TimeToString.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d00/a00113.html">sim/event/Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/ddf/a00164.html">sim/event/Subject.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d7d/a00161.html">util/Stopwatch.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::chrono::steady_clock&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/dea/a00054.html">Stopwatch</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#aedbb343fde64ffebcdb371dd862aae7f">   37</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d1/dea/a00054.html#aedbb343fde64ffebcdb371dd862aae7f">TClock</a> = T;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a925b07b32b747a519b37c549ba7f1531">   40</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d1/dea/a00054.html#a925b07b32b747a519b37c549ba7f1531">Stopwatch</a>(std::string name = <span class="stringliteral">&quot;stopwatch&quot;</span>, <span class="keywordtype">bool</span> running = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            : <a class="code" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">m_accumulated</a>(T::duration::zero()), <a class="code" href="../../d1/dea/a00054.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a>(std::move(name)), <a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>(running)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                        <a class="code" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a> = T::now();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#acaf0b5f9f645a7dd6420420443de5a96">   49</a></span>&#160;        <a class="code" href="../../d1/dea/a00054.html">Stopwatch</a>&amp; <a class="code" href="../../d1/dea/a00054.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>    = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        <a class="code" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a> = T::now();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a4b6145f590e94467a0048817f348ac75">   59</a></span>&#160;        <a class="code" href="../../d1/dea/a00054.html">Stopwatch</a>&amp; <a class="code" href="../../d1/dea/a00054.html#a4b6145f590e94467a0048817f348ac75">Stop</a>()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <a class="code" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">m_accumulated</a> += (T::now() - <a class="code" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>Sim;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>Population;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/de7/a00039.html">SimRunner</a> : <span class="keyword">public</span> <a class="code" href="../../d9/d2e/a00056.html">util::Subject</a>&lt;stride::sim_event::Id&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc">SimRunner</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, std::shared_ptr&lt;Population&gt; pop);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="../../d3/de7/a00039.html#ad59e65dfe839b8a589b1c6ffa805ba2f">~SimRunner</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#aceb24930d50702acfa88bdfe5cb13a1b">   54</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="../../d4/d6d/a00055.html">util::Stopwatch&lt;&gt;</a>&amp; <a class="code" href="../../d3/de7/a00039.html#aceb24930d50702acfa88bdfe5cb13a1b">GetClock</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a9eeaa63450413a62f31bcee07df29fa3">   57</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../d3/de7/a00039.html#a9eeaa63450413a62f31bcee07df29fa3">GetConfig</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a99014dd891a3422214c2a088dd38cde9">   60</a></span>&#160;        std::shared_ptr&lt;Sim&gt; <a class="code" href="../../d3/de7/a00039.html#a99014dd891a3422214c2a088dd38cde9">GetSim</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">Run</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">Run</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numSteps);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a45e66e4b53acb9c8f1edb7d5fda4f451">   69</a></span>&#160;        <a class="code" href="../../d1/dea/a00054.html">Stopwatch</a>&amp; <a class="code" href="../../d1/dea/a00054.html#a45e66e4b53acb9c8f1edb7d5fda4f451">Reset</a>()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">m_accumulated</a> = T::duration::zero();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>     = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a6afa0761326b35e675517b6a81ffef1f">   77</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d1/dea/a00054.html#a6afa0761326b35e675517b6a81ffef1f">IsRunning</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (<a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>); }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#abcec896fa075fcb4b54b13e4bf1fd088">   80</a></span>&#160;        std::string <a class="code" href="../../d1/dea/a00054.html#abcec896fa075fcb4b54b13e4bf1fd088">GetName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d1/dea/a00054.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a>; }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">   83</a></span>&#160;        <span class="keyword">typename</span> T::duration <a class="code" href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keyword">auto</span> fTemp = <a class="code" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">m_accumulated</a>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        fTemp += (T::now() - <a class="code" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> fTemp;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a1a068a66f6b5db8cf68dabe5a8935f22">   93</a></span>&#160;        std::string <a class="code" href="../../d1/dea/a00054.html#a1a068a66f6b5db8cf68dabe5a8935f22">ToString</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordtype">string</span>                          colon_string;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keyword">typedef</span> <span class="keyword">typename</span> TClock::period TPeriod;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> (ratio_less_equal&lt;TPeriod, micro&gt;::value) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        microseconds d = duration_cast&lt;microseconds&gt;(<a class="code" href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a>());</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        colon_string   = <a class="code" href="../../d7/df7/a00058.html#ad6dcc9ca1dfee4746a739175240585ce">TimeToString::ToColonString</a>(d);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ratio_less_equal&lt;TPeriod, milli&gt;::value) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        milliseconds d = duration_cast&lt;milliseconds&gt;(<a class="code" href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a>());</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        colon_string   = <a class="code" href="../../d7/df7/a00058.html#ad6dcc9ca1dfee4746a739175240585ce">TimeToString::ToColonString</a>(d);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        seconds d    = duration_cast&lt;seconds&gt;(<a class="code" href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a>());</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        colon_string = <a class="code" href="../../d7/df7/a00058.html#ad6dcc9ca1dfee4746a739175240585ce">TimeToString::ToColonString</a>(d);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">return</span> colon_string;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">  114</a></span>&#160;        <span class="keyword">typename</span> T::duration   <a class="code" href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">m_accumulated</a>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">  115</a></span>&#160;        <span class="keyword">typename</span> T::time_point <a class="code" href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">m_last_start</a>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#aa22d2b26b456a8895b2e5c8ce62fe071">  116</a></span>&#160;        std::string            <a class="code" href="../../d1/dea/a00054.html#aa22d2b26b456a8895b2e5c8ce62fe071">m_name</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">  117</a></span>&#160;        <span class="keywordtype">bool</span>                   <a class="code" href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">m_running</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../d7/da0/a00198.html#a1c487ec7202a72d7aa33bc6b5767b287">  124</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; oss, Stopwatch&lt;T&gt; <span class="keyword">const</span>&amp; stopwatch)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">return</span> (oss &lt;&lt; stopwatch.ToString());</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00054_html_a765784978119de616443c956d98166c4"><div class="ttname"><a href="../../d1/dea/a00054.html#a765784978119de616443c956d98166c4">stride::util::Stopwatch::m_accumulated</a></div><div class="ttdeci">T::duration m_accumulated</div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00114">Stopwatch.h:114</a></div></div>
-<div class="ttc" id="a00054_html_abcec896fa075fcb4b54b13e4bf1fd088"><div class="ttname"><a href="../../d1/dea/a00054.html#abcec896fa075fcb4b54b13e4bf1fd088">stride::util::Stopwatch::GetName</a></div><div class="ttdeci">std::string GetName() const </div><div class="ttdoc">Return name of this stopwatch. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00080">Stopwatch.h:80</a></div></div>
-<div class="ttc" id="a00058_html_ad6dcc9ca1dfee4746a739175240585ce"><div class="ttname"><a href="../../d7/df7/a00058.html#ad6dcc9ca1dfee4746a739175240585ce">stride::util::TimeToString::ToColonString</a></div><div class="ttdeci">static std::string ToColonString(std::chrono::minutes d)</div><div class="ttdoc">Produce string in hh:mm:ss format. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00038">TimeToString.h:38</a></div></div>
-<div class="ttc" id="a00054_html_a20bfb79938c423d71cde68c8d2d42fbb"><div class="ttname"><a href="../../d1/dea/a00054.html#a20bfb79938c423d71cde68c8d2d42fbb">stride::util::Stopwatch::m_running</a></div><div class="ttdeci">bool m_running</div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00117">Stopwatch.h:117</a></div></div>
-<div class="ttc" id="a00054_html_acaf0b5f9f645a7dd6420420443de5a96"><div class="ttname"><a href="../../d1/dea/a00054.html#acaf0b5f9f645a7dd6420420443de5a96">stride::util::Stopwatch::Start</a></div><div class="ttdeci">Stopwatch &amp; Start()</div><div class="ttdoc">Starts stopwatch if it was stopped. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00049">Stopwatch.h:49</a></div></div>
-<div class="ttc" id="a00054_html_a4b6145f590e94467a0048817f348ac75"><div class="ttname"><a href="../../d1/dea/a00054.html#a4b6145f590e94467a0048817f348ac75">stride::util::Stopwatch::Stop</a></div><div class="ttdeci">Stopwatch &amp; Stop()</div><div class="ttdoc">Stops the stopwatch if it was running. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00059">Stopwatch.h:59</a></div></div>
-<div class="ttc" id="a00054_html_aa22d2b26b456a8895b2e5c8ce62fe071"><div class="ttname"><a href="../../d1/dea/a00054.html#aa22d2b26b456a8895b2e5c8ce62fe071">stride::util::Stopwatch::m_name</a></div><div class="ttdeci">std::string m_name</div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00116">Stopwatch.h:116</a></div></div>
-<div class="ttc" id="a00054_html"><div class="ttname"><a href="../../d1/dea/a00054.html">stride::util::Stopwatch</a></div><div class="ttdoc">Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00034">Stopwatch.h:34</a></div></div>
-<div class="ttc" id="a00054_html_aedbb343fde64ffebcdb371dd862aae7f"><div class="ttname"><a href="../../d1/dea/a00054.html#aedbb343fde64ffebcdb371dd862aae7f">stride::util::Stopwatch::TClock</a></div><div class="ttdeci">T TClock</div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00037">Stopwatch.h:37</a></div></div>
-<div class="ttc" id="a00054_html_afe36cf7e76eb1de8cda4490fc5b41829"><div class="ttname"><a href="../../d1/dea/a00054.html#afe36cf7e76eb1de8cda4490fc5b41829">stride::util::Stopwatch::Get</a></div><div class="ttdeci">T::duration Get() const </div><div class="ttdoc">Returns the accumulated value without altering the stopwatch state. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00083">Stopwatch.h:83</a></div></div>
-<div class="ttc" id="a00054_html_a6afa0761326b35e675517b6a81ffef1f"><div class="ttname"><a href="../../d1/dea/a00054.html#a6afa0761326b35e675517b6a81ffef1f">stride::util::Stopwatch::IsRunning</a></div><div class="ttdeci">bool IsRunning() const </div><div class="ttdoc">Reports whether stopwatch has been started. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00077">Stopwatch.h:77</a></div></div>
-<div class="ttc" id="a00054_html_ab9c7ba8e093b3c7d933ed5511d16cde4"><div class="ttname"><a href="../../d1/dea/a00054.html#ab9c7ba8e093b3c7d933ed5511d16cde4">stride::util::Stopwatch::m_last_start</a></div><div class="ttdeci">T::time_point m_last_start</div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00115">Stopwatch.h:115</a></div></div>
-<div class="ttc" id="a00054_html_a45e66e4b53acb9c8f1edb7d5fda4f451"><div class="ttname"><a href="../../d1/dea/a00054.html#a45e66e4b53acb9c8f1edb7d5fda4f451">stride::util::Stopwatch::Reset</a></div><div class="ttdeci">Stopwatch &amp; Reset()</div><div class="ttdoc">Resets stopwatch i.e. stopwatch is stopped and time accumulator is cleared. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00069">Stopwatch.h:69</a></div></div>
-<div class="ttc" id="a00054_html_a925b07b32b747a519b37c549ba7f1531"><div class="ttname"><a href="../../d1/dea/a00054.html#a925b07b32b747a519b37c549ba7f1531">stride::util::Stopwatch::Stopwatch</a></div><div class="ttdeci">Stopwatch(std::string name=&quot;stopwatch&quot;, bool running=false)</div><div class="ttdoc">Constructor initializes stopwatch. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00040">Stopwatch.h:40</a></div></div>
-<div class="ttc" id="a00173_html"><div class="ttname"><a href="../../d7/d3f/a00173.html">TimeToString.h</a></div><div class="ttdoc">Utilities to tag clocks and reformat clock readout to string. </div></div>
-<div class="ttc" id="a00054_html_a1a068a66f6b5db8cf68dabe5a8935f22"><div class="ttname"><a href="../../d1/dea/a00054.html#a1a068a66f6b5db8cf68dabe5a8935f22">stride::util::Stopwatch::ToString</a></div><div class="ttdeci">std::string ToString() const </div><div class="ttdoc">Returns string representation of readout. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00093">Stopwatch.h:93</a></div></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">   69</a></span>&#160;        <a class="code" href="../../d4/d6d/a00055.html">util::Stopwatch&lt;&gt;</a>           <a class="code" href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>;         </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">   70</a></span>&#160;        boost::property_tree::ptree <a class="code" href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>;     </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a78babbce6074c1f0d612c67febfb388e">   71</a></span>&#160;        std::string                 <a class="code" href="../../d3/de7/a00039.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a>; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">   72</a></span>&#160;        std::shared_ptr&lt;Sim&gt;        <a class="code" href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>;           </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00039_html"><div class="ttname"><a href="../../d3/de7/a00039.html">stride::SimRunner</a></div><div class="ttdoc">The simulation runner drive simulator throufgh time steps. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00043">SimRunner.h:43</a></div></div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">stride::util::Subject</a></div><div class="ttdoc">Template for Subject/Observer (or Publish/Subscribe). </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d48/a00165_source.html#l00035">util/Subject.h:35</a></div></div>
+<div class="ttc" id="a00039_html_aceb24930d50702acfa88bdfe5cb13a1b"><div class="ttname"><a href="../../d3/de7/a00039.html#aceb24930d50702acfa88bdfe5cb13a1b">stride::SimRunner::GetClock</a></div><div class="ttdeci">const util::Stopwatch &amp; GetClock() const </div><div class="ttdoc">Return the run &amp; sim configuration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00054">SimRunner.h:54</a></div></div>
+<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">Subject.h</a></div><div class="ttdoc">Definition of Subject/Observer for SimEvents. </div></div>
+<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">stride::util::Stopwatch</a></div><div class="ttdoc">Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00034">Stopwatch.h:34</a></div></div>
+<div class="ttc" id="a00039_html_ad59e65dfe839b8a589b1c6ffa805ba2f"><div class="ttname"><a href="../../d3/de7/a00039.html#ad59e65dfe839b8a589b1c6ffa805ba2f">stride::SimRunner::~SimRunner</a></div><div class="ttdeci">~SimRunner() override=default</div><div class="ttdoc">Destructor. </div></div>
+<div class="ttc" id="a00039_html_ae2de72162f806fe5b7008e81854bdc2d"><div class="ttname"><a href="../../d3/de7/a00039.html#ae2de72162f806fe5b7008e81854bdc2d">stride::SimRunner::m_clock</a></div><div class="ttdeci">util::Stopwatch m_clock</div><div class="ttdoc">Stopwatch for timing the computation. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00069">SimRunner.h:69</a></div></div>
+<div class="ttc" id="a00039_html_a99014dd891a3422214c2a088dd38cde9"><div class="ttname"><a href="../../d3/de7/a00039.html#a99014dd891a3422214c2a088dd38cde9">stride::SimRunner::GetSim</a></div><div class="ttdeci">std::shared_ptr&lt; Sim &gt; GetSim() const </div><div class="ttdoc">Return the Simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00060">SimRunner.h:60</a></div></div>
+<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">Stopwatch.h</a></div><div class="ttdoc">Definition of Stopwatch. </div></div>
+<div class="ttc" id="a00039_html_a9eeaa63450413a62f31bcee07df29fa3"><div class="ttname"><a href="../../d3/de7/a00039.html#a9eeaa63450413a62f31bcee07df29fa3">stride::SimRunner::GetConfig</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; GetConfig() const </div><div class="ttdoc">Return the run &amp; sim configuration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00057">SimRunner.h:57</a></div></div>
+<div class="ttc" id="a00039_html_a81720a1766d513eb248cb443d948567f"><div class="ttname"><a href="../../d3/de7/a00039.html#a81720a1766d513eb248cb443d948567f">stride::SimRunner::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run simulator for as many steps/days as indicated in config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00081">SimRunner.cpp:81</a></div></div>
+<div class="ttc" id="a00039_html_a4ff961d97649b68ef661d38c098baaf0"><div class="ttname"><a href="../../d3/de7/a00039.html#a4ff961d97649b68ef661d38c098baaf0">stride::SimRunner::m_sim</a></div><div class="ttdeci">std::shared_ptr&lt; Sim &gt; m_sim</div><div class="ttdoc">Simulator object. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00072">SimRunner.h:72</a></div></div>
+<div class="ttc" id="a00113_html"><div class="ttname"><a href="../../d3/d00/a00113.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00039_html_a78babbce6074c1f0d612c67febfb388e"><div class="ttname"><a href="../../d3/de7/a00039.html#a78babbce6074c1f0d612c67febfb388e">stride::SimRunner::m_output_prefix</a></div><div class="ttdeci">std::string m_output_prefix</div><div class="ttdoc">Prefix for output data files. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00071">SimRunner.h:71</a></div></div>
+<div class="ttc" id="a00039_html_a54fb61460204e0f78cf9619691e98abc"><div class="ttname"><a href="../../d3/de7/a00039.html#a54fb61460204e0f78cf9619691e98abc">stride::SimRunner::SimRunner</a></div><div class="ttdeci">SimRunner(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Initialization with property tree. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/db8/a00158_source.html#l00033">SimRunner.cpp:33</a></div></div>
+<div class="ttc" id="a00039_html_a1c4778adb0be5161932d107c2a84d477"><div class="ttname"><a href="../../d3/de7/a00039.html#a1c4778adb0be5161932d107c2a84d477">stride::SimRunner::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdoc">Ptree with configuration. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00070">SimRunner.h:70</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">Stopwatch.h</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">SimRunner.h</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

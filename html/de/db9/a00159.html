@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Stopwatch.h File Reference</title>
+<title>Stride Reference Manual: SimRunner.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 53c0a27</span>
+   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
    </div>
   </td>
  </tr>
@@ -104,68 +104,60 @@ $(document).ready(function(){initNavTree('de/db9/a00159.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Stopwatch.h File Reference</div>  </div>
+<div class="title">SimRunner.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of Stopwatch.  
+<p>Header for the SimRunner class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d3f/a00173_source.html">TimeToString.h</a>&quot;</code><br/>
-<code>#include &lt;chrono&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d00/a00113_source.html">sim/event/Id.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/ddf/a00164_source.html">sim/event/Subject.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d6/d7d/a00161_source.html">util/Stopwatch.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Stopwatch.h:</div>
+Include dependency graph for SimRunner.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d01/a00339.gif" border="0" usemap="#Stopwatch_8h" alt=""/></div>
-<map name="Stopwatch_8h" id="Stopwatch_8h">
-<area shape="rect" id="node2" href="../../d7/d3f/a00173.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="197,80,307,107"/></map>
+<div class="center"><img src="../../df/df1/a00340.gif" border="0" usemap="#SimRunner_8h" alt=""/></div>
+<map name="SimRunner_8h" id="SimRunner_8h">
+<area shape="rect" id="node2" href="../../d3/d00/a00113.html" title="Definition of EventId. " alt="" coords="227,171,332,197"/><area shape="rect" id="node5" href="../../db/ddf/a00164.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="144,88,283,115"/><area shape="rect" id="node10" href="../../d6/d7d/a00161.html" title="Definition of Stopwatch. " alt="" coords="409,88,524,115"/><area shape="rect" id="node6" href="../../d0/d48/a00165.html" title="Interface/Implementation of Subject. " alt="" coords="96,171,195,197"/><area shape="rect" id="node11" href="../../de/d45/a00175.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="510,171,620,197"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/df1/a00340.gif" border="0" usemap="#Stopwatch_8hdep" alt=""/></div>
-<map name="Stopwatch_8hdep" id="Stopwatch_8hdep">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="313,80,417,107"/><area shape="rect" id="node5" href="../../d1/db7/a00157.html" title="Header for the SimRunner class. " alt="" coords="579,80,677,107"/><area shape="rect" id="node3" href="../../d1/d51/a00079.html" title="Header for the command line controller. " alt="" coords="471,229,589,256"/><area shape="rect" id="node4" href="../../d1/d88/a00128.html" title="Main program: command line handling. " alt="" coords="5,155,79,181"/><area shape="rect" id="node6" href="../../d2/d34/a00156.html" title="Implementation for SimRunner. " alt="" coords="1165,155,1276,181"/><area shape="rect" id="node7" href="../../da/d24/a00068.html" title="Observer for Adopted output. " alt="" coords="155,155,276,181"/><area shape="rect" id="node8" href="../../dc/ddf/a00067.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="77,229,211,256"/><area shape="rect" id="node9" href="../../d4/d63/a00082.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="403,155,492,181"/><area shape="rect" id="node10" href="../../d8/d53/a00081.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="303,229,405,256"/><area shape="rect" id="node11" href="../../d4/d98/a00120.html" title="Observer for Cases output. " alt="" coords="568,155,688,181"/><area shape="rect" id="node12" href="../../df/d6a/a00119.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="619,229,753,256"/><area shape="rect" id="node13" href="../../d5/db1/a00140.html" title="Observer for Persons output. " alt="" coords="763,155,884,181"/><area shape="rect" id="node14" href="../../de/d14/a00139.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="789,229,923,256"/><area shape="rect" id="node15" href="../../dc/de6/a00167.html" title="Observer for Persons output. " alt="" coords="961,155,1089,181"/><area shape="rect" id="node16" href="../../d9/d38/a00166.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1005,229,1147,256"/></map>
+<div class="center"><img src="../../d3/d93/a00341.gif" border="0" usemap="#SimRunner_8hdep" alt=""/></div>
+<map name="SimRunner_8hdep" id="SimRunner_8hdep">
+<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="351,155,469,181"/><area shape="rect" id="node3" href="../../d6/db8/a00158.html" title="Implementation for SimRunner. " alt="" coords="1043,80,1153,107"/><area shape="rect" id="node4" href="../../d4/d31/a00069.html" title="Observer for Adopted output. " alt="" coords="83,80,204,107"/><area shape="rect" id="node5" href="../../da/d24/a00068.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="5,155,139,181"/><area shape="rect" id="node6" href="../../d2/d1f/a00083.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="281,80,369,107"/><area shape="rect" id="node7" href="../../d4/d63/a00082.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="206,155,308,181"/><area shape="rect" id="node8" href="../../d8/dfa/a00121.html" title="Observer for Cases output. " alt="" coords="445,80,565,107"/><area shape="rect" id="node9" href="../../d4/d98/a00120.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="499,155,633,181"/><area shape="rect" id="node10" href="../../d5/d4e/a00141.html" title="Observer for Persons output. " alt="" coords="641,80,761,107"/><area shape="rect" id="node11" href="../../d5/db1/a00140.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="669,155,803,181"/><area shape="rect" id="node12" href="../../de/d53/a00169.html" title="Observer for Persons output. " alt="" coords="838,80,967,107"/><area shape="rect" id="node13" href="../../dd/da7/a00168.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="882,155,1024,181"/></map>
 </div>
 </div>
 <p><a href="../../de/db9/a00159_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">stride::util::Stopwatch&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  <a href="../../d1/dea/a00054.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/de7/a00039.html">stride::SimRunner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The simulation runner drive simulator throufgh time steps.  <a href="../../d3/de7/a00039.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dd/da2/a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/da2/a00192.html">stride</a></td></tr>
-<tr class="memdesc:dd/da2/a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
+<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d7/da0/a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html">stride::util</a></td></tr>
-<tr class="memdesc:d7/da0/a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/da0/a00198.html#a1c487ec7202a72d7aa33bc6b5767b287">stride::util::operator&lt;&lt;</a> (std::ostream &amp;oss, Stopwatch&lt; T &gt; const &amp;stopwatch)</td></tr>
-<tr class="memdesc:a1c487ec7202a72d7aa33bc6b5767b287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert accumulated time into output stream without altering stopwatch state.  <a href="#a1c487ec7202a72d7aa33bc6b5767b287">More...</a><br/></td></tr>
-<tr class="separator:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Stopwatch. </p>
+<div class="textblock"><p>Header for the SimRunner class. </p>
 
-<p>Definition in file <a class="el" href="../../de/db9/a00159_source.html">Stopwatch.h</a>.</p>
+<p>Definition in file <a class="el" href="../../de/db9/a00159_source.html">SimRunner.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">Stopwatch.h</a></li>
-    <li class="footer">Generated on Sun May 27 2018 12:37:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">SimRunner.h</a></li>
+    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
