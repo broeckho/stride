@@ -161,14 +161,26 @@ def plotTotalCasesPerDay(scenarios, seeds):
     plt.legend(handles=handles)
     plt.show()
 
+def plotOutbreakSize(scenarios, seeds):
+    outbreakSizesAll = []
+    for scenarioName in scenarios:
+        outbreakSizes = []
+        for s in seeds:
+            outputDir = scenarioName + "_seed" + str(s)
+            (timesteps, totalCases, newCases) = getCasesPerDay(os.path.join(outputDir, "cases.csv"))
+            outbreakSizes.append(totalCases[-1])
+        outbreakSizesAll.append(outbreakSizes)
+    plt.boxplot(outbreakSizesAll, labels=scenarios)
+    plt.show()
+
 def main():
-    #seeds = range(20)
-    seeds = [1]
+    seeds = range(20)
     runRandom(seeds)
     runAgeDependent(seeds)
     runClustering(seeds)
     plotNewCasesPerDay(["Random", "AgeDependent", "Clustering"], seeds)
     plotTotalCasesPerDay(["Random", "AgeDependent", "Clustering"], seeds)
+    plotOutbreakSize(["Random", "AgeDependent", "Clustering"], seeds)
 
 if __name__=="__main__":
     main()
