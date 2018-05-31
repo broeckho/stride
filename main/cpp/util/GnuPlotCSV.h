@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -21,19 +21,17 @@
 
 #include "CSV.h"
 
-#include "util/StringUtils.h"
-
 #include <boost/filesystem/fstream.hpp>
-#include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
-#include <fstream>
-#include <vector>
 
 namespace stride {
 namespace util {
 
 /**
- * Container for GnuPlot data.
+ * CSV container fit for GnuPlot data.
+ * The difference with the base CSV is that a header row with labels
+ * is not required (in which case it defaults to column numbering) and
+ * if present it starts with a '#'.
  */
 class GnuPlotCSV : public CSV
 {
@@ -43,6 +41,7 @@ public:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const GnuPlotCSV& csv);
 
 private:
+        /// Write header with labels.
         void WriteLabels(boost::filesystem::ofstream& file) const override;
 };
 

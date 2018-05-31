@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header for the command line controller.
+ * Header for the St(ochastic)an(alysis)Controller.
  */
 
 #include "sim/ControlHelper.h"
@@ -26,7 +26,10 @@
 namespace stride {
 
 /**
- * Controls a simulation run initiated with the command line interface (cli).
+ * Runs a simulation multiple times, with different random engine seeds.
+ * The infection count at each day is captured a a text file is produced
+ * with the infection counts over time and the associated boxplot data.
+ * The runs are in parallel (iff OpenMP available), individuals runs not.
  *
  * CliController setup functions include (@see ControlHelper):
  * \li checks the OpenMP environment
@@ -34,11 +37,23 @@ namespace stride {
  * \li interprets and executes the ouput prefix
  * \li intalls a stride logger
  *
- * The CliController execution
- * \li creates a population (@see Population)
- * \li creates a simulation runner (@see SimRunner)
- * \li registers the appropriate viewers
- * \li runs the simulation
+ * The CliController execution:
+ * \li produces a random seed for each run
+ * \li creates a population (@see Population) for each run
+ * \li creates a simulation runner (@see SimRunner) for each run
+ * \li registers the appropriate viewer for each runner
+ * \li runs the simulations
+ * \li produces the output.
+ *
+ * The procedure implies that the parameters "run.rng_seed" and also
+ * "run.num_threads" in the configuration are overriden for the
+ * individual runs.
+ *
+ * The output is textual and consists of multiple CSV blocks separated
+ * by blank lines. The first block has the time evolution of the infection
+ * count in rows, the second block has the boxplot data in columns. The
+ * format is amenable to the gnuplot plotting tool (so in each CSV block
+ * the header row with column labels starts with a '#').
  */
 class StanController : protected ControlHelper
 {

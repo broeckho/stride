@@ -44,14 +44,14 @@ public:
         /// Initialize from inputstream.
         explicit CSV(std::istream& inputStream);
 
+        /// Initialize with columnCount only; labels default to sequence numbers.
+        explicit CSV(size_t columnCount);
+
         /// Initialize with header only.
-        explicit CSV(const std::initializer_list<std::string>& labels);
+        CSV(const std::initializer_list<std::string>& labels);
 
         /// Initialize with header only.
         explicit CSV(const std::vector<std::string>& labels);
-
-        /// Initialize with columnCount only; labels default to sequence numbers.
-        explicit CSV(size_t columnCount);
 
         /// Default constructor, used for swig.
         CSV() = default;
@@ -85,14 +85,14 @@ private:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
 
 private:
-        ///
+        /// Read data from input stream.
         void ReadFromStream(std::istream& inputStream);
 
 protected:
-        ///
+        /// Write header with labels.
         virtual void WriteLabels(boost::filesystem::ofstream& file) const;
 
-        ///
+        /// Write the body of rows.
         virtual void WriteRows(boost::filesystem::ofstream& file) const;
 
 protected:

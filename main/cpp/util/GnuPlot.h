@@ -11,12 +11,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
  * @file
- * Header file of base class for config that needs to be read from a file.
+ * Multi-block CSV file (fashioned after and used for GnuPlot data files).
  */
 
 #include "GnuPlotCSV.h"
@@ -29,14 +29,17 @@ namespace stride {
 namespace util {
 
 /**
- * A collection of CSVRow elements. Iterate with begin and end like STL containers.
+ * A collection of GnuPlotCSV's elements. It reflects a data file structure
+ * with (possibly) multiple blocks separated by blank lines. Each block has
+ * a CSV format. The CSV may have a header row with labels, but if present
+ * the row must start with a '#'.
  */
 class GnuPlot : protected std::vector<GnuPlotCSV>
 {
 public:
         GnuPlot() = default;
 
-        /// iterators
+        /// Iterators.
         using std::vector<GnuPlotCSV>::begin;
         using std::vector<GnuPlotCSV>::end;
         using std::vector<GnuPlotCSV>::size;

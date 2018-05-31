@@ -27,7 +27,8 @@
 namespace stride {
 namespace util {
 
-/// BoxPlotData.
+/// BoxPlotData calculates total, minimum, maximum, median, lower and upper
+/// quartile of the values in the vector.
 /// \tparam T   Datatype for which boxplot data get calculated.
 template <typename T>
 struct BoxPlotData

@@ -68,7 +68,9 @@ void StanController::Control()
 
         // -----------------------------------------------------------------------------------------
         // Instantiate simRunners & run, once for each seed.
+        // Multiple runs in parallel, individual runs not.
         // -----------------------------------------------------------------------------------------
+        m_config_pt.put("run.num_threads", 1);
 #pragma omp parallel for num_threads(ConfigInfo::NumberAvailableThreads())
         for (unsigned int i = 0U; i < results.size(); ++i) {
                 ptree configPt(m_config_pt);
@@ -87,7 +89,7 @@ void StanController::Control()
         // Output to file.
         // -----------------------------------------------------------------------------------------
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
-        GnuPlot gPlot;
+        GnuPlot    gPlot;
 
         GnuPlotCSV gpCsv(numDays + 1);
         for (const auto& res : results) {
@@ -95,16 +97,16 @@ void StanController::Control()
         }
         gPlot.Add(gpCsv);
 
-        GnuPlotCSV medians(1);
+        GnuPlotCSV boxData({"min", "max", "median", "quartile1", "quartile3"});
         for (unsigned int i = 0U; i < numDays + 1; ++i) {
                 vector<unsigned int> v;
                 for (const auto& res : results) {
                         v.emplace_back(res.second[i]);
                 }
                 const auto b = BoxPlotData<unsigned int>::Calculate(v);
-                medians.AddRow(b.m_median);
+                boxData.AddRow(b.m_min, b.m_max, b.m_median, b.m_quartile1, b.m_quartile3);
         }
-        gPlot.Add(medians);
+        gPlot.Add(boxData);
         gPlot.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "infected.dat"));
 
         // -----------------------------------------------------------------------------------------
