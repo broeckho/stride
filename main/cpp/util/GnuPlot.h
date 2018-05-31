@@ -42,7 +42,7 @@ public:
         using std::vector<GnuPlotCSV>::size;
 
         /// Add a block.
-        void AddGnuPlotCSV(const GnuPlotCSV& gpCsv);
+        void Add(const GnuPlotCSV& gpCsv) { this->emplace_back(gpCsv); }
 
         /// Write CSV to file.
         void Write(const boost::filesystem::path& path) const;

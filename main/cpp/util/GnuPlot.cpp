@@ -28,8 +28,6 @@ using namespace std;
 namespace stride {
 namespace util {
 
-void GnuPlot::AddGnuPlotCSV(const GnuPlotCSV& gpCSV) { this->emplace_back(gpCSV); }
-
 void GnuPlot::Write(const boost::filesystem::path& path) const
 {
         boost::filesystem::ofstream file;

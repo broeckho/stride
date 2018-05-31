@@ -22,9 +22,12 @@
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
+#include "util/BoxPlotData.h"
 #include "util/CSV.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
+#include "util/GnuPlot.h"
+#include "util/GnuPlotCSV.h"
 #include "util/StringUtils.h"
 #include "viewers/InfectedViewer.h"
 
@@ -64,11 +67,9 @@ void StanController::Control()
         }
 
         // -----------------------------------------------------------------------------------------
-        // Instantiate simRunners & run.
+        // Instantiate simRunners & run, once for each seed.
         // -----------------------------------------------------------------------------------------
-        unsigned int numThreads = ConfigInfo::NumberAvailableThreads();
-
-#pragma omp parallel for num_threads(numThreads)
+#pragma omp parallel for num_threads(ConfigInfo::NumberAvailableThreads())
         for (unsigned int i = 0U; i < results.size(); ++i) {
                 ptree configPt(m_config_pt);
                 configPt.put("run.rng_seed", results[i].first);
@@ -85,38 +86,26 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Output to file.
         // -----------------------------------------------------------------------------------------
-        const auto prefix  = m_config_pt.get<string>("run.output_prefix");
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
-        cout << "NumDays: " << numDays << endl;
+        GnuPlot gPlot;
 
-        { // csv with each column, for a different seed, the infection count over time
-                cout << "infected_time.csv" << endl;
-                vector<string> labels;
-                for (unsigned i = 0U; i < stanCount; ++i) {
-                        labels.emplace_back(ToString(i));
-                }
-                CSV csv(labels);
-                for (unsigned int i = 0U; i < numDays; ++i) {
-                        vector<string> v;
-                        for (const auto& res : results) {
-                                v.emplace_back(ToString(res.second[i]));
-                        }
-                        csv.AddRow(v);
-                }
-                csv.Write(FileSys::BuildPath(prefix, "infected_time.csv"));
+        GnuPlotCSV gpCsv(numDays + 1);
+        for (const auto& res : results) {
+                gpCsv.AddRow(ToString(res.second.begin(), res.second.end()));
         }
-        { // csv with each column, for a different time, the infection count over seeds
-                cout << "infected_spread.csv" << endl;
-                vector<string> labels;
-                for (unsigned i = 0U; i < numDays + 1; ++i) {
-                        labels.emplace_back(ToString(i));
-                }
-                CSV csv(labels);
+        gPlot.Add(gpCsv);
+
+        GnuPlotCSV medians(1);
+        for (unsigned int i = 0U; i < numDays + 1; ++i) {
+                vector<unsigned int> v;
                 for (const auto& res : results) {
-                        csv.AddRow(ToString(res.second.begin(), res.second.end()));
+                        v.emplace_back(res.second[i]);
                 }
-                csv.Write(FileSys::BuildPath(prefix, "infected_spread.csv"));
+                const auto b = BoxPlotData<unsigned int>::Calculate(v);
+                medians.AddRow(b.m_median);
         }
+        gPlot.Add(medians);
+        gPlot.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "infected.dat"));
 
         // -----------------------------------------------------------------------------------------
         // Shutdown.

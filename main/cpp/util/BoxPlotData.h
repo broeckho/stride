@@ -28,6 +28,7 @@ namespace stride {
 namespace util {
 
 /// BoxPlotData.
+/// \tparam T   Datatype for which boxplot data get calculated.
 template <typename T>
 struct BoxPlotData
 {

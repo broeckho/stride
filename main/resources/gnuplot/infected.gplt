@@ -1,0 +1,9 @@
+set datafile separator comma
+set style fill solid 0.5 border -1
+set style boxplot outliers pointtype 7
+set style data boxplot
+set boxwidth 0.3
+set pointsize 0.5
+unset key
+plot for [col=2:*] "infected.dat" index 0 using (col-1):col lc rgb "black", \
+  "infected.dat" index 1 with lines
