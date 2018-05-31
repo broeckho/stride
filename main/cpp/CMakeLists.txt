@@ -74,6 +74,7 @@ set(LIB_SRC
 	sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
+	sim/StanController.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---

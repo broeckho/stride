@@ -19,6 +19,7 @@
  */
 
 #include "sim/CliController.h"
+#include "sim/StanController.h"
 #include "util/FileSys.h"
 #include "util/RunConfigManager.h"
 #include "util/StringUtils.h"
@@ -43,35 +44,38 @@ int main(int argc, char** argv)
 
         try {
                 // -----------------------------------------------------------------------------------------
-                // Parse command line.
+                // Parse command line (parameters displayed in --help in reverse order to order below).
                 // -----------------------------------------------------------------------------------------
                 CmdLine cmd("stride", ' ', "1.0");
 
-                vector<string>           execs{"clean", "dump", "sim", "simgui", "geopop"};
-                ValuesConstraint<string> vc(execs);
-                string se = "Execute the indicated function. The clean function takes the configuration file "
-                            "specified by the --config file=<file> parameter, cleans it (indent, sort) and "
-                            "rewrites it to a new file. The dump function takes the built-in configuration "
-                            "(used for testing/benchmarking) specified by the --config name=<name> parameter "
-                            "and writes it, cleanly (i.e. indented, sorted) to a new file. The sim function "
-                            "runs the simulator using the configuration specified by the --config parameter."
-                            "The latter may use either --config file=<file> or --config name=<name>. The sim"
-                            "function is the default. The simgui function runs the simulator with a graphical"
-                            "interface. The geopop executes the geospatial synthetic population generator";
-                ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
-
-                string so = "Override configuration parameters in the configuration file. The format is "
-                            "--override <name>=<value>. It can be used multiple times.";
-                MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
-
-                string sc = "Specifies the run configuration parameters to be used. It may be either "
-                            "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
-                            "shortened to -c <file>.";
-                ValueArg<string> configArg("c", "config", sc, false, "run_default.xml", "RUN CONFIGURATION", cmd);
+                string sa = "Stochastic Analysis (stan) will run <COUNT> simulations, each with "
+                            "a different seed for the random engine."
+                            "This option only applies in case of -e sim. It effects overrides to the "
+                            "configuration. See the manual for more info.";
+                ValueArg<unsigned int> stanArg("", "stan", sa, false, 0, "COUNT", cmd);
 
                 string si = "Look for configuration file specified by the -c file=<file> or -c <file> in the "
                             "stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
+
+                string so = "Override parameters in the configuration specified with --config.";
+                MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
+
+                string sc = "Specifies the run configuration parameters. The format may be either "
+                            "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
+                            "shortened to -c <file>. The second format "
+                            "refers to built-in configurations specified by their name.";
+                ValueArg<string> configArg("c", "config", sc, false, "run_default.xml", "CONFIGURATION", cmd);
+
+                vector<string>           execs{"clean", "dump", "sim", "simgui", "geopop"};
+                ValuesConstraint<string> vc(execs);
+                string se = "Execute the function selected.\n"
+                            "  clean:  cleans the configuration file and writes it to a new file.\n"
+                            "  dump:   takes the built-in configuration writes it to a file.\n"
+                            "  sim:    runs the simulator and is the default.\n"
+                            "  simgui: runs the simulator with a graphical interface.\n"
+                            "  geopop: runs the geospatial synthetic population generator\n";
+                ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -103,9 +107,17 @@ int main(int argc, char** argv)
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
                                 configPt.put("run.output_prefix", TimeStamp().ToTag().append("/"));
                         }
+                        if (stanArg.isSet()) {
+                                configPt.put("run.stan_count", stanArg.getValue());
+                        }
                         configPt.sort();
 
-                        CliController(configPt).Control();
+                        if (!stanArg.isSet()) {
+                                CliController(configPt).Control();
+                        } else {
+                                StanController(configPt).Control();
+                        }
+
                 }
                 // -----------------------------------------------------------------------------------------
                 // If run simulation in gui ...

@@ -35,7 +35,7 @@ inline bool IsFloat(const std::string& s)
 namespace stride {
 namespace util {
 
-CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : m_parent(parent)
+CSVRow::CSVRow(const CSV* parent, const std::vector<std::string>& values) : m_parent(parent), m_values()
 {
         if (values.size() != parent->GetColumnCount()) {
                 throw std::runtime_error("Tried adding row with " + ToString(values.size()) + " value(s) to CSV with " +
