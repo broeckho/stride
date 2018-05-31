@@ -20,20 +20,20 @@
 #============================================================================
 set(SRC
 #
-    Benchmark.hpp
+    Benchmark.h
     Console.hpp
     Test.hpp
-    InfoFactory.hpp
-    Payload.hpp
+    InfoFactory.h
+    Payload.h
     Test.hpp
-    TestDescriptor.hpp
-    TestFactory.hpp
-    TestResult.hpp
+    TestDescriptor.h
+    TestFactory.h
+    TestResult.h
 #
     BenchmarkRunner.cpp
     ConsoleViewer.cpp
     Id.cpp
-    CliController.cpp
+    MyhayaiController.cpp
     PtreeViewer.cpp
     TestDescriptors.cpp
 )

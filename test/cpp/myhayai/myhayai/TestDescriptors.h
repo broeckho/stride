@@ -18,7 +18,7 @@
  * Header file for TestDescriptors container.
  */
 
-#include "TestDescriptor.hpp"
+#include "TestDescriptor.h"
 
 #include <map>
 #include <string>

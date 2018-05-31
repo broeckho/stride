@@ -17,7 +17,7 @@
  * Implementation file for PtreeViewer.
  */
 
-#include "PtreeViewer.hpp"
+#include "PtreeViewer.h"
 
 #include "util/BoxPlotData.h"
 #include "util/ConfigInfo.h"

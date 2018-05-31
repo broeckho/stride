@@ -23,8 +23,8 @@
 
 #include "DeliveryMan.h"
 #include "SlowDeliveryMan.h"
-#include "myhayai/Benchmark.hpp"
-#include "myhayai/BenchmarkRunner.hpp"
+#include "myhayai/Benchmark.h"
+#include "myhayai/BenchmarkRunner.h"
 #include "myhayai/Test.hpp"
 #include "util/StringUtils.h"
 

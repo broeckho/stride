@@ -18,9 +18,9 @@
  * Header file for PtreeViewer.
  */
 
-#include "BenchmarkRunner.hpp"
-#include "Payload.hpp"
-#include "TestDescriptors.hpp"
+#include "BenchmarkRunner.h"
+#include "Payload.h"
+#include "TestDescriptors.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <chrono>

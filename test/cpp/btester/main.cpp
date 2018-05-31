@@ -21,7 +21,7 @@
  * Impleme.
  */
 
-#include "myhayai/CliController.hpp"
+#include "myhayai/MyhayaiController.h"
 
 #include <exception>
 #include <iostream>
@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 
         /// Go ahead and set them up, run hem.
         try {
-                CliController c;
+                MyhayaiController c;
                 c.ParseArgs(argc, argv);
                 c.Control();
         } catch (exception& e) {

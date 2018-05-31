@@ -17,14 +17,14 @@
  * Implementation file for Benchmarker.
  */
 
-#include "BenchmarkRunner.hpp"
+#include "BenchmarkRunner.h"
 
 #include "Id.hpp"
-#include "InfoFactory.hpp"
+#include "InfoFactory.h"
 #include "Test.hpp"
-#include "TestDescriptors.hpp"
-#include "TestFactory.hpp"
-#include "TestResult.hpp"
+#include "TestDescriptors.h"
+#include "TestFactory.h"
+#include "TestResult.h"
 
 using namespace std;
 using namespace std::chrono;

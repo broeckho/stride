@@ -26,18 +26,18 @@
 namespace myhayai {
 
 /// Default main executable runner.
-class CliController
+class MyhayaiController
 {
 public:
         /// Defaults.
-        CliController()
+        MyhayaiController()
             : m_list_mode(true), m_no_color(true), m_shuffle(false), m_info_path(), m_json_path(), m_xml_path(),
               m_negative(), m_positive()
         {
         }
 
         ///
-        ~CliController() = default;
+        ~MyhayaiController() = default;
 
         /// Parse arguments and initializes the MainRunner.
         /// @param argc             Argument count including the executable name.

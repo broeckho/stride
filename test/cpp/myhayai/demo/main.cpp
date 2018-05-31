@@ -22,8 +22,8 @@
  */
 
 #include "DeliveryMan.h"
-#include "myhayai/BenchmarkRunner.hpp"
-#include "myhayai/CliController.hpp"
+#include "myhayai/BenchmarkRunner.h"
+#include "myhayai/MyhayaiController.h"
 #include "myhayai/Test.hpp"
 #include "util/StringUtils.h"
 
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 
         // This is the actual main.
         try {
-                CliController controller;
+                MyhayaiController controller;
                 controller.ParseArgs(argc, argv);
                 controller.Control();
         } catch (exception& e) {

@@ -18,7 +18,7 @@
  * Header file for Test.
  */
 
-#include "TestResult.hpp"
+#include "TestResult.h"
 #include "util/Stopwatch.h"
 
 #include <chrono>

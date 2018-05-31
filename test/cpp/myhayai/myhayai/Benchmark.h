@@ -18,9 +18,9 @@
  * Header file for Benchmark.
  */
 
-#include "BenchmarkRunner.hpp"
-#include "InfoFactory.hpp"
-#include "TestFactory.hpp"
+#include "BenchmarkRunner.h"
+#include "InfoFactory.h"
+#include "TestFactory.h"
 
 #include <utility>
 

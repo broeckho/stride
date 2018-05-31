@@ -18,11 +18,11 @@
  * Header file for Benchmarker.
  */
 
-#include "InfoFactory.hpp"
-#include "Payload.hpp"
-#include "TestDescriptors.hpp"
-#include "TestFactory.hpp"
-#include "TestResult.hpp"
+#include "InfoFactory.h"
+#include "Payload.h"
+#include "TestDescriptors.h"
+#include "TestFactory.h"
+#include "TestResult.h"
 
 #include "util/Subject.h"
 

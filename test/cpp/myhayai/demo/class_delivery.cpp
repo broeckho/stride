@@ -22,7 +22,7 @@
  */
 
 #include "SlowDeliveryMan.h"
-#include "myhayai/Benchmark.hpp"
+#include "myhayai/Benchmark.h"
 #include "myhayai/Test.hpp"
 
 #include <memory>

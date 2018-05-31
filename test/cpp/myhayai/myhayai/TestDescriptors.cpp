@@ -17,7 +17,7 @@
  * Implementation file for TestDescriptors container.
  */
 
-#include "TestDescriptors.hpp"
+#include "TestDescriptors.h"
 
 #include <algorithm>
 

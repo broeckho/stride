@@ -18,7 +18,7 @@
  * Implementation of Measles runs for benchmarking.
  */
 
-#include "myhayai/BenchmarkRunner.hpp"
+#include "myhayai/BenchmarkRunner.h"
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
 #include "util/RunConfigManager.h"

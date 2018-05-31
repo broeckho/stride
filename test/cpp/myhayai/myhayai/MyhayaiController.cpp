@@ -17,12 +17,12 @@
  * Implementation file for myhayai::CliContoller.
  */
 
-#include "CliController.hpp"
+#include "MyhayaiController.h"
 
-#include "BenchmarkRunner.hpp"
+#include "BenchmarkRunner.h"
 #include "Console.hpp"
-#include "ConsoleViewer.hpp"
-#include "PtreeViewer.hpp"
+#include "ConsoleViewer.h"
+#include "PtreeViewer.h"
 
 #include <boost/property_tree/info_parser.hpp>
 #include <boost/property_tree/ini_parser.hpp>
@@ -44,7 +44,7 @@ using namespace TCLAP;
 
 namespace myhayai {
 
-void CliController::Control()
+void MyhayaiController::Control()
 {
         if (m_list_mode) {
                 return ListBenchmarks();
@@ -53,7 +53,7 @@ void CliController::Control()
         }
 }
 
-vector<string> CliController::GetIncludedNames() const
+vector<string> MyhayaiController::GetIncludedNames() const
 {
         vector<string> includedNames;
         for (const auto& item : BenchmarkRunner::Instance().GetTestDescriptors()) {
@@ -65,7 +65,7 @@ vector<string> CliController::GetIncludedNames() const
         return includedNames;
 }
 
-bool CliController::IsIncluded(const std::string& name) const
+bool MyhayaiController::IsIncluded(const std::string& name) const
 {
         bool include = m_positive.empty();
         for (const auto& re : m_positive) {
@@ -85,7 +85,7 @@ bool CliController::IsIncluded(const std::string& name) const
         return include;
 }
 
-void CliController::ListBenchmarks() const
+void MyhayaiController::ListBenchmarks() const
 {
         using namespace console;
         unsigned int incl_en  = 0U;
@@ -126,7 +126,7 @@ void CliController::ListBenchmarks() const
              << " disabled." << endl;
 }
 
-void CliController::ParseArgs(int argc, char** argv)
+void MyhayaiController::ParseArgs(int argc, char** argv)
 {
         try {
                 CmdLine cmd("myhayai_demo", ' ', "1.0");
@@ -182,12 +182,12 @@ void CliController::ParseArgs(int argc, char** argv)
                         m_negative.emplace_back(regex(r));
                 }
         } catch (ArgException& e) {
-                cerr << "CliController::ParseArgs>" << e.what();
+                cerr << "MyhayaiController::ParseArgs>" << e.what();
                 throw runtime_error(e.what()); /// do not want main.cpp to bother with specific exception classes.
         }
 }
 
-void CliController::RunBenchmarks()
+void MyhayaiController::RunBenchmarks()
 {
         // Get the the canonical test names, after applying include/exclude regex.
         auto names = GetIncludedNames();
@@ -224,7 +224,7 @@ void CliController::RunBenchmarks()
         }
 }
 
-void CliController::Shuffle(vector<string>& names) const
+void MyhayaiController::Shuffle(vector<string>& names) const
 {
         random_device rd;
         mt19937       g(rd());

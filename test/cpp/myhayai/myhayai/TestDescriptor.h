@@ -18,8 +18,8 @@
  * Header file for TestDescriptor.
  */
 
-#include "InfoFactory.hpp"
-#include "TestFactory.hpp"
+#include "InfoFactory.h"
+#include "TestFactory.h"
 
 #include <cstring>
 #include <sstream>

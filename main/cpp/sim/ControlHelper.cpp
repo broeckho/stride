@@ -94,7 +94,7 @@ void ControlHelper::LogShutdown()
 
 void ControlHelper::LogStartup()
 {
-        m_stride_logger->info("CliController starting up at: {}", TimeStamp().ToString());
+        m_stride_logger->info("MyhayaiController starting up at: {}", TimeStamp().ToString());
         m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());

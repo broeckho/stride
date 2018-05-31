@@ -20,7 +20,7 @@
  */
 
 #include "Id.hpp"
-#include "TestResult.hpp"
+#include "TestResult.h"
 
 #include <string>
 

@@ -17,7 +17,7 @@
  * Implementation file for ConsoleViewer.
  */
 
-#include "ConsoleViewer.hpp"
+#include "ConsoleViewer.h"
 
 #include "util/BoxPlotData.h"
 #include "util/Stopwatch.h"

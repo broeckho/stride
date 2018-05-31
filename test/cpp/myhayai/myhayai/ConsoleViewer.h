@@ -18,10 +18,10 @@
  * Header file for ConsoleViewer.
  */
 
-#include "BenchmarkRunner.hpp"
+#include "BenchmarkRunner.h"
 #include "Console.hpp"
-#include "Payload.hpp"
-#include "TestDescriptors.hpp"
+#include "Payload.h"
+#include "TestDescriptors.h"
 
 #include <chrono>
 #include <ostream>
