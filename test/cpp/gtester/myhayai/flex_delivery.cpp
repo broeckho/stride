@@ -21,8 +21,9 @@
  * Header file for TestFactory.
  */
 
+#include "flex_delivery.h"
+
 #include "DeliveryMan.h"
-#include "SlowDeliveryMan.h"
 #include "myhayai/Benchmark.h"
 #include "myhayai/BenchmarkRunner.h"
 #include "myhayai/Test.hpp"
@@ -36,6 +37,8 @@ using namespace stride::util;
 using boost::property_tree::ptree;
 using namespace myhayai;
 
+namespace Tests {
+
 void flex_delivery()
 {
         //---------------------------------------------------------------------------------------------
@@ -45,13 +48,13 @@ void flex_delivery()
         //---------------------------------------------------------------------------------------------
         // clang-format off
         BenchmarkRunner::RegisterTest("FlexDelivery", "Flex1 with distance=120", 5,
-                []() {
-                        return Test(
-                                []() {
-                                        DeliveryMan(1).DeliverPackage(120);
-                                }
-                        );
-                }
+                                      []() {
+                                              return Test(
+                                                      []() {
+                                                              DeliveryMan(1).DeliverPackage(120);
+                                                      }
+                                              );
+                                      }
         );
         //clang-format on
 
@@ -60,12 +63,12 @@ void flex_delivery()
         //---------------------------------------------------------------------------------------------
         // clang-format off
         BenchmarkRunner::RegisterTest("Exceptional", "Throwing runtime_error", 5,
-                []() {
-                        return Test([]() {
-                                        throw runtime_error("Exception from exceptional test.");
-                                }
-                        );
-                }
+                                      []() {
+                                              return Test([]() {
+                                                                  throw runtime_error("Exception from exceptional test.");
+                                                          }
+                                              );
+                                      }
         );
         //clang-format on
 
@@ -116,11 +119,25 @@ void flex_delivery()
         volatile auto somecondition = true;
         if (somecondition) {
                 BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 20, 1),
-                []() {ptree pt; pt.put("FlexDelivery.distance", "5"); return pt;});
+                                              []() {
+                                                      ptree pt;
+                                                      pt.put("FlexDelivery.distance", "5");
+                                                      return pt;
+                                              });
         }
 
         BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(500, 30, 1),
-                                      []() {ptree pt; pt.put("FlexDelivery.distance", "50"); return pt;});
+                                      []() {
+                                              ptree pt;
+                                              pt.put("FlexDelivery.distance", "50");
+                                              return pt;
+                                      });
         BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(10, 10, 1),
-                                      []() {ptree pt; pt.put("FlexDelivery.distance", "1"); return pt;});
+                                      []() {
+                                              ptree pt;
+                                              pt.put("FlexDelivery.distance", "1");
+                                              return pt;
+                                      });
+}
+
 }

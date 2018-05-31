@@ -24,6 +24,8 @@
 
 #include <iostream>
 
+namespace Tests {
+
 /// Delivery man.
 class DeliveryMan
 {
@@ -36,6 +38,9 @@ public:
         /// @param distance Distance the package has to travel.
         void DeliverPackage(unsigned dist);
 
+        /// Do something.
+        void DoThis(unsigned int dist, unsigned int dur);
+
         /// Prepare
         /// \param dur   Preparation takes "dur" milliseconds.
         void Prepare(unsigned int dur);
@@ -44,6 +49,12 @@ public:
         /// \param dur   Preparation takes "dur" milliseconds.
         void Sleep(unsigned int dur);
 
+        /// Sleep
+        /// \param dur   Preparation takes "dur" milliseconds.
+        void TearDown();
+
 private:
         unsigned int m_speed; ///< Delivery man speed from 1 to 10.
 };
+
+} // namespace Tests

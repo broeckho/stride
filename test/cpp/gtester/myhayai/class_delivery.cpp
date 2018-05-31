@@ -21,7 +21,9 @@
  * Implementation for Param3TestFactory.
  */
 
-#include "SlowDeliveryMan.h"
+#include "class_delivery.h"
+
+#include "DeliveryMan.h"
 #include "myhayai/Benchmark.h"
 #include "myhayai/Test.hpp"
 
@@ -31,38 +33,42 @@
 using namespace std;
 using namespace myhayai;
 
+namespace Tests {
+
 void class_delivery()
 {
         //---------------------------------------------------------------------------------------------
-        // Simple Test factory for a test with only a body.
+        // The factory produces a test with all three stages (setup, body, teardown).
         //---------------------------------------------------------------------------------------------
         class Param1TestFactory
         {
         public:
-                explicit Param1TestFactory(unsigned int distance) : m_distance(distance) {}
+                Param1TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
+                    : m_distance(distance), m_duration(duration), m_speed(speed)
+                {
+                }
 
                 myhayai::Test operator()()
                 {
-                        auto p    = make_shared<DeliveryMan>(1);
-                        auto body = [p, this]() { p->DeliverPackage(m_distance); };
-                        return Test(body);
+                        auto f        = make_shared<DeliveryMan>();
+                        auto body     = [f, this]() { f->DoThis(m_duration, m_distance); };
+                        auto setup    = [f, this]() { f->Prepare(m_speed); };
+                        auto teardown = [f]() { f->TearDown(); };
+                        return Test(body, setup, teardown);
                 }
 
         private:
                 unsigned int m_distance;
+                unsigned int m_duration;
+                unsigned int m_speed;
         };
 
-        // Instantiation of a Benchmark object triggers registration of the test.
-        // You can check status afterwards.
-        Benchmark b1("Delivery", "Param1 - distance=300", 10, Param1TestFactory(300));
-        Benchmark b2("Delivery", "Param1 - distance=800", 5, Param1TestFactory(800), true);
-        Benchmark b3("Delivery", "Param1 - distance=100", 5, Param1TestFactory(100));
-        if (!b1 || !b2 || !b3) {
+        Benchmark b("Delivery", "Param2 - distance=6, duration=7, speed=2", 10, Param1TestFactory(6, 7, 2));
+        if (!b) {
                 throw runtime_error("Param1TestFactory test not successfully registered.");
         }
-
         //---------------------------------------------------------------------------------------------
-        // The factory produces a test with all three stages (setup, body, teardown).
+        // Simuilar to Param1TestFactory but now using binders.
         //---------------------------------------------------------------------------------------------
         class Param2TestFactory
         {
@@ -74,10 +80,10 @@ void class_delivery()
 
                 myhayai::Test operator()()
                 {
-                        auto f        = make_shared<SlowDeliveryMan>();
-                        auto body     = [f, this]() { f->DoThis(m_duration, m_distance); };
-                        auto setup    = [f, this]() { f->SetUp(m_speed); };
-                        auto teardown = [f]() { f->TearDown(); };
+                        auto f        = make_shared<DeliveryMan>();
+                        auto body     = bind(&DeliveryMan::DoThis, f, m_duration, m_distance);
+                        auto setup    = bind(&DeliveryMan::Prepare, f, m_speed);
+                        auto teardown = bind(&DeliveryMan::TearDown, f);
                         return Test(body, setup, teardown);
                 }
 
@@ -87,36 +93,9 @@ void class_delivery()
                 unsigned int m_speed;
         };
 
-        // Directly reistering the text, and not bothering to verify wheteher it's successful.
-        BenchmarkRunner::RegisterTest("Delivery", "Param2 - distance=6, duration=7, speed=2", 10,
-                                      Param2TestFactory(6, 7, 2));
-
-        //---------------------------------------------------------------------------------------------
-        // Simuilar to Param2TestFactory but now using binders.
-        //---------------------------------------------------------------------------------------------
-        class Param3TestFactory
-        {
-        public:
-                Param3TestFactory(unsigned int distance, unsigned int duration, unsigned int speed)
-                    : m_distance(distance), m_duration(duration), m_speed(speed)
-                {
-                }
-
-                myhayai::Test operator()()
-                {
-                        auto f        = make_shared<SlowDeliveryMan>();
-                        auto body     = bind(&SlowDeliveryMan::DoThis, f, m_duration, m_distance);
-                        auto setup    = bind(&SlowDeliveryMan::SetUp, f, m_speed);
-                        auto teardown = bind(&SlowDeliveryMan::TearDown, f);
-                        return Test(body, setup, teardown);
-                }
-
-        private:
-                unsigned int m_distance;
-                unsigned int m_duration;
-                unsigned int m_speed;
-        };
-
+        // Directly registering the test, and not bothering to verify wheteher it's successful.
         BenchmarkRunner::RegisterTest("Delivery", "Param3 - distance=2, duration=2, speed=2", 10,
-                                      Param3TestFactory(2, 2, 2));
+                                      Param2TestFactory(2, 2, 2));
 }
+
+} // namespace Tests

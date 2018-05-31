@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,34 +18,47 @@
  */
 /**
  * @file
- * Header file for SlowDeliveryMan.
+ * Implementation file for DeliveryMan.
  */
 
 #include "DeliveryMan.h"
 
-// Notice no inheritance, so the signatures of SetUp, Run, TearDown are not
-// necessarily restricted, nor indeed their names.
-class SlowDeliveryMan
+#include <chrono>
+#include <thread>
+
+namespace Tests {
+
+using namespace std;
+
+void DeliveryMan::DeliverPackage(unsigned int dist)
 {
-public:
-        ///
-        SlowDeliveryMan() : m_man(nullptr) {}
+        // Waste some clock cycles here.
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(m_speed * dist * d1);
+}
 
-        ///
-        void SetUp(unsigned int speed);
+void DeliveryMan::DoThis(unsigned int dist, unsigned int dur)
+{
+        Sleep(dur);
+        DeliverPackage(dist);
+}
 
-        ///
-        void TearDown();
+void DeliveryMan::Prepare(unsigned int number)
+{
+        // Waste some clock cycles here.
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(number * d1);
+}
 
-        ///
-        void DoThis(unsigned int dist, unsigned int dur);
+void DeliveryMan::Sleep(unsigned int dur)
+{
+        using namespace std::chrono_literals;
+        const auto d1 = 10ms;
+        this_thread::sleep_for(dur * d1);
+}
 
-        ///
-        void DoThat(unsigned int dur);
+void DeliveryMan::TearDown() { Sleep(1); }
 
-        ///
-        void Sleep(unsigned int dur);
-
-private:
-        DeliveryMan* m_man;
-};
+} // namespace Tests

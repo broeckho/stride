@@ -12,7 +12,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================
@@ -38,8 +38,8 @@ set(SRC
     TestDescriptors.cpp
 )
 
-add_library(myhayai STATIC ${SRC})
-set_property(TARGET myhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_library(libmyhayai STATIC ${SRC})
+set_property(TARGET libmyhayai PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 #============================================================================
 # Clean up.
