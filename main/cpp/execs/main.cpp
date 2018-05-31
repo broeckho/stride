@@ -58,7 +58,7 @@ int main(int argc, char** argv)
                             "stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
 
-                string so = "Override parameters in the configuration specified with --config.";
+                string           so = "Override parameters in the configuration specified with --config.";
                 MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
 
                 string sc = "Specifies the run configuration parameters. The format may be either "
@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 
                 vector<string>           execs{"clean", "dump", "sim", "simgui", "geopop"};
                 ValuesConstraint<string> vc(execs);
-                string se = "Execute the function selected.\n"
+                string                   se = "Execute the function selected.\n"
                             "  clean:  cleans the configuration file and writes it to a new file.\n"
                             "  dump:   takes the built-in configuration writes it to a file.\n"
                             "  sim:    runs the simulator and is the default.\n"

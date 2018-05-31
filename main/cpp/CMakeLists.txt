@@ -83,6 +83,8 @@ set(LIB_SRC
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
+	util/GnuPlotCSV.cpp
+    util/GnuPlot.cpp
 	util/LogUtils.cpp
 	util/PtreeUtils.h
     util/RNEngineType.cpp

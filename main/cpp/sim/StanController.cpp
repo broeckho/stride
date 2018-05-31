@@ -22,17 +22,17 @@
 
 #include "pop/Population.h"
 #include "sim/SimRunner.h"
-#include "util/ConfigInfo.h"
 #include "util/CSV.h"
+#include "util/ConfigInfo.h"
 #include "util/FileSys.h"
 #include "util/StringUtils.h"
 #include "viewers/InfectedViewer.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <initializer_list>
+#include <iostream>
 #include <random>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 using namespace stride;
@@ -56,7 +56,7 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto stanCount = m_config_pt.get<size_t>("run.stan_count");
+        const auto    stanCount = m_config_pt.get<size_t>("run.stan_count");
         random_device rd;
         vector<pair<std::random_device::result_type, vector<unsigned int>>> results;
         for (unsigned int i = 0; i < stanCount; i++) {
@@ -74,7 +74,7 @@ void StanController::Control()
                 configPt.put("run.rng_seed", results[i].first);
                 m_stride_logger->info("Starting run using seed {}", results[i].first);
 
-                auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
+                auto runner  = make_shared<SimRunner>(configPt, Population::Create(configPt));
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));
 
@@ -89,7 +89,7 @@ void StanController::Control()
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
         cout << "NumDays: " << numDays << endl;
 
-        {       // csv with each column, for a different seed, the infection count over time
+        { // csv with each column, for a different seed, the infection count over time
                 cout << "infected_time.csv" << endl;
                 vector<string> labels;
                 for (unsigned i = 0U; i < stanCount; ++i) {
@@ -105,7 +105,7 @@ void StanController::Control()
                 }
                 csv.Write(FileSys::BuildPath(prefix, "infected_time.csv"));
         }
-        {       // csv with each column, for a different time, the infection count over seeds
+        { // csv with each column, for a different time, the infection count over seeds
                 cout << "infected_spread.csv" << endl;
                 vector<string> labels;
                 for (unsigned i = 0U; i < numDays + 1; ++i) {

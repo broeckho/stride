@@ -32,10 +32,7 @@ class InfectedViewer
 {
 public:
         /// Instantiate cases viewer.
-        InfectedViewer(std::shared_ptr<SimRunner> runner)
-            : m_infected(), m_runner(std::move(runner))
-        {
-        }
+        InfectedViewer(std::shared_ptr<SimRunner> runner) : m_infected(), m_runner(std::move(runner)) {}
 
         std::vector<unsigned int> GetInfectionCounts() { return m_infected; }
 

@@ -54,9 +54,9 @@ void class_delivery()
 
         // Instantiation of a Benchmark object triggers registration of the test.
         // You can check status afterwards.
-        Benchmark b1("Delivery", "Param1 - distance=4", 10, Param1TestFactory(4));
-        Benchmark b2("Delivery", "Param1 - distance=8", 5, Param1TestFactory(8), true);
-        Benchmark b3("Delivery", "Param1 - distance=10", 10, Param1TestFactory(10));
+        Benchmark b1("Delivery", "Param1 - distance=300", 10, Param1TestFactory(300));
+        Benchmark b2("Delivery", "Param1 - distance=800", 5, Param1TestFactory(800), true);
+        Benchmark b3("Delivery", "Param1 - distance=100", 5, Param1TestFactory(100));
         if (!b1 || !b2 || !b3) {
                 throw runtime_error("Param1TestFactory test not successfully registered.");
         }

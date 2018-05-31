@@ -23,9 +23,9 @@
 
 #include "util/StringUtils.h"
 
+#include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
-#include <boost/filesystem/fstream.hpp>
 #include <fstream>
 #include <vector>
 
@@ -49,6 +49,9 @@ public:
 
         /// Initialize with header only.
         explicit CSV(const std::vector<std::string>& labels);
+
+        /// Initialize with columnCount only; labels default to sequence numbers.
+        explicit CSV(size_t columnCount);
 
         /// Default constructor, used for swig.
         CSV() = default;
@@ -76,7 +79,7 @@ public:
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
-        void Write(const boost::filesystem::path& path) const;
+        virtual void Write(const boost::filesystem::path& path) const;
 
 private:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
@@ -85,11 +88,12 @@ private:
         ///
         void ReadFromStream(std::istream& inputStream);
 
+protected:
         ///
-        void WriteLabels(boost::filesystem::ofstream& file) const;
+        virtual void WriteLabels(boost::filesystem::ofstream& file) const;
 
         ///
-        void WriteRows(boost::filesystem::ofstream& file) const;
+        virtual void WriteRows(boost::filesystem::ofstream& file) const;
 
 protected:
         std::vector<std::string> m_labels;
@@ -104,9 +108,9 @@ inline void CSV::AddRow(const T&... values)
 
 inline boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv)
 {
-       csv.WriteLabels(ofs);
-       csv.WriteRows(ofs);
-       return ofs;
+        csv.WriteLabels(ofs);
+        csv.WriteRows(ofs);
+        return ofs;
 }
 
 } // namespace util

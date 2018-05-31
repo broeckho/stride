@@ -23,17 +23,19 @@
 #include "Payload.hpp"
 #include "TestDescriptors.hpp"
 
+#include <chrono>
 #include <ostream>
 
 namespace myhayai {
 
-/// Console outputter. Prints the result to standard output.
+/// Console outputter. Prints results to standard output.
+/// \tparam T   Time units used in reporting.
+template <typename T>
 class ConsoleViewer
 {
 public:
         /// Initialize.
-        /// @param stream Output stream. Must exist for the entire duration of
-        /// the outputter's use.
+        /// @param stream   Output stream. Must exist for the duration of the outputter's use.
         explicit ConsoleViewer(std::ostream& stream = std::cout, bool noColor = false)
             : m_descriptors(BenchmarkRunner::Instance().GetTestDescriptors()), m_stream(stream)
         {
@@ -44,11 +46,16 @@ public:
                 }
         }
 
+        /// Observer method, registered with subject.
         void Update(const event::Payload& payload);
 
 private:
         TestDescriptors m_descriptors;
         std::ostream&   m_stream;
 };
+
+extern template class ConsoleViewer<std::chrono::microseconds>;
+extern template class ConsoleViewer<std::chrono::milliseconds>;
+extern template class ConsoleViewer<std::chrono::seconds>;
 
 } // namespace myhayai

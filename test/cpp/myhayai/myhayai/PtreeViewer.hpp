@@ -23,10 +23,13 @@
 #include "TestDescriptors.hpp"
 
 #include <boost/property_tree/ptree.hpp>
+#include <chrono>
 
 namespace myhayai {
 
 /// Constructs ptree with benchmark info.
+/// \tparam T   Time units used in reporting.
+template <typename T>
 class PtreeViewer
 {
 public:
@@ -35,15 +38,19 @@ public:
         /// the outputter's use.
         explicit PtreeViewer() : m_descriptors(BenchmarkRunner::Instance().GetTestDescriptors()), m_ptree() {}
 
-        ///
+        /// Get reference to the ptree.
         const boost::property_tree::ptree& CGet() { return m_ptree; }
 
-        ///
+        /// Observer method, registered with the subject.
         void Update(const event::Payload& payload);
 
 private:
         TestDescriptors             m_descriptors;
         boost::property_tree::ptree m_ptree;
 };
+
+extern template class PtreeViewer<std::chrono::microseconds>;
+extern template class PtreeViewer<std::chrono::milliseconds>;
+extern template class PtreeViewer<std::chrono::seconds>;
 
 } // namespace myhayai

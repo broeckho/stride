@@ -22,7 +22,6 @@
 
 #include <gtest/gtest.h>
 
-
 using namespace stride::util;
 
 TEST(UnitCsvTest, SafeCastTest)

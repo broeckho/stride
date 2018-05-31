@@ -25,14 +25,12 @@ set(SRC
     Test.hpp
     InfoFactory.hpp
     Payload.hpp
-    Subject.hpp
     Test.hpp
     TestDescriptor.hpp
     TestFactory.hpp
     TestResult.hpp
 #
     BenchmarkRunner.cpp
-    BoxPlotData.cpp
     ConsoleViewer.cpp
     Id.cpp
     CliController.cpp

@@ -57,7 +57,7 @@ int main(int argc, char** argv)
                         auto p = make_shared<DeliveryMan>();
                         return Test(
                             [p, duration, distance]() {
-                                    this_thread::sleep_for(duration * 10ms);
+                                    this_thread::sleep_for(duration * 100ms);
                                     p->DeliverPackage(distance);
                             },
                             [p, speed]() { *p = DeliveryMan(speed); });
@@ -67,7 +67,7 @@ int main(int argc, char** argv)
 
         for (unsigned int i = 1; i < 4; ++i) {
                 BenchmarkRunner::RegisterTest("FlexDelivery", "FlexMain - " + ToString(i), 10,
-                                              param_factory_builder(1, 1, i));
+                                              param_factory_builder(10, 1, i));
         }
 
         // This is the actual main.

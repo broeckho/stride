@@ -30,6 +30,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <tclap/CmdLine.h>
 #include <algorithm>
+#include <chrono>
 #include <iostream>
 #include <locale>
 #include <random>
@@ -197,13 +198,15 @@ void CliController::RunBenchmarks()
         }
 
         // Allways the console viewer.
-        auto cv = make_shared<ConsoleViewer>(cout, m_no_color);
-        BenchmarkRunner::Instance().Register(cv, bind(&ConsoleViewer::Update, cv, placeholders::_1));
+        using cv_t = ConsoleViewer<chrono::milliseconds>;
+        auto cv    = make_shared<cv_t>(cout, m_no_color);
+        BenchmarkRunner::Instance().Register(cv, bind(&cv_t::Update, cv, placeholders::_1));
 
         // Possibly the ptree viewer.
-        auto pv = make_shared<PtreeViewer>();
+        using pv_t = PtreeViewer<chrono::milliseconds>;
+        auto pv    = make_shared<pv_t>();
         if (!(m_info_path.empty() && m_json_path.empty() && m_xml_path.empty())) {
-                BenchmarkRunner::Instance().Register(pv, bind(&PtreeViewer::Update, pv, placeholders::_1));
+                BenchmarkRunner::Instance().Register(pv, bind(&pv_t::Update, pv, placeholders::_1));
         }
 
         // Run them.

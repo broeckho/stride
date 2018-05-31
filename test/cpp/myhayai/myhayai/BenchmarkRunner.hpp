@@ -20,10 +20,11 @@
 
 #include "InfoFactory.hpp"
 #include "Payload.hpp"
-#include "Subject.hpp"
 #include "TestDescriptors.hpp"
 #include "TestFactory.hpp"
 #include "TestResult.hpp"
+
+#include "util/Subject.h"
 
 #include <string>
 #include <vector>
@@ -33,7 +34,7 @@ namespace myhayai {
 /// BenchmarkRunner registers all tests (hence the singleton
 /// construction) and runs the tests specified by their
 /// canonical names (<test_group_name>.<test_name>).
-class BenchmarkRunner : public Subject<event::Payload>
+class BenchmarkRunner : public stride::util::Subject<event::Payload>
 {
 public:
         /// Simple singleton: no copy construction allowed.

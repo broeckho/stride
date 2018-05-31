@@ -18,7 +18,8 @@
  */
 
 #include "ConsoleViewer.hpp"
-#include "BoxPlotData.hpp"
+
+#include "util/BoxPlotData.h"
 #include "util/Stopwatch.h"
 #include "util/TimeToString.h"
 
@@ -31,7 +32,8 @@ using namespace stride::util;
 
 namespace myhayai {
 
-void ConsoleViewer::Update(const myhayai::event::Payload& payload)
+template <typename T>
+void ConsoleViewer<T>::Update(const myhayai::event::Payload& payload)
 {
         using namespace console;
 
@@ -62,7 +64,7 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
                 m_stream << Color::Green << "[==========]" << Color::Default
                          << " Tests registered but excluded by regex filter: "
                          << m_descriptors.size() - exec - aborted - disabled << endl;
-                const auto t = duration_cast<seconds>(clock.Stop().Get());
+                const auto t = duration_cast<T>(clock.Stop().Get());
                 m_stream << Color::Green << "[==========]" << Color::Default
                          << " Total elapsed time for these benchmark tests: " << TimeToString::ToColonString(t) << endl;
                 break;
@@ -87,13 +89,14 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
                 break;
         }
         case event::Id::EndTest: {
-                const auto stats  = BoxPlotData::Calculate(payload.m_run_times);
-                const auto total  = duration_cast<seconds>(stats.m_total);
-                const auto median = duration_cast<seconds>(stats.m_median);
-                const auto min    = duration_cast<seconds>(stats.m_min);
-                const auto max    = duration_cast<seconds>(stats.m_max);
-                const auto quart1 = duration_cast<seconds>(stats.m_quartile1);
-                const auto quart3 = duration_cast<seconds>(stats.m_quartile3);
+                using valtyp      = typename decltype(payload.m_run_times)::value_type;
+                const auto stats  = BoxPlotData<valtyp>::Calculate(payload.m_run_times);
+                const auto total  = duration_cast<T>(stats.m_total);
+                const auto median = duration_cast<T>(stats.m_median);
+                const auto min    = duration_cast<T>(stats.m_min);
+                const auto max    = duration_cast<T>(stats.m_max);
+                const auto quart1 = duration_cast<T>(stats.m_quartile1);
+                const auto quart3 = duration_cast<T>(stats.m_quartile3);
 
                 m_stream << Color::Green << "[     DONE ]"
                          << " " << name << Color::Default << " (total: " << TimeToString::ToColonString(total) << " ) "
@@ -108,5 +111,9 @@ void ConsoleViewer::Update(const myhayai::event::Payload& payload)
         }
         }
 }
+
+template class ConsoleViewer<std::chrono::microseconds>;
+template class ConsoleViewer<std::chrono::milliseconds>;
+template class ConsoleViewer<std::chrono::seconds>;
 
 } // namespace myhayai

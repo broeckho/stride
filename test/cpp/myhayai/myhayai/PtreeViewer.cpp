@@ -19,7 +19,7 @@
 
 #include "PtreeViewer.hpp"
 
-#include "BoxPlotData.hpp"
+#include "util/BoxPlotData.h"
 #include "util/ConfigInfo.h"
 #include "util/TimeStamp.h"
 #include "util/TimeToString.h"
@@ -34,7 +34,8 @@ using namespace stride::util;
 
 namespace myhayai {
 
-void PtreeViewer::Update(const myhayai::event::Payload& payload)
+template <typename T>
+void PtreeViewer<T>::Update(const myhayai::event::Payload& payload)
 {
         static unsigned int exec     = 0U;
         static unsigned int disabled = 0U;
@@ -60,7 +61,7 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 m_ptree.put("benchmark.executed", exec);
                 m_ptree.put("benchmark.disabled", disabled);
                 m_ptree.put("benchmark.excluded", m_descriptors.size() - exec - disabled);
-                const auto t = duration_cast<seconds>(clock.Stop().Get());
+                const auto t = duration_cast<T>(clock.Stop().Get());
                 m_ptree.put("benchmark.total_time", TimeToString::ToColonString(t));
                 break;
         }
@@ -83,12 +84,13 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 break;
         }
         case event::Id::EndTest: {
-                const auto stats  = BoxPlotData::Calculate(payload.m_run_times);
-                const auto median = duration_cast<seconds>(stats.m_median);
-                const auto min    = duration_cast<seconds>(stats.m_min);
-                const auto max    = duration_cast<seconds>(stats.m_max);
-                const auto quart1 = duration_cast<seconds>(stats.m_quartile1);
-                const auto quart3 = duration_cast<seconds>(stats.m_quartile3);
+                using valtyp      = typename decltype(payload.m_run_times)::value_type;
+                const auto stats  = BoxPlotData<valtyp>::Calculate(payload.m_run_times);
+                const auto median = duration_cast<T>(stats.m_median);
+                const auto min    = duration_cast<T>(stats.m_min);
+                const auto max    = duration_cast<T>(stats.m_max);
+                const auto quart1 = duration_cast<T>(stats.m_quartile1);
+                const auto quart3 = duration_cast<T>(stats.m_quartile3);
 
                 TestDescriptor t_d = m_descriptors[name];
                 ptree          pt;
@@ -99,7 +101,7 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
                 pt.put("status", "executed");
                 pt.put("run_count", payload.m_run_times.size());
                 for (auto& rt : payload.m_run_times) {
-                        pt.add("run_times.run", duration_cast<seconds>(rt).count());
+                        pt.add("run_times.run", duration_cast<T>(rt).count());
                 }
                 pt.put("boxplot.median", median.count());
                 pt.put("boxplot.min", min.count());
@@ -112,5 +114,9 @@ void PtreeViewer::Update(const myhayai::event::Payload& payload)
         }
         }
 }
+
+template class PtreeViewer<std::chrono::microseconds>;
+template class PtreeViewer<std::chrono::milliseconds>;
+template class PtreeViewer<std::chrono::seconds>;
 
 } // namespace myhayai

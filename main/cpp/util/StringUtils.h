@@ -80,10 +80,10 @@ inline std::string ToString(const T& value)
         return ss.str();
 }
 
-template<>
+template <>
 inline std::string ToString<std::string>(const std::string& value)
 {
-      return value;
+        return value;
 }
 
 /// Stringify the values in a vector.

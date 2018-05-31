@@ -37,8 +37,7 @@ const filesystem::path check(const filesystem::path& filename,
 {
         const filesystem::path file_path = canonical(complete(filename, root));
         if (!is_regular_file(file_path)) {
-                throw runtime_error(string(__func__) + ">File " + file_path.string() +
-                                         " not present. Aborting.");
+                throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }
         return file_path;
 }
@@ -64,6 +63,13 @@ CSV::CSV(istream& inputStream) : m_labels(), m_column_count(0) { ReadFromStream(
 CSV::CSV(const initializer_list<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
 
 CSV::CSV(const vector<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
+
+CSV::CSV(size_t columnCount) : m_labels(), m_column_count(columnCount)
+{
+        for (unsigned i = 1U; i < columnCount + 1; ++i) {
+                m_labels.emplace_back(ToString(i));
+        }
+}
 
 bool CSV::operator==(const CSV& other) const
 {
@@ -91,7 +97,7 @@ void CSV::ReadFromStream(istream& inputStream)
 
         // process header, get labels and columnCount
         getline(inputStream, line);
-        line                                  = Trim(line);
+        line                        = Trim(line);
         vector<string> headerLabels = Split(line, ",");
         for (const string& label : headerLabels) {
                 m_labels.push_back(Trim(label, "\""));
@@ -115,9 +121,6 @@ void CSV::Write(const boost::filesystem::path& path) const
         if (!file.is_open()) {
                 throw runtime_error("Error opening csv file: " + path.string());
         }
-
-        //WriteLabels(file);
-        //WriteRows(file);
         file << *this;
         file.close();
 }
@@ -125,7 +128,7 @@ void CSV::Write(const boost::filesystem::path& path) const
 void CSV::WriteLabels(boost::filesystem::ofstream& file) const
 {
         for (unsigned int i = 0; i < m_labels.size(); ++i) {
-                const string &label = m_labels.at(i);
+                const string& label = m_labels.at(i);
                 file << "\"" << label << "\"";
                 if (i != m_labels.size() - 1) {
                         file << ",";
@@ -133,7 +136,6 @@ void CSV::WriteLabels(boost::filesystem::ofstream& file) const
                         file << endl;
                 }
         }
-
 }
 
 void CSV::WriteRows(boost::filesystem::ofstream& file) const

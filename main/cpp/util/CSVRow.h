@@ -41,7 +41,8 @@ public:
         CSVRow(const CSV* parent, const std::vector<std::string>& values);
 
         CSVRow(const CSVRow&) = default;
-        CSVRow& operator=(const stride::util::CSVRow&) = default;
+
+        CSVRow& operator=(const CSVRow&) = default;
 
         /// Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.
         template <typename T = std::string>
