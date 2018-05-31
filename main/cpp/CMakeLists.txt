@@ -79,7 +79,7 @@ set(LIB_SRC
 	sim/event/Subject.cpp
 #---
     util/Any.h
-	util/BoxplotData.h
+	util/BoxPlotData.h
     util/ConfigInfo.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
