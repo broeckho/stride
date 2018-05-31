@@ -125,6 +125,12 @@ add_executable(stride execs/main.cpp)
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
 
+
+#============================================================================
+# Build the Myhayai library.
+#============================================================================
+add_subdirectory(myhayai)
+
 #============================================================================
 # Clean up.
 #============================================================================
