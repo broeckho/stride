@@ -63,7 +63,7 @@ void class_delivery()
                 unsigned int m_speed;
         };
 
-        Benchmark b("Delivery", "Param2 - distance=6, duration=7, speed=2", 10, Param1TestFactory(6, 7, 2));
+        Benchmark b("Delivery", "Param2 - distance=6, duration=5, speed=2", 5, Param1TestFactory(6, 5, 2));
         if (!b) {
                 throw runtime_error("Param1TestFactory test not successfully registered.");
         }
@@ -94,7 +94,7 @@ void class_delivery()
         };
 
         // Directly registering the test, and not bothering to verify wheteher it's successful.
-        BenchmarkRunner::RegisterTest("Delivery", "Param3 - distance=2, duration=2, speed=2", 10,
+        BenchmarkRunner::RegisterTest("Delivery", "Param3 - distance=2, duration=2, speed=2", 3,
                                       Param2TestFactory(2, 2, 2));
 }
 

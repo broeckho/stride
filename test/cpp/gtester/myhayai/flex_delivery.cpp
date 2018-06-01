@@ -47,11 +47,11 @@ void flex_delivery()
         // This particular test only has a body. It sleeps and then lets the DeliveryMan do his job.
         //---------------------------------------------------------------------------------------------
         // clang-format off
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex1 with distance=120", 5,
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex1 distance=20", 5,
                                       []() {
                                               return Test(
                                                       []() {
-                                                              DeliveryMan(1).DeliverPackage(120);
+                                                              DeliveryMan(1).DeliverPackage(20);
                                                       }
                                               );
                                       }
@@ -82,14 +82,17 @@ void flex_delivery()
                 return Test(
                         [p]() {
                                 p->Sleep(3);
-                                p->DeliverPackage(50);
+                                p->DeliverPackage(5);
                         },
                         [p]() { *p = DeliveryMan(2); }
                 );
         };
         //clang-format on
 
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex2 - distance=50, speed=2", 10, param2_factory);
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex2 - distance=5, speed=2", 5, param2_factory);
+
+        // Register a test with disabled status.
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex2 - disabled", 5, param2_factory, InfoFactory(), true);
 
         //---------------------------------------------------------------------------------------------
         // Now we're cooking, with another indirection layer. the factory_builder builds test_factories.
@@ -113,31 +116,25 @@ void flex_delivery()
         //clang-format on
 
         for (unsigned int i = 1; i < 4; ++i) {
-                BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - " + ToString(i), 10,
-                                              param_factory_builder(1, 1, i));
-        }
-        volatile auto somecondition = true;
-        if (somecondition) {
-                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(5, 20, 1),
-                                              []() {
+                BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - case " + ToString(i), 15,
+                                              param_factory_builder(1, 1, i),
+                                              [i]() {
                                                       ptree pt;
-                                                      pt.put("FlexDelivery.distance", "5");
+                                                      pt.put("FlexDelivery.speed", i);
                                                       return pt;
                                               });
         }
+        volatile auto somecondition = true;
+        if (somecondition) {
+                BenchmarkRunner::RegisterTest("FlexDelivery", "Flexconditional", 1, param_factory_builder(3, 10, 1),
+                                              []() {
+                                                      ptree pt;
+                                                      pt.put("FlexDelivery.distance", 3);
+                                                      return pt;
+                                              });
+        }
+        BenchmarkRunner::RegisterTest("FlexDelivery", "Deluxe", 1, param_factory_builder(5, 20, 2));
 
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=50", 1, param_factory_builder(500, 30, 1),
-                                      []() {
-                                              ptree pt;
-                                              pt.put("FlexDelivery.distance", "50");
-                                              return pt;
-                                      });
-        BenchmarkRunner::RegisterTest("FlexDelivery", "Flex3 - distance=1", 10, param_factory_builder(10, 10, 1),
-                                      []() {
-                                              ptree pt;
-                                              pt.put("FlexDelivery.distance", "1");
-                                              return pt;
-                                      });
 }
 
 }

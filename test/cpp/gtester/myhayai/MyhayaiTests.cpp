@@ -28,6 +28,7 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 #include <gtest/gtest.h>
 #include <chrono>
 #include <exception>
@@ -36,7 +37,8 @@
 
 using namespace std;
 using namespace ::testing;
-using boost::property_tree::ptree;
+using namespace boost::property_tree;
+using namespace boost::property_tree::xml_parser;
 using namespace stride::util;
 using namespace myhayai;
 
@@ -50,37 +52,20 @@ public:
         {
                 class_delivery();
                 flex_delivery();
-                // Building the tests with lambdas also makes it easy to define.
-                // clang-format off
-                auto param_factory_builder = [](unsigned int distance, unsigned int duration, unsigned int speed) {
-                        return [distance, duration, speed]() {
-                                auto p = make_shared<DeliveryMan>();
-                                return myhayai::Test(
-                                        [p, duration, distance]() {
-                                                this_thread::sleep_for(duration * 100ms);
-                                                p->DeliverPackage(distance);
-                                        },
-                                        [p, speed]() { *p = DeliveryMan(speed); });
-                        };
-                };
-                // clang-format on
-
-                for (unsigned int i = 1; i < 4; ++i) {
-                        BenchmarkRunner::RegisterTest("FlexDelivery", "FlexMain - " + ToString(i), 10,
-                                                      param_factory_builder(10, 1, i));
-                }
-
                 BenchmarkRunner&   runner = BenchmarkRunner::Instance();
-                const vector<string> negative;
-                const vector<string> positive;
-                BenchControlHelper helper(runner.GetTestDescriptors(), negative, positive);
+                BenchControlHelper helper(runner.GetTestDescriptors(), vector<string>(), vector<string>({"Deluxe"}));
                 auto pv = make_shared<PtreeViewer<chrono::milliseconds>>();
                 runner.Register(pv, bind(&PtreeViewer<chrono::milliseconds>::Update, pv, placeholders::_1));
                 runner.RunTests(helper.GetIncludedNames());
+                g_benchPt = pv->CGet();
+                write_xml("MyhayaiTest.xml", g_benchPt, std::locale(),
+                          xml_writer_make_settings<ptree::key_type>(' ', 8));
         }
 
         /// Tearing down TestCase
         static void TearDownTestCase() {}
+
+        static ptree g_benchPt;
 
 protected:
         /// Destructor has to be virtual.
@@ -93,9 +78,13 @@ protected:
         void TearDown() override {}
 };
 
-TEST(MyhayaiTests, Run)
-{
+ptree MyhayaiTests::g_benchPt;
 
+TEST_F(MyhayaiTests, Run)
+{
+        EXPECT_EQ(9, g_benchPt.get<int>("benchmark.executed"));
+        EXPECT_EQ(1, g_benchPt.get<int>("benchmark.disabled"));
+        EXPECT_EQ(1, g_benchPt.get<int>("benchmark.excluded"));
 }
 
 } // namespace Tests
