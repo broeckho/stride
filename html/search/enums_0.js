@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['healthstatus',['HealthStatus',['../dc/d57/a00194.html#a738f5251821f53315d2aebf214fbd070',1,'stride']]]
+  ['color',['Color',['../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055f',1,'myhayai::console']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::ContactHandler Class Reference</title>
+<title>Stride Reference Manual: myhayai::PtreeViewer&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -106,73 +106,71 @@ $(document).ready(function(){initNavTree('d4/dee/a00008.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../dc/d0c/a00430.html">List of all members</a>  </div>
+<a href="../../d4/d1f/a00506.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactHandler Class Reference</div>  </div>
+<div class="title">myhayai::PtreeViewer&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Processes the contacts between persons and determines whether transmission occurs.  
+<p>Constructs a (Boost) propert tree with info about the tests run in the benchmark.  
  <a href="../../d4/dee/a00008.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::ContactHandler:</div>
+Collaboration diagram for myhayai::PtreeViewer&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d70/a00431.gif" border="0" usemap="#stride_1_1ContactHandler_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactHandler_coll__map" id="stride_1_1ContactHandler_coll__map">
-</map>
+<div class="center"><img src="../../d1/d69/a00507.gif" border="0" usemap="#myhayai_1_1PtreeViewer_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="myhayai_1_1PtreeViewer_3_01T_01_4_coll__map" id="myhayai_1_1PtreeViewer_3_01T_01_4_coll__map">
+<area shape="rect" id="node2" href="../../da/d45/a00011.html" title="Container for the test descriptors. " alt="" coords="5,291,176,368"/><area shape="rect" id="node3" title="STL class. " alt="" coords="17,147,164,239"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd8b09e759ed6049412de25662d1301d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#acd8b09e759ed6049412de25662d1301d">ContactHandler</a> (std::function&lt; <a class="el" href="../../d5/d13/a00205.html">double</a>()&gt; gen)</td></tr>
-<tr class="memdesc:acd8b09e759ed6049412de25662d1301d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor sets the transmission rate and random number generator.  <a href="#acd8b09e759ed6049412de25662d1301d">More...</a><br/></td></tr>
-<tr class="separator:acd8b09e759ed6049412de25662d1301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#ac03cd0d69d17bb0a97189c24ed537fdf">operator()</a> ()</td></tr>
-<tr class="memdesc:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a draw on the uniform generator.  <a href="#ac03cd0d69d17bb0a97189c24ed537fdf">More...</a><br/></td></tr>
-<tr class="separator:ac03cd0d69d17bb0a97189c24ed537fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ae0c571176ea267cf980ce31408f35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a65ae0c571176ea267cf980ce31408f35">HasContactAndTransmission</a> (<a class="el" href="../../d5/d13/a00205.html">double</a> contact_rate, <a class="el" href="../../d5/d13/a00205.html">double</a> transmission_rate)</td></tr>
-<tr class="memdesc:a65ae0c571176ea267cf980ce31408f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two individuals have contact and transmission.  <a href="#a65ae0c571176ea267cf980ce31408f35">More...</a><br/></td></tr>
-<tr class="separator:a65ae0c571176ea267cf980ce31408f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a4a6ef10cff06328c9bc5b7f6337339ad">HasContact</a> (<a class="el" href="../../d5/d13/a00205.html">double</a> contact_rate)</td></tr>
-<tr class="memdesc:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two individuals have contact.  <a href="#a4a6ef10cff06328c9bc5b7f6337339ad">More...</a><br/></td></tr>
-<tr class="separator:a4a6ef10cff06328c9bc5b7f6337339ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a94d8f2bdeff1e99b1e6380060e8fb622">HasTransmission</a> (<a class="el" href="../../d5/d13/a00205.html">double</a> transmission_rate)</td></tr>
-<tr class="memdesc:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether transmission occurs.  <a href="#a94d8f2bdeff1e99b1e6380060e8fb622">More...</a><br/></td></tr>
-<tr class="separator:a94d8f2bdeff1e99b1e6380060e8fb622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a51fd44b433163a1bd2a9fb424a003344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a51fd44b433163a1bd2a9fb424a003344">RateToProbability</a> (<a class="el" href="../../d5/d13/a00205.html">double</a> rate)</td></tr>
-<tr class="memdesc:a51fd44b433163a1bd2a9fb424a003344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert rate into probability.  <a href="#a51fd44b433163a1bd2a9fb424a003344">More...</a><br/></td></tr>
-<tr class="separator:a51fd44b433163a1bd2a9fb424a003344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bba40b7c52af5cc6f5fcbe0774097f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a0bba40b7c52af5cc6f5fcbe0774097f5">PtreeViewer</a> ()</td></tr>
+<tr class="memdesc:a0bba40b7c52af5cc6f5fcbe0774097f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a0bba40b7c52af5cc6f5fcbe0774097f5">More...</a><br/></td></tr>
+<tr class="separator:a0bba40b7c52af5cc6f5fcbe0774097f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac283e81d765d15a7d485e06a93d2bae9"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#ac283e81d765d15a7d485e06a93d2bae9">CGet</a> ()</td></tr>
+<tr class="memdesc:ac283e81d765d15a7d485e06a93d2bae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get reference to the ptree.  <a href="#ac283e81d765d15a7d485e06a93d2bae9">More...</a><br/></td></tr>
+<tr class="separator:ac283e81d765d15a7d485e06a93d2bae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed087a871ee1d430ee8b2a65357be8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a6ed087a871ee1d430ee8b2a65357be8a">Update</a> (const <a class="el" href="../../de/d21/a00006.html">event::Payload</a> &amp;payload)</td></tr>
+<tr class="memdesc:a6ed087a871ee1d430ee8b2a65357be8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Observer method, registered with the subject.  <a href="#a6ed087a871ee1d430ee8b2a65357be8a">More...</a><br/></td></tr>
+<tr class="separator:a6ed087a871ee1d430ee8b2a65357be8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ad89329d01eda188d96ac8fea0386cdc4"><td class="memItemLeft" align="right" valign="top">std::function&lt; <a class="el" href="../../d5/d13/a00205.html">double</a>()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#ad89329d01eda188d96ac8fea0386cdc4">m_uniform01_generator</a></td></tr>
-<tr class="memdesc:ad89329d01eda188d96ac8fea0386cdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generator: double in [0.0, 1.0)  <a href="#ad89329d01eda188d96ac8fea0386cdc4">More...</a><br/></td></tr>
-<tr class="separator:ad89329d01eda188d96ac8fea0386cdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e62898f7e6dee0e4d666fe168fe62f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d45/a00011.html">TestDescriptors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#a47e62898f7e6dee0e4d666fe168fe62f">m_descriptors</a></td></tr>
+<tr class="separator:a47e62898f7e6dee0e4d666fe168fe62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab272e1da1157182ec95aa360089e3348"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">m_ptree</a></td></tr>
+<tr class="separator:ab272e1da1157182ec95aa360089e3348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Processes the contacts between persons and determines whether transmission occurs. </p>
+<div class="textblock"><h3>template&lt;typename T&gt;<br/>
+class myhayai::PtreeViewer&lt; T &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00031">31</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
+<p>Constructs a (Boost) propert tree with info about the tests run in the benchmark. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Time units used in reporting. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00037">37</a> of file <a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="acd8b09e759ed6049412de25662d1301d"></a>
+<a class="anchor" id="a0bba40b7c52af5cc6f5fcbe0774097f5"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::ContactHandler::ContactHandler </td>
+          <td class="memname"><a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a>&lt; T &gt;::<a class="el" href="../../d4/dee/a00008.html">PtreeViewer</a> </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; <a class="el" href="../../d5/d13/a00205.html">double</a>()&gt;&#160;</td>
-          <td class="paramname"><em>gen</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -183,22 +181,30 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor sets the transmission rate and random number generator. </p>
+<p>Initialize. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>Output stream. Must exist for the entire duration of the outputter's use. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00035">35</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00043">43</a> of file <a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac03cd0d69d17bb0a97189c24ed537fdf"></a>
+<a class="anchor" id="ac283e81d765d15a7d485e06a93d2bae9"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d13/a00205.html">double</a> stride::ContactHandler::operator() </td>
+          <td class="memname">const boost::property_tree::ptree&amp; <a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a>&lt; T &gt;::CGet </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -211,160 +217,50 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Make a draw on the uniform generator. </p>
+<p>Get reference to the ptree. </p>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00038">38</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00046">46</a> of file <a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>.</p>
 
-<p>References <a class="el" href="../../da/d2a/a00086_source.html#l00060">m_uniform01_generator</a>.</p>
+<p>References <a class="el" href="../../d6/daa/a00187_source.html#l00053">myhayai::PtreeViewer&lt; T &gt;::m_ptree</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a65ae0c571176ea267cf980ce31408f35"></a>
+<a class="anchor" id="a6ed087a871ee1d430ee8b2a65357be8a"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::ContactHandler::HasContactAndTransmission </td>
+          <td class="memname">void <a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a>&lt; T &gt;::Update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td>
-          <td class="paramname"><em>contact_rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if two individuals have contact and transmission. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00041">41</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/d2a/a00086_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/dc8/a00122_source.html#l00210">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4a6ef10cff06328c9bc5b7f6337339ad"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::ContactHandler::HasContact </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td>
-          <td class="paramname"><em>contact_rate</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../de/d21/a00006.html">event::Payload</a> &amp;&#160;</td>
+          <td class="paramname"><em>payload</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Check if two individuals have contact. </p>
+<p>Observer method, registered with the subject. </p>
 
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00047">47</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d00/a00186_source.html#l00038">38</a> of file <a class="el" href="../../d8/d00/a00186_source.html">PtreeViewer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../da/d2a/a00086_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/dc8/a00122_source.html#l00144">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a94d8f2bdeff1e99b1e6380060e8fb622"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::ContactHandler::HasTransmission </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td>
-          <td class="paramname"><em>transmission_rate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether transmission occurs. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00050">50</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
-
-<p>References <a class="el" href="../../da/d2a/a00086_source.html#l00060">m_uniform01_generator</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00057">RateToProbability()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../df/dc8/a00122_source.html#l00144">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a51fd44b433163a1bd2a9fb424a003344"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d13/a00205.html">double</a> stride::ContactHandler::RateToProbability </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d13/a00205.html">double</a>&#160;</td>
-          <td class="paramname"><em>rate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convert rate into probability. </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00057">57</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00047">HasContact()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00041">HasContactAndTransmission()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00050">HasTransmission()</a>.</p>
+<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00045">myhayai::event::Payload::m_id</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00049">myhayai::event::Payload::m_msg</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00050">myhayai::event::Payload::m_run_times</a>, <a class="el" href="../../d8/df1/a00174_source.html#l00048">myhayai::event::Payload::m_test_name</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad89329d01eda188d96ac8fea0386cdc4"></a>
+<a class="anchor" id="a47e62898f7e6dee0e4d666fe168fe62f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;<a class="el" href="../../d5/d13/a00205.html">double</a>()&gt; stride::ContactHandler::m_uniform01_generator</td>
+          <td class="memname"><a class="el" href="../../da/d45/a00011.html">TestDescriptors</a> <a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a>&lt; T &gt;::m_descriptors</td>
         </tr>
       </table>
   </td>
@@ -374,24 +270,47 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Random number generator: double in [0.0, 1.0) </p>
-
-<p>Definition at line <a class="el" href="../../da/d2a/a00086_source.html#l00060">60</a> of file <a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d2a/a00086_source.html#l00047">HasContact()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00041">HasContactAndTransmission()</a>, <a class="el" href="../../da/d2a/a00086_source.html#l00050">HasTransmission()</a>, and <a class="el" href="../../da/d2a/a00086_source.html#l00038">operator()()</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00052">52</a> of file <a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/d2a/a00086_source.html">ContactHandler.h</a></li>
+<a class="anchor" id="ab272e1da1157182ec95aa360089e3348"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree <a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a>&lt; T &gt;::m_ptree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/daa/a00187_source.html#l00053">53</a> of file <a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/daa/a00187_source.html#l00046">myhayai::PtreeViewer&lt; T &gt;::CGet()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d6/daa/a00187_source.html">PtreeViewer.h</a></li>
+<li><a class="el" href="../../d8/d00/a00186_source.html">PtreeViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/dee/a00008.html">ContactHandler</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d27/a00239.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d4/dee/a00008.html">PtreeViewer</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::sim_event Namespace Reference</title>
+<title>Stride Reference Manual: SimRunner.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -45,9 +45,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -68,8 +68,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
-      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -103,216 +103,45 @@ $(document).ready(function(){initNavTree('d8/d72/a00199.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::sim_event Namespace Reference</div>  </div>
+<div class="title">SimRunner.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Namespace to manage events signalled by the <a class="el" href="../../d3/de7/a00039.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  
+<p>Implementation for SimRunner.  
 <a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d3a/a00101_source.html">calendar/Calendar.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d2/d94/a00184_source.html">pop/Population.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">sim/Sim.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for SimRunner.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d0c/a00430.gif" border="0" usemap="#SimRunner_8cpp" alt=""/></div>
+<map name="SimRunner_8cpp" id="SimRunner_8cpp">
+<area shape="rect" id="node2" href="../../d3/db1/a00200.html" title="Header for the SimRunner class. " alt="" coords="729,245,828,272"/><area shape="rect" id="node16" href="../../d4/d3a/a00101.html" title="Header file for the Calendar class. " alt="" coords="2496,245,2634,272"/><area shape="rect" id="node21" href="../../d2/d94/a00184.html" title="Header file for the core Population class. " alt="" coords="1535,80,1653,107"/><area shape="rect" id="node42" href="../../d7/ded/a00196.html" title="Header for the Simulator class. " alt="" coords="824,80,905,107"/><area shape="rect" id="node3" href="../../da/ddb/a00145.html" title="Definition of EventId. " alt="" coords="1132,411,1237,437"/><area shape="rect" id="node6" href="../../de/dd2/a00207.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="861,328,1000,355"/><area shape="rect" id="node11" href="../../d1/d72/a00204.html" title="Definition of Stopwatch. " alt="" coords="720,328,836,355"/><area shape="rect" id="node7" href="../../dc/d31/a00208.html" title="Interface/Implementation of Subject. " alt="" coords="874,411,973,437"/><area shape="rect" id="node12" href="../../d5/ddf/a00224.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="998,411,1108,437"/><area shape="rect" id="node22" href="../../d4/d3e/a00116.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1516,163,1672,189"/><area shape="rect" id="node30" href="../../d5/de9/a00176.html" title="Header file for the Person class. " alt="" coords="1393,163,1492,189"/><area shape="rect" id="node32" href="../../d9/dec/a00090.html" title="Interface/Implementation of Any. " alt="" coords="672,411,748,437"/><area shape="rect" id="node33" href="../../dc/d57/a00194.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2102,245,2260,272"/><area shape="rect" id="node23" href="../../d2/da3/a00115.html" title="Header for the core ContactPool class. " alt="" coords="1613,328,1746,355"/><area shape="rect" id="node25" href="../../d8/d87/a00118.html" title="Definition of ContactPoolType. " alt="" coords="1488,411,1650,437"/><area shape="rect" id="node27" href="../../d0/d4a/a00147.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1594,245,1752,272"/><area shape="rect" id="node24" href="../../d3/d00/a00113.html" title="Header for the ContactLogMode class. " alt="" coords="469,411,648,437"/><area shape="rect" id="node31" href="../../d5/db1/a00140.html" title="Header for the Health class. " alt="" coords="1398,245,1518,272"/><area shape="rect" id="node34" href="../../d3/dd5/a00215.html" title="Interface/Implementation for SVIterator. " alt="" coords="2232,328,2324,355"/><area shape="rect" id="node43" href="../../db/dab/a00089.html" title="Contact profiles stored in simulator. " alt="" coords="1174,163,1366,189"/><area shape="rect" id="node45" href="../../dd/d6d/a00111.html" title="Header for the ContactHandler class. " alt="" coords="104,245,274,272"/><area shape="rect" id="node46" href="../../d9/dd0/a00191.html" title="Interface of RNManager. " alt="" coords="127,328,250,355"/><area shape="rect" id="node49" href="../../de/db9/a00159.html" title="Header for the InfectorExec class. " alt="" coords="1697,163,1850,189"/><area shape="rect" id="node50" href="../../dc/d55/a00226.html" title="Header for the TransmissionProfile class. " alt="" coords="902,163,1097,189"/><area shape="rect" id="node44" href="../../db/ddf/a00088.html" title="Contact profile. " alt="" coords="1188,245,1374,272"/><area shape="rect" id="node47" href="../../da/deb/a00189.html" title="Interface of Random Engine Type. " alt="" coords="221,411,344,437"/></map>
+</div>
+</div>
+<p><a href="../../d8/d72/a00199_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ab046b05654e26ef19fd5e4e46c16e836"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> { <br/>
-&#160;&#160;<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">Id::AtStart</a>, 
-<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Id::Stepped</a>, 
-<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Id::Finished</a>, 
-<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">Id::SetupBegin</a>, 
-<br/>
-&#160;&#160;<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">Id::SetupEnd</a>
-<br/>
- }</td></tr>
-<tr class="memdesc:ab046b05654e26ef19fd5e4e46c16e836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the event.  <a href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">More...</a><br/></td></tr>
-<tr class="separator:ab046b05654e26ef19fd5e4e46c16e836"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#a43c0310b3eef6024b540ffaa5c4c39b2">IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br/></td></tr>
-<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#aaa54357f0c5b3af4e7905ed503167ede">ToString</a> (<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> w)</td></tr>
-<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br/></td></tr>
-<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#ac81b85da174b73232cac26f53bd6d3a0">ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br/></td></tr>
-<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd464f4ca1769b7880cb27383a3cafd2"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#afd464f4ca1769b7880cb27383a3cafd2">NumOfTypes</a> ()</td></tr>
-<tr class="memdesc:afd464f4ca1769b7880cb27383a3cafd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="#afd464f4ca1769b7880cb27383a3cafd2">More...</a><br/></td></tr>
-<tr class="separator:afd464f4ca1769b7880cb27383a3cafd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdde1acea1c3f4536af74bb4b126a739"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d72/a00199.html#acdde1acea1c3f4536af74bb4b126a739">ToSizeT</a> (<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> id)</td></tr>
-<tr class="memdesc:acdde1acea1c3f4536af74bb4b126a739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#acdde1acea1c3f4536af74bb4b126a739">More...</a><br/></td></tr>
-<tr class="separator:acdde1acea1c3f4536af74bb4b126a739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d4/d9a/a00246"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/a00246.html">stride</a></td></tr>
+<tr class="memdesc:d4/d9a/a00246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Namespace to manage events signalled by the <a class="el" href="../../d3/de7/a00039.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<div class="textblock"><p>Implementation for SimRunner. </p>
 
-<p>Enumerates the event. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe"></a>AtStart</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568"></a>Stepped</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b"></a>Finished</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac"></a>SetupBegin</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe"></a>SetupEnd</em>&#160;</td><td class="fielddoc">
-</td></tr>
-</table>
-
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00029">29</a> of file <a class="el" href="../../d3/d00/a00113_source.html">Id.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a43c0310b3eef6024b540ffaa5c4c39b2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::sim_event::IsType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check whether string is name of a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>. </p>
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00032">32</a> of file <a class="el" href="../../db/d57/a00112_source.html">Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa54357f0c5b3af4e7905ed503167ede"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::sim_event::ToString </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name. </p>
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00042">42</a> of file <a class="el" href="../../db/d57/a00112_source.html">Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac81b85da174b73232cac26f53bd6d3a0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> stride::sim_event::ToType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a string with name to Id. </p>
-
-<p>Definition at line <a class="el" href="../../db/d57/a00112_source.html#l00050">50</a> of file <a class="el" href="../../db/d57/a00112_source.html">Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afd464f4ca1769b7880cb27383a3cafd2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr unsigned int stride::sim_event::NumOfTypes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00039">39</a> of file <a class="el" href="../../d3/d00/a00113_source.html">Id.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acdde1acea1c3f4536af74bb4b126a739"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::sim_event::ToSizeT </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cast to size_t for indexing. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00045">45</a> of file <a class="el" href="../../d3/d00/a00113_source.html">Id.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d8/d72/a00199_source.html">SimRunner.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d8/d72/a00199.html">sim_event</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d8/d72/a00199.html">SimRunner.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

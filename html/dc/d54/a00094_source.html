@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CSV.cpp Source File</title>
+<title>Stride Reference Manual: BenchControlHelper.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dc/d54/a00094_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CSV.cpp</div>  </div>
+<div class="title">BenchControlHelper.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/d54/a00094.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,140 +118,88 @@ $(document).ready(function(){initNavTree('dc/d54/a00094_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d77/a00095.html">CSV.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>boost;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d77/a00095.html">BenchControlHelper.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;locale&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">const</span> filesystem::path check(<span class="keyword">const</span> filesystem::path&amp; filename,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                             <span class="keyword">const</span> filesystem::path&amp; root = boost::filesystem::current_path())</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d0/d27/a00239.html">   32</a></span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/d46/a00002.html#afbc1060b2d21eca2a0ed325837f1a805">   34</a></span>&#160;BenchControlHelper::BenchControlHelper(<span class="keyword">const</span> <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a>&amp; td, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; positive,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                       <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; negative)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        : m_descriptors(td), m_negative(), m_positive()</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">const</span> filesystem::path file_path = canonical(complete(filename, root));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (!is_regular_file(file_path)) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">throw</span> std::runtime_error(std::string(__func__) + <span class="stringliteral">&quot;&gt;File &quot;</span> + file_path.string() +</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                         <span class="stringliteral">&quot; not present. Aborting.&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> file_path;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; r : positive) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <a class="code" href="../../d7/d46/a00002.html#af9e9dc4626a1769e5dede074dccab070">m_positive</a>.emplace_back(regex(r));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; r : negative) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <a class="code" href="../../d7/d46/a00002.html#aed467e0bab01abbc254f4dc54b554085">m_negative</a>.emplace_back(regex(r));</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;CSV::CSV(<span class="keyword">const</span> boost::filesystem::path&amp; path, initializer_list&lt;string&gt; optLabels) : columnCount(0)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                boost::filesystem::path     full_path = check(path);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                boost::filesystem::ifstream file;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                file.open(full_path.string());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (!file.is_open()) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Error opening csv file: &quot;</span> + full_path.string());</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordtype">string</span> line;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="comment">// header</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                getline(file, line);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                line = <a class="code" href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(line);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">// Split is bad! There is no option to escape &quot;,&quot;.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                vector&lt;string&gt; headerLabels = <a class="code" href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label : headerLabels) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        labels.push_back(<a class="code" href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(label, <span class="stringliteral">&quot;\&quot;&quot;</span>));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                columnCount = labels.size();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="comment">// body</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">while</span> (getline(file, line)) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        line = <a class="code" href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(line);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        <span class="keywordflow">if</span> (!line.empty()) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                <span class="comment">// Split is bad! There is no option to escape &quot;,&quot;.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                vector&lt;string&gt; values = <a class="code" href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">Split</a>(line, <span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                                AddRow(values);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        } <span class="keywordflow">catch</span> (runtime_error&amp; error) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> (optLabels.size() == 0) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">throw</span> error;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        labels      = optLabels;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        columnCount = labels.size();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="../../d6/d97/a00045.html#a6aadfb52b95c349f14469a203d21472b">CSV::CSV</a>(initializer_list&lt;string&gt; labels) : labels(labels), columnCount(labels.size()) {}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d6/d97/a00045.html#a2f700f0aa2b27d664adb69e27a6eb4b1">   93</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d97/a00045.html#a2f700f0aa2b27d664adb69e27a6eb4b1">CSV::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d97/a00045.html">CSV</a>&amp; other)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a> == other.<a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a> &amp;&amp; (<span class="keyword">const</span> vector&lt;CSVRow&gt;&amp;)*<span class="keyword">this</span> == (<span class="keyword">const</span> vector&lt;CSVRow&gt;&amp;)other;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d6/d97/a00045.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a1ae467f9599974c0f180c529f8a9f298">CSV::AddRow</a>(vector&lt;string&gt; values)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="../../d3/dea/a00046.html">CSVRow</a> csvRow(<span class="keyword">this</span>, values);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        this-&gt;push_back(csvRow);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d6/d97/a00045.html#aed99cf47769a6284b45c2815b08d1bd0">  104</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="../../d6/d97/a00045.html#aed99cf47769a6284b45c2815b08d1bd0">CSV::GetIndexForLabel</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index = 0; index &lt; <a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size(); ++index) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.at(index) == label)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Label: &quot;</span> + label + <span class="stringliteral">&quot; not found in CSV&quot;</span>);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../d6/d97/a00045.html#a11a080486a81df3276cabfac0f7a2b41">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d97/a00045.html#a11a080486a81df3276cabfac0f7a2b41">CSV::Write</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        boost::filesystem::ofstream file;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        file.open(path.string());</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (!file.is_open()) {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Error opening csv file: &quot;</span> + path.string());</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size(); ++i) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; label = <a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.at(i);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                file &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; label &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">if</span> (i != <a class="code" href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">labels</a>.size() - 1) {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        file &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        file &lt;&lt; endl;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../d3/dea/a00046.html">CSVRow</a>&amp; row : *<span class="keyword">this</span>) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                file &lt;&lt; row &lt;&lt; endl;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        file.close();</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00200_html_a01882a252a5e262d442f9a8b8f64e3ef"><div class="ttname"><a href="../../d3/db1/a00200.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at both ends of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00126">StringUtils.h:126</a></div></div>
-<div class="ttc" id="a00045_html_a11a080486a81df3276cabfac0f7a2b41"><div class="ttname"><a href="../../d6/d97/a00045.html#a11a080486a81df3276cabfac0f7a2b41">stride::util::CSV::Write</a></div><div class="ttdeci">void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00113">CSV.cpp:113</a></div></div>
-<div class="ttc" id="a00045_html_a1ae467f9599974c0f180c529f8a9f298"><div class="ttname"><a href="../../d6/d97/a00045.html#a1ae467f9599974c0f180c529f8a9f298">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(const T &amp;...values)</div><div class="ttdoc">Add row of values. Will all be converted to string with StringUtils::ToString. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00081">CSV.h:81</a></div></div>
-<div class="ttc" id="a00200_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../d3/db1/a00200.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d44/a00162_source.html#l00045">StringUtils.h:45</a></div></div>
-<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
-<div class="ttc" id="a00045_html_a4298638a8f9c9871d800338bdf77bd50"><div class="ttname"><a href="../../d6/d97/a00045.html#a4298638a8f9c9871d800338bdf77bd50">stride::util::CSV::labels</a></div><div class="ttdeci">std::vector&lt; std::string &gt; labels</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00076">CSV.h:76</a></div></div>
-<div class="ttc" id="a00046_html"><div class="ttname"><a href="../../d3/dea/a00046.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d84/a00097_source.html#l00035">CSVRow.h:35</a></div></div>
-<div class="ttc" id="a00045_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d6/d97/a00045.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor. Mainly used for swig. </div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00037">CSV.h:37</a></div></div>
-<div class="ttc" id="a00045_html_aed99cf47769a6284b45c2815b08d1bd0"><div class="ttname"><a href="../../d6/d97/a00045.html#aed99cf47769a6284b45c2815b08d1bd0">stride::util::CSV::GetIndexForLabel</a></div><div class="ttdeci">size_t GetIndexForLabel(const std::string &amp;label) const </div><div class="ttdoc">Convert label to index for more user friendly and robuust implementation. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00104">CSV.cpp:104</a></div></div>
-<div class="ttc" id="a00045_html_a2f700f0aa2b27d664adb69e27a6eb4b1"><div class="ttname"><a href="../../d6/d97/a00045.html#a2f700f0aa2b27d664adb69e27a6eb4b1">stride::util::CSV::operator==</a></div><div class="ttdeci">bool operator==(const CSV &amp;other) const </div><div class="ttdoc">Compare operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00093">CSV.cpp:93</a></div></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d7/d46/a00002.html#a4de28233a06fe10c870348227e85c0a0">   45</a></span>&#160;vector&lt;string&gt; <a class="code" href="../../d7/d46/a00002.html#a4de28233a06fe10c870348227e85c0a0">BenchControlHelper::GetIncludedNames</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        vector&lt;string&gt; includedNames;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; item : <a class="code" href="../../d7/d46/a00002.html#a44e392ac92fc60ab184386d7d28b1987">m_descriptors</a>) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; t_n = item.first;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d7/d46/a00002.html#ac2ac9f1d14772639a3bfff5e1ec5345f">IsIncluded</a>(t_n)) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        includedNames.emplace_back(t_n);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> includedNames;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d7/d46/a00002.html#ac2ac9f1d14772639a3bfff5e1ec5345f">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/d46/a00002.html#ac2ac9f1d14772639a3bfff5e1ec5345f">BenchControlHelper::IsIncluded</a>(<span class="keyword">const</span> std::string&amp; name)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">bool</span> include = <a class="code" href="../../d7/d46/a00002.html#af9e9dc4626a1769e5dede074dccab070">m_positive</a>.empty();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; re : <a class="code" href="../../d7/d46/a00002.html#af9e9dc4626a1769e5dede074dccab070">m_positive</a>) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">if</span> (regex_search(name, re)) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        include = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (include) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; re : <a class="code" href="../../d7/d46/a00002.html#aed467e0bab01abbc254f4dc54b554085">m_negative</a>) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        <span class="keywordflow">if</span> (regex_search(name, re)) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                include = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> include;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d7/d46/a00002.html#a18e3d64ee063bdd2c0fd58a858d28a20">   77</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d7/d46/a00002.html#a18e3d64ee063bdd2c0fd58a858d28a20">BenchControlHelper::Shuffle</a>(vector&lt;string&gt;&amp; names)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        random_device rd;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        mt19937       g(rd());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        shuffle(names.begin(), names.end(), g);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00002_html_a4de28233a06fe10c870348227e85c0a0"><div class="ttname"><a href="../../d7/d46/a00002.html#a4de28233a06fe10c870348227e85c0a0">myhayai::BenchControlHelper::GetIncludedNames</a></div><div class="ttdeci">std::vector&lt; std::string &gt; GetIncludedNames() const </div><div class="ttdoc">Return the canonical names obtained after applying the positive and negative regex filters...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00045">BenchControlHelper.cpp:45</a></div></div>
+<div class="ttc" id="a00002_html_ac2ac9f1d14772639a3bfff5e1ec5345f"><div class="ttname"><a href="../../d7/d46/a00002.html#ac2ac9f1d14772639a3bfff5e1ec5345f">myhayai::BenchControlHelper::IsIncluded</a></div><div class="ttdeci">bool IsIncluded(const std::string &amp;name) const </div><div class="ttdoc">Checks whether a name gets to be included after applying the positive and exclude negative filters...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00057">BenchControlHelper.cpp:57</a></div></div>
+<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">BenchControlHelper.h</a></div><div class="ttdoc">Header file for BenchControlHelper. </div></div>
+<div class="ttc" id="a00002_html_a18e3d64ee063bdd2c0fd58a858d28a20"><div class="ttname"><a href="../../d7/d46/a00002.html#a18e3d64ee063bdd2c0fd58a858d28a20">myhayai::BenchControlHelper::Shuffle</a></div><div class="ttdeci">void Shuffle(std::vector&lt; std::string &gt; &amp;names) const </div><div class="ttdoc">Shuffle test names. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00077">BenchControlHelper.cpp:77</a></div></div>
+<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00031">TestDescriptors.h:31</a></div></div>
+<div class="ttc" id="a00002_html_a44e392ac92fc60ab184386d7d28b1987"><div class="ttname"><a href="../../d7/d46/a00002.html#a44e392ac92fc60ab184386d7d28b1987">myhayai::BenchControlHelper::m_descriptors</a></div><div class="ttdeci">const TestDescriptors &amp; m_descriptors</div><div class="ttdoc">The test descriptors to select from. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00054">BenchControlHelper.h:54</a></div></div>
+<div class="ttc" id="a00002_html_aed467e0bab01abbc254f4dc54b554085"><div class="ttname"><a href="../../d7/d46/a00002.html#aed467e0bab01abbc254f4dc54b554085">myhayai::BenchControlHelper::m_negative</a></div><div class="ttdeci">std::vector&lt; std::regex &gt; m_negative</div><div class="ttdoc">Negative regexes for excluding tests. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00055">BenchControlHelper.h:55</a></div></div>
+<div class="ttc" id="a00002_html_af9e9dc4626a1769e5dede074dccab070"><div class="ttname"><a href="../../d7/d46/a00002.html#af9e9dc4626a1769e5dede074dccab070">myhayai::BenchControlHelper::m_positive</a></div><div class="ttdeci">std::vector&lt; std::regex &gt; m_positive</div><div class="ttdoc">Positive regexes for including tests. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00056">BenchControlHelper.h:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">CSV.cpp</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">BenchControlHelper.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

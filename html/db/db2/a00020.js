@@ -1,9 +1,9 @@
 var a00020 =
 [
-    [ "Imitation", "db/db2/a00020.html#a73e90bd17f74f35c4370dfa14a12fc0d", null ],
-    [ "Imitation", "db/db2/a00020.html#a78b384d9972e06d7e1e2c516a9c82d12", null ],
-    [ "HasAdopted", "db/db2/a00020.html#a53716b9bed3d3352c60ef758e3b25d6b", null ],
-    [ "m_accept", "db/db2/a00020.html#aa094646da3221985f97440760244df5e", null ],
-    [ "m_accept_threshold", "db/db2/a00020.html#a043184f95908e3cbace4b79547ac908c", null ],
-    [ "m_no_accept_threshold", "db/db2/a00020.html#a286d3ecef9366a78e645a4a3f7cb634d", null ]
+    [ "IdSubscriptArray", "db/db2/a00020.html#afa98360b18191924317dce92e50135df", null ],
+    [ "IdSubscriptArray", "db/db2/a00020.html#a9be463390b642d1510f1d19e992dd7ac", null ],
+    [ "operator[]", "db/db2/a00020.html#af49e53d429850a6b8d43759fcd16e0ab", null ],
+    [ "operator[]", "db/db2/a00020.html#aefba95dc5355b9b62c9842f01395249d", null ],
+    [ "at", "db/db2/a00020.html#a09e9e0818406cc10eeacc3f992aef7cb", null ],
+    [ "at", "db/db2/a00020.html#a9e760b389cdca2516385b1600332a4f0", null ]
 ];

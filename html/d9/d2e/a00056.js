@@ -1,12 +1,11 @@
 var a00056 =
 [
-    [ "EventType", "d9/d2e/a00056.html#ac4fa78f455203ba23ab4442d14822895", null ],
-    [ "CallbackType", "d9/d2e/a00056.html#a3face8040dba107d2ddcfc5f766aa58d", null ],
-    [ "Subject", "d9/d2e/a00056.html#a18bf85fe174743915fc17bcc86254e25", null ],
-    [ "~Subject", "d9/d2e/a00056.html#ade16fa2818574a0a42874b5f15b1d3ec", null ],
-    [ "Register", "d9/d2e/a00056.html#acddc520ab930ec98e120790b91fb8021", null ],
-    [ "Unregister", "d9/d2e/a00056.html#aaa38f379243ec0d27b47b5bd110ebe75", null ],
-    [ "UnregisterAll", "d9/d2e/a00056.html#a8e0f20cb6cc045cf215f5d5a0963046f", null ],
-    [ "Notify", "d9/d2e/a00056.html#a9496d626bbde63eb55836f0af402522c", null ],
-    [ "m_observers", "d9/d2e/a00056.html#a3d7c672aaa180fc9b0a8c272639bd821", null ]
+    [ "BoxPlotData", "d9/d2e/a00056.html#add3e678e6738fbd9b3f1949f8059388f", null ],
+    [ "Calculate", "d9/d2e/a00056.html#a25162798845f45f11620427e4c7baf6b", null ],
+    [ "m_total", "d9/d2e/a00056.html#a777b86b3f8efb046dc4de8830c720e45", null ],
+    [ "m_min", "d9/d2e/a00056.html#a7087ab4e72c5c9a6606d76996bfac882", null ],
+    [ "m_max", "d9/d2e/a00056.html#a41acae191d30af298e9bac71d430cc41", null ],
+    [ "m_median", "d9/d2e/a00056.html#a9433b5584a47b7cba8c8090f081a2e5c", null ],
+    [ "m_quartile1", "d9/d2e/a00056.html#a6a1a8baaa4280bc35b5e58b5185b8471", null ],
+    [ "m_quartile3", "d9/d2e/a00056.html#a2ca894900d4879cf4841408c85deaf92", null ]
 ];

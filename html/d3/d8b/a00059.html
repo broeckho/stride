@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
+<title>Stride Reference Manual: stride::util::CSVRow Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -105,49 +105,107 @@ $(document).ready(function(){initNavTree('d3/d8b/a00059.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d1/d0b/a00529.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../de/dbb/a00637.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
+<div class="title">stride::util::CSVRow Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities to tag clocks and to reformat number of ticks to a string.  
+<p>Row in <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> file.  
  <a href="../../d3/d8b/a00059.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::TimeToString:</div>
+Collaboration diagram for stride::util::CSVRow:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d7e/a00530.gif" border="0" usemap="#stride_1_1util_1_1TimeToString_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1TimeToString_coll__map" id="stride_1_1util_1_1TimeToString_coll__map">
-</map>
+<div class="center"><img src="../../d1/daa/a00638.gif" border="0" usemap="#stride_1_1util_1_1CSVRow_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1CSVRow_coll__map" id="stride_1_1util_1_1CSVRow_coll__map">
+<area shape="rect" id="node2" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. " alt="" coords="115,507,260,789"/><area shape="rect" id="node3" title="STL class. " alt="" coords="5,264,168,341"/><area shape="rect" id="node9" title="STL class. " alt="" coords="130,163,245,240"/><area shape="rect" id="node5" href="../../de/d55/a00323.html" title="{size_t\n||}" alt="" coords="125,365,181,443"/><area shape="rect" id="node7" title="STL class. " alt="" coords="276,163,355,240"/><area shape="rect" id="node8" title="STL class. " alt="" coords="253,6,379,98"/></map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
-<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br/></td></tr>
-<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
-<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br/></td></tr>
-<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
-<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br/></td></tr>
-<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
-<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br/></td></tr>
-<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
-<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br/></td></tr>
-<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab60a313ff2e75d0ae07bc7624c27a861"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ab60a313ff2e75d0ae07bc7624c27a861">CSVRow</a> (const <a class="el" href="../../d7/df7/a00058.html">CSV</a> *parent, const std::vector&lt; std::string &gt; &amp;values)</td></tr>
+<tr class="memdesc:ab60a313ff2e75d0ae07bc7624c27a861"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d3/d8b/a00059.html" title="Row in CSV file. ">CSVRow</a> initialized with values. Should no be called by user code. <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> has convenience functions.  <a href="#ab60a313ff2e75d0ae07bc7624c27a861">More...</a><br/></td></tr>
+<tr class="separator:ab60a313ff2e75d0ae07bc7624c27a861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cf8ebc530e40cda52b9f15fb751a6f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a63cf8ebc530e40cda52b9f15fb751a6f">CSVRow</a> (const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;)=default</td></tr>
+<tr class="separator:a63cf8ebc530e40cda52b9f15fb751a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c1879e5f84f6b0e07dbda48be67589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#ae4c1879e5f84f6b0e07dbda48be67589">operator=</a> (const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;)=default</td></tr>
+<tr class="separator:ae4c1879e5f84f6b0e07dbda48be67589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6462fb781526ce386453ea4ee8e353e5"><td class="memTemplParams" colspan="2">template&lt;typename T  = std::string&gt; </td></tr>
+<tr class="memitem:a6462fb781526ce386453ea4ee8e353e5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6462fb781526ce386453ea4ee8e353e5">GetValue</a> (<a class="el" href="../../de/d55/a00323.html">size_t</a> index) const </td></tr>
+<tr class="memdesc:a6462fb781526ce386453ea4ee8e353e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value at index. When T is specified, StringUtils are used to try to convert the value to type T.  <a href="#a6462fb781526ce386453ea4ee8e353e5">More...</a><br/></td></tr>
+<tr class="separator:a6462fb781526ce386453ea4ee8e353e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70dfc26893fa920410a7e4a049a1578a"><td class="memTemplParams" colspan="2">template&lt;typename T  = std::string&gt; </td></tr>
+<tr class="memitem:a70dfc26893fa920410a7e4a049a1578a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a70dfc26893fa920410a7e4a049a1578a">GetValue</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:a70dfc26893fa920410a7e4a049a1578a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get value based on label. Note this is slower than using the index.  <a href="#a70dfc26893fa920410a7e4a049a1578a">More...</a><br/></td></tr>
+<tr class="separator:a70dfc26893fa920410a7e4a049a1578a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bec120b3295f500c637c4219ec5f873"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a8bec120b3295f500c637c4219ec5f873">operator==</a> (const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;other) const </td></tr>
+<tr class="memdesc:a8bec120b3295f500c637c4219ec5f873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare operator.  <a href="#a8bec120b3295f500c637c4219ec5f873">More...</a><br/></td></tr>
+<tr class="separator:a8bec120b3295f500c637c4219ec5f873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65777e0c58ce4632c96009ce1180250a"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a65777e0c58ce4632c96009ce1180250a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a65777e0c58ce4632c96009ce1180250a">GetValue</a> (<a class="el" href="../../de/d55/a00323.html">size_t</a> index) const </td></tr>
+<tr class="memdesc:a65777e0c58ce4632c96009ce1180250a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of specialization.  <a href="#a65777e0c58ce4632c96009ce1180250a">More...</a><br/></td></tr>
+<tr class="separator:a65777e0c58ce4632c96009ce1180250a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e8149406514c601f7095c55460977d"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a03e8149406514c601f7095c55460977d"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a03e8149406514c601f7095c55460977d">GetValue</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:a03e8149406514c601f7095c55460977d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of specialization.  <a href="#a03e8149406514c601f7095c55460977d">More...</a><br/></td></tr>
+<tr class="separator:a03e8149406514c601f7095c55460977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa89bb5ef10f89f4eae23cc0536bf01c1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d7/df7/a00058.html">CSV</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#aa89bb5ef10f89f4eae23cc0536bf01c1">m_parent</a></td></tr>
+<tr class="separator:aa89bb5ef10f89f4eae23cc0536bf01c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e59d67d64bb1bf8681d7718be92d74f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a6e59d67d64bb1bf8681d7718be92d74f">m_values</a></td></tr>
+<tr class="separator:a6e59d67d64bb1bf8681d7718be92d74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0ec2f92503adc2a968a848d3fddf087d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html#a0ec2f92503adc2a968a848d3fddf087d">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;row)</td></tr>
+<tr class="memdesc:a0ec2f92503adc2a968a848d3fddf087d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print to stream.  <a href="#a0ec2f92503adc2a968a848d3fddf087d">More...</a><br/></td></tr>
+<tr class="separator:a0ec2f92503adc2a968a848d3fddf087d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
+<div class="textblock"><p>Row in <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> file. </p>
 
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00035">35</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00037">37</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab60a313ff2e75d0ae07bc7624c27a861"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::util::CSVRow::CSVRow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/df7/a00058.html">CSV</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d3/d8b/a00059.html" title="Row in CSV file. ">CSVRow</a> initialized with values. Should no be called by user code. <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> has convenience functions. </p>
+
+<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00038">38</a> of file <a class="el" href="../../de/d36/a00123_source.html">CSVRow.cpp</a>.</p>
+
+<p>References <a class="el" href="../../df/dc8/a00122_source.html#l00075">stride::util::CSV::GetColumnCount()</a>, <a class="el" href="../../da/d72/a00124_source.html#l00063">m_values</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00076">stride::util::ToString()</a>, and <a class="el" href="../../d5/d13/a00205_source.html#l00142">stride::util::Trim()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63cf8ebc530e40cda52b9f15fb751a6f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -155,29 +213,24 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">stride::util::CSVRow::CSVRow </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::minutes&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00038">38</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d7d/a00161_source.html#l00093">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae4c1879e5f84f6b0e07dbda48be67589"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -185,27 +238,150 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname"><a class="el" href="../../d3/d8b/a00059.html">CSVRow</a>&amp; stride::util::CSVRow::operator= </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::seconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
+</div>
+</div>
+<a class="anchor" id="a6462fb781526ce386453ea4ee8e353e5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d55/a00323.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00053">53</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+<p>Get value at index. When T is specified, StringUtils are used to try to convert the value to type T. </p>
+
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00106">106</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d72/a00124_source.html#l00075">stride::util::safe_cast()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
+<a class="anchor" id="a70dfc26893fa920410a7e4a049a1578a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>label</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get value based on label. Note this is slower than using the index. </p>
+
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00113">113</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>.</p>
+
+<p>References <a class="el" href="../../da/d72/a00124_source.html#l00075">stride::util::safe_cast()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bec120b3295f500c637c4219ec5f873"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::util::CSVRow::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare operator. </p>
+
+<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00067">67</a> of file <a class="el" href="../../de/d36/a00123_source.html">CSVRow.cpp</a>.</p>
+
+<p>References <a class="el" href="../../da/d72/a00124_source.html#l00063">m_values</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65777e0c58ce4632c96009ce1180250a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d55/a00323.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Declaration of specialization. </p>
+
+</div>
+</div>
+<a class="anchor" id="a03e8149406514c601f7095c55460977d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::CSVRow::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>label</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Declaration of specialization. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a0ec2f92503adc2a968a848d3fddf087d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -213,27 +389,38 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::milliseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="../../d3/d8b/a00059.html">CSVRow</a> &amp;&#160;</td>
+          <td class="paramname"><em>row</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:mus format. </p>
+<p>Print to stream. </p>
 
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00069">69</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d36/a00123_source.html#l00069">69</a> of file <a class="el" href="../../de/d36/a00123_source.html">CSVRow.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="aa89bb5ef10f89f4eae23cc0536bf01c1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -241,27 +428,21 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::microseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname">const <a class="el" href="../../d7/df7/a00058.html">CSV</a>* stride::util::CSVRow::m_parent</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:ms:mus format. </p>
-
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00086">86</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00062">62</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
+<a class="anchor" id="a6e59d67d64bb1bf8681d7718be92d74f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -269,36 +450,33 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt;std::string&gt; stride::util::CSVRow::m_values</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00063">63</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../de/d45/a00175_source.html#l00104">104</a> of file <a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d36/a00123_source.html#l00038">CSVRow()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00069">stride::util::operator&lt;&lt;()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00067">operator==()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../de/d45/a00175_source.html">TimeToString.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../da/d72/a00124_source.html">CSVRow.h</a></li>
+<li><a class="el" href="../../de/d36/a00123_source.html">CSVRow.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">TimeToString</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/ded/a00252.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d8b/a00059.html">CSVRow</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

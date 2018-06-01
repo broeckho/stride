@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['columncount',['columnCount',['../d6/d97/a00045.html#a598821720121beeaed01a7a7216e5601',1,'stride::util::CSV']]]
+  ['idlist',['IdList',['../dd/dd7/a00248.html#a19ba4d58aafc6ea7ff765e3a7cd54332',1,'stride::ContactPoolType']]]
 ];

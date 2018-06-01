@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::output::AdoptedFile Class Reference</title>
+<title>Stride Reference Manual: stride::HealthSeeder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -108,54 +108,59 @@ $(document).ready(function(){initNavTree('d5/d79/a00030.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/dc5/a00480.html">List of all members</a>  </div>
+<a href="../../d3/de2/a00580.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::output::AdoptedFile Class Reference</div>  </div>
+<div class="title">stride::HealthSeeder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produces a file with daily count of person having adopted a belief.  
+<p>Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data.  
  <a href="../../d5/d79/a00030.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/ddf/a00067_source.html">AdoptedFile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::output::AdoptedFile:</div>
+Collaboration diagram for stride::HealthSeeder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/df1/a00486.gif" border="0" usemap="#stride_1_1output_1_1AdoptedFile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1output_1_1AdoptedFile_coll__map" id="stride_1_1output_1_1AdoptedFile_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="43,549,141,627"/><area shape="rect" id="node3" title="STL class. " alt="" coords="23,406,160,498"/><area shape="rect" id="node4" title="STL class. " alt="" coords="25,262,159,354"/><area shape="rect" id="node5" title="STL class. " alt="" coords="15,133,168,211"/><area shape="rect" id="node6" title="STL class. " alt="" coords="42,5,141,83"/></map>
+<div class="center"><img src="../../d8/dc8/a00581.gif" border="0" usemap="#stride_1_1HealthSeeder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1HealthSeeder_coll__map" id="stride_1_1HealthSeeder_coll__map">
+<area shape="rect" id="node3" href="../../d9/d39/a00257.html" title="{double\n||}" alt="" coords="5,147,64,224"/><area shape="rect" id="node4" title="STL class. " alt="" coords="89,147,204,224"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa24c13053bcf131ad878b465a4125828"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#aa24c13053bcf131ad878b465a4125828">AdoptedFile</a> (const std::string &amp;output_dir=&quot;output&quot;)</td></tr>
-<tr class="memdesc:aa24c13053bcf131ad878b465a4125828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa24c13053bcf131ad878b465a4125828">More...</a><br/></td></tr>
-<tr class="separator:aa24c13053bcf131ad878b465a4125828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ffdabc86a3d9e8300cdbde251ab4763"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a3ffdabc86a3d9e8300cdbde251ab4763">~AdoptedFile</a> ()</td></tr>
-<tr class="memdesc:a3ffdabc86a3d9e8300cdbde251ab4763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a3ffdabc86a3d9e8300cdbde251ab4763">More...</a><br/></td></tr>
-<tr class="separator:a3ffdabc86a3d9e8300cdbde251ab4763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa93f976e835a7255e7d479252eca28c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#aa93f976e835a7255e7d479252eca28c9">Print</a> (const std::vector&lt; unsigned int &gt; &amp;adopters)</td></tr>
-<tr class="memdesc:aa93f976e835a7255e7d479252eca28c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given cases with corresponding tag.  <a href="#aa93f976e835a7255e7d479252eca28c9">More...</a><br/></td></tr>
-<tr class="separator:aa93f976e835a7255e7d479252eca28c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4785c0728c9f154aa1426034d6e1b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a7b4785c0728c9f154aa1426034d6e1b5">HealthSeeder</a> (const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a7b4785c0728c9f154aa1426034d6e1b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor requires diease data.  <a href="#a7b4785c0728c9f154aa1426034d6e1b5">More...</a><br/></td></tr>
+<tr class="separator:a7b4785c0728c9f154aa1426034d6e1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6a9061857cee5335745fe5501bcb73d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#ad6a9061857cee5335745fe5501bcb73d">Seed</a> (const std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Population</a> &gt; &amp;pop, std::vector&lt; <a class="el" href="../../d1/d2b/a00018.html">ContactHandler</a> &gt; &amp;handlers)</td></tr>
+<tr class="memdesc:ad6a9061857cee5335745fe5501bcb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="#ad6a9061857cee5335745fe5501bcb73d">More...</a><br/></td></tr>
+<tr class="separator:ad6a9061857cee5335745fe5501bcb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aefdeb0e49b52e1fb5844bb311a6319cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#aefdeb0e49b52e1fb5844bb311a6319cb">Initialize</a> (const std::string &amp;output_dir)</td></tr>
-<tr class="memdesc:aefdeb0e49b52e1fb5844bb311a6319cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate file name and open the file stream.  <a href="#aefdeb0e49b52e1fb5844bb311a6319cb">More...</a><br/></td></tr>
-<tr class="separator:aefdeb0e49b52e1fb5844bb311a6319cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b240a326b204767217481b3fcc46237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a7b240a326b204767217481b3fcc46237">GetDistribution</a> (std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;distribution, const boost::property_tree::ptree &amp;rootPt, const std::string &amp;xmlTag)</td></tr>
+<tr class="memdesc:a7b240a326b204767217481b3fcc46237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility method to etract distribution from data in ptree.  <a href="#a7b240a326b204767217481b3fcc46237">More...</a><br/></td></tr>
+<tr class="separator:a7b240a326b204767217481b3fcc46237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a562b022d2c7f2836b4400e7d19e1b040"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a562b022d2c7f2836b4400e7d19e1b040">Sample</a> (const std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;distribution, <a class="el" href="../../d9/d39/a00257.html">double</a> random01)</td></tr>
+<tr class="memdesc:a562b022d2c7f2836b4400e7d19e1b040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample for each of the health data item individually.  <a href="#a562b022d2c7f2836b4400e7d19e1b040">More...</a><br/></td></tr>
+<tr class="separator:a562b022d2c7f2836b4400e7d19e1b040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aa82a130d557abb519a61bde42e626103"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#aa82a130d557abb519a61bde42e626103">m_fstream</a></td></tr>
-<tr class="memdesc:aa82a130d557abb519a61bde42e626103"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file stream.  <a href="#aa82a130d557abb519a61bde42e626103">More...</a><br/></td></tr>
-<tr class="separator:aa82a130d557abb519a61bde42e626103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2933ce9d9b3e17d11edb4d50bc005a1a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a2933ce9d9b3e17d11edb4d50bc005a1a">m_distrib_start_infectiousness</a></td></tr>
+<tr class="separator:a2933ce9d9b3e17d11edb4d50bc005a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f22ca66e79edf806a249517ec6ac35"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a09f22ca66e79edf806a249517ec6ac35">m_distrib_start_symptomatic</a></td></tr>
+<tr class="separator:a09f22ca66e79edf806a249517ec6ac35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520743c093005b7ccda658475107f0c2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a520743c093005b7ccda658475107f0c2">m_distrib_time_infectious</a></td></tr>
+<tr class="separator:a520743c093005b7ccda658475107f0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d190e53a3a83864d7a40cb78b2188e4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a6d190e53a3a83864d7a40cb78b2188e4">m_distrib_time_symptomatic</a></td></tr>
+<tr class="separator:a6d190e53a3a83864d7a40cb78b2188e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produces a file with daily count of person having adopted a belief. </p>
+<div class="textblock"><p>Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
 
-<p>Definition at line <a class="el" href="../../dc/ddf/a00067_source.html#l00032">32</a> of file <a class="el" href="../../dc/ddf/a00067_source.html">AdoptedFile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00038">38</a> of file <a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa24c13053bcf131ad878b465a4125828"></a>
+<a class="anchor" id="a7b4785c0728c9f154aa1426034d6e1b5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -163,10 +168,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::output::AdoptedFile::AdoptedFile </td>
+          <td class="memname">stride::HealthSeeder::HealthSeeder </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em> = <code>&quot;output&quot;</code></td><td>)</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -177,59 +182,46 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Constructor requires diease data. </p>
 
-<p>Definition at line <a class="el" href="../../d9/db3/a00066_source.html#l00025">25</a> of file <a class="el" href="../../d9/db3/a00066_source.html">AdoptedFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/db3/a00066_source.html#l00037">Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3ffdabc86a3d9e8300cdbde251ab4763"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::output::AdoptedFile::~AdoptedFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
-
-<p>Definition at line <a class="el" href="../../d9/db3/a00066_source.html#l00027">27</a> of file <a class="el" href="../../d9/db3/a00066_source.html">AdoptedFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dc/ddf/a00067_source.html#l00049">m_fstream</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00035">35</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">HealthSeeder.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa93f976e835a7255e7d479252eca28c9"></a>
+<a class="anchor" id="ad6a9061857cee5335745fe5501bcb73d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::AdoptedFile::Print </td>
+          <td class="memname">void stride::HealthSeeder::Seed </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>adopters</em></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Population</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d1/d2b/a00018.html">ContactHandler</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>handlers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Print the given cases with corresponding tag. </p>
+<p>Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
 
-<p>Definition at line <a class="el" href="../../d9/db3/a00066_source.html#l00029">29</a> of file <a class="el" href="../../d9/db3/a00066_source.html">AdoptedFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00072">72</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">HealthSeeder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/ddf/a00067_source.html#l00049">m_fstream</a>.</p>
+<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00043">stride::SimBuilder::Build()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aefdeb0e49b52e1fb5844bb311a6319cb"></a>
+<a class="anchor" id="a7b240a326b204767217481b3fcc46237"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -237,11 +229,27 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::AdoptedFile::Initialize </td>
+          <td class="memname">void stride::HealthSeeder::GetDistribution </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em></td><td>)</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>rootPt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>xmlTag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -251,18 +259,52 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generate file name and open the file stream. </p>
+<p>Utility method to etract distribution from data in ptree. </p>
 
-<p>Definition at line <a class="el" href="../../d9/db3/a00066_source.html#l00037">37</a> of file <a class="el" href="../../d9/db3/a00066_source.html">AdoptedFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00052">52</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">HealthSeeder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d32/a00105_source.html#l00051">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../dc/ddf/a00067_source.html#l00049">m_fstream</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a562b022d2c7f2836b4400e7d19e1b040"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::HealthSeeder::Sample </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>distribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d39/a00257.html">double</a>&#160;</td>
+          <td class="paramname"><em>random01</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d9/db3/a00066_source.html#l00025">AdoptedFile()</a>.</p>
+<p>Sample for each of the health data item individually. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00060">60</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">HealthSeeder.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="aa82a130d557abb519a61bde42e626103"></a>
+<a class="anchor" id="a2933ce9d9b3e17d11edb4d50bc005a1a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -270,7 +312,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream stride::output::AdoptedFile::m_fstream</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d9/d39/a00257.html">double</a>&gt; stride::HealthSeeder::m_distrib_start_infectiousness</td>
         </tr>
       </table>
   </td>
@@ -280,25 +322,87 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The file stream. </p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00056">56</a> of file <a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/ddf/a00067_source.html#l00049">49</a> of file <a class="el" href="../../dc/ddf/a00067_source.html">AdoptedFile.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a09f22ca66e79edf806a249517ec6ac35"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d9/d39/a00257.html">double</a>&gt; stride::HealthSeeder::m_distrib_start_symptomatic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d9/db3/a00066_source.html#l00037">Initialize()</a>, <a class="el" href="../../d9/db3/a00066_source.html#l00029">Print()</a>, and <a class="el" href="../../d9/db3/a00066_source.html#l00027">~AdoptedFile()</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00057">57</a> of file <a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a520743c093005b7ccda658475107f0c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d9/d39/a00257.html">double</a>&gt; stride::HealthSeeder::m_distrib_time_infectious</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00058">58</a> of file <a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d190e53a3a83864d7a40cb78b2188e4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d9/d39/a00257.html">double</a>&gt; stride::HealthSeeder::m_distrib_time_symptomatic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d2/d82/a00142_source.html#l00059">59</a> of file <a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/ddf/a00067_source.html">AdoptedFile.h</a></li>
-<li><a class="el" href="../../d9/db3/a00066_source.html">AdoptedFile.cpp</a></li>
+<li><a class="el" href="../../d2/d82/a00142_source.html">HealthSeeder.h</a></li>
+<li><a class="el" href="../../d5/d4e/a00141_source.html">HealthSeeder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">output</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">AdoptedFile</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">HealthSeeder</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

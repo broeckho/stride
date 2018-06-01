@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConfigInfo.h File Reference</title>
+<title>Stride Reference Manual: AdoptedFileViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -106,56 +106,60 @@ $(document).ready(function(){initNavTree('df/d13/a00085.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ConfigInfo.h File Reference</div>  </div>
+<div class="title">AdoptedFileViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Info on configuration.  
+<p>Observer for Adopted output.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d1f/a00083_source.html">output/AdoptedFile.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d3/db1/a00200_source.html">sim/SimRunner.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">sim/event/Id.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ConfigInfo.h:</div>
+Include dependency graph for AdoptedFileViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d42/a00235.gif" border="0" usemap="#ConfigInfo_8h" alt=""/></div>
-<map name="ConfigInfo_8h" id="ConfigInfo_8h">
-</map>
+<div class="center"><img src="../../df/da9/a00263.gif" border="0" usemap="#AdoptedFileViewer_8h" alt=""/></div>
+<map name="AdoptedFileViewer_8h" id="AdoptedFileViewer_8h">
+<area shape="rect" id="node2" href="../../d2/d1f/a00083.html" title="Header for the AdoptedFile class. " alt="" coords="86,80,228,107"/><area shape="rect" id="node6" href="../../d3/db1/a00200.html" title="Header for the SimRunner class. " alt="" coords="507,80,629,107"/><area shape="rect" id="node7" href="../../da/ddb/a00145.html" title="Definition of EventId. " alt="" coords="574,245,679,272"/><area shape="rect" id="node9" href="../../de/dd2/a00207.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="229,163,368,189"/><area shape="rect" id="node14" href="../../d1/d72/a00204.html" title="Definition of Stopwatch. " alt="" coords="758,163,873,189"/><area shape="rect" id="node10" href="../../dc/d31/a00208.html" title="Interface/Implementation of Subject. " alt="" coords="56,245,155,272"/><area shape="rect" id="node15" href="../../d5/ddf/a00224.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="857,245,967,272"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d40/a00236.gif" border="0" usemap="#ConfigInfo_8hdep" alt=""/></div>
-<map name="ConfigInfo_8hdep" id="ConfigInfo_8hdep">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="5,80,123,107"/><area shape="rect" id="node3" href="../../df/d5d/a00084.html" title="Info on configuration. " alt="" coords="148,80,255,107"/><area shape="rect" id="node4" href="../../d7/d9a/a00152.html" title="Produce run config ptree. " alt="" coords="279,80,424,107"/><area shape="rect" id="node8" href="../../dd/db2/a00151.html" title="Implementation of ptree utils. " alt="" coords="411,155,569,181"/><area shape="rect" id="node5" href="../../d5/da7/a00144.html" title="Core Population class. " alt="" coords="85,155,192,181"/><area shape="rect" id="node6" href="../../d9/d47/a00129.html" title="Main program: command line handling. " alt="" coords="217,155,291,181"/><area shape="rect" id="node7" href="../../d3/d65/a00154.html" title="Implementation for the Simulator class. " alt="" coords="317,155,387,181"/></map>
+<div class="center"><img src="../../d3/dcc/a00264.gif" border="0" usemap="#AdoptedFileViewer_8hdep" alt=""/></div>
+<map name="AdoptedFileViewer_8hdep" id="AdoptedFileViewer_8hdep">
+<area shape="rect" id="node2" href="../../df/d6a/a00119.html" title="Header for the command line controller. " alt="" coords="5,80,131,107"/><area shape="rect" id="node3" href="../../df/d5d/a00084.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="155,80,311,107"/></map>
 </div>
 </div>
 <p><a href="../../df/d13/a00085_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/a00044.html">stride::util::ConfigInfo</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config information.  <a href="../../d5/df9/a00044.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html">stride::viewers::AdoptedFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../db/df8/a00076.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d9a/a00246"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/a00246.html">stride</a></td></tr>
+<tr class="memdesc:d4/d9a/a00246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/db1/a00200"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/db1/a00200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride::viewers</a></td></tr>
+<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d5/de0/a00050.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Info on configuration. </p>
+<div class="textblock"><p>Observer for Adopted output. </p>
 
-<p>Definition in file <a class="el" href="../../df/d13/a00085_source.html">ConfigInfo.h</a>.</p>
+<p>Definition in file <a class="el" href="../../df/d13/a00085_source.html">AdoptedFileViewer.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">ConfigInfo.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d13/a00085.html">AdoptedFileViewer.h</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

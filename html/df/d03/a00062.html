@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::viewers::CliViewer Class Reference</title>
+<title>Stride Reference Manual: stride::util::FileSys::Dirs Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -106,47 +106,51 @@ $(document).ready(function(){initNavTree('df/d03/a00062.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d4/d33/a00536.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../db/d3a/a00641.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::CliViewer Class Reference</div>  </div>
+<div class="title">stride::util::FileSys::Dirs Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Viewer of Simulator for commandline interface.  
+<p>Using this to avoid global variables &amp; their initialization.  
  <a href="../../df/d03/a00062.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::viewers::CliViewer:</div>
+Collaboration diagram for stride::util::FileSys::Dirs:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d6e/a00537.gif" border="0" usemap="#stride_1_1viewers_1_1CliViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1CliViewer_coll__map" id="stride_1_1viewers_1_1CliViewer_coll__map">
+<div class="center"><img src="../../df/dcf/a00642.gif" border="0" usemap="#stride_1_1util_1_1FileSys_1_1Dirs_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1FileSys_1_1Dirs_coll__map" id="stride_1_1util_1_1FileSys_1_1Dirs_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="memdesc:a4ddb15ac567fd751c2be3a9d973d1666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a4ddb15ac567fd751c2be3a9d973d1666">More...</a><br/></td></tr>
-<tr class="separator:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a> (<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a9f3a2f9efda499fa6a80f3871c7298d7">More...</a><br/></td></tr>
-<tr class="separator:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1258b8c979f0e1b985dfe8e6c78a82b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a1258b8c979f0e1b985dfe8e6c78a82b6">Dirs</a> ()=default</td></tr>
+<tr class="separator:a1258b8c979f0e1b985dfe8e6c78a82b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:acc77dad91899a0d4183493023e082e9f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#acc77dad91899a0d4183493023e082e9f">m_logger</a></td></tr>
-<tr class="separator:acc77dad91899a0d4183493023e082e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af789850b449fdadcc8572def4a0eb4af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a></td></tr>
-<tr class="separator:af789850b449fdadcc8572def4a0eb4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a0f2510f1e56e9702540ae0ee41ae082a"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a0f2510f1e56e9702540ae0ee41ae082a">m_current_dir</a></td></tr>
+<tr class="separator:a0f2510f1e56e9702540ae0ee41ae082a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e0a5016367c19e14e102efcbf6ff4b"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a></td></tr>
+<tr class="separator:af9e0a5016367c19e14e102efcbf6ff4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84e5bea799040c78f75190d7fa242e9"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a></td></tr>
+<tr class="separator:aa84e5bea799040c78f75190d7fa242e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed650fa0f4f0fd3f5d57f2b5e3088ef"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a></td></tr>
+<tr class="separator:a5ed650fa0f4f0fd3f5d57f2b5e3088ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad844a270ca421636f164982233789d2f"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">m_data_dir</a></td></tr>
+<tr class="separator:ad844a270ca421636f164982233789d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d39f43d1e81ea01c51c6715c4b7041"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a></td></tr>
+<tr class="separator:a02d39f43d1e81ea01c51c6715c4b7041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b91aab4bd5ca85b91fad338a228b7b9"><td class="memItemLeft" align="right" valign="top">boost::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a></td></tr>
+<tr class="separator:a7b91aab4bd5ca85b91fad338a228b7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for commandline interface. </p>
+<div class="textblock"><p>Using this to avoid global variables &amp; their initialization. </p>
 
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00031">31</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00087">87</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4ddb15ac567fd751c2be3a9d973d1666"></a>
+<a class="anchor" id="a1258b8c979f0e1b985dfe8e6c78a82b6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -154,115 +158,144 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::CliViewer::CliViewer </td>
+          <td class="memname">stride::util::FileSys::Dirs::Dirs </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Instantiate cli viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00035">35</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9f3a2f9efda499fa6a80f3871c7298d7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::CliViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d63/a00082_source.html#l00039">39</a> of file <a class="el" href="../../d4/d63/a00082_source.html">CliViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/dec/a00080_source.html#l00107">stride::CliController::RegisterViewers()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="acc77dad91899a0d4183493023e082e9f"></a>
+<a class="anchor" id="a0f2510f1e56e9702540ae0ee41ae082a"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::CliViewer::m_logger</td>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_current_dir</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00044">44</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00091">91</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00058">stride::util::FileSys::GetCurrentDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af789850b449fdadcc8572def4a0eb4af"></a>
+<a class="anchor" id="af9e0a5016367c19e14e102efcbf6ff4b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d3/de7/a00039.html">SimRunner</a>&gt; stride::viewers::CliViewer::m_runner</td>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_exec_path</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d2/d1f/a00083_source.html#l00045">45</a> of file <a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00092">92</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00061">stride::util::FileSys::GetExecPath()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/d1f/a00083_source.html">CliViewer.h</a></li>
-<li><a class="el" href="../../d4/d63/a00082_source.html">CliViewer.cpp</a></li>
+<a class="anchor" id="aa84e5bea799040c78f75190d7fa242e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_bin_dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00095">95</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00071">stride::util::FileSys::GetBinDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ed650fa0f4f0fd3f5d57f2b5e3088ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_config_dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00096">96</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00074">stride::util::FileSys::GetConfigDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad844a270ca421636f164982233789d2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_data_dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00097">97</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02d39f43d1e81ea01c51c6715c4b7041"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_root_dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00098">98</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00080">stride::util::FileSys::GetRootDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b91aab4bd5ca85b91fad338a228b7b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::path stride::util::FileSys::Dirs::m_tests_dir</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00099">99</a> of file <a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/de8/a00133_source.html#l00083">stride::util::FileSys::GetTestsDir()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00101">stride::util::FileSys::Initialize()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d0/de8/a00133_source.html">FileSys.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d53/a00202.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d03/a00062.html">CliViewer</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/ded/a00252.html">util</a></li><li class="navelem"><a class="el" href="../../d4/de8/a00061.html">FileSys</a></li><li class="navelem"><a class="el" href="../../df/d03/a00062.html">Dirs</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

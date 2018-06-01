@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Sim.cpp Source File</title>
+<title>Stride Reference Manual: InfectedFileViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,145 +103,71 @@ $(document).ready(function(){initNavTree('d3/d65/a00154_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Sim.cpp</div>  </div>
+<div class="title">InfectedFileViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d3/d65/a00154.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d12/a00126.html">behaviour/information_policies/LocalDiscussion.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d5b/a00135.html">behaviour/information_policies/NoLocalInformation.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dcc/a00102.html">calendar/DaysOffStandard.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d7d/a00093.html">pool/ContactPoolType.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddb/a00145.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/db7/a00157.html">sim/SimBuilder.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9a/a00152.html">util/RunConfigManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>trng;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>util;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>ContactLogMode;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d1/dc6/a00037.html#a669d30fcc9d14fc6cce7deae4e4661f2">   40</a></span>&#160;<a class="code" href="../../d1/dc6/a00037.html#a669d30fcc9d14fc6cce7deae4e4661f2">Sim::Sim</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    : m_config_pt(), m_contact_log_mode(<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a>::<a class="code" href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">None</a>), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      m_calendar(nullptr), m_contact_profiles(), m_population(nullptr), m_rn_manager(), m_transmission_profile()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;std::shared_ptr&lt;Sim&gt; <a class="code" href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">Sim::Create</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, shared_ptr&lt;Population&gt; pop)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">struct </span>make_shared_enabler : <span class="keyword">public</span> <a class="code" href="../../d1/dc6/a00037.html">Sim</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        shared_ptr&lt;Sim&gt; sim = make_shared&lt;make_shared_enabler&gt;();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d1/dc6/a00037.html#a9a439036c5f4a413765b48764c0b1741">SimBuilder</a>(configPt).Build(sim, std::move(pop));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> sim;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;std::shared_ptr&lt;Sim&gt; <a class="code" href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">Sim::Create</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; configString, shared_ptr&lt;Population&gt; pop)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">Create</a>(<a class="code" href="../../dc/dee/a00053.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">RunConfigManager::FromString</a>(configString), std::move(pop));</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d1/dc6/a00037.html#a032911d7270c91e0a6a9c55f68800096">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/dc6/a00037.html#a032911d7270c91e0a6a9c55f68800096">Sim::TimeStep</a>()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// Logic where you compute (on the basis of input/config for initial day or on the basis of</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">// number of sick persons, duration of epidemic etc) what kind of DaysOff scheme you apply.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> daysOff     = std::make_shared&lt;DaysOffStandard&gt;(<a class="code" href="../../d1/dc6/a00037.html#af238badc880ea1db8dba6be4272f957c">m_calendar</a>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> isWorkOff   = daysOff-&gt;IsWorkOff();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">bool</span> isSchoolOff = daysOff-&gt;IsSchoolOff();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// To be used in update of population &amp; contact pools.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="../../de/d8c/a00036.html">Population</a>&amp; population    = *<a class="code" href="../../d1/dc6/a00037.html#ab558b35470a8f91f051a32f374e54e00">m_population</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">auto</span>&amp;       poolSys       = population.<a class="code" href="../../de/d8c/a00036.html#a7ba18751ce5eb62217b105e716e61d63">GetContactPoolSys</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">auto</span>        contactLogger = population.<a class="code" href="../../de/d8c/a00036.html#a314f886a6abeb0e08aac8fee085e76bd">GetContactLogger</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  simDay        = <a class="code" href="../../d1/dc6/a00037.html#af238badc880ea1db8dba6be4272f957c">m_calendar</a>-&gt;GetSimulationDay();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; infector      = *<a class="code" href="../../d1/dc6/a00037.html#a36d96f3112de535bd8a48b8694545212">m_infector</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#pragma omp parallel num_threads(m_num_threads)</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>        {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="comment">// Update health status and presence/absence in pools</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="comment">// depending on health status, work/school day.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#pragma omp for schedule(static)</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.<a class="code" href="../../d7/d46/a00002.html#a0e279c31f261b01f7798355e27401bfe">size</a>(); ++i) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        population[i].Update(isWorkOff, isSchoolOff);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="comment">// Infector updates individuals for contacts &amp; transmission within each pool.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="comment">// Skip pools with id = 0, because it means Not Applicable.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> thread_num = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(omp_get_thread_num());</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span> typ : <a class="code" href="../../d7/ded/a00196.html#a19ba4d58aafc6ea7ff765e3a7cd54332">ContactPoolType::IdList</a>) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keywordflow">if</span> ((typ == <a class="code" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">ContactPoolType::Id::Work</a> &amp;&amp; isWorkOff) ||</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                            (typ == <a class="code" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">ContactPoolType::Id::School</a> &amp;&amp; isSchoolOff)) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#pragma omp for schedule(static)</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span>                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; poolSys[typ].size(); i++) { <span class="comment">// NOLINT</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                infector(poolSys[typ][i], <a class="code" href="../../d1/dc6/a00037.html#a9fd4ab1a0802a5b855efa4bf2b5a8e08">m_contact_profiles</a>[typ], <a class="code" href="../../d1/dc6/a00037.html#a07c55a625ad780341af4eef33ad3d5cf">m_transmission_profile</a>,</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                                         <a class="code" href="../../d1/dc6/a00037.html#aa32eb53f04209e58c93b25d8c6c24a40">m_handlers</a>[thread_num], simDay, contactLogger);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../d1/dc6/a00037.html#ab558b35470a8f91f051a32f374e54e00">m_population</a>-&gt;GetContactLogger()-&gt;flush();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="../../d1/dc6/a00037.html#af238badc880ea1db8dba6be4272f957c">m_calendar</a>-&gt;AdvanceDay();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00037_html_af238badc880ea1db8dba6be4272f957c"><div class="ttname"><a href="../../d1/dc6/a00037.html#af238badc880ea1db8dba6be4272f957c">stride::Sim::m_calendar</a></div><div class="ttdeci">std::shared_ptr&lt; Calendar &gt; m_calendar</div><div class="ttdoc">Managment of calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00081">Sim.h:81</a></div></div>
-<div class="ttc" id="a00037_html_a9fd4ab1a0802a5b855efa4bf2b5a8e08"><div class="ttname"><a href="../../d1/dc6/a00037.html#a9fd4ab1a0802a5b855efa4bf2b5a8e08">stride::Sim::m_contact_profiles</a></div><div class="ttdeci">AgeContactProfiles m_contact_profiles</div><div class="ttdoc">Contact profiles w.r.t age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00082">Sim.h:82</a></div></div>
-<div class="ttc" id="a00093_html"><div class="ttname"><a href="../../d4/d7d/a00093.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
-<div class="ttc" id="a00037_html_aaca6f689398e298bf48610aa4f2126fe"><div class="ttname"><a href="../../d1/dc6/a00037.html#aaca6f689398e298bf48610aa4f2126fe">stride::Sim::Create</a></div><div class="ttdeci">static std::shared_ptr&lt; Sim &gt; Create(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Create Sim initialized by the configuration in property tree and population. </div></div>
-<div class="ttc" id="a00135_html"><div class="ttname"><a href="../../d5/d5b/a00135.html">NoLocalInformation.h</a></div></div>
-<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a></div></div>
-<div class="ttc" id="a00196_html_a19ba4d58aafc6ea7ff765e3a7cd54332"><div class="ttname"><a href="../../d7/ded/a00196.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a></div><div class="ttdeci">constexpr std::initializer_list&lt; Id &gt; IdList</div><div class="ttdoc">To allow iteration over the type ids. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d7d/a00093_source.html#l00058">ContactPoolType.h:58</a></div></div>
-<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00037_html_a36d96f3112de535bd8a48b8694545212"><div class="ttname"><a href="../../d1/dc6/a00037.html#a36d96f3112de535bd8a48b8694545212">stride::Sim::m_infector</a></div><div class="ttdeci">InfectorExec * m_infector</div><div class="ttdoc">Executes contacts/transmission loops in contact pool. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00084">Sim.h:84</a></div></div>
-<div class="ttc" id="a00002_html_a0e279c31f261b01f7798355e27401bfe"><div class="ttname"><a href="../../d7/d46/a00002.html#a0e279c31f261b01f7798355e27401bfe">stride::util::SegmentedVector::size</a></div><div class="ttdeci">std::size_t size() const </div><div class="ttdoc">Returns the number of elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00209">SegmentedVector.h:209</a></div></div>
-<div class="ttc" id="a00126_html"><div class="ttname"><a href="../../d7/d12/a00126.html">LocalDiscussion.h</a></div><div class="ttdoc">Header file for LocalDiscussion info policy. </div></div>
-<div class="ttc" id="a00196_html_aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604"><div class="ttname"><a href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">stride::ContactPoolType::Id::School</a></div></div>
-<div class="ttc" id="a00037_html_aa32eb53f04209e58c93b25d8c6c24a40"><div class="ttname"><a href="../../d1/dc6/a00037.html#aa32eb53f04209e58c93b25d8c6c24a40">stride::Sim::m_handlers</a></div><div class="ttdeci">std::vector&lt; ContactHandler &gt; m_handlers</div><div class="ttdoc">Contact handlers (rng &amp; rates). </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00083">Sim.h:83</a></div></div>
-<div class="ttc" id="a00036_html_a7ba18751ce5eb62217b105e716e61d63"><div class="ttname"><a href="../../de/d8c/a00036.html#a7ba18751ce5eb62217b105e716e61d63">stride::Population::GetContactPoolSys</a></div><div class="ttdeci">ContactPoolSys &amp; GetContactPoolSys()</div><div class="ttdoc">The ContactPoolSys of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00056">Population.h:56</a></div></div>
-<div class="ttc" id="a00037_html_a032911d7270c91e0a6a9c55f68800096"><div class="ttname"><a href="../../d1/dc6/a00037.html#a032911d7270c91e0a6a9c55f68800096">stride::Sim::TimeStep</a></div><div class="ttdeci">void TimeStep()</div><div class="ttdoc">Run one time step, computing full simulation (default) or only index case. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00061">Sim.cpp:61</a></div></div>
-<div class="ttc" id="a00196_html_aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f"><div class="ttname"><a href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Id::Work</a></div></div>
-<div class="ttc" id="a00037_html"><div class="ttname"><a href="../../d1/dc6/a00037.html">stride::Sim</a></div><div class="ttdoc">Simulator can time step and reveal some of the key data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00041">Sim.h:41</a></div></div>
-<div class="ttc" id="a00037_html_a9a439036c5f4a413765b48764c0b1741"><div class="ttname"><a href="../../d1/dc6/a00037.html#a9a439036c5f4a413765b48764c0b1741">stride::Sim::SimBuilder</a></div><div class="ttdeci">friend class SimBuilder</div><div class="ttdoc">SimBuilder accesses the default constructor to build Sim using config. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00072">Sim.h:72</a></div></div>
-<div class="ttc" id="a00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
-<div class="ttc" id="a00195_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d3/d2a/a00195.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../db/ddf/a00088_source.html#l00033">ContactLogMode.h:33</a></div></div>
-<div class="ttc" id="a00157_html"><div class="ttname"><a href="../../d1/db7/a00157.html">SimBuilder.h</a></div><div class="ttdoc">Header for the SimBuilder class. </div></div>
-<div class="ttc" id="a00145_html"><div class="ttname"><a href="../../da/ddb/a00145.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00053_html_aff61de3ee9dfe5b0aac9b0b1fb950ebb"><div class="ttname"><a href="../../dc/dee/a00053.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">stride::util::RunConfigManager::FromString</a></div><div class="ttdeci">static boost::property_tree::ptree FromString(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00286">RunConfigManager.cpp:286</a></div></div>
-<div class="ttc" id="a00037_html_a07c55a625ad780341af4eef33ad3d5cf"><div class="ttname"><a href="../../d1/dc6/a00037.html#a07c55a625ad780341af4eef33ad3d5cf">stride::Sim::m_transmission_profile</a></div><div class="ttdeci">TransmissionProfile m_transmission_profile</div><div class="ttdoc">Profile of disease. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00087">Sim.h:87</a></div></div>
-<div class="ttc" id="a00102_html"><div class="ttname"><a href="../../d9/dcc/a00102.html">DaysOffStandard.h</a></div><div class="ttdoc">DaysOffStandard class. </div></div>
-<div class="ttc" id="a00037_html_ab558b35470a8f91f051a32f374e54e00"><div class="ttname"><a href="../../d1/dc6/a00037.html#ab558b35470a8f91f051a32f374e54e00">stride::Sim::m_population</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; m_population</div><div class="ttdoc">Pointer to the Population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00085">Sim.h:85</a></div></div>
-<div class="ttc" id="a00036_html_a314f886a6abeb0e08aac8fee085e76bd"><div class="ttname"><a href="../../de/d8c/a00036.html#a314f886a6abeb0e08aac8fee085e76bd">stride::Population::GetContactLogger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; &amp; GetContactLogger()</div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00053">Population.h:53</a></div></div>
-<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00037">Population.h:37</a></div></div>
-<div class="ttc" id="a00037_html_a669d30fcc9d14fc6cce7deae4e4661f2"><div class="ttname"><a href="../../d1/dc6/a00037.html#a669d30fcc9d14fc6cce7deae4e4661f2">stride::Sim::Sim</a></div><div class="ttdeci">Sim()</div><div class="ttdoc">Default constructor for empty Simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00040">Sim.cpp:40</a></div></div>
+<a href="../../d3/d65/a00154.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9a/a00152.html">output/InfectedFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/db1/a00200.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddb/a00145.html">sim/event/Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d9/da4/a00078.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/da4/a00078.html">InfectedFileViewer</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d9/da4/a00078.html#aca10d70842e06a7a00cd633c4071d0ac">   37</a></span>&#160;        <a class="code" href="../../d9/da4/a00078.html#aca10d70842e06a7a00cd633c4071d0ac">InfectedFileViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../d9/da4/a00078.html#a29f6d1abe2d4b71535a0c0134a48a5a0">m_infected</a>(), <a class="code" href="../../d9/da4/a00078.html#ae3711a48a4aba215ee7c45893c18532c">m_infected_file</a>(output_prefix), <a class="code" href="../../d9/da4/a00078.html#af4ffa40d65229dcd9ae06ad592809c1c">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d9/da4/a00078.html#a8128b6620992860cad456275e2173b16">Update</a>(<a class="code" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d9/da4/a00078.html#a29f6d1abe2d4b71535a0c0134a48a5a0">   46</a></span>&#160;        std::vector&lt;unsigned int&gt;  <a class="code" href="../../d9/da4/a00078.html#a29f6d1abe2d4b71535a0c0134a48a5a0">m_infected</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d9/da4/a00078.html#ae3711a48a4aba215ee7c45893c18532c">   47</a></span>&#160;        <a class="code" href="../../d5/db6/a00042.html">output::InfectedFile</a>       <a class="code" href="../../d9/da4/a00078.html#ae3711a48a4aba215ee7c45893c18532c">m_infected_file</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/da4/a00078.html#af4ffa40d65229dcd9ae06ad592809c1c">   48</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d9/da4/a00078.html#af4ffa40d65229dcd9ae06ad592809c1c">m_runner</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">stride::output::InfectedFile</a></div><div class="ttdoc">Produces a file with daily count of infected persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d9a/a00152_source.html#l00032">InfectedFile.h:32</a></div></div>
+<div class="ttc" id="a00078_html_ae3711a48a4aba215ee7c45893c18532c"><div class="ttname"><a href="../../d9/da4/a00078.html#ae3711a48a4aba215ee7c45893c18532c">stride::viewers::InfectedFileViewer::m_infected_file</a></div><div class="ttdeci">output::InfectedFile m_infected_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00047">InfectedFileViewer.h:47</a></div></div>
+<div class="ttc" id="a00078_html_a29f6d1abe2d4b71535a0c0134a48a5a0"><div class="ttname"><a href="../../d9/da4/a00078.html#a29f6d1abe2d4b71535a0c0134a48a5a0">stride::viewers::InfectedFileViewer::m_infected</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; m_infected</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00046">InfectedFileViewer.h:46</a></div></div>
+<div class="ttc" id="a00078_html_af4ffa40d65229dcd9ae06ad592809c1c"><div class="ttname"><a href="../../d9/da4/a00078.html#af4ffa40d65229dcd9ae06ad592809c1c">stride::viewers::InfectedFileViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00048">InfectedFileViewer.h:48</a></div></div>
+<div class="ttc" id="a00200_html"><div class="ttname"><a href="../../d3/db1/a00200.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
+<div class="ttc" id="a00078_html"><div class="ttname"><a href="../../d9/da4/a00078.html">stride::viewers::InfectedFileViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00033">InfectedFileViewer.h:33</a></div></div>
+<div class="ttc" id="a00251_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">InfectedFile.h</a></div><div class="ttdoc">Header for the InfectedFile class. </div></div>
+<div class="ttc" id="a00078_html_a8128b6620992860cad456275e2173b16"><div class="ttname"><a href="../../d9/da4/a00078.html#a8128b6620992860cad456275e2173b16">stride::viewers::InfectedFileViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00033">InfectedFileViewer.cpp:33</a></div></div>
+<div class="ttc" id="a00078_html_aca10d70842e06a7a00cd633c4071d0ac"><div class="ttname"><a href="../../d9/da4/a00078.html#aca10d70842e06a7a00cd633c4071d0ac">stride::viewers::InfectedFileViewer::InfectedFileViewer</a></div><div class="ttdeci">InfectedFileViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00037">InfectedFileViewer.h:37</a></div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="../../da/ddb/a00145.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d3/d65/a00154.html">Sim.cpp</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d3/d65/a00154.html">InfectedFileViewer.h</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

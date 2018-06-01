@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::AgeContactProfile Class Reference</title>
+<title>Stride Reference Manual: myhayai::Benchmark Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -106,46 +106,52 @@ $(document).ready(function(){initNavTree('d1/d7c/a00003.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d7/db9/a00426.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d7/daa/a00490.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::AgeContactProfile Class Reference</div>  </div>
+<div class="title">myhayai::Benchmark Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contact rates as a function of age.  
+<p>This class allows you to register test via instantiation.  
  <a href="../../d1/d7c/a00003.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d6/d2c/a00072_source.html">AgeContactProfile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::AgeContactProfile:</div>
+Collaboration diagram for myhayai::Benchmark:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/dd3/a00428.gif" border="0" usemap="#stride_1_1AgeContactProfile_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1AgeContactProfile_inherit__map" id="stride_1_1AgeContactProfile_inherit__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="19,6,159,98"/></map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::AgeContactProfile:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/d53/a00429.gif" border="0" usemap="#stride_1_1AgeContactProfile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1AgeContactProfile_coll__map" id="stride_1_1AgeContactProfile_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="19,147,159,239"/></map>
+<div class="center"><img src="../../d6/d60/a00491.gif" border="0" usemap="#myhayai_1_1Benchmark_coll__map" alt="Collaboration graph"/></div>
+<map name="myhayai_1_1Benchmark_coll__map" id="myhayai_1_1Benchmark_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abcac910ea28f2cefae9efd6f462aa34d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a> ()=default</td></tr>
-<tr class="memdesc:abcac910ea28f2cefae9efd6f462aa34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Need to keep the default constructor available.  <a href="#abcac910ea28f2cefae9efd6f462aa34d">More...</a><br/></td></tr>
-<tr class="separator:abcac910ea28f2cefae9efd6f462aa34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac325eb59f82e16bbe16cfc850947dd94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#ac325eb59f82e16bbe16cfc850947dd94">AgeContactProfile</a> (<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, const boost::property_tree::ptree &amp;contactPt)</td></tr>
-<tr class="memdesc:ac325eb59f82e16bbe16cfc850947dd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicitly initialize.  <a href="#ac325eb59f82e16bbe16cfc850947dd94">More...</a><br/></td></tr>
-<tr class="separator:ac325eb59f82e16bbe16cfc850947dd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a707f913d835b3b11f6149d6c3df04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#ab7a707f913d835b3b11f6149d6c3df04">Benchmark</a> (const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, <a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory)</td></tr>
+<tr class="memdesc:ab7a707f913d835b3b11f6149d6c3df04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegating constructor.  <a href="#ab7a707f913d835b3b11f6149d6c3df04">More...</a><br/></td></tr>
+<tr class="separator:ab7a707f913d835b3b11f6149d6c3df04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa735313fa26ebd81d6a1529aa82ab488"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#aa735313fa26ebd81d6a1529aa82ab488">Benchmark</a> (const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, <a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, bool disableTest)</td></tr>
+<tr class="memdesc:aa735313fa26ebd81d6a1529aa82ab488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegating Constructor.  <a href="#aa735313fa26ebd81d6a1529aa82ab488">More...</a><br/></td></tr>
+<tr class="separator:aa735313fa26ebd81d6a1529aa82ab488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad5a8f5757ea433bda9eb215b226422"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a9ad5a8f5757ea433bda9eb215b226422">Benchmark</a> (const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, <a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, <a class="el" href="../../d0/d27/a00239.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> infoFactory, bool disableTest=false)</td></tr>
+<tr class="memdesc:a9ad5a8f5757ea433bda9eb215b226422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that registers test. For parameters.  <a href="#a9ad5a8f5757ea433bda9eb215b226422">More...</a><br/></td></tr>
+<tr class="separator:a9ad5a8f5757ea433bda9eb215b226422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4f6dd9578a759c1b9789ac5a3abcd5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a5f4f6dd9578a759c1b9789ac5a3abcd5">operator bool</a> () const </td></tr>
+<tr class="memdesc:a5f4f6dd9578a759c1b9789ac5a3abcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True iff succesfully registered.  <a href="#a5f4f6dd9578a759c1b9789ac5a3abcd5">More...</a><br/></td></tr>
+<tr class="separator:a5f4f6dd9578a759c1b9789ac5a3abcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a41bde1d5c9abcac9f401919c0a9d0d12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">m_status</a> = false</td></tr>
+<tr class="separator:a41bde1d5c9abcac9f401919c0a9d0d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contact rates as a function of age. </p>
+<div class="textblock"><p>This class allows you to register test via instantiation. </p>
+<p>It also allows you to check success/failre of the registration (via the bool conversion operator). </p>
 
-<p>Definition at line <a class="el" href="../../d6/d2c/a00072_source.html#l00033">33</a> of file <a class="el" href="../../d6/d2c/a00072_source.html">AgeContactProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00033">33</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abcac910ea28f2cefae9efd6f462aa34d"></a>
+<a class="anchor" id="ab7a707f913d835b3b11f6149d6c3df04"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -153,38 +159,28 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::AgeContactProfile::AgeContactProfile </td>
+          <td class="memname">myhayai::Benchmark::Benchmark </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Need to keep the default constructor available. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac325eb59f82e16bbe16cfc850947dd94"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::AgeContactProfile::AgeContactProfile </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>poolType</em>, </td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>groupName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>contactPt</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>testName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>numRuns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a>&#160;</td>
+          <td class="paramname"><em>testFactory</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -192,22 +188,205 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Explicitly initialize. </p>
+<p>Delegating constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00037">37</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa735313fa26ebd81d6a1529aa82ab488"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">myhayai::Benchmark::Benchmark </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>groupName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>testName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>numRuns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a>&#160;</td>
+          <td class="paramname"><em>testFactory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableTest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delegating Constructor. </p>
+
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00044">44</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ad5a8f5757ea433bda9eb215b226422"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">myhayai::Benchmark::Benchmark </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>groupName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>testName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>numRuns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a>&#160;</td>
+          <td class="paramname"><em>testFactory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a>&#160;</td>
+          <td class="paramname"><em>infoFactory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableTest</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor that registers test. For parameters. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d7/dec/a00010.html" title="Benchmark test descriptor. ">TestDescriptor</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00051">51</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/df8/a00096_source.html#l00062">m_status</a>, and <a class="el" href="../../d1/d84/a00097_source.html#l00042">myhayai::BenchmarkRunner::RegisterTest()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5f4f6dd9578a759c1b9789ac5a3abcd5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">myhayai::Benchmark::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>True iff succesfully registered. </p>
+
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00059">59</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/df8/a00096_source.html#l00062">m_status</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a41bde1d5c9abcac9f401919c0a9d0d12"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool myhayai::Benchmark::m_status = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/df8/a00096_source.html#l00062">62</a> of file <a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/df8/a00096_source.html#l00051">Benchmark()</a>, and <a class="el" href="../../d9/df8/a00096_source.html#l00059">operator bool()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d6/d2c/a00072_source.html">AgeContactProfile.h</a></li>
+<li><a class="el" href="../../d9/df8/a00096_source.html">Benchmark.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d7c/a00003.html">AgeContactProfile</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d27/a00239.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d7c/a00003.html">Benchmark</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

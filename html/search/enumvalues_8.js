@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['primarycommunity',['PrimaryCommunity',['../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6',1,'stride::ContactPoolType']]]
+  ['immune',['Immune',['../d4/d9a/a00246.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb',1,'stride']]],
+  ['infectious',['Infectious',['../d4/d9a/a00246.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215',1,'stride']]],
+  ['infectiousandsymptomatic',['InfectiousAndSymptomatic',['../d4/d9a/a00246.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a',1,'stride']]]
 ];

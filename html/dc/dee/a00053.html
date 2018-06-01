@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::RunConfigManager Class Reference</title>
+<title>Stride Reference Manual: stride::Threshold Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -105,63 +105,68 @@ $(document).ready(function(){initNavTree('dc/dee/a00053.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
-<a href="../../d4/dfb/a00512.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../db/d44/a00533.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::RunConfigManager Class Reference</div>  </div>
+<div class="title">stride::Threshold Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produce run config ptree.  
- <a href="../../dc/dee/a00053.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::RunConfigManager:</div>
+Inheritance diagram for stride::Threshold:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/def/a00513.gif" border="0" usemap="#stride_1_1util_1_1RunConfigManager_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1RunConfigManager_coll__map" id="stride_1_1util_1_1RunConfigManager_coll__map">
-</map>
+<div class="center"><img src="../../dc/d20/a00534.gif" border="0" usemap="#stride_1_1Threshold_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1Threshold_inherit__map" id="stride_1_1Threshold_inherit__map">
+<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="Base class for all belief policies. " alt="" coords="39,5,153,112"/></map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::Threshold:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/d84/a00535.gif" border="0" usemap="#stride_1_1Threshold_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Threshold_coll__map" id="stride_1_1Threshold_coll__map">
+<area shape="rect" id="node2" href="../../d2/de7/a00014.html" title="Base class for all belief policies. " alt="" coords="5,5,120,112"/><area shape="rect" id="node3" href="../../d9/d39/a00257.html" title="{double\n||}" alt="" coords="145,20,204,97"/></map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ac2f08ab87856eaeb81a229c6553e9cc8">CleanConfigFile</a> (boost::property_tree::ptree pt)</td></tr>
-<tr class="memdesc:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean (i.e. indent, sort and produde the sha1) the ptree config file.  <a href="#ac2f08ab87856eaeb81a229c6553e9cc8">More...</a><br/></td></tr>
-<tr class="separator:ac2f08ab87856eaeb81a229c6553e9cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4007f793a1924a65458824fef455208"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ab4007f793a1924a65458824fef455208">Create</a> (const std::string &amp;configName)</td></tr>
-<tr class="separator:ab4007f793a1924a65458824fef455208"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae981d7a6d9a41f62815541ba874e59a0"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ae981d7a6d9a41f62815541ba874e59a0">CreateNumThreads</a> (unsigned int max=<a class="el" href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">ConfigInfo::ProcessorCount</a>())</td></tr>
-<tr class="separator:ae981d7a6d9a41f62815541ba874e59a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">FromString</a> (const std::string &amp;s)</td></tr>
-<tr class="separator:aff61de3ee9dfe5b0aac9b0b1fb950ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af968f949efaf2876f48a86da65faa5ca"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#af968f949efaf2876f48a86da65faa5ca">ToString</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="separator:af968f949efaf2876f48a86da65faa5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ec1961852a81d4873a519f6bea1e36"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a32ec1961852a81d4873a519f6bea1e36">ToSha1</a> (const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="separator:a32ec1961852a81d4873a519f6bea1e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ad91f6d29e307567fdb3b0a2e7c7772c0">ToShortSha1</a> (const boost::property_tree::ptree &amp;pt, unsigned int n=7U)</td></tr>
-<tr class="separator:ad91f6d29e307567fdb3b0a2e7c7772c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a8da3ada04e2f53f0d6a8424c58e0065f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a8da3ada04e2f53f0d6a8424c58e0065f">Threshold</a> ()</td></tr>
+<tr class="separator:a8da3ada04e2f53f0d6a8424c58e0065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00014"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00014')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d2/de7/a00014.html">stride::Belief</a></td></tr>
+<tr class="memitem:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4c6ab9b7c9f11aa7651337c30aa50dc8">Belief</a> ()=default</td></tr>
+<tr class="separator:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a48ced869d4ea27db2c4120a068750248">~Belief</a> ()=default</td></tr>
+<tr class="separator:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00014"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html#a4e01f1bfbad7923d1dff35558e47887f">HasAdopted</a> () const </td></tr>
+<tr class="separator:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a7014479a2c8efe57b292b9f61435ab61"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a7014479a2c8efe57b292b9f61435ab61">CreateBenchInfluenza</a> ()</td></tr>
-<tr class="separator:a7014479a2c8efe57b292b9f61435ab61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf62ab97dafdce994e503296fe5d9394"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#abf62ab97dafdce994e503296fe5d9394">CreateBenchMeasles</a> ()</td></tr>
-<tr class="separator:abf62ab97dafdce994e503296fe5d9394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93470c7c74cc217254876c704fa81a0f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a93470c7c74cc217254876c704fa81a0f">CreateDefault</a> ()</td></tr>
-<tr class="separator:a93470c7c74cc217254876c704fa81a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61a9ce9ce2d50ffbafa78b2a7f757598"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a61a9ce9ce2d50ffbafa78b2a7f757598">CreateTestsInfluenza</a> ()</td></tr>
-<tr class="separator:a61a9ce9ce2d50ffbafa78b2a7f757598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa430eb71461536d855db5725ebc59cda"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aa430eb71461536d855db5725ebc59cda">CreateTestsMeasles</a> ()</td></tr>
-<tr class="separator:aa430eb71461536d855db5725ebc59cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac4b88b840219d9df9585234a67cb7240"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a></td></tr>
+<tr class="memdesc:ac4b88b840219d9df9585234a67cb7240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the person is aware of the current epidemic.  <a href="#ac4b88b840219d9df9585234a67cb7240">More...</a><br/></td></tr>
+<tr class="separator:ac4b88b840219d9df9585234a67cb7240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ae3466c106da6e6f9e074d6b0841e86"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a></td></tr>
+<tr class="memdesc:a4ae3466c106da6e6f9e074d6b0841e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of contacts the person has had.  <a href="#a4ae3466c106da6e6f9e074d6b0841e86">More...</a><br/></td></tr>
+<tr class="separator:a4ae3466c106da6e6f9e074d6b0841e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6f98311139eaa035d84d2c6d951f7f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a></td></tr>
+<tr class="memdesc:a3c6f98311139eaa035d84d2c6d951f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of contacts that is symptomatic.  <a href="#a3c6f98311139eaa035d84d2c6d951f7f">More...</a><br/></td></tr>
+<tr class="separator:a3c6f98311139eaa035d84d2c6d951f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a788abd97461a417f3acf3db796c62514"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a></td></tr>
+<tr class="memdesc:a788abd97461a417f3acf3db796c62514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of contacts that have adopted the behaviour.  <a href="#a788abd97461a417f3acf3db796c62514">More...</a><br/></td></tr>
+<tr class="separator:a788abd97461a417f3acf3db796c62514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fcb580f7bc164aceb380a3ccb71b337"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d39/a00257.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a></td></tr>
+<tr class="memdesc:a9fcb580f7bc164aceb380a3ccb71b337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of contacts that needs to be infected to adopt behaviour.  <a href="#a9fcb580f7bc164aceb380a3ccb71b337">More...</a><br/></td></tr>
+<tr class="separator:a9fcb580f7bc164aceb380a3ccb71b337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2cf98f557c4be064d719fc3e6caaba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d39/a00257.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a></td></tr>
+<tr class="memdesc:aae2cf98f557c4be064d719fc3e6caaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of contacts that needs to have adopted to adopt behaviour.  <a href="#aae2cf98f557c4be064d719fc3e6caaba">More...</a><br/></td></tr>
+<tr class="separator:aae2cf98f557c4be064d719fc3e6caaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produce run config ptree. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d9a/a00152_source.html#l00034">34</a> of file <a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac2f08ab87856eaeb81a229c6553e9cc8"></a>
+<div class="textblock">
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00026">26</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8da3ada04e2f53f0d6a8424c58e0065f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -169,205 +174,7 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::RunConfigManager::CleanConfigFile </td>
-          <td>(</td>
-          <td class="paramtype">boost::property_tree::ptree&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clean (i.e. indent, sort and produde the sha1) the ptree config file. </p>
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00039">39</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab4007f793a1924a65458824fef455208"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::Create </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>configName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00048">48</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d44/a00162_source.html#l00035">stride::util::FromString()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae981d7a6d9a41f62815541ba874e59a0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; unsigned int &gt; stride::util::RunConfigManager::CreateNumThreads </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>max</em> = <code><a class="el" href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">ConfigInfo::ProcessorCount</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00184">184</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aff61de3ee9dfe5b0aac9b0b1fb950ebb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ptree stride::util::RunConfigManager::FromString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00286">286</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af968f949efaf2876f48a86da65faa5ca"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::ToString </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00294">294</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a32ec1961852a81d4873a519f6bea1e36"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00301">301</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/d1e/a00087_source.html#l00032">stride::ContactLogMode::ToString()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad91f6d29e307567fdb3b0a2e7c7772c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::RunConfigManager::ToShortSha1 </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>n</em> = <code>7U</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00303">303</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7014479a2c8efe57b292b9f61435ab61"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateBenchInfluenza </td>
+          <td class="memname">stride::Threshold::Threshold </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -375,16 +182,17 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00061">61</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00029">29</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abf62ab97dafdce994e503296fe5d9394"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ac4b88b840219d9df9585234a67cb7240"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -392,24 +200,23 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateBenchMeasles </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">bool stride::Threshold::m_is_aware</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00144">144</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
+<p>Whether the person is aware of the current epidemic. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00036">36</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a93470c7c74cc217254876c704fa81a0f"></a>
+<a class="anchor" id="a4ae3466c106da6e6f9e074d6b0841e86"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -417,24 +224,23 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateDefault </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int stride::Threshold::m_num_contacts</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00100">100</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
+<p>The total number of contacts the person has had. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00037">37</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a61a9ce9ce2d50ffbafa78b2a7f757598"></a>
+<a class="anchor" id="a3c6f98311139eaa035d84d2c6d951f7f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -442,24 +248,23 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateTestsInfluenza </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int stride::Threshold::m_num_contacts_infected</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00208">208</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
+<p>Number of contacts that is symptomatic. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00038">38</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa430eb71461536d855db5725ebc59cda"></a>
+<a class="anchor" id="a788abd97461a417f3acf3db796c62514"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -467,34 +272,80 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string stride::util::RunConfigManager::CreateTestsMeasles </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int stride::Threshold::m_num_contacts_adopted</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00247">247</a> of file <a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a>.</p>
+<p>Number of contacts that have adopted the behaviour. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00039">39</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/d9a/a00152_source.html">RunConfigManager.h</a></li>
-<li><a class="el" href="../../dd/db2/a00151_source.html">RunConfigManager.cpp</a></li>
+<a class="anchor" id="a9fcb580f7bc164aceb380a3ccb71b337"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d39/a00257.html">double</a> stride::Threshold::m_threshold_infected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fraction of contacts that needs to be infected to adopt behaviour. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00040">40</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae2cf98f557c4be064d719fc3e6caaba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d39/a00257.html">double</a> stride::Threshold::m_threshold_adopted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fraction of contacts that needs to have adopted to adopt behaviour. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d24/a00222_source.html#l00041">41</a> of file <a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d0/d24/a00222_source.html">Threshold.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">util</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">RunConfigManager</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">Threshold</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

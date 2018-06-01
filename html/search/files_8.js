@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main_2ecpp',['main.cpp',['../d9/d47/a00129.html',1,'']]],
-  ['mainpage_2edoxy',['mainpage.doxy',['../d6/db3/a00130.html',1,'']]]
+  ['localdiscussion_2eh',['LocalDiscussion.h',['../db/d44/a00162.html',1,'']]],
+  ['logutils_2ecpp',['LogUtils.cpp',['../dd/dae/a00163.html',1,'']]],
+  ['logutils_2eh',['LogUtils.h',['../db/ddf/a00164.html',1,'']]]
 ];

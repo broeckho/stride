@@ -1,8 +1,7 @@
 var a00032 =
 [
-    [ "PersonsFile", "dc/d87/a00032.html#ab2c1e70237152817647dded0f5906c6b", null ],
-    [ "~PersonsFile", "dc/d87/a00032.html#aafacf4448a2354eff812e02d2048e114", null ],
-    [ "Print", "dc/d87/a00032.html#ac72a90d142c34ca2137bdf09760ba2c4", null ],
-    [ "Initialize", "dc/d87/a00032.html#a70798ee06674e243f7dad24ae2dca7fd", null ],
-    [ "m_fstream", "dc/d87/a00032.html#a426f21983cf23767cfa51c0f4b9fb068", null ]
+    [ "Immunizer", "dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f", null ],
+    [ "Random", "dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6", null ],
+    [ "Cocoon", "dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48", null ],
+    [ "m_rn_manager", "dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd", null ]
 ];

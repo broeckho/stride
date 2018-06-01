@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: AdoptedViewer.h File Reference</title>
+<title>Stride Reference Manual: stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -46,8 +46,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -68,8 +68,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -103,63 +105,450 @@ $(document).ready(function(){initNavTree('d4/d31/a00069.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d5/d4e/a00660.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">AdoptedViewer.h File Reference</div>  </div>
+<div class="title">stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Observer for Adopted output.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/ddf/a00067_source.html">output/AdoptedFile.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/db9/a00159_source.html">sim/SimRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d3/d00/a00113_source.html">sim/event/Id.h</a>&quot;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for AdoptedViewer.h:</div>
+<p>Datastructure to index a container (supporting RandomAccessIterators) with slices.  
+ <a href="../../d4/d31/a00069.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::util::SliceIndexer&lt; T, Key &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/ded/a00211.gif" border="0" usemap="#AdoptedViewer_8h" alt=""/></div>
-<map name="AdoptedViewer_8h" id="AdoptedViewer_8h">
-<area shape="rect" id="node2" href="../../dc/ddf/a00067.html" title="Header for the AdoptedFile class. " alt="" coords="86,80,228,107"/><area shape="rect" id="node6" href="../../de/db9/a00159.html" title="Header for the SimRunner class. " alt="" coords="507,80,629,107"/><area shape="rect" id="node7" href="../../d3/d00/a00113.html" title="Definition of EventId. " alt="" coords="574,245,679,272"/><area shape="rect" id="node9" href="../../db/ddf/a00164.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="229,163,368,189"/><area shape="rect" id="node14" href="../../d6/d7d/a00161.html" title="Definition of Stopwatch. " alt="" coords="758,163,873,189"/><area shape="rect" id="node10" href="../../d0/d48/a00165.html" title="Interface/Implementation of Subject. " alt="" coords="56,245,155,272"/><area shape="rect" id="node15" href="../../de/d45/a00175.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="857,245,967,272"/></map>
+<div class="center"><img src="../../d0/d50/a00661.gif" border="0" usemap="#stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" id="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="115,147,231,224"/><area shape="rect" id="node10" title="STL class. " alt="" coords="256,147,379,224"/></map>
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/dc1/a00212.gif" border="0" usemap="#AdoptedViewer_8hdep" alt=""/></div>
-<map name="AdoptedViewer_8hdep" id="AdoptedViewer_8hdep">
-<area shape="rect" id="node2" href="../../da/dec/a00080.html" title="Header for the command line controller. " alt="" coords="5,80,123,107"/><area shape="rect" id="node3" href="../../da/d24/a00068.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="147,80,281,107"/></map>
-</div>
-</div>
-<p><a href="../../d4/d31/a00069_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html">stride::viewers::AdoptedViewer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d4/de8/a00061.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa697693cf36c60a25c469e21b26cb84f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> = boost::sliced_range&lt; T &gt;</td></tr>
+<tr class="separator:aa697693cf36c60a25c469e21b26cb84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:db/d53/a00202"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d53/a00202.html">stride::viewers</a></td></tr>
-<tr class="memdesc:db/d53/a00202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d3/de7/a00039.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af2bedaa13b9427b736bfc88bcb974741"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#af2bedaa13b9427b736bfc88bcb974741">SliceIndexer</a> (T &amp;t)</td></tr>
+<tr class="memdesc:af2bedaa13b9427b736bfc88bcb974741"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d4/d31/a00069.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#af2bedaa13b9427b736bfc88bcb974741">More...</a><br/></td></tr>
+<tr class="separator:af2bedaa13b9427b736bfc88bcb974741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63541daeed03c7731fb820005e64f06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ac63541daeed03c7731fb820005e64f06">Get</a> (const Key &amp;s)</td></tr>
+<tr class="memdesc:ac63541daeed03c7731fb820005e64f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a range by its key.  <a href="#ac63541daeed03c7731fb820005e64f06">More...</a><br/></td></tr>
+<tr class="separator:ac63541daeed03c7731fb820005e64f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#aaa3ea63497e88e0f8673cecd56de8b57">Get</a> (const Key &amp;s) const </td></tr>
+<tr class="memdesc:aaa3ea63497e88e0f8673cecd56de8b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve const reference to a range by its Id.  <a href="#aaa3ea63497e88e0f8673cecd56de8b57">More...</a><br/></td></tr>
+<tr class="separator:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0b86821b30ab6830b3846231b52b9f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a7c0b86821b30ab6830b3846231b52b9f">Get</a> ()</td></tr>
+<tr class="memdesc:a7c0b86821b30ab6830b3846231b52b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve all the ranges,.  <a href="#a7c0b86821b30ab6830b3846231b52b9f">More...</a><br/></td></tr>
+<tr class="separator:a7c0b86821b30ab6830b3846231b52b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a773c442bcca2708aa1c1f8a8b5ca347c">Set</a> (std::size_t ibegin, std::size_t iend, const Key &amp;name)</td></tr>
+<tr class="memdesc:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a773c442bcca2708aa1c1f8a8b5ca347c">More...</a><br/></td></tr>
+<tr class="separator:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a670eb7b0d4bec5445d5a30ea71384be5">Set</a> (std::size_t ibegin, const Key &amp;name)</td></tr>
+<tr class="memdesc:a670eb7b0d4bec5445d5a30ea71384be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a670eb7b0d4bec5445d5a30ea71384be5">More...</a><br/></td></tr>
+<tr class="separator:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a194f218151d935420737a20c40c27a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a194f218151d935420737a20c40c27a00">check</a> (const Key &amp;name)</td></tr>
+<tr class="memdesc:a194f218151d935420737a20c40c27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check key map for duplicate; throw iff duplicate.  <a href="#a194f218151d935420737a20c40c27a00">More...</a><br/></td></tr>
+<tr class="separator:a194f218151d935420737a20c40c27a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad7137d9d5caad8581de354a750b70403"><td class="memItemLeft" align="right" valign="top">std::map&lt; Key, std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ad7137d9d5caad8581de354a750b70403">m_map</a></td></tr>
+<tr class="memdesc:ad7137d9d5caad8581de354a750b70403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps key values to subscripts.  <a href="#ad7137d9d5caad8581de354a750b70403">More...</a><br/></td></tr>
+<tr class="separator:ad7137d9d5caad8581de354a750b70403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#ab5d8b55d94fc42b0c4644621957e5c87">m_slices</a></td></tr>
+<tr class="memdesc:ab5d8b55d94fc42b0c4644621957e5c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the slices.  <a href="#ab5d8b55d94fc42b0c4644621957e5c87">More...</a><br/></td></tr>
+<tr class="separator:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a95be5edf914ec430a0890a3c82005"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html#a00a95be5edf914ec430a0890a3c82005">m_t</a></td></tr>
+<tr class="memdesc:a00a95be5edf914ec430a0890a3c82005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refernec to container that gets sliced into ranges.  <a href="#a00a95be5edf914ec430a0890a3c82005">More...</a><br/></td></tr>
+<tr class="separator:a00a95be5edf914ec430a0890a3c82005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Observer for Adopted output. </p>
+<div class="textblock"><h3>template&lt;typename T, typename Key = std::string&gt;<br/>
+class stride::util::SliceIndexer&lt; T, Key &gt;</h3>
 
-<p>Definition in file <a class="el" href="../../d4/d31/a00069_source.html">AdoptedViewer.h</a>.</p>
-</div></div><!-- contents -->
+<p>Datastructure to index a container (supporting RandomAccessIterators) with slices. </p>
+<p>We store those slices in order in a vector and expose the vector because processing effiency may dictate that we retrieve the in that order. They can also be retrieved by ket (key type defaults to std::string). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the container in whom the ranges are indexed. </td></tr>
+    <tr><td class="paramname">Key</td><td>Type of Id that can be useld to retrieve the ranges. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00040">40</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="aa697693cf36c60a25c469e21b26cb84f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> =  boost::sliced_range&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00043">43</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af2bedaa13b9427b736bfc88bcb974741"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d4/d31/a00069.html">SliceIndexer</a> </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d4/d31/a00069.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00047">47</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac63541daeed03c7731fb820005e64f06"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve reference to a range by its key. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00050">50</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa3ea63497e88e0f8673cecd56de8b57"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve const reference to a range by its Id. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00053">53</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c0b86821b30ab6830b3846231b52b9f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt;&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve all the ranges,. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00056">56</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a773c442bcca2708aa1c1f8a8b5ca347c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>ibegin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>iend</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00059">59</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00090">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a670eb7b0d4bec5445d5a30ea71384be5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>ibegin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set a range, where the end is the end of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00069">69</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00090">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a194f218151d935420737a20c40c27a00"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::check </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check key map for duplicate; throw iff duplicate. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00080">80</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ad7137d9d5caad8581de354a750b70403"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;Key, std::size_t&gt; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_map</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maps key values to subscripts. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00088">88</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00080">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00050">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5d8b55d94fc42b0c4644621957e5c87"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d4/d31/a00069.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_slices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains the slices. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00089">89</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00050">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../dd/de3/a00201_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00a95be5edf914ec430a0890a3c82005"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../d4/d31/a00069.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Refernec to container that gets sliced into ranges. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00090">90</a> of file <a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00059">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/de3/a00201_source.html">SliceIndexer.h</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">AdoptedViewer.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/ded/a00252.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d31/a00069.html">SliceIndexer</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

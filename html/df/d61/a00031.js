@@ -1,7 +1,9 @@
 var a00031 =
 [
-    [ "InfectedFile", "df/d61/a00031.html#a1f9b3fab4125e26c2eebd32ee27dd977", null ],
-    [ "~InfectedFile", "df/d61/a00031.html#ab67bfb80c8ca94162f3c33d2c7be3f89", null ],
-    [ "Print", "df/d61/a00031.html#ae42038f7696374e29aef434de61d386d", null ],
-    [ "m_fstream", "df/d61/a00031.html#ab499185c218c6a1ef08779d8e0ece660", null ]
+    [ "Imitation", "df/d61/a00031.html#a73e90bd17f74f35c4370dfa14a12fc0d", null ],
+    [ "Imitation", "df/d61/a00031.html#a78b384d9972e06d7e1e2c516a9c82d12", null ],
+    [ "HasAdopted", "df/d61/a00031.html#a53716b9bed3d3352c60ef758e3b25d6b", null ],
+    [ "m_accept", "df/d61/a00031.html#aa094646da3221985f97440760244df5e", null ],
+    [ "m_accept_threshold", "df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c", null ],
+    [ "m_no_accept_threshold", "df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d", null ]
 ];

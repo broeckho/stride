@@ -1,7 +1,7 @@
 var a00042 =
 [
-    [ "TransmissionProfile", "d5/db6/a00042.html#a1645757a571f63d0583d54a6838ca1fb", null ],
-    [ "GetRate", "d5/db6/a00042.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
-    [ "Initialize", "d5/db6/a00042.html#a5e67e9eab813de18fff32722ee6f1437", null ],
-    [ "m_transmission_rate", "d5/db6/a00042.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
+    [ "InfectedFile", "d5/db6/a00042.html#a1f9b3fab4125e26c2eebd32ee27dd977", null ],
+    [ "~InfectedFile", "d5/db6/a00042.html#ab67bfb80c8ca94162f3c33d2c7be3f89", null ],
+    [ "Print", "d5/db6/a00042.html#ae42038f7696374e29aef434de61d386d", null ],
+    [ "m_fstream", "d5/db6/a00042.html#ab499185c218c6a1ef08779d8e0ece660", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PtreeUtils.h Source File</title>
+<title>Stride Reference Manual: Id.hpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d9/db6/a00146_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PtreeUtils.h</div>  </div>
+<div class="title">Id.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d9/db6/a00146.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,95 +119,56 @@ $(document).ready(function(){initNavTree('d9/db6/a00146_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S &amp; Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  This code is adapted for this project from code by</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *  Renato Florentino Garcia. His copyright also applies.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *  Copyright (C) 2011 Renato Florentino Garcia</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *  Distributed under the Boost Software License, Version 1.0. (See</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *  accompanying file BOOST_LICENSE_1_0.txt or copy at</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *  http://www.boost.org/LICENSE_1_0.txt)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *  For more information, see http://www.boost.org</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>event {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;boost/foreach.hpp&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;boost/iterator/transform_iterator.hpp&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/de3/a00201.html">   37</a></span>&#160;<span class="keyword">namespace </span>detail {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">   29</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">BeginBench</a>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">EndBench</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">SkipTest</a>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">AbortTest</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">BeginTest</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">EndTest</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> Ptree&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html">   40</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../d6/d2d/a00047.html">pair2data</a> : <span class="keyword">public</span> std::unary_function&lt;const typename Ptree::value_type, T&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#af75ac339034526cfb3e419d0f175bf07">   42</a></span>&#160;        T <a class="code" href="../../d6/d2d/a00047.html#af75ac339034526cfb3e419d0f175bf07">operator()</a>(<span class="keyword">const</span> <span class="keyword">typename</span> Ptree::value_type&amp; pair)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pair.second.template get_value&lt;T&gt;(); }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d6/db6/a00241.html#a4f544b11b9c2036b24f02ef20cbd8de7">   40</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/db6/a00241.html#a4f544b11b9c2036b24f02ef20cbd8de7">NumOfTypes</a>() { <span class="keywordflow">return</span> 6U; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/db6/a00241.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">IsType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Sequence&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a29ac84256d48f3fb5596d2d4d6bc5173">   48</a></span>&#160;Sequence <a class="code" href="../../d3/db1/a00200.html#a29ac84256d48f3fb5596d2d4d6bc5173">ToSequence</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; ptree)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">namespace </span>bpt            = boost::property_tree;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">using</span> Concrete_pair2data = <a class="code" href="../../d6/d2d/a00047.html">detail::pair2data&lt;typename Sequence::value_type, bpt::ptree&gt;</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">using</span> Iterator           = boost::iterators::transform_iterator&lt;Concrete_pair2data, bpt::ptree::const_iterator&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/db6/a00241.html#ab1433e22ef9ab4fd198453b573ff8d0d">   46</a></span>&#160;<span class="keyword">inline</span> std::size_t <a class="code" href="../../d6/db6/a00241.html#ab1433e22ef9ab4fd198453b573ff8d0d">ToSizeT</a>(<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(id); }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;std::string <a class="code" href="../../d6/db6/a00241.html#a5fe6d259725ff63b938e49f81a7d65c5">ToString</a>(<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> w);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <a class="code" href="../../d6/db6/a00241.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">ToType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> Iterator begin(ptree.begin(), Concrete_pair2data());</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> Iterator end(ptree.end(), Concrete_pair2data());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> Sequence(begin, end);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a4a886659f5c17aa6571c4c01211bfe99">   60</a></span>&#160;std::array&lt;T, N&gt; <a class="code" href="../../d3/db1/a00200.html#a4a886659f5c17aa6571c4c01211bfe99">ToArray</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; ptree)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">namespace </span>bpt            = boost::property_tree;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">using</span> Concrete_pair2data = <a class="code" href="../../d6/d2d/a00047.html">detail::pair2data&lt;T, bpt::ptree&gt;</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">using</span> Iterator           = boost::iterators::transform_iterator&lt;Concrete_pair2data, bpt::ptree::const_iterator&gt;;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (ptree.size() != N) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">throw</span> std::range_error(<span class="stringliteral">&quot;Array size error.&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">const</span> Iterator   begin(ptree.begin(), Concrete_pair2data());</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">const</span> Iterator   end(ptree.end(), Concrete_pair2data());</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        std::array&lt;T, N&gt; tmpArray;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::copy(begin, end, tmpArray.begin());</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> tmpArray;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> Ptree&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#aaf7d3b8f66de250307e449784676de27">   77</a></span>&#160;Ptree <a class="code" href="../../d3/db1/a00200.html#aaf7d3b8f66de250307e449784676de27">Merge</a>(<span class="keyword">const</span> Ptree&amp; pt1, <span class="keyword">const</span> Ptree&amp; pt2)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        Ptree result;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">typename</span> Ptree::value_type&amp; v : pt1) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                result.add_child(v.first, v.second);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">typename</span> Ptree::value_type&amp; v : pt2) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                result.add_child(v.first, v.second);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00200_html_aaf7d3b8f66de250307e449784676de27"><div class="ttname"><a href="../../d3/db1/a00200.html#aaf7d3b8f66de250307e449784676de27">stride::util::Merge</a></div><div class="ttdeci">Ptree Merge(const Ptree &amp;pt1, const Ptree &amp;pt2)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00077">PtreeUtils.h:77</a></div></div>
-<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">stride::util::detail::pair2data</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00040">PtreeUtils.h:40</a></div></div>
-<div class="ttc" id="a00200_html_a29ac84256d48f3fb5596d2d4d6bc5173"><div class="ttname"><a href="../../d3/db1/a00200.html#a29ac84256d48f3fb5596d2d4d6bc5173">stride::util::ToSequence</a></div><div class="ttdeci">Sequence ToSequence(const boost::property_tree::ptree &amp;ptree)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00048">PtreeUtils.h:48</a></div></div>
-<div class="ttc" id="a00047_html_af75ac339034526cfb3e419d0f175bf07"><div class="ttname"><a href="../../d6/d2d/a00047.html#af75ac339034526cfb3e419d0f175bf07">stride::util::detail::pair2data::operator()</a></div><div class="ttdeci">T operator()(const typename Ptree::value_type &amp;pair) const </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00042">PtreeUtils.h:42</a></div></div>
-<div class="ttc" id="a00200_html_a4a886659f5c17aa6571c4c01211bfe99"><div class="ttname"><a href="../../d3/db1/a00200.html#a4a886659f5c17aa6571c4c01211bfe99">stride::util::ToArray</a></div><div class="ttdeci">std::array&lt; T, N &gt; ToArray(const boost::property_tree::ptree &amp;ptree)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00060">PtreeUtils.h:60</a></div></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace event</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00241_html_a4ca6114a0aa6f6ad4557326c79e9f3ee"><div class="ttname"><a href="../../d6/db6/a00241.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">myhayai::event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00032">myhayai/Id.cpp:32</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00029">Id.hpp:29</a></div></div>
+<div class="ttc" id="a00241_html_a0a7a2da03a1ca0d44e79d0dfcf2bb098"><div class="ttname"><a href="../../d6/db6/a00241.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">myhayai::event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00050">myhayai/Id.cpp:50</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">myhayai::event::Id::BeginTest</a></div></div>
+<div class="ttc" id="a00241_html_ab1433e22ef9ab4fd198453b573ff8d0d"><div class="ttname"><a href="../../d6/db6/a00241.html#ab1433e22ef9ab4fd198453b573ff8d0d">myhayai::event::ToSizeT</a></div><div class="ttdeci">std::size_t ToSizeT(Id id)</div><div class="ttdoc">Cast to size_t for indexing. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00046">Id.hpp:46</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">myhayai::event::Id::AbortTest</a></div></div>
+<div class="ttc" id="a00241_html_a5fe6d259725ff63b938e49f81a7d65c5"><div class="ttname"><a href="../../d6/db6/a00241.html#a5fe6d259725ff63b938e49f81a7d65c5">myhayai::event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00042">myhayai/Id.cpp:42</a></div></div>
+<div class="ttc" id="a00241_html_a4f544b11b9c2036b24f02ef20cbd8de7"><div class="ttname"><a href="../../d6/db6/a00241.html#a4f544b11b9c2036b24f02ef20cbd8de7">myhayai::event::NumOfTypes</a></div><div class="ttdeci">constexpr unsigned int NumOfTypes()</div><div class="ttdoc">Number of ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00040">Id.hpp:40</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">myhayai::event::Id::EndBench</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">myhayai::event::Id::EndTest</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">myhayai::event::Id::SkipTest</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">myhayai::event::Id::BeginBench</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">PtreeUtils.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">Id.hpp</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

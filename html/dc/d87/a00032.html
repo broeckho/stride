@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::output::PersonsFile Class Reference</title>
+<title>Stride Reference Manual: stride::Immunizer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -106,55 +106,48 @@ $(document).ready(function(){initNavTree('dc/d87/a00032.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../da/d05/a00489.html">List of all members</a>  </div>
+<a href="../../d4/d2f/a00582.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::output::PersonsFile Class Reference</div>  </div>
+<div class="title">stride::Immunizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Produces a file with daily cases count.  
+<p>Deals with immunization strategies.  
  <a href="../../dc/d87/a00032.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/d14/a00139_source.html">PersonsFile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d7d/a00150_source.html">Immunizer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::output::PersonsFile:</div>
+Collaboration diagram for stride::Immunizer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/daa/a00490.gif" border="0" usemap="#stride_1_1output_1_1PersonsFile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1output_1_1PersonsFile_coll__map" id="stride_1_1output_1_1PersonsFile_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="43,549,141,627"/><area shape="rect" id="node3" title="STL class. " alt="" coords="23,406,160,498"/><area shape="rect" id="node4" title="STL class. " alt="" coords="25,262,159,354"/><area shape="rect" id="node5" title="STL class. " alt="" coords="15,133,168,211"/><area shape="rect" id="node6" title="STL class. " alt="" coords="42,5,141,83"/></map>
+<div class="center"><img src="../../d5/d80/a00583.gif" border="0" usemap="#stride_1_1Immunizer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Immunizer_coll__map" id="stride_1_1Immunizer_coll__map">
+<area shape="rect" id="node2" href="../../d9/db3/a00066.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="605,446,763,626"/><area shape="rect" id="node5" title="STL class. " alt="" coords="607,147,723,224"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2c1e70237152817647dded0f5906c6b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ab2c1e70237152817647dded0f5906c6b">PersonsFile</a> (const std::string &amp;output_dir=&quot;output&quot;)</td></tr>
-<tr class="memdesc:ab2c1e70237152817647dded0f5906c6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: initialize.  <a href="#ab2c1e70237152817647dded0f5906c6b">More...</a><br/></td></tr>
-<tr class="separator:ab2c1e70237152817647dded0f5906c6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafacf4448a2354eff812e02d2048e114"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aafacf4448a2354eff812e02d2048e114">~PersonsFile</a> ()</td></tr>
-<tr class="memdesc:aafacf4448a2354eff812e02d2048e114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor: close the file stream.  <a href="#aafacf4448a2354eff812e02d2048e114">More...</a><br/></td></tr>
-<tr class="separator:aafacf4448a2354eff812e02d2048e114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac72a90d142c34ca2137bdf09760ba2c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#ac72a90d142c34ca2137bdf09760ba2c4">Print</a> (std::shared_ptr&lt; const <a class="el" href="../../de/d8c/a00036.html">Population</a> &gt; population)</td></tr>
-<tr class="memdesc:ac72a90d142c34ca2137bdf09760ba2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the given cases with corresponding tag.  <a href="#ac72a90d142c34ca2137bdf09760ba2c4">More...</a><br/></td></tr>
-<tr class="separator:ac72a90d142c34ca2137bdf09760ba2c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a70798ee06674e243f7dad24ae2dca7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a70798ee06674e243f7dad24ae2dca7fd">Initialize</a> (const std::string &amp;output_dir)</td></tr>
-<tr class="memdesc:a70798ee06674e243f7dad24ae2dca7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate file name and open the file stream.  <a href="#a70798ee06674e243f7dad24ae2dca7fd">More...</a><br/></td></tr>
-<tr class="separator:a70798ee06674e243f7dad24ae2dca7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e68d5d0ac6181162e82261083dfb0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">Immunizer</a> (<a class="el" href="../../d9/db3/a00066.html">util::RNManager</a> &amp;rnManager)</td></tr>
+<tr class="separator:a68e68d5d0ac6181162e82261083dfb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4663bfb6bfdb19e02f8cfd962e12b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Random</a> (const std::vector&lt; <a class="el" href="../../dd/da2/a00019.html">ContactPool</a> &gt; &amp;pools, std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../d9/d39/a00257.html">double</a> immunityLinkProbability)</td></tr>
+<tr class="memdesc:a3b4663bfb6bfdb19e02f8cfd962e12b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random immunization.  <a href="#a3b4663bfb6bfdb19e02f8cfd962e12b6">More...</a><br/></td></tr>
+<tr class="separator:a3b4663bfb6bfdb19e02f8cfd962e12b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2528a05439bfde66f4c85e9a19a6ef48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">Cocoon</a> (const std::vector&lt; <a class="el" href="../../dd/da2/a00019.html">ContactPool</a> &gt; &amp;pools, std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../d9/d39/a00257.html">double</a> immunityLinkProbability)</td></tr>
+<tr class="memdesc:a2528a05439bfde66f4c85e9a19a6ef48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cocoon immunization.  <a href="#a2528a05439bfde66f4c85e9a19a6ef48">More...</a><br/></td></tr>
+<tr class="separator:a2528a05439bfde66f4c85e9a19a6ef48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a426f21983cf23767cfa51c0f4b9fb068"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a></td></tr>
-<tr class="separator:a426f21983cf23767cfa51c0f4b9fb068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e47bdfa801cdc85d283c0009c8b9bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/db3/a00066.html">util::RNManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a></td></tr>
+<tr class="memdesc:aa1e47bdfa801cdc85d283c0009c8b9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#aa1e47bdfa801cdc85d283c0009c8b9bd">More...</a><br/></td></tr>
+<tr class="separator:aa1e47bdfa801cdc85d283c0009c8b9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Produces a file with daily cases count. </p>
+<div class="textblock"><p>Deals with immunization strategies. </p>
 
-<p>Definition at line <a class="el" href="../../de/d14/a00139_source.html#l00035">35</a> of file <a class="el" href="../../de/d14/a00139_source.html">PersonsFile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00035">35</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Immunizer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab2c1e70237152817647dded0f5906c6b"></a>
+<a class="anchor" id="a68e68d5d0ac6181162e82261083dfb0f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -162,10 +155,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::output::PersonsFile::PersonsFile </td>
+          <td class="memname">stride::Immunizer::Immunizer </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em> = <code>&quot;output&quot;</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d9/db3/a00066.html">util::RNManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -176,92 +169,91 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor: initialize. </p>
-
-<p>Definition at line <a class="el" href="../../d4/ddd/a00138_source.html#l00033">33</a> of file <a class="el" href="../../d4/ddd/a00138_source.html">PersonsFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/ddd/a00138_source.html#l00037">Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aafacf4448a2354eff812e02d2048e114"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::output::PersonsFile::~PersonsFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructor: close the file stream. </p>
-
-<p>Definition at line <a class="el" href="../../d4/ddd/a00138_source.html#l00035">35</a> of file <a class="el" href="../../d4/ddd/a00138_source.html">PersonsFile.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d14/a00139_source.html#l00052">m_fstream</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00033">33</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Immunizer.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ac72a90d142c34ca2137bdf09760ba2c4"></a>
+<a class="anchor" id="a3b4663bfb6bfdb19e02f8cfd962e12b6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::PersonsFile::Print </td>
+          <td class="memname">void stride::Immunizer::Random </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; const <a class="el" href="../../de/d8c/a00036.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>population</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../dd/da2/a00019.html">ContactPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>immunityDistribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d39/a00257.html">double</a>&#160;</td>
+          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Print the given cases with corresponding tag. </p>
+<p>Random immunization. </p>
 
-<p>Definition at line <a class="el" href="../../d4/ddd/a00138_source.html#l00046">46</a> of file <a class="el" href="../../d4/ddd/a00138_source.html">PersonsFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00035">35</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Immunizer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../de/d14/a00139_source.html#l00052">m_fstream</a>.</p>
+<p>References <a class="el" href="../../d5/de9/a00176_source.html#l00059">stride::Person::GetAge()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00077">stride::util::RNManager::GetGenerator()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00074">stride::Person::GetHealth()</a>, <a class="el" href="../../d2/da3/a00115_source.html#l00045">stride::ContactPool::GetMember()</a>, <a class="el" href="../../d2/da3/a00115_source.html#l00051">stride::ContactPool::GetSize()</a>, <a class="el" href="../../d5/db1/a00140_source.html#l00057">stride::Health::IsImmune()</a>, <a class="el" href="../../d9/d7d/a00150_source.html#l00050">m_rn_manager</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00097">stride::util::RNManager::RandomShuffle()</a>, and <a class="el" href="../../de/d14/a00139_source.html#l00037">stride::Health::SetSusceptible()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/db3/a00130_source.html#l00079">stride::DiseaseSeeder::Vaccinate()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a70798ee06674e243f7dad24ae2dca7fd"></a>
+<a class="anchor" id="a2528a05439bfde66f4c85e9a19a6ef48"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::output::PersonsFile::Initialize </td>
+          <td class="memname">void stride::Immunizer::Cocoon </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_dir</em></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../dd/da2/a00019.html">ContactPool</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../d9/d39/a00257.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>immunityDistribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/d39/a00257.html">double</a>&#160;</td>
+          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Generate file name and open the file stream. </p>
+<p>Cocoon immunization. </p>
 
-<p>Definition at line <a class="el" href="../../d4/ddd/a00138_source.html#l00037">37</a> of file <a class="el" href="../../d4/ddd/a00138_source.html">PersonsFile.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00094">94</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Immunizer.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d3/d32/a00105_source.html#l00051">stride::util::FileSys::BuildPath()</a>, and <a class="el" href="../../de/d14/a00139_source.html#l00052">m_fstream</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/ddd/a00138_source.html#l00033">PersonsFile()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/db3/a00130_source.html#l00079">stride::DiseaseSeeder::Vaccinate()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a426f21983cf23767cfa51c0f4b9fb068"></a>
+<a class="anchor" id="aa1e47bdfa801cdc85d283c0009c8b9bd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -269,7 +261,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ofstream stride::output::PersonsFile::m_fstream</td>
+          <td class="memname"><a class="el" href="../../d9/db3/a00066.html">util::RNManager</a>&amp; stride::Immunizer::m_rn_manager</td>
         </tr>
       </table>
   </td>
@@ -279,23 +271,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../de/d14/a00139_source.html#l00052">52</a> of file <a class="el" href="../../de/d14/a00139_source.html">PersonsFile.h</a>.</p>
+<p>Random number manager. </p>
 
-<p>Referenced by <a class="el" href="../../d4/ddd/a00138_source.html#l00037">Initialize()</a>, <a class="el" href="../../d4/ddd/a00138_source.html#l00046">Print()</a>, and <a class="el" href="../../d4/ddd/a00138_source.html#l00035">~PersonsFile()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00050">50</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Immunizer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00035">Random()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/d14/a00139_source.html">PersonsFile.h</a></li>
-<li><a class="el" href="../../d4/ddd/a00138_source.html">PersonsFile.cpp</a></li>
+<li><a class="el" href="../../d9/d7d/a00150_source.html">Immunizer.h</a></li>
+<li><a class="el" href="../../da/d1e/a00149_source.html">Immunizer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">output</a></li><li class="navelem"><a class="el" href="../../dc/d87/a00032.html">PersonsFile</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d87/a00032.html">Immunizer</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PtreeUtils.h File Reference</title>
+<title>Stride Reference Manual: Id.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,64 +103,86 @@ $(document).ready(function(){initNavTree('d9/db6/a00146.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PtreeUtils.h File Reference</div>  </div>
+<div class="title">Id.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;array&gt;</code><br/>
-<code>#include &lt;boost/foreach.hpp&gt;</code><br/>
-<code>#include &lt;boost/iterator/transform_iterator.hpp&gt;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
-<code>#include &lt;stdexcept&gt;</code><br/>
+
+<p>Definition of <a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5" title="Enumerates the event. ">myhayai::event::Id</a>.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cstddef&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PtreeUtils.h:</div>
+Include dependency graph for Id.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d53/a00321.gif" border="0" usemap="#PtreeUtils_8h" alt=""/></div>
-<map name="PtreeUtils_8h" id="PtreeUtils_8h">
+<div class="center"><img src="../../d0/dc3/a00354.gif" border="0" usemap="#Id_8hpp" alt=""/></div>
+<map name="Id_8hpp" id="Id_8hpp">
 </map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/dc9/a00355.gif" border="0" usemap="#Id_8hppdep" alt=""/></div>
+<map name="Id_8hppdep" id="Id_8hppdep">
+<area shape="rect" id="node2" href="../../d8/df1/a00174.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="232,80,311,107"/><area shape="rect" id="node5" href="../../d1/d84/a00097.html" title="Implementation file for Benchmarker. " alt="" coords="5,229,159,256"/><area shape="rect" id="node12" href="../../d7/dce/a00143.html" title="Implementation of myhayai::event::Id. " alt="" coords="336,80,393,107"/><area shape="rect" id="node3" href="../../d1/d44/a00098.html" title="Header file for Benchmarker. " alt="" coords="309,155,449,181"/><area shape="rect" id="node6" href="../../d4/d81/a00110.html" title="Header file for ConsoleViewer. " alt="" coords="185,229,305,256"/><area shape="rect" id="node10" href="../../d6/daa/a00187.html" title="Header file for PtreeViewer. " alt="" coords="667,229,771,256"/><area shape="rect" id="node4" href="../../d9/df8/a00096.html" title="Header file for Benchmark. " alt="" coords="331,229,429,256"/><area shape="rect" id="node8" href="../../dc/de6/a00167.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="436,304,588,331"/><area shape="rect" id="node9" href="../../dd/da7/a00168.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="504,229,643,256"/><area shape="rect" id="node7" href="../../dd/d42/a00109.html" title="Implementation file for ConsoleViewer. " alt="" coords="178,304,312,331"/><area shape="rect" id="node11" href="../../d8/d00/a00186.html" title="Implementation file for PtreeViewer. " alt="" coords="659,304,777,331"/></map>
 </div>
 </div>
 <p><a href="../../d9/db6/a00146_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2d/a00047.html">stride::util::detail::pair2data&lt; T, Ptree &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d0/d27/a00239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/a00239.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/db1/a00200"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/db1/a00200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:d6/db6/a00241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html">myhayai::event</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/de3/a00201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de3/a00201.html">stride::util::detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aa186a4b82f295d28f9c382967d2765f5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a> { <br/>
+&#160;&#160;<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">myhayai::event::Id::BeginBench</a>, 
+<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">myhayai::event::Id::EndBench</a>, 
+<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">myhayai::event::Id::SkipTest</a>, 
+<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">myhayai::event::Id::AbortTest</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">myhayai::event::Id::BeginTest</a>, 
+<a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">myhayai::event::Id::EndTest</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:aa186a4b82f295d28f9c382967d2765f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the event.  <a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">More...</a><br/></td></tr>
+<tr class="separator:aa186a4b82f295d28f9c382967d2765f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplParams" colspan="2">template&lt;class Sequence &gt; </td></tr>
-<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplItemLeft" align="right" valign="top">Sequence&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html#a29ac84256d48f3fb5596d2d4d6bc5173">stride::util::ToSequence</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
-<tr class="separator:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
-<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html#a4a886659f5c17aa6571c4c01211bfe99">stride::util::ToArray</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
-<tr class="separator:a4a886659f5c17aa6571c4c01211bfe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplParams" colspan="2">template&lt;class Ptree &gt; </td></tr>
-<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplItemLeft" align="right" valign="top">Ptree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/db1/a00200.html#aaf7d3b8f66de250307e449784676de27">stride::util::Merge</a> (const Ptree &amp;pt1, const Ptree &amp;pt2)</td></tr>
-<tr class="separator:aaf7d3b8f66de250307e449784676de27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#a4f544b11b9c2036b24f02ef20cbd8de7">myhayai::event::NumOfTypes</a> ()</td></tr>
+<tr class="memdesc:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ContactPool types.  <a href="#a4f544b11b9c2036b24f02ef20cbd8de7">More...</a><br/></td></tr>
+<tr class="separator:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">myhayai::event::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="#a4ca6114a0aa6f6ad4557326c79e9f3ee">More...</a><br/></td></tr>
+<tr class="separator:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#ab1433e22ef9ab4fd198453b573ff8d0d">myhayai::event::ToSizeT</a> (Id id)</td></tr>
+<tr class="memdesc:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#ab1433e22ef9ab4fd198453b573ff8d0d">More...</a><br/></td></tr>
+<tr class="separator:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#a5fe6d259725ff63b938e49f81a7d65c5">myhayai::event::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:a5fe6d259725ff63b938e49f81a7d65c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="#a5fe6d259725ff63b938e49f81a7d65c5">More...</a><br/></td></tr>
+<tr class="separator:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db6/a00241.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">myhayai::event::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a0a7a2da03a1ca0d44e79d0dfcf2bb098">More...</a><br/></td></tr>
+<tr class="separator:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definition of <a class="el" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5" title="Enumerates the event. ">myhayai::event::Id</a>. </p>
+
+<p>Definition in file <a class="el" href="../../d9/db6/a00146_source.html">Id.hpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">PtreeUtils.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d9/db6/a00146.html">Id.hpp</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

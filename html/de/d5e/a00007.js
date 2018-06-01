@@ -1,16 +1,17 @@
 var a00007 =
 [
-    [ "CliController", "de/d5e/a00007.html#a6c1780a5ff62df746e6f8328c16a3c62", null ],
-    [ "CliController", "de/d5e/a00007.html#a0915246b08e7cb4bc0586a9eadcfc381", null ],
-    [ "Control", "de/d5e/a00007.html#a126fe70ea36234d7db97a53db9912338", null ],
-    [ "CheckEnv", "de/d5e/a00007.html#a4bee813e33ac0b5c9a44f727d5c7b0aa", null ],
-    [ "CheckOutputPrefix", "de/d5e/a00007.html#a2872b036cfffe4153a5ee33d0c669424", null ],
-    [ "LogSetup", "de/d5e/a00007.html#abef1ddddf5dc91741dfc8e94fd80fbf1", null ],
-    [ "MakeLogger", "de/d5e/a00007.html#a4282046a0987af420cdf32c73c203579", null ],
-    [ "RegisterViewers", "de/d5e/a00007.html#ac0ad454c9dd6a2456d7078484a4ccec8", null ],
-    [ "m_config_pt", "de/d5e/a00007.html#a8166a5fc94c70797882dab5337a7ae61", null ],
-    [ "m_output_prefix", "de/d5e/a00007.html#ae0f6ad6a773127d0a1c5e9468be25ea2", null ],
-    [ "m_run_clock", "de/d5e/a00007.html#aeff91fe883e6e3cfee972c37d197d40f", null ],
-    [ "m_stride_logger", "de/d5e/a00007.html#ad0172dba37040fa790070d9c61a4e51f", null ],
-    [ "m_use_install_dirs", "de/d5e/a00007.html#a4c6d564e6fa43ecc69be45551627dbaf", null ]
+    [ "MyhayaiController", "de/d5e/a00007.html#a5c68f097966f890415af86dcbc40abf8", null ],
+    [ "~MyhayaiController", "de/d5e/a00007.html#a83e3e01f8b16e1fd983661d7ad926241", null ],
+    [ "ParseArgs", "de/d5e/a00007.html#ad6739013058f69cd331dac4d049d18dc", null ],
+    [ "Control", "de/d5e/a00007.html#a4eeae53398603681017c82075c9efc02", null ],
+    [ "ListBenchmarks", "de/d5e/a00007.html#ae7a84b2766960f44825f917171d59c86", null ],
+    [ "RunBenchmarks", "de/d5e/a00007.html#ac6a342a1c94ee82fb9732fc49ec763a7", null ],
+    [ "m_list_mode", "de/d5e/a00007.html#aabf987dc108d182287f742dae5644ca3", null ],
+    [ "m_no_color", "de/d5e/a00007.html#aaae9ad476151bd633bf0412029842ef1", null ],
+    [ "m_shuffle", "de/d5e/a00007.html#ad2adc1daae6c7654e849bb13963d5c37", null ],
+    [ "m_info_path", "de/d5e/a00007.html#a733b10472b9e1142275ec2afa106993f", null ],
+    [ "m_json_path", "de/d5e/a00007.html#a291fb3601dcdb8601cffbe1429cb16d3", null ],
+    [ "m_xml_path", "de/d5e/a00007.html#a9df7d12b96832b4bcf7ab63d5f6081dd", null ],
+    [ "m_negative", "de/d5e/a00007.html#a8c4099df38c24301dc29b8545bd01926", null ],
+    [ "m_positive", "de/d5e/a00007.html#aaa0d8a6e9bc760064c8c4bfe608a58fb", null ]
 ];

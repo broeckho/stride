@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::LogUtils Class Reference</title>
+<title>Stride Reference Manual: stride::SimRunner Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -105,50 +105,107 @@ $(document).ready(function(){initNavTree('d5/de0/a00050.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../d4/d1f/a00506.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d8/d00/a00606.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::LogUtils Class Reference</div>  </div>
+<div class="title">stride::SimRunner Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for logging (spdlog).  
+<p>The simulation runner drive simulator throufgh time steps.  
  <a href="../../d5/de0/a00050.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d88/a00128_source.html">LogUtils.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::LogUtils:</div>
+Inheritance diagram for stride::SimRunner:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d69/a00507.gif" border="0" usemap="#stride_1_1util_1_1LogUtils_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1LogUtils_coll__map" id="stride_1_1util_1_1LogUtils_coll__map">
-</map>
+<div class="center"><img src="../../d9/d07/a00607.gif" border="0" usemap="#stride_1_1SimRunner_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1SimRunner_inherit__map" id="stride_1_1SimRunner_inherit__map">
+<area shape="rect" id="node2" href="../../d0/d89/a00071.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="4,235,168,400"/><area shape="rect" id="node3" href="../../d0/d89/a00071.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="5,6,168,157"/></map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::SimRunner:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d4/d14/a00608.gif" border="0" usemap="#stride_1_1SimRunner_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1SimRunner_coll__map" id="stride_1_1SimRunner_coll__map">
+<area shape="rect" id="node2" href="../../d0/d89/a00071.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n||+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="375,883,539,1048"/><area shape="rect" id="node11" href="../../d0/d89/a00071.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="375,646,539,797"/><area shape="rect" id="node5" href="../../d9/dc5/a00480.html" title="{const void\n||}" alt="" coords="5,147,87,224"/><area shape="rect" id="node6" title="STL class. " alt="" coords="112,147,245,224"/><area shape="rect" id="node9" title="STL class. " alt="" coords="269,147,392,224"/><area shape="rect" id="node8" href="../../d9/d34/a00476.html" title="{CallbackType\n||}" alt="" coords="501,296,603,373"/><area shape="rect" id="node12" title="STL class. " alt="" coords="948,683,1027,760"/><area shape="rect" id="node15" href="../../d2/db1/a00070.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="759,875,940,1055"/><area shape="rect" id="node13" title="STL class. " alt="" coords="925,467,1051,559"/></map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a106af93dd3f814adf8b87ffaaf3ef3bb">More...</a><br/></td></tr>
-<tr class="separator:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52920faed22a1733b580a42ea065ed0d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a52920faed22a1733b580a42ea065ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a52920faed22a1733b580a42ea065ed0d">More...</a><br/></td></tr>
-<tr class="separator:a52920faed22a1733b580a42ea065ed0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab89be4aea714eff74a2d4143023840a6"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ab89be4aea714eff74a2d4143023840a6">CreateNullLogger</a> (const std::string &amp;logger_name)</td></tr>
-<tr class="memdesc:ab89be4aea714eff74a2d4143023840a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) null logger, without registering it.  <a href="#ab89be4aea714eff74a2d4143023840a6">More...</a><br/></td></tr>
-<tr class="separator:ab89be4aea714eff74a2d4143023840a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137e01100d0d79b122f731bb1292179d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr<br class="typebreak"/>
-&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a137e01100d0d79b122f731bb1292179d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) rotating logger, without registering it.  <a href="#a137e01100d0d79b122f731bb1292179d">More...</a><br/></td></tr>
-<tr class="separator:a137e01100d0d79b122f731bb1292179d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a54fb61460204e0f78cf9619691e98abc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a54fb61460204e0f78cf9619691e98abc">SimRunner</a> (const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Population</a> &gt; pop)</td></tr>
+<tr class="memdesc:a54fb61460204e0f78cf9619691e98abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization with property tree.  <a href="#a54fb61460204e0f78cf9619691e98abc">More...</a><br/></td></tr>
+<tr class="separator:a54fb61460204e0f78cf9619691e98abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ad59e65dfe839b8a589b1c6ffa805ba2f">~SimRunner</a> () override=default</td></tr>
+<tr class="memdesc:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad59e65dfe839b8a589b1c6ffa805ba2f">More...</a><br/></td></tr>
+<tr class="separator:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d2/db1/a00070.html">util::Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#aceb24930d50702acfa88bdfe5cb13a1b">GetClock</a> () const </td></tr>
+<tr class="memdesc:aceb24930d50702acfa88bdfe5cb13a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#aceb24930d50702acfa88bdfe5cb13a1b">More...</a><br/></td></tr>
+<tr class="separator:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eeaa63450413a62f31bcee07df29fa3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a9eeaa63450413a62f31bcee07df29fa3">GetConfig</a> () const </td></tr>
+<tr class="memdesc:a9eeaa63450413a62f31bcee07df29fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#a9eeaa63450413a62f31bcee07df29fa3">More...</a><br/></td></tr>
+<tr class="separator:a9eeaa63450413a62f31bcee07df29fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99014dd891a3422214c2a088dd38cde9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a99014dd891a3422214c2a088dd38cde9">GetSim</a> () const </td></tr>
+<tr class="memdesc:a99014dd891a3422214c2a088dd38cde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Simulator.  <a href="#a99014dd891a3422214c2a088dd38cde9">More...</a><br/></td></tr>
+<tr class="separator:a99014dd891a3422214c2a088dd38cde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81720a1766d513eb248cb443d948567f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">Run</a> ()</td></tr>
+<tr class="memdesc:a81720a1766d513eb248cb443d948567f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for as many steps/days as indicated in config.  <a href="#a81720a1766d513eb248cb443d948567f">More...</a><br/></td></tr>
+<tr class="separator:a81720a1766d513eb248cb443d948567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a233f76f6af0cef8c5971112b6d2235d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a233f76f6af0cef8c5971112b6d2235d0">Run</a> (unsigned int numSteps)</td></tr>
+<tr class="memdesc:a233f76f6af0cef8c5971112b6d2235d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for numSteps steps/days.  <a href="#a233f76f6af0cef8c5971112b6d2235d0">More...</a><br/></td></tr>
+<tr class="separator:a233f76f6af0cef8c5971112b6d2235d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00071"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00071')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/d89/a00071.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:a18bf85fe174743915fc17bcc86254e25 inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a18bf85fe174743915fc17bcc86254e25">Subject</a> ()=default</td></tr>
+<tr class="separator:a18bf85fe174743915fc17bcc86254e25 inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
+<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d0/d89/a00071.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
+<tr class="separator:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
+<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
+<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;e)</td></tr>
+<tr class="separator:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae2de72162f806fe5b7008e81854bdc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/db1/a00070.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a></td></tr>
+<tr class="memdesc:ae2de72162f806fe5b7008e81854bdc2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#ae2de72162f806fe5b7008e81854bdc2d">More...</a><br/></td></tr>
+<tr class="separator:ae2de72162f806fe5b7008e81854bdc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4778adb0be5161932d107c2a84d477"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a></td></tr>
+<tr class="memdesc:a1c4778adb0be5161932d107c2a84d477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ptree with configuration.  <a href="#a1c4778adb0be5161932d107c2a84d477">More...</a><br/></td></tr>
+<tr class="separator:a1c4778adb0be5161932d107c2a84d477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78babbce6074c1f0d612c67febfb388e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a></td></tr>
+<tr class="memdesc:a78babbce6074c1f0d612c67febfb388e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix for output data files.  <a href="#a78babbce6074c1f0d612c67febfb388e">More...</a><br/></td></tr>
+<tr class="separator:a78babbce6074c1f0d612c67febfb388e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff961d97649b68ef661d38c098baaf0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a></td></tr>
+<tr class="memdesc:a4ff961d97649b68ef661d38c098baaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator object.  <a href="#a4ff961d97649b68ef661d38c098baaf0">More...</a><br/></td></tr>
+<tr class="separator:a4ff961d97649b68ef661d38c098baaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_a00071"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00071')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d0/d89/a00071.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
+<tr class="memitem:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00071"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = <a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td></tr>
+<tr class="separator:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00071"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d89/a00071.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;)&gt;</td></tr>
+<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for logging (spdlog). </p>
+<div class="textblock"><p>The simulation runner drive simulator throufgh time steps. </p>
+<p>It's functions are: </p>
+<ul>
+<li>invokes the simulator builder (<dl class="section see"><dt>See Also</dt><dd>SimulatorBuilder) </dd></dl>
+</li>
+<li>manages elapsed time clock </li>
+<li>manages time steps  viewers of its events (<dl class="section see"><dt>See Also</dt><dd><a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836" title="Enumerates the event. ">sim_event::Id</a>) </dd></dl>
+</li>
+</ul>
 
-<p>Definition at line <a class="el" href="../../d1/d88/a00128_source.html#l00032">32</a> of file <a class="el" href="../../d1/d88/a00128_source.html">LogUtils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a106af93dd3f814adf8b87ffaaf3ef3bb"></a>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00043">43</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a54fb61460204e0f78cf9619691e98abc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -156,16 +213,16 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateCliLogger </td>
+          <td class="memname">stride::SimRunner::SimRunner </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,21 +232,26 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Initialization with property tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">configPt</td><td>config info for run and for config of simulator </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00032">32</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00033">33</a> of file <a class="el" href="../../d8/d72/a00199_source.html">SimRunner.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/dec/a00080_source.html#l00098">stride::CliController::MakeLogger()</a>.</p>
+<p>References <a class="el" href="../../d4/dca/a00048.html#aaca6f689398e298bf48610aa4f2126fe">stride::Sim::Create()</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00069">m_clock</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00070">m_config_pt</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00071">m_output_prefix</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00072">m_sim</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a52920faed22a1733b580a42ea065ed0d"></a>
+<a class="anchor" id="ad59e65dfe839b8a589b1c6ffa805ba2f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -197,38 +259,25 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; spdlog::logger &gt; stride::util::LogUtils::CreateFileLogger </td>
+          <td class="memname">stride::SimRunner::~SimRunner </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
-
-<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00053">53</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LogUtils.cpp</a>.</p>
+<p>Destructor. </p>
 
 </div>
 </div>
-<a class="anchor" id="ab89be4aea714eff74a2d4143023840a6"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aceb24930d50702acfa88bdfe5cb13a1b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -236,28 +285,28 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateNullLogger </td>
+          <td class="memname">const <a class="el" href="../../d2/db1/a00070.html">util::Stopwatch</a>&amp; stride::SimRunner::GetClock </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) null logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Return the run &amp; sim configuration. </p>
 
-<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00071">71</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00054">54</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00069">m_clock</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a137e01100d0d79b122f731bb1292179d"></a>
+<a class="anchor" id="a9eeaa63450413a62f31bcee07df29fa3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -265,48 +314,215 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateRotatingLogger </td>
+          <td class="memname">const boost::property_tree::ptree&amp; stride::SimRunner::GetConfig </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) rotating logger, without registering it. </p>
-<p>Throws iff logger already registered or if spdlog throws. </p>
+<p>Return the run &amp; sim configuration. </p>
 
-<p>Definition at line <a class="el" href="../../df/dcd/a00127_source.html#l00088">88</a> of file <a class="el" href="../../df/dcd/a00127_source.html">LogUtils.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00057">57</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00070">m_config_pt</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99014dd891a3422214c2a088dd38cde9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/dca/a00048.html">Sim</a>&gt; stride::SimRunner::GetSim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the Simulator. </p>
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00060">60</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00072">m_sim</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81720a1766d513eb248cb443d948567f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimRunner::Run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run simulator for as many steps/days as indicated in config. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00081">81</a> of file <a class="el" href="../../d8/d72/a00199_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00070">m_config_pt</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a233f76f6af0cef8c5971112b6d2235d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::SimRunner::Run </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>numSteps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run simulator for numSteps steps/days. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d72/a00199_source.html#l00046">46</a> of file <a class="el" href="../../d8/d72/a00199_source.html">SimRunner.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00069">m_clock</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00070">m_config_pt</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00072">m_sim</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00060">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae2de72162f806fe5b7008e81854bdc2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/db1/a00070.html">util::Stopwatch</a> stride::SimRunner::m_clock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stopwatch for timing the computation. </p>
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00069">69</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/db1/a00200_source.html#l00054">GetClock()</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00046">Run()</a>, and <a class="el" href="../../d8/d72/a00199_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c4778adb0be5161932d107c2a84d477"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree stride::SimRunner::m_config_pt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ptree with configuration. </p>
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00070">70</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/db1/a00200_source.html#l00057">GetConfig()</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00046">Run()</a>, and <a class="el" href="../../d8/d72/a00199_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78babbce6074c1f0d612c67febfb388e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::SimRunner::m_output_prefix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prefix for output data files. </p>
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00071">71</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d72/a00199_source.html#l00033">SimRunner()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ff961d97649b68ef661d38c098baaf0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/dca/a00048.html">Sim</a>&gt; stride::SimRunner::m_sim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Simulator object. </p>
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00072">72</a> of file <a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/db1/a00200_source.html#l00060">GetSim()</a>, <a class="el" href="../../d8/d72/a00199_source.html#l00046">Run()</a>, and <a class="el" href="../../d8/d72/a00199_source.html#l00033">SimRunner()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/d88/a00128_source.html">LogUtils.h</a></li>
-<li><a class="el" href="../../df/dcd/a00127_source.html">LogUtils.cpp</a></li>
+<li><a class="el" href="../../d3/db1/a00200_source.html">SimRunner.h</a></li>
+<li><a class="el" href="../../d8/d72/a00199_source.html">SimRunner.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">util</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">LogUtils</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">SimRunner</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

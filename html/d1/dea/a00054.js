@@ -1,14 +1,7 @@
 var a00054 =
 [
-    [ "range_type", "d1/dea/a00054.html#aa697693cf36c60a25c469e21b26cb84f", null ],
-    [ "SliceIndexer", "d1/dea/a00054.html#af2bedaa13b9427b736bfc88bcb974741", null ],
-    [ "Get", "d1/dea/a00054.html#ac63541daeed03c7731fb820005e64f06", null ],
-    [ "Get", "d1/dea/a00054.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
-    [ "Get", "d1/dea/a00054.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
-    [ "Set", "d1/dea/a00054.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
-    [ "Set", "d1/dea/a00054.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
-    [ "check", "d1/dea/a00054.html#a194f218151d935420737a20c40c27a00", null ],
-    [ "m_map", "d1/dea/a00054.html#ad7137d9d5caad8581de354a750b70403", null ],
-    [ "m_slices", "d1/dea/a00054.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
-    [ "m_t", "d1/dea/a00054.html#a00a95be5edf914ec430a0890a3c82005", null ]
+    [ "TransmissionProfile", "d1/dea/a00054.html#a1645757a571f63d0583d54a6838ca1fb", null ],
+    [ "GetRate", "d1/dea/a00054.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
+    [ "Initialize", "d1/dea/a00054.html#a5e67e9eab813de18fff32722ee6f1437", null ],
+    [ "m_transmission_rate", "d1/dea/a00054.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
 ];

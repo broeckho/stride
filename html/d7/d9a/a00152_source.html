@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RunConfigManager.h Source File</title>
+<title>Stride Reference Manual: InfectedFile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d7/d9a/a00152_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">RunConfigManager.h</div>  </div>
+<div class="title">InfectedFile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d7/d9a/a00152.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,68 +122,40 @@ $(document).ready(function(){initNavTree('d7/d9a/a00152_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">util/ConfigInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dee/a00053.html">RunConfigManager</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/dee/a00053.html#ac2f08ab87856eaeb81a229c6553e9cc8">CleanConfigFile</a>(boost::property_tree::ptree pt);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> boost::property_tree::ptree <a class="code" href="../../dc/dee/a00053.html#ab4007f793a1924a65458824fef455208">Create</a>(<span class="keyword">const</span> std::string&amp; configName);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> std::vector&lt;unsigned int&gt; <a class="code" href="../../dc/dee/a00053.html#ae981d7a6d9a41f62815541ba874e59a0">CreateNumThreads</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max = <a class="code" href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">ConfigInfo::ProcessorCount</a>());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> boost::property_tree::ptree <a class="code" href="../../dc/dee/a00053.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">FromString</a>(<span class="keyword">const</span> std::string&amp; s);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#af968f949efaf2876f48a86da65faa5ca">ToString</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#a32ec1961852a81d4873a519f6bea1e36">ToSha1</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#ad91f6d29e307567fdb3b0a2e7c7772c0">ToShortSha1</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n = 7U);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#a7014479a2c8efe57b292b9f61435ab61">CreateBenchInfluenza</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#abf62ab97dafdce994e503296fe5d9394">CreateBenchMeasles</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#a93470c7c74cc217254876c704fa81a0f">CreateDefault</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#a61a9ce9ce2d50ffbafa78b2a7f757598">CreateTestsInfluenza</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../dc/dee/a00053.html#aa430eb71461536d855db5725ebc59cda">CreateTestsMeasles</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00053_html_ab4007f793a1924a65458824fef455208"><div class="ttname"><a href="../../dc/dee/a00053.html#ab4007f793a1924a65458824fef455208">stride::util::RunConfigManager::Create</a></div><div class="ttdeci">static boost::property_tree::ptree Create(const std::string &amp;configName)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00048">RunConfigManager.cpp:48</a></div></div>
-<div class="ttc" id="a00053_html_abf62ab97dafdce994e503296fe5d9394"><div class="ttname"><a href="../../dc/dee/a00053.html#abf62ab97dafdce994e503296fe5d9394">stride::util::RunConfigManager::CreateBenchMeasles</a></div><div class="ttdeci">static std::string CreateBenchMeasles()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00144">RunConfigManager.cpp:144</a></div></div>
-<div class="ttc" id="a00053_html_ac2f08ab87856eaeb81a229c6553e9cc8"><div class="ttname"><a href="../../dc/dee/a00053.html#ac2f08ab87856eaeb81a229c6553e9cc8">stride::util::RunConfigManager::CleanConfigFile</a></div><div class="ttdeci">static void CleanConfigFile(boost::property_tree::ptree pt)</div><div class="ttdoc">Clean (i.e. indent, sort and produde the sha1) the ptree config file. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00039">RunConfigManager.cpp:39</a></div></div>
-<div class="ttc" id="a00053_html_a93470c7c74cc217254876c704fa81a0f"><div class="ttname"><a href="../../dc/dee/a00053.html#a93470c7c74cc217254876c704fa81a0f">stride::util::RunConfigManager::CreateDefault</a></div><div class="ttdeci">static std::string CreateDefault()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00100">RunConfigManager.cpp:100</a></div></div>
-<div class="ttc" id="a00053_html_aff61de3ee9dfe5b0aac9b0b1fb950ebb"><div class="ttname"><a href="../../dc/dee/a00053.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb">stride::util::RunConfigManager::FromString</a></div><div class="ttdeci">static boost::property_tree::ptree FromString(const std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00286">RunConfigManager.cpp:286</a></div></div>
-<div class="ttc" id="a00044_html_ada59da077e51cbd44e829a88c5cc62e3"><div class="ttname"><a href="../../d5/df9/a00044.html#ada59da077e51cbd44e829a88c5cc62e3">stride::util::ConfigInfo::ProcessorCount</a></div><div class="ttdeci">static constexpr unsigned int ProcessorCount()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00056">ConfigInfo.h:56</a></div></div>
-<div class="ttc" id="a00053_html_af968f949efaf2876f48a86da65faa5ca"><div class="ttname"><a href="../../dc/dee/a00053.html#af968f949efaf2876f48a86da65faa5ca">stride::util::RunConfigManager::ToString</a></div><div class="ttdeci">static std::string ToString(const boost::property_tree::ptree &amp;pt)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00294">RunConfigManager.cpp:294</a></div></div>
-<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">stride::util::RunConfigManager</a></div><div class="ttdoc">Produce run config ptree. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d9a/a00152_source.html#l00034">RunConfigManager.h:34</a></div></div>
-<div class="ttc" id="a00053_html_ae981d7a6d9a41f62815541ba874e59a0"><div class="ttname"><a href="../../dc/dee/a00053.html#ae981d7a6d9a41f62815541ba874e59a0">stride::util::RunConfigManager::CreateNumThreads</a></div><div class="ttdeci">static std::vector&lt; unsigned int &gt; CreateNumThreads(unsigned int max=ConfigInfo::ProcessorCount())</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00184">RunConfigManager.cpp:184</a></div></div>
-<div class="ttc" id="a00053_html_a61a9ce9ce2d50ffbafa78b2a7f757598"><div class="ttname"><a href="../../dc/dee/a00053.html#a61a9ce9ce2d50ffbafa78b2a7f757598">stride::util::RunConfigManager::CreateTestsInfluenza</a></div><div class="ttdeci">static std::string CreateTestsInfluenza()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00208">RunConfigManager.cpp:208</a></div></div>
-<div class="ttc" id="a00053_html_a7014479a2c8efe57b292b9f61435ab61"><div class="ttname"><a href="../../dc/dee/a00053.html#a7014479a2c8efe57b292b9f61435ab61">stride::util::RunConfigManager::CreateBenchInfluenza</a></div><div class="ttdeci">static std::string CreateBenchInfluenza()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00061">RunConfigManager.cpp:61</a></div></div>
-<div class="ttc" id="a00053_html_a32ec1961852a81d4873a519f6bea1e36"><div class="ttname"><a href="../../dc/dee/a00053.html#a32ec1961852a81d4873a519f6bea1e36">stride::util::RunConfigManager::ToSha1</a></div><div class="ttdeci">static std::string ToSha1(const boost::property_tree::ptree &amp;pt)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00301">RunConfigManager.cpp:301</a></div></div>
-<div class="ttc" id="a00053_html_ad91f6d29e307567fdb3b0a2e7c7772c0"><div class="ttname"><a href="../../dc/dee/a00053.html#ad91f6d29e307567fdb3b0a2e7c7772c0">stride::util::RunConfigManager::ToShortSha1</a></div><div class="ttdeci">static std::string ToShortSha1(const boost::property_tree::ptree &amp;pt, unsigned int n=7U)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00303">RunConfigManager.cpp:303</a></div></div>
-<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
-<div class="ttc" id="a00053_html_aa430eb71461536d855db5725ebc59cda"><div class="ttname"><a href="../../dc/dee/a00053.html#aa430eb71461536d855db5725ebc59cda">stride::util::RunConfigManager::CreateTestsMeasles</a></div><div class="ttdeci">static std::string CreateTestsMeasles()</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00247">RunConfigManager.cpp:247</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>output {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/db6/a00042.html">InfectedFile</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d5/db6/a00042.html#a1f9b3fab4125e26c2eebd32ee27dd977">InfectedFile</a>(<span class="keyword">const</span> std::string&amp; output_dir = <span class="stringliteral">&quot;output&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d5/db6/a00042.html#ab67bfb80c8ca94162f3c33d2c7be3f89">~InfectedFile</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d5/db6/a00042.html#ae42038f7696374e29aef434de61d386d">Print</a>(<span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; infectionCounts);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d5/db6/a00042.html#ab499185c218c6a1ef08779d8e0ece660">   45</a></span>&#160;        std::ofstream <a class="code" href="../../d5/db6/a00042.html#ab499185c218c6a1ef08779d8e0ece660">m_fstream</a>; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace output</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00042_html"><div class="ttname"><a href="../../d5/db6/a00042.html">stride::output::InfectedFile</a></div><div class="ttdoc">Produces a file with daily count of infected persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d9a/a00152_source.html#l00032">InfectedFile.h:32</a></div></div>
+<div class="ttc" id="a00042_html_a1f9b3fab4125e26c2eebd32ee27dd977"><div class="ttname"><a href="../../d5/db6/a00042.html#a1f9b3fab4125e26c2eebd32ee27dd977">stride::output::InfectedFile::InfectedFile</a></div><div class="ttdeci">InfectedFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor: initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00030">InfectedFile.cpp:30</a></div></div>
+<div class="ttc" id="a00042_html_ae42038f7696374e29aef434de61d386d"><div class="ttname"><a href="../../d5/db6/a00042.html#ae42038f7696374e29aef434de61d386d">stride::output::InfectedFile::Print</a></div><div class="ttdeci">void Print(const std::vector&lt; unsigned int &gt; &amp;infectionCounts)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00038">InfectedFile.cpp:38</a></div></div>
+<div class="ttc" id="a00042_html_ab499185c218c6a1ef08779d8e0ece660"><div class="ttname"><a href="../../d5/db6/a00042.html#ab499185c218c6a1ef08779d8e0ece660">stride::output::InfectedFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdoc">The file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d9a/a00152_source.html#l00045">InfectedFile.h:45</a></div></div>
+<div class="ttc" id="a00042_html_ab67bfb80c8ca94162f3c33d2c7be3f89"><div class="ttname"><a href="../../d5/db6/a00042.html#ab67bfb80c8ca94162f3c33d2c7be3f89">stride::output::InfectedFile::~InfectedFile</a></div><div class="ttdeci">~InfectedFile()</div><div class="ttdoc">Destructor: close the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00036">InfectedFile.cpp:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">RunConfigManager.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">InfectedFile.h</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

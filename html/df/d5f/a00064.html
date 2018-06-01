@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::viewers::PersonsViewer Class Reference</title>
+<title>Stride Reference Manual: stride::util::GnuPlotCSV Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -105,48 +105,101 @@ $(document).ready(function(){initNavTree('df/d5f/a00064.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d4/d79/a00540.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../d6/d08/a00646.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::PersonsViewer Class Reference</div>  </div>
+<div class="title">stride::util::GnuPlotCSV Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Viewer of Simulator for cases output.  
+<p><a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> container fit for <a class="el" href="../../d1/d6f/a00063.html" title="A collection of GnuPlotCSV&#39;s elements. ">GnuPlot</a> data.  
  <a href="../../df/d5f/a00064.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d2/df5/a00137_source.html">GnuPlotCSV.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::viewers::PersonsViewer:</div>
+Inheritance diagram for stride::util::GnuPlotCSV:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d72/a00541.gif" border="0" usemap="#stride_1_1viewers_1_1PersonsViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1PersonsViewer_coll__map" id="stride_1_1viewers_1_1PersonsViewer_coll__map">
-<area shape="rect" id="node2" href="../../dc/d87/a00032.html" title="Produces a file with daily cases count. " alt="" coords="5,691,179,813"/><area shape="rect" id="node3" title="STL class. " alt="" coords="43,549,141,627"/><area shape="rect" id="node4" title="STL class. " alt="" coords="23,406,160,498"/><area shape="rect" id="node5" title="STL class. " alt="" coords="25,262,159,354"/><area shape="rect" id="node6" title="STL class. " alt="" coords="15,133,168,211"/><area shape="rect" id="node7" title="STL class. " alt="" coords="42,5,141,83"/></map>
+<div class="center"><img src="../../d3/d8e/a00647.gif" border="0" usemap="#stride_1_1util_1_1GnuPlotCSV_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1GnuPlotCSV_inherit__map" id="stride_1_1util_1_1GnuPlotCSV_inherit__map">
+<area shape="rect" id="node2" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. " alt="" coords="14,131,159,429"/><area shape="rect" id="node3" title="STL class. " alt="" coords="5,5,168,83"/></map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::util::GnuPlotCSV:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d1f/a00648.gif" border="0" usemap="#stride_1_1util_1_1GnuPlotCSV_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1GnuPlotCSV_coll__map" id="stride_1_1util_1_1GnuPlotCSV_coll__map">
+<area shape="rect" id="node2" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. " alt="" coords="135,507,280,789"/><area shape="rect" id="node3" title="STL class. " alt="" coords="5,264,168,341"/><area shape="rect" id="node9" title="STL class. " alt="" coords="130,163,245,240"/><area shape="rect" id="node5" href="../../de/d55/a00323.html" title="{size_t\n||}" alt="" coords="315,365,372,443"/><area shape="rect" id="node7" title="STL class. " alt="" coords="276,163,355,240"/><area shape="rect" id="node8" title="STL class. " alt="" coords="253,6,379,98"/></map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a942188b53eccb181ceb8be3866fe64c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a942188b53eccb181ceb8be3866fe64c6">PersonsViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
-<tr class="memdesc:a942188b53eccb181ceb8be3866fe64c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#a942188b53eccb181ceb8be3866fe64c6">More...</a><br/></td></tr>
-<tr class="separator:a942188b53eccb181ceb8be3866fe64c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b1d3096869e9ed29d62eaec72a0a89c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a6b1d3096869e9ed29d62eaec72a0a89c">Update</a> (<a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a6b1d3096869e9ed29d62eaec72a0a89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a6b1d3096869e9ed29d62eaec72a0a89c">More...</a><br/></td></tr>
-<tr class="separator:a6b1d3096869e9ed29d62eaec72a0a89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4bb16afe589dae23eb8b66bafd21f3f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">WriteLabels</a> (boost::filesystem::ofstream &amp;file) const override</td></tr>
+<tr class="memdesc:a4bb16afe589dae23eb8b66bafd21f3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write header with labels.  <a href="#a4bb16afe589dae23eb8b66bafd21f3f0">More...</a><br/></td></tr>
+<tr class="separator:a4bb16afe589dae23eb8b66bafd21f3f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a0aaa0c2c54d02a2d034c4667612f6be3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d87/a00032.html">output::PersonsFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a0aaa0c2c54d02a2d034c4667612f6be3">m_persons_file</a></td></tr>
-<tr class="separator:a0aaa0c2c54d02a2d034c4667612f6be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67f4020c05e62dae36e8f6422dcc5c80"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a67f4020c05e62dae36e8f6422dcc5c80">m_runner</a></td></tr>
-<tr class="separator:a67f4020c05e62dae36e8f6422dcc5c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a0d8abe9169774d74484993bd365489f7"><td class="memItemLeft" align="right" valign="top">boost::filesystem::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html#a0d8abe9169774d74484993bd365489f7">operator&lt;&lt;</a> (boost::filesystem::ofstream &amp;ofs, const <a class="el" href="../../df/d5f/a00064.html">GnuPlotCSV</a> &amp;csv)</td></tr>
+<tr class="separator:a0d8abe9169774d74484993bd365489f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_methods_a00058"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00058')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/df7/a00058.html">stride::util::CSV</a></td></tr>
+<tr class="memitem:a6fe6dea09aa55361290b52ce2a03927f inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a6fe6dea09aa55361290b52ce2a03927f">CSV</a> (const boost::filesystem::path &amp;path)</td></tr>
+<tr class="memdesc:a6fe6dea09aa55361290b52ce2a03927f inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from file.  <a href="#a6fe6dea09aa55361290b52ce2a03927f">More...</a><br/></td></tr>
+<tr class="separator:a6fe6dea09aa55361290b52ce2a03927f inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46bba243855b4fc66c20bf3bc55fdc95 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a46bba243855b4fc66c20bf3bc55fdc95">CSV</a> (std::istream &amp;inputStream)</td></tr>
+<tr class="memdesc:a46bba243855b4fc66c20bf3bc55fdc95 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize from inputstream.  <a href="#a46bba243855b4fc66c20bf3bc55fdc95">More...</a><br/></td></tr>
+<tr class="separator:a46bba243855b4fc66c20bf3bc55fdc95 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eb2f114de1548f7447292ead90cf74f inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a9eb2f114de1548f7447292ead90cf74f">CSV</a> (size_t columnCount)</td></tr>
+<tr class="memdesc:a9eb2f114de1548f7447292ead90cf74f inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with columnCount only; labels default to sequence numbers.  <a href="#a9eb2f114de1548f7447292ead90cf74f">More...</a><br/></td></tr>
+<tr class="separator:a9eb2f114de1548f7447292ead90cf74f inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af72a852c5c8c26977df9e2bbf17ca516 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#af72a852c5c8c26977df9e2bbf17ca516">CSV</a> (const std::initializer_list&lt; std::string &gt; &amp;labels)</td></tr>
+<tr class="memdesc:af72a852c5c8c26977df9e2bbf17ca516 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with header only.  <a href="#af72a852c5c8c26977df9e2bbf17ca516">More...</a><br/></td></tr>
+<tr class="separator:af72a852c5c8c26977df9e2bbf17ca516 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc23be4e1354d6fa3f8717edfee37423 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#abc23be4e1354d6fa3f8717edfee37423">CSV</a> (const std::vector&lt; std::string &gt; &amp;labels)</td></tr>
+<tr class="memdesc:abc23be4e1354d6fa3f8717edfee37423 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize with header only.  <a href="#abc23be4e1354d6fa3f8717edfee37423">More...</a><br/></td></tr>
+<tr class="separator:abc23be4e1354d6fa3f8717edfee37423 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aadfb52b95c349f14469a203d21472b inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a> ()=default</td></tr>
+<tr class="memdesc:a6aadfb52b95c349f14469a203d21472b inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, used for swig.  <a href="#a6aadfb52b95c349f14469a203d21472b">More...</a><br/></td></tr>
+<tr class="separator:a6aadfb52b95c349f14469a203d21472b inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f700f0aa2b27d664adb69e27a6eb4b1 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a2f700f0aa2b27d664adb69e27a6eb4b1">operator==</a> (const <a class="el" href="../../d7/df7/a00058.html">CSV</a> &amp;other) const </td></tr>
+<tr class="memdesc:a2f700f0aa2b27d664adb69e27a6eb4b1 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator.  <a href="#a2f700f0aa2b27d664adb69e27a6eb4b1">More...</a><br/></td></tr>
+<tr class="separator:a2f700f0aa2b27d664adb69e27a6eb4b1 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298 inherit pub_methods_a00058"><td class="memTemplParams" colspan="2">template&lt;typename... T&gt; </td></tr>
+<tr class="memitem:a1ae467f9599974c0f180c529f8a9f298 inherit pub_methods_a00058"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a> (const T &amp;...values)</td></tr>
+<tr class="memdesc:a1ae467f9599974c0f180c529f8a9f298 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of values.  <a href="#a1ae467f9599974c0f180c529f8a9f298">More...</a><br/></td></tr>
+<tr class="separator:a1ae467f9599974c0f180c529f8a9f298 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d1cfbbd18fc4fc40db7ae51a0aaa85 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85">AddRow</a> (std::vector&lt; std::string &gt; values)</td></tr>
+<tr class="memdesc:a85d1cfbbd18fc4fc40db7ae51a0aaa85 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add row of string values.  <a href="#a85d1cfbbd18fc4fc40db7ae51a0aaa85">More...</a><br/></td></tr>
+<tr class="separator:a85d1cfbbd18fc4fc40db7ae51a0aaa85 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ffba1157ea6381bbce102c430e189b inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d55/a00323.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a63ffba1157ea6381bbce102c430e189b">GetColumnCount</a> () const </td></tr>
+<tr class="memdesc:a63ffba1157ea6381bbce102c430e189b inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of columns in the <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a>.  <a href="#a63ffba1157ea6381bbce102c430e189b">More...</a><br/></td></tr>
+<tr class="separator:a63ffba1157ea6381bbce102c430e189b inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed99cf47769a6284b45c2815b08d1bd0 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#aed99cf47769a6284b45c2815b08d1bd0">GetIndexForLabel</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:aed99cf47769a6284b45c2815b08d1bd0 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert label to index for more user friendly and robust implementation.  <a href="#aed99cf47769a6284b45c2815b08d1bd0">More...</a><br/></td></tr>
+<tr class="separator:aed99cf47769a6284b45c2815b08d1bd0 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11a080486a81df3276cabfac0f7a2b41 inherit pub_methods_a00058"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">Write</a> (const boost::filesystem::path &amp;path) const </td></tr>
+<tr class="memdesc:a11a080486a81df3276cabfac0f7a2b41 inherit pub_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> to file.  <a href="#a11a080486a81df3276cabfac0f7a2b41">More...</a><br/></td></tr>
+<tr class="separator:a11a080486a81df3276cabfac0f7a2b41 inherit pub_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00058"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00058')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d7/df7/a00058.html">stride::util::CSV</a></td></tr>
+<tr class="memitem:aee5a6e4570ae6c4efc6f316b97f9c174 inherit pro_methods_a00058"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">WriteRows</a> (boost::filesystem::ofstream &amp;file) const </td></tr>
+<tr class="memdesc:aee5a6e4570ae6c4efc6f316b97f9c174 inherit pro_methods_a00058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the body of rows.  <a href="#aee5a6e4570ae6c4efc6f316b97f9c174">More...</a><br/></td></tr>
+<tr class="separator:aee5a6e4570ae6c4efc6f316b97f9c174 inherit pro_methods_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00058"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00058')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/df7/a00058.html">stride::util::CSV</a></td></tr>
+<tr class="memitem:a893717de16de8022736a1ecc92dd694c inherit pro_attribs_a00058"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a></td></tr>
+<tr class="separator:a893717de16de8022736a1ecc92dd694c inherit pro_attribs_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f209713ecbcb6b2aeb52974b098b86 inherit pro_attribs_a00058"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d55/a00323.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a> = 0</td></tr>
+<tr class="separator:a46f209713ecbcb6b2aeb52974b098b86 inherit pro_attribs_a00058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for cases output. </p>
+<div class="textblock"><p><a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> container fit for <a class="el" href="../../d1/d6f/a00063.html" title="A collection of GnuPlotCSV&#39;s elements. ">GnuPlot</a> data. </p>
+<p>The difference with the base <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> is that a header row with labels is not required (in which case it defaults to column numbering) and if present it starts with a '#'. </p>
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00033">33</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a942188b53eccb181ceb8be3866fe64c6"></a>
+<p>Definition at line <a class="el" href="../../d2/df5/a00137_source.html#l00036">36</a> of file <a class="el" href="../../d2/df5/a00137_source.html">GnuPlotCSV.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4bb16afe589dae23eb8b66bafd21f3f0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -154,16 +207,49 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::viewers::PersonsViewer::PersonsViewer </td>
+          <td class="memname">void stride::util::GnuPlotCSV::WriteLabels </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d3/de7/a00039.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
+          <td class="paramtype">boost::filesystem::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write header with labels. </p>
+
+<p>Reimplemented from <a class="el" href="../../d7/df7/a00058.html#a53d1ff0f9d249aa5b43b6b6f44bea116">stride::util::CSV</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d0/d5e/a00136_source.html#l00031">31</a> of file <a class="el" href="../../d0/d5e/a00136_source.html">GnuPlotCSV.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d2/df5/a00137_source.html#l00048">stride::util::operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a0d8abe9169774d74484993bd365489f7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::filesystem::ofstream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">boost::filesystem::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>ofs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../df/d5f/a00064.html">GnuPlotCSV</a> &amp;&#160;</td>
+          <td class="paramname"><em>csv</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -173,96 +259,26 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Instantiate cases viewer. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00037">37</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a6b1d3096869e9ed29d62eaec72a0a89c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::PersonsViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../d5/db1/a00140_source.html#l00031">31</a> of file <a class="el" href="../../d5/db1/a00140_source.html">PersonsViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/dec/a00080_source.html#l00107">stride::CliController::RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a0aaa0c2c54d02a2d034c4667612f6be3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d87/a00032.html">output::PersonsFile</a> stride::viewers::PersonsViewer::m_persons_file</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00046">46</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a67f4020c05e62dae36e8f6422dcc5c80"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d3/de7/a00039.html">SimRunner</a>&gt; stride::viewers::PersonsViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00047">47</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/df5/a00137_source.html#l00048">48</a> of file <a class="el" href="../../d2/df5/a00137_source.html">GnuPlotCSV.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/d4e/a00141_source.html">PersonsViewer.h</a></li>
-<li><a class="el" href="../../d5/db1/a00140_source.html">PersonsViewer.cpp</a></li>
+<li><a class="el" href="../../d2/df5/a00137_source.html">GnuPlotCSV.h</a></li>
+<li><a class="el" href="../../d0/d5e/a00136_source.html">GnuPlotCSV.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d53/a00202.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d5f/a00064.html">PersonsViewer</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/ded/a00252.html">util</a></li><li class="navelem"><a class="el" href="../../df/d5f/a00064.html">GnuPlotCSV</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

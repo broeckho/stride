@@ -1,15 +1,12 @@
 var a00113 =
 [
-    [ "Id", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836", [
-      [ "AtStart", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe", null ],
-      [ "Stepped", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568", null ],
-      [ "Finished", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b", null ],
-      [ "SetupBegin", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac", null ],
-      [ "SetupEnd", "d3/d00/a00113.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe", null ]
+    [ "Id", "d3/d00/a00113.html#a8f1467c1f622638893d3a1c12eead2ba", [
+      [ "None", "d3/d00/a00113.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "Transmissions", "d3/d00/a00113.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5", null ],
+      [ "All", "d3/d00/a00113.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680", null ],
+      [ "Susceptibles", "d3/d00/a00113.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c", null ]
     ] ],
-    [ "NumOfTypes", "d3/d00/a00113.html#afd464f4ca1769b7880cb27383a3cafd2", null ],
-    [ "IsType", "d3/d00/a00113.html#a43c0310b3eef6024b540ffaa5c4c39b2", null ],
-    [ "ToSizeT", "d3/d00/a00113.html#acdde1acea1c3f4536af74bb4b126a739", null ],
-    [ "ToString", "d3/d00/a00113.html#aaa54357f0c5b3af4e7905ed503167ede", null ],
-    [ "ToType", "d3/d00/a00113.html#ac81b85da174b73232cac26f53bd6d3a0", null ]
+    [ "ToString", "d3/d00/a00113.html#a025f9ff3cf2df8c0c8b95e48724d9b7c", null ],
+    [ "IsMode", "d3/d00/a00113.html#a3242678fd1548cd6dd420490dc06fcff", null ],
+    [ "ToMode", "d3/d00/a00113.html#a12707c23b43baa1a0f5bed51db72756d", null ]
 ];

@@ -1,7 +1,6 @@
 var a00015 =
 [
-    [ "DaysOffStandard", "dd/d1b/a00015.html#a06edf10647a556a135c345995b2309be", null ],
-    [ "IsWorkOff", "dd/d1b/a00015.html#a5f55ab77243cf483c5c47e8f81bf3b2a", null ],
-    [ "IsSchoolOff", "dd/d1b/a00015.html#ad27b8f2efdbb153c71d1a5dbdce42537", null ],
-    [ "m_calendar", "dd/d1b/a00015.html#a2ee41292bda3236f6c3fb77fddcdf882", null ]
+    [ "BeliefSeeder", "dd/d1b/a00015.html#a10e523b7ce6b4d819812b0a75f1e443b", null ],
+    [ "Seed", "dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5", null ],
+    [ "m_config_pt", "dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c", null ]
 ];

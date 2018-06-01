@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::ContactPoolType Namespace Reference</title>
+<title>Stride Reference Manual: Sim.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -45,9 +45,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -68,8 +68,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
-      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -104,260 +104,62 @@ $(document).ready(function(){initNavTree('d7/ded/a00196.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactPoolType Namespace Reference</div>  </div>
+<div class="title">Sim.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Namespace to manage types of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>.  
+<p>Header for the Simulator class.  
 <a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dab/a00089_source.html">contact/AgeContactProfiles.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/d6d/a00111_source.html">contact/ContactHandler.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d3/d00/a00113_source.html">contact/ContactLogMode.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/db9/a00159_source.html">contact/InfectorExec.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dc/d55/a00226_source.html">contact/TransmissionProfile.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/RNManager.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Sim.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d2f/a00425.gif" border="0" usemap="#Sim_8h" alt=""/></div>
+<map name="Sim_8h" id="Sim_8h">
+<area shape="rect" id="node2" href="../../db/dab/a00089.html" title="Contact profiles stored in simulator. " alt="" coords="302,80,495,107"/><area shape="rect" id="node15" href="../../d3/d00/a00113.html" title="Header for the ContactLogMode class. " alt="" coords="692,320,871,347"/><area shape="rect" id="node20" href="../../dd/d6d/a00111.html" title="Header for the ContactHandler class. " alt="" coords="1057,155,1228,181"/><area shape="rect" id="node21" href="../../d9/dd0/a00191.html" title="Interface of RNManager. " alt="" coords="1402,237,1525,264"/><area shape="rect" id="node30" href="../../de/db9/a00159.html" title="Header for the InfectorExec class. " alt="" coords="1185,80,1339,107"/><area shape="rect" id="node32" href="../../dc/d55/a00226.html" title="Header for the TransmissionProfile class. " alt="" coords="737,80,932,107"/><area shape="rect" id="node3" href="../../db/ddf/a00088.html" title="Contact profile. " alt="" coords="531,155,717,181"/><area shape="rect" id="node4" href="../../d8/d87/a00118.html" title="Definition of ContactPoolType. " alt="" coords="245,320,408,347"/><area shape="rect" id="node13" href="../../d0/d4a/a00147.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="179,155,337,181"/><area shape="rect" id="node10" href="../../da/d2a/a00086.html" title="Helpers for age. " alt="" coords="662,237,743,264"/><area shape="rect" id="node14" href="../../d2/da3/a00115.html" title="Header for the core ContactPool class. " alt="" coords="379,237,512,264"/><area shape="rect" id="node22" href="../../da/deb/a00189.html" title="Interface of Random Engine Type. " alt="" coords="1507,320,1629,347"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/db9/a00426.gif" border="0" usemap="#Sim_8hdep" alt=""/></div>
+<map name="Sim_8hdep" id="Sim_8hdep">
+<area shape="rect" id="node2" href="../../d6/db3/a00130.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,80,140,107"/><area shape="rect" id="node3" href="../../d3/d2a/a00195.html" title="Implementation for the Simulator class. " alt="" coords="165,80,235,107"/><area shape="rect" id="node4" href="../../de/db1/a00197.html" title="Implementation for the SimBuilder class. " alt="" coords="259,80,369,107"/><area shape="rect" id="node5" href="../../d8/d72/a00199.html" title="Implementation for SimRunner. " alt="" coords="395,80,505,107"/><area shape="rect" id="node6" href="../../df/d5d/a00084.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="531,80,687,107"/><area shape="rect" id="node7" href="../../d0/dc2/a00104.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="711,80,813,107"/><area shape="rect" id="node8" href="../../da/d01/a00153.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="839,80,992,107"/><area shape="rect" id="node9" href="../../d3/df8/a00155.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1018,80,1152,107"/><area shape="rect" id="node10" href="../../db/dd9/a00179.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1177,80,1332,107"/><area shape="rect" id="node11" href="../../dd/ded/a00211.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1357,80,1520,107"/></map>
+</div>
+</div>
+<p><a href="../../d7/ded/a00196_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d84/a00001.html">IdSubscriptArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An std::array modified to enable subscripting with the constact pool type indentifiers.  <a href="../../d8/d84/a00001.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dec/a00010.html">IdSubscriptArray&lt; bool &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialisation of <a class="el" href="../../d8/d84/a00001.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans.  <a href="../../d7/dec/a00010.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html">stride::Sim</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../d4/dca/a00048.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:aaa214aee675050e781497b0dd15449ab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a> : std::size_t { <br/>
-&#160;&#160;<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Id::Household</a>, 
-<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">Id::School</a>, 
-<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Id::Work</a>, 
-<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">Id::PrimaryCommunity</a>, 
-<br/>
-&#160;&#160;<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">Id::SecondaryCommunity</a>
-<br/>
- }</td></tr>
-<tr class="memdesc:aaa214aee675050e781497b0dd15449ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the ContactPool types.  <a href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">More...</a><br/></td></tr>
-<tr class="separator:aaa214aee675050e781497b0dd15449ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a1269217f56908f0da981dbe4e43bb73d">IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a1269217f56908f0da981dbe4e43bb73d">More...</a><br/></td></tr>
-<tr class="separator:a1269217f56908f0da981dbe4e43bb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a0cf9d3425b406cd76acdc02ef9c0286d">ToString</a> (<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a> w)</td></tr>
-<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br/></td></tr>
-<tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#af529300a78547c29c95b81ad8ac62afe">ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:af529300a78547c29c95b81ad8ac62afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#af529300a78547c29c95b81ad8ac62afe">More...</a><br/></td></tr>
-<tr class="separator:af529300a78547c29c95b81ad8ac62afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af724b7d598645a8c1054b66306dee629"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a> ()</td></tr>
-<tr class="memdesc:af724b7d598645a8c1054b66306dee629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="#af724b7d598645a8c1054b66306dee629">More...</a><br/></td></tr>
-<tr class="separator:af724b7d598645a8c1054b66306dee629"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#ac36d342acc9d969f5de3aa55e95b9fe6">ToSizeT</a> (<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a> id)</td></tr>
-<tr class="memdesc:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#ac36d342acc9d969f5de3aa55e95b9fe6">More...</a><br/></td></tr>
-<tr class="separator:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memItemLeft" align="right" valign="top">constexpr <br class="typebreak"/>
-std::initializer_list&lt; <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ded/a00196.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a></td></tr>
-<tr class="memdesc:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow iteration over the type ids.  <a href="#a19ba4d58aafc6ea7ff765e3a7cd54332">More...</a><br/></td></tr>
-<tr class="separator:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d4/d9a/a00246"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/a00246.html">stride</a></td></tr>
+<tr class="memdesc:d4/d9a/a00246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Namespace to manage types of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="aaa214aee675050e781497b0dd15449ab"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a> : std::size_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<div class="textblock"><p>Header for the Simulator class. </p>
 
-<p>Enumerates the <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b"></a>Household</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604"></a>School</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f"></a>Work</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6"></a>PrimaryCommunity</em>&#160;</td><td class="fielddoc">
-</td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9"></a>SecondaryCommunity</em>&#160;</td><td class="fielddoc">
-</td></tr>
-</table>
-
-<p>Definition at line <a class="el" href="../../d4/d7d/a00093_source.html#l00033">33</a> of file <a class="el" href="../../d4/d7d/a00093_source.html">ContactPoolType.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1269217f56908f0da981dbe4e43bb73d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::ContactPoolType::IsType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check whether string is name of a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d1/dc1/a00092_source.html#l00032">32</a> of file <a class="el" href="../../d1/dc1/a00092_source.html">ContactPoolType.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Household</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">PrimaryCommunity</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">School</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">SecondaryCommunity</a>, and <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Work</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0cf9d3425b406cd76acdc02ef9c0286d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::ContactPoolType::ToString </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name. </p>
-
-<p>Definition at line <a class="el" href="../../d1/dc1/a00092_source.html#l00046">46</a> of file <a class="el" href="../../d1/dc1/a00092_source.html">ContactPoolType.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Household</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">PrimaryCommunity</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">School</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">SecondaryCommunity</a>, and <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Work</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af529300a78547c29c95b81ad8ac62afe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a> stride::ContactPoolType::ToType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a string with name to Id. </p>
-
-<p>Definition at line <a class="el" href="../../d1/dc1/a00092_source.html#l00058">58</a> of file <a class="el" href="../../d1/dc1/a00092_source.html">ContactPoolType.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Household</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">PrimaryCommunity</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">School</a>, <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">SecondaryCommunity</a>, and <a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Work</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d1e/a00149_source.html#l00069">stride::util::RNManager::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af724b7d598645a8c1054b66306dee629"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr unsigned int stride::ContactPoolType::NumOfTypes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of <a class="el" href="../../da/da0/a00009.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d7d/a00093_source.html#l00043">43</a> of file <a class="el" href="../../d4/d7d/a00093_source.html">ContactPoolType.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d17/a00114_source.html#l00098">stride::ContactPoolType::IdSubscriptArray&lt; AgeContactProfile &gt;::at()</a>, and <a class="el" href="../../d8/d17/a00114_source.html#l00164">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::at()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac36d342acc9d969f5de3aa55e95b9fe6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::size_t stride::ContactPoolType::ToSizeT </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cast to size_t for indexing. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d7d/a00093_source.html#l00049">49</a> of file <a class="el" href="../../d4/d7d/a00093_source.html">ContactPoolType.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d17/a00114_source.html#l00098">stride::ContactPoolType::IdSubscriptArray&lt; AgeContactProfile &gt;::at()</a>, <a class="el" href="../../d8/d17/a00114_source.html#l00164">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::at()</a>, <a class="el" href="../../d8/d17/a00114_source.html#l00086">stride::ContactPoolType::IdSubscriptArray&lt; AgeContactProfile &gt;::operator[]()</a>, and <a class="el" href="../../d8/d17/a00114_source.html#l00152">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::operator[]()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a19ba4d58aafc6ea7ff765e3a7cd54332"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::initializer_list&lt;<a class="el" href="../../d7/ded/a00196.html#aaa214aee675050e781497b0dd15449ab">Id</a>&gt; stride::ContactPoolType::IdList</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{Id::Household, Id::School, Id::Work, Id::PrimaryCommunity,</div>
-<div class="line">                                           Id::SecondaryCommunity}</div>
-</div><!-- fragment -->
-<p>To allow iteration over the type ids. </p>
-
-<p>Definition at line <a class="el" href="../../d4/d7d/a00093_source.html#l00058">58</a> of file <a class="el" href="../../d4/d7d/a00093_source.html">ContactPoolType.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00043">stride::SimBuilder::Build()</a>, <a class="el" href="../../d8/d17/a00114_source.html#l00054">stride::ContactPoolType::IdSubscriptArray&lt; AgeContactProfile &gt;::IdSubscriptArray()</a>, <a class="el" href="../../d8/d17/a00114_source.html#l00138">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::IdSubscriptArray()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00039">stride::PopBuilder::MakePoolSys()</a>, and <a class="el" href="../../d3/d65/a00154_source.html#l00061">stride::Sim::TimeStep()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d7/ded/a00196_source.html">Sim.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dc/d57/a00194.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ded/a00196.html">ContactPoolType</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d7/ded/a00196.html">Sim.h</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BeliefSeeder.h File Reference</title>
+<title>Stride Reference Manual: stride::viewers::CliViewer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -46,8 +46,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -68,8 +68,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -103,61 +105,164 @@ $(document).ready(function(){initNavTree('d1/d09/a00077.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d2/d85/a00679.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BeliefSeeder.h File Reference</div>  </div>
+<div class="title">stride::viewers::CliViewer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the HealthSeeder.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/da3/a00115_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/de8/a00133_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/d7d/a00150_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;functional&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for BeliefSeeder.h:</div>
+<p>Viewer of Simulator for commandline interface.  
+ <a href="../../d1/d09/a00077.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::viewers::CliViewer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d28/a00223.gif" border="0" usemap="#BeliefSeeder_8h" alt=""/></div>
-<map name="BeliefSeeder_8h" id="BeliefSeeder_8h">
-<area shape="rect" id="node2" href="../../d2/da3/a00115.html" title="Header file for Imitation belief policy. " alt="" coords="193,81,356,122"/><area shape="rect" id="node5" href="../../d0/de8/a00133.html" title="Header file for NoBelief class. " alt="" coords="5,81,168,122"/><area shape="rect" id="node6" href="../../d9/d7d/a00150.html" title="Interface of RNManager. " alt="" coords="755,88,879,115"/><area shape="rect" id="node3" href="../../d9/da5/a00075.html" title="Header file for Belief. " alt="" coords="5,171,168,213"/><area shape="rect" id="node7" href="../../db/d48/a00148.html" title="Interface of Random Engine Type. " alt="" coords="352,179,475,205"/></map>
+<div class="center"><img src="../../d4/d9b/a00680.gif" border="0" usemap="#stride_1_1viewers_1_1CliViewer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1viewers_1_1CliViewer_coll__map" id="stride_1_1viewers_1_1CliViewer_coll__map">
+</map>
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d5/ddf/a00224.gif" border="0" usemap="#BeliefSeeder_8hdep" alt=""/></div>
-<map name="BeliefSeeder_8hdep" id="BeliefSeeder_8hdep">
-<area shape="rect" id="node2" href="../../db/df8/a00076.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/><area shape="rect" id="node3" href="../../d2/d34/a00156.html" title="Implementation for the SimBuilder class. " alt="" coords="150,80,260,107"/></map>
-</div>
-</div>
-<p><a href="../../d1/d09/a00077_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/a00005.html">stride::BeliefSeeder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d1/d2b/a00018.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../dd/dad/a00005.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d5/de0/a00050.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:a4ddb15ac567fd751c2be3a9d973d1666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a4ddb15ac567fd751c2be3a9d973d1666">More...</a><br/></td></tr>
+<tr class="separator:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a> (<a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
+<tr class="memdesc:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a9f3a2f9efda499fa6a80f3871c7298d7">More...</a><br/></td></tr>
+<tr class="separator:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:dc/d57/a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d57/a00194.html">stride</a></td></tr>
-<tr class="memdesc:dc/d57/a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:acc77dad91899a0d4183493023e082e9f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#acc77dad91899a0d4183493023e082e9f">m_logger</a></td></tr>
+<tr class="separator:acc77dad91899a0d4183493023e082e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af789850b449fdadcc8572def4a0eb4af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/de0/a00050.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d09/a00077.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a></td></tr>
+<tr class="separator:af789850b449fdadcc8572def4a0eb4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the HealthSeeder. </p>
+<div class="textblock"><p>Viewer of Simulator for commandline interface. </p>
 
-<p>Definition in file <a class="el" href="../../d1/d09/a00077_source.html">BeliefSeeder.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../d3/d32/a00105_source.html#l00031">31</a> of file <a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4ddb15ac567fd751c2be3a9d973d1666"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::viewers::CliViewer::CliViewer </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d5/de0/a00050.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Instantiate cli viewer. </p>
+
+<p>Definition at line <a class="el" href="../../d3/d32/a00105_source.html#l00035">35</a> of file <a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9f3a2f9efda499fa6a80f3871c7298d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::viewers::CliViewer::Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Let viewer perform update. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc2/a00104_source.html#l00039">39</a> of file <a class="el" href="../../d0/dc2/a00104_source.html">CliViewer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/d6a/a00119_source.html#l00117">stride::ControlHelper::RegisterViewers()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="acc77dad91899a0d4183493023e082e9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::CliViewer::m_logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d32/a00105_source.html#l00044">44</a> of file <a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af789850b449fdadcc8572def4a0eb4af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/de0/a00050.html">SimRunner</a>&gt; stride::viewers::CliViewer::m_runner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/d32/a00105_source.html#l00045">45</a> of file <a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d3/d32/a00105_source.html">CliViewer.h</a></li>
+<li><a class="el" href="../../d0/dc2/a00104_source.html">CliViewer.cpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">BeliefSeeder.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/d03/a00254.html">viewers</a></li><li class="navelem"><a class="el" href="../../d1/d09/a00077.html">CliViewer</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

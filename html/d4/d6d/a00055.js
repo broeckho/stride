@@ -1,16 +1,12 @@
 var a00055 =
 [
-    [ "TClock", "d4/d6d/a00055.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
-    [ "Stopwatch", "d4/d6d/a00055.html#a925b07b32b747a519b37c549ba7f1531", null ],
-    [ "Start", "d4/d6d/a00055.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
-    [ "Stop", "d4/d6d/a00055.html#a4b6145f590e94467a0048817f348ac75", null ],
-    [ "Reset", "d4/d6d/a00055.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
-    [ "IsRunning", "d4/d6d/a00055.html#a6afa0761326b35e675517b6a81ffef1f", null ],
-    [ "GetName", "d4/d6d/a00055.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
-    [ "Get", "d4/d6d/a00055.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
-    [ "ToString", "d4/d6d/a00055.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
-    [ "m_accumulated", "d4/d6d/a00055.html#a765784978119de616443c956d98166c4", null ],
-    [ "m_last_start", "d4/d6d/a00055.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
-    [ "m_name", "d4/d6d/a00055.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
-    [ "m_running", "d4/d6d/a00055.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
+    [ "Any", "d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a", null ],
+    [ "Any", "d4/d6d/a00055.html#aa37a30a7324377f7afe3b614d3c8f1eb", null ],
+    [ "operator=", "d4/d6d/a00055.html#ad1330eaf1df07a82065354e88a87a6fd", null ],
+    [ "operator=", "d4/d6d/a00055.html#aac5387b1910deeba0f0fb319c8a6e710", null ],
+    [ "emplace", "d4/d6d/a00055.html#a8aee74d02cb317ad6a8212f9a84c9254", null ],
+    [ "cast", "d4/d6d/a00055.html#a25363f8f215051caae46e3094da0bff8", null ],
+    [ "operator bool", "d4/d6d/a00055.html#a60543e81cc55aee3d0a2d8e02779825b", null ],
+    [ "m_ptr", "d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d", null ],
+    [ "m_destroy", "d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf", null ]
 ];

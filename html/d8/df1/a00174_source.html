@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TimeStamp.h Source File</title>
+<title>Stride Reference Manual: Payload.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit b5cbd68</span>
+   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d8/df1/a00174_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TimeStamp.h</div>  </div>
+<div class="title">Payload.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d8/df1/a00174.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,73 +119,54 @@ $(document).ready(function(){initNavTree('d8/df1/a00174_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/df7/a00058.html">TimeStamp</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a13a61188e51c4e05d05a91e459c33ffc">   40</a></span>&#160;        <a class="code" href="../../d7/df7/a00058.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a>() : <a class="code" href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>(std::chrono::system_clock::now()) {}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#aea42ff56713aa57c0aafe5efc92f29e5">   43</a></span>&#160;        std::string <a class="code" href="../../d7/df7/a00058.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                std::time_t t   = std::chrono::system_clock::to_time_t(<a class="code" href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                std::string str = std::ctime(&amp;t);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="comment">// str[str.length() - 1] = &#39; &#39;;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> str.substr(0, str.length() - 1);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a5f6eefbc6871a229b1c45dbbd98b41fe">   52</a></span>&#160;        std::string <a class="code" href="../../d7/df7/a00058.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">// This is the C++11 implementation but clang 5 on Travis Linux VM&#39;s</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// still does not implement std::put_time.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="comment">// auto now = std::chrono::system_clock::now();</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">// auto in_time_t = std::chrono::system_clock::to_time_t(now);</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="comment">// std::stringstream ss;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="comment">// ss &lt;&lt; std::put_time(std::localtime(&amp;in_time_t), &quot;%Y-%m-%d-%X&quot;);</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="comment">// return ss.str();</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                time_t    now = time(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">struct </span>tm tstruct;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordtype">char</span>      buf[80];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                tstruct = *localtime_r(&amp;now, &amp;tstruct);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                strftime(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;%Y%m%d_%H%M%S&quot;</span>, &amp;tstruct);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">return</span> std::string(buf);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#aef8a6ec8cb71ef8ed01506fa614e398f">   70</a></span>&#160;        std::time_t <a class="code" href="../../d7/df7/a00058.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::chrono::system_clock::to_time_t(<a class="code" href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>); }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">   73</a></span>&#160;        std::chrono::system_clock::time_point <a class="code" href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d3/db1/a00200.html#a93f9f2ea967f7688a4ed4ef10852b566">   79</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="../../d3/db1/a00200.html#abecfc8507900bdeb7a71e664c111b0be">operator&lt;&lt;</a>(std::ostream&amp; os, <a class="code" href="../../d7/df7/a00058.html">TimeStamp</a> t) { <span class="keywordflow">return</span> (os &lt;&lt; t.<a class="code" href="../../d7/df7/a00058.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a>()); }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00058_html_aea42ff56713aa57c0aafe5efc92f29e5"><div class="ttname"><a href="../../d7/df7/a00058.html#aea42ff56713aa57c0aafe5efc92f29e5">stride::util::TimeStamp::ToString</a></div><div class="ttdeci">std::string ToString() const </div><div class="ttdoc">Returns string with the time stamp after eliminating newline. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00043">TimeStamp.h:43</a></div></div>
-<div class="ttc" id="a00058_html_aef8a6ec8cb71ef8ed01506fa614e398f"><div class="ttname"><a href="../../d7/df7/a00058.html#aef8a6ec8cb71ef8ed01506fa614e398f">stride::util::TimeStamp::ToTimeT</a></div><div class="ttdeci">std::time_t ToTimeT() const </div><div class="ttdoc">Returns time stamp as a time_t. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00070">TimeStamp.h:70</a></div></div>
-<div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00036">TimeStamp.h:36</a></div></div>
-<div class="ttc" id="a00058_html_a04acbf03cad1f6a0f62dd3e1128726b6"><div class="ttname"><a href="../../d7/df7/a00058.html#a04acbf03cad1f6a0f62dd3e1128726b6">stride::util::TimeStamp::m_tp</a></div><div class="ttdeci">std::chrono::system_clock::time_point m_tp</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00073">TimeStamp.h:73</a></div></div>
-<div class="ttc" id="a00058_html_a5f6eefbc6871a229b1c45dbbd98b41fe"><div class="ttname"><a href="../../d7/df7/a00058.html#a5f6eefbc6871a229b1c45dbbd98b41fe">stride::util::TimeStamp::ToTag</a></div><div class="ttdeci">std::string ToTag() const </div><div class="ttdoc">Returns string with the time stamp after eliminating newline. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00052">TimeStamp.h:52</a></div></div>
-<div class="ttc" id="a00058_html_a13a61188e51c4e05d05a91e459c33ffc"><div class="ttname"><a href="../../d7/df7/a00058.html#a13a61188e51c4e05d05a91e459c33ffc">stride::util::TimeStamp::TimeStamp</a></div><div class="ttdeci">TimeStamp()</div><div class="ttdoc">Constructor marks the time for the time stamp. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00040">TimeStamp.h:40</a></div></div>
-<div class="ttc" id="a00200_html_abecfc8507900bdeb7a71e664c111b0be"><div class="ttname"><a href="../../d3/db1/a00200.html#abecfc8507900bdeb7a71e664c111b0be">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const CSVRow &amp;row)</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00069">CSVRow.cpp:69</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db6/a00146.html">Id.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">TestResult.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>event {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../de/d21/a00006.html">Payload</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">   37</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">Payload</a>(<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>) : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">   40</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">Payload</a>(<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, <a class="code" href="../../d0/d27/a00239.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> testResult = <a class="code" href="../../d0/d27/a00239.html#a57199109a783f4e5805d20fe31019b29">TestResult</a>())</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(std::move(testResult)){};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">   44</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">Payload</a>(<a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, std::string msg)</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">   45</a></span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(std::move(msg)), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">Id</a>                  <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">   48</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">   49</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">   50</a></span>&#160;        <a class="code" href="../../d0/d27/a00239.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace event</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00006_html_abdc5cdaa28a70d011d70d818c0fdd816"><div class="ttname"><a href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">myhayai::event::Payload::m_msg</a></div><div class="ttdeci">std::string m_msg</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00049">Payload.h:49</a></div></div>
+<div class="ttc" id="a00241_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../d6/db6/a00241.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00029">Id.hpp:29</a></div></div>
+<div class="ttc" id="a00006_html_ae75ee4688a69ec6d9fd54c7df4e14b3b"><div class="ttname"><a href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, myhayai::TestResult testResult=TestResult())</div><div class="ttdoc">Provide event id, name and possibly results (executed and disabled tests). </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00040">Payload.h:40</a></div></div>
+<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
+<div class="ttc" id="a00006_html_a5173609926327fea6ec1a8f6e48ebc37"><div class="ttname"><a href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">myhayai::event::Payload::m_id</a></div><div class="ttdeci">Id m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00045">Payload.h:45</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00034">Payload.h:34</a></div></div>
+<div class="ttc" id="a00006_html_a43788ef87b7096720a07819ee286eeff"><div class="ttname"><a href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, std::string msg)</div><div class="ttdoc">Provide event id, name and message (aborted tests) </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00044">Payload.h:44</a></div></div>
+<div class="ttc" id="a00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
+<div class="ttc" id="a00006_html_a1cc0d980c9a83a4ec5765a9f53b96313"><div class="ttname"><a href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">myhayai::event::Payload::m_test_name</a></div><div class="ttdeci">std::string m_test_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00048">Payload.h:48</a></div></div>
+<div class="ttc" id="a00006_html_a45c0ccf1352f9c443b34ed1b3c972c5d"><div class="ttname"><a href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">myhayai::event::Payload::m_run_times</a></div><div class="ttdeci">myhayai::TestResult m_run_times</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00050">Payload.h:50</a></div></div>
+<div class="ttc" id="a00006_html_a28c8bf22e1beb49b5136caf90a6569cf"><div class="ttname"><a href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id)</div><div class="ttdoc">Only provide event id (a.o. begin and end of benchmarking). </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00037">Payload.h:37</a></div></div>
+<div class="ttc" id="a00239_html_a57199109a783f4e5805d20fe31019b29"><div class="ttname"><a href="../../d0/d27/a00239.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a></div><div class="ttdeci">std::vector&lt; std::chrono::steady_clock::duration &gt; TestResult</div><div class="ttdoc">Test result descriptor. All durations are expressed in nanoseconds. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00030">TestResult.h:30</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">TimeStamp.h</a></li>
-    <li class="footer">Generated on Tue May 29 2018 09:16:32 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d8/df1/a00174.html">Payload.h</a></li>
+    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

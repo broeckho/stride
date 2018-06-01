@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['finished',['Finished',['../d8/d72/a00199.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b',1,'stride::sim_event']]]
+  ['cyan',['Cyan',['../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20',1,'myhayai::console']]]
 ];

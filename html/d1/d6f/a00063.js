@@ -1,9 +1,7 @@
 var a00063 =
 [
-    [ "InfectedViewer", "d1/d6f/a00063.html#aae44b0fd20d9193b61d065d08e57e8f3", null ],
-    [ "GetInfectionCounts", "d1/d6f/a00063.html#a0a02401197ff8238052068ecaa10c505", null ],
-    [ "Update", "d1/d6f/a00063.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
-    [ "m_infected", "d1/d6f/a00063.html#a613860070a4a0778c61631fc4f343028", null ],
-    [ "m_infected_file", "d1/d6f/a00063.html#abf3638fe4dad03b5adb58b56ebd8a926", null ],
-    [ "m_runner", "d1/d6f/a00063.html#a13b27fd1d407a15fe3b542952168ba33", null ]
+    [ "GnuPlot", "d1/d6f/a00063.html#aa5380bdfb3c44ef30cd88565052f506c", null ],
+    [ "Add", "d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1", null ],
+    [ "Write", "d1/d6f/a00063.html#acac0a787af7c358bb65da65298332851", null ],
+    [ "operator<<", "d1/d6f/a00063.html#a23c9efdc17fd901765158d6d7ca739c8", null ]
 ];
