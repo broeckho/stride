@@ -134,7 +134,6 @@ void flex_delivery()
                                               });
         }
         BenchmarkRunner::RegisterTest("FlexDelivery", "Deluxe", 1, param_factory_builder(5, 20, 2));
-
 }
 
 }

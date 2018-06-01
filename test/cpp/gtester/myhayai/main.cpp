@@ -21,8 +21,8 @@
  * Impleme.
  */
 
-#include "class_delivery.h"
 #include "DeliveryMan.h"
+#include "class_delivery.h"
 #include "flex_delivery.h"
 #include "myhayai/BenchmarkRunner.h"
 #include "myhayai/MyhayaiController.h"

@@ -19,10 +19,10 @@
  * Header file for myhayai::MyhayaiController.
  */
 
+#include "BenchmarkRunner.h"
 #include <regex>
 #include <string>
 #include <vector>
-#include "BenchmarkRunner.h"
 
 namespace myhayai {
 

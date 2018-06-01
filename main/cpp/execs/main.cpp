@@ -117,7 +117,6 @@ int main(int argc, char** argv)
                         } else {
                                 StanController(configPt).Control();
                         }
-
                 }
                 // -----------------------------------------------------------------------------------------
                 // If run simulation in gui ...

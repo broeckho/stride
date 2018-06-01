@@ -22,7 +22,7 @@ set(SRC
 #
     BenchControlHelper.cpp
     Benchmark.h
-    Console.hpp
+    Console.h
     Test.h
     InfoFactory.h
     Payload.h

@@ -33,7 +33,7 @@ namespace myhayai {
 
 BenchControlHelper::BenchControlHelper(const TestDescriptors& td, const std::vector<std::string>& positive,
                                        const std::vector<std::string>& negative)
-        : m_descriptors(td), m_negative(), m_positive()
+    : m_descriptors(td), m_negative(), m_positive()
 {
         for (const auto& r : positive) {
                 m_positive.emplace_back(regex(r));

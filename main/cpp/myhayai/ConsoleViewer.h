@@ -19,7 +19,7 @@
  */
 
 #include "BenchmarkRunner.h"
-#include "Console.hpp"
+#include "Console.h"
 #include "Payload.h"
 #include "TestDescriptors.h"
 

@@ -21,7 +21,7 @@
 
 #include "BenchControlHelper.h"
 #include "BenchmarkRunner.h"
-#include "Console.hpp"
+#include "Console.h"
 #include "ConsoleViewer.h"
 #include "PtreeViewer.h"
 

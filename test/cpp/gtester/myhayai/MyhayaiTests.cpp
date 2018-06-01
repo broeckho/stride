@@ -29,9 +29,9 @@
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-#include <gtest/gtest.h>
 #include <chrono>
 #include <exception>
+#include <gtest/gtest.h>
 #include <iostream>
 #include <thread>
 
@@ -54,7 +54,7 @@ public:
                 flex_delivery();
                 BenchmarkRunner&   runner = BenchmarkRunner::Instance();
                 BenchControlHelper helper(runner.GetTestDescriptors(), vector<string>(), vector<string>({"Deluxe"}));
-                auto pv = make_shared<PtreeViewer<chrono::milliseconds>>();
+                auto               pv = make_shared<PtreeViewer<chrono::milliseconds>>();
                 runner.Register(pv, bind(&PtreeViewer<chrono::milliseconds>::Update, pv, placeholders::_1));
                 runner.RunTests(helper.GetIncludedNames());
                 g_benchPt = pv->CGet();
