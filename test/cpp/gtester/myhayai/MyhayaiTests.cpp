@@ -21,17 +21,18 @@
 #include "DeliveryMan.h"
 #include "class_delivery.h"
 #include "flex_delivery.h"
+#include "myhayai/BenchControlHelper.h"
 #include "myhayai/BenchmarkRunner.h"
-#include "myhayai/MyhayaiController.h"
-#include "myhayai/Test.hpp"
+#include "myhayai/PtreeViewer.h"
+#include "myhayai/Test.h"
 #include "util/StringUtils.h"
-
-#include <exception>
-#include <iostream>
-#include <thread>
 
 #include <boost/property_tree/ptree.hpp>
 #include <gtest/gtest.h>
+#include <chrono>
+#include <exception>
+#include <iostream>
+#include <thread>
 
 using namespace std;
 using namespace ::testing;
@@ -68,6 +69,14 @@ public:
                         BenchmarkRunner::RegisterTest("FlexDelivery", "FlexMain - " + ToString(i), 10,
                                                       param_factory_builder(10, 1, i));
                 }
+
+                BenchmarkRunner&   runner = BenchmarkRunner::Instance();
+                const vector<string> negative;
+                const vector<string> positive;
+                BenchControlHelper helper(runner.GetTestDescriptors(), negative, positive);
+                auto pv = make_shared<PtreeViewer<chrono::milliseconds>>();
+                runner.Register(pv, bind(&PtreeViewer<chrono::milliseconds>::Update, pv, placeholders::_1));
+                runner.RunTests(helper.GetIncludedNames());
         }
 
         /// Tearing down TestCase
@@ -84,6 +93,9 @@ protected:
         void TearDown() override {}
 };
 
-TEST(MyhayaiTests, Run) {}
+TEST(MyhayaiTests, Run)
+{
+
+}
 
 } // namespace Tests

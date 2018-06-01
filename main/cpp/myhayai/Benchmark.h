@@ -26,24 +26,28 @@
 
 namespace myhayai {
 
+/**
+ * This class allows you to register test via instantiation. It also allows you to
+ * check success/failre of the registration (via the bool conversion operator).
+ */
 class Benchmark
 {
 public:
-        ///
+        /// Delegating constructor.
         Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
                   TestFactory testFactory)
             : Benchmark(groupName, testName, numRuns, std::move(testFactory), InfoFactory(), false)
         {
         }
 
-        ///
+        /// Delegating Constructor.
         Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
                   TestFactory testFactory, bool disableTest)
             : Benchmark(groupName, testName, numRuns, std::move(testFactory), InfoFactory(), disableTest)
         {
         }
 
-        ///
+        /// Constructor that registers test. For parameters @see TestDescriptor.
         Benchmark(const std::string& groupName, const std::string& testName, std::size_t numRuns,
                   TestFactory testFactory, InfoFactory infoFactory, bool disableTest = false)
         {
@@ -51,6 +55,7 @@ public:
                                                          std::move(infoFactory), disableTest);
         }
 
+        /// True iff succesfully registered.
         explicit operator bool() const { return m_status; }
 
 private:

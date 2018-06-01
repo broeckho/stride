@@ -27,8 +27,12 @@
 
 namespace myhayai {
 
-/// Constructs ptree with benchmark info.
-/// \tparam T   Time units used in reporting.
+/**
+ *  Constructs a (Boost) propert tree with info about the tests run in
+ *  the benchmark.
+ *
+ *  \tparam T   Time units used in reporting.
+ */
 template <typename T>
 class PtreeViewer
 {

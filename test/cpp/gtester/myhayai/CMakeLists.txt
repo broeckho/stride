@@ -22,11 +22,10 @@ set(SRC
     DeliveryMan.cpp
     flex_delivery.cpp
     main.cpp
-    SlowDeliveryMan.cpp
     )
 
 add_executable(myhayai_demo ${SRC})
-target_link_libraries(myhayai_demo myhayai libstride)
+target_link_libraries(myhayai_demo libmyhayai libstride)
 install(TARGETS myhayai_demo  DESTINATION   ${BIN_INSTALL_LOCATION})
 unset(SRC)
 

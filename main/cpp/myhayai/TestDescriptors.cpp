@@ -29,10 +29,4 @@ size_t TestDescriptors::CountDisabled()
             count_if(this->begin(), this->end(), [](const auto& item) { return item.second.m_is_disabled; }));
 }
 
-size_t TestDescriptors::CountNotInFilter()
-{
-        return static_cast<size_t>(
-            count_if(this->begin(), this->end(), [](const auto& item) { return !item.second.m_is_included; }));
-}
-
 } // namespace myhayai

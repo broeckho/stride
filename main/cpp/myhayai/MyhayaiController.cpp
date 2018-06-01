@@ -19,6 +19,7 @@
 
 #include "MyhayaiController.h"
 
+#include "BenchControlHelper.h"
 #include "BenchmarkRunner.h"
 #include "Console.hpp"
 #include "ConsoleViewer.h"
@@ -53,40 +54,11 @@ void MyhayaiController::Control()
         }
 }
 
-vector<string> MyhayaiController::GetIncludedNames() const
-{
-        vector<string> includedNames;
-        for (const auto& item : BenchmarkRunner::Instance().GetTestDescriptors()) {
-                const auto& t_n = item.first;
-                if (IsIncluded(t_n)) {
-                        includedNames.emplace_back(t_n);
-                }
-        }
-        return includedNames;
-}
-
-bool MyhayaiController::IsIncluded(const std::string& name) const
-{
-        bool include = m_positive.empty();
-        for (const auto& re : m_positive) {
-                if (regex_search(name, re)) {
-                        include = true;
-                        break;
-                }
-        }
-        if (include) {
-                for (const auto& re : m_negative) {
-                        if (regex_search(name, re)) {
-                                include = false;
-                                break;
-                        }
-                }
-        }
-        return include;
-}
-
 void MyhayaiController::ListBenchmarks() const
 {
+        BenchmarkRunner&   runner = BenchmarkRunner::Instance();
+        BenchControlHelper helper(runner.GetTestDescriptors(), m_negative, m_positive);
+
         using namespace console;
         unsigned int incl_en  = 0U;
         unsigned int incl_dis = 0U;
@@ -102,7 +74,7 @@ void MyhayaiController::ListBenchmarks() const
         cout << Color::Green << "[==========]" << Color::Default << " BenchmarkRunner listing tests." << endl;
         for (const auto& item : BenchmarkRunner::Instance().GetTestDescriptors()) {
                 const auto& t_n = item.first;
-                if (IsIncluded(t_n)) {
+                if (helper.IsIncluded(t_n)) {
                         if (item.second.m_is_disabled) {
                                 ++incl_dis;
                                 cout << Color::Cyan << "[ INCLUDED/DISABLED ]  " << Color::Default << t_n << endl;
@@ -170,17 +142,13 @@ void MyhayaiController::ParseArgs(int argc, char** argv)
                 //
                 cmd.parse(argc, static_cast<const char* const*>(argv));
                 m_list_mode = listArg.getValue();
-                m_shuffle   = shuffleArg.getValue();
                 m_info_path = infoArg.getValue();
                 m_json_path = jsonArg.getValue();
                 m_xml_path  = xmlArg.getValue();
                 m_no_color  = noColorArg.getValue();
-                for (const auto& r : positiveArg.getValue()) {
-                        m_positive.emplace_back(regex(r));
-                }
-                for (const auto& r : negativeArg.getValue()) {
-                        m_negative.emplace_back(regex(r));
-                }
+                m_negative  = negativeArg.getValue();
+                m_positive  = positiveArg.getValue();
+                m_shuffle   = shuffleArg.getValue();
         } catch (ArgException& e) {
                 cerr << "MyhayaiController::ParseArgs>" << e.what();
                 throw runtime_error(e.what()); /// do not want main.cpp to bother with specific exception classes.
@@ -189,30 +157,31 @@ void MyhayaiController::ParseArgs(int argc, char** argv)
 
 void MyhayaiController::RunBenchmarks()
 {
-        // Get the the canonical test names, after applying include/exclude regex.
-        auto names = GetIncludedNames();
+        BenchmarkRunner&   runner = BenchmarkRunner::Instance();
+        BenchControlHelper helper(runner.GetTestDescriptors(), m_negative, m_positive);
 
-        // Shuffle benchmarks if requested.
+        // Get the the canonical test names, after applying include/exclude regex and shuffle.
+        auto names = helper.GetIncludedNames();
         if (m_shuffle) {
-                Shuffle(names);
+                helper.Shuffle(names);
         }
 
-        // Allways the console viewer.
+        // Always the console viewer.
         using cv_t = ConsoleViewer<chrono::milliseconds>;
         auto cv    = make_shared<cv_t>(cout, m_no_color);
-        BenchmarkRunner::Instance().Register(cv, bind(&cv_t::Update, cv, placeholders::_1));
+        runner.Register(cv, bind(&cv_t::Update, cv, placeholders::_1));
 
         // Possibly the ptree viewer.
         using pv_t = PtreeViewer<chrono::milliseconds>;
         auto pv    = make_shared<pv_t>();
         if (!(m_info_path.empty() && m_json_path.empty() && m_xml_path.empty())) {
-                BenchmarkRunner::Instance().Register(pv, bind(&pv_t::Update, pv, placeholders::_1));
+                runner.Register(pv, bind(&pv_t::Update, pv, placeholders::_1));
         }
 
         // Run them.
-        BenchmarkRunner::Instance().RunTests(names);
+        runner.RunTests(names);
 
-        // Possible the ptree viewer.
+        // Possibly the ptree viewer.
         if (!m_info_path.empty()) {
                 write_info(m_info_path, pv->CGet());
         }
@@ -222,13 +191,6 @@ void MyhayaiController::RunBenchmarks()
         if (!m_xml_path.empty()) {
                 write_xml(m_xml_path, pv->CGet(), std::locale(), xml_writer_make_settings<ptree::key_type>(' ', 8));
         }
-}
-
-void MyhayaiController::Shuffle(vector<string>& names) const
-{
-        random_device rd;
-        mt19937       g(rd());
-        shuffle(names.begin(), names.end(), g);
 }
 
 } // namespace myhayai

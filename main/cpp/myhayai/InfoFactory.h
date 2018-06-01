@@ -23,5 +23,6 @@
 
 namespace myhayai {
 
+/// Produces info (int property tree format) on the test (for use by viewers).
 using InfoFactory = std::function<boost::property_tree::ptree()>;
 }

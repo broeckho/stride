@@ -26,7 +26,7 @@
 #include "DeliveryMan.h"
 #include "myhayai/Benchmark.h"
 #include "myhayai/BenchmarkRunner.h"
-#include "myhayai/Test.hpp"
+#include "myhayai/Test.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>

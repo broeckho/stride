@@ -27,6 +27,10 @@
 namespace myhayai {
 namespace event {
 
+/**
+ * The payload of the event notification used by the BenchmarkRunner
+ * and accepted in the Update by the event Observers.
+ */
 struct Payload
 {
         /// Only provide event id (a.o. begin and end of benchmarking).

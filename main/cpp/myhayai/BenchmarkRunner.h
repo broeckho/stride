@@ -31,9 +31,10 @@
 
 namespace myhayai {
 
-/// BenchmarkRunner registers all tests (hence the singleton
-/// construction) and runs the tests specified by their
-/// canonical names (<test_group_name>.<test_name>).
+/**
+ * BenchmarkRunner registers all tests (hence the singleton construction) and runs
+ * the tests specified by their canonical names (<test_group_name>.<test_name>).
+ */
 class BenchmarkRunner : public stride::util::Subject<event::Payload>
 {
 public:

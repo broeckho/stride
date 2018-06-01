@@ -21,7 +21,7 @@
 
 #include "Id.hpp"
 #include "InfoFactory.h"
-#include "Test.hpp"
+#include "Test.h"
 #include "TestDescriptors.h"
 #include "TestFactory.h"
 #include "TestResult.h"

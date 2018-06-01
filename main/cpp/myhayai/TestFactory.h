@@ -18,12 +18,13 @@
  * Header file for TestFactory.
  */
 
-#include "Test.hpp"
+#include "Test.h"
 
 #include <functional>
 
 namespace myhayai {
 
+/// Produces a test instance via its call operator.
 using TestFactory = std::function<Test()>;
 
 } // namespace myhayai

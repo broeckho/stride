@@ -28,34 +28,38 @@
 
 namespace myhayai {
 
-/// Test descriptor.
+/**
+ * Benchmark test descriptor.
+ *
+ * Benchmark tests descriptors are specified by
+ * \li the group the belong to in combination with their individual name. This
+ *     combination is referred to as the canonical name.
+ * \li the number of times the benchmark has to be executed
+ * \li the factory that produces test instances through its call operator
+ * \li the factory that produces info about the test (intended to be useful for viewers)
+ * \li a status variable that lets you (temporarily) disable a tests so it remains
+ *     registered but wil not run when the benchmarks execute.
+ */
+
 struct TestDescriptor
 {
-        /// Initialize a new test descriptor.
-        /// @param fixture_name    Name of the fixture.
-        /// @param test_name       Name of the test.
-        /// @param num_runs        Number of runs for the test.
-        /// @param iterations      Number of iterations per run.
-        /// @param test_factory    Test factory implementation for the test.
-        /// @param params_desc     Parametrized test parameters.
+        /// Construct empty test descriptor.
         TestDescriptor()
-            : m_group_name(), m_test_name(), m_num_runs(0), m_test_factory(TestFactory()),
-              m_info_factory(InfoFactory()), m_is_disabled(true), m_is_included(false)
+            : m_group_name(), m_test_name(), m_num_runs(0), m_test_factory(), m_info_factory(), m_is_disabled(true)
         {
         }
 
         /// Initialize a new test descriptor.
-        /// @param fixture_name    Name of the fixture.
-        /// @param test_name       Name of the test.
-        /// @param num_runs        Number of runs for the test.
-        /// @param iterations      Number of iterations per run.
-        /// @param test_factory    Test factory implementation for the test.
-        /// @param params_desc     Parametrized test parameters.
+        /// @param groupName       Name of the test group.
+        /// @param testName        Name of the test.
+        /// @param numRuns         Number of runs for the test.
+        /// @param testFactory     Test factory implementation for the test.
+        /// @param infoFactory     Provides extra info that can be recorded by viewers
+        /// @param isDiabled       Lets you put a test in place but (temporarily) disable it.
         TestDescriptor(std::string groupName, std::string testName, std::size_t numRuns, TestFactory testFactory,
                        InfoFactory infoFactory = InfoFactory(), bool isDisabled = false, bool isInFilter = true)
             : m_group_name(std::move(groupName)), m_test_name(std::move(testName)), m_num_runs(numRuns),
-              m_test_factory(std::move(testFactory)), m_info_factory(std::move(infoFactory)), m_is_disabled(isDisabled),
-              m_is_included(isInFilter)
+              m_test_factory(std::move(testFactory)), m_info_factory(std::move(infoFactory)), m_is_disabled(isDisabled)
         {
         }
 
@@ -67,7 +71,6 @@ struct TestDescriptor
         TestFactory m_test_factory; ///< Test factory.
         InfoFactory m_info_factory; ///< Generates ptree with info associated with the test.
         bool        m_is_disabled;  ///< Disabled (or not).
-        bool        m_is_included;  ///< Included by filter (or not).
 };
 
 } // namespace myhayai

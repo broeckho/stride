@@ -20,12 +20,13 @@
 #============================================================================
 set(SRC
 #
+    BenchControlHelper.cpp
     Benchmark.h
     Console.hpp
-    Test.hpp
+    Test.h
     InfoFactory.h
     Payload.h
-    Test.hpp
+    Test.h
     TestDescriptor.h
     TestFactory.h
     TestResult.h

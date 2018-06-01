@@ -28,8 +28,11 @@
 
 namespace myhayai {
 
-/// Console outputter. Prints results to standard output.
-/// \tparam T   Time units used in reporting.
+/**
+ * Console viewer outputs (on the console) info on the benchmarks as they run.
+ *
+ * \tparam T   Time units used in reporting.
+ */
 template <typename T>
 class ConsoleViewer
 {

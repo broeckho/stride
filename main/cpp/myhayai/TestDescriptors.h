@@ -25,18 +25,17 @@
 
 namespace myhayai {
 
-/// Test descriptor.
+/**
+ * Container for the test descriptors.
+ */
 class TestDescriptors : public std::map<std::string, TestDescriptor>
 {
 public:
-        ///
+        /// Use the map constructors.
         using std::map<std::string, TestDescriptor>::map;
 
-        ///
+        /// Return number of tests that are disabled.
         std::size_t CountDisabled();
-
-        ///
-        std::size_t CountNotInFilter();
 };
 
 } // namespace myhayai

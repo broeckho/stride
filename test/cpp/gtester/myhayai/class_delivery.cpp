@@ -25,7 +25,7 @@
 
 #include "DeliveryMan.h"
 #include "myhayai/Benchmark.h"
-#include "myhayai/Test.hpp"
+#include "myhayai/Test.h"
 
 #include <memory>
 #include <stdexcept>

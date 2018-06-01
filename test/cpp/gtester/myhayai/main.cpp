@@ -21,10 +21,12 @@
  * Impleme.
  */
 
+#include "class_delivery.h"
 #include "DeliveryMan.h"
+#include "flex_delivery.h"
 #include "myhayai/BenchmarkRunner.h"
 #include "myhayai/MyhayaiController.h"
-#include "myhayai/Test.hpp"
+#include "myhayai/Test.h"
 #include "util/StringUtils.h"
 
 #include <exception>
@@ -34,9 +36,7 @@
 using namespace std;
 using namespace stride::util;
 using namespace myhayai;
-
-void class_delivery();
-void flex_delivery();
+using namespace Tests;
 
 int main(int argc, char** argv)
 {

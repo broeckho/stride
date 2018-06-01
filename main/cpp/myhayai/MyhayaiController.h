@@ -16,16 +16,21 @@
 
 /**
  * @file
- * Header file for myhayai::CliController.
+ * Header file for myhayai::MyhayaiController.
  */
 
 #include <regex>
 #include <string>
 #include <vector>
+#include "BenchmarkRunner.h"
 
 namespace myhayai {
 
-/// Default main executable runner.
+/**
+ * Controls the benchmark test execution based on command line arguments.
+ * Its two functions are to list the benchmark that are registered or to
+ * execute them.
+ */
 class MyhayaiController
 {
 public:
@@ -39,32 +44,19 @@ public:
         ///
         ~MyhayaiController() = default;
 
-        /// Parse arguments and initializes the MainRunner.
-        /// @param argc             Argument count including the executable name.
-        /// @param argv             Arguments.
+        /// Parse the command line arguments.
+        /// @param argc  Argument count including the executable name.
+        /// @param argv  Arguments.
         void ParseArgs(int argc, char** argv);
 
-        /// Run the selected execution mode.
+        /// Execute the selected (List/Run) function.
         void Control();
-
-private:
-        /// Return the canonical names obtained after applying
-        /// the positive and negative regex filters.
-        std::vector<std::string> GetIncludedNames() const;
-
-        /// Checks whether a name gets to be included after applying
-        /// the positive and exclude negative filters.
-        bool IsIncluded(const std::string& name) const;
 
         /// List benchmarks.
         void ListBenchmarks() const;
 
         /// Run benchmarks.
         void RunBenchmarks();
-
-        /// Shuffle test names.
-        /// \param names  vector to be shuffled.
-        void Shuffle(std::vector<std::string>& names) const;
 
 private:
         bool m_list_mode; ///< Execution mode (list or run benchmarks).
@@ -75,8 +67,8 @@ private:
         std::string m_json_path; ///< If not empty, produce output in json format in file at path.
         std::string m_xml_path;  ///< If not empty, produce output in xml format in file at path.
 
-        std::vector<std::regex> m_negative; ///< Negative regexes for excluding tests.
-        std::vector<std::regex> m_positive; ///< Positive regexes for including tests.
+        std::vector<std::string> m_negative; ///< Negative for excluding tests.
+        std::vector<std::string> m_positive; ///< Positive for including tests.
 };
 
 } // namespace myhayai
