@@ -66,5 +66,4 @@ add_test(NAME  ${EXEC}
 unset(EXEC)
 unset(SRC)
 
-add_subdirectory(myhayai)
 #############################################################################
