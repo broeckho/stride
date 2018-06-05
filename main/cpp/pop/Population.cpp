@@ -61,7 +61,7 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // Setup RNManager.
         // ------------------------------------------------
         RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
-                                            configPt.get<unsigned long>("run.rng_seed", 101UL), "",
+                                            configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
                                             configPt.get<unsigned int>("run.num_threads")});
 
         // -----------------------------------------------------------------------------------------
@@ -97,39 +97,9 @@ unsigned int Population::GetInfectedCount() const
 }
 
 void Population::CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                              unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                              Health health, const ptree& beliefPt, double riskAverseness)
+                              unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
 {
-        string belief_policy = beliefPt.get<string>("name");
-
-        if (belief_policy == "NoBelief") {
-                NewPerson<NoBelief>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                    health, beliefPt, riskAverseness);
-        } else if (belief_policy == "Imitation") {
-                NewPerson<Imitation>(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                     health, beliefPt, riskAverseness);
-        } else {
-                throw runtime_error(string(__func__) + "No valid belief policy!");
-        }
-}
-
-template <typename BeliefPolicy>
-void Population::NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                           unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                           Health health, const ptree& beliefPt, double riskAverseness)
-{
-        if (!beliefs_container) {
-                beliefs_container.emplace<util::SegmentedVector<BeliefPolicy>>();
-        }
-        auto container = beliefs_container.cast<util::SegmentedVector<BeliefPolicy>>();
-
-        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
-
-        BeliefPolicy* bp = container->emplace_back(beliefPt);
-        this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId,
-                                  health, riskAverseness, bp));
-
-        assert(this->size() == container->size() && "Person and Beliefs container sizes not equal!");
+        this->emplace_back(Person(id, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));
 }
 
 } // namespace stride

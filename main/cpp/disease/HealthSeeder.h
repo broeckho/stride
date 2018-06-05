@@ -20,7 +20,7 @@
  */
 
 #include "Health.h"
-#include "util/RNManager.h"
+#include "contact/ContactHandler.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <functional>
@@ -38,29 +38,25 @@ class Population;
 class HealthSeeder
 {
 public:
-        /// Constructor requires diease data and random number manager.
-        HealthSeeder(const boost::property_tree::ptree& diseasePt, util::RNManager& rnManager);
+        /// Constructor requires diease data.
+        explicit HealthSeeder(const boost::property_tree::ptree& diseasePt);
 
         /// Seeds the population with Health data.
-        void Seed(std::shared_ptr<Population> pop);
+        void Seed(const std::shared_ptr<Population>& pop, std::vector<ContactHandler>& handlers);
 
 private:
         /// Utility method to etract distribution from data in ptree.
         void GetDistribution(std::vector<double>& distribution, const boost::property_tree::ptree& rootPt,
                              const std::string& xmlTag);
 
-        /// Generate a health item by sample from distributions.
-        Health Sample();
-
         /// Sample for each of the health data item individually.
-        unsigned short int Sample(const std::vector<double>& distribution);
+        unsigned short int Sample(const std::vector<double>& distribution, double random01);
 
 private:
-        std::vector<double>     m_distrib_start_infectiousness;
-        std::vector<double>     m_distrib_start_symptomatic;
-        std::vector<double>     m_distrib_time_infectious;
-        std::vector<double>     m_distrib_time_symptomatic;
-        std::function<double()> m_uniform01_generator;
+        std::vector<double> m_distrib_start_infectiousness;
+        std::vector<double> m_distrib_start_symptomatic;
+        std::vector<double> m_distrib_time_infectious;
+        std::vector<double> m_distrib_time_symptomatic;
 };
 
 } // namespace stride

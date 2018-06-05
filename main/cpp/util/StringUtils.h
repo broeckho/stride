@@ -40,8 +40,7 @@ inline T FromString(const std::string& s)
         return t;
 }
 
-/// Split a string (in order of occurence) by splitting it on the given
-/// delimiters.
+/// Split a string (in order of occurence) by splitting it on the given delimiters.
 inline std::vector<std::string> Split(const std::string& str, const std::string& delimiters)
 {
         std::vector<std::string> tokens;
@@ -79,6 +78,23 @@ inline std::string ToString(const T& value)
         std::stringstream ss;
         ss << value;
         return ss.str();
+}
+
+template <>
+inline std::string ToString<std::string>(const std::string& value)
+{
+        return value;
+}
+
+/// Stringify the values in a vector.
+template <typename It>
+inline std::vector<std::string> ToString(It begin, It end)
+{
+        std::vector<std::string> v;
+        for (It it = begin; it < end; ++it) {
+                v.emplace_back(ToString(*it));
+        }
+        return v;
 }
 
 /// Builds a string representation with minimum width of a value of type T.

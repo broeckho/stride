@@ -40,7 +40,6 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {
         const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
         if (log_level == "All" || log_level == "Susceptibles") {
-
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);

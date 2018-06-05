@@ -16,7 +16,7 @@
 
 /**
  * @file
- * Header for the CasesFile class.
+ * Header for the InfectedFile class.
  */
 
 #include <fstream>
@@ -27,7 +27,7 @@ namespace stride {
 namespace output {
 
 /**
- * Produces a file with daily cases count.
+ * Produces a file with daily count of infected persons.
  */
 class InfectedFile
 {

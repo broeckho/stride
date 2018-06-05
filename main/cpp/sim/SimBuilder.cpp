@@ -20,6 +20,7 @@
 
 #include "SimBuilder.h"
 
+#include "behaviour/BeliefSeeder.h"
 #include "contact/InfectorMap.h"
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
@@ -45,7 +46,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // Read config info and setup random number manager
         // --------------------------------------------------------------
         sim->m_config_pt         = m_config_pt;
-        sim->m_population        = pop;
+        sim->m_population        = std::move(pop);
         sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
         sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
         sim->m_calendar          = make_shared<Calendar>(m_config_pt);
@@ -83,12 +84,17 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
-        HealthSeeder(diseasePt, sim->m_rn_manager).Seed(sim->m_population);
+        HealthSeeder(diseasePt).Seed(sim->m_population, sim->m_handlers);
 
         // --------------------------------------------------------------
         // Seed population wrt immunity/vaccination/infection.
         // --------------------------------------------------------------
         DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
+
+        // --------------------------------------------------------------
+        // Seed population wrt belief policies.
+        // --------------------------------------------------------------
+        BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.

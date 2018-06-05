@@ -36,7 +36,7 @@ enum class Id
 };
 
 /// Number of ContactPool types.
-inline constexpr unsigned int NumOfTypes() { return 3U; }
+inline constexpr unsigned int NumOfTypes() { return 5U; }
 
 /// Check whether string is name of a ContactPoolType::Id.
 bool IsType(const std::string& s);

@@ -43,7 +43,9 @@ set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-array-bounds")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
-set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g"   )
+set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
+#
+include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
@@ -62,13 +64,16 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -fPIC")
 	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wno-maybe-uninitialized")
 endif()
-#
-include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
 #----------------------------------------------------------------------------
 # Standard math lib
 #----------------------------------------------------------------------------
 set(LIBS   ${LIBS}   m)
+
+#----------------------------------------------------------------------------
+# PCG
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/pcg/include)
 
 #----------------------------------------------------------------------------
 # Spdlog Library (logging)
@@ -95,9 +100,6 @@ set(LIBS ${LIBS} trng)
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
-set(BOOST_ROOT ${STRIDE_BOOST_ROOT})
-set(Boost_NO_SYSTEM_PATHS ${STRIDE_BOOST_NO_SYSTEM_PATHS})
-message(status ${Boost_ROOT})
 find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 set(LIBS   ${LIBS} ${Boost_LIBRARIES})

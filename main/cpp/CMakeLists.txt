@@ -20,6 +20,7 @@
 #============================================================================
 set(LIB_SRC
 #---
+	behaviour/BeliefSeeder.cpp
 	behaviour/behaviour_policies/NoBehaviour.h
 	behaviour/behaviour_policies/Vaccination.h
 	behaviour/belief_policies/Belief.h
@@ -45,7 +46,6 @@ set(LIB_SRC
 	contact/Infector.cpp
 	contact/InfectorExec.h
 	contact/InfectorMap.h
-	contact/LogPolicy.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
@@ -70,22 +70,30 @@ set(LIB_SRC
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
+    sim/ControlHelper.cpp
 	sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
+	sim/StanController.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---
     util/Any.h
+	util/BoxPlotData.h
     util/ConfigInfo.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
+	util/GnuPlotCSV.cpp
+    util/GnuPlot.cpp
 	util/LogUtils.cpp
+	util/PtreeUtils.h
     util/RNEngineType.cpp
     util/RNManager.cpp
+	util/RnPcg.cpp
     util/RunConfigManager.cpp
     util/SegmentedVector.h
+    util/SliceIndexer.h
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h
@@ -93,17 +101,19 @@ set(LIB_SRC
     util/TimeStamp.h
     util/TimeToString.h
 #---
-	viewers/AdoptedViewer.cpp
-	viewers/InfectedViewer.cpp
+    viewers/AdoptedFileViewer.cpp
+    viewers/InfectedFileViewer.cpp
+    viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp
-    viewers/PersonsViewer.cpp
-	viewers/SummaryViewer.cpp
+    viewers/PersonsFileViewer.cpp
+    viewers/SummaryFileViewer.cpp
 )
 
 #============================================================================
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
+set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
 target_link_libraries(libstride ${LIBS})
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
@@ -112,9 +122,15 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 #============================================================================
 # Build and install the stride executable.
 #============================================================================
-add_executable(stride sim/main.cpp)
+add_executable(stride execs/main.cpp)
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
+
+
+#============================================================================
+# Build the Myhayai library.
+#============================================================================
+add_subdirectory(myhayai)
 
 #============================================================================
 # Clean up.

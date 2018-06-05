@@ -31,7 +31,7 @@ class DaysOffNone : public DaysOffInterface
 {
 public:
         /// Initialize calendar.
-        explicit DaysOffNone(std::shared_ptr<Calendar> cal) {}
+        explicit DaysOffNone(std::shared_ptr<Calendar>) {}
 
         /// See DaysOffInterface.
         bool IsWorkOff() override { return false; }

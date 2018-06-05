@@ -25,7 +25,7 @@ set(SRC
 
 include_directories(${CMAKE_SOURCE_DIR}/test/cpp/myhayai)
 add_executable(btester ${SRC})
-target_link_libraries(btester myhayai libstride)
+target_link_libraries(btester libmyhayai libstride)
 install(TARGETS btester  DESTINATION   ${BIN_INSTALL_LOCATION})
 unset(SRC)
 

@@ -67,8 +67,8 @@ invocations:
     "make install"        installs all the artifacts
     "make test"           runs tests (and that needs to come after install)
 The Makefile and cmake define the appropriate dependencies between the
-targets. To include documentation in the build or install, you need to set
-the macro STRIDE_INCLUDE_DOC=TRUE in the make or cmake invocation or in your
+targets. To include documentation in the build or install, you need to
+set the macro STRIDE_INCLUDE_DOC=TRUE in the make invocation or in your
 CMakeLocal.cmake configuration file.
 
 If you want to develop code, there is an additional "make format" that formats
@@ -88,7 +88,7 @@ To use the cmake command line:
 
 If you want a different build type e.g. Debug, then in the third step you have
 to define the CMAKE_BUILD_TYPE. To include documentation in the build or install,
-you need to set the macro -DSTRIDE_INCLUDE_DOC=TRUE in the third step or in
+you need to set the macro -DSTRIDE_INCLUDE_DOC=TRUE in the second step or in
 your CMakeLocal.cmake configuration file.
 
 #############################################################################

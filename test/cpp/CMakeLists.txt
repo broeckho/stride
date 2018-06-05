@@ -28,6 +28,5 @@ add_test(NAME smoke
 #============================================================================
 add_subdirectory(btester)
 add_subdirectory(gtester)
-add_subdirectory(myhayai)
 
 #############################################################################

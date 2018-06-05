@@ -1,22 +1,24 @@
 /*
- * Copyright 2011-2016 Universiteit Antwerpen
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- * Licensed under the EUPL, Version 1.1 or  as soon they will be approved by
- * the European Commission - subsequent versions of the EUPL (the "Licence");
- * You may not use this work except in compliance with the Licence.
- * You may obtain a copy of the Licence at: http://ec.europa.eu/idabc/eupl5
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the Licence is distributed on an "AS IS" basis,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the Licence for the specific language governing
- * permissions and limitations under the Licence.
+ *  Copyright 2017, 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
  */
+
 /**
  * @file
  * Unit tests of SegmentedVector.
  */
 
+#include "util/Any.h"
 #include "util/SegmentedVector.h"
 
 #include <gtest/gtest.h>
@@ -26,9 +28,8 @@
 using namespace std;
 using namespace stride::util;
 
-namespace SimPT_Sim {
-namespace Container {
-namespace Tests {
+namespace stride {
+namespace tests {
 
 namespace {
 class TraceMemory
@@ -71,39 +72,55 @@ private:
         EventList m_event_list;
 };
 
+class Base
+{
+public:
+        virtual size_t Get1() const { return 0; }
+        virtual ~Base() {}
+};
+
+class Derived : public Base
+{
+public:
+        size_t         Get1() const override { return 1; }
+        size_t         Get2() const { return 2; }
+        virtual size_t Get3() const { return 3; }
+};
+
 class TestType
 {
 public:
-        TestType(int _i, const std::string& _str, TraceMemory& _t) : i(_i), str(_str), t(_t)
+        TestType(int i, std::string str, TraceMemory& t) : m_i(i), m_str(std::move(str)), m_t(t)
         {
-                t.Allocated();
-                array = new int[10];
+                m_t.Allocated();
+                m_array = new int[10];
         }
 
-        TestType(const TestType& other) : i(other.i), str(other.str), t(other.t)
+        TestType(const TestType& other) : m_i(other.m_i), m_str(other.m_str), m_t(other.m_t)
         {
-                t.Copied();
-                array = new int[10];
+                m_t.Copied();
+                m_array = new int[10];
         }
 
-        TestType(TestType&& other) : i(other.i), str(std::move(other.str)), array(other.array), t(other.t)
+        TestType(TestType&& other) noexcept
+            : m_array(other.m_array), m_i(other.m_i), m_str(std::move(other.m_str)), m_t(other.m_t)
         {
-                t.Moved();
-                other.array = nullptr;
+                m_t.Moved();
+                other.m_array = nullptr;
         }
 
         ~TestType()
         {
-                if (array) {
-                        t.Deallocated();
-                        delete[] array;
+                if (m_array) {
+                        m_t.Deallocated();
+                        delete[] m_array;
                 }
         }
 
-        int          i;
-        std::string  str;
-        int*         array;
-        TraceMemory& t;
+        int*         m_array;
+        int          m_i;
+        std::string  m_str;
+        TraceMemory& m_t;
 };
 } // namespace
 
@@ -159,19 +176,67 @@ void RunBasicOperationsTest(SegmentedVector& c, size_t size)
         }
 }
 
-TEST(UnitSegmentedVector, BasicOperations128)
+TEST(UnitSegmentedVector, BasicOperations_128_0)
 {
         SegmentedVector<size_t, 128> c;
         RunBasicOperationsTest(c, 128);
 }
 
-TEST(UnitSegmentedVector, BasicOperations260)
+TEST(UnitSegmentedVector, BasicOperations_128_99)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 128);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_128_128)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 128);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_128_143)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 128);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_260_0)
 {
         SegmentedVector<size_t, 128> c;
         RunBasicOperationsTest(c, 260);
 }
 
-TEST(UnitSegmentedVector, BasicOperations12345)
+TEST(UnitSegmentedVector, BasicOperations_260_128)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 260);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_260_143)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 260);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_260_288)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 260);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_12345_0)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 12345);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_12345_1001)
+{
+        SegmentedVector<size_t, 128> c;
+        RunBasicOperationsTest(c, 12345);
+}
+
+TEST(UnitSegmentedVector, BasicOperations_12345_14001)
 {
         SegmentedVector<size_t, 128> c;
         RunBasicOperationsTest(c, 12345);
@@ -187,8 +252,8 @@ TEST(UnitSegmentedVector, CopyPushBack)
                         c.push_back(t);
                 }
                 for (int i = 0; i < 10; i++) {
-                        EXPECT_EQ(c[i].i, i);
-                        EXPECT_EQ(c[i].str, "hello");
+                        EXPECT_EQ(c[i].m_i, i);
+                        EXPECT_EQ(c[i].m_str, "hello");
                 }
         }
 
@@ -207,8 +272,8 @@ TEST(UnitSegmentedVector, MovePushBack)
                 }
 
                 for (int i = 0; i < 10; i++) {
-                        EXPECT_EQ(c[i].i, i);
-                        EXPECT_EQ(c[i].str, "hello");
+                        EXPECT_EQ(c[i].m_i, i);
+                        EXPECT_EQ(c[i].m_str, "hello");
                 }
         }
 
@@ -226,8 +291,8 @@ TEST(UnitSegmentedVector, EmplaceBack)
                 }
 
                 for (int i = 0; i < 10; i++) {
-                        EXPECT_EQ(c[i].i, i);
-                        EXPECT_EQ(c[i].str, "hello");
+                        EXPECT_EQ(c[i].m_i, i);
+                        EXPECT_EQ(c[i].m_str, "hello");
                 }
         }
 
@@ -249,7 +314,7 @@ TEST(UnitSegmentedVector, PushPop)
         EXPECT_EQ(0UL, c.size());
 
         for (int i = 0; i < 10; i++) {
-                c.push_back('a' + i);
+                c.push_back(static_cast<char>('a' + i));
         }
         EXPECT_EQ(10UL, c.size());
 
@@ -280,7 +345,7 @@ TEST(UnitSegmentedVector, CopyAssignment)
                         // d must now contain c's contents
                         EXPECT_EQ(10UL, d.size());
                         for (int i = 0; i < 10; i++) {
-                                EXPECT_EQ(i, d[i].i);
+                                EXPECT_EQ(i, d[i].m_i);
                         }
 
                         // remove all elements from d
@@ -291,7 +356,7 @@ TEST(UnitSegmentedVector, CopyAssignment)
                 // c should not be affected when d is changed
                 EXPECT_EQ(10UL, c.size());
                 for (int i = 0; i < 10; i++) {
-                        EXPECT_EQ(i, c[i].i);
+                        EXPECT_EQ(i, c[i].m_i);
                 }
         } // will now destroy c and all of its elements
 
@@ -332,9 +397,13 @@ TEST(UnitSegmentedVector, MoveConstruct)
         for (int i = 0; i < 100; i++) {
                 c.push_back(i);
         }
+        const size_t cap = c.capacity();
 
         SegmentedVector<int, 4> d(std::move(c));
+        EXPECT_EQ(0UL, c.size());
         EXPECT_EQ(100UL, d.size());
+        EXPECT_EQ(0UL, c.capacity());
+        EXPECT_EQ(cap, d.capacity());
         for (int i = 0; i < 100; i++) {
                 EXPECT_EQ(i, d[i]);
         }
@@ -346,6 +415,7 @@ TEST(UnitSegmentedVector, MoveAssignment)
         for (int i = 0; i < 100; i++) {
                 c.push_back(i);
         }
+        const size_t cap = c.capacity();
 
         SegmentedVector<int, 4> d;
         for (int i = 0; i < 20; i++) {
@@ -353,11 +423,13 @@ TEST(UnitSegmentedVector, MoveAssignment)
         }
 
         d = std::move(c);
+        EXPECT_EQ(0UL, c.size());
         EXPECT_EQ(100UL, d.size());
+        EXPECT_EQ(0UL, c.capacity());
+        EXPECT_EQ(cap, d.capacity());
         for (int i = 0; i < 100; i++) {
                 EXPECT_EQ(i, d[i]);
         }
-        EXPECT_EQ(0UL, c.size());
 }
 
 TEST(UnitSegmentedVector, IndexOperator)
@@ -407,6 +479,188 @@ TEST(UnitSegmentedVector, RangeBasedLoop)
         }
 }
 
-} // namespace Tests
-} // namespace Container
-} // namespace SimPT_Sim
+TEST(UnitSegmentedVector, PolyNoAnyNoPoly)
+{
+        SegmentedVector<Derived, 3> c;
+        c.resize(4);
+        for (int i = 0; i < 4; i++) {
+                new (&c[i]) Derived();
+        }
+        for (auto& p : c) {
+                EXPECT_EQ(2, p.Get2());
+        }
+}
+
+TEST(UnitSegmentedVector, PolyNoAny)
+{
+        SegmentedVector<Derived, 3> c;
+        c.resize(4);
+        for (int i = 0; i < 4; i++) {
+                c.emplace(i, Derived());
+        }
+
+        for (auto& p : c) {
+                EXPECT_EQ(1, p.Get1());
+        }
+        for (auto& p : c) {
+                EXPECT_EQ(2, p.Get2());
+        }
+        for (auto& p : c) {
+                EXPECT_EQ(3, p.Get3());
+        }
+
+        vector<Base*> v{&c[0], &c[1], &c[2], &c[3]};
+        for (auto& p : v) {
+                EXPECT_EQ(1, p->Get1());
+        }
+}
+
+TEST(UnitSegmentedVector, PolyNoAny2)
+{
+        SegmentedVector<Derived, 3> c(4);
+        for (int i = 0; i < 4; i++) {
+                c.emplace(i, Derived());
+        }
+
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(1, c[i].Get1());
+        }
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(2, c[i].Get2());
+        }
+        for (int i = 0; i < 4; i++) {
+                EXPECT_EQ(3, c[i].Get3());
+        }
+
+        vector<Base*> v{&c[0], &c[1], &c[2], &c[3]};
+        for (auto& p : v) {
+                EXPECT_EQ(1, p->Get1());
+        }
+}
+
+TEST(UnitSegmentedVector, AnyPoly1)
+{
+        Any m_seg;
+        m_seg.emplace<SegmentedVector<Derived, 3>>(4);
+        for (int i = 0; i < 4; i++) {
+                m_seg.cast<SegmentedVector<Derived, 3>>()->emplace(i, Derived());
+        }
+        for (int i = 0; i < 4; i++) {
+                const auto v = m_seg.cast<SegmentedVector<Derived, 3>>()->operator[](i).Get1();
+                EXPECT_EQ(1, v);
+        }
+}
+
+TEST(UnitSegmentedVector, AnyPoly2)
+{
+        Any m_seg;
+        m_seg.emplace<SegmentedVector<Derived, 5>>(4);
+        for (int i = 0; i < 4; i++) {
+                m_seg.cast<SegmentedVector<Derived, 5>>()->emplace(i, Derived());
+        }
+        for (int i = 0; i < 4; i++) {
+                const auto v = m_seg.cast<SegmentedVector<Derived, 5>>()->operator[](i).Get1();
+                EXPECT_EQ(1, v);
+        }
+}
+
+TEST(UnitSegmentedVector, AnyPoly3)
+{
+        Any m_seg;
+        m_seg.emplace<SegmentedVector<Derived, 3>>(4);
+        for (int i = 0; i < 4; i++) {
+                m_seg.cast<SegmentedVector<Derived, 3>>()->emplace(i, Derived());
+        }
+        for (int i = 0; i < 4; i++) {
+                const auto v = m_seg.cast<SegmentedVector<Derived, 3>>()->operator[](i).Get3();
+                EXPECT_EQ(3, v);
+        }
+}
+
+TEST(UnitSegmentedVector, Ctor1)
+{
+        SegmentedVector<size_t, 7> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        SegmentedVector<size_t, 7> d(4);
+        EXPECT_EQ(4, d.size());
+        EXPECT_EQ(1, d.get_block_count());
+
+        SegmentedVector<size_t, 7> e(9);
+        EXPECT_EQ(9, e.size());
+        EXPECT_EQ(2, e.get_block_count());
+}
+
+TEST(UnitSegmentedVector, Ctor2)
+{
+        SegmentedVector<size_t, 7, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        SegmentedVector<size_t, 7, false> d(4);
+        EXPECT_EQ(4, d.size());
+        EXPECT_EQ(1, d.get_block_count());
+
+        SegmentedVector<size_t, 7, false> e(9);
+        EXPECT_EQ(9, e.size());
+        EXPECT_EQ(2, e.get_block_count());
+}
+
+TEST(UnitSegmentedVector, Resize1)
+{
+        SegmentedVector<size_t, 7, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+
+        c.resize(7);
+        EXPECT_EQ(7, c.size());
+        EXPECT_EQ(1, c.get_block_count());
+
+        c.resize(8);
+        EXPECT_EQ(8, c.size());
+        EXPECT_EQ(2, c.get_block_count());
+
+        c.resize(32);
+        EXPECT_EQ(32, c.size());
+        EXPECT_EQ(5, c.get_block_count());
+
+        c.resize(19);
+        EXPECT_EQ(19, c.size());
+        EXPECT_EQ(3, c.get_block_count());
+}
+
+TEST(UnitSegmentedVector, Resize2)
+{
+        SegmentedVector<Derived, 7, false> c;
+        c.resize(17, Derived());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
+        }
+        c.resize(6, Derived());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
+        }
+}
+
+TEST(UnitSegmentedVector, Resize3)
+{
+        SegmentedVector<Derived, 4, false> c;
+        EXPECT_EQ(0, c.size());
+        EXPECT_EQ(0, c.get_block_count());
+        c.resize(5);
+        EXPECT_EQ(5, c.size());
+        EXPECT_EQ(2, c.get_block_count());
+        for (size_t i = 0; i < c.size(); ++i) {
+                c.emplace(i, Derived());
+        }
+        c.resize(3);
+        EXPECT_EQ(3, c.size());
+        EXPECT_EQ(1, c.get_block_count());
+        for (const auto& e : c) {
+                EXPECT_EQ(3, e.Get3());
+        }
+}
+
+} // namespace tests
+} // namespace stride

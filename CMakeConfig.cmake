@@ -69,7 +69,6 @@ list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
 # Distinguish Linux from Aplle in UNIX family.
 #============================================================================
 if(UNIX AND NOT APPLE)
-	message(STATUS "setting Linux TRUE")
     set(LINUX TRUE)
 endif()
 

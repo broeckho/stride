@@ -86,7 +86,6 @@ shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
         //------------------------------------------------
         // Read persosns from file.
         //------------------------------------------------
-        const auto belief_pt        = m_config_pt.get_child("run.belief_policy");
         const auto file_name        = m_config_pt.get<string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
         const auto file_path        = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : file_name;
@@ -106,7 +105,6 @@ shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
 
         while (getline(pop_file, line)) {
                 const auto values                 = Split(line, ",");
-                const auto risk_averseness        = (values.size() <= 6) ? 0.0 : FromString<double>(values[6]);
                 const auto age                    = FromString<unsigned int>(values[0]);
                 const auto household_id           = FromString<unsigned int>(values[1]);
                 const auto school_id              = FromString<unsigned int>(values[2]);
@@ -115,7 +113,7 @@ shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
                 const auto secondary_community_id = FromString<unsigned int>(values[5]);
 
                 pop->CreatePerson(person_id, age, household_id, school_id, work_id, primary_community_id,
-                                  secondary_community_id, Health(), belief_pt, risk_averseness);
+                                  secondary_community_id);
                 ++person_id;
         }
 

@@ -1,18 +1,19 @@
 #pragma once
 /*
- * Copyright 2011-2016 Universiteit Antwerpen
+ *  This is free software: you can redistribute it and/or modify it
+ *  under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  any later version.
+ *  The software is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- * Licensed under the EUPL, Version 1.1 or  as soon they will be approved by
- * the European Commission - subsequent versions of the EUPL (the "Licence");
- * You may not use this work except in compliance with the Licence.
- * You may obtain a copy of the Licence at: http://ec.europa.eu/idabc/eupl5
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the Licence is distributed on an "AS IS" basis,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the Licence for the specific language governing
- * permissions and limitations under the Licence.
+ *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
  */
+
 /**
  * @file
  * Interface and implementation for SegmentedVector class
@@ -22,6 +23,7 @@
 
 #include <array>
 #include <cassert>
+#include <iostream>
 #include <iterator>
 #include <limits>
 #include <stdexcept>
@@ -33,20 +35,20 @@ namespace stride {
 namespace util {
 
 /**
- * Container that stores objects "almost contiguously" and guarantees that
- * pointers/iterators are not invalidated when the container grows.
- * It combines vector properties (high data locality) with queue properties
- * (can increase capacity without pointer/iterator invalidation). Actually,
- * its implementation is much like a queue but with a limited interface
- * e.g. no insertions. The reason for the SegmentedVector is that one cannot
- * control the block size for std:queue (where it is small) and we need that
- * control to make the block size flexible and rather large.
+ * Container that stores objects "almost contiguously" (in a chain of blocks)
+ * and guarantees that pointers/iterators are not invalidated when the container
+ * grows. Elements are assigned to the container either sequentially through
+ * push_back and emplace_back or through direct adressing with emplace, at or
+ * the subscript operator.
+ * It supports most familiar operators except reserve (no need for advance
+ * reservation of capacity to avoid re-allocation that invalidates pointers as
+ * in std::vector) and insertion/deletion.
  *
  * Template parameters:
  * 	T   type of elements stored in the container
  * 	N   block size i.e. number of elements per block
  */
-template <typename T, size_t N = 512>
+template <typename T, size_t N = 512, bool Safe = true>
 class SegmentedVector
 {
 public:
@@ -56,20 +58,34 @@ public:
         using value_type     = T;
         using size_type      = std::size_t;
         using self_type      = SegmentedVector<T, N>;
-        using iterator       = SVIterator<T, N, T*, T&, false>;
-        using const_iterator = SVIterator<T, N>;
+        using iterator       = SVIterator<T, N, Safe, T*, T&, false>;
+        using const_iterator = SVIterator<T, N, Safe>;
 
         // ==================================================================
         // Construction / Copy / Move / Destruction
         // ==================================================================
 
-        /// Construct
-        SegmentedVector() : m_size(0){};
+        /// Construct empty SegmentedVector.
+        /// CAVEAT: if you resize itbut do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        explicit SegmentedVector() : m_blocks(), m_size(0) {}
 
-        /// Copy constructor
-        SegmentedVector(const self_type& other) : m_size(0)
+        /// Construct with given number of elements but DO NOT INITIALIZE them.
+        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        explicit SegmentedVector(size_type i) : m_blocks(), m_size(0) { resize(i); }
+
+        /// Construct with given number of elements and INITIALIZE them with value.
+        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        explicit SegmentedVector(size_type i, const value_type& value) : m_blocks(), m_size(0) { resize(i, value); }
+
+        /// Copy constructor.
+        explicit SegmentedVector(const self_type& other) : m_blocks(), m_size(0)
         {
-                m_blocks.reserve(other.m_blocks.size());
                 for (const auto& elem : other) {
                         push_back(elem);
                 }
@@ -77,18 +93,17 @@ public:
                 assert(m_blocks.size() == other.m_blocks.size());
         }
 
-        /// Move constructor
-        SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
+        /// Move constructor.
+        explicit SegmentedVector(self_type&& other) noexcept : m_blocks(std::move(other.m_blocks)), m_size(other.m_size)
         {
                 other.m_size = 0;
         }
 
-        /// Copy assignment
+        /// Copy assignment.
         SegmentedVector& operator=(const self_type& other)
         {
                 if (this != &other) {
                         clear();
-                        m_blocks.reserve(other.m_blocks.size());
                         for (const auto& elem : other) {
                                 push_back(elem);
                         }
@@ -98,7 +113,7 @@ public:
                 return *this;
         }
 
-        /// Move assignment
+        /// Move assignment.
         SegmentedVector& operator=(self_type&& other) noexcept
         {
                 if (this != &other) {
@@ -122,9 +137,7 @@ public:
                 if (pos >= m_size) {
                         throw std::out_of_range("CompactStorage: index out of range.");
                 }
-                const size_t b = pos / N;
-                const size_t i = pos % N;
-                return *static_cast<T*>(static_cast<void*>(&(m_blocks[b][i])));
+                return *static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
         }
 
         /// Access specified element with bounds checking.
@@ -133,9 +146,7 @@ public:
                 if (pos >= m_size) {
                         throw std::out_of_range("CompactStorage: index out of range.");
                 }
-                const size_t b = pos / N;
-                const size_t i = pos % N;
-                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[b][i])));
+                return *static_cast<const T*>(static_cast<const void*>(&(m_blocks[pos / N][pos % N])));
         }
 
         /// Access the last element.
@@ -170,17 +181,20 @@ public:
         const_iterator cbegin() const { return (m_size == 0) ? end() : const_iterator(0, this); }
 
         /// Returns an iterator to the end of the container.
-        iterator end() { return iterator(iterator::m_end, this); }
+        iterator end() { return iterator(size(), this); }
 
         /// Returns a const_iterator to the end of the container.
-        const_iterator end() const { return const_iterator(const_iterator::m_end, this); }
+        const_iterator end() const { return const_iterator(size(), this); }
 
         /// Returns a const_iterator to the end.
-        const_iterator cend() const { return const_iterator(const_iterator::m_end, this); }
+        const_iterator cend() const { return const_iterator(size(), this); }
 
         // ==================================================================
         // Capacity
         // ==================================================================
+
+        /// Returns number of elements that can be stored without allocating additional blocks.
+        std::size_t capacity() const { return N * m_blocks.size(); }
 
         /// Checks whether container is empty.
         bool empty() const { return m_size == 0; }
@@ -198,17 +212,79 @@ public:
         // Modifiers
         // ==================================================================
 
+        /// Increases the number of elements (but DOES NOT INITIALIZE the additional
+        /// elements) or pops elements (and DOES RUN those element's destructor).
+        /// CAVEAT: if you resize (as you do here) but do not subsequently initialize all
+        /// elements, the SegmentedVector destructor or a call to clear will cause a segmentation
+        /// fault because of the destructor call on unitilialezed elements.
+        void resize(size_type new_size)
+        {
+                if (new_size < size()) {
+                        if (Safe) {
+                                for (size_type i = m_size - 1; new_size - 1 < i; --i) {
+                                        pop_back();
+                                }
+                        } else {
+                                const size_type new_block_count = 1 + (new_size - 1) / N;
+                                while (new_block_count < get_block_count()) {
+                                        delete[] m_blocks[m_blocks.size() - 1];
+                                        m_blocks.pop_back();
+                                }
+                                m_size = new_size;
+                        }
+                } else if (new_size > size()) {
+                        if (Safe) {
+                                for (size_type i = size(); i < new_size; ++i) {
+                                        push_back(std::move(T()));
+                                }
+                        } else {
+                                while (new_size > capacity()) {
+                                        m_blocks.push_back(new Chunk[N]);
+                                }
+                                m_size = new_size;
+                        }
+                }
+                assert((size() == new_size));
+                assert((size() <= capacity()));
+        }
+
+        void resize(size_type new_size, const value_type& value)
+        {
+                if (new_size < size()) {
+                        resize(new_size);
+                } else if (new_size > size()) {
+                        for (size_type i = size(); i < new_size; ++i) {
+                                push_back(value);
+                        }
+                }
+                assert((size() == new_size));
+                assert((size() <= capacity()));
+        }
+
         /// Clears the content.
         void clear()
         {
-                for (auto& i : *this) {
-                        i.~T();
+                if (Safe) {
+                        for (auto& i : *this) {
+                                i.~T();
+                        }
                 }
                 for (auto p : m_blocks) {
                         delete[] p;
                 }
                 m_blocks.clear();
                 m_size = 0;
+                assert(size() == 0);
+                assert(m_blocks.size() == 0);
+        }
+
+        /// Constructs element in-place at position pos.
+        template <class... Args>
+        T* emplace(size_type pos, Args&&... args)
+        {
+                assert(0 <= pos && pos < m_size);
+                T* memory = static_cast<T*>(static_cast<void*>(&(m_blocks[pos / N][pos % N])));
+                return new (memory) T(std::forward<Args>(args)...); // construct new object
         }
 
         /// Constructs element in-place at the end.
@@ -258,8 +334,8 @@ private:
         using Chunk = typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type;
 
 private:
-        friend class SVIterator<T, N>;
-        friend class SVIterator<T, N, T*, T&, false>;
+        friend class SVIterator<T, N, Safe>;
+        friend class SVIterator<T, N, Safe, T*, T&, false>;
 
 private:
         /// Get next available chunk for element construction with placement new.

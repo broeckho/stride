@@ -113,6 +113,9 @@ public:
         }
 };
 
+/**
+ * Specialisation of IdSubscriptArray foor booleans.
+ */
 template <>
 class IdSubscriptArray<bool> : public std::bitset<NumOfTypes()>
 {

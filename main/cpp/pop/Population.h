@@ -26,6 +26,7 @@
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
+#include <mutex>
 #include <spdlog/spdlog.h>
 
 namespace stride {
@@ -61,23 +62,42 @@ private:
         ///
         Population() = default;
 
-        /// New Person in the population.
+        /// Create Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                          Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+                          unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId);
 
-        ///
+        /// Initialize beliefs container (including this in SetBeliefPolicy function slows you down
+        /// due to guarding aginst data races in parallel use of SetBeliefPolicy. The DoubleChecked
+        /// locking did not work in OpenMP parallel for's on Mac OSX.
         template <typename BeliefPolicy>
-        void NewPerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,
-                       unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId,
-                       Health health, const boost::property_tree::ptree& beliefPt, double riskAverseness = 0);
+        void InitBeliefPolicy()
+        {
+                if (!m_beliefs) {
+                        m_beliefs.emplace<util::SegmentedVector<BeliefPolicy>>(this->size());
+                } else {
+                        throw std::runtime_error("_func_ : Error, already initialized!");
+                }
+        }
+
+        /// Assign the belief policy.
+        /// \tparam BeliefPolicy Template type param (we could use plain overloading here, i guess)
+        /// \param belief        belief object that wille be associated with the person
+        /// \param i             subscript to person associated with this belief object
+        // Cannot follow my preference for declaration of required explicit specializations, because SWIG
+        // does not like that. Hence include of the template method definition in the header file.
+        template <typename BeliefPolicy>
+        void SetBeliefPolicy(std::size_t i, const BeliefPolicy& belief = BeliefPolicy())
+        {
+                (*this)[i].SetBelief(m_beliefs.cast<util::SegmentedVector<BeliefPolicy>>()->emplace(i, belief));
+        }
 
         friend class PopBuilder;
+        friend class BeliefSeeder;
 
 private:
-        util::Any                       beliefs_container; ///< Holds belief data for the persons.
-        ContactPoolSys                  m_pool_sys;        ///< Holds vector of ContactPools of different types.
-        std::shared_ptr<spdlog::logger> m_contact_logger;  ///< Logger for contact/transmission.
+        util::Any                       m_beliefs;        ///< Container holds belief data for the persons.
+        ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
+        std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
 };
 
 } // namespace stride

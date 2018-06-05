@@ -1,7 +1,7 @@
 #############################################################################
 #  This is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by 
-#  the Free Software Foundation, either version 3 of the License, or any 
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or any
 #  later version.
 #  The software is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -35,7 +35,7 @@ INSTALL (FILES
 #============================================================================
 add_test(NAME forker_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testForker.py"
+	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testForker.py > /dev/null"
 	)
 add_test(NAME infected_py
 	WORKING_DIRECTORY ${TESTS_DIR}
@@ -43,7 +43,7 @@ add_test(NAME infected_py
 	)
 add_test(NAME print_py
     WORKING_DIRECTORY ${TESTS_DIR}
-    COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testPrint.py
+    COMMAND sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testPrint.py > /dev/null"
     )
 add_test(NAME smoke_py
 	WORKING_DIRECTORY ${TESTS_DIR}
