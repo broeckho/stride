@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BenchmarkRunner.h File Reference</title>
+<title>Stride Reference Manual: Benchmark.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -106,59 +106,48 @@ $(document).ready(function(){initNavTree('d1/d44/a00098.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">BenchmarkRunner.h File Reference</div>  </div>
+<div class="title">Benchmark.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for Benchmarker.  
+<p>Header file for Benchmark.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d7d/a00161_source.html">InfoFactory.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/df1/a00174_source.html">Payload.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/df3/a00219_source.html">TestDescriptors.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/d0b/a00220_source.html">TestFactory.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/d52/a00221_source.html">TestResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/d31/a00208_source.html">util/Subject.h</a>&quot;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d61/a00100_source.html">BenchmarkRunner.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">InfoFactory.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d5/ddf/a00224_source.html">TestFactory.h</a>&quot;</code><br/>
+<code>#include &lt;utility&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for BenchmarkRunner.h:</div>
+Include dependency graph for Benchmark.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/dc9/a00282.gif" border="0" usemap="#BenchmarkRunner_8h" alt=""/></div>
-<map name="BenchmarkRunner_8h" id="BenchmarkRunner_8h">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="Header file for InfoFactory. " alt="" coords="751,229,849,256"/><area shape="rect" id="node5" href="../../d8/df1/a00174.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="260,312,339,339"/><area shape="rect" id="node9" href="../../dd/d52/a00221.html" title="Header file for TestResult. " alt="" coords="391,395,488,421"/><area shape="rect" id="node15" href="../../dd/df3/a00219.html" title="Header file for TestDescriptors container. " alt="" coords="497,80,623,107"/><area shape="rect" id="node17" href="../../d5/d0b/a00220.html" title="Header file for TestFactory. " alt="" coords="874,229,976,256"/><area shape="rect" id="node27" href="../../dc/d31/a00208.html" title="Interface/Implementation of Subject. " alt="" coords="869,80,968,107"/><area shape="rect" id="node6" href="../../d9/db6/a00146.html" title="Definition of myhayai::event::Id. " alt="" coords="257,395,315,421"/><area shape="rect" id="node16" href="../../df/d24/a00217.html" title="Header file for TestDescriptor. " alt="" coords="554,155,672,181"/><area shape="rect" id="node18" href="../../d6/d43/a00216.html" title="Header file for Test. " alt="" coords="860,312,917,339"/><area shape="rect" id="node19" href="../../d1/d72/a00204.html" title="Definition of Stopwatch. " alt="" coords="819,395,935,421"/><area shape="rect" id="node20" href="../../d5/ddf/a00224.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="869,469,979,496"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/dfe/a00283.gif" border="0" usemap="#BenchmarkRunner_8hdep" alt=""/></div>
-<map name="BenchmarkRunner_8hdep" id="BenchmarkRunner_8hdep">
-<area shape="rect" id="node2" href="../../d9/df8/a00096.html" title="Header file for Benchmark. " alt="" coords="5,80,104,107"/><area shape="rect" id="node3" href="../../d1/d84/a00097.html" title="Implementation file for Benchmarker. " alt="" coords="128,80,281,107"/><area shape="rect" id="node4" href="../../d4/d81/a00110.html" title="Header file for ConsoleViewer. " alt="" coords="307,80,428,107"/><area shape="rect" id="node6" href="../../dc/de6/a00167.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="471,155,623,181"/><area shape="rect" id="node7" href="../../dd/da7/a00168.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="504,80,643,107"/><area shape="rect" id="node8" href="../../d6/daa/a00187.html" title="Header file for PtreeViewer. " alt="" coords="667,80,771,107"/><area shape="rect" id="node5" href="../../dd/d42/a00109.html" title="Implementation file for ConsoleViewer. " alt="" coords="301,155,435,181"/><area shape="rect" id="node9" href="../../d8/d00/a00186.html" title="Implementation file for PtreeViewer. " alt="" coords="659,155,777,181"/></map>
+<div class="center"><img src="../../d3/d58/a00285.gif" border="0" usemap="#Benchmark_8h" alt=""/></div>
+<map name="Benchmark_8h" id="Benchmark_8h">
+<area shape="rect" id="node2" href="../../d0/d61/a00100.html" title="Header file for Benchmarker. " alt="" coords="515,80,655,107"/><area shape="rect" id="node3" href="../../dd/dae/a00163.html" title="Header file for InfoFactory. " alt="" coords="184,304,283,331"/><area shape="rect" id="node18" href="../../d5/ddf/a00224.html" title="Header file for TestFactory. " alt="" coords="665,304,767,331"/><area shape="rect" id="node6" href="../../d5/de9/a00176.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="43,387,121,413"/><area shape="rect" id="node10" href="../../dc/d98/a00225.html" title="Header file for TestResult. " alt="" coords="811,469,908,496"/><area shape="rect" id="node16" href="../../dc/d28/a00223.html" title="Header file for TestDescriptors container. " alt="" coords="370,155,496,181"/><area shape="rect" id="node28" href="../../dd/dc1/a00212.html" title="Interface/Implementation of Subject. " alt="" coords="536,155,635,181"/><area shape="rect" id="node7" href="../../db/d48/a00148.html" title="Definition of myhayai::event::Id. " alt="" coords="149,469,207,496"/><area shape="rect" id="node17" href="../../dd/d52/a00221.html" title="Header file for TestDescriptor. " alt="" coords="358,229,476,256"/><area shape="rect" id="node19" href="../../d5/d0b/a00220.html" title="Header file for Test. " alt="" coords="687,387,744,413"/><area shape="rect" id="node20" href="../../dc/d31/a00208.html" title="Definition of Stopwatch. " alt="" coords="614,469,729,496"/><area shape="rect" id="node21" href="../../de/dc2/a00228.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="510,544,620,571"/></map>
 </div>
 </div>
 <p><a href="../../d1/d44/a00098_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d0b/a00004.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...">BenchmarkRunner</a> registers all tests (hence the singleton construction) and runs the tests specified by their canonical names (&lt;test_group_name&gt;.  <a href="../../d0/d0b/a00004.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html">myhayai::Benchmark</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class allows you to register test via instantiation.  <a href="../../d1/d7c/a00003.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/d27/a00239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/a00239.html">myhayai</a></td></tr>
+<tr class="memitem:d6/d82/a00243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d82/a00243.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for Benchmarker. </p>
+<div class="textblock"><p>Header file for Benchmark. </p>
 
-<p>Definition in file <a class="el" href="../../d1/d44/a00098_source.html">BenchmarkRunner.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/d44/a00098_source.html">Benchmark.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">BenchmarkRunner.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">Benchmark.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

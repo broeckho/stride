@@ -21,7 +21,7 @@ var hierarchy =
       [ "stride::ContactPoolType::IdSubscriptArray< bool >", "db/db2/a00020.html", null ]
     ] ],
     [ "iterator", null, [
-      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d6/d2c/a00072.html", null ]
+      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "db/db6/a00074.html", null ]
     ] ],
     [ "std::map< K, T >", null, [
       [ "myhayai::TestDescriptors", "da/d45/a00011.html", null ],
@@ -85,30 +85,32 @@ var hierarchy =
     [ "stride::util::LogUtils", "de/de1/a00065.html", null ],
     [ "stride::util::RNManager", "d9/db3/a00066.html", null ],
     [ "stride::util::RNManager::Info", "dc/ddf/a00067.html", null ],
-    [ "stride::util::RunConfigManager", "da/d24/a00068.html", null ],
+    [ "stride::util::RnPcg", "da/d24/a00068.html", null ],
+    [ "stride::util::RnPcg::Info", "d4/d31/a00069.html", null ],
+    [ "stride::util::RunConfigManager", "d2/db1/a00070.html", null ],
     [ "stride::util::SegmentedVector< T, N, Safe >", "df/d86/a00012.html", null ],
-    [ "stride::util::SliceIndexer< T, Key >", "d4/d31/a00069.html", null ],
-    [ "stride::util::Stopwatch< T >", "d2/db1/a00070.html", null ],
-    [ "stride::util::Subject< E >", "d0/d89/a00071.html", null ],
-    [ "stride::util::TimeStamp", "d1/d6e/a00073.html", null ],
-    [ "stride::util::TimeToString", "db/db6/a00074.html", null ],
-    [ "stride::Vaccination< belief_policy >", "d9/da5/a00075.html", null ],
-    [ "stride::viewers::AdoptedFileViewer", "db/df8/a00076.html", null ],
-    [ "stride::viewers::CliViewer", "d1/d09/a00077.html", null ],
-    [ "stride::viewers::InfectedFileViewer", "d9/da4/a00078.html", null ],
-    [ "stride::viewers::InfectedViewer", "d1/d51/a00079.html", null ],
-    [ "stride::viewers::PersonsFileViewer", "da/dec/a00080.html", null ],
-    [ "stride::viewers::SummaryFileViewer", "d8/d53/a00081.html", null ],
-    [ "stride::util::Subject< event::Payload >", "d0/d89/a00071.html", [
+    [ "stride::util::SliceIndexer< T, Key >", "d0/d89/a00071.html", null ],
+    [ "stride::util::Stopwatch< T >", "d6/d2c/a00072.html", null ],
+    [ "stride::util::Subject< E >", "d1/d6e/a00073.html", null ],
+    [ "stride::util::TimeStamp", "d9/da5/a00075.html", null ],
+    [ "stride::util::TimeToString", "db/df8/a00076.html", null ],
+    [ "stride::Vaccination< belief_policy >", "d1/d09/a00077.html", null ],
+    [ "stride::viewers::AdoptedFileViewer", "d9/da4/a00078.html", null ],
+    [ "stride::viewers::CliViewer", "d1/d51/a00079.html", null ],
+    [ "stride::viewers::InfectedFileViewer", "da/dec/a00080.html", null ],
+    [ "stride::viewers::InfectedViewer", "d8/d53/a00081.html", null ],
+    [ "stride::viewers::PersonsFileViewer", "d4/d63/a00082.html", null ],
+    [ "stride::viewers::SummaryFileViewer", "d2/d1f/a00083.html", null ],
+    [ "stride::util::Subject< event::Payload >", "d1/d6e/a00073.html", [
       [ "myhayai::BenchmarkRunner", "d0/d0b/a00004.html", null ]
     ] ],
-    [ "stride::util::Subject< stride::sim_event::Id >", "d0/d89/a00071.html", [
+    [ "stride::util::Subject< stride::sim_event::Id >", "d1/d6e/a00073.html", [
       [ "stride::SimRunner", "d5/de0/a00050.html", null ]
     ] ],
-    [ "CallbackType", "d9/d34/a00476.html", null ],
-    [ "Chunk *", "d9/dea/a00478.html", null ],
-    [ "const void", "d9/dc5/a00480.html", null ],
-    [ "double", "d9/d39/a00257.html", null ],
-    [ "size_t", "de/d55/a00323.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "d8/d89/a00484.html", null ]
+    [ "CallbackType", "d8/d89/a00484.html", null ],
+    [ "Chunk *", "db/df1/a00486.html", null ],
+    [ "const void", "d4/ddf/a00488.html", null ],
+    [ "double", "d9/d8d/a00262.html", null ],
+    [ "size_t", "d4/db5/a00328.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "da/d7e/a00492.html", null ]
 ];

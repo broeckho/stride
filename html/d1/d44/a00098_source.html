@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BenchmarkRunner.h Source File</title>
+<title>Stride Reference Manual: Benchmark.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d1/d44/a00098_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BenchmarkRunner.h</div>  </div>
+<div class="title">Benchmark.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/d44/a00098.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,73 +121,61 @@ $(document).ready(function(){initNavTree('d1/d44/a00098_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d7d/a00161.html">InfoFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/a00174.html">Payload.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/df3/a00219.html">TestDescriptors.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d0b/a00220.html">TestFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">TestResult.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d61/a00100.html">BenchmarkRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dae/a00163.html">InfoFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddf/a00224.html">TestFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d31/a00208.html">util/Subject.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d89/a00071.html">stride::util::Subject</a>&lt;event::Payload&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d0/d0b/a00004.html#a60af75b11cab5ebfb06eab8c79efc6c6">BenchmarkRunner</a>(<span class="keyword">const</span> <a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>&amp; <a class="code" href="../../d0/d0b/a00004.html#a2a4e6858acf2f619620df1c051bdc26a">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>&amp; <a class="code" href="../../d0/d0b/a00004.html#a0540c5f748e83674854f76e6090768fd">Instance</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a>&amp; <a class="code" href="../../d0/d0b/a00004.html#aae222bfc0fbe506cf156dabba6f355bb">GetTestDescriptors</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">static</span> <a class="code" href="../../d0/d0b/a00004.html#aaa4a2b4e7f2312c9543c9b93f8649403">RegisterTest</a>(<span class="keyword">const</span> std::string&amp; groupName, <span class="keyword">const</span> std::string&amp; testName, std::size_t runs,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                 <a class="code" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, <a class="code" href="../../d0/d27/a00239.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> infoFactory = <a class="code" href="../../d0/d27/a00239.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a>(),</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                 <span class="keywordtype">bool</span> disableTest = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d0/d0b/a00004.html#a65fb971cdc8ff02a2c5a67f74c1c506c">RunTests</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; canonicalNames);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="../../d0/d0b/a00004.html#a60af75b11cab5ebfb06eab8c79efc6c6">BenchmarkRunner</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="../../d0/d0b/a00004.html#a938f799517ff1c35ed42ec4117cdf25c">~BenchmarkRunner</a>() <span class="keyword">final</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#aca55dd897bcf38452089cb6474f7776b">   79</a></span>&#160;        <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a> <a class="code" href="../../d0/d0b/a00004.html#aca55dd897bcf38452089cb6474f7776b">m_test_descriptors</a>; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00239_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00028">TestFactory.h:28</a></div></div>
-<div class="ttc" id="a00004_html_aca55dd897bcf38452089cb6474f7776b"><div class="ttname"><a href="../../d0/d0b/a00004.html#aca55dd897bcf38452089cb6474f7776b">myhayai::BenchmarkRunner::m_test_descriptors</a></div><div class="ttdeci">TestDescriptors m_test_descriptors</div><div class="ttdoc">Descriptors for registered tests. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00079">BenchmarkRunner.h:79</a></div></div>
-<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
-<div class="ttc" id="a00004_html_a65fb971cdc8ff02a2c5a67f74c1c506c"><div class="ttname"><a href="../../d0/d0b/a00004.html#a65fb971cdc8ff02a2c5a67f74c1c506c">myhayai::BenchmarkRunner::RunTests</a></div><div class="ttdeci">void RunTests(const std::vector&lt; std::string &gt; &amp;canonicalNames)</div><div class="ttdoc">Run tests specified by their canonical names. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d84/a00097_source.html#l00050">BenchmarkRunner.cpp:50</a></div></div>
-<div class="ttc" id="a00004_html_aaa4a2b4e7f2312c9543c9b93f8649403"><div class="ttname"><a href="../../d0/d0b/a00004.html#aaa4a2b4e7f2312c9543c9b93f8649403">myhayai::BenchmarkRunner::RegisterTest</a></div><div class="ttdeci">static bool RegisterTest(const std::string &amp;groupName, const std::string &amp;testName, std::size_t runs, TestFactory testFactory, InfoFactory infoFactory=InfoFactory(), bool disableTest=false)</div><div class="ttdoc">Register a test with the benchmarker instance. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d84/a00097_source.html#l00042">BenchmarkRunner.cpp:42</a></div></div>
-<div class="ttc" id="a00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">InfoFactory.h</a></div><div class="ttdoc">Header file for InfoFactory. </div></div>
-<div class="ttc" id="a00004_html_a60af75b11cab5ebfb06eab8c79efc6c6"><div class="ttname"><a href="../../d0/d0b/a00004.html#a60af75b11cab5ebfb06eab8c79efc6c6">myhayai::BenchmarkRunner::BenchmarkRunner</a></div><div class="ttdeci">BenchmarkRunner()=default</div><div class="ttdoc">Private constructor. </div></div>
-<div class="ttc" id="a00239_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d0/d27/a00239.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d7d/a00161_source.html#l00027">InfoFactory.h:27</a></div></div>
-<div class="ttc" id="a00004_html_a2a4e6858acf2f619620df1c051bdc26a"><div class="ttname"><a href="../../d0/d0b/a00004.html#a2a4e6858acf2f619620df1c051bdc26a">myhayai::BenchmarkRunner::operator=</a></div><div class="ttdeci">BenchmarkRunner &amp; operator=(const BenchmarkRunner &amp;)=delete</div><div class="ttdoc">Simple singleton: no copy assignment allowed. </div></div>
-<div class="ttc" id="a00220_html"><div class="ttname"><a href="../../d5/d0b/a00220.html">TestFactory.h</a></div><div class="ttdoc">Header file for TestFactory. </div></div>
-<div class="ttc" id="a00004_html_a0540c5f748e83674854f76e6090768fd"><div class="ttname"><a href="../../d0/d0b/a00004.html#a0540c5f748e83674854f76e6090768fd">myhayai::BenchmarkRunner::Instance</a></div><div class="ttdeci">static BenchmarkRunner &amp; Instance()</div><div class="ttdoc">Get the singleton instance of Benchmarker. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d84/a00097_source.html#l00036">BenchmarkRunner.cpp:36</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00031">TestDescriptors.h:31</a></div></div>
-<div class="ttc" id="a00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">Payload.h</a></div><div class="ttdoc">Payload for Subject/Observer for myhayaia::events. </div></div>
-<div class="ttc" id="a00208_html"><div class="ttname"><a href="../../dc/d31/a00208.html">Subject.h</a></div><div class="ttdoc">Interface/Implementation of Subject. </div></div>
-<div class="ttc" id="a00004_html_aae222bfc0fbe506cf156dabba6f355bb"><div class="ttname"><a href="../../d0/d0b/a00004.html#aae222bfc0fbe506cf156dabba6f355bb">myhayai::BenchmarkRunner::GetTestDescriptors</a></div><div class="ttdeci">const TestDescriptors &amp; GetTestDescriptors() const </div><div class="ttdoc">Get the tests to be executed. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d84/a00097_source.html#l00034">BenchmarkRunner.cpp:34</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></div><div class="ttdoc">BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00038">BenchmarkRunner.h:38</a></div></div>
-<div class="ttc" id="a00004_html_a938f799517ff1c35ed42ec4117cdf25c"><div class="ttname"><a href="../../d0/d0b/a00004.html#a938f799517ff1c35ed42ec4117cdf25c">myhayai::BenchmarkRunner::~BenchmarkRunner</a></div><div class="ttdeci">~BenchmarkRunner() final=default</div><div class="ttdoc">Private destructor. </div></div>
-<div class="ttc" id="a00219_html"><div class="ttname"><a href="../../dd/df3/a00219.html">TestDescriptors.h</a></div><div class="ttdoc">Header file for TestDescriptors container. </div></div>
-<div class="ttc" id="a00071_html"><div class="ttname"><a href="../../d0/d89/a00071.html">stride::util::Subject</a></div><div class="ttdoc">Template for Subject/Observer (or Publish/Subscribe). </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00035">util/Subject.h:35</a></div></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d7c/a00003.html">Benchmark</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#ab7a707f913d835b3b11f6149d6c3df04">   37</a></span>&#160;        <a class="code" href="../../d1/d7c/a00003.html#ab7a707f913d835b3b11f6149d6c3df04">Benchmark</a>(<span class="keyword">const</span> std::string&amp; groupName, <span class="keyword">const</span> std::string&amp; testName, std::size_t numRuns,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                  <a class="code" href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            : <a class="code" href="../../d1/d7c/a00003.html">Benchmark</a>(groupName, testName, numRuns, std::move(testFactory), <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a>(), false)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#aa735313fa26ebd81d6a1529aa82ab488">   44</a></span>&#160;        <a class="code" href="../../d1/d7c/a00003.html#aa735313fa26ebd81d6a1529aa82ab488">Benchmark</a>(<span class="keyword">const</span> std::string&amp; groupName, <span class="keyword">const</span> std::string&amp; testName, std::size_t numRuns,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                  <a class="code" href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, <span class="keywordtype">bool</span> disableTest)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            : <a class="code" href="../../d1/d7c/a00003.html">Benchmark</a>(groupName, testName, numRuns, std::move(testFactory), <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a>(), disableTest)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a9ad5a8f5757ea433bda9eb215b226422">   51</a></span>&#160;        <a class="code" href="../../d1/d7c/a00003.html#a9ad5a8f5757ea433bda9eb215b226422">Benchmark</a>(<span class="keyword">const</span> std::string&amp; groupName, <span class="keyword">const</span> std::string&amp; testName, std::size_t numRuns,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  <a class="code" href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> infoFactory, <span class="keywordtype">bool</span> disableTest = <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <a class="code" href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">m_status</a> = <a class="code" href="../../d0/d0b/a00004.html#aaa4a2b4e7f2312c9543c9b93f8649403">BenchmarkRunner::RegisterTest</a>(groupName, testName, numRuns, std::move(testFactory),</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                                         std::move(infoFactory), disableTest);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a5f4f6dd9578a759c1b9789ac5a3abcd5">   59</a></span>&#160;        <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">m_status</a>; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">   62</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">m_status</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00224_html"><div class="ttname"><a href="../../d5/ddf/a00224.html">TestFactory.h</a></div><div class="ttdoc">Header file for TestFactory. </div></div>
+<div class="ttc" id="a00003_html_ab7a707f913d835b3b11f6149d6c3df04"><div class="ttname"><a href="../../d1/d7c/a00003.html#ab7a707f913d835b3b11f6149d6c3df04">myhayai::Benchmark::Benchmark</a></div><div class="ttdeci">Benchmark(const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, TestFactory testFactory)</div><div class="ttdoc">Delegating constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00037">Benchmark.h:37</a></div></div>
+<div class="ttc" id="a00003_html"><div class="ttname"><a href="../../d1/d7c/a00003.html">myhayai::Benchmark</a></div><div class="ttdoc">This class allows you to register test via instantiation. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00033">Benchmark.h:33</a></div></div>
+<div class="ttc" id="a00003_html_a41bde1d5c9abcac9f401919c0a9d0d12"><div class="ttname"><a href="../../d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12">myhayai::Benchmark::m_status</a></div><div class="ttdeci">bool m_status</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00062">Benchmark.h:62</a></div></div>
+<div class="ttc" id="a00243_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00028">TestFactory.h:28</a></div></div>
+<div class="ttc" id="a00243_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00027">InfoFactory.h:27</a></div></div>
+<div class="ttc" id="a00004_html_aaa4a2b4e7f2312c9543c9b93f8649403"><div class="ttname"><a href="../../d0/d0b/a00004.html#aaa4a2b4e7f2312c9543c9b93f8649403">myhayai::BenchmarkRunner::RegisterTest</a></div><div class="ttdeci">static bool RegisterTest(const std::string &amp;groupName, const std::string &amp;testName, std::size_t runs, TestFactory testFactory, InfoFactory infoFactory=InfoFactory(), bool disableTest=false)</div><div class="ttdoc">Register a test with the benchmarker instance. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d74/a00099_source.html#l00042">BenchmarkRunner.cpp:42</a></div></div>
+<div class="ttc" id="a00163_html"><div class="ttname"><a href="../../dd/dae/a00163.html">InfoFactory.h</a></div><div class="ttdoc">Header file for InfoFactory. </div></div>
+<div class="ttc" id="a00100_html"><div class="ttname"><a href="../../d0/d61/a00100.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
+<div class="ttc" id="a00003_html_a9ad5a8f5757ea433bda9eb215b226422"><div class="ttname"><a href="../../d1/d7c/a00003.html#a9ad5a8f5757ea433bda9eb215b226422">myhayai::Benchmark::Benchmark</a></div><div class="ttdeci">Benchmark(const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, TestFactory testFactory, InfoFactory infoFactory, bool disableTest=false)</div><div class="ttdoc">Constructor that registers test. For parameters. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00051">Benchmark.h:51</a></div></div>
+<div class="ttc" id="a00003_html_aa735313fa26ebd81d6a1529aa82ab488"><div class="ttname"><a href="../../d1/d7c/a00003.html#aa735313fa26ebd81d6a1529aa82ab488">myhayai::Benchmark::Benchmark</a></div><div class="ttdeci">Benchmark(const std::string &amp;groupName, const std::string &amp;testName, std::size_t numRuns, TestFactory testFactory, bool disableTest)</div><div class="ttdoc">Delegating Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00044">Benchmark.h:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">BenchmarkRunner.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">Benchmark.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:14 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

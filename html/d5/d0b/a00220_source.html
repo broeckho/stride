@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TestFactory.h Source File</title>
+<title>Stride Reference Manual: Test.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TestFactory.h</div>  </div>
+<div class="title">Test.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d5/d0b/a00220.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,24 +121,63 @@ $(document).ready(function(){initNavTree('d5/d0b/a00220_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d43/a00216.html">Test.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">   28</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> = std::function&lt;Test()&gt;;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00239_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d0/d27/a00239.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00028">TestFactory.h:28</a></div></div>
-<div class="ttc" id="a00216_html"><div class="ttname"><a href="../../d6/d43/a00216.html">Test.h</a></div><div class="ttdoc">Header file for Test. </div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d98/a00225.html">TestResult.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d31/a00208.html">util/Stopwatch.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../da/da0/a00009.html">Test</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html#a41281dd5e867ec86414390fd3ab39d8b">   34</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../da/da0/a00009.html#a41281dd5e867ec86414390fd3ab39d8b">Test</a>(std::function&lt;<span class="keywordtype">void</span>()&gt; body     = std::function&lt;<span class="keywordtype">void</span>()&gt;(),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                      std::function&lt;<span class="keywordtype">void</span>()&gt; setup    = std::function&lt;<span class="keywordtype">void</span>()&gt;(),</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                      std::function&lt;<span class="keywordtype">void</span>()&gt; teardown = std::function&lt;<span class="keywordtype">void</span>()&gt;())</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            : <a class="code" href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">m_body</a>(std::move(body)), <a class="code" href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">m_setup</a>(std::move(setup)), <a class="code" href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">m_teardown</a>(std::move(teardown))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::chrono::steady_clock&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html#a5d7972d7a7af3154b465033e40fd1877">   42</a></span>&#160;        <span class="keyword">typename</span> T::duration <a class="code" href="../../da/da0/a00009.html#a5d7972d7a7af3154b465033e40fd1877">Run</a>()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">m_setup</a>) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        <a class="code" href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">m_setup</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> start = T::now();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">m_body</a>) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <a class="code" href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">m_body</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> stop = T::now();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">m_teardown</a>) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        <a class="code" href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">m_teardown</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> stop - start;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">   58</a></span>&#160;        std::function&lt;void()&gt; <a class="code" href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">m_body</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">   59</a></span>&#160;        std::function&lt;void()&gt; <a class="code" href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">m_setup</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">   60</a></span>&#160;        std::function&lt;void()&gt; <a class="code" href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">m_teardown</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00009_html_a41281dd5e867ec86414390fd3ab39d8b"><div class="ttname"><a href="../../da/da0/a00009.html#a41281dd5e867ec86414390fd3ab39d8b">myhayai::Test::Test</a></div><div class="ttdeci">Test(std::function&lt; void()&gt; body=std::function&lt; void()&gt;(), std::function&lt; void()&gt; setup=std::function&lt; void()&gt;(), std::function&lt; void()&gt; teardown=std::function&lt; void()&gt;())</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00034">Test.h:34</a></div></div>
+<div class="ttc" id="a00009_html_aa211e6f82e3e8a32017042e0a085c597"><div class="ttname"><a href="../../da/da0/a00009.html#aa211e6f82e3e8a32017042e0a085c597">myhayai::Test::m_teardown</a></div><div class="ttdeci">std::function&lt; void()&gt; m_teardown</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00060">Test.h:60</a></div></div>
+<div class="ttc" id="a00009_html_a5d7972d7a7af3154b465033e40fd1877"><div class="ttname"><a href="../../da/da0/a00009.html#a5d7972d7a7af3154b465033e40fd1877">myhayai::Test::Run</a></div><div class="ttdeci">T::duration Run()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00042">Test.h:42</a></div></div>
+<div class="ttc" id="a00009_html_ae756a89b70b7fef74e4f29e79db30edb"><div class="ttname"><a href="../../da/da0/a00009.html#ae756a89b70b7fef74e4f29e79db30edb">myhayai::Test::m_body</a></div><div class="ttdeci">std::function&lt; void()&gt; m_body</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00058">Test.h:58</a></div></div>
+<div class="ttc" id="a00009_html"><div class="ttname"><a href="../../da/da0/a00009.html">myhayai::Test</a></div><div class="ttdoc">Test. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00032">Test.h:32</a></div></div>
+<div class="ttc" id="a00225_html"><div class="ttname"><a href="../../dc/d98/a00225.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
+<div class="ttc" id="a00208_html"><div class="ttname"><a href="../../dc/d31/a00208.html">Stopwatch.h</a></div><div class="ttdoc">Definition of Stopwatch. </div></div>
+<div class="ttc" id="a00009_html_a62e47d46bbc27e42a54f61c23ebe3737"><div class="ttname"><a href="../../da/da0/a00009.html#a62e47d46bbc27e42a54f61c23ebe3737">myhayai::Test::m_setup</a></div><div class="ttdeci">std::function&lt; void()&gt; m_setup</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00059">Test.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">TestFactory.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">Test.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

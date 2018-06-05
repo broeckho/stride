@@ -2,7 +2,7 @@ var searchData=
 [
   ['calendar',['Calendar',['../d7/d7a/a00016.html',1,'stride']]],
   ['clicontroller',['CliController',['../d4/d51/a00017.html',1,'stride']]],
-  ['cliviewer',['CliViewer',['../d1/d09/a00077.html',1,'stride::viewers']]],
+  ['cliviewer',['CliViewer',['../d1/d51/a00079.html',1,'stride::viewers']]],
   ['configinfo',['ConfigInfo',['../d1/d22/a00057.html',1,'stride::util']]],
   ['consoleviewer',['ConsoleViewer',['../dd/dad/a00005.html',1,'myhayai']]],
   ['contacthandler',['ContactHandler',['../d1/d2b/a00018.html',1,'stride']]],

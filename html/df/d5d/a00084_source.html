@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: AdoptedFileViewer.cpp Source File</title>
+<title>Stride Reference Manual: AdoptedFile.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('df/d5d/a00084_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AdoptedFileViewer.cpp</div>  </div>
+<div class="title">AdoptedFile.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/d5d/a00084.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,56 +118,53 @@ $(document).ready(function(){initNavTree('df/d5d/a00084_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">AdoptedFileViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d94/a00184.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/db1/a00200.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d13/a00085.html">AdoptedFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d5b/a00135.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html">   20</a></span>&#160;<span class="keyword">namespace </span>output {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#aa24c13053bcf131ad878b465a4125828">   25</a></span>&#160;<a class="code" href="../../dd/d32/a00041.html#aa24c13053bcf131ad878b465a4125828">AdoptedFile::AdoptedFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix) : m_fstream() { <a class="code" href="../../dd/d32/a00041.html#aefdeb0e49b52e1fb5844bb311a6319cb">Initialize</a>(output_prefix); }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html">   31</a></span>&#160;<span class="keyword">namespace </span>viewers {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../db/df8/a00076.html#a4c4df8f5c1de7318b196c9f6d1ee2f51">   33</a></span>&#160;<span class="keywordtype">void</span> AdoptedFileViewer::Update(<span class="keyword">const</span> <a class="code" href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">switch</span> (<span class="keywordtype">id</span>) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">case</span> Id::AtStart: {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> pop = m_runner-&gt;GetSim()-&gt;GetPopulation();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                m_adopted.push_back(pop-&gt;GetAdoptedCount());</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> Id::Stepped: {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> pop = m_runner-&gt;GetSim()-&gt;GetPopulation();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                m_adopted.push_back(pop-&gt;GetAdoptedCount());</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">case</span> Id::Finished: {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                m_adopted_file.Print(m_adopted);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace viewers</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00184_html"><div class="ttname"><a href="../../d2/d94/a00184.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00200_html"><div class="ttname"><a href="../../d3/db1/a00200.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00251_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d3/d1a/a00251.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00029">Id.h:29</a></div></div>
-<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">AdoptedFileViewer.h</a></div><div class="ttdoc">Observer for Adopted output. </div></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#a3ffdabc86a3d9e8300cdbde251ab4763">   27</a></span>&#160;<a class="code" href="../../dd/d32/a00041.html#a3ffdabc86a3d9e8300cdbde251ab4763">AdoptedFile::~AdoptedFile</a>() { <a class="code" href="../../dd/d32/a00041.html#aa82a130d557abb519a61bde42e626103">m_fstream</a>.close(); }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#aa93f976e835a7255e7d479252eca28c9">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#aa93f976e835a7255e7d479252eca28c9">AdoptedFile::Print</a>(<span class="keyword">const</span> vector&lt;unsigned int&gt;&amp; adopters)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; (adopters.size() - 1); i++) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../dd/d32/a00041.html#aa82a130d557abb519a61bde42e626103">m_fstream</a> &lt;&lt; adopters[i] &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="../../dd/d32/a00041.html#aa82a130d557abb519a61bde42e626103">m_fstream</a> &lt;&lt; adopters[adopters.size() - 1] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/d32/a00041.html#aefdeb0e49b52e1fb5844bb311a6319cb">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d32/a00041.html#aefdeb0e49b52e1fb5844bb311a6319cb">AdoptedFile::Initialize</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> p = <a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(output_prefix, <span class="stringliteral">&quot;adopted.csv&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../dd/d32/a00041.html#aa82a130d557abb519a61bde42e626103">m_fstream</a>.open(p.c_str());</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace output</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00041_html_aa82a130d557abb519a61bde42e626103"><div class="ttname"><a href="../../dd/d32/a00041.html#aa82a130d557abb519a61bde42e626103">stride::output::AdoptedFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdoc">The file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d13/a00085_source.html#l00049">AdoptedFile.h:49</a></div></div>
+<div class="ttc" id="a00041_html_aefdeb0e49b52e1fb5844bb311a6319cb"><div class="ttname"><a href="../../dd/d32/a00041.html#aefdeb0e49b52e1fb5844bb311a6319cb">stride::output::AdoptedFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00037">AdoptedFile.cpp:37</a></div></div>
+<div class="ttc" id="a00061_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00051">FileSys.cpp:51</a></div></div>
+<div class="ttc" id="a00135_html"><div class="ttname"><a href="../../d5/d5b/a00135.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00041_html_aa24c13053bcf131ad878b465a4125828"><div class="ttname"><a href="../../dd/d32/a00041.html#aa24c13053bcf131ad878b465a4125828">stride::output::AdoptedFile::AdoptedFile</a></div><div class="ttdeci">AdoptedFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00025">AdoptedFile.cpp:25</a></div></div>
+<div class="ttc" id="a00041_html_aa93f976e835a7255e7d479252eca28c9"><div class="ttname"><a href="../../dd/d32/a00041.html#aa93f976e835a7255e7d479252eca28c9">stride::output::AdoptedFile::Print</a></div><div class="ttdeci">void Print(const std::vector&lt; unsigned int &gt; &amp;adopters)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00029">AdoptedFile.cpp:29</a></div></div>
+<div class="ttc" id="a00041_html_a3ffdabc86a3d9e8300cdbde251ab4763"><div class="ttname"><a href="../../dd/d32/a00041.html#a3ffdabc86a3d9e8300cdbde251ab4763">stride::output::AdoptedFile::~AdoptedFile</a></div><div class="ttdeci">~AdoptedFile()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d5d/a00084_source.html#l00027">AdoptedFile.cpp:27</a></div></div>
+<div class="ttc" id="a00085_html"><div class="ttname"><a href="../../df/d13/a00085.html">AdoptedFile.h</a></div><div class="ttdoc">Header for the AdoptedFile class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">AdoptedFileViewer.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../df/d5d/a00084.html">AdoptedFile.cpp</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:14 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

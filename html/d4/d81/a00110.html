@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConsoleViewer.h File Reference</title>
+<title>Stride Reference Manual: Console.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,60 +103,80 @@ $(document).ready(function(){initNavTree('d4/d81/a00110.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ConsoleViewer.h File Reference</div>  </div>
+<div class="title">Console.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for ConsoleViewer.  
+<p>Header file for Console.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/d44/a00098_source.html">BenchmarkRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/dd6/a00108_source.html">Console.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d8/df1/a00174_source.html">Payload.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/df3/a00219_source.html">TestDescriptors.h</a>&quot;</code><br/>
-<code>#include &lt;chrono&gt;</code><br/>
-<code>#include &lt;ostream&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cstdio&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ConsoleViewer.h:</div>
+Include dependency graph for Console.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d50/a00301.gif" border="0" usemap="#ConsoleViewer_8h" alt=""/></div>
-<map name="ConsoleViewer_8h" id="ConsoleViewer_8h">
-<area shape="rect" id="node2" href="../../d1/d44/a00098.html" title="Header file for Benchmarker. " alt="" coords="483,80,623,107"/><area shape="rect" id="node6" href="../../d8/df1/a00174.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="736,304,815,331"/><area shape="rect" id="node16" href="../../dd/df3/a00219.html" title="Header file for TestDescriptors container. " alt="" coords="129,155,255,181"/><area shape="rect" id="node30" href="../../d1/dd6/a00108.html" title="Header file for Console. " alt="" coords="1146,80,1240,107"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html" title="Header file for InfoFactory. " alt="" coords="400,304,499,331"/><area shape="rect" id="node10" href="../../dd/d52/a00221.html" title="Header file for TestResult. " alt="" coords="890,469,987,496"/><area shape="rect" id="node18" href="../../d5/d0b/a00220.html" title="Header file for TestFactory. " alt="" coords="609,304,711,331"/><area shape="rect" id="node28" href="../../dc/d31/a00208.html" title="Interface/Implementation of Subject. " alt="" coords="504,155,603,181"/><area shape="rect" id="node7" href="../../d9/db6/a00146.html" title="Definition of myhayai::event::Id. " alt="" coords="709,387,767,413"/><area shape="rect" id="node17" href="../../df/d24/a00217.html" title="Header file for TestDescriptor. " alt="" coords="133,229,251,256"/><area shape="rect" id="node19" href="../../d6/d43/a00216.html" title="Header file for Test. " alt="" coords="792,387,849,413"/><area shape="rect" id="node20" href="../../d1/d72/a00204.html" title="Definition of Stopwatch. " alt="" coords="698,469,813,496"/><area shape="rect" id="node21" href="../../d5/ddf/a00224.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="638,544,748,571"/></map>
+<div class="center"><img src="../../dc/d0f/a00303.gif" border="0" usemap="#Console_8h" alt=""/></div>
+<map name="Console_8h" id="Console_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d61/a00302.gif" border="0" usemap="#ConsoleViewer_8hdep" alt=""/></div>
-<map name="ConsoleViewer_8hdep" id="ConsoleViewer_8hdep">
-<area shape="rect" id="node2" href="../../dd/d42/a00109.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,80,139,107"/><area shape="rect" id="node3" href="../../dc/de6/a00167.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="164,80,316,107"/></map>
+<div class="center"><img src="../../d8/d17/a00304.gif" border="0" usemap="#Console_8hdep" alt=""/></div>
+<map name="Console_8hdep" id="Console_8hdep">
+<area shape="rect" id="node2" href="../../db/d57/a00112.html" title="Header file for ConsoleViewer. " alt="" coords="81,80,201,107"/><area shape="rect" id="node4" href="../../de/d53/a00169.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="164,155,316,181"/><area shape="rect" id="node3" href="../../dd/d6d/a00111.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,155,139,181"/></map>
 </div>
 </div>
 <p><a href="../../d4/d81/a00110_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/a00005.html">myhayai::ConsoleViewer&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Console viewer outputs (on the console) info on the benchmarks as they run.  <a href="../../dd/dad/a00005.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/d27/a00239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/a00239.html">myhayai</a></td></tr>
+<tr class="memitem:d6/d82/a00243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d82/a00243.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d6/d08/a00244"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00244.html">myhayai::console</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a196b4ed0c2880905970a7d5d38e2055f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">myhayai::console::Color</a> { <br/>
+&#160;&#160;<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">myhayai::console::Color::EnableColor</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">myhayai::console::Color::DisableColor</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">myhayai::console::Color::Default</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">myhayai::console::Color::Black</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">myhayai::console::Color::Blue</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">myhayai::console::Color::Green</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">myhayai::console::Color::Cyan</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">myhayai::console::Color::Red</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">myhayai::console::Color::Purple</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">myhayai::console::Color::Yellow</a>, 
+<a class="el" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">myhayai::console::Color::White</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:a196b4ed0c2880905970a7d5d38e2055f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Console text colors.  <a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">More...</a><br/></td></tr>
+<tr class="separator:a196b4ed0c2880905970a7d5d38e2055f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a763bf6fbb35dca374fa5d59e6970286d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00244.html#a763bf6fbb35dca374fa5d59e6970286d">myhayai::console::operator&lt;&lt;</a> (std::ostream &amp;stream, const Color &amp;color)</td></tr>
+<tr class="separator:a763bf6fbb35dca374fa5d59e6970286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for ConsoleViewer. </p>
+<div class="textblock"><p>Header file for Console. </p>
 
-<p>Definition in file <a class="el" href="../../d4/d81/a00110_source.html">ConsoleViewer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d4/d81/a00110_source.html">Console.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">ConsoleViewer.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">Console.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

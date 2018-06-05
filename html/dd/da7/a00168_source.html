@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: MyhayaiController.h Source File</title>
+<title>Stride Reference Manual: mainpage.doxy Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,88 +103,30 @@ $(document).ready(function(){initNavTree('dd/da7/a00168_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">MyhayaiController.h</div>  </div>
+<div class="title">mainpage.doxy</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../dd/da7/a00168.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d44/a00098.html">BenchmarkRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d5e/a00007.html">MyhayaiController</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#a5c68f097966f890415af86dcbc40abf8">   38</a></span>&#160;        <a class="code" href="../../de/d5e/a00007.html#a5c68f097966f890415af86dcbc40abf8">MyhayaiController</a>()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            : <a class="code" href="../../de/d5e/a00007.html#aabf987dc108d182287f742dae5644ca3">m_list_mode</a>(true), <a class="code" href="../../de/d5e/a00007.html#aaae9ad476151bd633bf0412029842ef1">m_no_color</a>(true), <a class="code" href="../../de/d5e/a00007.html#ad2adc1daae6c7654e849bb13963d5c37">m_shuffle</a>(false), <a class="code" href="../../de/d5e/a00007.html#a733b10472b9e1142275ec2afa106993f">m_info_path</a>(), <a class="code" href="../../de/d5e/a00007.html#a291fb3601dcdb8601cffbe1429cb16d3">m_json_path</a>(), <a class="code" href="../../de/d5e/a00007.html#a9df7d12b96832b4bcf7ab63d5f6081dd">m_xml_path</a>(),</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;              <a class="code" href="../../de/d5e/a00007.html#a8c4099df38c24301dc29b8545bd01926">m_negative</a>(), <a class="code" href="../../de/d5e/a00007.html#aaa0d8a6e9bc760064c8c4bfe608a58fb">m_positive</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../de/d5e/a00007.html#a83e3e01f8b16e1fd983661d7ad926241">~MyhayaiController</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d5e/a00007.html#ad6739013058f69cd331dac4d049d18dc">ParseArgs</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d5e/a00007.html#a4eeae53398603681017c82075c9efc02">Control</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d5e/a00007.html#ae7a84b2766960f44825f917171d59c86">ListBenchmarks</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d5e/a00007.html#ac6a342a1c94ee82fb9732fc49ec763a7">RunBenchmarks</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#aabf987dc108d182287f742dae5644ca3">   62</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../de/d5e/a00007.html#aabf987dc108d182287f742dae5644ca3">m_list_mode</a>; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#aaae9ad476151bd633bf0412029842ef1">   63</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../de/d5e/a00007.html#aaae9ad476151bd633bf0412029842ef1">m_no_color</a>;  </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#ad2adc1daae6c7654e849bb13963d5c37">   64</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../de/d5e/a00007.html#ad2adc1daae6c7654e849bb13963d5c37">m_shuffle</a>;   </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#a733b10472b9e1142275ec2afa106993f">   66</a></span>&#160;        std::string <a class="code" href="../../de/d5e/a00007.html#a733b10472b9e1142275ec2afa106993f">m_info_path</a>; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#a291fb3601dcdb8601cffbe1429cb16d3">   67</a></span>&#160;        std::string <a class="code" href="../../de/d5e/a00007.html#a291fb3601dcdb8601cffbe1429cb16d3">m_json_path</a>; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#a9df7d12b96832b4bcf7ab63d5f6081dd">   68</a></span>&#160;        std::string <a class="code" href="../../de/d5e/a00007.html#a9df7d12b96832b4bcf7ab63d5f6081dd">m_xml_path</a>;  </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#a8c4099df38c24301dc29b8545bd01926">   70</a></span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="../../de/d5e/a00007.html#a8c4099df38c24301dc29b8545bd01926">m_negative</a>; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../de/d5e/a00007.html#aaa0d8a6e9bc760064c8c4bfe608a58fb">   71</a></span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="../../de/d5e/a00007.html#aaa0d8a6e9bc760064c8c4bfe608a58fb">m_positive</a>; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00007_html_a9df7d12b96832b4bcf7ab63d5f6081dd"><div class="ttname"><a href="../../de/d5e/a00007.html#a9df7d12b96832b4bcf7ab63d5f6081dd">myhayai::MyhayaiController::m_xml_path</a></div><div class="ttdeci">std::string m_xml_path</div><div class="ttdoc">If not empty, produce output in xml format in file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00068">MyhayaiController.h:68</a></div></div>
-<div class="ttc" id="a00007_html_a733b10472b9e1142275ec2afa106993f"><div class="ttname"><a href="../../de/d5e/a00007.html#a733b10472b9e1142275ec2afa106993f">myhayai::MyhayaiController::m_info_path</a></div><div class="ttdeci">std::string m_info_path</div><div class="ttdoc">If not empty, produce output in info format in file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00066">MyhayaiController.h:66</a></div></div>
-<div class="ttc" id="a00007_html_aaa0d8a6e9bc760064c8c4bfe608a58fb"><div class="ttname"><a href="../../de/d5e/a00007.html#aaa0d8a6e9bc760064c8c4bfe608a58fb">myhayai::MyhayaiController::m_positive</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_positive</div><div class="ttdoc">Positive for including tests. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00071">MyhayaiController.h:71</a></div></div>
-<div class="ttc" id="a00007_html_ad2adc1daae6c7654e849bb13963d5c37"><div class="ttname"><a href="../../de/d5e/a00007.html#ad2adc1daae6c7654e849bb13963d5c37">myhayai::MyhayaiController::m_shuffle</a></div><div class="ttdeci">bool m_shuffle</div><div class="ttdoc">Shuffle benchmarks. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00064">MyhayaiController.h:64</a></div></div>
-<div class="ttc" id="a00007_html_a5c68f097966f890415af86dcbc40abf8"><div class="ttname"><a href="../../de/d5e/a00007.html#a5c68f097966f890415af86dcbc40abf8">myhayai::MyhayaiController::MyhayaiController</a></div><div class="ttdeci">MyhayaiController()</div><div class="ttdoc">Defaults. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00038">MyhayaiController.h:38</a></div></div>
-<div class="ttc" id="a00007_html_ac6a342a1c94ee82fb9732fc49ec763a7"><div class="ttname"><a href="../../de/d5e/a00007.html#ac6a342a1c94ee82fb9732fc49ec763a7">myhayai::MyhayaiController::RunBenchmarks</a></div><div class="ttdeci">void RunBenchmarks()</div><div class="ttdoc">Run benchmarks. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00158">MyhayaiController.cpp:158</a></div></div>
-<div class="ttc" id="a00007_html_aabf987dc108d182287f742dae5644ca3"><div class="ttname"><a href="../../de/d5e/a00007.html#aabf987dc108d182287f742dae5644ca3">myhayai::MyhayaiController::m_list_mode</a></div><div class="ttdeci">bool m_list_mode</div><div class="ttdoc">Execution mode (list or run benchmarks). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00062">MyhayaiController.h:62</a></div></div>
-<div class="ttc" id="a00007_html_a83e3e01f8b16e1fd983661d7ad926241"><div class="ttname"><a href="../../de/d5e/a00007.html#a83e3e01f8b16e1fd983661d7ad926241">myhayai::MyhayaiController::~MyhayaiController</a></div><div class="ttdeci">~MyhayaiController()=default</div></div>
-<div class="ttc" id="a00007_html_a8c4099df38c24301dc29b8545bd01926"><div class="ttname"><a href="../../de/d5e/a00007.html#a8c4099df38c24301dc29b8545bd01926">myhayai::MyhayaiController::m_negative</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_negative</div><div class="ttdoc">Negative for excluding tests. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00070">MyhayaiController.h:70</a></div></div>
-<div class="ttc" id="a00007_html_aaae9ad476151bd633bf0412029842ef1"><div class="ttname"><a href="../../de/d5e/a00007.html#aaae9ad476151bd633bf0412029842ef1">myhayai::MyhayaiController::m_no_color</a></div><div class="ttdeci">bool m_no_color</div><div class="ttdoc">Do not use color on console output. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00063">MyhayaiController.h:63</a></div></div>
-<div class="ttc" id="a00007_html_a291fb3601dcdb8601cffbe1429cb16d3"><div class="ttname"><a href="../../de/d5e/a00007.html#a291fb3601dcdb8601cffbe1429cb16d3">myhayai::MyhayaiController::m_json_path</a></div><div class="ttdeci">std::string m_json_path</div><div class="ttdoc">If not empty, produce output in json format in file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00067">MyhayaiController.h:67</a></div></div>
-<div class="ttc" id="a00007_html_ad6739013058f69cd331dac4d049d18dc"><div class="ttname"><a href="../../de/d5e/a00007.html#ad6739013058f69cd331dac4d049d18dc">myhayai::MyhayaiController::ParseArgs</a></div><div class="ttdeci">void ParseArgs(int argc, char **argv)</div><div class="ttdoc">Parse the command line arguments. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00101">MyhayaiController.cpp:101</a></div></div>
-<div class="ttc" id="a00098_html"><div class="ttname"><a href="../../d1/d44/a00098.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
-<div class="ttc" id="a00007_html_ae7a84b2766960f44825f917171d59c86"><div class="ttname"><a href="../../de/d5e/a00007.html#ae7a84b2766960f44825f917171d59c86">myhayai::MyhayaiController::ListBenchmarks</a></div><div class="ttdeci">void ListBenchmarks() const </div><div class="ttdoc">List benchmarks. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00057">MyhayaiController.cpp:57</a></div></div>
-<div class="ttc" id="a00007_html_a4eeae53398603681017c82075c9efc02"><div class="ttname"><a href="../../de/d5e/a00007.html#a4eeae53398603681017c82075c9efc02">myhayai::MyhayaiController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Execute the selected (List/Run) function. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00048">MyhayaiController.cpp:48</a></div></div>
-<div class="ttc" id="a00007_html"><div class="ttname"><a href="../../de/d5e/a00007.html">myhayai::MyhayaiController</a></div><div class="ttdoc">Controls the benchmark test execution based on command line arguments. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da7/a00168_source.html#l00034">MyhayaiController.h:34</a></div></div>
+<a href="../../dd/da7/a00168.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/da7/a00168.html">MyhayaiController.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_e68e8157741866f444e17edd764ebbae.html">doc</a></li><li class="navelem"><a class="el" href="../../dir_04f2ecc425faf0d475a3caf484e551f3.html">doxygen</a></li><li class="navelem"><a class="el" href="../../dir_164fa6aa65476c57de29bc86e7aa64f0.html">additional_input</a></li><li class="navelem"><a class="el" href="../../dd/da7/a00168.html">mainpage.doxy</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

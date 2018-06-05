@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConfigInfo.h Source File</title>
+<title>Stride Reference Manual: CliViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('df/d98/a00107_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ConfigInfo.h</div>  </div>
+<div class="title">CliViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/d98/a00107.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,53 +119,49 @@ $(document).ready(function(){initNavTree('df/d98/a00107_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d72/a00204.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4a/a00147.html">sim/event/Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d22/a00057.html">ConfigInfo</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ad6fc5f3f3e32a15f059c64b74dfea905">   34</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d1/d22/a00057.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a>()</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifdef _OPENMP</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span>        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d51/a00079.html">CliViewer</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#a4ddb15ac567fd751c2be3a9d973d1666">   35</a></span>&#160;        <a class="code" href="../../d1/d51/a00079.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, std::shared_ptr&lt;spdlog::logger&gt; logger)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="../../d1/d51/a00079.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>(std::move(logger)), <a class="code" href="../../d1/d51/a00079.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d51/a00079.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a>(<a class="code" href="../../d0/def/a00256.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#a9842e76d67b4e02e5c31a3071ec286d0">   44</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d1/d22/a00057.html#a9842e76d67b4e02e5c31a3071ec286d0">HaveQt5</a>() { <span class="keywordflow">return</span> Qt5_FOUND; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../d1/d22/a00057.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="../../d1/d22/a00057.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d1/d22/a00057.html#ada59da077e51cbd44e829a88c5cc62e3">   56</a></span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d22/a00057.html#ada59da077e51cbd44e829a88c5cc62e3">ProcessorCount</a>() { <span class="keywordflow">return</span> PROCCOUNT; }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00057_html_a9842e76d67b4e02e5c31a3071ec286d0"><div class="ttname"><a href="../../d1/d22/a00057.html#a9842e76d67b4e02e5c31a3071ec286d0">stride::util::ConfigInfo::HaveQt5</a></div><div class="ttdeci">static constexpr bool HaveQt5()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00044">ConfigInfo.h:44</a></div></div>
-<div class="ttc" id="a00057_html_ada59da077e51cbd44e829a88c5cc62e3"><div class="ttname"><a href="../../d1/d22/a00057.html#ada59da077e51cbd44e829a88c5cc62e3">stride::util::ConfigInfo::ProcessorCount</a></div><div class="ttdeci">static constexpr unsigned int ProcessorCount()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00056">ConfigInfo.h:56</a></div></div>
-<div class="ttc" id="a00057_html_aea2c9d397f10f54b7ae47f4b0f181799"><div class="ttname"><a href="../../d1/d22/a00057.html#aea2c9d397f10f54b7ae47f4b0f181799">stride::util::ConfigInfo::GitRevision</a></div><div class="ttdeci">static std::string GitRevision()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d70/a00106_source.html#l00033">ConfigInfo.cpp:33</a></div></div>
-<div class="ttc" id="a00057_html"><div class="ttname"><a href="../../d1/d22/a00057.html">stride::util::ConfigInfo</a></div><div class="ttdoc">Config information. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00030">ConfigInfo.h:30</a></div></div>
-<div class="ttc" id="a00057_html_a6b4240ce29160e778c69f9e246e1747d"><div class="ttname"><a href="../../d1/d22/a00057.html#a6b4240ce29160e778c69f9e246e1747d">stride::util::ConfigInfo::NumberAvailableThreads</a></div><div class="ttdeci">static unsigned int NumberAvailableThreads()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d70/a00106_source.html#l00042">ConfigInfo.cpp:42</a></div></div>
-<div class="ttc" id="a00057_html_a502bd4410a3e77792ea575f77f470d41"><div class="ttname"><a href="../../d1/d22/a00057.html#a502bd4410a3e77792ea575f77f470d41">stride::util::ConfigInfo::GetHostname</a></div><div class="ttdeci">static std::string GetHostname()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d70/a00106_source.html#l00035">ConfigInfo.cpp:35</a></div></div>
-<div class="ttc" id="a00057_html_ad6fc5f3f3e32a15f059c64b74dfea905"><div class="ttname"><a href="../../d1/d22/a00057.html#ad6fc5f3f3e32a15f059c64b74dfea905">stride::util::ConfigInfo::HaveOpenMP</a></div><div class="ttdeci">static constexpr bool HaveOpenMP()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00034">ConfigInfo.h:34</a></div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#acc77dad91899a0d4183493023e082e9f">   44</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../d1/d51/a00079.html#acc77dad91899a0d4183493023e082e9f">m_logger</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d1/d51/a00079.html#af789850b449fdadcc8572def4a0eb4af">   45</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt;      <a class="code" href="../../d1/d51/a00079.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00079_html_a9f3a2f9efda499fa6a80f3871c7298d7"><div class="ttname"><a href="../../d1/d51/a00079.html#a9f3a2f9efda499fa6a80f3871c7298d7">stride::viewers::CliViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d70/a00106_source.html#l00039">CliViewer.cpp:39</a></div></div>
+<div class="ttc" id="a00079_html_af789850b449fdadcc8572def4a0eb4af"><div class="ttname"><a href="../../d1/d51/a00079.html#af789850b449fdadcc8572def4a0eb4af">stride::viewers::CliViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00045">CliViewer.h:45</a></div></div>
+<div class="ttc" id="a00147_html"><div class="ttname"><a href="../../d0/d4a/a00147.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00079_html"><div class="ttname"><a href="../../d1/d51/a00079.html">stride::viewers::CliViewer</a></div><div class="ttdoc">Viewer of Simulator for commandline interface. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00031">CliViewer.h:31</a></div></div>
+<div class="ttc" id="a00079_html_acc77dad91899a0d4183493023e082e9f"><div class="ttname"><a href="../../d1/d51/a00079.html#acc77dad91899a0d4183493023e082e9f">stride::viewers::CliViewer::m_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_logger</div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00044">CliViewer.h:44</a></div></div>
+<div class="ttc" id="a00256_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d0/def/a00256.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00079_html_a4ddb15ac567fd751c2be3a9d973d1666"><div class="ttname"><a href="../../d1/d51/a00079.html#a4ddb15ac567fd751c2be3a9d973d1666">stride::viewers::CliViewer::CliViewer</a></div><div class="ttdeci">CliViewer(std::shared_ptr&lt; SimRunner &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</div><div class="ttdoc">Instantiate cli viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d98/a00107_source.html#l00035">CliViewer.h:35</a></div></div>
+<div class="ttc" id="a00204_html"><div class="ttname"><a href="../../d1/d72/a00204.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">ConfigInfo.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">CliViewer.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:14 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

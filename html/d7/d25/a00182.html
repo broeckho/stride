@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PopBuilder.h File Reference</title>
+<title>Stride Reference Manual: PersonsFileViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -106,57 +106,60 @@ $(document).ready(function(){initNavTree('d7/d25/a00182.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PopBuilder.h File Reference</div>  </div>
+<div class="title">PersonsFileViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Initialize populations.  
+<p>Observer for Persons output.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d81/a00180_source.html">output/PersonsFile.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/d72/a00204_source.html">sim/SimRunner.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/d4a/a00147_source.html">sim/event/Id.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PopBuilder.h:</div>
+Include dependency graph for PersonsFileViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/de6/a00404.gif" border="0" usemap="#PopBuilder_8h" alt=""/></div>
-<map name="PopBuilder_8h" id="PopBuilder_8h">
-</map>
+<div class="center"><img src="../../d1/d8b/a00406.gif" border="0" usemap="#PersonsFileViewer_8h" alt=""/></div>
+<map name="PersonsFileViewer_8h" id="PersonsFileViewer_8h">
+<area shape="rect" id="node2" href="../../d0/d81/a00180.html" title="Header for the PersonFile class. " alt="" coords="5,245,147,272"/><area shape="rect" id="node6" href="../../d1/d72/a00204.html" title="Header for the SimRunner class. " alt="" coords="449,80,572,107"/><area shape="rect" id="node7" href="../../d0/d4a/a00147.html" title="Definition of EventId. " alt="" coords="501,245,605,272"/><area shape="rect" id="node9" href="../../dd/ded/a00211.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="383,163,521,189"/><area shape="rect" id="node13" href="../../dc/d31/a00208.html" title="Definition of Stopwatch. " alt="" coords="722,163,837,189"/><area shape="rect" id="node10" href="../../dd/dc1/a00212.html" title="Interface/Implementation of Subject. " alt="" coords="272,245,371,272"/><area shape="rect" id="node14" href="../../de/dc2/a00228.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="749,245,859,272"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/de8/a00405.gif" border="0" usemap="#PopBuilder_8hdep" alt=""/></div>
-<map name="PopBuilder_8hdep" id="PopBuilder_8hdep">
-<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="Initialize populations: implementation. " alt="" coords="5,80,115,107"/><area shape="rect" id="node3" href="../../dc/d52/a00183.html" title="Core Population class. " alt="" coords="139,80,247,107"/></map>
+<div class="center"><img src="../../d1/d98/a00407.gif" border="0" usemap="#PersonsFileViewer_8hdep" alt=""/></div>
+<map name="PersonsFileViewer_8hdep" id="PersonsFileViewer_8hdep">
+<area shape="rect" id="node2" href="../../d8/dfa/a00121.html" title="Header for the command line controller. " alt="" coords="5,80,131,107"/><area shape="rect" id="node3" href="../../d8/d64/a00181.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="155,80,311,107"/></map>
 </div>
 </div>
 <p><a href="../../d7/d25/a00182_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html">stride::PopBuilder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="../../d6/d2d/a00047.html" title="Container for persons in population. ">Population</a> objects.  <a href="../../d3/dea/a00046.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d63/a00082.html">stride::viewers::PersonsFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d4/d63/a00082.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d9a/a00246"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d9a/a00246.html">stride</a></td></tr>
-<tr class="memdesc:d4/d9a/a00246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d3/d1a/a00251"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html">stride</a></td></tr>
+<tr class="memdesc:d3/d1a/a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dc/ded/a00252"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ded/a00252.html">stride::util</a></td></tr>
-<tr class="memdesc:dc/ded/a00252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:d0/d2f/a00259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html">stride::viewers</a></td></tr>
+<tr class="memdesc:d0/d2f/a00259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d5/de0/a00050.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Initialize populations. </p>
+<div class="textblock"><p>Observer for Persons output. </p>
 
-<p>Definition in file <a class="el" href="../../d7/d25/a00182_source.html">PopBuilder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d25/a00182_source.html">PersonsFileViewer.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d7/d25/a00182.html">PopBuilder.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d7/d25/a00182.html">PersonsFileViewer.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

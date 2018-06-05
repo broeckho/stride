@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConsoleViewer.h Source File</title>
+<title>Stride Reference Manual: Console.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit ff5494f</span>
+   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d4/d81/a00110_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ConsoleViewer.h</div>  </div>
+<div class="title">Console.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/d81/a00110.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,63 +121,81 @@ $(document).ready(function(){initNavTree('d4/d81/a00110_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d44/a00098.html">BenchmarkRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/dd6/a00108.html">Console.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/a00174.html">Payload.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/df3/a00219.html">TestDescriptors.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">   42</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">ConsoleViewer</a>(std::ostream&amp; stream = std::cout, <span class="keywordtype">bool</span> noColor = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            : <a class="code" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">m_descriptors</a>(<a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>::Instance().GetTestDescriptors()), <a class="code" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">m_stream</a>(stream)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> (noColor) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        stream &lt;&lt; <a class="code" href="../../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">console::Color::DisableColor</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        stream &lt;&lt; <a class="code" href="../../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">console::Color::EnableColor</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dd/dad/a00005.html#af9b52cce5ff9de14ef6af6b69bc9c6e1">Update</a>(<span class="keyword">const</span> <a class="code" href="../../de/d21/a00006.html">event::Payload</a>&amp; payload);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">   56</a></span>&#160;        <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a> <a class="code" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">m_descriptors</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">   57</a></span>&#160;        std::ostream&amp;   <a class="code" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">m_stream</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::microseconds&gt;</a>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::milliseconds&gt;</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::seconds&gt;</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00005_html_af9b52cce5ff9de14ef6af6b69bc9c6e1"><div class="ttname"><a href="../../dd/dad/a00005.html#af9b52cce5ff9de14ef6af6b69bc9c6e1">myhayai::ConsoleViewer::Update</a></div><div class="ttdeci">void Update(const event::Payload &amp;payload)</div><div class="ttdoc">Observer method, registered with subject. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d42/a00109_source.html#l00036">ConsoleViewer.cpp:36</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00005_html"><div class="ttname"><a href="../../dd/dad/a00005.html">myhayai::ConsoleViewer</a></div><div class="ttdoc">Console viewer outputs (on the console) info on the benchmarks as they run. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00037">ConsoleViewer.h:37</a></div></div>
-<div class="ttc" id="a00005_html_a16c27293848605139f3ee5215a5e07eb"><div class="ttname"><a href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">myhayai::ConsoleViewer::ConsoleViewer</a></div><div class="ttdeci">ConsoleViewer(std::ostream &amp;stream=std::cout, bool noColor=false)</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00042">ConsoleViewer.h:42</a></div></div>
-<div class="ttc" id="a00005_html_aa58660e72c483ef09007cf88a7a9779b"><div class="ttname"><a href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">myhayai::ConsoleViewer::m_stream</a></div><div class="ttdeci">std::ostream &amp; m_stream</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00057">ConsoleViewer.h:57</a></div></div>
-<div class="ttc" id="a00240_html_a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da"><div class="ttname"><a href="../../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">myhayai::console::Color::EnableColor</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00031">TestDescriptors.h:31</a></div></div>
-<div class="ttc" id="a00098_html"><div class="ttname"><a href="../../d1/d44/a00098.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
-<div class="ttc" id="a00005_html_a82aea22db88a50b951c6f5a10fd03a9a"><div class="ttname"><a href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">myhayai::ConsoleViewer::m_descriptors</a></div><div class="ttdeci">TestDescriptors m_descriptors</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00056">ConsoleViewer.h:56</a></div></div>
-<div class="ttc" id="a00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">Payload.h</a></div><div class="ttdoc">Payload for Subject/Observer for myhayaia::events. </div></div>
-<div class="ttc" id="a00108_html"><div class="ttname"><a href="../../d1/dd6/a00108.html">Console.hpp</a></div><div class="ttdoc">Header file for Console. </div></div>
-<div class="ttc" id="a00240_html_a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed"><div class="ttname"><a href="../../d9/d21/a00240.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">myhayai::console::Color::DisableColor</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></div><div class="ttdoc">BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d44/a00098_source.html#l00038">BenchmarkRunner.h:38</a></div></div>
-<div class="ttc" id="a00219_html"><div class="ttname"><a href="../../dd/df3/a00219.html">TestDescriptors.h</a></div><div class="ttdoc">Header file for TestDescriptors container. </div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d6/d08/a00244.html">   26</a></span>&#160;<span class="keyword">namespace </span>console {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">   34</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">Color</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">EnableColor</a>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">DisableColor</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">Default</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">Black</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">Blue</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">Green</a>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">Cyan</a>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">Red</a>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">Purple</a>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">Yellow</a>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">White</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d6/d08/a00244.html#a763bf6fbb35dca374fa5d59e6970286d">   49</a></span>&#160;<span class="keyword">inline</span> std::ostream&amp; <a class="code" href="../../d6/d08/a00244.html#a763bf6fbb35dca374fa5d59e6970286d">operator&lt;&lt;</a>(std::ostream&amp; stream, <span class="keyword">const</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">Color</a>&amp; color)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> c = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* value;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">switch</span> (color) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">Color::EnableColor</a>: {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">if</span> ((isatty(fileno(stdout)) == 1) &amp;&amp;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    ((stream.rdbuf() != std::cout.rdbuf()) || (stream.rdbuf() != std::cerr.rdbuf()))) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        c = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> stream;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">Color::DisableColor</a>: {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                c = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> stream;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">Color::Default</a>: value = c ? <span class="stringliteral">&quot;\033[m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">Color::Black</a>: value = c ? <span class="stringliteral">&quot;\033[0;30m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">Color::Blue</a>: value = c ? <span class="stringliteral">&quot;\033[0;34m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">Color::Green</a>: value = c ? <span class="stringliteral">&quot;\033[0;32m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">Color::Cyan</a>: value = c ? <span class="stringliteral">&quot;\033[0;36m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">Color::Red</a>: value = c ? <span class="stringliteral">&quot;\033[0;31m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">Color::Purple</a>: value = c ? <span class="stringliteral">&quot;\033[0;35m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">Color::Yellow</a>: value = c ? <span class="stringliteral">&quot;\033[0;33m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">Color::White</a>: value = c ? <span class="stringliteral">&quot;\033[0;37m&quot;</span> : <span class="stringliteral">&quot;&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> stream &lt;&lt; value;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <span class="comment">// namespace console</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00244_html_a763bf6fbb35dca374fa5d59e6970286d"><div class="ttname"><a href="../../d6/d08/a00244.html#a763bf6fbb35dca374fa5d59e6970286d">myhayai::console::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;stream, const Color &amp;color)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00049">Console.h:49</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">myhayai::console::Color::Blue</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">myhayai::console::Color::Cyan</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">myhayai::console::Color::EnableColor</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">myhayai::console::Color::Yellow</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">myhayai::console::Color::Green</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">myhayai::console::Color::Black</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">myhayai::console::Color::DisableColor</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">myhayai::console::Color::Default</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">myhayai::console::Color::Purple</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055f"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055f">myhayai::console::Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">Console text colors. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d81/a00110_source.html#l00034">Console.h:34</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">myhayai::console::Color::White</a></div></div>
+<div class="ttc" id="a00244_html_a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47"><div class="ttname"><a href="../../d6/d08/a00244.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">myhayai::console::Color::Red</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">ConsoleViewer.h</a></li>
-    <li class="footer">Generated on Fri Jun 1 2018 10:48:48 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d4/d81/a00110.html">Console.h</a></li>
+    <li class="footer">Generated on Tue Jun 5 2018 13:35:14 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
