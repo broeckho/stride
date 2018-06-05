@@ -31,7 +31,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-CliController::CliController(const ptree& configPt) : ControlHelper(configPt) {}
+CliController::CliController(const ptree& configPt) : ControlHelper("CliController", configPt) {}
 
 void CliController::Control()
 {

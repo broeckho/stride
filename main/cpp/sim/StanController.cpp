@@ -44,7 +44,7 @@ using namespace boost::property_tree;
 
 namespace stride {
 
-StanController::StanController(const ptree& configPt) : ControlHelper(configPt) {}
+StanController::StanController(const ptree& configPt) : ControlHelper("Stancontoller", configPt) {}
 
 void StanController::Control()
 {
@@ -61,10 +61,11 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         const auto    stanCount = m_config_pt.get<size_t>("run.stan_count");
         random_device rd;
-        vector<pair<std::random_device::result_type, vector<unsigned int>>> results;
+        vector<std::random_device::result_type> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
-                results.emplace_back(make_pair(rd(), vector<unsigned int>()));
+                seeds.emplace_back(rd());
         }
+        vector<vector<unsigned int>> results(seeds.size());
 
         // -----------------------------------------------------------------------------------------
         // Instantiate simRunners & run, once for each seed.
@@ -72,42 +73,37 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         m_config_pt.put("run.num_threads", 1);
 #pragma omp parallel for num_threads(ConfigInfo::NumberAvailableThreads())
-        for (unsigned int i = 0U; i < results.size(); ++i) {
+        for (unsigned int i = 0U; i < seeds.size(); ++i) {
                 ptree configPt(m_config_pt);
-                configPt.put("run.rng_seed", results[i].first);
-                m_stride_logger->info("Starting run using seed {}", results[i].first);
+                configPt.put("run.rng_seed", seeds[i]);
+                m_stride_logger->info("Starting run using seed {}", seeds[i]);
 
                 auto runner  = make_shared<SimRunner>(configPt, Population::Create(configPt));
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));
 
                 runner->Run();
-                results[i].second = iViewer->GetInfectionCounts();
+                results[i] = iViewer->GetInfectionCounts();
         }
 
         // -----------------------------------------------------------------------------------------
         // Output to file.
         // -----------------------------------------------------------------------------------------
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
-        GnuPlot    gPlot;
 
-        GnuPlotCSV gpCsv(numDays + 1);
-        for (const auto& res : results) {
-                gpCsv.AddRow(ToString(res.second.begin(), res.second.end()));
+        vector<string> sSeeds;
+        for (const auto& s : seeds) {
+                sSeeds.emplace_back(ToString(s));
         }
-        gPlot.Add(gpCsv);
-
-        GnuPlotCSV boxData({"min", "max", "median", "quartile1", "quartile3"});
+        CSV csv(sSeeds);
         for (unsigned int i = 0U; i < numDays + 1; ++i) {
-                vector<unsigned int> v;
+                vector<string> v;
                 for (const auto& res : results) {
-                        v.emplace_back(res.second[i]);
+                        v.emplace_back(ToString(res[i]));
                 }
-                const auto b = BoxPlotData<unsigned int>::Calculate(v);
-                boxData.AddRow(b.m_min, b.m_max, b.m_median, b.m_quartile1, b.m_quartile3);
+                csv.AddRow(v);
         }
-        gPlot.Add(boxData);
-        gPlot.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "infected.dat"));
+        csv.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "infected.dat"));
 
         // -----------------------------------------------------------------------------------------
         // Shutdown.

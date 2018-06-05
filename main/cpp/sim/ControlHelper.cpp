@@ -43,14 +43,15 @@ using namespace boost::property_tree::xml_parser;
 namespace stride {
 
 ControlHelper::ControlHelper()
-    : m_config_pt(), m_output_prefix(""), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
+    : m_config_pt(), m_name(), m_output_prefix(), m_run_clock("run"), m_stride_logger(nullptr), m_use_install_dirs()
 {
 }
 
-ControlHelper::ControlHelper(const ptree& configPt) : ControlHelper()
+ControlHelper::ControlHelper(string name, const ptree& configPt) : ControlHelper()
 {
         m_run_clock.Start();
         m_config_pt        = configPt;
+        m_name             = std::move(name);
         m_output_prefix    = m_config_pt.get<string>("run.output_prefix");
         m_use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
 }
@@ -89,12 +90,12 @@ void ControlHelper::InstallLogger()
 void ControlHelper::LogShutdown()
 {
         m_run_clock.Stop();
-        m_stride_logger->info("Controller shutting down after: {}", m_run_clock.ToString());
+        m_stride_logger->info("{} shutting down after: {}", m_name, m_run_clock.ToString());
 }
 
 void ControlHelper::LogStartup()
 {
-        m_stride_logger->info("MyhayaiController starting up at: {}", TimeStamp().ToString());
+        m_stride_logger->info("{} starting up at: {}", m_name, TimeStamp().ToString());
         m_stride_logger->info("Executing revision {}", ConfigInfo::GitRevision());
         m_stride_logger->info("Creating dir:  {}", m_output_prefix);
         m_stride_logger->trace("Executing:           {}", FileSys::GetExecPath().string());
