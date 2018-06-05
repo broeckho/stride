@@ -71,6 +71,11 @@ endif()
 set(LIBS   ${LIBS}   m)
 
 #----------------------------------------------------------------------------
+# PCG
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/pcg/include)
+
+#----------------------------------------------------------------------------
 # Spdlog Library (logging)
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/include)

@@ -11,7 +11,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
@@ -30,6 +30,7 @@ set(SRC
     BatchRuns.cpp
     ScenarioData.cpp
     UnitCsvTest.cpp
+    UnitPcg.cpp
     UnitPtreeUtilsHelper.h
     UnitPtreeUtils1.cpp
     UnitPtreeUtils2.cpp
