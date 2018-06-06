@@ -76,12 +76,6 @@ bool CSV::operator==(const CSV& other) const
         return m_labels == other.m_labels && (const vector<CSVRow>&)*this == (const vector<CSVRow>&)other;
 }
 
-void CSV::AddRow(vector<string> values)
-{
-        CSVRow csvRow(this, values);
-        this->push_back(csvRow);
-}
-
 size_t CSV::GetIndexForLabel(const string& label) const
 {
         for (unsigned int index = 0; index < m_labels.size(); ++index) {
@@ -109,7 +103,7 @@ void CSV::ReadFromStream(istream& inputStream)
                 line = Trim(line);
                 if (!line.empty()) {
                         vector<string> values = Split(line, ",");
-                        AddRow(values);
+                        AddRow(values.begin(), values.end());
                 }
         }
 }
