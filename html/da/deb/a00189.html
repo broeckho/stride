@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PtreeViewer.h File Reference</title>
+<title>Stride Reference Manual: Population.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -106,56 +106,60 @@ $(document).ready(function(){initNavTree('da/deb/a00189.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PtreeViewer.h File Reference</div>  </div>
+<div class="title">Population.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for PtreeViewer.  
+<p>Header file for the core Population class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d61/a00100_source.html">BenchmarkRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/de9/a00176_source.html">Payload.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/d28/a00223_source.html">TestDescriptors.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;chrono&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d98/a00120_source.html">pool/ContactPoolSys.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d64/a00181_source.html">pop/Person.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dc/d54/a00094_source.html">util/Any.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dd/de3/a00201_source.html">util/SegmentedVector.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
+<code>#include &lt;mutex&gt;</code><br/>
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PtreeViewer.h:</div>
+Include dependency graph for Population.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d15/a00416.gif" border="0" usemap="#PtreeViewer_8h" alt=""/></div>
-<map name="PtreeViewer_8h" id="PtreeViewer_8h">
-<area shape="rect" id="node2" href="../../d0/d61/a00100.html" title="Header file for Benchmarker. " alt="" coords="531,80,671,107"/><area shape="rect" id="node6" href="../../d5/de9/a00176.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="57,304,135,331"/><area shape="rect" id="node16" href="../../dc/d28/a00223.html" title="Header file for TestDescriptors container. " alt="" coords="400,155,526,181"/><area shape="rect" id="node3" href="../../dd/dae/a00163.html" title="Header file for InfoFactory. " alt="" coords="474,304,573,331"/><area shape="rect" id="node10" href="../../dc/d98/a00225.html" title="Header file for TestResult. " alt="" coords="616,469,713,496"/><area shape="rect" id="node18" href="../../d5/ddf/a00224.html" title="Header file for TestFactory. " alt="" coords="599,304,701,331"/><area shape="rect" id="node28" href="../../dd/dc1/a00212.html" title="Interface/Implementation of Subject. " alt="" coords="781,155,879,181"/><area shape="rect" id="node7" href="../../db/d48/a00148.html" title="Definition of myhayai::event::Id. " alt="" coords="51,387,109,413"/><area shape="rect" id="node17" href="../../dd/d52/a00221.html" title="Header file for TestDescriptor. " alt="" coords="375,229,493,256"/><area shape="rect" id="node19" href="../../d5/d0b/a00220.html" title="Header file for Test. " alt="" coords="546,387,603,413"/><area shape="rect" id="node20" href="../../dc/d31/a00208.html" title="Definition of Stopwatch. " alt="" coords="424,469,539,496"/><area shape="rect" id="node21" href="../../de/dc2/a00228.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="385,544,495,571"/></map>
+<div class="center"><img src="../../d8/de7/a00417.gif" border="0" usemap="#Population_8h" alt=""/></div>
+<map name="Population_8h" id="Population_8h">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="345,88,500,115"/><area shape="rect" id="node17" href="../../d8/d64/a00181.html" title="Header file for the Person class. " alt="" coords="708,88,807,115"/><area shape="rect" id="node20" href="../../dc/d54/a00094.html" title="Interface/Implementation of Any. " alt="" coords="1063,88,1139,115"/><area shape="rect" id="node24" href="../../dd/de3/a00201.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="907,261,1065,288"/><area shape="rect" id="node3" href="../../df/d6a/a00119.html" title="Header for the core ContactPool class. " alt="" coords="193,261,327,288"/><area shape="rect" id="node6" href="../../df/dc8/a00122.html" title="Definition of ContactPoolType. " alt="" coords="333,336,496,363"/><area shape="rect" id="node12" href="../../dd/db2/a00151.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="402,179,560,205"/><area shape="rect" id="node4" href="../../d9/d4b/a00117.html" title="Header for the ContactLogMode class. " alt="" coords="5,336,184,363"/><area shape="rect" id="node18" href="../../d5/da7/a00144.html" title="Header for the Health class. " alt="" coords="795,179,915,205"/><area shape="rect" id="node25" href="../../d0/d24/a00222.html" title="Interface/Implementation for SVIterator. " alt="" coords="1022,336,1113,363"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/de7/a00417.gif" border="0" usemap="#PtreeViewer_8hdep" alt=""/></div>
-<map name="PtreeViewer_8hdep" id="PtreeViewer_8hdep">
-<area shape="rect" id="node2" href="../../de/d53/a00169.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="5,80,157,107"/><area shape="rect" id="node3" href="../../da/d15/a00188.html" title="Implementation file for PtreeViewer. " alt="" coords="182,80,300,107"/></map>
+<div class="center"><img src="../../de/df7/a00418.gif" border="0" usemap="#Population_8hdep" alt=""/></div>
+<map name="Population_8hdep" id="Population_8hdep">
+<area shape="rect" id="node2" href="../../d9/df8/a00096.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/><area shape="rect" id="node3" href="../../d5/d5b/a00135.html" title="Header for the DiseaseSeeder class. " alt="" coords="201,80,324,107"/><area shape="rect" id="node4" href="../../de/d76/a00134.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="96,155,231,181"/><area shape="rect" id="node6" href="../../da/ddb/a00145.html" title="Implementation for HelthSeeder class. " alt="" coords="349,80,475,107"/><area shape="rect" id="node7" href="../../d7/d25/a00182.html" title="Implementation of the CasesFile class. " alt="" coords="499,80,615,107"/><area shape="rect" id="node8" href="../../d8/d00/a00186.html" title="Initialize populations: implementation. " alt="" coords="639,80,749,107"/><area shape="rect" id="node9" href="../../da/d15/a00188.html" title="Core Population class. " alt="" coords="774,80,881,107"/><area shape="rect" id="node10" href="../../d5/d0b/a00220.html" title="Implementation for the SurveySeeder class. " alt="" coords="906,80,1035,107"/><area shape="rect" id="node11" href="../../d7/d70/a00106.html" title="Header for the command line controller. " alt="" coords="1059,80,1177,107"/><area shape="rect" id="node12" href="../../de/d36/a00123.html" title="Header for the command line controller. " alt="" coords="1202,80,1328,107"/><area shape="rect" id="node13" href="../../db/d53/a00202.html" title="Implementation for the Simulator class. " alt="" coords="1353,80,1423,107"/><area shape="rect" id="node14" href="../../d5/df1/a00206.html" title="Implementation for SimRunner. " alt="" coords="1447,80,1557,107"/><area shape="rect" id="node15" href="../../d3/de5/a00209.html" title="Header for the command line controller. " alt="" coords="1583,80,1712,107"/><area shape="rect" id="node16" href="../../db/ddf/a00088.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1738,80,1893,107"/><area shape="rect" id="node17" href="../../d1/dd6/a00108.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1918,80,2020,107"/><area shape="rect" id="node18" href="../../d1/db7/a00157.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2045,80,2199,107"/><area shape="rect" id="node19" href="../../de/db9/a00159.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2225,80,2359,107"/><area shape="rect" id="node20" href="../../dc/d9a/a00218.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2383,80,2547,107"/><area shape="rect" id="node5" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="257,155,367,181"/></map>
 </div>
 </div>
 <p><a href="../../da/deb/a00189_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html">myhayai::PtreeViewer&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a (Boost) propert tree with info about the tests run in the benchmark.  <a href="../../d4/dee/a00008.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2d/a00047.html">stride::Population</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for persons in population.  <a href="../../d6/d2d/a00047.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d82/a00243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d82/a00243.html">myhayai</a></td></tr>
+<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
+<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for PtreeViewer. </p>
+<div class="textblock"><p>Header file for the core Population class. </p>
 
-<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">PtreeViewer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">Population.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">PtreeViewer.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">Population.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

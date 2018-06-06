@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::detail Namespace Reference</title>
+<title>Stride Reference Manual: stride::RNEngineType Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,24 +103,201 @@ $(document).ready(function(){initNavTree('d7/d2f/a00258.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::detail Namespace Reference</div>  </div>
+<div class="title">stride::RNEngineType Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Namespace to manage types of random engines.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html">pair2data</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a> { <br/>
+&#160;&#160;<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793">Id::lcg64</a>, 
+<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a">Id::lcg64_shift</a>, 
+<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5">Id::mrg2</a>, 
+<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3">Id::mrg3</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1">Id::yarn2</a>, 
+<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7">Id::yarn3</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number engine type ids. We use a subset of engines provided by the trng library.  <a href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">More...</a><br/></td></tr>
+<tr class="separator:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a0d22d904ddff0d21494405335e5fc744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#a0d22d904ddff0d21494405335e5fc744">IsType</a> (const string &amp;s)</td></tr>
+<tr class="separator:a0d22d904ddff0d21494405335e5fc744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#a120e2ae5e703cd5a7e1859a1c83ddcec">ToString</a> (<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a> b)</td></tr>
+<tr class="memdesc:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a type id to corresponding name.  <a href="#a120e2ae5e703cd5a7e1859a1c83ddcec">More...</a><br/></td></tr>
+<tr class="separator:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e0a5f256c9b615c606f90dabec96b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#a58e0a5f256c9b615c606f90dabec96b2">ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a58e0a5f256c9b615c606f90dabec96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a58e0a5f256c9b615c606f90dabec96b2">More...</a><br/></td></tr>
+<tr class="separator:a58e0a5f256c9b615c606f90dabec96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#a5c2a5d8f1812dfead0b91defc7c28a83">IsType</a> (std::string s)</td></tr>
+<tr class="memdesc:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether type with name s exists.  <a href="#a5c2a5d8f1812dfead0b91defc7c28a83">More...</a><br/></td></tr>
+<tr class="separator:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4fcec0502d45699761bc02fe6a7a08"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d2f/a00258.html#aff4fcec0502d45699761bc02fe6a7a08">ToSizeT</a> (<a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a> id)</td></tr>
+<tr class="memdesc:aff4fcec0502d45699761bc02fe6a7a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#aff4fcec0502d45699761bc02fe6a7a08">More...</a><br/></td></tr>
+<tr class="separator:aff4fcec0502d45699761bc02fe6a7a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Namespace to manage types of random engines. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">stride::RNEngineType::Id</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Random number engine type ids. We use a subset of engines provided by the trng library. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793"></a>lcg64</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a"></a>lcg64_shift</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5"></a>mrg2</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3"></a>mrg3</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1"></a>yarn2</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7"></a>yarn3</em>&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00028">28</a> of file <a class="el" href="../../dc/d57/a00194_source.html">RNEngineType.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a0d22d904ddff0d21494405335e5fc744"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::RNEngineType::IsType </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00032">32</a> of file <a class="el" href="../../dd/df4/a00193_source.html">RNEngineType.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a120e2ae5e703cd5a7e1859a1c83ddcec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::RNEngineType::ToString </td>
+          <td>(</td>
+          <td class="paramtype">Id&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a type id to corresponding name. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00040">40</a> of file <a class="el" href="../../dd/df4/a00193_source.html">RNEngineType.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58e0a5f256c9b615c606f90dabec96b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d2f/a00258.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">Id</a> stride::RNEngineType::ToType </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a string with name to Id. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df4/a00193_source.html#l00049">49</a> of file <a class="el" href="../../dd/df4/a00193_source.html">RNEngineType.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c2a5d8f1812dfead0b91defc7c28a83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::RNEngineType::IsType </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether type with name s exists. </p>
+
+</div>
+</div>
+<a class="anchor" id="aff4fcec0502d45699761bc02fe6a7a08"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t stride::RNEngineType::ToSizeT </td>
+          <td>(</td>
+          <td class="paramtype">Id&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cast to size_t for indexing. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00042">42</a> of file <a class="el" href="../../dc/d57/a00194_source.html">RNEngineType.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d3/d1a/a00251.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/d39/a00257.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d2f/a00258.html">detail</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d7/d03/a00254.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/d2f/a00258.html">RNEngineType</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

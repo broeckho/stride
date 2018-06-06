@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GnuPlotCSV.h Source File</title>
+<title>Stride Reference Manual: GnuPlot.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d14/a00139_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GnuPlotCSV.h</div>  </div>
+<div class="title">GnuPlot.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d14/a00139.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,49 +122,57 @@ $(document).ready(function(){initNavTree('de/d14/a00139_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d72/a00124.html">CSV.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d4e/a00141.html">GnuPlotCSV.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a> : <span class="keyword">public</span> <a class="code" href="../../d7/df7/a00058.html">CSV</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV::CSV</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">friend</span> boost::filesystem::ofstream&amp; <a class="code" href="../../df/d5f/a00064.html#a0d8abe9169774d74484993bd365489f7">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; csv);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">WriteLabels</a>(boost::filesystem::ofstream&amp; file) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d9/d39/a00257.html#a93947dd5e7f2cdcaf0ce217ff6d0ddb8">   48</a></span>&#160;<span class="keyword">inline</span> boost::filesystem::ofstream&amp; <a class="code" href="../../d9/d39/a00257.html#ad1dad0220087330dc882206f7f985f2b">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; csv)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        csv.<a class="code" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">WriteLabels</a>(ofs);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        csv.<a class="code" href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">WriteRows</a>(ofs);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> ofs;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00124_html"><div class="ttname"><a href="../../da/d72/a00124.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
-<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">stride::util::GnuPlotCSV</a></div><div class="ttdoc">CSV container fit for GnuPlot data. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00036">GnuPlotCSV.h:36</a></div></div>
-<div class="ttc" id="a00064_html_a0d8abe9169774d74484993bd365489f7"><div class="ttname"><a href="../../df/d5f/a00064.html#a0d8abe9169774d74484993bd365489f7">stride::util::GnuPlotCSV::operator&lt;&lt;</a></div><div class="ttdeci">friend boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const GnuPlotCSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00048">GnuPlotCSV.h:48</a></div></div>
-<div class="ttc" id="a00058_html_aee5a6e4570ae6c4efc6f316b97f9c174"><div class="ttname"><a href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">stride::util::CSV::WriteRows</a></div><div class="ttdeci">virtual void WriteRows(boost::filesystem::ofstream &amp;file) const </div><div class="ttdoc">Write the body of rows. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00135">CSV.cpp:135</a></div></div>
-<div class="ttc" id="a00064_html_a4bb16afe589dae23eb8b66bafd21f3f0"><div class="ttname"><a href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">stride::util::GnuPlotCSV::WriteLabels</a></div><div class="ttdeci">void WriteLabels(boost::filesystem::ofstream &amp;file) const override</div><div class="ttdoc">Write header with labels. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00031">GnuPlotCSV.cpp:31</a></div></div>
-<div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d72/a00124_source.html#l00038">CSV.h:38</a></div></div>
-<div class="ttc" id="a00058_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor, used for swig. </div></div>
-<div class="ttc" id="a00257_html_ad1dad0220087330dc882206f7f985f2b"><div class="ttname"><a href="../../d9/d39/a00257.html#ad1dad0220087330dc882206f7f985f2b">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const CSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d72/a00124_source.html#l00127">CSV.h:127</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d6f/a00063.html">GnuPlot</a> : <span class="keyword">protected</span> std::vector&lt;GnuPlotCSV&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d1/d6f/a00063.html#aa5380bdfb3c44ef30cd88565052f506c">GnuPlot</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">using</span> std::vector&lt;GnuPlotCSV&gt;::begin;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">using</span> std::vector&lt;GnuPlotCSV&gt;::end;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">using</span> std::vector&lt;GnuPlotCSV&gt;::size;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1">   48</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1">Add</a>(<span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; gpCsv) { this-&gt;emplace_back(gpCsv); }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d1/d6f/a00063.html#acac0a787af7c358bb65da65298332851">Write</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">friend</span> boost::filesystem::ofstream&amp; <a class="code" href="../../d1/d6f/a00063.html#a23c9efdc17fd901765158d6d7ca739c8">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../d1/d6f/a00063.html">GnuPlot</a>&amp; gp);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dd/dd7/a00260.html#a080fa14d39670206bc8b3a11405bad77">   56</a></span>&#160;<span class="keyword">inline</span> boost::filesystem::ofstream&amp; <a class="code" href="../../dd/dd7/a00260.html#ad1dad0220087330dc882206f7f985f2b">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../d1/d6f/a00063.html">GnuPlot</a>&amp; gp)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; csv : gp) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                ofs &lt;&lt; csv &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                ofs &lt;&lt; <span class="stringliteral">&quot; \n &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> ofs;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00260_html_ad1dad0220087330dc882206f7f985f2b"><div class="ttname"><a href="../../dd/dd7/a00260.html#ad1dad0220087330dc882206f7f985f2b">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const CSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/a00126_source.html#l00126">CSV.h:126</a></div></div>
+<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">stride::util::GnuPlotCSV</a></div><div class="ttdoc">CSV container fit for GnuPlot data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4e/a00141_source.html#l00036">GnuPlotCSV.h:36</a></div></div>
+<div class="ttc" id="a00141_html"><div class="ttname"><a href="../../d5/d4e/a00141.html">GnuPlotCSV.h</a></div><div class="ttdoc">Header file for GnuPlot container. </div></div>
+<div class="ttc" id="a00063_html"><div class="ttname"><a href="../../d1/d6f/a00063.html">stride::util::GnuPlot</a></div><div class="ttdoc">A collection of GnuPlotCSV&#39;s elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00037">GnuPlot.h:37</a></div></div>
+<div class="ttc" id="a00063_html_a23c9efdc17fd901765158d6d7ca739c8"><div class="ttname"><a href="../../d1/d6f/a00063.html#a23c9efdc17fd901765158d6d7ca739c8">stride::util::GnuPlot::operator&lt;&lt;</a></div><div class="ttdeci">friend boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const GnuPlot &amp;gp)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00056">GnuPlot.h:56</a></div></div>
+<div class="ttc" id="a00063_html_a93a47a524f043aa59fd8f95cf0b63ac1"><div class="ttname"><a href="../../d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1">stride::util::GnuPlot::Add</a></div><div class="ttdeci">void Add(const GnuPlotCSV &amp;gpCsv)</div><div class="ttdoc">Add a block. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00048">GnuPlot.h:48</a></div></div>
+<div class="ttc" id="a00063_html_acac0a787af7c358bb65da65298332851"><div class="ttname"><a href="../../d1/d6f/a00063.html#acac0a787af7c358bb65da65298332851">stride::util::GnuPlot::Write</a></div><div class="ttdeci">void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00031">GnuPlot.cpp:31</a></div></div>
+<div class="ttc" id="a00063_html_aa5380bdfb3c44ef30cd88565052f506c"><div class="ttname"><a href="../../d1/d6f/a00063.html#aa5380bdfb3c44ef30cd88565052f506c">stride::util::GnuPlot::GnuPlot</a></div><div class="ttdeci">GnuPlot()=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d14/a00139.html">GnuPlotCSV.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d14/a00139.html">GnuPlot.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

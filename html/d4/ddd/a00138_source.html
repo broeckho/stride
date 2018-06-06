@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: GnuPlotCSV.cpp Source File</title>
+<title>Stride Reference Manual: GnuPlot.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d4/ddd/a00138_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GnuPlotCSV.cpp</div>  </div>
+<div class="title">GnuPlot.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d4/ddd/a00138.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,10 +118,10 @@ $(document).ready(function(){initNavTree('d4/ddd/a00138_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d14/a00139.html">GnuPlotCSV.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d14/a00139.html">GnuPlot.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
@@ -131,22 +131,27 @@ $(document).ready(function(){initNavTree('d4/ddd/a00138_source.html','../../');}
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">   31</a></span>&#160;<span class="keywordtype">void</span> GnuPlotCSV::WriteLabels(boost::filesystem::ofstream&amp; file)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d6f/a00063.html#acac0a787af7c358bb65da65298332851">   31</a></span>&#160;<span class="keywordtype">void</span> GnuPlot::Write(<span class="keyword">const</span> boost::filesystem::path&amp; path)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        file &lt;&lt; <span class="stringliteral">&quot;#&quot;</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        CSV::WriteLabels(file);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00139_html"><div class="ttname"><a href="../../de/d14/a00139.html">GnuPlotCSV.h</a></div><div class="ttdoc">Header file for GnuPlot container. </div></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        boost::filesystem::ofstream file;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        file.open(path.string());</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span> (!file.is_open()) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;Error opening csv file: &quot;</span> + path.string());</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        file &lt;&lt; *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        file.close();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00139_html"><div class="ttname"><a href="../../de/d14/a00139.html">GnuPlot.h</a></div><div class="ttdoc">Multi-block CSV file (fashioned after and used for GnuPlot data files). </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d4/ddd/a00138.html">GnuPlotCSV.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d4/ddd/a00138.html">GnuPlot.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

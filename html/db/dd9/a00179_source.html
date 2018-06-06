@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PersonsFile.cpp Source File</title>
+<title>Stride Reference Manual: Payload.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,77 +103,70 @@ $(document).ready(function(){initNavTree('db/dd9/a00179_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PersonsFile.cpp</div>  </div>
+<div class="title">Payload.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/dd9/a00179.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d81/a00180.html">PersonsFile.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d00/a00186.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d5b/a00135.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>output {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">   33</a></span>&#160;<a class="code" href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">PersonsFile::PersonsFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix) : m_fstream() { <a class="code" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">Initialize</a>(output_prefix); }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">   35</a></span>&#160;<a class="code" href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">PersonsFile::~PersonsFile</a>() { <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a>.close(); }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">PersonsFile::Initialize</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> p = <a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(output_prefix, <span class="stringliteral">&quot;persons.csv&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a>.open(p.c_str());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// add header</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a> &lt;&lt; <span class="stringliteral">&quot;id,age,is_recovered,is_immune,start_infectiousness,&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;end_infectiousness,start_symptomatic,end_symptomatic&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">PersonsFile::Print</a>(std::shared_ptr&lt;const Population&gt; population)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *population) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; h = p.GetHealth();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a> &lt;&lt; p.GetId() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; p.GetAge() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.IsRecovered() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.IsImmune() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                          &lt;&lt; h.GetStartInfectiousness() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.GetEndInfectiousness() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                          &lt;&lt; h.GetStartSymptomatic() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.GetEndSymptomatic() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace output</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00043_html_ab2c1e70237152817647dded0f5906c6b"><div class="ttname"><a href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">stride::output::PersonsFile::PersonsFile</a></div><div class="ttdeci">PersonsFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor: initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00033">PersonsFile.cpp:33</a></div></div>
-<div class="ttc" id="a00061_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00051">FileSys.cpp:51</a></div></div>
-<div class="ttc" id="a00135_html"><div class="ttname"><a href="../../d5/d5b/a00135.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00043_html_a426f21983cf23767cfa51c0f4b9fb068"><div class="ttname"><a href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">stride::output::PersonsFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00052">PersonsFile.h:52</a></div></div>
-<div class="ttc" id="a00186_html"><div class="ttname"><a href="../../d8/d00/a00186.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00043_html_ac72a90d142c34ca2137bdf09760ba2c4"><div class="ttname"><a href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">stride::output::PersonsFile::Print</a></div><div class="ttdeci">void Print(std::shared_ptr&lt; const Population &gt; population)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00046">PersonsFile.cpp:46</a></div></div>
-<div class="ttc" id="a00043_html_a70798ee06674e243f7dad24ae2dca7fd"><div class="ttname"><a href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">stride::output::PersonsFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00037">PersonsFile.cpp:37</a></div></div>
-<div class="ttc" id="a00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">PersonsFile.h</a></div><div class="ttdoc">Header for the PersonFile class. </div></div>
-<div class="ttc" id="a00043_html_aafacf4448a2354eff812e02d2048e114"><div class="ttname"><a href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">stride::output::PersonsFile::~PersonsFile</a></div><div class="ttdeci">~PersonsFile()</div><div class="ttdoc">Destructor: close the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00035">PersonsFile.cpp:35</a></div></div>
+<a href="../../db/dd9/a00179.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d7d/a00150.html">Id.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dc2/a00228.html">TestResult.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>event {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../de/d21/a00006.html">Payload</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">   37</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">Payload</a>(<a class="code" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>) : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">   40</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">Payload</a>(<a class="code" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, <a class="code" href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> testResult = <a class="code" href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">TestResult</a>())</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(std::move(testResult)){};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">   44</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">Payload</a>(<a class="code" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, std::string msg)</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">   45</a></span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(std::move(msg)), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a>                  <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">   48</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">   49</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">   50</a></span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace event</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00248_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d7d/a00150_source.html#l00029">Id.hpp:29</a></div></div>
+<div class="ttc" id="a00006_html_abdc5cdaa28a70d011d70d818c0fdd816"><div class="ttname"><a href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">myhayai::event::Payload::m_msg</a></div><div class="ttdeci">std::string m_msg</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00049">Payload.h:49</a></div></div>
+<div class="ttc" id="a00006_html_ae75ee4688a69ec6d9fd54c7df4e14b3b"><div class="ttname"><a href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, myhayai::TestResult testResult=TestResult())</div><div class="ttdoc">Provide event id, name and possibly results (executed and disabled tests). </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00040">Payload.h:40</a></div></div>
+<div class="ttc" id="a00246_html_a57199109a783f4e5805d20fe31019b29"><div class="ttname"><a href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a></div><div class="ttdeci">std::vector&lt; std::chrono::steady_clock::duration &gt; TestResult</div><div class="ttdoc">Test result descriptor. All durations are expressed in nanoseconds. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dc2/a00228_source.html#l00030">TestResult.h:30</a></div></div>
+<div class="ttc" id="a00150_html"><div class="ttname"><a href="../../d9/d7d/a00150.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
+<div class="ttc" id="a00006_html_a5173609926327fea6ec1a8f6e48ebc37"><div class="ttname"><a href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">myhayai::event::Payload::m_id</a></div><div class="ttdeci">Id m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00045">Payload.h:45</a></div></div>
+<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00034">Payload.h:34</a></div></div>
+<div class="ttc" id="a00006_html_a43788ef87b7096720a07819ee286eeff"><div class="ttname"><a href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, std::string msg)</div><div class="ttdoc">Provide event id, name and message (aborted tests) </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00044">Payload.h:44</a></div></div>
+<div class="ttc" id="a00006_html_a1cc0d980c9a83a4ec5765a9f53b96313"><div class="ttname"><a href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">myhayai::event::Payload::m_test_name</a></div><div class="ttdeci">std::string m_test_name</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00048">Payload.h:48</a></div></div>
+<div class="ttc" id="a00006_html_a45c0ccf1352f9c443b34ed1b3c972c5d"><div class="ttname"><a href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">myhayai::event::Payload::m_run_times</a></div><div class="ttdeci">myhayai::TestResult m_run_times</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00050">Payload.h:50</a></div></div>
+<div class="ttc" id="a00006_html_a28c8bf22e1beb49b5136caf90a6569cf"><div class="ttname"><a href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id)</div><div class="ttdoc">Only provide event id (a.o. begin and end of benchmarking). </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00037">Payload.h:37</a></div></div>
+<div class="ttc" id="a00228_html"><div class="ttname"><a href="../../de/dc2/a00228.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">PersonsFile.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../db/dd9/a00179.html">Payload.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

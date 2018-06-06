@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Id.cpp Source File</title>
+<title>Stride Reference Manual: HealthSeeder.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('da/ddb/a00145_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">myhayai/Id.cpp</div>  </div>
+<div class="title">HealthSeeder.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../da/ddb/a00145.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,68 +118,91 @@ $(document).ready(function(){initNavTree('da/ddb/a00145_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d48/a00148.html">Id.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db6/a00146.html">HealthSeeder.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/deb/a00189.html">pop/Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">util/RNManager.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html">   27</a></span>&#160;<span class="keyword">namespace </span>event {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;trng/uniform01_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;omp.h&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> boost::to_upper;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d6/d22/a00245.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">IsType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;BEGINBENCH&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>), make_pair(<span class="stringliteral">&quot;ENDBENCH&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SKIPTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>),     make_pair(<span class="stringliteral">&quot;ABORTTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">Id::AbortTest</a>),</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                   make_pair(<span class="stringliteral">&quot;BEGINTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>),   make_pair(<span class="stringliteral">&quot;ENDTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>)};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        to_upper(t);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d5/d79/a00030.html#a7b4785c0728c9f154aa1426034d6e1b5">   35</a></span>&#160;HealthSeeder::HealthSeeder(<span class="keyword">const</span> boost::property_tree::ptree&amp; diseasePt)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        GetDistribution(m_distrib_start_infectiousness, diseasePt, <span class="stringliteral">&quot;disease.start_infectiousness&quot;</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        GetDistribution(m_distrib_start_symptomatic, diseasePt, <span class="stringliteral">&quot;disease.start_symptomatic&quot;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        GetDistribution(m_distrib_time_infectious, diseasePt, <span class="stringliteral">&quot;disease.time_infectious&quot;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        GetDistribution(m_distrib_time_symptomatic, diseasePt, <span class="stringliteral">&quot;disease.time_symptomatic&quot;</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html#a5fe6d259725ff63b938e49f81a7d65c5">   42</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d6/d22/a00245.html#a5fe6d259725ff63b938e49f81a7d65c5">ToString</a>(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> c)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> map&lt;Id, string&gt; names{make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>, <span class="stringliteral">&quot;BeginBench&quot;</span>), make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>, <span class="stringliteral">&quot;EndBench&quot;</span>),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                     make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>, <span class="stringliteral">&quot;AbortTest&quot;</span>),    make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>, <span class="stringliteral">&quot;AbortTest&quot;</span>),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                     make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>, <span class="stringliteral">&quot;BeginTest&quot;</span>),   make_pair(<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>, <span class="stringliteral">&quot;EndTest&quot;</span>)};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> (names.count(c) == 1) ? names[c] : <span class="stringliteral">&quot;null&quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">   50</a></span>&#160;<a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <a class="code" href="../../d6/d22/a00245.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">ToType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;BEGINBENCH&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>), make_pair(<span class="stringliteral">&quot;ENDBENCH&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>),</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SKIPTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>),     make_pair(<span class="stringliteral">&quot;ABORTTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">Id::AbortTest</a>),</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                   make_pair(<span class="stringliteral">&quot;BEGINTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>),   make_pair(<span class="stringliteral">&quot;ENDTEST&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>)};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        to_upper(t);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1) ? ids[t] : <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;myhayai::event::Id::ToString&gt; Not available:&quot;</span> + t);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        assert((abs(m_distrib_start_infectiousness.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in start_infectiousness distribution!&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        assert((abs(m_distrib_start_symptomatic.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in start_symptomatic distribution!&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert((abs(m_distrib_time_infectious.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in time_infectious distribution!&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        assert((abs(m_distrib_time_symptomatic.back() - 1.0) &lt; 1.e-10) &amp;&amp;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;               <span class="stringliteral">&quot;HealthSampler&gt; Error in time_symptomatic distribution!&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d5/d79/a00030.html#a7b240a326b204767217481b3fcc46237">   52</a></span>&#160;<span class="keywordtype">void</span> HealthSeeder::GetDistribution(vector&lt;double&gt;&amp; distribution, <span class="keyword">const</span> ptree&amp; rootPt, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; xmlTag)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; subtree = rootPt.get_child(xmlTag);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; tree : subtree) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                distribution.push_back(tree.second.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace event</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">myhayai::event::Id::EndBench</a></div></div>
-<div class="ttc" id="a00245_html_a5fe6d259725ff63b938e49f81a7d65c5"><div class="ttname"><a href="../../d6/d22/a00245.html#a5fe6d259725ff63b938e49f81a7d65c5">myhayai::event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00042">myhayai/Id.cpp:42</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">myhayai::event::Id::SkipTest</a></div></div>
-<div class="ttc" id="a00245_html_a0a7a2da03a1ca0d44e79d0dfcf2bb098"><div class="ttname"><a href="../../d6/d22/a00245.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">myhayai::event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00050">myhayai/Id.cpp:50</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">myhayai::event::Id::EndTest</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">myhayai::event::Id::BeginTest</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00029">Id.hpp:29</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">myhayai::event::Id::BeginBench</a></div></div>
-<div class="ttc" id="a00245_html_aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42"><div class="ttname"><a href="../../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">myhayai::event::Id::AbortTest</a></div></div>
-<div class="ttc" id="a00245_html_a4ca6114a0aa6f6ad4557326c79e9f3ee"><div class="ttname"><a href="../../d6/d22/a00245.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">myhayai::event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/ddb/a00145_source.html#l00032">myhayai/Id.cpp:32</a></div></div>
-<div class="ttc" id="a00148_html"><div class="ttname"><a href="../../db/d48/a00148.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d5/d79/a00030.html#a562b022d2c7f2836b4400e7d19e1b040">   60</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> HealthSeeder::Sample(<span class="keyword">const</span> vector&lt;double&gt;&amp; distribution, <span class="keywordtype">double</span> random01)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">auto</span> ret = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(distribution.size());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> i = 0; i &lt; distribution.size(); i++) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">if</span> (random01 &lt;= distribution[i]) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        ret = i;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d5/d79/a00030.html#ad6a9061857cee5335745fe5501bcb73d">   72</a></span>&#160;<span class="keywordtype">void</span> HealthSeeder::Seed(<span class="keyword">const</span> std::shared_ptr&lt;stride::Population&gt;&amp; pop, vector&lt;ContactHandler&gt;&amp; handlers)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">auto</span>&amp; population = *pop;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#pragma omp parallel num_threads(handlers.size())</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>        {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keyword">auto</span>&amp; gen01 = handlers[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(omp_get_thread_num())];</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#pragma omp for</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> startInfectiousness = Sample(m_distrib_start_infectiousness, gen01());</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> startSymptomatic    = Sample(m_distrib_start_symptomatic, gen01());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> timeInfectious      = Sample(m_distrib_time_infectious, gen01());</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keyword">const</span> <span class="keyword">auto</span> timeSymptomatic     = Sample(m_distrib_time_symptomatic, gen01());</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        population[i].GetHealth() =</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                            <a class="code" href="../../d5/d16/a00029.html">Health</a>(startInfectiousness, startSymptomatic, timeInfectious, timeSymptomatic);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00029_html"><div class="ttname"><a href="../../d5/d16/a00029.html">stride::Health</a></div><div class="ttdoc">Holds a person&#39;s health data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/a00144_source.html#l00037">Health.h:37</a></div></div>
+<div class="ttc" id="a00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">HealthSeeder.h</a></div><div class="ttdoc">Header file for the HealthSeeder. </div></div>
+<div class="ttc" id="a00189_html"><div class="ttname"><a href="../../da/deb/a00189.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../da/ddb/a00145.html">Id.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../da/ddb/a00145.html">HealthSeeder.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

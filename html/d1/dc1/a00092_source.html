@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Any.h Source File</title>
+<title>Stride Reference Manual: AgeContactProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d1/dc1/a00092_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Any.h</div>  </div>
+<div class="title">AgeContactProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/dc1/a00092.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,89 +119,38 @@ $(document).ready(function(){initNavTree('d1/dc1/a00092_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *  Author bistromatics/Robin Jadoul.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/dc8/a00122.html">pool/ContactPoolType.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dec/a00090.html">pop/Age.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d6d/a00055.html">Any</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">   40</a></span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>()</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            : <a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a>(nullptr), <a class="code" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a>([]() {})</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;#<span class="keywordflow">if</span> not defined(NDEBUG)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;              ,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;              m_id(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span>        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="../../d4/d6d/a00055.html">Any</a>() { <a class="code" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a>(); }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// We don&#39;t need these right now, so this is less work.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp; <a class="code" href="../../d4/d6d/a00055.html#ad1330eaf1df07a82065354e88a87a6fd">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>(<a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp;&amp;)                 = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp; <a class="code" href="../../d4/d6d/a00055.html#ad1330eaf1df07a82065354e88a87a6fd">operator=</a>(<a class="code" href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a8aee74d02cb317ad6a8212f9a84c9254">   60</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d4/d6d/a00055.html#a8aee74d02cb317ad6a8212f9a84c9254">emplace</a>(Args&amp;&amp;... args)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <a class="code" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a>     = <span class="keyword">new</span> T(std::forward&lt;Args&gt;(args)...);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <a class="code" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a> = [<span class="keyword">this</span>]() { <span class="keyword">delete</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a>); };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#if not defined(NDEBUG)</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span>                m_id = <span class="keyword">typeid</span>(T).name();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a25363f8f215051caae46e3094da0bff8">   72</a></span>&#160;        T* <a class="code" href="../../d4/d6d/a00055.html#a25363f8f215051caae46e3094da0bff8">cast</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#if not defined(NDEBUG)</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (!*<span class="keyword">this</span>) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">throw</span> std::bad_cast();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">if</span> (<span class="keyword">typeid</span>(T).name() != m_id) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        <span class="keywordflow">throw</span> std::bad_cast();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a60543e81cc55aee3d0a2d8e02779825b">   86</a></span>&#160;        <span class="keyword">explicit</span> <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a> != <span class="keyword">nullptr</span>; }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">   89</a></span>&#160;        <span class="keywordtype">void</span>*                 <a class="code" href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">   90</a></span>&#160;        std::function&lt;void()&gt; <a class="code" href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#if not defined(NDEBUG)</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span>        std::string m_id;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span>};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00055_html_a25363f8f215051caae46e3094da0bff8"><div class="ttname"><a href="../../d4/d6d/a00055.html#a25363f8f215051caae46e3094da0bff8">stride::util::Any::cast</a></div><div class="ttdeci">T * cast() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00072">Any.h:72</a></div></div>
-<div class="ttc" id="a00055_html"><div class="ttname"><a href="../../d4/d6d/a00055.html">stride::util::Any</a></div><div class="ttdoc">A RAII void*, for type erasure, that can point to anything. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00036">Any.h:36</a></div></div>
-<div class="ttc" id="a00055_html_ad1330eaf1df07a82065354e88a87a6fd"><div class="ttname"><a href="../../d4/d6d/a00055.html#ad1330eaf1df07a82065354e88a87a6fd">stride::util::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(const Any &amp;)=delete</div></div>
-<div class="ttc" id="a00055_html_a43e14abfb952e01348cb11cb50649daf"><div class="ttname"><a href="../../d4/d6d/a00055.html#a43e14abfb952e01348cb11cb50649daf">stride::util::Any::m_destroy</a></div><div class="ttdeci">std::function&lt; void()&gt; m_destroy</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00090">Any.h:90</a></div></div>
-<div class="ttc" id="a00055_html_a581dd8c8a98e7470e351687980a7f41d"><div class="ttname"><a href="../../d4/d6d/a00055.html#a581dd8c8a98e7470e351687980a7f41d">stride::util::Any::m_ptr</a></div><div class="ttdeci">void * m_ptr</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00089">Any.h:89</a></div></div>
-<div class="ttc" id="a00055_html_a78136d1eb13e5df0bd7f8043adff152a"><div class="ttname"><a href="../../d4/d6d/a00055.html#a78136d1eb13e5df0bd7f8043adff152a">stride::util::Any::Any</a></div><div class="ttdeci">Any()</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00040">Any.h:40</a></div></div>
-<div class="ttc" id="a00055_html_a8aee74d02cb317ad6a8212f9a84c9254"><div class="ttname"><a href="../../d4/d6d/a00055.html#a8aee74d02cb317ad6a8212f9a84c9254">stride::util::Any::emplace</a></div><div class="ttdeci">void emplace(Args &amp;&amp;...args)</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00060">Any.h:60</a></div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/dd4/a00013.html">AgeContactProfile</a> : <span class="keyword">public</span> std::array&lt;double, MaximumAge() + 1&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>(<a class="code" href="../../d0/def/a00256.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, <span class="keyword">const</span> boost::property_tree::ptree&amp; contactPt);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00256_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d0/def/a00256.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00122_html"><div class="ttname"><a href="../../df/dc8/a00122.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
+<div class="ttc" id="a00090_html"><div class="ttname"><a href="../../d9/dec/a00090.html">Age.h</a></div><div class="ttdoc">Helpers for age. </div></div>
+<div class="ttc" id="a00013_html"><div class="ttname"><a href="../../d7/dd4/a00013.html">stride::AgeContactProfile</a></div><div class="ttdoc">Contact rates as a function of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00033">AgeContactProfile.h:33</a></div></div>
+<div class="ttc" id="a00013_html_abcac910ea28f2cefae9efd6f462aa34d"><div class="ttname"><a href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">stride::AgeContactProfile::AgeContactProfile</a></div><div class="ttdeci">AgeContactProfile()=default</div><div class="ttdoc">Need to keep the default constructor available. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d1/dc1/a00092.html">Any.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d1/dc1/a00092.html">AgeContactProfile.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RNEngineType.cpp File Reference</title>
+<title>Stride Reference Manual: PtreeUtils.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,59 +103,64 @@ $(document).ready(function(){initNavTree('d7/d6e/a00190.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">RNEngineType.cpp File Reference</div>  </div>
+<div class="title">PtreeUtils.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implementation of Random Engine Type.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">RNEngineType.h</a>&quot;</code><br/>
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
+<div class="textblock"><code>#include &lt;array&gt;</code><br/>
+<code>#include &lt;boost/foreach.hpp&gt;</code><br/>
+<code>#include &lt;boost/iterator/transform_iterator.hpp&gt;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;stdexcept&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RNEngineType.cpp:</div>
+Include dependency graph for PtreeUtils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/df7/a00418.gif" border="0" usemap="#RNEngineType_8cpp" alt=""/></div>
-<map name="RNEngineType_8cpp" id="RNEngineType_8cpp">
-<area shape="rect" id="node2" href="../../d9/dd0/a00191.html" title="Interface of Random Engine Type. " alt="" coords="5,80,128,107"/></map>
+<div class="center"><img src="../../d3/d29/a00419.gif" border="0" usemap="#PtreeUtils_8h" alt=""/></div>
+<map name="PtreeUtils_8h" id="PtreeUtils_8h">
+</map>
 </div>
 </div>
 <p><a href="../../d7/d6e/a00190_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/a00060.html">stride::util::detail::pair2data&lt; T, Ptree &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d3/d1a/a00251"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html">stride</a></td></tr>
-<tr class="memdesc:d3/d1a/a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
+<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride::RNEngineType</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of random engines. <br/></td></tr>
+<tr class="memitem:dd/dd7/a00260"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html">stride::util</a></td></tr>
+<tr class="memdesc:dd/dd7/a00260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/d6a/a00261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html">stride::util::detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0d22d904ddff0d21494405335e5fc744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html#a0d22d904ddff0d21494405335e5fc744">stride::RNEngineType::IsType</a> (const string &amp;s)</td></tr>
-<tr class="separator:a0d22d904ddff0d21494405335e5fc744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html#a120e2ae5e703cd5a7e1859a1c83ddcec">stride::RNEngineType::ToString</a> (Id b)</td></tr>
-<tr class="memdesc:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a type id to corresponding name.  <a href="#a120e2ae5e703cd5a7e1859a1c83ddcec">More...</a><br/></td></tr>
-<tr class="separator:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e0a5f256c9b615c606f90dabec96b2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html#a58e0a5f256c9b615c606f90dabec96b2">stride::RNEngineType::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a58e0a5f256c9b615c606f90dabec96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a58e0a5f256c9b615c606f90dabec96b2">More...</a><br/></td></tr>
-<tr class="separator:a58e0a5f256c9b615c606f90dabec96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplParams" colspan="2">template&lt;class Sequence &gt; </td></tr>
+<tr class="memitem:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memTemplItemLeft" align="right" valign="top">Sequence&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html#a29ac84256d48f3fb5596d2d4d6bc5173">stride::util::ToSequence</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
+<tr class="separator:a29ac84256d48f3fb5596d2d4d6bc5173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplParams" colspan="2">template&lt;class T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a4a886659f5c17aa6571c4c01211bfe99"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html#a4a886659f5c17aa6571c4c01211bfe99">stride::util::ToArray</a> (const boost::property_tree::ptree &amp;ptree)</td></tr>
+<tr class="separator:a4a886659f5c17aa6571c4c01211bfe99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplParams" colspan="2">template&lt;class Ptree &gt; </td></tr>
+<tr class="memitem:aaf7d3b8f66de250307e449784676de27"><td class="memTemplItemLeft" align="right" valign="top">Ptree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html#aaf7d3b8f66de250307e449784676de27">stride::util::Merge</a> (const Ptree &amp;pt1, const Ptree &amp;pt2)</td></tr>
+<tr class="separator:aaf7d3b8f66de250307e449784676de27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of Random Engine Type. </p>
-
-<p>Definition in file <a class="el" href="../../d7/d6e/a00190_source.html">RNEngineType.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">RNEngineType.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">PtreeUtils.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

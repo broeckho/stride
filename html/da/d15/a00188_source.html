@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PtreeViewer.cpp Source File</title>
+<title>Stride Reference Manual: Population.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('da/d15/a00188_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PtreeViewer.cpp</div>  </div>
+<div class="title">Population.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../da/d15/a00188.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,136 +118,118 @@ $(document).ready(function(){initNavTree('da/d15/a00188_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/deb/a00189.html">PtreeViewer.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/a00101.html">util/BoxPlotData.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d42/a00109.html">util/ConfigInfo.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d01/a00227.html">util/TimeStamp.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dc2/a00228.html">util/TimeToString.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a6ed087a871ee1d430ee8b2a65357be8a">   38</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;T&gt;::Update</a>(<span class="keyword">const</span> <a class="code" href="../../de/d21/a00006.html">myhayai::event::Payload</a>&amp; payload)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> exec     = 0U;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> disabled = 0U;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">string</span>        name     = payload.<a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d6/d2c/a00072.html">Stopwatch&lt;&gt;</a>  clock(<span class="stringliteral">&quot;total&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (payload.<a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a> == event::Id::SkipTest) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                ++disabled;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (payload.<a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a> == event::Id::BeginTest) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                ++exec;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">switch</span> (payload.<a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">case</span> event::Id::BeginBench: {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                clock.<a class="code" href="../../d6/d2c/a00072.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.date&quot;</span>, <a class="code" href="../../d9/da5/a00075.html">TimeStamp</a>().ToTag());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.host&quot;</span>, ConfigInfo::GetHostname());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.git_comit&quot;</span>, ConfigInfo::GitRevision());</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">case</span> event::Id::EndBench: {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.executed&quot;</span>, exec);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.disabled&quot;</span>, disabled);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.excluded&quot;</span>, m_descriptors.size() - exec - disabled);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> t = duration_cast&lt;T&gt;(clock.<a class="code" href="../../d6/d2c/a00072.html#a4b6145f590e94467a0048817f348ac75">Stop</a>().<a class="code" href="../../d6/d2c/a00072.html#afe36cf7e76eb1de8cda4490fc5b41829">Get</a>());</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                m_ptree.put(<span class="stringliteral">&quot;benchmark.total_time&quot;</span>, TimeToString::ToColonString(t));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">case</span> event::Id::SkipTest: {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                ptree pt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                pt.put(<span class="stringliteral">&quot;name&quot;</span>, name);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                pt.put(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;disabled&quot;</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                m_ptree.add_child(<span class="stringliteral">&quot;benchmark.test&quot;</span>, pt);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">case</span> event::Id::AbortTest: {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                ptree pt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                pt.put(<span class="stringliteral">&quot;name&quot;</span>, name);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                pt.put(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;aborted&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                pt.put(<span class="stringliteral">&quot;message&quot;</span>, payload.<a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                m_ptree.add_child(<span class="stringliteral">&quot;benchmark.test&quot;</span>, pt);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">case</span> event::Id::BeginTest: {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/deb/a00189.html">Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d9a/a00152.html">behaviour/belief_policies/Imitation.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/de9/a00176.html">behaviour/belief_policies/NoBelief.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/da7/a00144.html">disease/Health.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/daa/a00187.html">pop/PopBuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/df5/a00137.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d53/a00169.html">util/LogUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/db1/a00200.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/de3/a00201.html">util/SegmentedVector.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#acfad6472650932514c08794f7f0b087b">   42</a></span>&#160;std::shared_ptr&lt;Population&gt; Population::Create(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Create (empty) population &amp; and give it a ContactLogger.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">struct </span>make_shared_enabler : <span class="keyword">public</span> <a class="code" href="../../d6/d2d/a00047.html">Population</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">auto</span> pop = make_shared&lt;make_shared_enabler&gt;();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (configPt.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;run.contact_output_file&quot;</span>, <span class="keyword">true</span>)) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> prefix       = configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> logPath      = FileSys::BuildPath(prefix, <span class="stringliteral">&quot;contact_log.txt&quot;</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                pop-&gt;GetContactLogger() = LogUtils::CreateRotatingLogger(<span class="stringliteral">&quot;contact_logger&quot;</span>, logPath.string());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                pop-&gt;GetContactLogger()-&gt;set_pattern(<span class="stringliteral">&quot;%v&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                pop-&gt;GetContactLogger() = LogUtils::CreateNullLogger(<span class="stringliteral">&quot;contact_logger&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// ------------------------------------------------</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Setup RNManager.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// ------------------------------------------------</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../da/d24/a00068.html">RNManager</a> rnManager(<a class="code" href="../../d4/d31/a00069.html">RNManager::Info</a>{configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;pop.rng_type&quot;</span>, <span class="stringliteral">&quot;lcg64&quot;</span>),</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                            configPt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;pop.rng_seed&quot;</span>, 101UL), <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                            configPt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>)});</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// Build population (at later date multiple builder or build instances ...).</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d3/dea/a00046.html">PopBuilder</a>(configPt, rnManager).<a class="code" href="../../d3/dea/a00046.html#a28cc700b4ef12e86f74a58988bfe1e67">Build</a>(pop);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a7178ada970c6b365c02fd676fcd4f46d">   73</a></span>&#160;std::shared_ptr&lt;Population&gt; Population::Create(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; configString)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> Create(<a class="code" href="../../dd/dd7/a00260.html#ae33774027798262390fbf95fbabc3f82">RunConfigManager::FromString</a>(configString));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a0e53e57d363f53cf4777e932f625da3a">   78</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Population::GetAdoptedCount()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> total{0U};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *<span class="keyword">this</span>) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> (p.GetBelief()-&gt;HasAdopted()) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        total++;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">case</span> event::Id::EndTest: {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keyword">using</span> valtyp      = <span class="keyword">typename</span> decltype(payload.<a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>)::value_type;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> stats  = <a class="code" href="../../d9/d2e/a00056.html">BoxPlotData&lt;valtyp&gt;::Calculate</a>(payload.<a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> median = duration_cast&lt;T&gt;(stats.m_median);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> min    = duration_cast&lt;T&gt;(stats.m_min);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> max    = duration_cast&lt;T&gt;(stats.m_max);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> quart1 = duration_cast&lt;T&gt;(stats.m_quartile1);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> quart3 = duration_cast&lt;T&gt;(stats.m_quartile3);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="../../d7/dec/a00010.html">TestDescriptor</a> t_d = m_descriptors[name];</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                ptree          pt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                pt.put(<span class="stringliteral">&quot;name&quot;</span>, name);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> (t_d.m_info_factory) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        pt.add_child(<span class="stringliteral">&quot;info&quot;</span>, t_d.m_info_factory());</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                pt.put(<span class="stringliteral">&quot;status&quot;</span>, <span class="stringliteral">&quot;executed&quot;</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                pt.put(<span class="stringliteral">&quot;run_count&quot;</span>, payload.<a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>.size());</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; rt : payload.<a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        pt.add(<span class="stringliteral">&quot;run_times.run&quot;</span>, duration_cast&lt;T&gt;(rt).count());</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                pt.put(<span class="stringliteral">&quot;boxplot.median&quot;</span>, median.count());</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                pt.put(<span class="stringliteral">&quot;boxplot.min&quot;</span>, min.count());</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                pt.put(<span class="stringliteral">&quot;boxplot.max&quot;</span>, max.count());</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                pt.put(<span class="stringliteral">&quot;boxplot.quartile1&quot;</span>, quart1.count());</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                pt.put(<span class="stringliteral">&quot;boxplot.quartile3&quot;</span>, quart3.count());</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                m_ptree.add_child(<span class="stringliteral">&quot;benchmark.test&quot;</span>, pt);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::microseconds&gt;</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::milliseconds&gt;</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::seconds&gt;</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00072_html_a4b6145f590e94467a0048817f348ac75"><div class="ttname"><a href="../../d6/d2c/a00072.html#a4b6145f590e94467a0048817f348ac75">stride::util::Stopwatch::Stop</a></div><div class="ttdeci">Stopwatch &amp; Stop()</div><div class="ttdoc">Stops the stopwatch if it was running. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00059">Stopwatch.h:59</a></div></div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="../../d7/dec/a00010.html">myhayai::TestDescriptor</a></div><div class="ttdoc">Benchmark test descriptor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00044">TestDescriptor.h:44</a></div></div>
-<div class="ttc" id="a00006_html_abdc5cdaa28a70d011d70d818c0fdd816"><div class="ttname"><a href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">myhayai::event::Payload::m_msg</a></div><div class="ttdeci">std::string m_msg</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00049">Payload.h:49</a></div></div>
-<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">stride::util::BoxPlotData</a></div><div class="ttdoc">BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00034">BoxPlotData.h:34</a></div></div>
-<div class="ttc" id="a00072_html_acaf0b5f9f645a7dd6420420443de5a96"><div class="ttname"><a href="../../d6/d2c/a00072.html#acaf0b5f9f645a7dd6420420443de5a96">stride::util::Stopwatch::Start</a></div><div class="ttdeci">Stopwatch &amp; Start()</div><div class="ttdoc">Starts stopwatch if it was stopped. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00049">Stopwatch.h:49</a></div></div>
-<div class="ttc" id="a00227_html"><div class="ttname"><a href="../../d9/d01/a00227.html">TimeStamp.h</a></div><div class="ttdoc">TimeStamp class. </div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">BoxPlotData.h</a></div><div class="ttdoc">Header file for BoxPlotData. </div></div>
-<div class="ttc" id="a00006_html_a5173609926327fea6ec1a8f6e48ebc37"><div class="ttname"><a href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">myhayai::event::Payload::m_id</a></div><div class="ttdeci">Id m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00045">Payload.h:45</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00075_html"><div class="ttname"><a href="../../d9/da5/a00075.html">stride::util::TimeStamp</a></div><div class="ttdoc">Provides wall-clock time stamp using the time call. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00036">TimeStamp.h:36</a></div></div>
-<div class="ttc" id="a00109_html"><div class="ttname"><a href="../../dd/d42/a00109.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
-<div class="ttc" id="a00072_html"><div class="ttname"><a href="../../d6/d2c/a00072.html">stride::util::Stopwatch</a></div><div class="ttdoc">Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00034">Stopwatch.h:34</a></div></div>
-<div class="ttc" id="a00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a></div><div class="ttdoc">Constructs a (Boost) propert tree with info about the tests run in the benchmark. ...</div><div class="ttdef"><b>Definition:</b> <a href="../../da/deb/a00189_source.html#l00037">PtreeViewer.h:37</a></div></div>
-<div class="ttc" id="a00189_html"><div class="ttname"><a href="../../da/deb/a00189.html">PtreeViewer.h</a></div><div class="ttdoc">Header file for PtreeViewer. </div></div>
-<div class="ttc" id="a00006_html_a1cc0d980c9a83a4ec5765a9f53b96313"><div class="ttname"><a href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">myhayai::event::Payload::m_test_name</a></div><div class="ttdeci">std::string m_test_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00048">Payload.h:48</a></div></div>
-<div class="ttc" id="a00006_html_a45c0ccf1352f9c443b34ed1b3c972c5d"><div class="ttname"><a href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">myhayai::event::Payload::m_run_times</a></div><div class="ttdeci">myhayai::TestResult m_run_times</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00050">Payload.h:50</a></div></div>
-<div class="ttc" id="a00228_html"><div class="ttname"><a href="../../de/dc2/a00228.html">TimeToString.h</a></div><div class="ttdoc">Utilities to tag clocks and reformat clock readout to string. </div></div>
-<div class="ttc" id="a00072_html_afe36cf7e76eb1de8cda4490fc5b41829"><div class="ttname"><a href="../../d6/d2c/a00072.html#afe36cf7e76eb1de8cda4490fc5b41829">stride::util::Stopwatch::Get</a></div><div class="ttdeci">T::duration Get() const </div><div class="ttdoc">Returns the accumulated value without altering the stopwatch state. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00083">Stopwatch.h:83</a></div></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> total;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a5ffab38c3407832dcc0f1ecbf4e11cbd">   89</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Population::GetInfectedCount()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> total{0U};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *<span class="keyword">this</span>) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; h = p.GetHealth();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                total += h.IsInfected() || h.IsRecovered();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> total;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#aa8220931e5e6dacd22be3460872a5125">   99</a></span>&#160;<span class="keywordtype">void</span> Population::CreatePerson(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> age, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> householdId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> schoolId,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> workId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> primaryCommunityId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> secondaryCommunityId)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        this-&gt;emplace_back(<a class="code" href="../../d6/d97/a00045.html">Person</a>(<span class="keywordtype">id</span>, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00046_html_a28cc700b4ef12e86f74a58988bfe1e67"><div class="ttname"><a href="../../d3/dea/a00046.html#a28cc700b4ef12e86f74a58988bfe1e67">stride::PopBuilder::Build</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Build(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Build Population and return it afterwards. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d00/a00186_source.html#l00124">PopBuilder.cpp:124</a></div></div>
+<div class="ttc" id="a00144_html"><div class="ttname"><a href="../../d5/da7/a00144.html">Health.h</a></div><div class="ttdoc">Header for the Health class. </div></div>
+<div class="ttc" id="a00201_html"><div class="ttname"><a href="../../dd/de3/a00201.html">SegmentedVector.h</a></div><div class="ttdoc">Interface and implementation for SegmentedVector class. </div></div>
+<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/deb/a00189_source.html#l00037">Population.h:37</a></div></div>
+<div class="ttc" id="a00176_html"><div class="ttname"><a href="../../d5/de9/a00176.html">NoBelief.h</a></div><div class="ttdoc">Header file for NoBelief class. </div></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00187_html"><div class="ttname"><a href="../../d6/daa/a00187.html">PopBuilder.h</a></div><div class="ttdoc">Initialize populations. </div></div>
+<div class="ttc" id="a00200_html"><div class="ttname"><a href="../../d3/db1/a00200.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00046_html"><div class="ttname"><a href="../../d3/dea/a00046.html">stride::PopBuilder</a></div><div class="ttdoc">Initializes Population objects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/daa/a00187_source.html#l00035">PopBuilder.h:35</a></div></div>
+<div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00260_html_ae33774027798262390fbf95fbabc3f82"><div class="ttname"><a href="../../dd/dd7/a00260.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a></div><div class="ttdeci">T FromString(const std::string &amp;s)</div><div class="ttdoc">Builds a value of type T representation from a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc1/a00212_source.html#l00036">StringUtils.h:36</a></div></div>
+<div class="ttc" id="a00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">Imitation.h</a></div><div class="ttdoc">Header file for Imitation belief policy. </div></div>
+<div class="ttc" id="a00069_html"><div class="ttname"><a href="../../d4/d31/a00069.html">stride::util::RNManager::Info</a></div><div class="ttdoc">POD representation of the RNManager&#39;s state. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00047">RNManager.h:47</a></div></div>
+<div class="ttc" id="a00169_html"><div class="ttname"><a href="../../de/d53/a00169.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
+<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d64/a00181_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00189_html"><div class="ttname"><a href="../../da/deb/a00189.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../da/d15/a00188.html">PtreeViewer.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../da/d15/a00188.html">Population.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

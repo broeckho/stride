@@ -1,15 +1,17 @@
 var a00070 =
 [
-    [ "CleanConfigFile", "d2/db1/a00070.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
-    [ "Create", "d2/db1/a00070.html#ab4007f793a1924a65458824fef455208", null ],
-    [ "CreateNumThreads", "d2/db1/a00070.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
-    [ "FromString", "d2/db1/a00070.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
-    [ "ToString", "d2/db1/a00070.html#af968f949efaf2876f48a86da65faa5ca", null ],
-    [ "ToSha1", "d2/db1/a00070.html#a32ec1961852a81d4873a519f6bea1e36", null ],
-    [ "ToShortSha1", "d2/db1/a00070.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
-    [ "CreateBenchInfluenza", "d2/db1/a00070.html#a7014479a2c8efe57b292b9f61435ab61", null ],
-    [ "CreateBenchMeasles", "d2/db1/a00070.html#abf62ab97dafdce994e503296fe5d9394", null ],
-    [ "CreateDefault", "d2/db1/a00070.html#a93470c7c74cc217254876c704fa81a0f", null ],
-    [ "CreateTestsInfluenza", "d2/db1/a00070.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
-    [ "CreateTestsMeasles", "d2/db1/a00070.html#aa430eb71461536d855db5725ebc59cda", null ]
+    [ "Info", "d0/d89/a00071.html", "d0/d89/a00071" ],
+    [ "EngineType", "d2/db1/a00070.html#a79afc6fbec8ddb81d630562bf4a183b2", null ],
+    [ "RnPcg", "d2/db1/a00070.html#a27057ecf5775ab2929cdf64ce28be936", null ],
+    [ "RnPcg", "d2/db1/a00070.html#aaac719b562ab10f1be56f705bef5ab57", null ],
+    [ "operator=", "d2/db1/a00070.html#ae6b7b89a6c13d9c486e657a2a82ecd3a", null ],
+    [ "GetInfo", "d2/db1/a00070.html#ab08d8d79ab8acdcf865e7bb8ce1c318f", null ],
+    [ "GetGenerator", "d2/db1/a00070.html#abc6a2975cfc4e2a85afde8a9f678253f", null ],
+    [ "GetEngine", "d2/db1/a00070.html#a889402461e37c2ae98c48507dd99b301", null ],
+    [ "GetEngine", "d2/db1/a00070.html#abb319327d8c92787542fe06f95f90902", null ],
+    [ "Seed", "d2/db1/a00070.html#a8adc84874bfb902fa78b804a2c86d7b5", null ],
+    [ "CheckAllDigits", "d2/db1/a00070.html#aebf806dea241b999f9942caf7ad06042", null ],
+    [ "m_engines", "d2/db1/a00070.html#a8fdfa25d812d96cc3f6082b9aaa2ef4a", null ],
+    [ "m_seed_seq_init", "d2/db1/a00070.html#a70270d17215056a4e23bf775ca430fa7", null ],
+    [ "m_stream_count", "d2/db1/a00070.html#a12a8ac195edf8ea01a9a265d305ecdd2", null ]
 ];

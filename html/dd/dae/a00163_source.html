@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: InfoFactory.h Source File</title>
+<title>Stride Reference Manual: InfectorExec.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dd/dae/a00163_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InfoFactory.h</div>  </div>
+<div class="title">InfectorExec.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/dae/a00163.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,21 +121,33 @@ $(document).ready(function(){initNavTree('dd/dae/a00163_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">   27</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> = std::function&lt;boost::property_tree::ptree()&gt;;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00243_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00027">InfoFactory.h:27</a></div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span>ContactPool;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>AgeContactProfile;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>TransmissionProfile;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>ContactHandler;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html#a635bb1de3d0d033b13e5ea468dfdd0bb">   32</a></span>&#160;<span class="keyword">typedef</span> void(<a class="code" href="../../d7/d03/a00254.html#a635bb1de3d0d033b13e5ea468dfdd0bb">InfectorExec</a>)(<a class="code" href="../../dd/da2/a00019.html">ContactPool</a>&amp; pool, <span class="keyword">const</span> <a class="code" href="../../d7/dd4/a00013.html">AgeContactProfile</a>&amp; profile,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                           <span class="keyword">const</span> <a class="code" href="../../d1/dea/a00054.html">TransmissionProfile</a>&amp; trans_profile, <a class="code" href="../../d1/d2b/a00018.html">ContactHandler</a>&amp; c_handler,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                           <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> sim_day, std::shared_ptr&lt;spdlog::logger&gt; c_logger);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00254_html_a635bb1de3d0d033b13e5ea468dfdd0bb"><div class="ttname"><a href="../../d7/d03/a00254.html#a635bb1de3d0d033b13e5ea468dfdd0bb">stride::InfectorExec</a></div><div class="ttdeci">void( InfectorExec)(ContactPool &amp;pool, const AgeContactProfile &amp;profile, const TransmissionProfile &amp;trans_profile, ContactHandler &amp;c_handler, unsigned short int sim_day, std::shared_ptr&lt; spdlog::logger &gt; c_logger)</div><div class="ttdoc">For use in the InfectorMap and Sim. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00032">InfectorExec.h:32</a></div></div>
+<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">stride::ContactHandler</a></div><div class="ttdoc">Processes the contacts between persons and determines whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/da3/a00115_source.html#l00031">ContactHandler.h:31</a></div></div>
+<div class="ttc" id="a00054_html"><div class="ttname"><a href="../../d1/dea/a00054.html">stride::TransmissionProfile</a></div><div class="ttdoc">Transmission rates from disease data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d6/de1/a00233_source.html#l00029">TransmissionProfile.h:29</a></div></div>
+<div class="ttc" id="a00013_html"><div class="ttname"><a href="../../d7/dd4/a00013.html">stride::AgeContactProfile</a></div><div class="ttdoc">Contact rates as a function of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc1/a00092_source.html#l00033">AgeContactProfile.h:33</a></div></div>
+<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00035">ContactPool.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/dae/a00163.html">InfoFactory.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dd/dae/a00163.html">InfectorExec.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BenchControlHelper.h File Reference</title>
+<title>Stride Reference Manual: BeliefSeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -106,55 +106,58 @@ $(document).ready(function(){initNavTree('d1/d84/a00097.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">BenchControlHelper.h File Reference</div>  </div>
+<div class="title">BeliefSeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for BenchControlHelper.  
+<p>Header file for the HealthSeeder.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d28/a00223_source.html">TestDescriptors.h</a>&quot;</code><br/>
-<code>#include &lt;regex&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d9a/a00152_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d5/de9/a00176_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">util/RNManager.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for BenchControlHelper.h:</div>
+Include dependency graph for BeliefSeeder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/dfe/a00283.gif" border="0" usemap="#BenchControlHelper_8h" alt=""/></div>
-<map name="BenchControlHelper_8h" id="BenchControlHelper_8h">
-<area shape="rect" id="node2" href="../../dc/d28/a00223.html" title="Header file for TestDescriptors container. " alt="" coords="202,80,328,107"/><area shape="rect" id="node3" href="../../dd/d52/a00221.html" title="Header file for TestDescriptor. " alt="" coords="378,155,496,181"/><area shape="rect" id="node4" href="../../dd/dae/a00163.html" title="Header file for InfoFactory. " alt="" coords="263,229,361,256"/><area shape="rect" id="node7" href="../../d5/ddf/a00224.html" title="Header file for TestFactory. " alt="" coords="386,229,488,256"/><area shape="rect" id="node8" href="../../d5/d0b/a00220.html" title="Header file for Test. " alt="" coords="441,312,499,339"/><area shape="rect" id="node9" href="../../dc/d98/a00225.html" title="Header file for TestResult. " alt="" coords="505,395,601,421"/><area shape="rect" id="node15" href="../../dc/d31/a00208.html" title="Definition of Stopwatch. " alt="" coords="313,395,428,421"/><area shape="rect" id="node16" href="../../de/dc2/a00228.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="231,469,341,496"/></map>
+<div class="center"><img src="../../dd/dfe/a00283.gif" border="0" usemap="#BeliefSeeder_8h" alt=""/></div>
+<map name="BeliefSeeder_8h" id="BeliefSeeder_8h">
+<area shape="rect" id="node2" href="../../d7/d9a/a00152.html" title="Header file for Imitation belief policy. " alt="" coords="193,81,356,122"/><area shape="rect" id="node5" href="../../d5/de9/a00176.html" title="Header file for NoBelief class. " alt="" coords="5,81,168,122"/><area shape="rect" id="node6" href="../../d7/ded/a00196.html" title="Interface of RNManager. " alt="" coords="755,88,879,115"/><area shape="rect" id="node3" href="../../d9/d77/a00095.html" title="Header file for Belief. " alt="" coords="5,171,168,213"/><area shape="rect" id="node7" href="../../dc/d57/a00194.html" title="Interface of Random Engine Type. " alt="" coords="352,179,475,205"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/dc3/a00284.gif" border="0" usemap="#BenchControlHelper_8hdep" alt=""/></div>
-<map name="BenchControlHelper_8hdep" id="BenchControlHelper_8hdep">
-<area shape="rect" id="node2" href="../../d9/df8/a00096.html" title="Implementation file for BenchControlHelper. " alt="" coords="5,80,168,107"/><area shape="rect" id="node3" href="../../de/d53/a00169.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="193,80,345,107"/></map>
+<div class="center"><img src="../../db/dc3/a00284.gif" border="0" usemap="#BeliefSeeder_8hdep" alt=""/></div>
+<map name="BeliefSeeder_8hdep" id="BeliefSeeder_8hdep">
+<area shape="rect" id="node2" href="../../d9/df8/a00096.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/><area shape="rect" id="node3" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="150,80,260,107"/></map>
 </div>
 </div>
 <p><a href="../../d1/d84/a00097_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d46/a00002.html">myhayai::BenchControlHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assist in selecting benchmark tests based on regex's and shuffle the order of execution.  <a href="../../d7/d46/a00002.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html">stride::BeliefSeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../dd/d1b/a00015.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d82/a00243"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d82/a00243.html">myhayai</a></td></tr>
+<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
+<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for BenchControlHelper. </p>
+<div class="textblock"><p>Header file for the HealthSeeder. </p>
 
-<p>Definition in file <a class="el" href="../../d1/d84/a00097_source.html">BenchControlHelper.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/d84/a00097_source.html">BeliefSeeder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00097.html">BenchControlHelper.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00097.html">BeliefSeeder.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

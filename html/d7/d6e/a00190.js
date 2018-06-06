@@ -1,6 +1,7 @@
 var a00190 =
 [
-    [ "IsType", "d7/d6e/a00190.html#a0d22d904ddff0d21494405335e5fc744", null ],
-    [ "ToString", "d7/d6e/a00190.html#a120e2ae5e703cd5a7e1859a1c83ddcec", null ],
-    [ "ToType", "d7/d6e/a00190.html#a58e0a5f256c9b615c606f90dabec96b2", null ]
+    [ "pair2data", "d9/d73/a00060.html", "d9/d73/a00060" ],
+    [ "ToSequence", "d7/d6e/a00190.html#a29ac84256d48f3fb5596d2d4d6bc5173", null ],
+    [ "ToArray", "d7/d6e/a00190.html#a4a886659f5c17aa6571c4c01211bfe99", null ],
+    [ "Merge", "d7/d6e/a00190.html#aaf7d3b8f66de250307e449784676de27", null ]
 ];

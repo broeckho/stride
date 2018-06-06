@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TestDescriptor.h Source File</title>
+<title>Stride Reference Manual: SurveySeeder.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit bb73472</span>
+   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dd/d52/a00221_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TestDescriptor.h</div>  </div>
+<div class="title">SurveySeeder.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/d52/a00221.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,62 +121,43 @@ $(document).ready(function(){initNavTree('dd/d52/a00221_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/dae/a00163.html">InfoFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddf/a00224.html">TestFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">util/RNManager.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>Population;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html">   44</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../d7/dec/a00010.html">TestDescriptor</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#ac2c9bc03bb9a4bb7aeef53f823a60e80">   47</a></span>&#160;        <a class="code" href="../../d7/dec/a00010.html#ac2c9bc03bb9a4bb7aeef53f823a60e80">TestDescriptor</a>()</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            : <a class="code" href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">m_group_name</a>(), <a class="code" href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">m_test_name</a>(), <a class="code" href="../../d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f">m_num_runs</a>(0), <a class="code" href="../../d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f">m_test_factory</a>(), <a class="code" href="../../d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23">m_info_factory</a>(), <a class="code" href="../../d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3">m_is_disabled</a>(true)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af39cbabc7a6f5438f2ad4ddddc0e69be">   59</a></span>&#160;        <a class="code" href="../../d7/dec/a00010.html#af39cbabc7a6f5438f2ad4ddddc0e69be">TestDescriptor</a>(std::string groupName, std::string testName, std::size_t numRuns, <a class="code" href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                       <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> infoFactory = <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a>(), <span class="keywordtype">bool</span> isDisabled = <span class="keyword">false</span>, <span class="keywordtype">bool</span> isInFilter = <span class="keyword">true</span>)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            : <a class="code" href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">m_group_name</a>(std::move(groupName)), <a class="code" href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">m_test_name</a>(std::move(testName)), <a class="code" href="../../d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f">m_num_runs</a>(numRuns),</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;              <a class="code" href="../../d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f">m_test_factory</a>(std::move(testFactory)), <a class="code" href="../../d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23">m_info_factory</a>(std::move(infoFactory)), <a class="code" href="../../d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3">m_is_disabled</a>(isDisabled)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32">   66</a></span>&#160;        std::string <a class="code" href="../../d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32">GetCanonicalName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::string(<a class="code" href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">m_group_name</a>).append(<span class="stringliteral">&quot;.&quot;</span>).append(<a class="code" href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">m_test_name</a>); }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">   68</a></span>&#160;        std::string <a class="code" href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">m_group_name</a>;   </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">   69</a></span>&#160;        std::string <a class="code" href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">m_test_name</a>;    </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f">   70</a></span>&#160;        std::size_t <a class="code" href="../../d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f">m_num_runs</a>;     </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f">   71</a></span>&#160;        <a class="code" href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> <a class="code" href="../../d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f">m_test_factory</a>; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23">   72</a></span>&#160;        <a class="code" href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> <a class="code" href="../../d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23">m_info_factory</a>; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3">   73</a></span>&#160;        <span class="keywordtype">bool</span>        <a class="code" href="../../d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3">m_is_disabled</a>;  </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00224_html"><div class="ttname"><a href="../../d5/ddf/a00224.html">TestFactory.h</a></div><div class="ttdoc">Header file for TestFactory. </div></div>
-<div class="ttc" id="a00010_html_a021979e41987d8821b169a458f921a2f"><div class="ttname"><a href="../../d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f">myhayai::TestDescriptor::m_test_factory</a></div><div class="ttdeci">TestFactory m_test_factory</div><div class="ttdoc">Test factory. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00071">TestDescriptor.h:71</a></div></div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="../../d7/dec/a00010.html">myhayai::TestDescriptor</a></div><div class="ttdoc">Benchmark test descriptor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00044">TestDescriptor.h:44</a></div></div>
-<div class="ttc" id="a00010_html_ae71ed676b789cede41d1e77ff5963d23"><div class="ttname"><a href="../../d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23">myhayai::TestDescriptor::m_info_factory</a></div><div class="ttdeci">InfoFactory m_info_factory</div><div class="ttdoc">Generates ptree with info associated with the test. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00072">TestDescriptor.h:72</a></div></div>
-<div class="ttc" id="a00010_html_aef102b936506c555ab1f278dec55cd32"><div class="ttname"><a href="../../d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32">myhayai::TestDescriptor::GetCanonicalName</a></div><div class="ttdeci">std::string GetCanonicalName() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00066">TestDescriptor.h:66</a></div></div>
-<div class="ttc" id="a00243_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d6/d82/a00243.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00028">TestFactory.h:28</a></div></div>
-<div class="ttc" id="a00243_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d6/d82/a00243.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dae/a00163_source.html#l00027">InfoFactory.h:27</a></div></div>
-<div class="ttc" id="a00163_html"><div class="ttname"><a href="../../dd/dae/a00163.html">InfoFactory.h</a></div><div class="ttdoc">Header file for InfoFactory. </div></div>
-<div class="ttc" id="a00010_html_a20f285aaa4a424030677d5dd68259c55"><div class="ttname"><a href="../../d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55">myhayai::TestDescriptor::m_test_name</a></div><div class="ttdeci">std::string m_test_name</div><div class="ttdoc">Test name. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00069">TestDescriptor.h:69</a></div></div>
-<div class="ttc" id="a00010_html_a939b1d0c6cbcbe2754960e01dad21b4f"><div class="ttname"><a href="../../d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f">myhayai::TestDescriptor::m_num_runs</a></div><div class="ttdeci">std::size_t m_num_runs</div><div class="ttdoc">Number of test runs. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00070">TestDescriptor.h:70</a></div></div>
-<div class="ttc" id="a00010_html_af47969015a44578d9d4b43380d6d49de"><div class="ttname"><a href="../../d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de">myhayai::TestDescriptor::m_group_name</a></div><div class="ttdeci">std::string m_group_name</div><div class="ttdoc">Group name. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00068">TestDescriptor.h:68</a></div></div>
-<div class="ttc" id="a00010_html_af39cbabc7a6f5438f2ad4ddddc0e69be"><div class="ttname"><a href="../../d7/dec/a00010.html#af39cbabc7a6f5438f2ad4ddddc0e69be">myhayai::TestDescriptor::TestDescriptor</a></div><div class="ttdeci">TestDescriptor(std::string groupName, std::string testName, std::size_t numRuns, TestFactory testFactory, InfoFactory infoFactory=InfoFactory(), bool isDisabled=false, bool isInFilter=true)</div><div class="ttdoc">Initialize a new test descriptor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00059">TestDescriptor.h:59</a></div></div>
-<div class="ttc" id="a00010_html_a6a95aa408e725a8f07314d4ef3d807c3"><div class="ttname"><a href="../../d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3">myhayai::TestDescriptor::m_is_disabled</a></div><div class="ttdeci">bool m_is_disabled</div><div class="ttdoc">Disabled (or not). </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00073">TestDescriptor.h:73</a></div></div>
-<div class="ttc" id="a00010_html_ac2c9bc03bb9a4bb7aeef53f823a60e80"><div class="ttname"><a href="../../d7/dec/a00010.html#ac2c9bc03bb9a4bb7aeef53f823a60e80">myhayai::TestDescriptor::TestDescriptor</a></div><div class="ttdeci">TestDescriptor()</div><div class="ttdoc">Construct empty test descriptor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00047">TestDescriptor.h:47</a></div></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d84/a00052.html">SurveySeeder</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d1/d84/a00052.html#ac54faf22994cbab9fd2452002a0fcf59">SurveySeeder</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../da/d24/a00068.html">util::RNManager</a>&amp; rnManager);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::shared_ptr&lt;Population&gt; <a class="code" href="../../d1/d84/a00052.html#a81b191380f9a2c93768ff0efcec47f6b">Seed</a>(std::shared_ptr&lt;Population&gt; pop);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#a8b56b25160ae00196ba33d418e2647a3">   47</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../d1/d84/a00052.html#a8b56b25160ae00196ba33d418e2647a3">m_config_pt</a>;  </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d1/d84/a00052.html#af3321d86de17f08f6f00c968da18f84e">   48</a></span>&#160;        <a class="code" href="../../da/d24/a00068.html">util::RNManager</a>&amp;                   <a class="code" href="../../d1/d84/a00052.html#af3321d86de17f08f6f00c968da18f84e">m_rn_manager</a>; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00041">RNManager.h:41</a></div></div>
+<div class="ttc" id="a00052_html_a81b191380f9a2c93768ff0efcec47f6b"><div class="ttname"><a href="../../d1/d84/a00052.html#a81b191380f9a2c93768ff0efcec47f6b">stride::SurveySeeder::Seed</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00039">SurveySeeder.cpp:39</a></div></div>
+<div class="ttc" id="a00052_html_af3321d86de17f08f6f00c968da18f84e"><div class="ttname"><a href="../../d1/d84/a00052.html#af3321d86de17f08f6f00c968da18f84e">stride::SurveySeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00048">SurveySeeder.h:48</a></div></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00052_html_a8b56b25160ae00196ba33d418e2647a3"><div class="ttname"><a href="../../d1/d84/a00052.html#a8b56b25160ae00196ba33d418e2647a3">stride::SurveySeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00047">SurveySeeder.h:47</a></div></div>
+<div class="ttc" id="a00052_html"><div class="ttname"><a href="../../d1/d84/a00052.html">stride::SurveySeeder</a></div><div class="ttdoc">Seeds the population with survey participants. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00034">SurveySeeder.h:34</a></div></div>
+<div class="ttc" id="a00052_html_ac54faf22994cbab9fd2452002a0fcf59"><div class="ttname"><a href="../../d1/d84/a00052.html#ac54faf22994cbab9fd2452002a0fcf59">stride::SurveySeeder::SurveySeeder</a></div><div class="ttdeci">SurveySeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initialize Seeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d0b/a00220_source.html#l00035">SurveySeeder.cpp:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/d52/a00221.html">TestDescriptor.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dd/d52/a00221.html">SurveySeeder.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
