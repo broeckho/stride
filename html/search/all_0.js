@@ -3,7 +3,7 @@ var searchData=
   ['aborttest',['AbortTest',['../d6/d22/a00245.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42',1,'myhayai::event']]],
   ['add',['Add',['../d4/d8c/a00035.html#a2abaaf56ff495aa37bfead7eea5405de',1,'stride::InfectorMap::Add()'],['../d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1',1,'stride::util::GnuPlot::Add()']]],
   ['addmember',['AddMember',['../dd/da2/a00019.html#a1d78d0a3fd422a09f39e87d83c391d47',1,'stride::ContactPool']]],
-  ['addrow',['AddRow',['../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298',1,'stride::util::CSV::AddRow(const T &amp;...values)'],['../d7/df7/a00058.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85',1,'stride::util::CSV::AddRow(std::vector&lt; std::string &gt; values)']]],
+  ['addrow',['AddRow',['../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298',1,'stride::util::CSV::AddRow(const T &amp;...values)'],['../d7/df7/a00058.html#a9ad203e78051337914d104dbe1ffb748',1,'stride::util::CSV::AddRow(It first, It last)']]],
   ['adoptedfile',['AdoptedFile',['../dd/d32/a00041.html#aa24c13053bcf131ad878b465a4125828',1,'stride::output::AdoptedFile']]],
   ['adoptedfile',['AdoptedFile',['../dd/d32/a00041.html',1,'stride::output']]],
   ['adoptedfile_2ecpp',['AdoptedFile.cpp',['../df/d5d/a00084.html',1,'']]],

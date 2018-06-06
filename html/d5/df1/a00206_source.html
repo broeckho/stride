@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
+   &#160;<span id="projectnumber">- generated for commit bb73472</span>
    </div>
   </td>
  </tr>
@@ -193,29 +193,24 @@ $(document).ready(function(){initNavTree('d5/df1/a00206_source.html','../../');}
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// Output to file.</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> numDays = <a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        vector&lt;string&gt; sSeeds;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; s : seeds) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                sSeeds.emplace_back(<a class="code" href="../../dc/ded/a00252.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(s));</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="../../d7/df7/a00058.html">CSV</a> csv(sSeeds);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0U; i &lt; numDays + 1; ++i) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                vector&lt;string&gt; v;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; res : results) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        v.emplace_back(<a class="code" href="../../dc/ded/a00252.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(res[i]));</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                csv.<a class="code" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>(v);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        csv.<a class="code" href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">Write</a>(<a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(<a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>), <span class="stringliteral">&quot;infected.dat&quot;</span>));</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">// Shutdown.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="../../de/d11/a00021.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a>();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        spdlog::drop_all();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../d7/df7/a00058.html">CSV</a> csv(seeds.begin(), seeds.end());</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0U; i &lt; numDays + 1; ++i) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                vector&lt;unsigned int&gt; v;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; res : results) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        v.emplace_back(res[i]);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                csv.AddRow(v.begin(), v.end());</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        csv.Write(<a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(<a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>), <span class="stringliteral">&quot;stan_infected.csv&quot;</span>));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">// Shutdown.</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="../../de/d11/a00021.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a>();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        spdlog::drop_all();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;} <span class="comment">// namespace stride</span></div>
 <div class="ttc" id="a00124_html"><div class="ttname"><a href="../../da/d72/a00124.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
 <div class="ttc" id="a00139_html"><div class="ttname"><a href="../../de/d14/a00139.html">GnuPlotCSV.h</a></div><div class="ttdoc">Header file for GnuPlot container. </div></div>
 <div class="ttc" id="a00021_html_a7015fce5931f444015baca6c73e67360"><div class="ttname"><a href="../../de/d11/a00021.html#a7015fce5931f444015baca6c73e67360">stride::ControlHelper::CheckOutputPrefix</a></div><div class="ttdeci">void CheckOutputPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dfa/a00121_source.html#l00069">ControlHelper.cpp:69</a></div></div>
@@ -228,13 +223,10 @@ $(document).ready(function(){initNavTree('d5/df1/a00206_source.html','../../');}
 <div class="ttc" id="a00209_html"><div class="ttname"><a href="../../d3/de5/a00209.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 <div class="ttc" id="a00109_html"><div class="ttname"><a href="../../dd/d42/a00109.html">ConfigInfo.h</a></div><div class="ttdoc">Info on configuration. </div></div>
 <div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d72/a00124_source.html#l00038">CSV.h:38</a></div></div>
-<div class="ttc" id="a00058_html_a1ae467f9599974c0f180c529f8a9f298"><div class="ttname"><a href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(const T &amp;...values)</div><div class="ttdoc">Add row of values. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d72/a00124_source.html#l00104">CSV.h:104</a></div></div>
 <div class="ttc" id="a00158_html"><div class="ttname"><a href="../../d6/db8/a00158.html">InfectedViewer.h</a></div><div class="ttdoc">Observer for infection count at each sim step. </div></div>
 <div class="ttc" id="a00051_html_a5cc6905d4a31b469d89177de47007dbe"><div class="ttname"><a href="../../d2/d79/a00051.html#a5cc6905d4a31b469d89177de47007dbe">stride::StanController::Control</a></div><div class="ttdeci">void Control()</div><div class="ttdoc">Actual run of the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00049">StanController.cpp:49</a></div></div>
-<div class="ttc" id="a00252_html_a025f9ff3cf2df8c0c8b95e48724d9b7c"><div class="ttname"><a href="../../dc/ded/a00252.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a></div><div class="ttdeci">string ToString(Id l)</div><div class="ttdoc">Converts a LogMode value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00032">ContactLogMode.cpp:32</a></div></div>
 <div class="ttc" id="a00137_html"><div class="ttname"><a href="../../d2/df5/a00137.html">GnuPlot.h</a></div><div class="ttdoc">Multi-block CSV file (fashioned after and used for GnuPlot data files). </div></div>
 <div class="ttc" id="a00047_html_acfad6472650932514c08794f7f0b087b"><div class="ttname"><a href="../../d6/d2d/a00047.html#acfad6472650932514c08794f7f0b087b">stride::Population::Create</a></div><div class="ttdeci">static std::shared_ptr&lt; Population &gt; Create(const boost::property_tree::ptree &amp;configPt)</div><div class="ttdoc">Create a population initialized by the configuration in property tree. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/df3/a00185_source.html#l00042">Population.cpp:42</a></div></div>
-<div class="ttc" id="a00058_html_a11a080486a81df3276cabfac0f7a2b41"><div class="ttname"><a href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">stride::util::CSV::Write</a></div><div class="ttdeci">virtual void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00117">CSV.cpp:117</a></div></div>
 <div class="ttc" id="a00021_html_aa40b02ef62cb1b4a2db78eb847ffe964"><div class="ttname"><a href="../../de/d11/a00021.html#aa40b02ef62cb1b4a2db78eb847ffe964">stride::ControlHelper::LogShutdown</a></div><div class="ttdeci">void LogShutdown()</div><div class="ttdoc">Logs info on setup for cli environment to stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dfa/a00121_source.html#l00090">ControlHelper.cpp:90</a></div></div>
 <div class="ttc" id="a00186_html"><div class="ttname"><a href="../../d8/d00/a00186.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
 <div class="ttc" id="a00021_html_a9fd666ad523f15ba9f3b3249ba6b0a90"><div class="ttname"><a href="../../de/d11/a00021.html#a9fd666ad523f15ba9f3b3249ba6b0a90">stride::ControlHelper::CheckEnv</a></div><div class="ttdeci">void CheckEnv()</div><div class="ttdoc">Check install environment. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/dfa/a00121_source.html#l00059">ControlHelper.cpp:59</a></div></div>
@@ -249,7 +241,7 @@ $(document).ready(function(){initNavTree('d5/df1/a00206_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
+    <li class="footer">Generated on Wed Jun 6 2018 07:07:01 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

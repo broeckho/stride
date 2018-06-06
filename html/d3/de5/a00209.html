@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
+   &#160;<span id="projectnumber">- generated for commit bb73472</span>
    </div>
   </td>
  </tr>
@@ -164,10 +164,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
 <tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a78bfb92201f2007d9068aedde33460e3">stride::util::ToString&lt; std::string &gt;</a> (const std::string &amp;value)</td></tr>
 <tr class="separator:a78bfb92201f2007d9068aedde33460e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03a0a61be03772406150ab14463d6bf1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a03a0a61be03772406150ab14463d6bf1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a03a0a61be03772406150ab14463d6bf1">stride::util::ToString</a> (It begin, It end)</td></tr>
-<tr class="memdesc:a03a0a61be03772406150ab14463d6bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify the values in a vector.  <a href="#a03a0a61be03772406150ab14463d6bf1">More...</a><br/></td></tr>
-<tr class="separator:a03a0a61be03772406150ab14463d6bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a9694bd388159d8b8ddb0356cd1f0453c">stride::util::ToString</a> (typename std::enable_if&lt;!std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a9694bd388159d8b8ddb0356cd1f0453c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are not strings) in a range and put them in a vector.  <a href="#a9694bd388159d8b8ddb0356cd1f0453c">More...</a><br/></td></tr>
+<tr class="separator:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a0be3b48676adcc37f61a120fc862b4b1">stride::util::ToString</a> (typename std::enable_if&lt; std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a0be3b48676adcc37f61a120fc862b4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are strings - so no-op) in a range and put them in a vector.  <a href="#a0be3b48676adcc37f61a120fc862b4b1">More...</a><br/></td></tr>
+<tr class="separator:a0be3b48676adcc37f61a120fc862b4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#adb4ae75f64a04f4acd0c562fe2b8add0">stride::util::ToString</a> (const T &amp;value, int width, char fill= ' ')</td></tr>
 <tr class="memdesc:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation with minimum width of a value of type T.  <a href="#adb4ae75f64a04f4acd0c562fe2b8add0">More...</a><br/></td></tr>
@@ -198,7 +202,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/de5/a00209.html">StringUtils.h</a></li>
-    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
+    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

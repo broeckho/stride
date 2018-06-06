@@ -2,7 +2,7 @@ var searchData=
 [
   ['add',['Add',['../d4/d8c/a00035.html#a2abaaf56ff495aa37bfead7eea5405de',1,'stride::InfectorMap::Add()'],['../d1/d6f/a00063.html#a93a47a524f043aa59fd8f95cf0b63ac1',1,'stride::util::GnuPlot::Add()']]],
   ['addmember',['AddMember',['../dd/da2/a00019.html#a1d78d0a3fd422a09f39e87d83c391d47',1,'stride::ContactPool']]],
-  ['addrow',['AddRow',['../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298',1,'stride::util::CSV::AddRow(const T &amp;...values)'],['../d7/df7/a00058.html#a85d1cfbbd18fc4fc40db7ae51a0aaa85',1,'stride::util::CSV::AddRow(std::vector&lt; std::string &gt; values)']]],
+  ['addrow',['AddRow',['../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298',1,'stride::util::CSV::AddRow(const T &amp;...values)'],['../d7/df7/a00058.html#a9ad203e78051337914d104dbe1ffb748',1,'stride::util::CSV::AddRow(It first, It last)']]],
   ['adoptedfile',['AdoptedFile',['../dd/d32/a00041.html#aa24c13053bcf131ad878b465a4125828',1,'stride::output::AdoptedFile']]],
   ['adoptedfileviewer',['AdoptedFileViewer',['../d9/da4/a00078.html#a46c44f1a5065810bc501ed8669c9d75f',1,'stride::viewers::AdoptedFileViewer']]],
   ['advanceday',['AdvanceDay',['../d7/d7a/a00016.html#a73664cd7c25b08adff14429ca3291394',1,'stride::Calendar']]],

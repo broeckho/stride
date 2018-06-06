@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 5f9fb84</span>
+   &#160;<span id="projectnumber">- generated for commit bb73472</span>
    </div>
   </td>
  </tr>
@@ -237,10 +237,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
 <tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a78bfb92201f2007d9068aedde33460e3">ToString&lt; std::string &gt;</a> (const std::string &amp;value)</td></tr>
 <tr class="separator:a78bfb92201f2007d9068aedde33460e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03a0a61be03772406150ab14463d6bf1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a03a0a61be03772406150ab14463d6bf1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a03a0a61be03772406150ab14463d6bf1">ToString</a> (It begin, It end)</td></tr>
-<tr class="memdesc:a03a0a61be03772406150ab14463d6bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify the values in a vector.  <a href="#a03a0a61be03772406150ab14463d6bf1">More...</a><br/></td></tr>
-<tr class="separator:a03a0a61be03772406150ab14463d6bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a9694bd388159d8b8ddb0356cd1f0453c">ToString</a> (typename std::enable_if&lt;!std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a9694bd388159d8b8ddb0356cd1f0453c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are not strings) in a range and put them in a vector.  <a href="#a9694bd388159d8b8ddb0356cd1f0453c">More...</a><br/></td></tr>
+<tr class="separator:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#a0be3b48676adcc37f61a120fc862b4b1">ToString</a> (typename std::enable_if&lt; std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
+<tr class="memdesc:a0be3b48676adcc37f61a120fc862b4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are strings - so no-op) in a range and put them in a vector.  <a href="#a0be3b48676adcc37f61a120fc862b4b1">More...</a><br/></td></tr>
+<tr class="separator:a0be3b48676adcc37f61a120fc862b4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html#adb4ae75f64a04f4acd0c562fe2b8add0">ToString</a> (const T &amp;value, int width, char fill= ' ')</td></tr>
 <tr class="memdesc:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation with minimum width of a value of type T.  <a href="#adb4ae75f64a04f4acd0c562fe2b8add0">More...</a><br/></td></tr>
@@ -307,9 +311,9 @@ is_const_iterator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00109">109</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSV.h</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d72/a00124_source.html#l00127">127</a> of file <a class="el" href="../../da/d72/a00124_source.html">CSV.h</a>.</p>
 
-<p>References <a class="el" href="../../de/d36/a00123_source.html#l00128">stride::util::CSV::WriteLabels()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00141">stride::util::CSV::WriteRows()</a>.</p>
+<p>References <a class="el" href="../../de/d36/a00123_source.html#l00122">stride::util::CSV::WriteLabels()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00135">stride::util::CSV::WriteRows()</a>.</p>
 
 </div>
 </div>
@@ -533,7 +537,7 @@ template&lt;typename T , std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::val
 
 <p>Definition at line <a class="el" href="../../de/d14/a00139_source.html#l00048">48</a> of file <a class="el" href="../../de/d14/a00139_source.html">GnuPlotCSV.h</a>.</p>
 
-<p>References <a class="el" href="../../d4/ddd/a00138_source.html#l00031">stride::util::GnuPlotCSV::WriteLabels()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00141">stride::util::CSV::WriteRows()</a>.</p>
+<p>References <a class="el" href="../../d4/ddd/a00138_source.html#l00031">stride::util::GnuPlotCSV::WriteLabels()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00135">stride::util::CSV::WriteRows()</a>.</p>
 
 </div>
 </div>
@@ -759,7 +763,7 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00044">44</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00084">stride::PopBuilder::MakePersons()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00094">stride::util::CSV::ReadFromStream()</a>, and <a class="el" href="../../dc/d57/a00194_source.html#l00063">stride::util::RnPcg::Seed()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d52/a00183_source.html#l00084">stride::PopBuilder::MakePersons()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00088">stride::util::CSV::ReadFromStream()</a>, and <a class="el" href="../../dc/d57/a00194_source.html#l00063">stride::util::RnPcg::Seed()</a>.</p>
 
 </div>
 </div>
@@ -832,7 +836,7 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00076">76</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d72/a00124_source.html#l00104">stride::util::CSV::AddRow()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00067">stride::util::CSV::CSV()</a>, <a class="el" href="../../dc/dfe/a00125_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, <a class="el" href="../../dc/dfe/a00125_source.html#l00051">CSVRow::GetValue&lt; std::string &gt;()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00048">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/de5/a00209_source.html#l00091">ToString()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d72/a00124_source.html#l00086">stride::util::CSV::AddRow()</a>, <a class="el" href="../../de/d36/a00123_source.html#l00067">stride::util::CSV::CSV()</a>, <a class="el" href="../../dc/dfe/a00125_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, <a class="el" href="../../dc/dfe/a00125_source.html#l00051">CSVRow::GetValue&lt; std::string &gt;()</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00048">stride::util::RNManager::GetInfo()</a>, and <a class="el" href="../../d3/de5/a00209_source.html#l00091">ToString()</a>.</p>
 
 </div>
 </div>
@@ -864,7 +868,7 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a03a0a61be03772406150ab14463d6bf1"></a>
+<a class="anchor" id="a9694bd388159d8b8ddb0356cd1f0453c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -876,14 +880,14 @@ template&lt;typename It &gt; </div>
         <tr>
           <td class="memname">std::vector&lt;std::string&gt; stride::util::ToString </td>
           <td>(</td>
-          <td class="paramtype">It&#160;</td>
-          <td class="paramname"><em>begin</em>, </td>
+          <td class="paramtype">typename std::enable_if&lt;!std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">It&#160;</td>
-          <td class="paramname"><em>end</em>&#160;</td>
+          <td class="paramname"><em>last</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -898,11 +902,51 @@ template&lt;typename It &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Stringify the values in a vector. </p>
+<p>Stringify values (that are not strings) in a range and put them in a vector. </p>
 
 <p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00091">91</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
 <p>References <a class="el" href="../../d3/de5/a00209_source.html#l00076">ToString()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0be3b48676adcc37f61a120fc862b4b1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename It &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; stride::util::ToString </td>
+          <td>(</td>
+          <td class="paramtype">typename std::enable_if&lt; std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">It&#160;</td>
+          <td class="paramname"><em>last</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stringify values (that are strings - so no-op) in a range and put them in a vector. </p>
+
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00103">103</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
 </div>
 </div>
@@ -948,7 +992,7 @@ template&lt;typename T &gt; </div>
 
 <p>Builds a string representation with minimum width of a value of type T. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00102">102</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00113">113</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
 </div>
 </div>
@@ -976,7 +1020,7 @@ template&lt;typename T &gt; </div>
 
 <p>Builds a string with lower case characters only. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00110">110</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00121">121</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../de/d76/a00134_source.html#l00101">stride::util::FileSys::Initialize()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00079">stride::DiseaseSeeder::Vaccinate()</a>.</p>
 
@@ -1006,7 +1050,7 @@ template&lt;typename T &gt; </div>
 
 <p>Builds a string with upper case characters only. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00119">119</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00130">130</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
 </div>
 </div>
@@ -1044,9 +1088,9 @@ template&lt;typename T &gt; </div>
 
 <p>Trim characters at right end of string. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00128">128</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00139">139</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00142">Trim()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00153">Trim()</a>.</p>
 
 </div>
 </div>
@@ -1084,9 +1128,9 @@ template&lt;typename T &gt; </div>
 
 <p>Trim characters at left end of string. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00135">135</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00146">146</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00142">Trim()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00153">Trim()</a>.</p>
 
 </div>
 </div>
@@ -1124,11 +1168,11 @@ template&lt;typename T &gt; </div>
 
 <p>Trim characters at both ends of string. </p>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00142">142</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00153">153</a> of file <a class="el" href="../../d3/de5/a00209_source.html">StringUtils.h</a>.</p>
 
-<p>References <a class="el" href="../../d3/de5/a00209_source.html#l00135">TrimLeft()</a>, and <a class="el" href="../../d3/de5/a00209_source.html#l00128">TrimRight()</a>.</p>
+<p>References <a class="el" href="../../d3/de5/a00209_source.html#l00146">TrimLeft()</a>, and <a class="el" href="../../d3/de5/a00209_source.html#l00139">TrimRight()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/dfe/a00125_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00094">stride::util::CSV::ReadFromStream()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/dfe/a00125_source.html#l00038">stride::util::CSVRow::CSVRow()</a>, and <a class="el" href="../../de/d36/a00123_source.html#l00088">stride::util::CSV::ReadFromStream()</a>.</p>
 
 </div>
 </div>
@@ -1238,7 +1282,7 @@ template&lt;typename T , std::size_t N, bool Safe, typename P  = const T*, typen
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d1a/a00251.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/d39/a00257.html">util</a></li>
-    <li class="footer">Generated on Tue Jun 5 2018 13:35:15 for Stride Reference Manual by
+    <li class="footer">Generated on Wed Jun 6 2018 07:07:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
