@@ -53,6 +53,13 @@ public:
         /// Initialize with header only.
         explicit CSV(const std::vector<std::string>& labels);
 
+        /// Initialize with header labels only.
+        template<typename It>
+        explicit CSV(It labelsBegin, It labelsEnd)
+                : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
+        {
+        }
+
         /// Default constructor, used for swig.
         CSV() = default;
 
@@ -69,7 +76,18 @@ public:
         void AddRow(const T&... values);
 
         /// Add row of string values.
-        void AddRow(std::vector<std::string> values);
+        //void AddRow(std::vector<std::string> values);
+
+        /// Add row of values (ToString handles the case when the iterator points to strings).
+        /// \tparam It      Iterator type pointing to the values.
+        /// \param first    Start of the range to be included
+        /// \param last     Past-the-end of the range.
+        template<typename It>
+        void AddRow(It first, It last)
+        {
+                CSVRow csvRow(this, ToString(first, last));
+                this->push_back(csvRow);
+        }
 
         /// Number of columns in the CSV.
         size_t GetColumnCount() const { return m_column_count; }

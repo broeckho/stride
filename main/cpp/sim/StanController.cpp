@@ -90,20 +90,15 @@ void StanController::Control()
         // Output to file.
         // -----------------------------------------------------------------------------------------
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
-
-        vector<string> sSeeds;
-        for (const auto& s : seeds) {
-                sSeeds.emplace_back(ToString(s));
-        }
-        CSV csv(sSeeds);
+        CSV csv(seeds.begin(), seeds.end());
         for (unsigned int i = 0U; i < numDays + 1; ++i) {
-                vector<string> v;
+                vector<unsigned int> v;
                 for (const auto& res : results) {
-                        v.emplace_back(ToString(res[i]));
+                        v.emplace_back(res[i]);
                 }
-                csv.AddRow(v);
+                csv.AddRow(v.begin(), v.end());
         }
-        csv.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "infected.dat"));
+        csv.Write(FileSys::BuildPath(m_config_pt.get<string>("run.output_prefix"), "stan_infected.csv"));
 
         // -----------------------------------------------------------------------------------------
         // Shutdown.
