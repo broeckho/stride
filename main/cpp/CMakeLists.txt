@@ -86,6 +86,7 @@ set(LIB_SRC
     util/FileSys.cpp
 	util/GnuPlotCSV.cpp
     util/GnuPlot.cpp
+	util/is_iterator.h
 	util/LogUtils.cpp
 	util/PtreeUtils.h
     util/RNEngineType.cpp

@@ -30,6 +30,7 @@ set(SRC
     BatchRuns.cpp
     ScenarioData.cpp
     UnitCsvTest.cpp
+    UnitIsIterator.cpp
     UnitPcg.cpp
     UnitPtreeUtilsHelper.h
     UnitPtreeUtils1.cpp

@@ -21,12 +21,14 @@
 
 #include "CSVRow.h"
 
+#include "util/is_iterator.h"
 #include "util/StringUtils.h"
 
 #include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <fstream>
+#include <type_traits>
 #include <vector>
 
 namespace stride {
@@ -75,15 +77,12 @@ public:
         template <typename... T>
         void AddRow(const T&... values);
 
-        /// Add row of string values.
-        //void AddRow(std::vector<std::string> values);
-
         /// Add row of values (ToString handles the case when the iterator points to strings).
         /// \tparam It      Iterator type pointing to the values.
         /// \param first    Start of the range to be included
         /// \param last     Past-the-end of the range.
         template<typename It>
-        void AddRow(It first, It last)
+        void AddRow(typename std::enable_if<is_iterator<It>::value, It>::type first, It last)
         {
                 CSVRow csvRow(this, ToString(first, last));
                 this->push_back(csvRow);
