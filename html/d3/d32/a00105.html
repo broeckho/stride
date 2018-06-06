@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Calendar.h File Reference</title>
+<title>Stride Reference Manual: Calendar.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,61 +103,44 @@ $(document).ready(function(){initNavTree('d3/d32/a00105.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Calendar.h File Reference</div>  </div>
+<div class="title">Calendar.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the Calendar class.  
+<p>Implementation file for the Calendar class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;boost/date_time/gregorian/gregorian.hpp&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
-<code>#include &lt;cstdlib&gt;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">Calendar.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Calendar.h:</div>
+Include dependency graph for Calendar.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d5e/a00295.gif" border="0" usemap="#Calendar_8h" alt=""/></div>
-<map name="Calendar_8h" id="Calendar_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../db/d7b/a00296.gif" border="0" usemap="#Calendar_8hdep" alt=""/></div>
-<map name="Calendar_8hdep" id="Calendar_8hdep">
-<area shape="rect" id="node2" href="../../d0/dc2/a00104.html" title="Implementation file for the Calendar class. " alt="" coords="5,80,104,107"/><area shape="rect" id="node3" href="../../d7/d06/a00131.html" title="DaysOffNone class. " alt="" coords="129,80,241,107"/><area shape="rect" id="node4" href="../../d5/deb/a00132.html" title="DaysOffAll class: everybody gets the day off. " alt="" coords="267,80,389,107"/><area shape="rect" id="node5" href="../../d0/de8/a00133.html" title="DaysOffStandard class. " alt="" coords="414,80,548,107"/><area shape="rect" id="node7" href="../../db/d44/a00162.html" title="Header for the Infector class. " alt="" coords="624,80,700,107"/><area shape="rect" id="node8" href="../../d6/d7d/a00161.html" title="Implementation of Infector algorithms. " alt="" coords="541,155,632,181"/><area shape="rect" id="node11" href="../../d5/df1/a00206.html" title="Implementation for SimRunner. " alt="" coords="725,80,836,107"/><area shape="rect" id="node12" href="../../d1/dd6/a00108.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="862,80,964,107"/><area shape="rect" id="node6" href="../../db/d53/a00202.html" title="Implementation for the Simulator class. " alt="" coords="446,155,516,181"/><area shape="rect" id="node9" href="../../db/ddf/a00164.html" title="Header for the InfectorMap. " alt="" coords="657,155,759,181"/><area shape="rect" id="node10" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="653,229,763,256"/></map>
+<div class="center"><img src="../../db/d7b/a00296.gif" border="0" usemap="#Calendar_8cpp" alt=""/></div>
+<map name="Calendar_8cpp" id="Calendar_8cpp">
+<area shape="rect" id="node2" href="../../d7/d70/a00106.html" title="Header file for the Calendar class. " alt="" coords="377,88,463,115"/><area shape="rect" id="node9" href="../../d4/ddd/a00138.html" title="Interface for install directory queries. " alt="" coords="833,88,932,115"/></map>
 </div>
 </div>
 <p><a href="../../d3/d32/a00105_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that keeps track of the 'state' of simulated world.  <a href="../../d7/d7a/a00016.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the Calendar class. </p>
+<div class="textblock"><p>Implementation file for the Calendar class. </p>
 
-<p>Definition in file <a class="el" href="../../d3/d32/a00105_source.html">Calendar.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/d32/a00105_source.html">Calendar.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d3/d32/a00105.html">Calendar.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d3/d32/a00105.html">Calendar.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

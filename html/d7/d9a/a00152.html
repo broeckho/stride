@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Imitation.h File Reference</title>
+<title>Stride Reference Manual: IdSubscriptArray.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -106,53 +106,65 @@ $(document).ready(function(){initNavTree('d7/d9a/a00152.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Imitation.h File Reference</div>  </div>
+<div class="title">IdSubscriptArray.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for Imitation belief policy.  
+<p>Container for the contact pools of various type (household, work, ...).  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d77/a00095_source.html">behaviour/belief_policies/Belief.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d98/a00120_source.html">pool/ContactPool.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d36/a00123_source.html">pool/ContactPoolType.h</a>&quot;</code><br/>
+<code>#include &lt;array&gt;</code><br/>
+<code>#include &lt;bitset&gt;</code><br/>
+<code>#include &lt;initializer_list&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;stdexcept&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Imitation.h:</div>
+Include dependency graph for IdSubscriptArray.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d3e/a00366.gif" border="0" usemap="#Imitation_8h" alt=""/></div>
-<map name="Imitation_8h" id="Imitation_8h">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html" title="Header file for Belief. " alt="" coords="5,81,168,122"/></map>
+<div class="center"><img src="../../d2/d3e/a00366.gif" border="0" usemap="#IdSubscriptArray_8h" alt=""/></div>
+<map name="IdSubscriptArray_8h" id="IdSubscriptArray_8h">
+<area shape="rect" id="node2" href="../../d4/d98/a00120.html" title="Header for the core ContactPool class. " alt="" coords="153,80,287,107"/><area shape="rect" id="node5" href="../../de/d36/a00123.html" title="Definition of ContactPoolType. " alt="" coords="333,155,496,181"/><area shape="rect" id="node3" href="../../d8/d87/a00118.html" title="Header for the ContactLogMode class. " alt="" coords="131,155,309,181"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/dc2/a00367.gif" border="0" usemap="#Imitation_8hdep" alt=""/></div>
-<map name="Imitation_8hdep" id="Imitation_8hdep">
-<area shape="rect" id="node2" href="../../d1/d84/a00097.html" title="Header file for the HealthSeeder. " alt="" coords="81,80,188,107"/><area shape="rect" id="node5" href="../../da/d15/a00188.html" title="Core Population class. " alt="" coords="213,80,320,107"/><area shape="rect" id="node3" href="../../d9/df8/a00096.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,155,125,181"/><area shape="rect" id="node4" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="150,155,260,181"/></map>
+<div class="center"><img src="../../df/dc2/a00367.gif" border="0" usemap="#IdSubscriptArray_8hdep" alt=""/></div>
+<map name="IdSubscriptArray_8hdep" id="IdSubscriptArray_8hdep">
+<area shape="rect" id="node2" href="../../dc/d54/a00094.html" title="Contact profiles stored in simulator. " alt="" coords="1951,80,2098,107"/><area shape="rect" id="node14" href="../../d8/dfa/a00121.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1186,80,1314,107"/><area shape="rect" id="node26" href="../../d7/d25/a00182.html" title="Header file for the Person class. " alt="" coords="2174,80,2247,107"/><area shape="rect" id="node3" href="../../d1/d72/a00204.html" title="Header for the Simulator class. " alt="" coords="1997,155,2051,181"/><area shape="rect" id="node4" href="../../d5/d5b/a00135.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="630,304,765,331"/><area shape="rect" id="node5" href="../../de/d79/a00203.html" title="Implementation for the Simulator class. " alt="" coords="1487,229,1557,256"/><area shape="rect" id="node6" href="../../d5/d13/a00205.html" title="Implementation for the SimBuilder class. " alt="" coords="2043,304,2153,331"/><area shape="rect" id="node7" href="../../de/dd2/a00207.html" title="Implementation for SimRunner. " alt="" coords="1581,229,1691,256"/><area shape="rect" id="node8" href="../../db/dab/a00089.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1717,229,1873,256"/><area shape="rect" id="node9" href="../../dd/d42/a00109.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1897,229,1999,256"/><area shape="rect" id="node10" href="../../d6/db8/a00158.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2025,229,2178,256"/><area shape="rect" id="node11" href="../../de/d38/a00160.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2204,229,2338,256"/><area shape="rect" id="node12" href="../../de/df3/a00185.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2603,229,2758,256"/><area shape="rect" id="node13" href="../../dd/df3/a00219.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2363,229,2526,256"/><area shape="rect" id="node15" href="../../d7/d6e/a00190.html" title="Header file for the core Population class. " alt="" coords="1203,155,1297,181"/><area shape="rect" id="node16" href="../../d1/d84/a00097.html" title="Implementation for BeliefSeeder class. " alt="" coords="35,229,155,256"/><area shape="rect" id="node17" href="../../d0/d5e/a00136.html" title="Header for the DiseaseSeeder class. " alt="" coords="1339,229,1462,256"/><area shape="rect" id="node18" href="../../d9/db6/a00146.html" title="Implementation for HelthSeeder class. " alt="" coords="180,229,306,256"/><area shape="rect" id="node19" href="../../dc/d52/a00183.html" title="Implementation of the CasesFile class. " alt="" coords="331,229,446,256"/><area shape="rect" id="node20" href="../../d6/daa/a00187.html" title="Initialize populations: implementation. " alt="" coords="471,229,581,256"/><area shape="rect" id="node21" href="../../da/deb/a00189.html" title="Core Population class. " alt="" coords="605,229,713,256"/><area shape="rect" id="node22" href="../../dd/d52/a00221.html" title="Implementation for the SurveySeeder class. " alt="" coords="737,229,866,256"/><area shape="rect" id="node23" href="../../df/d98/a00107.html" title="Header for the command line controller. " alt="" coords="891,229,1009,256"/><area shape="rect" id="node24" href="../../da/d72/a00124.html" title="Header for the command line controller. " alt="" coords="1033,229,1159,256"/><area shape="rect" id="node25" href="../../da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="1185,229,1314,256"/><area shape="rect" id="node27" href="../../db/d44/a00162.html" title="Implementation of Infector algorithms. " alt="" coords="2331,155,2422,181"/><area shape="rect" id="node28" href="../../d3/d65/a00154.html" title="Implementation for the Immunizer class. " alt="" coords="2447,155,2554,181"/><area shape="rect" id="node29" href="../../df/d6a/a00119.html" title="Implementation for the core ContcatPool class. " alt="" coords="2076,155,2194,181"/><area shape="rect" id="node30" href="../../d8/d64/a00181.html" title="Header file for the Person class. " alt="" coords="2219,155,2307,181"/></map>
 </div>
 </div>
 <p><a href="../../d7/d9a/a00152_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html">stride::Imitation</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d84/a00001.html">stride::ContactPoolType::IdSubscriptArray&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An std::array modified to enable subscripting with the constact pool type indentifiers.  <a href="../../d8/d84/a00001.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db2/a00020.html">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialisation of <a class="el" href="../../d8/d84/a00001.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans.  <a href="../../db/db2/a00020.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d9/d39/a00257"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d39/a00257.html">stride::ContactPoolType</a></td></tr>
+<tr class="memdesc:d9/d39/a00257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../dd/da2/a00019.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for Imitation belief policy. </p>
+<div class="textblock"><p>Container for the contact pools of various type (household, work, ...). </p>
 
-<p>Definition in file <a class="el" href="../../d7/d9a/a00152_source.html">Imitation.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/d9a/a00152_source.html">IdSubscriptArray.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">Imitation.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../d7/d9a/a00152.html">IdSubscriptArray.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

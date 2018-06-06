@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: is_iterator.h File Reference</title>
+<title>Stride Reference Manual: InfoFactory.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,61 +103,56 @@ $(document).ready(function(){initNavTree('d9/d38/a00166.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">is_iterator.h File Reference</div>  </div>
+<div class="title">InfoFactory.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface/Implementation of is_iterator.  
+<p>Header file for InfoFactory.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iterator&gt;</code><br/>
-<code>#include &lt;type_traits&gt;</code><br/>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;functional&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for is_iterator.h:</div>
+Include dependency graph for InfoFactory.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#is__iterator_8h" alt=""/></div>
-<map name="is__iterator_8h" id="is__iterator_8h">
+<div class="center"><img src="../../dc/dc9/a00389.gif" border="0" usemap="#InfoFactory_8h" alt=""/></div>
+<map name="InfoFactory_8h" id="InfoFactory_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#is__iterator_8hdep" alt=""/></div>
-<map name="is__iterator_8hdep" id="is__iterator_8hdep">
-<area shape="rect" id="node2" href="../../d7/d12/a00126.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="84,80,145,107"/><area shape="rect" id="node3" href="../../d3/de5/a00209.html" title="Header for the command line controller. " alt="" coords="65,304,195,331"/><area shape="rect" id="node4" href="../../dc/dfe/a00125.html" title="Source file of csv. " alt="" coords="21,155,95,181"/><area shape="rect" id="node5" href="../../df/dcd/a00127.html" title="Source file of CSVRow. " alt="" coords="121,155,223,181"/><area shape="rect" id="node6" href="../../d5/d4e/a00141.html" title="Header file for GnuPlot container. " alt="" coords="247,155,355,181"/><area shape="rect" id="node7" href="../../de/d14/a00139.html" title="Multi&#45;block CSV file (fashioned after and used for GnuPlot data files). " alt="" coords="199,229,277,256"/><area shape="rect" id="node9" href="../../d5/db1/a00140.html" title="Source file of GnuPlotCSV. " alt="" coords="303,229,425,256"/><area shape="rect" id="node8" href="../../d4/ddd/a00138.html" title="Source file of csv. " alt="" coords="221,304,315,331"/></map>
+<div class="center"><img src="../../d9/d0a/a00390.gif" border="0" usemap="#InfoFactory_8hdep" alt=""/></div>
+<map name="InfoFactory_8hdep" id="InfoFactory_8hdep">
+<area shape="rect" id="node2" href="../../dc/d98/a00225.html" title="Header file for TestDescriptor. " alt="" coords="601,80,719,107"/><area shape="rect" id="node7" href="../../d5/d1e/a00103.html" title="Header file for Benchmarker. " alt="" coords="393,229,533,256"/><area shape="rect" id="node8" href="../../d4/d3a/a00101.html" title="Header file for Benchmark. " alt="" coords="732,304,831,331"/><area shape="rect" id="node9" href="../../d9/dcc/a00102.html" title="Implementation file for Benchmarker. " alt="" coords="855,304,1008,331"/><area shape="rect" id="node3" href="../../d9/d01/a00227.html" title="Header file for TestDescriptors container. " alt="" coords="566,155,692,181"/><area shape="rect" id="node4" href="../../d0/d61/a00100.html" title="Header file for BenchControlHelper. " alt="" coords="131,229,281,256"/><area shape="rect" id="node10" href="../../d2/da3/a00115.html" title="Header file for ConsoleViewer. " alt="" coords="245,304,365,331"/><area shape="rect" id="node13" href="../../dd/df4/a00193.html" title="Header file for PtreeViewer. " alt="" coords="604,304,708,331"/><area shape="rect" id="node15" href="../../dc/d55/a00226.html" title="Implementation file for TestDescriptors container. " alt="" coords="559,229,699,256"/><area shape="rect" id="node5" href="../../da/d74/a00099.html" title="Implementation file for BenchControlHelper. " alt="" coords="5,304,168,331"/><area shape="rect" id="node6" href="../../d7/d3f/a00173.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="363,379,515,405"/><area shape="rect" id="node12" href="../../d8/df1/a00174.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="441,304,580,331"/><area shape="rect" id="node11" href="../../d8/d17/a00114.html" title="Implementation file for ConsoleViewer. " alt="" coords="203,379,337,405"/><area shape="rect" id="node14" href="../../dd/da2/a00192.html" title="Implementation file for PtreeViewer. " alt="" coords="597,379,715,405"/></map>
 </div>
 </div>
 <p><a href="../../d9/d38/a00166_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html">stride::util::is_iterator&lt; T, class &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/db3/a00066.html">stride::util::is_iterator&lt; T, std::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d0/d1f/a00247"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/dd7/a00260"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html">stride::util</a></td></tr>
-<tr class="memdesc:dd/dd7/a00260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a94d26b57ca1b2d6a79381d09ff546ba6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a> = std::function&lt; boost::property_tree::ptree()&gt;</td></tr>
+<tr class="memdesc:a94d26b57ca1b2d6a79381d09ff546ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces info (int property tree format) on the test (for use by viewers).  <a href="#a94d26b57ca1b2d6a79381d09ff546ba6">More...</a><br/></td></tr>
+<tr class="separator:a94d26b57ca1b2d6a79381d09ff546ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface/Implementation of is_iterator. </p>
+<div class="textblock"><p>Header file for InfoFactory. </p>
 
-<p>Definition in file <a class="el" href="../../d9/d38/a00166_source.html">is_iterator.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/d38/a00166_source.html">InfoFactory.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d38/a00166.html">is_iterator.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d9/d38/a00166.html">InfoFactory.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

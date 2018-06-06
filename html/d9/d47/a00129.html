@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DaysOffAll.h File Reference</title>
+<title>Stride Reference Manual: CSVRow.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -104,49 +104,78 @@ $(document).ready(function(){initNavTree('d9/d47/a00129.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">DaysOffAll.h File Reference</div>  </div>
+<div class="title">CSVRow.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>DaysOffAll class: everybody gets the day off.  
+<p>Header file of base class for config that needs to be read from a file.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/db3/a00130_source.html">DaysOffInterface.h</a>&quot;</code><br/>
-<code>#include &lt;memory&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/de1/a00213_source.html">util/StringUtils.h</a>&quot;</code><br/>
+<code>#include &lt;boost/filesystem/path.hpp&gt;</code><br/>
+<code>#include &lt;boost/lexical_cast.hpp&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;ostream&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for DaysOffAll.h:</div>
+Include dependency graph for CSVRow.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d75/a00334.gif" border="0" usemap="#DaysOffAll_8h" alt=""/></div>
-<map name="DaysOffAll_8h" id="DaysOffAll_8h">
-<area shape="rect" id="node2" href="../../d6/db3/a00130.html" title="Interface for DaysOff classes. " alt="" coords="5,80,139,107"/></map>
+<div class="center"><img src="../../da/d75/a00334.gif" border="0" usemap="#CSVRow_8h" alt=""/></div>
+<map name="CSVRow_8h" id="CSVRow_8h">
+<area shape="rect" id="node2" href="../../d1/de1/a00213.html" title="Miscellaneous string utilities. " alt="" coords="361,80,476,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d91/a00335.gif" border="0" usemap="#CSVRow_8hdep" alt=""/></div>
+<map name="CSVRow_8hdep" id="CSVRow_8hdep">
+<area shape="rect" id="node2" href="../../df/dcd/a00127.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="204,80,265,107"/><area shape="rect" id="node5" href="../../d1/d88/a00128.html" title="Source file of CSVRow. " alt="" coords="313,155,415,181"/><area shape="rect" id="node3" href="../../da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="5,304,135,331"/><area shape="rect" id="node4" href="../../d7/d12/a00126.html" title="Source file of csv. " alt="" coords="81,155,155,181"/><area shape="rect" id="node6" href="../../d2/d82/a00142.html" title="Header file for GnuPlot container. " alt="" coords="181,155,288,181"/><area shape="rect" id="node7" href="../../d5/db1/a00140.html" title="Multi&#45;block CSV file (fashioned after and used for GnuPlot data files). " alt="" coords="139,229,217,256"/><area shape="rect" id="node9" href="../../d5/d4e/a00141.html" title="Source file of GnuPlotCSV. " alt="" coords="243,229,365,256"/><area shape="rect" id="node8" href="../../de/d14/a00139.html" title="Source file of csv. " alt="" coords="161,304,255,331"/></map>
 </div>
 </div>
 <p><a href="../../d9/d47/a00129_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html">stride::DaysOffAll</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">No days off work or school.  <a href="../../d7/de0/a00022.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html">stride::util::CSVRow</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Row in <a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> file.  <a href="../../d3/d8b/a00059.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/d6a/a00261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html">stride::util</a></td></tr>
+<tr class="memdesc:dc/d6a/a00261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html#ab6efe1a2dbf4a57479e8c7faa00e3359">stride::util::safe_cast</a> (const std::string &amp;val)</td></tr>
+<tr class="memdesc:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an arithmetic type, in a safe manner.  <a href="#ab6efe1a2dbf4a57479e8c7faa00e3359">More...</a><br/></td></tr>
+<tr class="separator:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dce01f32b092253d815beac1cd52010"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a9dce01f32b092253d815beac1cd52010"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html#a9dce01f32b092253d815beac1cd52010">stride::util::CSVRow::GetValue&lt; std::string &gt;</a> (<a class="el" href="../../d2/d0a/a00333.html">size_t</a> index) const </td></tr>
+<tr class="memdesc:a9dce01f32b092253d815beac1cd52010"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for string  <a href="#a9dce01f32b092253d815beac1cd52010">More...</a><br/></td></tr>
+<tr class="separator:a9dce01f32b092253d815beac1cd52010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c45b2cf6c75aee55004e27edb10e745"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
+<tr class="memitem:a7c45b2cf6c75aee55004e27edb10e745"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html#a7c45b2cf6c75aee55004e27edb10e745">stride::util::CSVRow::GetValue&lt; std::string &gt;</a> (const std::string &amp;label) const </td></tr>
+<tr class="memdesc:a7c45b2cf6c75aee55004e27edb10e745"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for string  <a href="#a7c45b2cf6c75aee55004e27edb10e745">More...</a><br/></td></tr>
+<tr class="separator:a7c45b2cf6c75aee55004e27edb10e745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>DaysOffAll class: everybody gets the day off. </p>
+<div class="textblock"><p>Header file of base class for config that needs to be read from a file. </p>
 
-<p>Definition in file <a class="el" href="../../d9/d47/a00129_source.html">DaysOffAll.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/d47/a00129_source.html">CSVRow.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d9/d47/a00129.html">DaysOffAll.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d47/a00129.html">CSVRow.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

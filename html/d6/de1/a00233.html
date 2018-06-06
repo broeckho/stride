@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TransmissionProfile.h File Reference</title>
+<title>Stride Reference Manual: TransmissionProfile.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,56 +103,43 @@ $(document).ready(function(){initNavTree('d6/de1/a00233.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">TransmissionProfile.h File Reference</div>  </div>
+<div class="title">TransmissionProfile.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the TransmissionProfile class.  
+<p>Omplemenatation for the TransmissionProfile class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d31/a00234_source.html">TransmissionProfile.h</a>&quot;</code><br/>
+<code>#include &lt;cmath&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for TransmissionProfile.h:</div>
+Include dependency graph for TransmissionProfile.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d9c/a00487.gif" border="0" usemap="#TransmissionProfile_8h" alt=""/></div>
-<map name="TransmissionProfile_8h" id="TransmissionProfile_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d4/ddf/a00488.gif" border="0" usemap="#TransmissionProfile_8hdep" alt=""/></div>
-<map name="TransmissionProfile_8hdep" id="TransmissionProfile_8hdep">
-<area shape="rect" id="node2" href="../../db/d44/a00162.html" title="Header for the Infector class. " alt="" coords="133,80,209,107"/><area shape="rect" id="node6" href="../../d0/d53/a00232.html" title="Omplemenatation for the TransmissionProfile class. " alt="" coords="393,80,556,107"/><area shape="rect" id="node7" href="../../de/d79/a00203.html" title="Header for the Simulator class. " alt="" coords="739,80,793,107"/><area shape="rect" id="node3" href="../../d6/d7d/a00161.html" title="Implementation of Infector algorithms. " alt="" coords="5,155,96,181"/><area shape="rect" id="node4" href="../../db/ddf/a00164.html" title="Header for the InfectorMap. " alt="" coords="121,155,223,181"/><area shape="rect" id="node5" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="161,229,271,256"/><area shape="rect" id="node8" href="../../de/d76/a00134.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="299,155,433,181"/><area shape="rect" id="node9" href="../../db/d53/a00202.html" title="Implementation for the Simulator class. " alt="" coords="458,155,528,181"/><area shape="rect" id="node10" href="../../d5/df1/a00206.html" title="Implementation for SimRunner. " alt="" coords="552,155,663,181"/><area shape="rect" id="node11" href="../../db/ddf/a00088.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="689,155,844,181"/><area shape="rect" id="node12" href="../../d1/dd6/a00108.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="869,155,971,181"/><area shape="rect" id="node13" href="../../d1/db7/a00157.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="996,155,1149,181"/><area shape="rect" id="node14" href="../../de/db9/a00159.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1175,155,1309,181"/><area shape="rect" id="node15" href="../../d2/d94/a00184.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1334,155,1489,181"/><area shape="rect" id="node16" href="../../dc/d9a/a00218.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1514,155,1677,181"/></map>
+<div class="center"><img src="../../d4/ddf/a00488.gif" border="0" usemap="#TransmissionProfile_8cpp" alt=""/></div>
+<map name="TransmissionProfile_8cpp" id="TransmissionProfile_8cpp">
+<area shape="rect" id="node2" href="../../da/d31/a00234.html" title="Header for the TransmissionProfile class. " alt="" coords="5,80,152,107"/></map>
 </div>
 </div>
 <p><a href="../../d6/de1/a00233_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dea/a00054.html">stride::TransmissionProfile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmission rates from disease data.  <a href="../../d1/dea/a00054.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the TransmissionProfile class. </p>
+<div class="textblock"><p>Omplemenatation for the TransmissionProfile class. </p>
 
-<p>Definition in file <a class="el" href="../../d6/de1/a00233_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d6/de1/a00233_source.html">TransmissionProfile.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00233.html">TransmissionProfile.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00233.html">TransmissionProfile.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HBM.h File Reference</title>
+<title>Stride Reference Manual: GnuPlotCSV.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -105,54 +105,65 @@ $(document).ready(function(){initNavTree('d2/d82/a00142.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">HBM.h File Reference</div>  </div>
+<div class="title">GnuPlotCSV.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for HBM belief.  
+<p>Header file for GnuPlot container.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d77/a00095_source.html">behaviour/belief_policies/Belief.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/dcd/a00127_source.html">CSV.h</a>&quot;</code><br/>
+<code>#include &lt;boost/filesystem/fstream.hpp&gt;</code><br/>
+<code>#include &lt;boost/filesystem/path.hpp&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HBM.h:</div>
+Include dependency graph for GnuPlotCSV.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d9c/a00352.gif" border="0" usemap="#HBM_8h" alt=""/></div>
-<map name="HBM_8h" id="HBM_8h">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html" title="Header file for Belief. " alt="" coords="5,81,168,122"/></map>
+<div class="center"><img src="../../d6/d9c/a00352.gif" border="0" usemap="#GnuPlotCSV_8h" alt=""/></div>
+<map name="GnuPlotCSV_8h" id="GnuPlotCSV_8h">
+<area shape="rect" id="node2" href="../../df/dcd/a00127.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="451,80,512,107"/><area shape="rect" id="node3" href="../../d9/d47/a00129.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="619,155,707,181"/><area shape="rect" id="node4" href="../../d1/de1/a00213.html" title="Miscellaneous string utilities. " alt="" coords="263,229,377,256"/><area shape="rect" id="node16" href="../../dc/de6/a00167.html" title="Interface/Implementation of is_iterator. " alt="" coords="59,155,169,181"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/ddc/a00353.gif" border="0" usemap="#GnuPlotCSV_8hdep" alt=""/></div>
+<map name="GnuPlotCSV_8hdep" id="GnuPlotCSV_8hdep">
+<area shape="rect" id="node2" href="../../da/de7/a00210.html" title="Header for the command line controller. " alt="" coords="5,155,135,181"/><area shape="rect" id="node3" href="../../d5/db1/a00140.html" title="Multi&#45;block CSV file (fashioned after and used for GnuPlot data files). " alt="" coords="108,80,187,107"/><area shape="rect" id="node5" href="../../d5/d4e/a00141.html" title="Source file of GnuPlotCSV. " alt="" coords="212,80,335,107"/><area shape="rect" id="node4" href="../../de/d14/a00139.html" title="Source file of csv. " alt="" coords="161,155,255,181"/></map>
 </div>
 </div>
 <p><a href="../../d2/d82/a00142_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html">stride::HBM</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d5f/a00064.html">stride::util::GnuPlotCSV</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/df7/a00058.html" title="A collection of CSVRow elements. ">CSV</a> container fit for <a class="el" href="../../d1/d6f/a00063.html" title="A collection of GnuPlotCSV&#39;s elements. ">GnuPlot</a> data.  <a href="../../df/d5f/a00064.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dc/d6a/a00261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html">stride::util</a></td></tr>
+<tr class="memdesc:dc/d6a/a00261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a9d01e8d18496c1065ce04a29ec8b3470"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">stride::VariableState</a> { <a class="el" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">stride::VariableState::Low</a> = 0U, 
-<a class="el" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">stride::VariableState::High</a> = 1U
- }</td></tr>
-<tr class="separator:a9d01e8d18496c1065ce04a29ec8b3470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93947dd5e7f2cdcaf0ce217ff6d0ddb8"><td class="memItemLeft" align="right" valign="top">boost::filesystem::ofstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html#a93947dd5e7f2cdcaf0ce217ff6d0ddb8">stride::util::operator&lt;&lt;</a> (boost::filesystem::ofstream &amp;ofs, const GnuPlotCSV &amp;csv)</td></tr>
+<tr class="separator:a93947dd5e7f2cdcaf0ce217ff6d0ddb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for HBM belief. </p>
+<div class="textblock"><p>Header file for GnuPlot container. </p>
 
-<p>Definition in file <a class="el" href="../../d2/d82/a00142_source.html">HBM.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/d82/a00142_source.html">GnuPlotCSV.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">HBM.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">GnuPlotCSV.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

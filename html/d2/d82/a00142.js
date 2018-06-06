@@ -1,8 +1,5 @@
 var a00142 =
 [
-    [ "HBM", "dc/d3c/a00028.html", "dc/d3c/a00028" ],
-    [ "VariableState", "d2/d82/a00142.html#a9d01e8d18496c1065ce04a29ec8b3470", [
-      [ "Low", "d2/d82/a00142.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef", null ],
-      [ "High", "d2/d82/a00142.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35", null ]
-    ] ]
+    [ "GnuPlotCSV", "df/d5f/a00064.html", "df/d5f/a00064" ],
+    [ "operator<<", "d2/d82/a00142.html#a93947dd5e7f2cdcaf0ce217ff6d0ddb8", null ]
 ];

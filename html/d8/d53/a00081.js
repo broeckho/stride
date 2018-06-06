@@ -1,7 +1,8 @@
 var a00081 =
 [
-    [ "CliViewer", "d8/d53/a00081.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
-    [ "Update", "d8/d53/a00081.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
-    [ "m_logger", "d8/d53/a00081.html#acc77dad91899a0d4183493023e082e9f", null ],
-    [ "m_runner", "d8/d53/a00081.html#af789850b449fdadcc8572def4a0eb4af", null ]
+    [ "AdoptedFileViewer", "d8/d53/a00081.html#a46c44f1a5065810bc501ed8669c9d75f", null ],
+    [ "Update", "d8/d53/a00081.html#a4c4df8f5c1de7318b196c9f6d1ee2f51", null ],
+    [ "m_adopted", "d8/d53/a00081.html#ad3e91689bf7d032e0bc24678a936b78a", null ],
+    [ "m_adopted_file", "d8/d53/a00081.html#aafce91e8bed6ce1185e2ae4d233318f7", null ],
+    [ "m_runner", "d8/d53/a00081.html#a3397e7a84c8081d0760014908d17262a", null ]
 ];

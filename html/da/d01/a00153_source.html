@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Immunizer.cpp Source File</title>
+<title>Stride Reference Manual: Imitation.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,156 +103,77 @@ $(document).ready(function(){initNavTree('da/d01/a00153_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Immunizer.cpp</div>  </div>
+<div class="title">Imitation.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/d01/a00153.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d65/a00154.html">Immunizer.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d64/a00181.html">pop/Person.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">util/RNManager.h</a>&quot;</span></div>
+<a href="../../da/d01/a00153.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df8/a00096.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;trng/uniform01_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>util;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">   33</a></span>&#160;<a class="code" href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">Immunizer::Immunizer</a>(<a class="code" href="../../da/d24/a00068.html">stride::util::RNManager</a>&amp; rnManager) : m_rn_manager(rnManager) {}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Immunizer::Random</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunityDistribution,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                       <span class="keywordtype">double</span> immunityLinkProbability)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Initialize a vector to count the population per age class [0-100].</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::vector&lt;double&gt; populationBrackets(100, 0.0);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Count individuals per age class and set all &quot;susceptible&quot; individuals &quot;immune&quot;.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// note: focusing on measles, we expect the number of susceptible individuals</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// to be less compared to the number of immune.</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// TODO but this is a generic simulator</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; c : pools) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : c.GetPool()) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <span class="keywordflow">if</span> (p-&gt;GetHealth().IsSusceptible()) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                p-&gt;GetHealth().SetImmune();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                populationBrackets[p-&gt;GetAge()]++;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> poolsSize          = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(pools.size());</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">auto</span>       intGenerator       = <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../da/d24/a00068.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(0, poolsSize));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">auto</span>       uniform01Generator = <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../da/d24/a00068.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform01_dist&lt;double&gt;());</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d61/a00031.html">Imitation</a> : <span class="keyword">public</span> <a class="code" href="../../d2/de7/a00014.html">Belief</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a73e90bd17f74f35c4370dfa14a12fc0d">   32</a></span>&#160;        <a class="code" href="../../df/d61/a00031.html#a73e90bd17f74f35c4370dfa14a12fc0d">Imitation</a>() : <a class="code" href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">m_accept</a>(false), <a class="code" href="../../df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>(0.0), <a class="code" href="../../df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>(0.0) {}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a78b384d9972e06d7e1e2c516a9c82d12">   35</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../df/d61/a00031.html#a78b384d9972e06d7e1e2c516a9c82d12">Imitation</a>(<span class="keyword">const</span> boost::property_tree::ptree&amp; pt)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="../../d2/de7/a00014.html">Belief</a>(), <a class="code" href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">m_accept</a>(false), <a class="code" href="../../df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d1/dd4/a00267.html">double</a>&gt;(<span class="stringliteral">&quot;run.accept_threshold&quot;</span>)),</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;              <a class="code" href="../../df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>(pt.get&lt;<a class="code" href="../../d1/dd4/a00267.html">double</a>&gt;(<span class="stringliteral">&quot;run.no_accept_threshold&quot;</span>))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="comment">// TODO belief strength</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="comment">// TODO stickiness</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a53716b9bed3d3352c60ef758e3b25d6b">   43</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../df/d61/a00031.html#a53716b9bed3d3352c60ef758e3b25d6b">HasAdopted</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">m_accept</a>; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// TODO update</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">   48</a></span>&#160;        <span class="keywordtype">bool</span>   <a class="code" href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">m_accept</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c">   49</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c">m_accept_threshold</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d">   50</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d">m_no_accept_threshold</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// double m_belief_strength; ///&lt; The &#39;strength&#39; of someone&#39;s belief, varying from -1 (very negative attitude to</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <span class="comment">// double m_stickiness;      ///&lt; How likely the belief is to change</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// TODO influence of belonging to same household?</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// TODO awareness?</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// Calculate the number of susceptible individuals per age class.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numSusceptible = 0;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> age = 0; age &lt; 100; age++) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                populationBrackets[age] = floor(populationBrackets[age] * (1 - immunityDistribution[age]));</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                numSusceptible += populationBrackets[age];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Sample susceptible individuals, until all age-dependent quota are reached.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">while</span> (numSusceptible &gt; 0) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="comment">// random pool, random order of members</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../dd/da2/a00019.html">ContactPool</a>&amp;        p_pool = pools[intGenerator()];</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>                size   = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(p_pool.<a class="code" href="../../dd/da2/a00019.html#a206057a57bf75587c303c41f27f3bf23">GetSize</a>());</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                std::vector&lt;unsigned int&gt; indices(size);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        indices[i] = i;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../da/d24/a00068.html#a5a7dc58c76f112c8d808866cac5a272d">RandomShuffle</a>(indices.begin(), indices.end());</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="comment">// loop over members, in random order</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i_p = 0; i_p &lt; size &amp;&amp; numSusceptible &gt; 0; i_p++) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        <a class="code" href="../../d6/d97/a00045.html">Person</a>&amp; p = *p_pool.<a class="code" href="../../dd/da2/a00019.html#ae7962d506db44920ed1fd99471cabc50">GetMember</a>(indices[i_p]);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="comment">// if p is immune and his/her age class has not reached the quota =&gt; make susceptible</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keywordflow">if</span> (p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a7c9caae07db1dd15732f726cec514dc2">IsImmune</a>() &amp;&amp; populationBrackets[p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>()] &gt; 0) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a8edeec79c050faabe2c09a1bc4860261">SetSusceptible</a>();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                populationBrackets[p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>()]--;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                numSusceptible--;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="comment">// random draw to continue in this pool or to sample a new one</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">if</span> (uniform01Generator() &lt; (1 - immunityLinkProbability)) {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">Immunizer::Cocoon</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; <span class="comment">/*pools*/</span>, std::vector&lt;double&gt;&amp; <span class="comment">/*immunity_distribution*/</span>,</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                       <span class="keywordtype">double</span> <span class="comment">/*immunity_link_probability*/</span>)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">         * void Vaccinator::AdministerCocoon(const vector&lt;ContactPool&gt;&amp; pools, double immunity_rate, double</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">adult_age_min, double adult_age_max, double child_age_min, double child_age_max)</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">{</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// Sampler for double in [0.0, 1.0).</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist&lt;double&gt;());</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">for (const auto&amp; c : pools) {</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">        for (unsigned int i_p = 0; i_p &lt; c.GetSize(); i_p++) {</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">                Person&amp; p = *c.GetMember(i_p);</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">                if (p.GetHealth().IsSusceptible() &amp;&amp; p.GetAge() &gt;= adult_age_min &amp;&amp;</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">                    p.GetAge() &lt;= adult_age_max) {</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">                        bool is_connected_to_target_age{false};</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">                        for (unsigned int i_p2 = 0; i_p2 &lt; c.GetSize() &amp;&amp; !is_connected_to_target_age; i_p2++) {</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">                                const Person&amp; p2 = *c.GetMember(i_p2);</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">                                if (p2.GetAge() &gt;= child_age_min &amp;&amp; p2.GetAge() &lt;= child_age_max) {</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">                                        is_connected_to_target_age = true;</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">                                }</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">                        }</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">                        if (is_connected_to_target_age &amp;&amp; uniform01_generator() &lt; immunity_rate) {</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">                                p.GetHealth().SetImmune();</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">                        }</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">                }</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">        }</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">}</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">}</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">         *</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00068_html_a5a7dc58c76f112c8d808866cac5a272d"><div class="ttname"><a href="../../da/d24/a00068.html#a5a7dc58c76f112c8d808866cac5a272d">stride::util::RNManager::RandomShuffle</a></div><div class="ttdeci">void RandomShuffle(RandomIt first, RandomIt last, size_t i=0)</div><div class="ttdoc">Randomly shuffle items between iterators using i-th stream of the random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00097">RNManager.h:97</a></div></div>
-<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00041">RNManager.h:41</a></div></div>
-<div class="ttc" id="a00019_html_ae7962d506db44920ed1fd99471cabc50"><div class="ttname"><a href="../../dd/da2/a00019.html#ae7962d506db44920ed1fd99471cabc50">stride::ContactPool::GetMember</a></div><div class="ttdeci">Person * GetMember(unsigned int index) const </div><div class="ttdoc">Get member at index. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00045">ContactPool.h:45</a></div></div>
-<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
-<div class="ttc" id="a00032_html_a68e68d5d0ac6181162e82261083dfb0f"><div class="ttname"><a href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">stride::Immunizer::Immunizer</a></div><div class="ttdeci">Immunizer(util::RNManager &amp;rnManager)</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00033">Immunizer.cpp:33</a></div></div>
-<div class="ttc" id="a00019_html_a206057a57bf75587c303c41f27f3bf23"><div class="ttname"><a href="../../dd/da2/a00019.html#a206057a57bf75587c303c41f27f3bf23">stride::ContactPool::GetSize</a></div><div class="ttdeci">std::size_t GetSize() const </div><div class="ttdoc">Get size (number of members). </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00051">ContactPool.h:51</a></div></div>
-<div class="ttc" id="a00032_html_a2528a05439bfde66f4c85e9a19a6ef48"><div class="ttname"><a href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">stride::Immunizer::Cocoon</a></div><div class="ttdeci">void Cocoon(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Cocoon immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00094">Immunizer.cpp:94</a></div></div>
-<div class="ttc" id="a00045_html_a53081dbb062c019153b8be62083d59a2"><div class="ttname"><a href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">stride::Person::GetHealth</a></div><div class="ttdeci">Health &amp; GetHealth()</div><div class="ttdoc">Return person&#39;s health status. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d64/a00181_source.html#l00074">Person.h:74</a></div></div>
-<div class="ttc" id="a00032_html_a3b4663bfb6bfdb19e02f8cfd962e12b6"><div class="ttname"><a href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">stride::Immunizer::Random</a></div><div class="ttdeci">void Random(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Random immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00035">Immunizer.cpp:35</a></div></div>
-<div class="ttc" id="a00181_html"><div class="ttname"><a href="../../d8/d64/a00181.html">Person.h</a></div><div class="ttdoc">Header file for the Person class. </div></div>
-<div class="ttc" id="a00045_html_ad85ecf5500764ae2c025f7e2aab8003c"><div class="ttname"><a href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">stride::Person::GetAge</a></div><div class="ttdeci">double GetAge() const </div><div class="ttdoc">Get the age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d64/a00181_source.html#l00059">Person.h:59</a></div></div>
-<div class="ttc" id="a00154_html"><div class="ttname"><a href="../../d3/d65/a00154.html">Immunizer.h</a></div><div class="ttdoc">Header for the Immunizer class. </div></div>
-<div class="ttc" id="a00029_html_a8edeec79c050faabe2c09a1bc4860261"><div class="ttname"><a href="../../d5/d16/a00029.html#a8edeec79c050faabe2c09a1bc4860261">stride::Health::SetSusceptible</a></div><div class="ttdeci">void SetSusceptible()</div><div class="ttdoc">Set health state to susceptible. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00037">Health.cpp:37</a></div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d64/a00181_source.html#l00035">Person.h:35</a></div></div>
-<div class="ttc" id="a00029_html_a7c9caae07db1dd15732f726cec514dc2"><div class="ttname"><a href="../../d5/d16/a00029.html#a7c9caae07db1dd15732f726cec514dc2">stride::Health::IsImmune</a></div><div class="ttdeci">bool IsImmune() const </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/a00144_source.html#l00057">Health.h:57</a></div></div>
-<div class="ttc" id="a00068_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../da/d24/a00068.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ded/a00196_source.html#l00077">RNManager.h:77</a></div></div>
-<div class="ttc" id="a00032_html_aa1e47bdfa801cdc85d283c0009c8b9bd"><div class="ttname"><a href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">stride::Immunizer::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d65/a00154_source.html#l00050">Immunizer.h:50</a></div></div>
-<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00035">ContactPool.h:35</a></div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00031_html_a043184f95908e3cbace4b79547ac908c"><div class="ttname"><a href="../../df/d61/a00031.html#a043184f95908e3cbace4b79547ac908c">stride::Imitation::m_accept_threshold</a></div><div class="ttdeci">double m_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00049">Imitation.h:49</a></div></div>
+<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
+<div class="ttc" id="a00267_html"><div class="ttname"><a href="../../d1/dd4/a00267.html">double</a></div></div>
+<div class="ttc" id="a00031_html_aa094646da3221985f97440760244df5e"><div class="ttname"><a href="../../df/d61/a00031.html#aa094646da3221985f97440760244df5e">stride::Imitation::m_accept</a></div><div class="ttdeci">bool m_accept</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00048">Imitation.h:48</a></div></div>
+<div class="ttc" id="a00031_html_a78b384d9972e06d7e1e2c516a9c82d12"><div class="ttname"><a href="../../df/d61/a00031.html#a78b384d9972e06d7e1e2c516a9c82d12">stride::Imitation::Imitation</a></div><div class="ttdeci">Imitation(const boost::property_tree::ptree &amp;pt)</div><div class="ttdoc">Initializing constructor, for now with ptree. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00035">Imitation.h:35</a></div></div>
+<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00027">Belief.h:27</a></div></div>
+<div class="ttc" id="a00031_html_a53716b9bed3d3352c60ef758e3b25d6b"><div class="ttname"><a href="../../df/d61/a00031.html#a53716b9bed3d3352c60ef758e3b25d6b">stride::Imitation::HasAdopted</a></div><div class="ttdeci">bool HasAdopted() const override</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00043">Imitation.h:43</a></div></div>
+<div class="ttc" id="a00031_html_a286d3ecef9366a78e645a4a3f7cb634d"><div class="ttname"><a href="../../df/d61/a00031.html#a286d3ecef9366a78e645a4a3f7cb634d">stride::Imitation::m_no_accept_threshold</a></div><div class="ttdeci">double m_no_accept_threshold</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00050">Imitation.h:50</a></div></div>
+<div class="ttc" id="a00031_html_a73e90bd17f74f35c4370dfa14a12fc0d"><div class="ttname"><a href="../../df/d61/a00031.html#a73e90bd17f74f35c4370dfa14a12fc0d">stride::Imitation::Imitation</a></div><div class="ttdeci">Imitation()</div><div class="ttdoc">Required for SegmentedVector. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00032">Imitation.h:32</a></div></div>
+<div class="ttc" id="a00031_html"><div class="ttname"><a href="../../df/d61/a00031.html">stride::Imitation</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d01/a00153_source.html#l00028">Imitation.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../da/d01/a00153.html">Immunizer.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../da/d01/a00153.html">Imitation.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

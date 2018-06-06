@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: myhayai::event Namespace Reference</title>
+<title>Stride Reference Manual: myhayai::console Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,55 +103,41 @@ $(document).ready(function(){initNavTree('dd/dd7/a00248.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">myhayai::event Namespace Reference</div>  </div>
+<div class="title">myhayai::console Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html">Payload</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The payload of the event notification used by the <a class="el" href="../../d0/d0b/a00004.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...">BenchmarkRunner</a> and accepted in the Update by the event Observers.  <a href="../../de/d21/a00006.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aa186a4b82f295d28f9c382967d2765f5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> { <br/>
-&#160;&#160;<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>, 
-<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>, 
-<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>, 
-<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">Id::AbortTest</a>, 
+<tr class="memitem:a196b4ed0c2880905970a7d5d38e2055f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055f">Color</a> { <br/>
+&#160;&#160;<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">Color::EnableColor</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">Color::DisableColor</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">Color::Default</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">Color::Black</a>, 
 <br/>
-&#160;&#160;<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>, 
-<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>
+&#160;&#160;<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">Color::Blue</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">Color::Green</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">Color::Cyan</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">Color::Red</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">Color::Purple</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">Color::Yellow</a>, 
+<a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">Color::White</a>
 <br/>
  }</td></tr>
-<tr class="memdesc:aa186a4b82f295d28f9c382967d2765f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the event.  <a href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">More...</a><br/></td></tr>
-<tr class="separator:aa186a4b82f295d28f9c382967d2765f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a196b4ed0c2880905970a7d5d38e2055f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Console text colors.  <a href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055f">More...</a><br/></td></tr>
+<tr class="separator:a196b4ed0c2880905970a7d5d38e2055f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="#a4ca6114a0aa6f6ad4557326c79e9f3ee">More...</a><br/></td></tr>
-<tr class="separator:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a5fe6d259725ff63b938e49f81a7d65c5">ToString</a> (<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> w)</td></tr>
-<tr class="memdesc:a5fe6d259725ff63b938e49f81a7d65c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="#a5fe6d259725ff63b938e49f81a7d65c5">More...</a><br/></td></tr>
-<tr class="separator:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a0a7a2da03a1ca0d44e79d0dfcf2bb098">More...</a><br/></td></tr>
-<tr class="separator:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a4f544b11b9c2036b24f02ef20cbd8de7">NumOfTypes</a> ()</td></tr>
-<tr class="memdesc:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ContactPool types.  <a href="#a4f544b11b9c2036b24f02ef20cbd8de7">More...</a><br/></td></tr>
-<tr class="separator:a4f544b11b9c2036b24f02ef20cbd8de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#ab1433e22ef9ab4fd198453b573ff8d0d">ToSizeT</a> (<a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> id)</td></tr>
-<tr class="memdesc:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#ab1433e22ef9ab4fd198453b573ff8d0d">More...</a><br/></td></tr>
-<tr class="separator:ab1433e22ef9ab4fd198453b573ff8d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a763bf6fbb35dca374fa5d59e6970286d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00248.html#a763bf6fbb35dca374fa5d59e6970286d">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055f">Color</a> &amp;color)</td></tr>
+<tr class="separator:a763bf6fbb35dca374fa5d59e6970286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5"></a>
+<a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -159,7 +145,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></td>
+          <td class="memname">enum <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055f">myhayai::console::Color</a></td>
         </tr>
       </table>
   </td>
@@ -169,96 +155,42 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Enumerates the event. </p>
+<p>Console text colors. </p>
+<p>EnableColor and DisableColor change the stream state to enable/disable color. The enable makes a fair attempt to discover whther the stream is a teminal. Default console color (used for resets). </p>
+<dl class="section warning"><dt>Warning</dt><dd>Avoid using black unless it is absolutely necesssary. </dd>
+<dd>
+Avoid using white unless it is absolutely necessary. </dd></dl>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2"></a>BeginBench</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da"></a>EnableColor</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803"></a>EndBench</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed"></a>DisableColor</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc"></a>SkipTest</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67"></a>Default</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42"></a>AbortTest</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de"></a>Black</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba"></a>BeginTest</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9"></a>Blue</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de"></a>EndTest</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1"></a>Green</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20"></a>Cyan</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47"></a>Red</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7"></a>Purple</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8"></a>Yellow</em>&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006"></a>White</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00029">29</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Id.hpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00034">34</a> of file <a class="el" href="../../d3/d00/a00113_source.html">Console.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a4ca6114a0aa6f6ad4557326c79e9f3ee"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool myhayai::event::IsType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check whether string is name of a ContactPoolType::Id. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00032">32</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">myhayai/Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">AbortTest</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">BeginBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">BeginTest</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">EndBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">EndTest</a>, and <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">SkipTest</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5fe6d259725ff63b938e49f81a7d65c5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string myhayai::event::ToString </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a ContactPoolType::Id value to corresponding name. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00042">42</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">myhayai/Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">BeginBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">BeginTest</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">EndBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">EndTest</a>, and <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">SkipTest</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0a7a2da03a1ca0d44e79d0dfcf2bb098"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> myhayai::event::ToType </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a string with name to Id. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d4a/a00147_source.html#l00050">50</a> of file <a class="el" href="../../d0/d4a/a00147_source.html">myhayai/Id.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">AbortTest</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">BeginBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">BeginTest</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">EndBench</a>, <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">EndTest</a>, and <a class="el" href="../../dd/dd7/a00248.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">SkipTest</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00069">stride::util::RNManager::Initialize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4f544b11b9c2036b24f02ef20cbd8de7"></a>
+<a class="anchor" id="a763bf6fbb35dca374fa5d59e6970286d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -266,10 +198,21 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr unsigned int myhayai::event::NumOfTypes </td>
+          <td class="memname">std::ostream&amp; myhayai::console::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const Color &amp;&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -279,37 +222,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Number of ContactPool types. </p>
+<p>Definition at line <a class="el" href="../../d3/d00/a00113_source.html#l00049">49</a> of file <a class="el" href="../../d3/d00/a00113_source.html">Console.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00040">40</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Id.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab1433e22ef9ab4fd198453b573ff8d0d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t myhayai::event::ToSizeT </td>
-          <td>(</td>
-          <td class="paramtype">Id&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Cast to size_t for indexing. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d7d/a00150_source.html#l00046">46</a> of file <a class="el" href="../../d9/d7d/a00150_source.html">Id.hpp</a>.</p>
+<p>References <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de">Black</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9">Blue</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20">Cyan</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67">Default</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">DisableColor</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">EnableColor</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1">Green</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7">Purple</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47">Red</a>, <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006">White</a>, and <a class="el" href="../../dd/dd7/a00248.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8">Yellow</a>.</p>
 
 </div>
 </div>
@@ -318,8 +233,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/dd7/a00248.html">event</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d0/d1f/a00247.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/dd7/a00248.html">console</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

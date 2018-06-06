@@ -1,5 +1,5 @@
 var annotated =
 [
-    [ "myhayai", "d4/d9a/a00246.html", "d4/d9a/a00246" ],
-    [ "stride", "d7/d03/a00254.html", "d7/d03/a00254" ]
+    [ "myhayai", "d0/d1f/a00247.html", "d0/d1f/a00247" ],
+    [ "stride", "d4/d04/a00255.html", "d4/d04/a00255" ]
 ];

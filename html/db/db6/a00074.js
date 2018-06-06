@@ -1,16 +1,14 @@
 var a00074 =
 [
-    [ "TClock", "db/db6/a00074.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
-    [ "Stopwatch", "db/db6/a00074.html#a925b07b32b747a519b37c549ba7f1531", null ],
-    [ "Start", "db/db6/a00074.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
-    [ "Stop", "db/db6/a00074.html#a4b6145f590e94467a0048817f348ac75", null ],
-    [ "Reset", "db/db6/a00074.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
-    [ "IsRunning", "db/db6/a00074.html#a6afa0761326b35e675517b6a81ffef1f", null ],
-    [ "GetName", "db/db6/a00074.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
-    [ "Get", "db/db6/a00074.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
-    [ "ToString", "db/db6/a00074.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
-    [ "m_accumulated", "db/db6/a00074.html#a765784978119de616443c956d98166c4", null ],
-    [ "m_last_start", "db/db6/a00074.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
-    [ "m_name", "db/db6/a00074.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
-    [ "m_running", "db/db6/a00074.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
+    [ "range_type", "db/db6/a00074.html#aa697693cf36c60a25c469e21b26cb84f", null ],
+    [ "SliceIndexer", "db/db6/a00074.html#af2bedaa13b9427b736bfc88bcb974741", null ],
+    [ "Get", "db/db6/a00074.html#ac63541daeed03c7731fb820005e64f06", null ],
+    [ "Get", "db/db6/a00074.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
+    [ "Get", "db/db6/a00074.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
+    [ "Set", "db/db6/a00074.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
+    [ "Set", "db/db6/a00074.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
+    [ "check", "db/db6/a00074.html#a194f218151d935420737a20c40c27a00", null ],
+    [ "m_map", "db/db6/a00074.html#ad7137d9d5caad8581de354a750b70403", null ],
+    [ "m_slices", "db/db6/a00074.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
+    [ "m_t", "db/db6/a00074.html#a00a95be5edf914ec430a0890a3c82005", null ]
 ];

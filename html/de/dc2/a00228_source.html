@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: TestResult.h Source File</title>
+<title>Stride Reference Manual: TestFactory.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/dc2/a00228_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">TestResult.h</div>  </div>
+<div class="title">TestFactory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/dc2/a00228.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,25 +121,24 @@ $(document).ready(function(){initNavTree('de/dc2/a00228_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/ddf/a00224.html">Test.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">   30</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">TestResult</a> = std::vector&lt;std::chrono::steady_clock::duration&gt;;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00246_html_a57199109a783f4e5805d20fe31019b29"><div class="ttname"><a href="../../d4/d9a/a00246.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a></div><div class="ttdeci">std::vector&lt; std::chrono::steady_clock::duration &gt; TestResult</div><div class="ttdoc">Test result descriptor. All durations are expressed in nanoseconds. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dc2/a00228_source.html#l00030">TestResult.h:30</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d0/d1f/a00247.html#a28985c82b74a8191bbd1b16b7662378c">   28</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d0/d1f/a00247.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> = std::function&lt;Test()&gt;;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace myhayai</span></div>
+<div class="ttc" id="a00224_html"><div class="ttname"><a href="../../d5/ddf/a00224.html">Test.h</a></div><div class="ttdoc">Header file for Test. </div></div>
+<div class="ttc" id="a00247_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d0/d1f/a00247.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dc2/a00228_source.html#l00028">TestFactory.h:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../de/dc2/a00228.html">TestResult.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../de/dc2/a00228.html">TestFactory.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

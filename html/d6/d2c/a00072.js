@@ -1,15 +1,7 @@
 var a00072 =
 [
-    [ "CleanConfigFile", "d6/d2c/a00072.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
-    [ "Create", "d6/d2c/a00072.html#ab4007f793a1924a65458824fef455208", null ],
-    [ "CreateNumThreads", "d6/d2c/a00072.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
-    [ "FromString", "d6/d2c/a00072.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
-    [ "ToString", "d6/d2c/a00072.html#af968f949efaf2876f48a86da65faa5ca", null ],
-    [ "ToSha1", "d6/d2c/a00072.html#a32ec1961852a81d4873a519f6bea1e36", null ],
-    [ "ToShortSha1", "d6/d2c/a00072.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
-    [ "CreateBenchInfluenza", "d6/d2c/a00072.html#a7014479a2c8efe57b292b9f61435ab61", null ],
-    [ "CreateBenchMeasles", "d6/d2c/a00072.html#abf62ab97dafdce994e503296fe5d9394", null ],
-    [ "CreateDefault", "d6/d2c/a00072.html#a93470c7c74cc217254876c704fa81a0f", null ],
-    [ "CreateTestsInfluenza", "d6/d2c/a00072.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
-    [ "CreateTestsMeasles", "d6/d2c/a00072.html#aa430eb71461536d855db5725ebc59cda", null ]
+    [ "Info", "d6/d2c/a00072.html#a82fd18f0fc75a9666b0526976bd5bf9f", null ],
+    [ "m_seed_seq_init", "d6/d2c/a00072.html#a03145399273996e6fdf3a993bd5a7e58", null ],
+    [ "m_state", "d6/d2c/a00072.html#a0224702cbbd2bcb904e45fc01a1a97e4", null ],
+    [ "m_stream_count", "d6/d2c/a00072.html#abe744438e39c37e30a4ebeddd5ef2f45", null ]
 ];

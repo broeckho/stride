@@ -1,21 +1,7 @@
 var a00068 =
 [
-    [ "Info", "d4/d31/a00069.html", "d4/d31/a00069" ],
-    [ "RNManager", "da/d24/a00068.html#a30121f0f47cf4c23bed8da7521b2b904", null ],
-    [ "RNManager", "da/d24/a00068.html#a09c7ac5ae3b2ecffe9ee9b373d035e57", null ],
-    [ "operator=", "da/d24/a00068.html#a546d57ebd3d79450abc641b3ebe5d23c", null ],
-    [ "GetInfo", "da/d24/a00068.html#a3faf18a9fdd2400012612a2cafde01a3", null ],
-    [ "GetGenerator", "da/d24/a00068.html#a6508932485d419a6e7ab3cac60754ae6", null ],
-    [ "RandomShuffle", "da/d24/a00068.html#a5a7dc58c76f112c8d808866cac5a272d", null ],
-    [ "Initialize", "da/d24/a00068.html#a8c78f40f38b8a3fc25e2c21be2de505a", null ],
-    [ "para_seed", "da/d24/a00068.html#a22463a9beebea4645b63f92ae028adc2", null ],
-    [ "m_seed", "da/d24/a00068.html#af9b36fdeadaea938995a293c940b90a4", null ],
-    [ "m_stream_count", "da/d24/a00068.html#a56d4de95212dccdd02652c477673297c", null ],
-    [ "m_type_id", "da/d24/a00068.html#a74b3b62e58d9dc935287af1f403e3a88", null ],
-    [ "m_lcg64", "da/d24/a00068.html#a138adbebf56ee6aff14f4a5d657eb582", null ],
-    [ "m_lcg64_shift", "da/d24/a00068.html#a47e49d570a9cef2fee04ef084c93e09a", null ],
-    [ "m_mrg2", "da/d24/a00068.html#aef24d7bf005b199b20bbc26111bac570", null ],
-    [ "m_mrg3", "da/d24/a00068.html#a03cc6bedd665abb75073633f6bef0a73", null ],
-    [ "m_yarn2", "da/d24/a00068.html#a769a08942e570dd9d257f12e5db009c5", null ],
-    [ "m_yarn3", "da/d24/a00068.html#a7488be1e53338d26888543c134065392", null ]
+    [ "CreateCliLogger", "da/d24/a00068.html#a106af93dd3f814adf8b87ffaaf3ef3bb", null ],
+    [ "CreateFileLogger", "da/d24/a00068.html#a52920faed22a1733b580a42ea065ed0d", null ],
+    [ "CreateNullLogger", "da/d24/a00068.html#ab89be4aea714eff74a2d4143023840a6", null ],
+    [ "CreateRotatingLogger", "da/d24/a00068.html#a137e01100d0d79b122f731bb1292179d", null ]
 ];

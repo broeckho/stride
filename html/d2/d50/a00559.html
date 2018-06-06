@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d7/de0/a00022.html','../../');});
+$(document).ready(function(){initNavTree('d7/d7a/a00016.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -105,22 +105,33 @@ $(document).ready(function(){initNavTree('d7/de0/a00022.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::DaysOffAll Member List</div>  </div>
+<div class="title">stride::Calendar Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d7/de0/a00022.html">stride::DaysOffAll</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/de0/a00022.html#a673773c659725f4dc92b0a262955af1c">DaysOffAll</a>(std::shared_ptr&lt; Calendar &gt;)</td><td class="entry"><a class="el" href="../../d7/de0/a00022.html">stride::DaysOffAll</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d7/de0/a00022.html#a12a699d750a9b0a640db4ea47df0b11c">IsSchoolOff</a>() override</td><td class="entry"><a class="el" href="../../d7/de0/a00022.html">stride::DaysOffAll</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/de0/a00022.html#a61f87cc93335185f90d9d772f168b1bb">IsWorkOff</a>() override</td><td class="entry"><a class="el" href="../../d7/de0/a00022.html">stride::DaysOffAll</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../d3/d52/a00023.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a>()=default</td><td class="entry"><a class="el" href="../../d3/d52/a00023.html">stride::DaysOffInterface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a73664cd7c25b08adff14429ca3291394">AdvanceDay</a>()</td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a2f1b3543ea350957ea793e6b2d3ae851">Calendar</a>(const boost::property_tree::ptree &amp;configPt)</td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a45666f29f36e462403710354043c735b">GetDay</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a06eddc08e5684d05443c9bba48444258">GetDayOfTheWeek</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a1321c2a696a5cdbc8ffa0c2313084989">GetMonth</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a440b877497550ef988931917fc243809">GetSimulationDay</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a43a71244d76958385cc83e761d748c88">GetYear</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#acfc5f6f917fe7d81ead2fecdeb85eb70">InitializeHolidays</a>(const boost::property_tree::ptree &amp;configPt)</td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a9d4a023834f98c6ab8af55bbae7bc6df">IsHoliday</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a497cee60c64a52c36dbf44536b3c2d3d">IsSchoolHoliday</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a3569df106b24b3df5bf6836849b150a4">IsWeekend</a>() const </td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a4e568c007754d69f3cec842ef23358fa">m_date</a></td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a9d8a87a703604c326355557e1b72d119">m_day</a></td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#abed522a5161bd1e54e4b646ced1a49a6">m_holidays</a></td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/d7a/a00016.html#a1f064668c0e083b638465627131c35f7">m_school_holidays</a></td><td class="entry"><a class="el" href="../../d7/d7a/a00016.html">stride::Calendar</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:53 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

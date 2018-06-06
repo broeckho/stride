@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -106,57 +106,55 @@ $(document).ready(function(){initNavTree('db/d48/a00148.html','../../');});
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sim/event/Id.cpp File Reference</div>  </div>
+<div class="title">myhayai/Id.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of EventId.  
+<p>Implementation of <a class="el" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5" title="Enumerates the event. ">myhayai::event::Id</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d1e/a00149_source.html">Id.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/db2/a00151_source.html">Id.hpp</a>&quot;</code><br/>
 <code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sim/event/Id.cpp:</div>
+Include dependency graph for myhayai/Id.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/def/a00359.gif" border="0" usemap="#Id_8cpp" alt=""/></div>
+<div class="center"><img src="../../d0/d65/a00360.gif" border="0" usemap="#Id_8cpp" alt=""/></div>
 <map name="Id_8cpp" id="Id_8cpp">
-<area shape="rect" id="node2" href="../../da/d1e/a00149.html" title="Definition of EventId. " alt="" coords="57,80,100,107"/></map>
+<area shape="rect" id="node2" href="../../dd/db2/a00151.html" title="Definition of myhayai::event::Id. " alt="" coords="49,80,107,107"/></map>
 </div>
 </div>
 <p><a href="../../db/d48/a00148_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d0/d1f/a00247"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d0/d2f/a00259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html">stride::sim_event</a></td></tr>
-<tr class="memdesc:d0/d2f/a00259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage events signalled by the <a class="el" href="../../d5/de0/a00050.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
+<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">myhayai::event</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d0/def/a00256.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br/></td></tr>
-<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d0/def/a00256.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br/></td></tr>
-<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br/></td></tr>
-<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">myhayai::event::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a ContactPoolType::Id.  <a href="#a4ca6114a0aa6f6ad4557326c79e9f3ee">More...</a><br/></td></tr>
+<tr class="separator:a4ca6114a0aa6f6ad4557326c79e9f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html#a5fe6d259725ff63b938e49f81a7d65c5">myhayai::event::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:a5fe6d259725ff63b938e49f81a7d65c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ContactPoolType::Id value to corresponding name.  <a href="#a5fe6d259725ff63b938e49f81a7d65c5">More...</a><br/></td></tr>
+<tr class="separator:a5fe6d259725ff63b938e49f81a7d65c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">myhayai::event::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a0a7a2da03a1ca0d44e79d0dfcf2bb098">More...</a><br/></td></tr>
+<tr class="separator:a0a7a2da03a1ca0d44e79d0dfcf2bb098"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of EventId. </p>
+<div class="textblock"><p>Implementation of <a class="el" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5" title="Enumerates the event. ">myhayai::event::Id</a>. </p>
 
-<p>Definition in file <a class="el" href="../../db/d48/a00148_source.html">sim/event/Id.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../db/d48/a00148_source.html">myhayai/Id.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Id.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Id.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

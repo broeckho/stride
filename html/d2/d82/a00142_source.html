@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HBM.h Source File</title>
+<title>Stride Reference Manual: GnuPlotCSV.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d2/d82/a00142_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">HBM.h</div>  </div>
+<div class="title">GnuPlotCSV.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d2/d82/a00142.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,70 +119,52 @@ $(document).ready(function(){initNavTree('d2/d82/a00142_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d77/a00095.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/dcd/a00127.html">CSV.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_0              = -1;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_severity       = 0.626;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_susceptibility = 1.07;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_benefit        = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_barriers       = -0.4;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod ORi^xi))</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">   36</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../df/d5f/a00064.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a> : <span class="keyword">public</span> <a class="code" href="../../d7/df7/a00058.html">CSV</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>  = 0U,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a> = 1U</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d3c/a00028.html">HBM</a> : <span class="keyword">public</span> <a class="code" href="../../d2/de7/a00014.html">Belief</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">   45</a></span>&#160;        <a class="code" href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">HBM</a>()</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            : <a class="code" href="../../d2/de7/a00014.html">Belief</a>(), <a class="code" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">m_num_contacts</a>(0), <a class="code" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">m_num_contacts_infected</a>(0), <a class="code" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">m_num_contacts_adopted</a>(0),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;              <a class="code" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">m_perceived_severity</a>(<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>), <a class="code" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">m_perceived_susceptibility</a>(<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;              <a class="code" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">m_perceived_benefit</a>(<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a>), <a class="code" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">m_perceived_barriers</a>(<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a>)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">   53</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">m_num_contacts</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">   54</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">m_num_contacts_infected</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">   55</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">m_num_contacts_adopted</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">   56</a></span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">m_perceived_severity</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">   57</a></span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">m_perceived_susceptibility</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">   58</a></span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">m_perceived_benefit</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">   59</a></span>&#160;        <a class="code" href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">m_perceived_barriers</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00028_html_a9b2585958b898ee28d539f6a97304ad6"><div class="ttname"><a href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">stride::HBM::m_perceived_barriers</a></div><div class="ttdeci">VariableState m_perceived_barriers</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00059">HBM.h:59</a></div></div>
-<div class="ttc" id="a00254_html_a9d01e8d18496c1065ce04a29ec8b3470"><div class="ttname"><a href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470">stride::VariableState</a></div><div class="ttdeci">VariableState</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00036">HBM.h:36</a></div></div>
-<div class="ttc" id="a00254_html_a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35"><div class="ttname"><a href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">stride::VariableState::High</a></div></div>
-<div class="ttc" id="a00028_html_a7585ba2adebbb683d257f4fabbd2f3b1"><div class="ttname"><a href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">stride::HBM::HBM</a></div><div class="ttdeci">HBM()</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00045">HBM.h:45</a></div></div>
-<div class="ttc" id="a00028_html_a3a5d4864f02e70e780fb427763d50aa3"><div class="ttname"><a href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">stride::HBM::m_num_contacts</a></div><div class="ttdeci">unsigned int m_num_contacts</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00053">HBM.h:53</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00027">Belief.h:27</a></div></div>
-<div class="ttc" id="a00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
-<div class="ttc" id="a00028_html_a2acbb360276a70f7f774e3be6826a7f9"><div class="ttname"><a href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">stride::HBM::m_perceived_severity</a></div><div class="ttdeci">VariableState m_perceived_severity</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00056">HBM.h:56</a></div></div>
-<div class="ttc" id="a00028_html_a9eea259a8ceafe84d5ee819c620107c7"><div class="ttname"><a href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">stride::HBM::m_num_contacts_adopted</a></div><div class="ttdeci">unsigned int m_num_contacts_adopted</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00055">HBM.h:55</a></div></div>
-<div class="ttc" id="a00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">stride::HBM</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00042">HBM.h:42</a></div></div>
-<div class="ttc" id="a00028_html_aca9896e5cfbd7c13086b35a45f571644"><div class="ttname"><a href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">stride::HBM::m_perceived_benefit</a></div><div class="ttdeci">VariableState m_perceived_benefit</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00058">HBM.h:58</a></div></div>
-<div class="ttc" id="a00028_html_a3c3349b5d5d1003e875fb31016ee6578"><div class="ttname"><a href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">stride::HBM::m_num_contacts_infected</a></div><div class="ttdeci">unsigned int m_num_contacts_infected</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00054">HBM.h:54</a></div></div>
-<div class="ttc" id="a00254_html_a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef"><div class="ttname"><a href="../../d7/d03/a00254.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">stride::VariableState::Low</a></div></div>
-<div class="ttc" id="a00028_html_a123b1b98d61ec00ee6052531d61a696c"><div class="ttname"><a href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">stride::HBM::m_perceived_susceptibility</a></div><div class="ttdeci">VariableState m_perceived_susceptibility</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00057">HBM.h:57</a></div></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV::CSV</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">friend</span> boost::filesystem::ofstream&amp; <a class="code" href="../../df/d5f/a00064.html#a0d8abe9169774d74484993bd365489f7">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; csv);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">WriteLabels</a>(boost::filesystem::ofstream&amp; file) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dc/d6a/a00261.html#a93947dd5e7f2cdcaf0ce217ff6d0ddb8">   48</a></span>&#160;<span class="keyword">inline</span> boost::filesystem::ofstream&amp; <a class="code" href="../../dc/d6a/a00261.html#ad1dad0220087330dc882206f7f985f2b">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../df/d5f/a00064.html">GnuPlotCSV</a>&amp; csv)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        csv.<a class="code" href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">WriteLabels</a>(ofs);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        csv.<a class="code" href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">WriteRows</a>(ofs);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> ofs;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00127_html"><div class="ttname"><a href="../../df/dcd/a00127.html">CSV.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">stride::util::GnuPlotCSV</a></div><div class="ttdoc">CSV container fit for GnuPlot data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00036">GnuPlotCSV.h:36</a></div></div>
+<div class="ttc" id="a00064_html_a0d8abe9169774d74484993bd365489f7"><div class="ttname"><a href="../../df/d5f/a00064.html#a0d8abe9169774d74484993bd365489f7">stride::util::GnuPlotCSV::operator&lt;&lt;</a></div><div class="ttdeci">friend boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const GnuPlotCSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d82/a00142_source.html#l00048">GnuPlotCSV.h:48</a></div></div>
+<div class="ttc" id="a00058_html_aee5a6e4570ae6c4efc6f316b97f9c174"><div class="ttname"><a href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">stride::util::CSV::WriteRows</a></div><div class="ttdeci">virtual void WriteRows(boost::filesystem::ofstream &amp;file) const </div><div class="ttdoc">Write the body of rows. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/a00126_source.html#l00135">CSV.cpp:135</a></div></div>
+<div class="ttc" id="a00064_html_a4bb16afe589dae23eb8b66bafd21f3f0"><div class="ttname"><a href="../../df/d5f/a00064.html#a4bb16afe589dae23eb8b66bafd21f3f0">stride::util::GnuPlotCSV::WriteLabels</a></div><div class="ttdeci">void WriteLabels(boost::filesystem::ofstream &amp;file) const override</div><div class="ttdoc">Write header with labels. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4e/a00141_source.html#l00031">GnuPlotCSV.cpp:31</a></div></div>
+<div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcd/a00127_source.html#l00040">CSV.h:40</a></div></div>
+<div class="ttc" id="a00058_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor, used for swig. </div></div>
+<div class="ttc" id="a00261_html_ad1dad0220087330dc882206f7f985f2b"><div class="ttname"><a href="../../dc/d6a/a00261.html#ad1dad0220087330dc882206f7f985f2b">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const CSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcd/a00127_source.html#l00126">CSV.h:126</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">HBM.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d82/a00142.html">GnuPlotCSV.h</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

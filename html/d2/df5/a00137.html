@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: FileSys.h File Reference</title>
+<title>Stride Reference Manual: FileSys.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 92f62bd</span>
+   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
    </div>
   </td>
  </tr>
@@ -103,66 +103,49 @@ $(document).ready(function(){initNavTree('d2/df5/a00137.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">FileSys.h File Reference</div>  </div>
+<div class="title">FileSys.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface for install directory queries.  
+<p>Utilities for interaction with filesystem.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/filesystem.hpp&gt;</code><br/>
-<code>#include &lt;boost/filesystem/path.hpp&gt;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;functional&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">FileSys.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d1/de1/a00213_source.html">util/StringUtils.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for FileSys.h:</div>
+Include dependency graph for FileSys.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d8e/a00344.gif" border="0" usemap="#FileSys_8h" alt=""/></div>
-<map name="FileSys_8h" id="FileSys_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d48/a00345.gif" border="0" usemap="#FileSys_8hdep" alt=""/></div>
-<map name="FileSys_8hdep" id="FileSys_8hdep">
-<area shape="rect" id="node2" href="../../d0/dc2/a00104.html" title="Implementation file for the Calendar class. " alt="" coords="5,80,104,107"/><area shape="rect" id="node3" href="../../de/d76/a00134.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="128,80,263,107"/><area shape="rect" id="node4" href="../../d5/dcb/a00170.html" title="Main program: command line handling. " alt="" coords="288,80,361,107"/><area shape="rect" id="node5" href="../../da/d2a/a00086.html" title="AdoptedFile.cpp" alt="" coords="387,80,503,107"/><area shape="rect" id="node6" href="../../d3/df8/a00155.html" title="Implementation of the CasesFile class. " alt="" coords="528,80,643,107"/><area shape="rect" id="node7" href="../../d7/d25/a00182.html" title="Implementation of the CasesFile class. " alt="" coords="667,80,783,107"/><area shape="rect" id="node8" href="../../d6/d43/a00216.html" title="Implementation of the SummaryFile class. " alt="" coords="807,80,931,107"/><area shape="rect" id="node9" href="../../d8/d00/a00186.html" title="Initialize populations: implementation. " alt="" coords="955,80,1065,107"/><area shape="rect" id="node10" href="../../da/d15/a00188.html" title="Core Population class. " alt="" coords="1090,80,1197,107"/><area shape="rect" id="node11" href="../../de/d36/a00123.html" title="Header for the command line controller. " alt="" coords="1222,80,1348,107"/><area shape="rect" id="node12" href="../../d1/d72/a00204.html" title="Implementation for the SimBuilder class. " alt="" coords="1373,80,1483,107"/><area shape="rect" id="node13" href="../../d3/de5/a00209.html" title="Header for the command line controller. " alt="" coords="1508,80,1637,107"/><area shape="rect" id="node14" href="../../d0/d5e/a00136.html" title="Utilities for interaction with filesystem. " alt="" coords="1663,80,1753,107"/><area shape="rect" id="node15" href="../../d8/d72/a00199.html" title="Implementation of ptree utils. " alt="" coords="1778,80,1936,107"/></map>
+<div class="center"><img src="../../d9/d48/a00345.gif" border="0" usemap="#FileSys_8cpp" alt=""/></div>
+<map name="FileSys_8cpp" id="FileSys_8cpp">
+<area shape="rect" id="node2" href="../../d4/ddd/a00138.html" title="Interface for install directory queries. " alt="" coords="461,88,537,115"/><area shape="rect" id="node8" href="../../d1/de1/a00213.html" title="Miscellaneous string utilities. " alt="" coords="884,88,999,115"/></map>
 </div>
 </div>
 <p><a href="../../d2/df5/a00137_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html">stride::util::FileSys</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for interaction with filesystem.  <a href="../../d4/de8/a00061.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html">stride::util::FileSys::Dirs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../df/d03/a00062.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/d03/a00254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d03/a00254.html">stride</a></td></tr>
-<tr class="memdesc:d7/d03/a00254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/dd7/a00260"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dd7/a00260.html">stride::util</a></td></tr>
-<tr class="memdesc:dd/dd7/a00260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:dc/d6a/a00261"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d6a/a00261.html">stride::util</a></td></tr>
+<tr class="memdesc:dc/d6a/a00261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for install directory queries. </p>
+<div class="textblock"><p>Utilities for interaction with filesystem. </p>
 
-<p>Definition in file <a class="el" href="../../d2/df5/a00137_source.html">FileSys.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d2/df5/a00137_source.html">FileSys.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">FileSys.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:19:03 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">FileSys.cpp</a></li>
+    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
