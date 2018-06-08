@@ -19,6 +19,7 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+		measlesStochasticity.py
 		runmeasles.py
 		graphutil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
