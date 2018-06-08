@@ -59,8 +59,8 @@ void StanController::Control()
         // -----------------------------------------------------------------------------------------
         // Seeds for the stochastic analysis.
         // -----------------------------------------------------------------------------------------
-        const auto    stanCount = m_config_pt.get<size_t>("run.stan_count");
-        random_device rd;
+        const auto                              stanCount = m_config_pt.get<size_t>("run.stan_count");
+        random_device                           rd;
         vector<std::random_device::result_type> seeds;
         for (unsigned int i = 0; i < stanCount; i++) {
                 seeds.emplace_back(rd());
@@ -90,7 +90,7 @@ void StanController::Control()
         // Output to file.
         // -----------------------------------------------------------------------------------------
         const auto numDays = m_config_pt.get<unsigned int>("run.num_days");
-        CSV csv(seeds.begin(), seeds.end());
+        CSV        csv(seeds.begin(), seeds.end());
         for (unsigned int i = 0U; i < numDays + 1; ++i) {
                 vector<unsigned int> v;
                 for (const auto& res : results) {

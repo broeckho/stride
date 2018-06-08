@@ -18,8 +18,8 @@
  * Unit tests of Csv.
  */
 
-#include "util/is_iterator.h"
 #include "util/SegmentedVector.h"
+#include "util/is_iterator.h"
 
 #include <gtest/gtest.h>
 #include <vector>

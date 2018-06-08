@@ -35,6 +35,7 @@ set(SRC
     UnitPtreeUtilsHelper.h
     UnitPtreeUtils1.cpp
     UnitPtreeUtils2.cpp
+    UnitRnMan.cpp
     UnitSlice1.cpp
     UnitSlice2.cpp
     UnitSegmentedVector.cpp

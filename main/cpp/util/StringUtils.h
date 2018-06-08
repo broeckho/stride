@@ -90,7 +90,7 @@ inline std::string ToString<std::string>(const std::string& value)
 /// Stringify values (that are not strings) in a range and put them in a vector.
 template <typename It>
 inline std::vector<std::string> ToString(
-        typename std::enable_if<!std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
+    typename std::enable_if<!std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
 {
         std::vector<std::string> v;
         for (It it = first; it < last; ++it) {
@@ -102,7 +102,7 @@ inline std::vector<std::string> ToString(
 /// Stringify values (that are strings - so no-op) in a range and put them in a vector.
 template <typename It>
 inline std::vector<std::string> ToString(
-        typename std::enable_if<std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
+    typename std::enable_if<std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
 {
         std::vector<std::string> v;
         std::copy(first, last, back_inserter(v));

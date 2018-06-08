@@ -15,122 +15,102 @@
 
 /**
  * @file
- * Implementation of scenario tests running in batch mode.
+ * Implementation of pcg tests.
  */
 
-#include "util/RnPcg.h"
-#include "util/StringUtils.h"
-
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/xml_parser.hpp>
-#include <pcg/pcg_random.hpp>
-#include <pcg/randutils.hpp>
-#include <chrono>
-#include <exception>
 #include <gtest/gtest.h>
 #include <iostream>
+#include <pcg/pcg_random.hpp>
+#include <pcg/randutils.hpp>
 #include <sstream>
-#include <thread>
+
+namespace Tests {
 
 using namespace std;
 using namespace ::testing;
 using namespace randutils;
-using namespace stride::util;
 
-namespace Tests {
-
-class UnitPcg : public ::testing::Test
+TEST(UnitPcg, Reset1)
 {
-public:
-        /// TestCase set up.
-        static void SetUpTestCase(){}
+        seed_seq_fe128 seseq{1, 2, 3, 4};
+        pcg64          engine1(seseq); // seeded engine
 
-        /// Tearing down TestCase
-        static void TearDownTestCase() {}
-
-protected:
-        /// Destructor has to be virtual.
-        ~UnitPcg() override = default;
-
-        /// Set up for the test fixture
-        void SetUp() override {}
-
-        /// Tearing down the test fixture
-        void TearDown() override {}
-};
-
-TEST_F(UnitPcg, DefaultInfo)
-{
-        const RnPcg::Info info;
-
-        EXPECT_EQ("1,2,3,4", info.m_seed_seq_init);
-        EXPECT_EQ("", info.m_state);
-        EXPECT_EQ(1u, info.m_stream_count);
-}
-
-TEST_F(UnitPcg, GetInfo1)
-{
-        RnPcg rnPcg;
-        const auto info = rnPcg.GetInfo();
-
-        EXPECT_EQ("1,2,3,4", info.m_seed_seq_init);
-        EXPECT_EQ(1u, info.m_stream_count);
-}
-
-TEST_F(UnitPcg, Reset1)
-{
-        seed_seq_fe128 seseq{1,2,3,4};
-
-        pcg64 engine1(seseq);
         stringstream ss1;
-        ss1 << engine1;        // capture initial engine state
+        ss1 << engine1; // capture initial engine state
 
-        engine1();             // advance engine one step
+        engine1(); // advance engine one step
 
-        ss1 >> engine1;        // insert initial state back into engine
-        stringstream ss2;
-        ss2 << engine1;        // capture final state
+        ss1 >> engine1; // reset to initial state
 
-        EXPECT_TRUE(ss1.str() == ss2.str());
+        EXPECT_TRUE(engine1 == pcg64(seseq));
 }
 
-TEST_F(UnitPcg, Reset1bis)
+TEST(UnitPcg, Reset1bis)
 {
-        seed_seq_fe128 seseq{1,2,3,4};
+        seed_seq_fe128 seseq{1, 2, 3, 4};
+        pcg64          engine1(seseq); // seeded engine
 
-        pcg64 engine1(seseq);
         stringstream ss1;
-        ss1 << engine1;        // capture initial engine state
+        ss1 << engine1; // capture initial engine state
         auto s1 = ss1.str();
-        ss1 << "a";            // stick a non-digit at the end
+        ss1 << "a"; // stick a non-digit at the end of the stream
 
-        engine1();             // advance engine one step
+        engine1(); // advance engine one step
 
-        ss1 >> engine1;        // insert initial state back into engine
-        stringstream ss2;
-        ss2 << engine1;        // capture final state
+        ss1 >> engine1; // reset to initial state
 
-        EXPECT_TRUE(s1 == ss2.str());
+        EXPECT_TRUE(engine1 == pcg64(seseq));
 }
 
-
-TEST_F(UnitPcg, Reset2)
+TEST(UnitPcg, SeparatorRequired)
 {
-        seed_seq_fe128 seseq{1,2,3,4};
+        seed_seq_fe128 seseq{1, 2, 3, 4};
+        pcg64          engine1(seseq); // seeded engine
 
-        pcg64 engine1(seseq);
         stringstream ss1;
-        ss1 << engine1;        // capture initial engine state
+        ss1 << engine1; // capture initial engine state
+        auto s1 = ss1.str();
+        ss1 << "1"; // stick a digit at the end of stream
 
-        pcg64 engine2;         // default constructed engine
+        engine1(); // advance engine one step
 
-        ss1 >> engine2;        // insert initial state into default engine
-        stringstream ss2;
-        ss2 << engine2;        // capture final state
+        ss1 >> engine1; // reset to initial state
+
+        EXPECT_FALSE(engine1 == pcg64(seseq));
+}
+
+TEST(UnitPcg, Reset2)
+{
+        seed_seq_fe128 seseq{1, 2, 3, 4};
+        pcg64          engine1(seseq); // seeded engine
+        pcg64          engine2;        // default constructed engine
+
+        stringstream ss1;
+        ss1 << engine1; // capture initial seeded state
+        ss1 >> engine2; // insert seeded state into default engine
 
         EXPECT_TRUE(engine1 == engine2);
-        EXPECT_TRUE(ss1.str() == ss2.str());
 }
 
+TEST(UnitPcg, MultipleReset)
+{
+        seed_seq_fe128 seseq{1, 2, 3, 4};
+        pcg64          engine1(seseq); // seeded engine
+        pcg64          engine2;        // default constructed engine
+
+        stringstream ss;
+        ss << engine1; // capture state seeded engine
+        ss << " ";     // need to insert a separator
+        ss << engine2; // capture state default engine
+
+        engine1(); // advance engine1
+        engine2(); // advance engine2
+
+        ss >> engine1; // reset to initial state
+        ss >> engine2; // reset to initial state;
+
+        EXPECT_TRUE(engine1 == pcg64(seseq));
+        EXPECT_TRUE(engine2 == pcg64());
+}
 
 } // namespace Tests

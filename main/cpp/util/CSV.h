@@ -21,8 +21,8 @@
 
 #include "CSVRow.h"
 
-#include "util/is_iterator.h"
 #include "util/StringUtils.h"
+#include "util/is_iterator.h"
 
 #include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/operations.hpp>
@@ -56,9 +56,9 @@ public:
         explicit CSV(const std::vector<std::string>& labels);
 
         /// Initialize with header labels only.
-        template<typename It>
+        template <typename It>
         explicit CSV(It labelsBegin, It labelsEnd)
-                : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
+            : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
         {
         }
 
@@ -81,7 +81,7 @@ public:
         /// \tparam It      Iterator type pointing to the values.
         /// \param first    Start of the range to be included
         /// \param last     Past-the-end of the range.
-        template<typename It>
+        template <typename It>
         void AddRow(typename std::enable_if<is_iterator<It>::value, It>::type first, It last)
         {
                 CSVRow csvRow(this, ToString(first, last));

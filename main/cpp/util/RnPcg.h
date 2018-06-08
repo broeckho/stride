@@ -19,9 +19,9 @@
  * Interface of RnPcg.
  */
 
+#include <functional>
 #include <pcg/pcg_random.hpp>
 #include <pcg/randutils.hpp>
-#include <functional>
 #include <string>
 #include <vector>
 
@@ -34,7 +34,8 @@ namespace util {
 class RnPcg
 {
 public:
-        using EngineType = pcg64;
+        using EngineType    = pcg64;
+        using GeneratorType = randutils::random_generator<pcg64, randutils::seed_seq_fe128>;
 
 public:
         /// POD representation of the RNManager's state. If no state is available,
@@ -44,12 +45,12 @@ public:
         {
                 explicit Info(std::string seed_seq_init = "1,2,3,4", std::string state = "",
                               unsigned int stream_count = 1U)
-                        : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
-                          m_stream_count(stream_count) {};
+                    : m_seed_seq_init(std::move(seed_seq_init)), m_state(std::move(state)),
+                      m_stream_count(stream_count){};
 
-                std::string   m_seed_seq_init; ///< Seed for the engine.
-                std::string   m_state;         ///< Long string representing current state.
-                unsigned int  m_stream_count;  ///< Number of streams set up with the engine.
+                std::string  m_seed_seq_init; ///< Seed for the engine.
+                std::string  m_state;         ///< Long string representing current state.
+                unsigned int m_stream_count;  ///< Number of streams set up with the engine.
         };
 
 public:
@@ -62,24 +63,23 @@ public:
         /// No copy assignment.
         RnPcg& operator=(const RnPcg&) = delete;
 
+        /// Equality of states
+        bool operator==(const RnPcg& other);
+
         /// Return the state of the random engine.
         Info GetInfo() const;
 
-        /// Produce a random generator out of a distribution bound to sim's random engine.
-        /// @param   d   The distribution object.
-        /// @param   i   Which thread stream gets sampled, 0 by default.
-        /// @return      The random variate generator g that can be called as g()
-        template <typename D>
-        std::function<typename D::result_type()> GetGenerator(const D& d, size_t i = 0)
-        {
-                return std::bind(d, std::ref(m_engines[i]));
-        }
+        /// Return the generator engine for the ith thread.
+        GeneratorType& operator[](size_t i) { return m_generators[i]; }
 
         /// Return the generator engine for the ith thread.
-       EngineType& GetEngine(size_t i = 0) { return m_engines.at(i); }
+        const GeneratorType& operator[](size_t i) const { return m_generators[i]; }
 
         /// Return the generator engine for the ith thread.
-        const EngineType& GetEngine(size_t i = 0) const { return m_engines.at(i); }
+        GeneratorType& at(size_t i) { return m_generators.at(i); }
+
+        /// Return the generator engine for the ith thread.
+        const GeneratorType& at(size_t i) const { return m_generators.at(i); }
 
         /// Initalize with data in Info.
         void Seed(const Info& info = Info());
@@ -89,9 +89,9 @@ private:
         static bool CheckAllDigits(const std::string& seed);
 
 private:
-        mutable std::vector<EngineType> m_engines;   ///< An random generator engine for each thread.
-        std::string                    m_seed_seq_init; ///< Actual seed sequence initializer used with engine.
-        unsigned int                   m_stream_count;  ///< Number of streams set up with the engine.
+        mutable std::vector<GeneratorType> m_generators;    ///< An random generator engine for each thread.
+        std::string                        m_seed_seq_init; ///< Actual seed sequence initializer used with engine.
+        unsigned int                       m_stream_count;  ///< Number of streams set up with the engine.
 };
 
 } // namespace util

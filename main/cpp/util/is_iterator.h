@@ -28,20 +28,26 @@ namespace util {
 
 // This ought to be redundant, but ApplClang does not have the std::void_t yet so ...
 namespace ii_detail {
-template<typename... Ts>
-struct make_void {
+template <typename... Ts>
+struct make_void
+{
         typedef void type;
 };
-template<typename... Ts> using void_t = typename make_void<Ts...>::type;
-}
+template <typename... Ts>
+using void_t = typename make_void<Ts...>::type;
+} // namespace ii_detail
 
 /// When it 's not an iterator.
 template <class T, class = void>
-struct is_iterator : std::false_type { };
+struct is_iterator : std::false_type
+{
+};
 
 /// When it is an iterator.
 template <class T>
-struct is_iterator<T, ii_detail::void_t<typename std::iterator_traits<T>::iterator_category>> : std::true_type { };
+struct is_iterator<T, ii_detail::void_t<typename std::iterator_traits<T>::iterator_category>> : std::true_type
+{
+};
 
 } // namespace util
 } // namespace stride
