@@ -31,7 +31,7 @@ namespace stride {
 namespace util {
 
 RnPcg::RnPcg(const Info& info)
-    : m_generators(info.m_stream_count, GeneratorType()), m_seed_seq_init(info.m_seed_seq_init),
+    : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
       m_stream_count(info.m_stream_count)
 {
         Seed(info);
@@ -41,8 +41,8 @@ bool RnPcg::operator==(const RnPcg& other)
 {
         bool status = m_stream_count == other.m_stream_count;
         if (status) {
-                for (size_t i = 0; i < m_stream_count; ++i) {
-                        status = status && (m_generators[i] == other.m_generators[i]);
+                for (size_t i = 0; i < size(); ++i) {
+                        status = status && ((*this)[i] == other[i]);
                 }
         }
         return status;
@@ -63,7 +63,7 @@ RnPcg::Info RnPcg::GetInfo() const
 {
         Info         info;
         stringstream ss;
-        for (auto& e : m_generators) {
+        for (auto& e : *this) {
                 ss << e.engine() << " "; // space as a separator
         }
         info.m_seed_seq_init = m_seed_seq_init;
@@ -93,12 +93,12 @@ void RnPcg::Seed(const Info& info)
                 auto           seeds = generate_seed_vector<pcg64::state_type>(2 * m_stream_count, seseq);
 
                 for (size_t i = 0; i < m_stream_count; ++i) {
-                        m_generators[i].engine().seed(seeds[i + 1], seeds[i]);
+                        (*this)[i].engine().seed(seeds[i + 1], seeds[i]);
                 }
         } else {
                 stringstream ss(state);
                 for (size_t i = 0; i < m_stream_count; ++i) {
-                        ss >> m_generators[i].engine();
+                        ss >> (*this)[i].engine();
                 }
         }
 }

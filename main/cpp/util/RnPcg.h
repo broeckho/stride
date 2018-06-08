@@ -31,11 +31,12 @@ namespace util {
 /**
  * Manages random number generation in parallel (OpenMP) calculations.
  */
-class RnPcg
+class RnPcg : protected  std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>
 {
 public:
         using EngineType    = pcg64;
         using GeneratorType = randutils::random_generator<pcg64, randutils::seed_seq_fe128>;
+        using ContainerType = std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>;
 
 public:
         /// POD representation of the RNManager's state. If no state is available, i.e. state
@@ -54,6 +55,10 @@ public:
         };
 
 public:
+        using ContainerType::operator[];
+        using ContainerType::at;
+        using ContainerType::size;
+
         /// Initializes.
         explicit RnPcg(const Info& info = Info());
 
@@ -66,33 +71,19 @@ public:
         /// Equality of states
         bool operator==(const RnPcg& other);
 
-        /// Return the generator engine for the ith thread.
-        GeneratorType& operator[](size_t i) { return m_generators[i]; }
-
-        /// Return the generator engine for the ith thread.
-        const GeneratorType& operator[](size_t i) const { return m_generators[i]; }
-
-        /// Return the generator engine for the ith thread.
-        GeneratorType& at(size_t i) { return m_generators.at(i); }
-
-        /// Return the generator engine for the ith thread.
-        const GeneratorType& at(size_t i) const { return m_generators.at(i); }
-
-public:
-        /// Return the state of the random engine.
+        /// Return the state of the random engines.
         Info GetInfo() const;
 
+private:
         /// Initalize with data in Info.
         void Seed(const Info& info = Info());
 
-private:
         /// Check that the seed string is all digits.
         static bool CheckAllDigits(const std::string& seed);
 
 private:
-        std::vector<GeneratorType> m_generators;    ///< An random generator engine for each thread.
-        std::string                m_seed_seq_init; ///< Actual seed sequence initializer used with engine.
-        unsigned int               m_stream_count;  ///< Number of streams set up with the engine.
+        std::string  m_seed_seq_init; ///< Seed sequence initializer used with engines.
+        unsigned int m_stream_count;  ///< Number of threads/streams set up with the engine.
 };
 
 } // namespace util
