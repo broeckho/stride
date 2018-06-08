@@ -38,9 +38,9 @@ public:
         using GeneratorType = randutils::random_generator<pcg64, randutils::seed_seq_fe128>;
 
 public:
-        /// POD representation of the RNManager's state. If no state is available,
-        /// i.e. state is an empty string, the initial state corresponding to the
-        /// seed is implied. If a state is available, the seed is disregarded.
+        /// POD representation of the RNManager's state. If no state is available, i.e. state
+        /// is an empty string, the initial state corresponding to the seed sequence is implied.
+        /// If a state is available, the seed sequence is disregarded.
         struct Info
         {
                 explicit Info(std::string seed_seq_init = "1,2,3,4", std::string state = "",
@@ -66,9 +66,6 @@ public:
         /// Equality of states
         bool operator==(const RnPcg& other);
 
-        /// Return the state of the random engine.
-        Info GetInfo() const;
-
         /// Return the generator engine for the ith thread.
         GeneratorType& operator[](size_t i) { return m_generators[i]; }
 
@@ -81,6 +78,10 @@ public:
         /// Return the generator engine for the ith thread.
         const GeneratorType& at(size_t i) const { return m_generators.at(i); }
 
+public:
+        /// Return the state of the random engine.
+        Info GetInfo() const;
+
         /// Initalize with data in Info.
         void Seed(const Info& info = Info());
 
@@ -89,9 +90,9 @@ private:
         static bool CheckAllDigits(const std::string& seed);
 
 private:
-        mutable std::vector<GeneratorType> m_generators;    ///< An random generator engine for each thread.
-        std::string                        m_seed_seq_init; ///< Actual seed sequence initializer used with engine.
-        unsigned int                       m_stream_count;  ///< Number of streams set up with the engine.
+        std::vector<GeneratorType> m_generators;    ///< An random generator engine for each thread.
+        std::string                m_seed_seq_init; ///< Actual seed sequence initializer used with engine.
+        unsigned int               m_stream_count;  ///< Number of streams set up with the engine.
 };
 
 } // namespace util

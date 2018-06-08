@@ -725,6 +725,13 @@ public:
         return engine_;
     }
 
+    // JB
+
+        const RandomEngine& engine() const
+        {
+                return engine_;
+        }
+
     template <typename ResultType,
               template <typename> class DistTmpl = std::normal_distribution,
               typename... Params>
