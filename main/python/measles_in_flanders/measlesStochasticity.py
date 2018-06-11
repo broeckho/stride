@@ -4,7 +4,7 @@ import os
 
 def runEnsemble(ensembleSize, ensembleIndex, scenarioName):
     stanArg = " --stan " + str(ensembleSize)
-    configFile = "measles" + scenarioName + "immunity.xml"
+    configFile = "measles" + scenarioName + "Immunity.xml"
     configArg = " -c " + configFile
     overrideArg = " -o 'output_prefix=" + scenarioName + str(ensembleIndex) + "'"
     os.system("./bin/stride" + stanArg + configArg + overrideArg)
