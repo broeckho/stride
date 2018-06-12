@@ -20,6 +20,7 @@
 #================================================================================================
 INSTALL(FILES
 		measlesStochasticity.py
+		measlesStochasticityPlots.py
 		runmeasles.py
 		graphutil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
