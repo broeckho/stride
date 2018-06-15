@@ -35,7 +35,7 @@ using namespace std;
 
 namespace stride {
 
-BeliefSeeder::BeliefSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager)
+BeliefSeeder::BeliefSeeder(const boost::property_tree::ptree& configPt, util::RNManager&)
     : m_config_pt(configPt)
 {
 }

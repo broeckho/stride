@@ -38,7 +38,7 @@ public:
 
         /// Constructor initializes stopwatch.
         explicit Stopwatch(std::string name = "stopwatch", bool running = false)
-            : m_accumulated(T::duration::zero()), m_name(std::move(name)), m_running(running)
+            : m_accumulated(T::duration::zero()), m_last_start(), m_name(std::move(name)), m_running(running)
         {
                 if (m_running) {
                         m_last_start = T::now();

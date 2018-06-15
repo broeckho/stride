@@ -70,7 +70,7 @@ public:
 
 private:
         /// Private constructor.
-        BenchmarkRunner() = default;
+        BenchmarkRunner() : m_test_descriptors() {}
 
         /// Private destructor.
         ~BenchmarkRunner() final = default;

@@ -39,7 +39,7 @@ public:
         using CallbackType = std::function<void(const EventType&)>;
 
 public:
-        Subject() = default;
+        Subject() : m_observers() {}
 
         virtual ~Subject() { UnregisterAll(); }
 

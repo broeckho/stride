@@ -31,6 +31,7 @@ set(SWIG_IFACE
 	swig/stride.i
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")
 include(${SWIG_USE_FILE})
 include_directories(${PYTHON_INCLUDE_DIRS})
 set_property(SOURCE ${SWIG_IFACE} PROPERTY CPLUSPLUS ON)

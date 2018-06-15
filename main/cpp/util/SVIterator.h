@@ -245,7 +245,7 @@ SVIterator<T, N, Safe, P, R, is_const_iterator> operator+(std::ptrdiff_t        
                                                           SVIterator<T, N, Safe, P, R, is_const_iterator> p)
 {
         return p.operator+(i);
-};
+}
 
 template <typename T, std::size_t N, bool Safe, typename P = const T*, typename R = const T&,
           bool is_const_iterator = true>
@@ -253,7 +253,7 @@ SVIterator<T, N, Safe, P, R, is_const_iterator> operator-(std::ptrdiff_t        
                                                           SVIterator<T, N, Safe, P, R, is_const_iterator> p)
 {
         return p.operator-(i);
-};
+}
 
 } // namespace util
 } // namespace stride
