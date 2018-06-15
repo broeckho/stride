@@ -35,23 +35,23 @@ INSTALL (FILES
 #============================================================================
 add_test(NAME forker_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testForker.py > /dev/null"
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testForker.py
 	)
 add_test(NAME infected_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py > /dev/null"
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py
 	)
 add_test(NAME print_py
     WORKING_DIRECTORY ${TESTS_DIR}
-    COMMAND sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testPrint.py > /dev/null"
+    COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testPrint.py
     )
 add_test(NAME smoke_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py > /dev/null"
+	COMMAND python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testInfected.py
 	)
 add_test(NAME vaccinate_py
 	WORKING_DIRECTORY ${TESTS_DIR}
-	COMMAND  sh -c "python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testVaccinate.py > /dev/null"
+	COMMAND  python3 ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/testVaccinate.py
 	)
 
 #============================================================================

@@ -29,12 +29,14 @@ message(STATUS "\nReading configuration info from CMakeLocal.cmake! \n")
 set(STRIDE_INCLUDE_DOC      FALSE)
 #set(STRIDE_VERBOSE_TESTING  TRUE)
 set(STRIDE_FORCE_NO_OPENMP  FALSE)
-#set(STRIDE_COMPILER_ID      GNU)
+set(STRIDE_COMPILER_ID      GNU)
 #set(STRIDE_COMPILER_ID      Clang)
-set(STRIDE_COMPILER_ID      Apple)
+#set(STRIDE_COMPILER_ID      Apple)
 
-#set(CMAKE_CXX_FLAGS “—Weffc++ Wextra -pedantic")
-#set(CMAKE_CXX_FLAGS "-UNDEBUG")
+#set( CMAKE_INSTALL_RPATH_USE_LINK_PATH ON)
+#set(CMAKE_MACOSX_RPATH ON)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Weffc++")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -UNDEBUG")
 
 #set(CMAKE_BUILD_TYPE "Debug")
 
