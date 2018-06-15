@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RNEngineType.cpp File Reference</title>
+<title>Stride Reference Manual: RunConfigManager.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,59 +103,53 @@ $(document).ready(function(){initNavTree('dc/d57/a00194.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RNEngineType.cpp File Reference</div>  </div>
+<div class="title">RunConfigManager.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of Random Engine Type.  
+<p>Implementation of ptree utils.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">RNEngineType.h</a>&quot;</code><br/>
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">RunConfigManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d4/d81/a00110_source.html">util/ConfigInfo.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/d5e/a00136_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br/>
+<code>#include &lt;initializer_list&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;sha1.h&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RNEngineType.cpp:</div>
+Include dependency graph for RunConfigManager.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d2f/a00425.gif" border="0" usemap="#RNEngineType_8cpp" alt=""/></div>
-<map name="RNEngineType_8cpp" id="RNEngineType_8cpp">
-<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="Interface of Random Engine Type. " alt="" coords="5,80,128,107"/></map>
+<div class="center"><img src="../../db/d43/a00422.gif" border="0" usemap="#RunConfigManager_8cpp" alt=""/></div>
+<map name="RunConfigManager_8cpp" id="RunConfigManager_8cpp">
+<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="Produce run config ptree. " alt="" coords="228,88,372,115"/><area shape="rect" id="node3" href="../../d4/d81/a00110.html" title="Info on configuration. " alt="" coords="24,179,139,205"/><area shape="rect" id="node7" href="../../d0/d5e/a00136.html" title="Interface for install directory queries. " alt="" coords="412,88,511,115"/></map>
 </div>
 </div>
 <p><a href="../../dc/d57/a00194_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
+<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d0/d2f/a00259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html">stride::RNEngineType</a></td></tr>
-<tr class="memdesc:d0/d2f/a00259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of random engines. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride::util</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a0d22d904ddff0d21494405335e5fc744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#a0d22d904ddff0d21494405335e5fc744">stride::RNEngineType::IsType</a> (const string &amp;s)</td></tr>
-<tr class="separator:a0d22d904ddff0d21494405335e5fc744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#a120e2ae5e703cd5a7e1859a1c83ddcec">stride::RNEngineType::ToString</a> (Id b)</td></tr>
-<tr class="memdesc:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a type id to corresponding name.  <a href="#a120e2ae5e703cd5a7e1859a1c83ddcec">More...</a><br/></td></tr>
-<tr class="separator:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e0a5f256c9b615c606f90dabec96b2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d2f/a00259.html#a58e0a5f256c9b615c606f90dabec96b2">stride::RNEngineType::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a58e0a5f256c9b615c606f90dabec96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a58e0a5f256c9b615c606f90dabec96b2">More...</a><br/></td></tr>
-<tr class="separator:a58e0a5f256c9b615c606f90dabec96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of Random Engine Type. </p>
+<div class="textblock"><p>Implementation of ptree utils. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d57/a00194_source.html">RNEngineType.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d57/a00194_source.html">RunConfigManager.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d57/a00194.html">RNEngineType.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d57/a00194.html">RunConfigManager.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

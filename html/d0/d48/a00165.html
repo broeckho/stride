@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: InfectorMap.h File Reference</title>
+<title>Stride Reference Manual: main.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,61 +103,85 @@ $(document).ready(function(){initNavTree('d0/d48/a00165.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">InfectorMap.h File Reference</div>  </div>
+<div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the InfectorMap.  
+<p>Main program: command line handling.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d87/a00118_source.html">contact/ContactLogMode.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/dae/a00163_source.html">contact/Infector.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/ddf/a00164_source.html">contact/InfectorExec.h</a>&quot;</code><br/>
-<code>#include &lt;map&gt;</code><br/>
-<code>#include &lt;tuple&gt;</code><br/>
-<code>#include &lt;utility&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">sim/CliController.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d5/d13/a00205_source.html">sim/StanController.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d0/d5e/a00136_source.html">util/FileSys.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/RunConfigManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/dd2/a00207_source.html">util/StringUtils.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dc/d98/a00225_source.html">util/TimeStamp.h</a>&quot;</code><br/>
+<code>#include &lt;tclap/CmdLine.h&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;regex&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for InfectorMap.h:</div>
+Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/db9/a00387.gif" border="0" usemap="#InfectorMap_8h" alt=""/></div>
-<map name="InfectorMap_8h" id="InfectorMap_8h">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html" title="Header for the ContactLogMode class. " alt="" coords="262,163,440,189"/><area shape="rect" id="node4" href="../../dd/dae/a00163.html" title="Header for the Infector class. " alt="" coords="1050,80,1174,107"/><area shape="rect" id="node33" href="../../db/ddf/a00164.html" title="Header for the InfectorExec class. " alt="" coords="1198,80,1351,107"/><area shape="rect" id="node5" href="../../da/d31/a00234.html" title="Header for the TransmissionProfile class. " alt="" coords="676,163,823,189"/><area shape="rect" id="node7" href="../../dd/da7/a00168.html" title="Header file for LocalDiscussion info policy. " alt="" coords="1256,155,1440,197"/><area shape="rect" id="node8" href="../../db/dd9/a00179.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="1465,155,1666,197"/><area shape="rect" id="node9" href="../../d7/d70/a00106.html" title="Header file for the Calendar class. " alt="" coords="1043,163,1182,189"/><area shape="rect" id="node15" href="../../d4/d7d/a00093.html" title="Contact profile. " alt="" coords="464,163,651,189"/><area shape="rect" id="node22" href="../../d4/d3e/a00116.html" title="Header for the ContactHandler class. " alt="" coords="848,163,1019,189"/><area shape="rect" id="node16" href="../../de/d36/a00123.html" title="Definition of ContactPoolType. " alt="" coords="243,253,406,280"/><area shape="rect" id="node20" href="../../da/d82/a00091.html" title="Helpers for age. " alt="" coords="137,253,218,280"/><area shape="rect" id="node23" href="../../de/db1/a00197.html" title="Interface of RNManager. " alt="" coords="849,253,972,280"/><area shape="rect" id="node24" href="../../d3/d2a/a00195.html" title="Interface of Random Engine Type. " alt="" coords="1296,336,1419,363"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/dc1/a00388.gif" border="0" usemap="#InfectorMap_8hdep" alt=""/></div>
-<map name="InfectorMap_8hdep" id="InfectorMap_8hdep">
-<area shape="rect" id="node2" href="../../d5/d13/a00205.html" title="Implementation for the SimBuilder class. " alt="" coords="5,80,115,107"/></map>
+<div class="center"><img src="../../d5/d05/a00385.gif" border="0" usemap="#main_8cpp" alt=""/></div>
+<map name="main_8cpp" id="main_8cpp">
+<area shape="rect" id="node2" href="../../d7/d70/a00106.html" title="Header for the command line controller. " alt="" coords="147,80,276,107"/><area shape="rect" id="node16" href="../../d5/d13/a00205.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="301,80,441,107"/><area shape="rect" id="node17" href="../../d0/d5e/a00136.html" title="Interface for install directory queries. " alt="" coords="819,163,917,189"/><area shape="rect" id="node21" href="../../d3/d2a/a00195.html" title="Produce run config ptree. " alt="" coords="1051,163,1217,189"/><area shape="rect" id="node23" href="../../de/dd2/a00207.html" title="Miscellaneous string utilities. " alt="" coords="1124,336,1239,363"/><area shape="rect" id="node28" href="../../dc/d98/a00225.html" title="TimeStamp class. " alt="" coords="927,336,1048,363"/><area shape="rect" id="node3" href="../../de/d36/a00123.html" title="Header for the command line controller. " alt="" coords="303,163,441,189"/><area shape="rect" id="node4" href="../../d5/df1/a00206.html" title="Definition of Stopwatch. " alt="" coords="43,253,159,280"/><area shape="rect" id="node5" href="../../dc/d55/a00226.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="230,336,340,363"/><area shape="rect" id="node22" href="../../d4/d81/a00110.html" title="Info on configuration. " alt="" coords="788,336,903,363"/></map>
 </div>
 </div>
 <p><a href="../../d0/d48/a00165_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8c/a00035.html">stride::InfectorMap</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../d4/d8c/a00035.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d48/a00165.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main program of the stride simulator.  <a href="#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br/></td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the InfectorMap. </p>
+<div class="textblock"><p>Main program: command line handling. </p>
 
-<p>Definition in file <a class="el" href="../../d0/d48/a00165_source.html">InfectorMap.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d0/d48/a00165_source.html">main.cpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main program of the stride simulator. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d48/a00165_source.html#l00041">41</a> of file <a class="el" href="../../d0/d48/a00165_source.html">main.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d32/a00105_source.html#l00036">stride::CliController::Control()</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00047">stride::StanController::Control()</a>, and <a class="el" href="../../de/dd2/a00207_source.html#l00054">stride::util::Tokenize()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d0/d48/a00165.html">InfectorMap.h</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../d0/d48/a00165.html">main.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

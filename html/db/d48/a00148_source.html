@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Id.cpp Source File</title>
+<title>Stride Reference Manual: Immunizer.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('db/d48/a00148_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">myhayai/Id.cpp</div>  </div>
+<div class="title">Immunizer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/d48/a00148.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -121,65 +121,138 @@ $(document).ready(function(){initNavTree('db/d48/a00148_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/db2/a00151.html">Id.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">Immunizer.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/de9/a00176.html">pop/Person.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd0/a00191.html">util/RNManager.h</a>&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html">   27</a></span>&#160;<span class="keyword">namespace </span>event {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;trng/uniform01_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> boost::to_upper;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/dbc/a00249.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">IsType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;BEGINBENCH&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>), make_pair(<span class="stringliteral">&quot;ENDBENCH&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SKIPTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>),     make_pair(<span class="stringliteral">&quot;ABORTTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">Id::AbortTest</a>),</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                   make_pair(<span class="stringliteral">&quot;BEGINTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>),   make_pair(<span class="stringliteral">&quot;ENDTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>)};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        to_upper(t);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#a5fe6d259725ff63b938e49f81a7d65c5">   42</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../de/dbc/a00249.html#a5fe6d259725ff63b938e49f81a7d65c5">ToString</a>(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> c)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> map&lt;Id, string&gt; names{make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>, <span class="stringliteral">&quot;BeginBench&quot;</span>), make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>, <span class="stringliteral">&quot;EndBench&quot;</span>),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                     make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>, <span class="stringliteral">&quot;AbortTest&quot;</span>),    make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>, <span class="stringliteral">&quot;AbortTest&quot;</span>),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                     make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>, <span class="stringliteral">&quot;BeginTest&quot;</span>),   make_pair(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>, <span class="stringliteral">&quot;EndTest&quot;</span>)};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> (names.count(c) == 1) ? names[c] : <span class="stringliteral">&quot;null&quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">   50</a></span>&#160;<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <a class="code" href="../../de/dbc/a00249.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">ToType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;BEGINBENCH&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">Id::BeginBench</a>), make_pair(<span class="stringliteral">&quot;ENDBENCH&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">Id::EndBench</a>),</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SKIPTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">Id::SkipTest</a>),     make_pair(<span class="stringliteral">&quot;ABORTTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">Id::AbortTest</a>),</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                   make_pair(<span class="stringliteral">&quot;BEGINTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">Id::BeginTest</a>),   make_pair(<span class="stringliteral">&quot;ENDTEST&quot;</span>, <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">Id::EndTest</a>)};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        to_upper(t);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1) ? ids[t] : <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;myhayai::event::Id::ToString&gt; Not available:&quot;</span> + t);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace event</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a136421b92513ccf0528b9d23e91016de">myhayai::event::Id::EndTest</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5af7e1979b3966fbdb8ca9bda8df70d803">myhayai::event::Id::EndBench</a></div></div>
-<div class="ttc" id="a00249_html_a4ca6114a0aa6f6ad4557326c79e9f3ee"><div class="ttname"><a href="../../de/dbc/a00249.html#a4ca6114a0aa6f6ad4557326c79e9f3ee">myhayai::event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00032">myhayai/Id.cpp:32</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5ac0969d10f63b0ca60f63c42dcbac44dc">myhayai::event::Id::SkipTest</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a9c7b84110a055e9f2d7b7a5bcc22c8c2">myhayai::event::Id::BeginBench</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5a5febfce6d65439452adb08f74303a4ba">myhayai::event::Id::BeginTest</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42">myhayai::event::Id::AbortTest</a></div></div>
-<div class="ttc" id="a00249_html_a5fe6d259725ff63b938e49f81a7d65c5"><div class="ttname"><a href="../../de/dbc/a00249.html#a5fe6d259725ff63b938e49f81a7d65c5">myhayai::event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00042">myhayai/Id.cpp:42</a></div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00029">Id.hpp:29</a></div></div>
-<div class="ttc" id="a00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
-<div class="ttc" id="a00249_html_a0a7a2da03a1ca0d44e79d0dfcf2bb098"><div class="ttname"><a href="../../de/dbc/a00249.html#a0a7a2da03a1ca0d44e79d0dfcf2bb098">myhayai::event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00050">myhayai/Id.cpp:50</a></div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>util;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">   33</a></span>&#160;<a class="code" href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">Immunizer::Immunizer</a>(<a class="code" href="../../dc/ddf/a00067.html">stride::util::RNManager</a>&amp; rnManager) : m_rn_manager(rnManager) {}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Immunizer::Random</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; pools, std::vector&lt;double&gt;&amp; immunityDistribution,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                       <span class="keywordtype">double</span> immunityLinkProbability)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">// Initialize a vector to count the population per age class [0-100].</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::vector&lt;double&gt; populationBrackets(100, 0.0);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Count individuals per age class and set all &quot;susceptible&quot; individuals &quot;immune&quot;.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// note: focusing on measles, we expect the number of susceptible individuals</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">// to be less compared to the number of immune.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// TODO but this is a generic simulator</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; c : pools) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : c.GetPool()) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <span class="keywordflow">if</span> (p-&gt;GetHealth().IsSusceptible()) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                p-&gt;GetHealth().SetImmune();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                populationBrackets[p-&gt;GetAge()]++;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                        }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> poolsSize          = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(pools.size());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">auto</span>       intGenerator       = <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(0, poolsSize));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">auto</span>       uniform01Generator = <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform01_dist&lt;double&gt;());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// Calculate the number of susceptible individuals per age class.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numSusceptible = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> age = 0; age &lt; 100; age++) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                populationBrackets[age] = floor(populationBrackets[age] * (1 - immunityDistribution[age]));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                numSusceptible += populationBrackets[age];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Sample susceptible individuals, until all age-dependent quota are reached.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">while</span> (numSusceptible &gt; 0) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="comment">// random pool, random order of members</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../dd/da2/a00019.html">ContactPool</a>&amp;        p_pool = pools[intGenerator()];</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>                size   = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(p_pool.<a class="code" href="../../dd/da2/a00019.html#a206057a57bf75587c303c41f27f3bf23">GetSize</a>());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                std::vector&lt;unsigned int&gt; indices(size);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; size; i++) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        indices[i] = i;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">m_rn_manager</a>.<a class="code" href="../../dc/ddf/a00067.html#a5a7dc58c76f112c8d808866cac5a272d">RandomShuffle</a>(indices.begin(), indices.end());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="comment">// loop over members, in random order</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i_p = 0; i_p &lt; size &amp;&amp; numSusceptible &gt; 0; i_p++) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        <a class="code" href="../../d6/d97/a00045.html">Person</a>&amp; p = *p_pool.<a class="code" href="../../dd/da2/a00019.html#ae7962d506db44920ed1fd99471cabc50">GetMember</a>(indices[i_p]);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="comment">// if p is immune and his/her age class has not reached the quota =&gt; make susceptible</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keywordflow">if</span> (p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a7c9caae07db1dd15732f726cec514dc2">IsImmune</a>() &amp;&amp; populationBrackets[p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>()] &gt; 0) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a8edeec79c050faabe2c09a1bc4860261">SetSusceptible</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                populationBrackets[p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>()]--;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                numSusceptible--;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="comment">// random draw to continue in this pool or to sample a new one</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">if</span> (uniform01Generator() &lt; (1 - immunityLinkProbability)) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">Immunizer::Cocoon</a>(<span class="keyword">const</span> std::vector&lt;ContactPool&gt;&amp; <span class="comment">/*pools*/</span>, std::vector&lt;double&gt;&amp; <span class="comment">/*immunity_distribution*/</span>,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                       <span class="keywordtype">double</span> <span class="comment">/*immunity_link_probability*/</span>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">         * void Vaccinator::AdministerCocoon(const vector&lt;ContactPool&gt;&amp; pools, double immunity_rate, double</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">adult_age_min, double adult_age_max, double child_age_min, double child_age_max)</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">{</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// Sampler for double in [0.0, 1.0).</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">auto uniform01_generator = m_rn_manager.GetGenerator(trng::uniform01_dist&lt;double&gt;());</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">for (const auto&amp; c : pools) {</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">        for (unsigned int i_p = 0; i_p &lt; c.GetSize(); i_p++) {</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">                Person&amp; p = *c.GetMember(i_p);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">                if (p.GetHealth().IsSusceptible() &amp;&amp; p.GetAge() &gt;= adult_age_min &amp;&amp;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">                    p.GetAge() &lt;= adult_age_max) {</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">                        bool is_connected_to_target_age{false};</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">                        for (unsigned int i_p2 = 0; i_p2 &lt; c.GetSize() &amp;&amp; !is_connected_to_target_age; i_p2++) {</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">                                const Person&amp; p2 = *c.GetMember(i_p2);</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">                                if (p2.GetAge() &gt;= child_age_min &amp;&amp; p2.GetAge() &lt;= child_age_max) {</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">                                        is_connected_to_target_age = true;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">                                }</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">                        }</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">                        if (is_connected_to_target_age &amp;&amp; uniform01_generator() &lt; immunity_rate) {</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">                                p.GetHealth().SetImmune();</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">                        }</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">                }</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">        }</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">         *</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00019_html_ae7962d506db44920ed1fd99471cabc50"><div class="ttname"><a href="../../dd/da2/a00019.html#ae7962d506db44920ed1fd99471cabc50">stride::ContactPool::GetMember</a></div><div class="ttdeci">Person * GetMember(unsigned int index) const </div><div class="ttdoc">Get member at index. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00045">ContactPool.h:45</a></div></div>
+<div class="ttc" id="a00176_html"><div class="ttname"><a href="../../d5/de9/a00176.html">Person.h</a></div><div class="ttdoc">Header file for the Person class. </div></div>
+<div class="ttc" id="a00067_html"><div class="ttname"><a href="../../dc/ddf/a00067.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00042">RNManager.h:42</a></div></div>
+<div class="ttc" id="a00032_html_a68e68d5d0ac6181162e82261083dfb0f"><div class="ttname"><a href="../../dc/d87/a00032.html#a68e68d5d0ac6181162e82261083dfb0f">stride::Immunizer::Immunizer</a></div><div class="ttdeci">Immunizer(util::RNManager &amp;rnManager)</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00033">Immunizer.cpp:33</a></div></div>
+<div class="ttc" id="a00019_html_a206057a57bf75587c303c41f27f3bf23"><div class="ttname"><a href="../../dd/da2/a00019.html#a206057a57bf75587c303c41f27f3bf23">stride::ContactPool::GetSize</a></div><div class="ttdeci">std::size_t GetSize() const </div><div class="ttdoc">Get size (number of members). </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00051">ContactPool.h:51</a></div></div>
+<div class="ttc" id="a00032_html_a2528a05439bfde66f4c85e9a19a6ef48"><div class="ttname"><a href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">stride::Immunizer::Cocoon</a></div><div class="ttdeci">void Cocoon(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Cocoon immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00094">Immunizer.cpp:94</a></div></div>
+<div class="ttc" id="a00045_html_a53081dbb062c019153b8be62083d59a2"><div class="ttname"><a href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">stride::Person::GetHealth</a></div><div class="ttdeci">Health &amp; GetHealth()</div><div class="ttdoc">Return person&#39;s health status. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00074">Person.h:74</a></div></div>
+<div class="ttc" id="a00032_html_a3b4663bfb6bfdb19e02f8cfd962e12b6"><div class="ttname"><a href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">stride::Immunizer::Random</a></div><div class="ttdeci">void Random(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Random immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00035">Immunizer.cpp:35</a></div></div>
+<div class="ttc" id="a00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">Immunizer.h</a></div><div class="ttdoc">Header for the Immunizer class. </div></div>
+<div class="ttc" id="a00045_html_ad85ecf5500764ae2c025f7e2aab8003c"><div class="ttname"><a href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">stride::Person::GetAge</a></div><div class="ttdeci">double GetAge() const </div><div class="ttdoc">Get the age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00059">Person.h:59</a></div></div>
+<div class="ttc" id="a00029_html_a8edeec79c050faabe2c09a1bc4860261"><div class="ttname"><a href="../../d5/d16/a00029.html#a8edeec79c050faabe2c09a1bc4860261">stride::Health::SetSusceptible</a></div><div class="ttdeci">void SetSusceptible()</div><div class="ttdoc">Set health state to susceptible. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00037">Health.cpp:37</a></div></div>
+<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00029_html_a7c9caae07db1dd15732f726cec514dc2"><div class="ttname"><a href="../../d5/d16/a00029.html#a7c9caae07db1dd15732f726cec514dc2">stride::Health::IsImmune</a></div><div class="ttdeci">bool IsImmune() const </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00057">Health.h:57</a></div></div>
+<div class="ttc" id="a00067_html_a5a7dc58c76f112c8d808866cac5a272d"><div class="ttname"><a href="../../dc/ddf/a00067.html#a5a7dc58c76f112c8d808866cac5a272d">stride::util::RNManager::RandomShuffle</a></div><div class="ttdeci">void RandomShuffle(RandomIt first, RandomIt last, size_t i=0)</div><div class="ttdoc">Randomly shuffle items between iterators using i-th stream of the random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00098">RNManager.h:98</a></div></div>
+<div class="ttc" id="a00032_html_aa1e47bdfa801cdc85d283c0009c8b9bd"><div class="ttname"><a href="../../dc/d87/a00032.html#aa1e47bdfa801cdc85d283c0009c8b9bd">stride::Immunizer::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d1e/a00149_source.html#l00050">Immunizer.h:50</a></div></div>
+<div class="ttc" id="a00067_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00078">RNManager.h:78</a></div></div>
+<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00035">ContactPool.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Id.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../db/d48/a00148.html">Immunizer.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

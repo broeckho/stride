@@ -1,7 +1,7 @@
 var a00004 =
 [
     [ "BenchmarkRunner", "d0/d0b/a00004.html#a69130bb66af3d21a3d8c8e200eaffaec", null ],
-    [ "BenchmarkRunner", "d0/d0b/a00004.html#a60af75b11cab5ebfb06eab8c79efc6c6", null ],
+    [ "BenchmarkRunner", "d0/d0b/a00004.html#a1de69081f536efda31f40be33c1dd489", null ],
     [ "~BenchmarkRunner", "d0/d0b/a00004.html#a938f799517ff1c35ed42ec4117cdf25c", null ],
     [ "operator=", "d0/d0b/a00004.html#a2a4e6858acf2f619620df1c051bdc26a", null ],
     [ "Instance", "d0/d0b/a00004.html#a0540c5f748e83674854f76e6090768fd", null ],

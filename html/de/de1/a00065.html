@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -104,61 +104,46 @@ $(document).ready(function(){initNavTree('de/de1/a00065.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="../../d8/d86/a00703.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../dc/de6/a00167_source.html">is_iterator.h</a>&gt;</code></p>
+<p>When it is an iterator.  
+ <a href="../../de/de1/a00065.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d6/d7d/a00161_source.html">is_iterator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::ii_detail::make_void&lt; Ts &gt;:</div>
+Inheritance diagram for stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d6a/a00704.gif" border="0" usemap="#stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" id="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map">
+<div class="center"><img src="../../da/d36/a00650.gif" border="0" usemap="#stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_inherit__map" id="stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_inherit__map">
 </map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a4183f045c6086dabede526dea8e6cedb"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/de1/a00065.html#a4183f045c6086dabede526dea8e6cedb">type</a></td></tr>
-<tr class="separator:a4183f045c6086dabede526dea8e6cedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
+<div class="dynheader">
+Collaboration diagram for stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/d33/a00651.gif" border="0" usemap="#stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_coll__map" id="stride_1_1util_1_1is__iterator_3_01T_00_01ii__detail_1_1void__t_3_01typename_01std_1_1iterator__traits_3_01T_01_4_1_1iterator__category_01_4_01_4_coll__map">
+</map>
+</div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename... Ts&gt;<br/>
-struct stride::util::ii_detail::make_void&lt; Ts &gt;</h3>
+<div class="textblock"><h3>template&lt;class T&gt;<br/>
+struct stride::util::is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;</h3>
 
+<p>When it is an iterator. </p>
 
-<p>Definition at line <a class="el" href="../../dc/de6/a00167_source.html#l00032">32</a> of file <a class="el" href="../../dc/de6/a00167_source.html">is_iterator.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a4183f045c6086dabede526dea8e6cedb"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Ts&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void <a class="el" href="../../de/de1/a00065.html">stride::util::ii_detail::make_void</a>&lt; Ts &gt;::<a class="el" href="../../de/de1/a00065.html#a4183f045c6086dabede526dea8e6cedb">type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dc/de6/a00167_source.html#l00034">34</a> of file <a class="el" href="../../dc/de6/a00167_source.html">is_iterator.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../dc/de6/a00167_source.html">is_iterator.h</a></li>
+<p>Definition at line <a class="el" href="../../d6/d7d/a00161_source.html#l00048">48</a> of file <a class="el" href="../../d6/d7d/a00161_source.html">is_iterator.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d6/d7d/a00161_source.html">is_iterator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d04/a00255.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d6a/a00261.html">util</a></li><li class="navelem"><a class="el" href="../../df/da9/a00263.html">ii_detail</a></li><li class="navelem"><a class="el" href="../../de/de1/a00065.html">make_void</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../de/dbc/a00249.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">util</a></li><li class="navelem"><a class="el" href="../../de/de1/a00065.html">is_iterator< T, ii_detail::void_t< typename std::iterator_traits< T >::iterator_category > ></a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

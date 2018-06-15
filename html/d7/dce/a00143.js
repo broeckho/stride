@@ -1,8 +1,6 @@
 var a00143 =
 [
-    [ "HBM", "dc/d3c/a00028.html", "dc/d3c/a00028" ],
-    [ "VariableState", "d7/dce/a00143.html#a9d01e8d18496c1065ce04a29ec8b3470", [
-      [ "Low", "d7/dce/a00143.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef", null ],
-      [ "High", "d7/dce/a00143.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35", null ]
-    ] ]
+    [ "IsType", "d7/dce/a00143.html#a43c0310b3eef6024b540ffaa5c4c39b2", null ],
+    [ "ToString", "d7/dce/a00143.html#aaa54357f0c5b3af4e7905ed503167ede", null ],
+    [ "ToType", "d7/dce/a00143.html#ac81b85da174b73232cac26f53bd6d3a0", null ]
 ];

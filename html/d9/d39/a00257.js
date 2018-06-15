@@ -1,5 +1,4 @@
 var a00257 =
 [
-    [ "IdSubscriptArray", "d8/d84/a00001.html", "d8/d84/a00001" ],
-    [ "IdSubscriptArray< bool >", "db/db2/a00020.html", "db/db2/a00020" ]
+    [ "make_void", "d1/d6f/a00063.html", "d1/d6f/a00063" ]
 ];

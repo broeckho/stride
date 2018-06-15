@@ -1,21 +1,16 @@
 var a00069 =
 [
     [ "Info", "d2/db1/a00070.html", "d2/db1/a00070" ],
-    [ "RNManager", "d4/d31/a00069.html#a30121f0f47cf4c23bed8da7521b2b904", null ],
-    [ "RNManager", "d4/d31/a00069.html#a09c7ac5ae3b2ecffe9ee9b373d035e57", null ],
-    [ "operator=", "d4/d31/a00069.html#a546d57ebd3d79450abc641b3ebe5d23c", null ],
-    [ "GetInfo", "d4/d31/a00069.html#a3faf18a9fdd2400012612a2cafde01a3", null ],
-    [ "GetGenerator", "d4/d31/a00069.html#a6508932485d419a6e7ab3cac60754ae6", null ],
-    [ "RandomShuffle", "d4/d31/a00069.html#a5a7dc58c76f112c8d808866cac5a272d", null ],
-    [ "Initialize", "d4/d31/a00069.html#a8c78f40f38b8a3fc25e2c21be2de505a", null ],
-    [ "para_seed", "d4/d31/a00069.html#a22463a9beebea4645b63f92ae028adc2", null ],
-    [ "m_seed", "d4/d31/a00069.html#af9b36fdeadaea938995a293c940b90a4", null ],
-    [ "m_stream_count", "d4/d31/a00069.html#a56d4de95212dccdd02652c477673297c", null ],
-    [ "m_type_id", "d4/d31/a00069.html#a74b3b62e58d9dc935287af1f403e3a88", null ],
-    [ "m_lcg64", "d4/d31/a00069.html#a138adbebf56ee6aff14f4a5d657eb582", null ],
-    [ "m_lcg64_shift", "d4/d31/a00069.html#a47e49d570a9cef2fee04ef084c93e09a", null ],
-    [ "m_mrg2", "d4/d31/a00069.html#aef24d7bf005b199b20bbc26111bac570", null ],
-    [ "m_mrg3", "d4/d31/a00069.html#a03cc6bedd665abb75073633f6bef0a73", null ],
-    [ "m_yarn2", "d4/d31/a00069.html#a769a08942e570dd9d257f12e5db009c5", null ],
-    [ "m_yarn3", "d4/d31/a00069.html#a7488be1e53338d26888543c134065392", null ]
+    [ "EngineType", "d4/d31/a00069.html#a79afc6fbec8ddb81d630562bf4a183b2", null ],
+    [ "GeneratorType", "d4/d31/a00069.html#a542fa7ff67bbd6cdab5c7d7bfd31b9a3", null ],
+    [ "ContainerType", "d4/d31/a00069.html#ad64a5be35726bfd29f28937178f353cc", null ],
+    [ "RnPcg", "d4/d31/a00069.html#a27057ecf5775ab2929cdf64ce28be936", null ],
+    [ "RnPcg", "d4/d31/a00069.html#aaac719b562ab10f1be56f705bef5ab57", null ],
+    [ "operator=", "d4/d31/a00069.html#ae6b7b89a6c13d9c486e657a2a82ecd3a", null ],
+    [ "operator==", "d4/d31/a00069.html#a18a5fce8862fbf5670e368ad7e679d87", null ],
+    [ "GetInfo", "d4/d31/a00069.html#ab08d8d79ab8acdcf865e7bb8ce1c318f", null ],
+    [ "Seed", "d4/d31/a00069.html#a8adc84874bfb902fa78b804a2c86d7b5", null ],
+    [ "CheckAllDigits", "d4/d31/a00069.html#aebf806dea241b999f9942caf7ad06042", null ],
+    [ "m_seed_seq_init", "d4/d31/a00069.html#a70270d17215056a4e23bf775ca430fa7", null ],
+    [ "m_stream_count", "d4/d31/a00069.html#a12a8ac195edf8ea01a9a265d305ecdd2", null ]
 ];

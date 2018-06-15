@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Population.cpp File Reference</title>
+<title>Stride Reference Manual: RNEngineType.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,53 +103,84 @@ $(document).ready(function(){initNavTree('da/deb/a00189.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Population.cpp File Reference</div>  </div>
+<div class="title">RNEngineType.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Core Population class.  
+<p>Interface of Random Engine Type.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d01/a00153_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/d4c/a00177_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">disease/Health.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../da/d15/a00188_source.html">pop/PopBuilder.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">util/FileSys.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/dcb/a00170_source.html">util/LogUtils.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dd/de3/a00201_source.html">util/RunConfigManager.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">util/SegmentedVector.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;utility&gt;</code><br/>
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Population.cpp:</div>
+Include dependency graph for RNEngineType.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/df7/a00418.gif" border="0" usemap="#Population_8cpp" alt=""/></div>
-<map name="Population_8cpp" id="Population_8cpp">
-<area shape="rect" id="node2" href="../../d7/d6e/a00190.html" title="Header file for the core Population class. " alt="" coords="723,88,817,115"/><area shape="rect" id="node16" href="../../da/ddb/a00145.html" title="Header for the Health class. " alt="" coords="1143,269,1263,296"/><area shape="rect" id="node22" href="../../db/d53/a00202.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="289,269,447,296"/><area shape="rect" id="node32" href="../../da/d01/a00153.html" title="Header file for Imitation belief policy. " alt="" coords="1338,81,1501,122"/><area shape="rect" id="node34" href="../../dd/d4c/a00177.html" title="Header file for NoBelief class. " alt="" coords="1526,81,1689,122"/><area shape="rect" id="node35" href="../../da/d15/a00188.html" title="Initialize populations. " alt="" coords="305,88,425,115"/><area shape="rect" id="node36" href="../../d4/ddd/a00138.html" title="Interface for install directory queries. " alt="" coords="1667,179,1765,205"/><area shape="rect" id="node39" href="../../d5/dcb/a00170.html" title="Logging (spdlog) utilities. " alt="" coords="1106,88,1208,115"/><area shape="rect" id="node40" href="../../de/db1/a00197.html" title="Interface of RNManager. " alt="" coords="2027,179,2151,205"/><area shape="rect" id="node49" href="../../dd/de3/a00201.html" title="Produce run config ptree. " alt="" coords="2746,179,2912,205"/><area shape="rect" id="node3" href="../../d8/dfa/a00121.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="693,179,848,205"/><area shape="rect" id="node15" href="../../d7/d25/a00182.html" title="Header file for the Person class. " alt="" coords="975,179,1073,205"/><area shape="rect" id="node18" href="../../d9/d77/a00095.html" title="Interface/Implementation of Any. " alt="" coords="873,179,949,205"/><area shape="rect" id="node4" href="../../d4/d98/a00120.html" title="Header for the core ContactPool class. " alt="" coords="940,352,1073,379"/><area shape="rect" id="node7" href="../../de/d36/a00123.html" title="Definition of ContactPoolType. " alt="" coords="721,427,884,453"/><area shape="rect" id="node12" href="../../d7/d9a/a00152.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="655,269,813,296"/><area shape="rect" id="node5" href="../../d8/d87/a00118.html" title="Header for the ContactLogMode class. " alt="" coords="1033,427,1212,453"/><area shape="rect" id="node23" href="../../dc/d28/a00223.html" title="Interface/Implementation for SVIterator. " alt="" coords="213,352,304,379"/><area shape="rect" id="node33" href="../../d9/df8/a00096.html" title="Header file for Belief. " alt="" coords="1455,171,1619,213"/><area shape="rect" id="node41" href="../../d3/d2a/a00195.html" title="Interface of Random Engine Type. " alt="" coords="1920,427,2043,453"/><area shape="rect" id="node50" href="../../db/d57/a00112.html" title="Info on configuration. " alt="" coords="3117,352,3232,379"/></map>
+<div class="center"><img src="../../d4/dbc/a00414.gif" border="0" usemap="#RNEngineType_8h" alt=""/></div>
+<map name="RNEngineType_8h" id="RNEngineType_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/dd6/a00415.gif" border="0" usemap="#RNEngineType_8hdep" alt=""/></div>
+<map name="RNEngineType_8hdep" id="RNEngineType_8hdep">
+<area shape="rect" id="node2" href="../../da/d15/a00188.html" title="Implementation of Random Engine Type. " alt="" coords="708,80,843,107"/><area shape="rect" id="node3" href="../../d9/dd0/a00191.html" title="Interface of RNManager. " alt="" coords="869,80,971,107"/><area shape="rect" id="node4" href="../../d9/df8/a00096.html" title="Header file for the HealthSeeder. " alt="" coords="111,155,217,181"/><area shape="rect" id="node5" href="../../d9/d77/a00095.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,229,125,256"/><area shape="rect" id="node7" href="../../d8/d17/a00114.html" title="Header for the ContactHandler class. " alt="" coords="525,155,648,181"/><area shape="rect" id="node12" href="../../d5/db1/a00140.html" title="Implementation for HelthSeeder class. " alt="" coords="495,304,621,331"/><area shape="rect" id="node13" href="../../d7/da0/a00198.html" title="Header for the Simulator class. " alt="" coords="979,229,1033,256"/><area shape="rect" id="node23" href="../../de/d76/a00134.html" title="Header for the DiseaseSeeder class. " alt="" coords="1059,229,1181,256"/><area shape="rect" id="node24" href="../../db/d48/a00148.html" title="Implementation for the Immunizer class. " alt="" coords="911,155,1019,181"/><area shape="rect" id="node25" href="../../d8/d64/a00181.html" title="Initialize populations: implementation. " alt="" coords="1206,229,1316,256"/><area shape="rect" id="node26" href="../../dc/d52/a00183.html" title="Core Population class. " alt="" coords="1095,155,1203,181"/><area shape="rect" id="node27" href="../../d6/d43/a00216.html" title="Header file for the SurveySeeder class. " alt="" coords="1228,155,1343,181"/><area shape="rect" id="node28" href="../../d3/dd5/a00215.html" title="Implementation for the SurveySeeder class. " alt="" coords="1341,229,1469,256"/><area shape="rect" id="node29" href="../../d7/d6e/a00190.html" title="Implementation of RNManager. " alt="" coords="1417,155,1533,181"/><area shape="rect" id="node6" href="../../d8/d72/a00199.html" title="Implementation for the SimBuilder class. " alt="" coords="402,379,512,405"/><area shape="rect" id="node8" href="../../d1/db7/a00157.html" title="Header for the Infector class. " alt="" coords="329,229,405,256"/><area shape="rect" id="node11" href="../../d5/d4e/a00141.html" title="Header file for the HealthSeeder. " alt="" coords="503,229,613,256"/><area shape="rect" id="node9" href="../../d2/d34/a00156.html" title="Implementation of Infector algorithms. " alt="" coords="201,304,292,331"/><area shape="rect" id="node10" href="../../de/db9/a00159.html" title="Header for the InfectorMap. " alt="" coords="317,304,419,331"/><area shape="rect" id="node14" href="../../d0/de8/a00133.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="1943,304,2077,331"/><area shape="rect" id="node15" href="../../de/db1/a00197.html" title="Implementation for the Simulator class. " alt="" coords="698,304,768,331"/><area shape="rect" id="node16" href="../../dd/de3/a00201.html" title="Implementation for SimRunner. " alt="" coords="792,304,903,331"/><area shape="rect" id="node17" href="../../d1/d1e/a00087.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="929,304,1084,331"/><area shape="rect" id="node18" href="../../df/d98/a00107.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1109,304,1211,331"/><area shape="rect" id="node19" href="../../d7/d9a/a00152.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1236,304,1389,331"/><area shape="rect" id="node20" href="../../d3/d65/a00154.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1415,304,1549,331"/><area shape="rect" id="node21" href="../../db/dd9/a00179.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1574,304,1729,331"/><area shape="rect" id="node22" href="../../d1/de1/a00213.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1754,304,1917,331"/></map>
 </div>
 </div>
 <p><a href="../../da/deb/a00189_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
+<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d0/d3e/a00253"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html">stride::RNEngineType</a></td></tr>
+<tr class="memdesc:d0/d3e/a00253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of random engines. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">stride::RNEngineType::Id</a> { <br/>
+&#160;&#160;<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192baca6026ab4a21c1d10581824537dab793">stride::RNEngineType::Id::lcg64</a>, 
+<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba97c2dce9cd16b10867e6463b17ee969a">stride::RNEngineType::Id::lcg64_shift</a>, 
+<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5">stride::RNEngineType::Id::mrg2</a>, 
+<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3">stride::RNEngineType::Id::mrg3</a>, 
+<br/>
+&#160;&#160;<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192bacd05faf08e35df974d2c98f26230bff1">stride::RNEngineType::Id::yarn2</a>, 
+<a class="el" href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba325f9198cb6d6f356ff4dae2598dfbc7">stride::RNEngineType::Id::yarn3</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number engine type ids. We use a subset of engines provided by the trng library.  <a href="../../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192b">More...</a><br/></td></tr>
+<tr class="separator:a4dad7ad4a2f8f59eb0e51b89ba0c192b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html#a5c2a5d8f1812dfead0b91defc7c28a83">stride::RNEngineType::IsType</a> (std::string s)</td></tr>
+<tr class="memdesc:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether type with name s exists.  <a href="#a5c2a5d8f1812dfead0b91defc7c28a83">More...</a><br/></td></tr>
+<tr class="separator:a5c2a5d8f1812dfead0b91defc7c28a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4fcec0502d45699761bc02fe6a7a08"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html#aff4fcec0502d45699761bc02fe6a7a08">stride::RNEngineType::ToSizeT</a> (Id id)</td></tr>
+<tr class="memdesc:aff4fcec0502d45699761bc02fe6a7a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#aff4fcec0502d45699761bc02fe6a7a08">More...</a><br/></td></tr>
+<tr class="separator:aff4fcec0502d45699761bc02fe6a7a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html#a120e2ae5e703cd5a7e1859a1c83ddcec">stride::RNEngineType::ToString</a> (Id b)</td></tr>
+<tr class="memdesc:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a type id to corresponding name.  <a href="#a120e2ae5e703cd5a7e1859a1c83ddcec">More...</a><br/></td></tr>
+<tr class="separator:a120e2ae5e703cd5a7e1859a1c83ddcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e0a5f256c9b615c606f90dabec96b2"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d3e/a00253.html#a58e0a5f256c9b615c606f90dabec96b2">stride::RNEngineType::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a58e0a5f256c9b615c606f90dabec96b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#a58e0a5f256c9b615c606f90dabec96b2">More...</a><br/></td></tr>
+<tr class="separator:a58e0a5f256c9b615c606f90dabec96b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Core Population class. </p>
+<div class="textblock"><p>Interface of Random Engine Type. </p>
 
-<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">Population.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">RNEngineType.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">Population.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">RNEngineType.h</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

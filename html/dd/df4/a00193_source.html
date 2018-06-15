@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PtreeViewer.h Source File</title>
+<title>Stride Reference Manual: RnPcg.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dd/df4/a00193_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PtreeViewer.h</div>  </div>
+<div class="title">RnPcg.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/df4/a00193.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -121,54 +121,87 @@ $(document).ready(function(){initNavTree('dd/df4/a00193_source.html','../../');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/d1e/a00103.html">BenchmarkRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d81/a00180.html">Payload.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d01/a00227.html">TestDescriptors.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;pcg/pcg_random.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;pcg/randutils.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a0bba40b7c52af5cc6f5fcbe0774097f5">   43</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d4/dee/a00008.html#a0bba40b7c52af5cc6f5fcbe0774097f5">PtreeViewer</a>() : <a class="code" href="../../d4/dee/a00008.html#a47e62898f7e6dee0e4d666fe168fe62f">m_descriptors</a>(<a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>::Instance().GetTestDescriptors()), <a class="code" href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">m_ptree</a>() {}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#ac283e81d765d15a7d485e06a93d2bae9">   46</a></span>&#160;        <span class="keyword">const</span> boost::property_tree::ptree&amp; <a class="code" href="../../d4/dee/a00008.html#ac283e81d765d15a7d485e06a93d2bae9">CGet</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">m_ptree</a>; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d4/dee/a00008.html#a6ed087a871ee1d430ee8b2a65357be8a">Update</a>(<span class="keyword">const</span> <a class="code" href="../../de/d21/a00006.html">event::Payload</a>&amp; payload);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#a47e62898f7e6dee0e4d666fe168fe62f">   52</a></span>&#160;        <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a>             <a class="code" href="../../d4/dee/a00008.html#a47e62898f7e6dee0e4d666fe168fe62f">m_descriptors</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">   53</a></span>&#160;        boost::property_tree::ptree <a class="code" href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">m_ptree</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::microseconds&gt;</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::milliseconds&gt;</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d4/dee/a00008.html">PtreeViewer&lt;std::chrono::seconds&gt;</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00227_html"><div class="ttname"><a href="../../d9/d01/a00227.html">TestDescriptors.h</a></div><div class="ttdoc">Header file for TestDescriptors container. </div></div>
-<div class="ttc" id="a00103_html"><div class="ttname"><a href="../../d5/d1e/a00103.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
-<div class="ttc" id="a00008_html_a6ed087a871ee1d430ee8b2a65357be8a"><div class="ttname"><a href="../../d4/dee/a00008.html#a6ed087a871ee1d430ee8b2a65357be8a">myhayai::PtreeViewer::Update</a></div><div class="ttdeci">void Update(const event::Payload &amp;payload)</div><div class="ttdoc">Observer method, registered with the subject. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00038">PtreeViewer.cpp:38</a></div></div>
-<div class="ttc" id="a00008_html_a0bba40b7c52af5cc6f5fcbe0774097f5"><div class="ttname"><a href="../../d4/dee/a00008.html#a0bba40b7c52af5cc6f5fcbe0774097f5">myhayai::PtreeViewer::PtreeViewer</a></div><div class="ttdeci">PtreeViewer()</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00043">PtreeViewer.h:43</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00008_html_ab272e1da1157182ec95aa360089e3348"><div class="ttname"><a href="../../d4/dee/a00008.html#ab272e1da1157182ec95aa360089e3348">myhayai::PtreeViewer::m_ptree</a></div><div class="ttdeci">boost::property_tree::ptree m_ptree</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00053">PtreeViewer.h:53</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d01/a00227_source.html#l00031">TestDescriptors.h:31</a></div></div>
-<div class="ttc" id="a00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">myhayai::PtreeViewer</a></div><div class="ttdoc">Constructs a (Boost) propert tree with info about the tests run in the benchmark. ...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00037">PtreeViewer.h:37</a></div></div>
-<div class="ttc" id="a00180_html"><div class="ttname"><a href="../../d0/d81/a00180.html">Payload.h</a></div><div class="ttdoc">Payload for Subject/Observer for myhayaia::events. </div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></div><div class="ttdoc">BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d1e/a00103_source.html#l00038">BenchmarkRunner.h:38</a></div></div>
-<div class="ttc" id="a00008_html_a47e62898f7e6dee0e4d666fe168fe62f"><div class="ttname"><a href="../../d4/dee/a00008.html#a47e62898f7e6dee0e4d666fe168fe62f">myhayai::PtreeViewer::m_descriptors</a></div><div class="ttdeci">TestDescriptors m_descriptors</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00052">PtreeViewer.h:52</a></div></div>
-<div class="ttc" id="a00008_html_ac283e81d765d15a7d485e06a93d2bae9"><div class="ttname"><a href="../../d4/dee/a00008.html#ac283e81d765d15a7d485e06a93d2bae9">myhayai::PtreeViewer::CGet</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; CGet()</div><div class="ttdoc">Get reference to the ptree. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00046">PtreeViewer.h:46</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d31/a00069.html">RnPcg</a> : <span class="keyword">protected</span>  std::vector&lt;randutils::random_generator&lt;pcg64, randutils::seed_seq_fe128&gt;&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a79afc6fbec8ddb81d630562bf4a183b2">   37</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d4/d31/a00069.html#a79afc6fbec8ddb81d630562bf4a183b2">EngineType</a>    = pcg64;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a542fa7ff67bbd6cdab5c7d7bfd31b9a3">   38</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d4/d31/a00069.html#a542fa7ff67bbd6cdab5c7d7bfd31b9a3">GeneratorType</a> = randutils::random_generator&lt;pcg64, randutils::seed_seq_fe128&gt;;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#ad64a5be35726bfd29f28937178f353cc">   39</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="../../d4/d31/a00069.html#ad64a5be35726bfd29f28937178f353cc">ContainerType</a> = std::vector&lt;randutils::random_generator&lt;pcg64, randutils::seed_seq_fe128&gt;&gt;;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html">   45</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../d2/db1/a00070.html">Info</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html#a82fd18f0fc75a9666b0526976bd5bf9f">   47</a></span>&#160;                <span class="keyword">explicit</span> <a class="code" href="../../d2/db1/a00070.html#a82fd18f0fc75a9666b0526976bd5bf9f">Info</a>(std::string seed_seq_init = <span class="stringliteral">&quot;1,2,3,4&quot;</span>, std::string state = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stream_count = 1U)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    : <a class="code" href="../../d2/db1/a00070.html#a03145399273996e6fdf3a993bd5a7e58">m_seed_seq_init</a>(std::move(seed_seq_init)), <a class="code" href="../../d2/db1/a00070.html#a0224702cbbd2bcb904e45fc01a1a97e4">m_state</a>(std::move(state)),</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html#a03145399273996e6fdf3a993bd5a7e58">   50</a></span>&#160;                      <a class="code" href="../../d2/db1/a00070.html#abe744438e39c37e30a4ebeddd5ef2f45">m_stream_count</a>(stream_count){};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                std::string  <a class="code" href="../../d2/db1/a00070.html#a03145399273996e6fdf3a993bd5a7e58">m_seed_seq_init</a>; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html#a0224702cbbd2bcb904e45fc01a1a97e4">   53</a></span>&#160;                std::string  <a class="code" href="../../d2/db1/a00070.html#a0224702cbbd2bcb904e45fc01a1a97e4">m_state</a>;         </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d2/db1/a00070.html#abe744438e39c37e30a4ebeddd5ef2f45">   54</a></span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/db1/a00070.html#abe744438e39c37e30a4ebeddd5ef2f45">m_stream_count</a>;  </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        };</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">using</span> ContainerType::operator[];</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">using</span> ContainerType::at;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">using</span> ContainerType::size;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d4/d31/a00069.html#a27057ecf5775ab2929cdf64ce28be936">RnPcg</a>(<span class="keyword">const</span> <a class="code" href="../../d2/db1/a00070.html">Info</a>&amp; info = <a class="code" href="../../d2/db1/a00070.html">Info</a>());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="../../d4/d31/a00069.html#a27057ecf5775ab2929cdf64ce28be936">RnPcg</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d31/a00069.html">RnPcg</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="../../d4/d31/a00069.html">RnPcg</a>&amp; <a class="code" href="../../d4/d31/a00069.html#ae6b7b89a6c13d9c486e657a2a82ecd3a">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d31/a00069.html">RnPcg</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d4/d31/a00069.html#a18a5fce8862fbf5670e368ad7e679d87">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d31/a00069.html">RnPcg</a>&amp; other);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="../../d2/db1/a00070.html">Info</a> <a class="code" href="../../d4/d31/a00069.html#ab08d8d79ab8acdcf865e7bb8ce1c318f">GetInfo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d4/d31/a00069.html#a8adc84874bfb902fa78b804a2c86d7b5">Seed</a>(<span class="keyword">const</span> <a class="code" href="../../d2/db1/a00070.html">Info</a>&amp; info = <a class="code" href="../../d2/db1/a00070.html">Info</a>());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d4/d31/a00069.html#aebf806dea241b999f9942caf7ad06042">CheckAllDigits</a>(<span class="keyword">const</span> std::string&amp; seed);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a70270d17215056a4e23bf775ca430fa7">   85</a></span>&#160;        std::string  <a class="code" href="../../d4/d31/a00069.html#a70270d17215056a4e23bf775ca430fa7">m_seed_seq_init</a>; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d4/d31/a00069.html#a12a8ac195edf8ea01a9a265d305ecdd2">   86</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d31/a00069.html#a12a8ac195edf8ea01a9a265d305ecdd2">m_stream_count</a>;  </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00069_html_a8adc84874bfb902fa78b804a2c86d7b5"><div class="ttname"><a href="../../d4/d31/a00069.html#a8adc84874bfb902fa78b804a2c86d7b5">stride::util::RnPcg::Seed</a></div><div class="ttdeci">void Seed(const Info &amp;info=Info())</div><div class="ttdoc">Initalize with data in Info. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00075">RnPcg.cpp:75</a></div></div>
+<div class="ttc" id="a00069_html_aebf806dea241b999f9942caf7ad06042"><div class="ttname"><a href="../../d4/d31/a00069.html#aebf806dea241b999f9942caf7ad06042">stride::util::RnPcg::CheckAllDigits</a></div><div class="ttdeci">static bool CheckAllDigits(const std::string &amp;seed)</div><div class="ttdoc">Check that the seed string is all digits. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00051">RnPcg.cpp:51</a></div></div>
+<div class="ttc" id="a00069_html_a12a8ac195edf8ea01a9a265d305ecdd2"><div class="ttname"><a href="../../d4/d31/a00069.html#a12a8ac195edf8ea01a9a265d305ecdd2">stride::util::RnPcg::m_stream_count</a></div><div class="ttdeci">unsigned int m_stream_count</div><div class="ttdoc">Number of threads/streams set up with the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00086">RnPcg.h:86</a></div></div>
+<div class="ttc" id="a00070_html_abe744438e39c37e30a4ebeddd5ef2f45"><div class="ttname"><a href="../../d2/db1/a00070.html#abe744438e39c37e30a4ebeddd5ef2f45">stride::util::RnPcg::Info::m_stream_count</a></div><div class="ttdeci">unsigned int m_stream_count</div><div class="ttdoc">Number of streams set up with the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00054">RnPcg.h:54</a></div></div>
+<div class="ttc" id="a00070_html_a03145399273996e6fdf3a993bd5a7e58"><div class="ttname"><a href="../../d2/db1/a00070.html#a03145399273996e6fdf3a993bd5a7e58">stride::util::RnPcg::Info::m_seed_seq_init</a></div><div class="ttdeci">std::string m_seed_seq_init</div><div class="ttdoc">Seed for the engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00050">RnPcg.h:50</a></div></div>
+<div class="ttc" id="a00070_html"><div class="ttname"><a href="../../d2/db1/a00070.html">stride::util::RnPcg::Info</a></div><div class="ttdoc">POD representation of the RNManager&#39;s state. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00045">RnPcg.h:45</a></div></div>
+<div class="ttc" id="a00069_html_a70270d17215056a4e23bf775ca430fa7"><div class="ttname"><a href="../../d4/d31/a00069.html#a70270d17215056a4e23bf775ca430fa7">stride::util::RnPcg::m_seed_seq_init</a></div><div class="ttdeci">std::string m_seed_seq_init</div><div class="ttdoc">Seed sequence initializer used with engines. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00085">RnPcg.h:85</a></div></div>
+<div class="ttc" id="a00069_html_a27057ecf5775ab2929cdf64ce28be936"><div class="ttname"><a href="../../d4/d31/a00069.html#a27057ecf5775ab2929cdf64ce28be936">stride::util::RnPcg::RnPcg</a></div><div class="ttdeci">RnPcg(const Info &amp;info=Info())</div><div class="ttdoc">Initializes. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00033">RnPcg.cpp:33</a></div></div>
+<div class="ttc" id="a00069_html_ae6b7b89a6c13d9c486e657a2a82ecd3a"><div class="ttname"><a href="../../d4/d31/a00069.html#ae6b7b89a6c13d9c486e657a2a82ecd3a">stride::util::RnPcg::operator=</a></div><div class="ttdeci">RnPcg &amp; operator=(const RnPcg &amp;)=delete</div><div class="ttdoc">No copy assignment. </div></div>
+<div class="ttc" id="a00070_html_a82fd18f0fc75a9666b0526976bd5bf9f"><div class="ttname"><a href="../../d2/db1/a00070.html#a82fd18f0fc75a9666b0526976bd5bf9f">stride::util::RnPcg::Info::Info</a></div><div class="ttdeci">Info(std::string seed_seq_init=&quot;1,2,3,4&quot;, std::string state=&quot;&quot;, unsigned int stream_count=1U)</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00047">RnPcg.h:47</a></div></div>
+<div class="ttc" id="a00069_html_ab08d8d79ab8acdcf865e7bb8ce1c318f"><div class="ttname"><a href="../../d4/d31/a00069.html#ab08d8d79ab8acdcf865e7bb8ce1c318f">stride::util::RnPcg::GetInfo</a></div><div class="ttdeci">Info GetInfo() const </div><div class="ttdoc">Return the state of the random engines. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00062">RnPcg.cpp:62</a></div></div>
+<div class="ttc" id="a00069_html_a79afc6fbec8ddb81d630562bf4a183b2"><div class="ttname"><a href="../../d4/d31/a00069.html#a79afc6fbec8ddb81d630562bf4a183b2">stride::util::RnPcg::EngineType</a></div><div class="ttdeci">pcg64 EngineType</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00037">RnPcg.h:37</a></div></div>
+<div class="ttc" id="a00069_html_a18a5fce8862fbf5670e368ad7e679d87"><div class="ttname"><a href="../../d4/d31/a00069.html#a18a5fce8862fbf5670e368ad7e679d87">stride::util::RnPcg::operator==</a></div><div class="ttdeci">bool operator==(const RnPcg &amp;other)</div><div class="ttdoc">Equality of states. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da2/a00192_source.html#l00040">RnPcg.cpp:40</a></div></div>
+<div class="ttc" id="a00070_html_a0224702cbbd2bcb904e45fc01a1a97e4"><div class="ttname"><a href="../../d2/db1/a00070.html#a0224702cbbd2bcb904e45fc01a1a97e4">stride::util::RnPcg::Info::m_state</a></div><div class="ttdeci">std::string m_state</div><div class="ttdoc">Long string representing current state. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00053">RnPcg.h:53</a></div></div>
+<div class="ttc" id="a00069_html"><div class="ttname"><a href="../../d4/d31/a00069.html">stride::util::RnPcg</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00034">RnPcg.h:34</a></div></div>
+<div class="ttc" id="a00069_html_ad64a5be35726bfd29f28937178f353cc"><div class="ttname"><a href="../../d4/d31/a00069.html#ad64a5be35726bfd29f28937178f353cc">stride::util::RnPcg::ContainerType</a></div><div class="ttdeci">std::vector&lt; randutils::random_generator&lt; pcg64, randutils::seed_seq_fe128 &gt;&gt; ContainerType</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00039">RnPcg.h:39</a></div></div>
+<div class="ttc" id="a00069_html_a542fa7ff67bbd6cdab5c7d7bfd31b9a3"><div class="ttname"><a href="../../d4/d31/a00069.html#a542fa7ff67bbd6cdab5c7d7bfd31b9a3">stride::util::RnPcg::GeneratorType</a></div><div class="ttdeci">randutils::random_generator&lt; pcg64, randutils::seed_seq_fe128 &gt; GeneratorType</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df4/a00193_source.html#l00038">RnPcg.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">PtreeViewer.h</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">RnPcg.h</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DaysOffSchool.h Source File</title>
+<title>Stride Reference Manual: DiseaseSeeder.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,59 +103,133 @@ $(document).ready(function(){initNavTree('d0/de8/a00133_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DaysOffSchool.h</div>  </div>
+<div class="title">DiseaseSeeder.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/de8/a00133.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d70/a00106.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d06/a00131.html">calendar/DaysOffInterface.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dfe/a00025.html">DaysOffSchool</a> : <span class="keyword">public</span> <a class="code" href="../../d3/d52/a00023.html">DaysOffInterface</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#ab77c78d8d9b00fe50c8f845fe459a657">   34</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d3/dfe/a00025.html#ab77c78d8d9b00fe50c8f845fe459a657">DaysOffSchool</a>(std::shared_ptr&lt;Calendar&gt; cal) : <a class="code" href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>(std::move(cal)) {}</div>
+<a href="../../d0/de8/a00133.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d76/a00134.html">DiseaseSeeder.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">disease/Immunizer.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d6a/a00119.html">pool/ContactPoolSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d94/a00184.html">pop/Population.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/da0/a00198.html">sim/Sim.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d5e/a00136.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/ddf/a00164.html">util/LogUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dd2/a00207.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#a633453bbe4892b56891c42a4f4ac72fd">   37</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d3/dfe/a00025.html#a633453bbe4892b56891c42a4f4ac72fd">IsWorkOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>-&gt;IsWeekend() || <a class="code" href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>-&gt;IsHoliday(); }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#a709acf6d0cec5722e20760a797ae35bb">   40</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d3/dfe/a00025.html#a709acf6d0cec5722e20760a797ae35bb">IsSchoolOff</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">   43</a></span>&#160;        std::shared_ptr&lt;Calendar&gt; <a class="code" href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">m_calendar</a>; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>util;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">   41</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">DiseaseSeeder::DiseaseSeeder</a>(<span class="keyword">const</span> ptree&amp; configPt, <a class="code" href="../../dc/ddf/a00067.html">RNManager</a>&amp; rnManager)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    : m_config_pt(configPt), m_rn_manager(rnManager)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00025_html_ab77c78d8d9b00fe50c8f845fe459a657"><div class="ttname"><a href="../../d3/dfe/a00025.html#ab77c78d8d9b00fe50c8f845fe459a657">stride::DaysOffSchool::DaysOffSchool</a></div><div class="ttdeci">DaysOffSchool(std::shared_ptr&lt; Calendar &gt; cal)</div><div class="ttdoc">Initialize calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00034">DaysOffSchool.h:34</a></div></div>
-<div class="ttc" id="a00023_html"><div class="ttname"><a href="../../d3/d52/a00023.html">stride::DaysOffInterface</a></div><div class="ttdoc">Interface definition. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d06/a00131_source.html#l00027">DaysOffInterface.h:27</a></div></div>
-<div class="ttc" id="a00106_html"><div class="ttname"><a href="../../d7/d70/a00106.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00025_html_a709acf6d0cec5722e20760a797ae35bb"><div class="ttname"><a href="../../d3/dfe/a00025.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool::IsSchoolOff</a></div><div class="ttdeci">bool IsSchoolOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00040">DaysOffSchool.h:40</a></div></div>
-<div class="ttc" id="a00025_html"><div class="ttname"><a href="../../d3/dfe/a00025.html">stride::DaysOffSchool</a></div><div class="ttdoc">Schools closed. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00030">DaysOffSchool.h:30</a></div></div>
-<div class="ttc" id="a00131_html"><div class="ttname"><a href="../../d7/d06/a00131.html">DaysOffInterface.h</a></div><div class="ttdoc">Interface for DaysOff classes. </div></div>
-<div class="ttc" id="a00025_html_a633453bbe4892b56891c42a4f4ac72fd"><div class="ttname"><a href="../../d3/dfe/a00025.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool::IsWorkOff</a></div><div class="ttdeci">bool IsWorkOff() override</div><div class="ttdoc">See DaysOffInterface. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00037">DaysOffSchool.h:37</a></div></div>
-<div class="ttc" id="a00025_html_a5ac5b045ac4db6ae397d91d7dd663784"><div class="ttname"><a href="../../d3/dfe/a00025.html#a5ac5b045ac4db6ae397d91d7dd663784">stride::DaysOffSchool::m_calendar</a></div><div class="ttdeci">std::shared_ptr&lt; Calendar &gt; m_calendar</div><div class="ttdoc">Management of calendar. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00043">DaysOffSchool.h:43</a></div></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">DiseaseSeeder::Seed</a>(std::shared_ptr&lt;Population&gt; pop)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Population immunity (natural immunity &amp; vaccination).</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> immunityProfile = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;std::string&gt;(<span class="stringliteral">&quot;run.immunity_profile&quot;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a>(<span class="stringliteral">&quot;immunity&quot;</span>, immunityProfile, pop-&gt;GetContactPoolSys()[Id::Household]);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> vaccinationProfile = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;std::string&gt;(<span class="stringliteral">&quot;run.vaccine_profile&quot;</span>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a>(<span class="stringliteral">&quot;vaccine&quot;</span>, vaccinationProfile, pop-&gt;GetContactPoolSys()[Id::Household]);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Seed infected persons.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sRate       = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_rate&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sAgeMin     = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_age_min&quot;</span>, 1);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sAgeMax     = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_age_max&quot;</span>, 99);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> popSize     = pop-&gt;size();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> maxPopIndex = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(popSize - 1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">auto</span>       generator   = <a class="code" href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">m_rn_manager</a>.<a class="code" href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(0, maxPopIndex));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">auto</span>&amp;      logger      = pop-&gt;GetContactLogger();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">auto</span> numInfected = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(floor(static_cast&lt;double&gt;(popSize) * sRate));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">while</span> (numInfected &gt; 0) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <a class="code" href="../../d6/d97/a00045.html">Person</a>&amp; p = pop-&gt;at(static_cast&lt;size_t&gt;(generator()));</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">if</span> (p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#ae2a3b14e79e08a261ca7122afba9b95c">IsSusceptible</a>() &amp;&amp; (p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>() &gt;= sAgeMin) &amp;&amp; (p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>() &lt;= sAgeMax)) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a5d85541b8e22aeaa75b364a454f59088">StartInfection</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        numInfected--;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        logger-&gt;info(<span class="stringliteral">&quot;[PRIM] {} {} {} {}&quot;</span>, -1, p.<a class="code" href="../../d6/d97/a00045.html#afab3ab2a1a33004f9e25d4873c3c1921">GetId</a>(), -1, 0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">DiseaseSeeder::Vaccinate</a>(<span class="keyword">const</span> std::string&amp; immunityType, <span class="keyword">const</span> std::string&amp; immunizationProfile,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                              std::vector&lt;ContactPool&gt;&amp; immunityPools)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        std::vector&lt;double&gt; immunityDistribution;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span>        linkProbability = 0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="../../dc/d87/a00032.html">Immunizer</a>           immunizer(<a class="code" href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">m_rn_manager</a>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> (immunizationProfile == <span class="stringliteral">&quot;Random&quot;</span>) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> immunityRate = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.&quot;</span> + <a class="code" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(immunityType) + <span class="stringliteral">&quot;_rate&quot;</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index_age = 0; index_age &lt; 100; index_age++) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        immunityDistribution.push_back(immunityRate);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                immunizer.<a class="code" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Random</a>(immunityPools, immunityDistribution, linkProbability);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (immunizationProfile == <span class="stringliteral">&quot;Cocoon&quot;</span>) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                immunizer.<a class="code" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">Cocoon</a>(immunityPools, immunityDistribution, linkProbability);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00029_html_ae2a3b14e79e08a261ca7122afba9b95c"><div class="ttname"><a href="../../d5/d16/a00029.html#ae2a3b14e79e08a261ca7122afba9b95c">stride::Health::IsSusceptible</a></div><div class="ttdeci">bool IsSusceptible() const </div><div class="ttdoc">Is this person susceptible? </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00076">Health.h:76</a></div></div>
+<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
+<div class="ttc" id="a00067_html"><div class="ttname"><a href="../../dc/ddf/a00067.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00042">RNManager.h:42</a></div></div>
+<div class="ttc" id="a00184_html"><div class="ttname"><a href="../../d2/d94/a00184.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00027_html_afd5a1be8a601cb5f5d07ee0a12a10547"><div class="ttname"><a href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">stride::DiseaseSeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00053">DiseaseSeeder.h:53</a></div></div>
+<div class="ttc" id="a00027_html_a47b0a54271fcce196ed8546690563c4c"><div class="ttname"><a href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">stride::DiseaseSeeder::DiseaseSeeder</a></div><div class="ttdeci">DiseaseSeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initializing DiseaseSeeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00041">DiseaseSeeder.cpp:41</a></div></div>
+<div class="ttc" id="a00045_html_afab3ab2a1a33004f9e25d4873c3c1921"><div class="ttname"><a href="../../d6/d97/a00045.html#afab3ab2a1a33004f9e25d4873c3c1921">stride::Person::GetId</a></div><div class="ttdeci">unsigned int GetId() const </div><div class="ttdoc">Get the id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00080">Person.h:80</a></div></div>
+<div class="ttc" id="a00027_html_a48f13b3f9815374425e9618f152026d8"><div class="ttname"><a href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">stride::DiseaseSeeder::Vaccinate</a></div><div class="ttdeci">void Vaccinate(const std::string &amp;immunityType, const std::string &amp;immunizationProfile, std::vector&lt; ContactPool &gt; &amp;immunityPools)</div><div class="ttdoc">Seed for vaccination/natural immunity. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00079">DiseaseSeeder.cpp:79</a></div></div>
+<div class="ttc" id="a00032_html_a2528a05439bfde66f4c85e9a19a6ef48"><div class="ttname"><a href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">stride::Immunizer::Cocoon</a></div><div class="ttdeci">void Cocoon(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Cocoon immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00094">Immunizer.cpp:94</a></div></div>
+<div class="ttc" id="a00045_html_a53081dbb062c019153b8be62083d59a2"><div class="ttname"><a href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">stride::Person::GetHealth</a></div><div class="ttdeci">Health &amp; GetHealth()</div><div class="ttdoc">Return person&#39;s health status. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00074">Person.h:74</a></div></div>
+<div class="ttc" id="a00032_html_a3b4663bfb6bfdb19e02f8cfd962e12b6"><div class="ttname"><a href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">stride::Immunizer::Random</a></div><div class="ttdeci">void Random(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Random immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00035">Immunizer.cpp:35</a></div></div>
+<div class="ttc" id="a00027_html_adc5b1f152367382afe3dade9421357da"><div class="ttname"><a href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">stride::DiseaseSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Build the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00046">DiseaseSeeder.cpp:46</a></div></div>
+<div class="ttc" id="a00027_html_a564d8b1346c1160f4e68f3ab8ad0bf8a"><div class="ttname"><a href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">stride::DiseaseSeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00052">DiseaseSeeder.h:52</a></div></div>
+<div class="ttc" id="a00134_html"><div class="ttname"><a href="../../de/d76/a00134.html">DiseaseSeeder.h</a></div><div class="ttdoc">Header for the DiseaseSeeder class. </div></div>
+<div class="ttc" id="a00032_html"><div class="ttname"><a href="../../dc/d87/a00032.html">stride::Immunizer</a></div><div class="ttdoc">Deals with immunization strategies. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d1e/a00149_source.html#l00035">Immunizer.h:35</a></div></div>
+<div class="ttc" id="a00029_html_a5d85541b8e22aeaa75b364a454f59088"><div class="ttname"><a href="../../d5/d16/a00029.html#a5d85541b8e22aeaa75b364a454f59088">stride::Health::StartInfection</a></div><div class="ttdeci">void StartInfection()</div><div class="ttdoc">Start the infection. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00039">Health.cpp:39</a></div></div>
+<div class="ttc" id="a00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">Immunizer.h</a></div><div class="ttdoc">Header for the Immunizer class. </div></div>
+<div class="ttc" id="a00045_html_ad85ecf5500764ae2c025f7e2aab8003c"><div class="ttname"><a href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">stride::Person::GetAge</a></div><div class="ttdeci">double GetAge() const </div><div class="ttdoc">Get the age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00059">Person.h:59</a></div></div>
+<div class="ttc" id="a00198_html"><div class="ttname"><a href="../../d7/da0/a00198.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
+<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00255_html_aa45ab4a5a30f65dcd1bf25c3d095825b"><div class="ttname"><a href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a></div><div class="ttdeci">std::string ToLower(const std::string &amp;source)</div><div class="ttdoc">Builds a string with lower case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00122">StringUtils.h:122</a></div></div>
+<div class="ttc" id="a00067_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00078">RNManager.h:78</a></div></div>
+<div class="ttc" id="a00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">ContactPoolSys.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
+<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00207_html"><div class="ttname"><a href="../../de/dd2/a00207.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d0/de8/a00133.html">DaysOffSchool.h</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d0/de8/a00133.html">DiseaseSeeder.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

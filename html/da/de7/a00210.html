@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: StanController.cpp File Reference</title>
+<title>Stride Reference Manual: Subject.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,57 +103,61 @@ $(document).ready(function(){initNavTree('da/de7/a00210.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">StanController.cpp File Reference</div>  </div>
+<div class="title">util/Subject.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Interface/Implementation of Subject.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/ded/a00211_source.html">sim/StanController.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/d31/a00208_source.html">sim/SimRunner.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d0/dc2/a00104_source.html">util/BoxPlotData.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../df/dcd/a00127_source.html">util/CSV.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../db/d57/a00112_source.html">util/ConfigInfo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d4/ddd/a00138_source.html">util/FileSys.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d5/db1/a00140_source.html">util/GnuPlot.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d82/a00142_source.html">util/GnuPlotCSV.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/de1/a00213_source.html">util/StringUtils.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d6/d7d/a00161_source.html">viewers/InfectedViewer.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
-<code>#include &lt;initializer_list&gt;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;random&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for StanController.cpp:</div>
+Include dependency graph for util/Subject.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d10/a00449.gif" border="0" usemap="#StanController_8cpp" alt=""/></div>
-<map name="StanController_8cpp" id="StanController_8cpp">
-<area shape="rect" id="node2" href="../../dd/ded/a00211.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="784,80,924,107"/><area shape="rect" id="node10" href="../../d7/d6e/a00190.html" title="Header file for the core Population class. " alt="" coords="1193,80,1311,107"/><area shape="rect" id="node26" href="../../dc/d31/a00208.html" title="Header for the SimRunner class. " alt="" coords="185,163,308,189"/><area shape="rect" id="node29" href="../../d0/dc2/a00104.html" title="Header file for BoxPlotData. " alt="" coords="1651,411,1779,437"/><area shape="rect" id="node32" href="../../df/dcd/a00127.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2717,253,2799,280"/><area shape="rect" id="node34" href="../../d1/de1/a00213.html" title="Miscellaneous string utilities. " alt="" coords="2745,411,2860,437"/><area shape="rect" id="node44" href="../../db/d57/a00112.html" title="Info on configuration. " alt="" coords="5,80,120,107"/><area shape="rect" id="node45" href="../../d4/ddd/a00138.html" title="Interface for install directory queries. " alt="" coords="1619,163,1717,189"/><area shape="rect" id="node47" href="../../d5/db1/a00140.html" title="Multi&#45;block CSV file (fashioned after and used for GnuPlot data files). " alt="" coords="2341,80,2443,107"/><area shape="rect" id="node48" href="../../d2/d82/a00142.html" title="Header file for GnuPlot container. " alt="" coords="2426,163,2533,189"/><area shape="rect" id="node49" href="../../d6/d7d/a00161.html" title="Observer for infection count at each sim step. " alt="" coords="534,80,703,107"/><area shape="rect" id="node3" href="../../dc/dfe/a00125.html" title="Header for the command line controller. " alt="" coords="583,163,721,189"/><area shape="rect" id="node4" href="../../dd/dc1/a00212.html" title="Definition of Stopwatch. " alt="" coords="383,253,499,280"/><area shape="rect" id="node11" href="../../d8/dfa/a00121.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1326,163,1481,189"/><area shape="rect" id="node18" href="../../d7/d25/a00182.html" title="Header file for the Person class. " alt="" coords="1203,163,1301,189"/><area shape="rect" id="node20" href="../../d9/d77/a00095.html" title="Interface/Implementation of Any. " alt="" coords="1101,163,1177,189"/><area shape="rect" id="node22" href="../../db/d53/a00202.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1803,411,1961,437"/><area shape="rect" id="node12" href="../../d4/d98/a00120.html" title="Header for the core ContactPool class. " alt="" coords="1549,336,1683,363"/><area shape="rect" id="node13" href="../../de/d36/a00123.html" title="Definition of ContactPoolType. " alt="" coords="1312,411,1475,437"/><area shape="rect" id="node16" href="../../d7/d9a/a00152.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1417,253,1575,280"/><area shape="rect" id="node19" href="../../da/ddb/a00145.html" title="Header for the Health class. " alt="" coords="1016,253,1136,280"/><area shape="rect" id="node27" href="../../d9/d7d/a00150.html" title="Definition of EventId. " alt="" coords="239,336,344,363"/><area shape="rect" id="node28" href="../../d3/dd5/a00215.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="169,253,308,280"/><area shape="rect" id="node33" href="../../d9/d47/a00129.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2715,336,2803,363"/><area shape="rect" id="node40" href="../../dc/de6/a00167.html" title="Interface/Implementation of is_iterator. " alt="" coords="2979,411,3089,437"/></map>
+<div class="center"><img src="../../de/d84/a00447.gif" border="0" usemap="#Subject_8h" alt=""/></div>
+<map name="Subject_8h" id="Subject_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/dfe/a00448.gif" border="0" usemap="#Subject_8hdep" alt=""/></div>
+<map name="Subject_8hdep" id="Subject_8hdep">
+<area shape="rect" id="node2" href="../../d4/d3a/a00101.html" title="Header file for Benchmarker. " alt="" coords="396,80,536,107"/><area shape="rect" id="node11" href="../../d3/de5/a00209.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="1108,80,1184,107"/><area shape="rect" id="node3" href="../../da/d74/a00099.html" title="Header file for Benchmark. " alt="" coords="5,155,104,181"/><area shape="rect" id="node4" href="../../d0/d61/a00100.html" title="Implementation file for Benchmarker. " alt="" coords="128,155,281,181"/><area shape="rect" id="node5" href="../../d3/d00/a00113.html" title="Header file for ConsoleViewer. " alt="" coords="307,155,428,181"/><area shape="rect" id="node7" href="../../dc/de6/a00167.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="465,229,617,256"/><area shape="rect" id="node8" href="../../dd/da7/a00168.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="504,155,643,181"/><area shape="rect" id="node9" href="../../d6/daa/a00187.html" title="Header file for PtreeViewer. " alt="" coords="667,155,771,181"/><area shape="rect" id="node6" href="../../db/d57/a00112.html" title="Implementation file for ConsoleViewer. " alt="" coords="301,229,435,256"/><area shape="rect" id="node10" href="../../d8/d00/a00186.html" title="Implementation file for PtreeViewer. " alt="" coords="653,229,771,256"/><area shape="rect" id="node12" href="../../dc/d31/a00208.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="1101,155,1192,181"/><area shape="rect" id="node13" href="../../db/d53/a00202.html" title="Header for the SimRunner class. " alt="" coords="1540,155,1639,181"/><area shape="rect" id="node14" href="../../d3/d32/a00105.html" title="Header for the command line controller. " alt="" coords="1530,229,1648,256"/><area shape="rect" id="node15" href="../../df/dc8/a00122.html" title="Header for the command line controller. " alt="" coords="1346,304,1472,331"/><area shape="rect" id="node16" href="../../dd/de3/a00201.html" title="Implementation for SimRunner. " alt="" coords="1064,229,1175,256"/><area shape="rect" id="node17" href="../../d1/d72/a00204.html" title="Header for the command line controller. " alt="" coords="2136,304,2265,331"/><area shape="rect" id="node18" href="../../db/ddf/a00088.html" title="Observer for Adopted output. " alt="" coords="898,229,1040,256"/><area shape="rect" id="node19" href="../../d1/d1e/a00087.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="787,304,943,331"/><area shape="rect" id="node20" href="../../d1/dd6/a00108.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1417,229,1505,256"/><area shape="rect" id="node21" href="../../df/d98/a00107.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1559,304,1661,331"/><area shape="rect" id="node22" href="../../da/d01/a00153.html" title="Observer for Infected output. " alt="" coords="1200,229,1340,256"/><area shape="rect" id="node23" href="../../d7/d9a/a00152.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1080,304,1233,331"/><area shape="rect" id="node24" href="../../d3/df8/a00155.html" title="Observer for infection count at each sim step. " alt="" coords="2220,229,2340,256"/><area shape="rect" id="node25" href="../../d3/d65/a00154.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2306,304,2440,331"/><area shape="rect" id="node26" href="../../d0/d81/a00180.html" title="Observer for Persons output. " alt="" coords="1951,229,2093,256"/><area shape="rect" id="node27" href="../../db/dd9/a00179.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1949,304,2104,331"/><area shape="rect" id="node28" href="../../d3/dd1/a00214.html" title="Observer for Persons output. " alt="" coords="1725,229,1875,256"/><area shape="rect" id="node29" href="../../d1/de1/a00213.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1737,304,1900,331"/></map>
 </div>
 </div>
 <p><a href="../../da/de7/a00210_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html">stride::util::Subject&lt; E &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template for Subject/Observer (or Publish/Subscribe).  <a href="../../db/db6/a00074.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
+<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride::util</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Interface/Implementation of Subject. </p>
 
-<p>Definition in file <a class="el" href="../../da/de7/a00210_source.html">StanController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../da/de7/a00210.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../da/de7/a00210.html">Subject.h</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:22 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,8 @@
 var a00082 =
 [
-    [ "CliViewer", "d4/d63/a00082.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
-    [ "Update", "d4/d63/a00082.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
-    [ "m_logger", "d4/d63/a00082.html#acc77dad91899a0d4183493023e082e9f", null ],
-    [ "m_runner", "d4/d63/a00082.html#af789850b449fdadcc8572def4a0eb4af", null ]
+    [ "InfectedViewer", "d4/d63/a00082.html#a772cf9c0229d31368250d437f1596ab0", null ],
+    [ "GetInfectionCounts", "d4/d63/a00082.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
+    [ "Update", "d4/d63/a00082.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
+    [ "m_infected", "d4/d63/a00082.html#a613860070a4a0778c61631fc4f343028", null ],
+    [ "m_runner", "d4/d63/a00082.html#a13b27fd1d407a15fe3b542952168ba33", null ]
 ];

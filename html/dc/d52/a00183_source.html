@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: PersonsFile.cpp Source File</title>
+<title>Stride Reference Manual: Population.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('dc/d52/a00183_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">PersonsFile.cpp</div>  </div>
+<div class="title">Population.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../dc/d52/a00183.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,62 +118,118 @@ $(document).ready(function(){initNavTree('dc/d52/a00183_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d94/a00184.html">PersonsFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d94/a00184.html">Population.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d6e/a00190.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/ddd/a00138.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>output {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4a/a00147.html">behaviour/belief_policies/Imitation.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d0d/a00171.html">behaviour/belief_policies/NoBelief.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d14/a00139.html">disease/Health.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d25/a00182.html">pop/PopBuilder.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d5e/a00136.html">util/FileSys.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/ddf/a00164.html">util/LogUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/dd0/a00191.html">util/RNManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d2a/a00195.html">util/RunConfigManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ded/a00196.html">util/SegmentedVector.h</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">   33</a></span>&#160;<a class="code" href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">PersonsFile::PersonsFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix) : m_fstream() { <a class="code" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">Initialize</a>(output_prefix); }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">   35</a></span>&#160;<a class="code" href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">PersonsFile::~PersonsFile</a>() { <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a>.close(); }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">PersonsFile::Initialize</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; output_prefix)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> p = <a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(output_prefix, <span class="stringliteral">&quot;persons.csv&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a>.open(p.c_str());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// add header</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a> &lt;&lt; <span class="stringliteral">&quot;id,age,is_recovered,is_immune,start_infectiousness,&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                  &lt;&lt; <span class="stringliteral">&quot;end_infectiousness,start_symptomatic,end_symptomatic&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">PersonsFile::Print</a>(std::shared_ptr&lt;const Population&gt; population)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *population) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; h = p.GetHealth();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">m_fstream</a> &lt;&lt; p.GetId() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; p.GetAge() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.IsRecovered() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.IsImmune() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                          &lt;&lt; h.GetStartInfectiousness() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.GetEndInfectiousness() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                          &lt;&lt; h.GetStartSymptomatic() &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; h.GetEndSymptomatic() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// namespace output</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00043_html_ab2c1e70237152817647dded0f5906c6b"><div class="ttname"><a href="../../d6/d42/a00043.html#ab2c1e70237152817647dded0f5906c6b">stride::output::PersonsFile::PersonsFile</a></div><div class="ttdeci">PersonsFile(const std::string &amp;output_dir=&quot;output&quot;)</div><div class="ttdoc">Constructor: initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d52/a00183_source.html#l00033">PersonsFile.cpp:33</a></div></div>
-<div class="ttc" id="a00061_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/df5/a00137_source.html#l00051">FileSys.cpp:51</a></div></div>
-<div class="ttc" id="a00184_html"><div class="ttname"><a href="../../d2/d94/a00184.html">PersonsFile.h</a></div><div class="ttdoc">Header for the PersonFile class. </div></div>
-<div class="ttc" id="a00138_html"><div class="ttname"><a href="../../d4/ddd/a00138.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00190_html"><div class="ttname"><a href="../../d7/d6e/a00190.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00043_html_a426f21983cf23767cfa51c0f4b9fb068"><div class="ttname"><a href="../../d6/d42/a00043.html#a426f21983cf23767cfa51c0f4b9fb068">stride::output::PersonsFile::m_fstream</a></div><div class="ttdeci">std::ofstream m_fstream</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00052">PersonsFile.h:52</a></div></div>
-<div class="ttc" id="a00043_html_ac72a90d142c34ca2137bdf09760ba2c4"><div class="ttname"><a href="../../d6/d42/a00043.html#ac72a90d142c34ca2137bdf09760ba2c4">stride::output::PersonsFile::Print</a></div><div class="ttdeci">void Print(std::shared_ptr&lt; const Population &gt; population)</div><div class="ttdoc">Print the given cases with corresponding tag. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d52/a00183_source.html#l00046">PersonsFile.cpp:46</a></div></div>
-<div class="ttc" id="a00043_html_a70798ee06674e243f7dad24ae2dca7fd"><div class="ttname"><a href="../../d6/d42/a00043.html#a70798ee06674e243f7dad24ae2dca7fd">stride::output::PersonsFile::Initialize</a></div><div class="ttdeci">void Initialize(const std::string &amp;output_dir)</div><div class="ttdoc">Generate file name and open the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d52/a00183_source.html#l00037">PersonsFile.cpp:37</a></div></div>
-<div class="ttc" id="a00043_html_aafacf4448a2354eff812e02d2048e114"><div class="ttname"><a href="../../d6/d42/a00043.html#aafacf4448a2354eff812e02d2048e114">stride::output::PersonsFile::~PersonsFile</a></div><div class="ttdeci">~PersonsFile()</div><div class="ttdoc">Destructor: close the file stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d52/a00183_source.html#l00035">PersonsFile.cpp:35</a></div></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>stride::util;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#acfad6472650932514c08794f7f0b087b">   42</a></span>&#160;std::shared_ptr&lt;Population&gt; Population::Create(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Create (empty) population &amp; and give it a ContactLogger.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">struct </span>make_shared_enabler : <span class="keyword">public</span> <a class="code" href="../../d6/d2d/a00047.html">Population</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">auto</span> pop = make_shared&lt;make_shared_enabler&gt;();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (configPt.get&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;run.contact_output_file&quot;</span>, <span class="keyword">true</span>)) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> prefix       = configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> logPath      = FileSys::BuildPath(prefix, <span class="stringliteral">&quot;contact_log.txt&quot;</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                pop-&gt;GetContactLogger() = LogUtils::CreateRotatingLogger(<span class="stringliteral">&quot;contact_logger&quot;</span>, logPath.string());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                pop-&gt;GetContactLogger()-&gt;set_pattern(<span class="stringliteral">&quot;%v&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                pop-&gt;GetContactLogger() = LogUtils::CreateNullLogger(<span class="stringliteral">&quot;contact_logger&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// ------------------------------------------------</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// Setup RNManager.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// ------------------------------------------------</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="../../dc/ddf/a00067.html">RNManager</a> rnManager(<a class="code" href="../../da/d24/a00068.html">RNManager::Info</a>{configPt.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;pop.rng_type&quot;</span>, <span class="stringliteral">&quot;lcg64&quot;</span>),</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                            configPt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>&gt;(<span class="stringliteral">&quot;pop.rng_seed&quot;</span>, 101UL), <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                            configPt.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>)});</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// Build population (at later date multiple builder or build instances ...).</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d3/dea/a00046.html">PopBuilder</a>(configPt, rnManager).<a class="code" href="../../d3/dea/a00046.html#a28cc700b4ef12e86f74a58988bfe1e67">Build</a>(pop);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a7178ada970c6b365c02fd676fcd4f46d">   73</a></span>&#160;std::shared_ptr&lt;Population&gt; Population::Create(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; configString)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> Create(<a class="code" href="../../d4/d04/a00255.html#ae33774027798262390fbf95fbabc3f82">RunConfigManager::FromString</a>(configString));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a0e53e57d363f53cf4777e932f625da3a">   78</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Population::GetAdoptedCount()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> total{0U};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *<span class="keyword">this</span>) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> (p.GetBelief()-&gt;HasAdopted()) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        total++;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> total;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#a5ffab38c3407832dcc0f1ecbf4e11cbd">   89</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Population::GetInfectedCount()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> total{0U};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : *<span class="keyword">this</span>) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; h = p.GetHealth();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                total += h.IsInfected() || h.IsRecovered();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> total;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d6/d2d/a00047.html#aa8220931e5e6dacd22be3460872a5125">   99</a></span>&#160;<span class="keywordtype">void</span> Population::CreatePerson(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> age, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> householdId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> schoolId,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                              <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> workId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> primaryCommunityId, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> secondaryCommunityId)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        this-&gt;emplace_back(<a class="code" href="../../d6/d97/a00045.html">Person</a>(<span class="keywordtype">id</span>, age, householdId, schoolId, workId, primaryCommunityId, secondaryCommunityId));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">stride::util::RNManager::Info</a></div><div class="ttdoc">POD representation of the RNManager&#39;s state. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00048">RNManager.h:48</a></div></div>
+<div class="ttc" id="a00046_html_a28cc700b4ef12e86f74a58988bfe1e67"><div class="ttname"><a href="../../d3/dea/a00046.html#a28cc700b4ef12e86f74a58988bfe1e67">stride::PopBuilder::Build</a></div><div class="ttdeci">std::shared_ptr&lt; Population &gt; Build(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Build Population and return it afterwards. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d64/a00181_source.html#l00124">PopBuilder.cpp:124</a></div></div>
+<div class="ttc" id="a00139_html"><div class="ttname"><a href="../../de/d14/a00139.html">Health.h</a></div><div class="ttdoc">Header for the Health class. </div></div>
+<div class="ttc" id="a00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
+<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00037">Population.h:37</a></div></div>
+<div class="ttc" id="a00147_html"><div class="ttname"><a href="../../d0/d4a/a00147.html">Imitation.h</a></div><div class="ttdoc">Header file for Imitation belief policy. </div></div>
+<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
+<div class="ttc" id="a00067_html"><div class="ttname"><a href="../../dc/ddf/a00067.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00042">RNManager.h:42</a></div></div>
+<div class="ttc" id="a00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">SegmentedVector.h</a></div><div class="ttdoc">Interface and implementation for SegmentedVector class. </div></div>
+<div class="ttc" id="a00184_html"><div class="ttname"><a href="../../d2/d94/a00184.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
+<div class="ttc" id="a00182_html"><div class="ttname"><a href="../../d7/d25/a00182.html">PopBuilder.h</a></div><div class="ttdoc">Initialize populations. </div></div>
+<div class="ttc" id="a00195_html"><div class="ttname"><a href="../../d3/d2a/a00195.html">RunConfigManager.h</a></div><div class="ttdoc">Produce run config ptree. </div></div>
+<div class="ttc" id="a00255_html_ae33774027798262390fbf95fbabc3f82"><div class="ttname"><a href="../../d4/d04/a00255.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a></div><div class="ttdeci">T FromString(const std::string &amp;s)</div><div class="ttdoc">Builds a value of type T representation from a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00036">StringUtils.h:36</a></div></div>
+<div class="ttc" id="a00046_html"><div class="ttname"><a href="../../d3/dea/a00046.html">stride::PopBuilder</a></div><div class="ttdoc">Initializes Population objects. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d25/a00182_source.html#l00035">PopBuilder.h:35</a></div></div>
+<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00171_html"><div class="ttname"><a href="../../d1/d0d/a00171.html">NoBelief.h</a></div><div class="ttdoc">Header file for NoBelief class. </div></div>
+<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../dc/d52/a00183.html">PersonsFile.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dc/d52/a00183.html">Population.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

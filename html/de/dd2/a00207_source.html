@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SimRunner.cpp Source File</title>
+<title>Stride Reference Manual: StringUtils.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,108 +103,167 @@ $(document).ready(function(){initNavTree('de/dd2/a00207_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SimRunner.cpp</div>  </div>
+<div class="title">StringUtils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../de/dd2/a00207.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d31/a00208.html">SimRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d70/a00106.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d6e/a00190.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d72/a00204.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span>stride::sim_event;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<a href="../../de/dd2/a00207.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cctype&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a54fb61460204e0f78cf9619691e98abc">   33</a></span>&#160;<a class="code" href="../../d5/de0/a00050.html#a54fb61460204e0f78cf9619691e98abc">SimRunner::SimRunner</a>(<span class="keyword">const</span> ptree&amp; configPt, shared_ptr&lt;Population&gt; pop)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    : m_clock(<span class="stringliteral">&quot;total_clock&quot;</span>), m_config_pt(configPt), m_output_prefix(<span class="stringliteral">&quot;&quot;</span>), m_sim(nullptr)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d9/da5/a00075.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::SetupBegin);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a> = <a class="code" href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.output_prefix&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>           = <a class="code" href="../../d4/dca/a00048.html#aaca6f689398e298bf48610aa4f2126fe">Sim::Create</a>(<a class="code" href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>, std::move(pop));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::SetupEnd);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d9/da5/a00075.html#a4b6145f590e94467a0048817f348ac75">Stop</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a233f76f6af0cef8c5971112b6d2235d0">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">SimRunner::Run</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numSteps)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Saveguard against repeatedly firing AtStart, so bypass if numSteps == 0.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> (numSteps != 0U) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">// Prelims.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d9/da5/a00075.html#acaf0b5f9f645a7dd6420420443de5a96">Start</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> numDays = <a class="code" href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="comment">// We are AtStart: no steps have taken yet, so signal AtStart.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() == 0) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::AtStart);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="comment">// Tahe numSteps but do not go beyond numDays.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; numSteps; i++) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="comment">// This is not the last step: execute and signal Stepped.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() &lt; numDays - 1) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                <a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;TimeStep();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Stepped);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                <span class="comment">// This is the last step so execute and afterwards signal Stepped and Finished</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;GetCalendar()-&gt;GetSimulationDay() == numDays - 1) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                <a class="code" href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a>-&gt;TimeStep();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Stepped);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                <a class="code" href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">Notify</a>(Id::Finished);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                <span class="comment">// We are apparently already at the end of the numDays so nothing to do or signal.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a>.<a class="code" href="../../d9/da5/a00075.html#a4b6145f590e94467a0048817f348ac75">Stop</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">SimRunner::Run</a>() { <a class="code" href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">Run</a>(<a class="code" href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>)); }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00050_html_a4ff961d97649b68ef661d38c098baaf0"><div class="ttname"><a href="../../d5/de0/a00050.html#a4ff961d97649b68ef661d38c098baaf0">stride::SimRunner::m_sim</a></div><div class="ttdeci">std::shared_ptr&lt; Sim &gt; m_sim</div><div class="ttdoc">Simulator object. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00072">SimRunner.h:72</a></div></div>
-<div class="ttc" id="a00050_html_ae2de72162f806fe5b7008e81854bdc2d"><div class="ttname"><a href="../../d5/de0/a00050.html#ae2de72162f806fe5b7008e81854bdc2d">stride::SimRunner::m_clock</a></div><div class="ttdeci">util::Stopwatch m_clock</div><div class="ttdoc">Stopwatch for timing the computation. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00069">SimRunner.h:69</a></div></div>
-<div class="ttc" id="a00106_html"><div class="ttname"><a href="../../d7/d70/a00106.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00190_html"><div class="ttname"><a href="../../d7/d6e/a00190.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00048_html_aaca6f689398e298bf48610aa4f2126fe"><div class="ttname"><a href="../../d4/dca/a00048.html#aaca6f689398e298bf48610aa4f2126fe">stride::Sim::Create</a></div><div class="ttdeci">static std::shared_ptr&lt; Sim &gt; Create(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Create Sim initialized by the configuration in property tree and population. </div></div>
-<div class="ttc" id="a00050_html_a54fb61460204e0f78cf9619691e98abc"><div class="ttname"><a href="../../d5/de0/a00050.html#a54fb61460204e0f78cf9619691e98abc">stride::SimRunner::SimRunner</a></div><div class="ttdeci">SimRunner(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Initialization with property tree. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00033">SimRunner.cpp:33</a></div></div>
-<div class="ttc" id="a00076_html_a9496d626bbde63eb55836f0af402522c"><div class="ttname"><a href="../../db/df8/a00076.html#a9496d626bbde63eb55836f0af402522c">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify</a></div><div class="ttdeci">void Notify(const EventType &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d43/a00216_source.html#l00060">util/Subject.h:60</a></div></div>
-<div class="ttc" id="a00050_html_a1c4778adb0be5161932d107c2a84d477"><div class="ttname"><a href="../../d5/de0/a00050.html#a1c4778adb0be5161932d107c2a84d477">stride::SimRunner::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdoc">Ptree with configuration. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00070">SimRunner.h:70</a></div></div>
-<div class="ttc" id="a00208_html"><div class="ttname"><a href="../../dc/d31/a00208.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
-<div class="ttc" id="a00075_html_a4b6145f590e94467a0048817f348ac75"><div class="ttname"><a href="../../d9/da5/a00075.html#a4b6145f590e94467a0048817f348ac75">stride::util::Stopwatch::Stop</a></div><div class="ttdeci">Stopwatch &amp; Stop()</div><div class="ttdoc">Stops the stopwatch if it was running. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc1/a00212_source.html#l00059">Stopwatch.h:59</a></div></div>
-<div class="ttc" id="a00204_html"><div class="ttname"><a href="../../d1/d72/a00204.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00075_html_acaf0b5f9f645a7dd6420420443de5a96"><div class="ttname"><a href="../../d9/da5/a00075.html#acaf0b5f9f645a7dd6420420443de5a96">stride::util::Stopwatch::Start</a></div><div class="ttdeci">Stopwatch &amp; Start()</div><div class="ttdoc">Starts stopwatch if it was stopped. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dc1/a00212_source.html#l00049">Stopwatch.h:49</a></div></div>
-<div class="ttc" id="a00050_html_a81720a1766d513eb248cb443d948567f"><div class="ttname"><a href="../../d5/de0/a00050.html#a81720a1766d513eb248cb443d948567f">stride::SimRunner::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run simulator for as many steps/days as indicated in config. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00081">SimRunner.cpp:81</a></div></div>
-<div class="ttc" id="a00050_html_a78babbce6074c1f0d612c67febfb388e"><div class="ttname"><a href="../../d5/de0/a00050.html#a78babbce6074c1f0d612c67febfb388e">stride::SimRunner::m_output_prefix</a></div><div class="ttdeci">std::string m_output_prefix</div><div class="ttdoc">Prefix for output data files. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d31/a00208_source.html#l00071">SimRunner.h:71</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#ae33774027798262390fbf95fbabc3f82">   36</a></span>&#160;<span class="keyword">inline</span> T <a class="code" href="../../d4/d04/a00255.html#ae33774027798262390fbf95fbabc3f82">FromString</a>(<span class="keyword">const</span> std::string&amp; s)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::stringstream ss(s);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        T                 t;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        ss &gt;&gt; t;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a600b27c06281da416f50a129c50b19f2">   45</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d4/d04/a00255.html#a600b27c06281da416f50a129c50b19f2">Split</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> std::string&amp; delimiters)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::vector&lt;std::string&gt; tokens;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        boost::algorithm::split(tokens, str, boost::is_any_of(delimiters));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> tokens;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a919ad6efcd17eb2bda30b1c6e044bc3c">   54</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d4/d04/a00255.html#a919ad6efcd17eb2bda30b1c6e044bc3c">Tokenize</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> std::string&amp; delimiters)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::vector&lt;std::string&gt; tokens;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Skip delimiters at beginning.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::string::size_type lastPos = str.find_first_not_of(delimiters, 0);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Find first non-delimiter.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::string::size_type pos = str.find_first_of(delimiters, lastPos);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">while</span> (std::string::npos != pos || std::string::npos != lastPos) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">// Found a token, add it to the vector.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                tokens.push_back(str.substr(lastPos, pos - lastPos));</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="comment">// Skip delimiters.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                lastPos = str.find_first_not_of(delimiters, pos);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="comment">// Find next non-delimiter.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                pos = str.find_first_of(delimiters, lastPos);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> tokens;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">   77</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(<span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::stringstream ss;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        ss &lt;&lt; value;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a78bfb92201f2007d9068aedde33460e3">   85</a></span>&#160;<span class="keyword">inline</span> std::string ToString&lt;std::string&gt;(<span class="keyword">const</span> std::string&amp; value)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a9694bd388159d8b8ddb0356cd1f0453c">   92</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">typename</span> std::enable_if&lt;!std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::vector&lt;std::string&gt; v;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span> (It it = first; it &lt; last; ++it) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                v.emplace_back(<a class="code" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(*it));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a0be3b48676adcc37f61a120fc862b4b1">  104</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">typename</span> std::enable_if&lt;std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::vector&lt;std::string&gt; v;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::copy(first, last, back_inserter(v));</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#adb4ae75f64a04f4acd0c562fe2b8add0">  114</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(<span class="keyword">const</span> T&amp; value, <span class="keywordtype">int</span> width, <span class="keywordtype">char</span> fill = <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        std::stringstream ss;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        ss &lt;&lt; std::setw(width) &lt;&lt; std::setfill(fill) &lt;&lt; value;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">  122</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(<span class="keyword">const</span> std::string&amp; source)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">auto</span>        lower = [](<span class="keywordtype">int</span> c) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> std::tolower(c); };</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        std::string copy;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        std::transform(source.begin(), source.end(), std::back_inserter(copy), lower);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> copy;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#aeb06057f363c4ad2c5ac5eae719d392f">  131</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#aeb06057f363c4ad2c5ac5eae719d392f">ToUpper</a>(<span class="keyword">const</span> std::string&amp; source)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keyword">auto</span>        upper = [](<span class="keywordtype">int</span> c) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> std::toupper(c); };</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        std::string copy;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        std::transform(source.begin(), source.end(), std::back_inserter(copy), upper);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> copy;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a9fa614ccd671679a0e1feff6e0f6da33">  140</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#a9fa614ccd671679a0e1feff6e0f6da33">TrimRight</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        std::string str = source;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">return</span> str.erase(str.find_last_not_of(t) + 1);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a2c5aacbb4d606af3e43a96e8aad692cf">  147</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#a2c5aacbb4d606af3e43a96e8aad692cf">TrimLeft</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        std::string str = source;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> str.erase(0, source.find_first_not_of(t));</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a01882a252a5e262d442f9a8b8f64e3ef">  154</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="../../d4/d04/a00255.html#a01882a252a5e262d442f9a8b8f64e3ef">Trim</a>(<span class="keyword">const</span> std::string&amp; source, <span class="keyword">const</span> std::string&amp; t = <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../d4/d04/a00255.html#a2c5aacbb4d606af3e43a96e8aad692cf">TrimLeft</a>(<a class="code" href="../../d4/d04/a00255.html#a9fa614ccd671679a0e1feff6e0f6da33">TrimRight</a>(source, t), t);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00255_html_a2c5aacbb4d606af3e43a96e8aad692cf"><div class="ttname"><a href="../../d4/d04/a00255.html#a2c5aacbb4d606af3e43a96e8aad692cf">stride::util::TrimLeft</a></div><div class="ttdeci">std::string TrimLeft(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at left end of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00147">StringUtils.h:147</a></div></div>
+<div class="ttc" id="a00255_html_a600b27c06281da416f50a129c50b19f2"><div class="ttname"><a href="../../d4/d04/a00255.html#a600b27c06281da416f50a129c50b19f2">stride::util::Split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Split(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Split a string (in order of occurence) by splitting it on the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00045">StringUtils.h:45</a></div></div>
+<div class="ttc" id="a00255_html_aeb06057f363c4ad2c5ac5eae719d392f"><div class="ttname"><a href="../../d4/d04/a00255.html#aeb06057f363c4ad2c5ac5eae719d392f">stride::util::ToUpper</a></div><div class="ttdeci">std::string ToUpper(const std::string &amp;source)</div><div class="ttdoc">Builds a string with upper case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00131">StringUtils.h:131</a></div></div>
+<div class="ttc" id="a00255_html_a919ad6efcd17eb2bda30b1c6e044bc3c"><div class="ttname"><a href="../../d4/d04/a00255.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a></div><div class="ttdeci">std::vector&lt; std::string &gt; Tokenize(const std::string &amp;str, const std::string &amp;delimiters)</div><div class="ttdoc">Tokenize a string (in order of occurence) with the given delimiters. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00054">StringUtils.h:54</a></div></div>
+<div class="ttc" id="a00255_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d4/d04/a00255.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00077">StringUtils.h:77</a></div></div>
+<div class="ttc" id="a00255_html_a9fa614ccd671679a0e1feff6e0f6da33"><div class="ttname"><a href="../../d4/d04/a00255.html#a9fa614ccd671679a0e1feff6e0f6da33">stride::util::TrimRight</a></div><div class="ttdeci">std::string TrimRight(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at right end of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00140">StringUtils.h:140</a></div></div>
+<div class="ttc" id="a00255_html_ae33774027798262390fbf95fbabc3f82"><div class="ttname"><a href="../../d4/d04/a00255.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a></div><div class="ttdeci">T FromString(const std::string &amp;s)</div><div class="ttdoc">Builds a value of type T representation from a string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00036">StringUtils.h:36</a></div></div>
+<div class="ttc" id="a00255_html_aa45ab4a5a30f65dcd1bf25c3d095825b"><div class="ttname"><a href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a></div><div class="ttdeci">std::string ToLower(const std::string &amp;source)</div><div class="ttdoc">Builds a string with lower case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00122">StringUtils.h:122</a></div></div>
+<div class="ttc" id="a00255_html_a01882a252a5e262d442f9a8b8f64e3ef"><div class="ttname"><a href="../../d4/d04/a00255.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</div><div class="ttdoc">Trim characters at both ends of string. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00154">StringUtils.h:154</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../de/dd2/a00207.html">SimRunner.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/dd2/a00207.html">StringUtils.h</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: CliViewer.cpp File Reference</title>
+<title>Stride Reference Manual: ConfigInfo.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,51 +103,95 @@ $(document).ready(function(){initNavTree('dd/d42/a00109.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">CliViewer.cpp File Reference</div>  </div>
+<div class="title">ConfigInfo.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of Observer for SimEvents for commandline interface usage.  
+<p>Info on configuration.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d81/a00110_source.html">CliViewer.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/d70/a00106_source.html">calendar/Calendar.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d1/d72/a00204_source.html">sim/Sim.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../dc/d31/a00208_source.html">sim/SimRunner.h</a>&quot;</code><br/>
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br/>
-<code>#include &lt;sstream&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d81/a00110_source.html">ConfigInfo.h</a>&quot;</code><br/>
+<code>#include &lt;omp.h&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;unistd.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CliViewer.cpp:</div>
+Include dependency graph for ConfigInfo.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d61/a00302.gif" border="0" usemap="#CliViewer_8cpp" alt=""/></div>
-<map name="CliViewer_8cpp" id="CliViewer_8cpp">
-<area shape="rect" id="node2" href="../../d4/d81/a00110.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="535,179,624,205"/><area shape="rect" id="node3" href="../../dc/d31/a00208.html" title="Header for the SimRunner class. " alt="" coords="640,261,763,288"/><area shape="rect" id="node12" href="../../d7/d70/a00106.html" title="Header file for the Calendar class. " alt="" coords="1260,261,1399,288"/><area shape="rect" id="node17" href="../../d7/d6e/a00190.html" title="Header file for the core Population class. " alt="" coords="1526,88,1644,115"/><area shape="rect" id="node40" href="../../d1/d72/a00204.html" title="Header for the Simulator class. " alt="" coords="581,88,661,115"/><area shape="rect" id="node4" href="../../d9/d7d/a00150.html" title="Definition of EventId. " alt="" coords="705,427,809,453"/><area shape="rect" id="node7" href="../../d3/dd5/a00215.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="795,344,933,371"/><area shape="rect" id="node8" href="../../dd/dc1/a00212.html" title="Definition of Stopwatch. " alt="" coords="547,427,663,453"/><area shape="rect" id="node18" href="../../d8/dfa/a00121.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1991,179,2147,205"/><area shape="rect" id="node27" href="../../d7/d25/a00182.html" title="Header file for the Person class. " alt="" coords="1811,179,1909,205"/><area shape="rect" id="node29" href="../../d9/d77/a00095.html" title="Interface/Implementation of Any. " alt="" coords="1159,261,1235,288"/><area shape="rect" id="node32" href="../../db/d53/a00202.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2354,261,2512,288"/><area shape="rect" id="node19" href="../../d4/d98/a00120.html" title="Header for the core ContactPool class. " alt="" coords="1943,344,2076,371"/><area shape="rect" id="node21" href="../../de/d36/a00123.html" title="Definition of ContactPoolType. " alt="" coords="1727,427,1889,453"/><area shape="rect" id="node24" href="../../d7/d9a/a00152.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1930,261,2088,288"/><area shape="rect" id="node20" href="../../d8/d87/a00118.html" title="Header for the ContactLogMode class. " alt="" coords="93,427,272,453"/><area shape="rect" id="node28" href="../../da/ddb/a00145.html" title="Header for the Health class. " alt="" coords="1735,261,1855,288"/><area shape="rect" id="node33" href="../../dc/d28/a00223.html" title="Interface/Implementation for SVIterator. " alt="" coords="2613,344,2704,371"/><area shape="rect" id="node41" href="../../dc/d54/a00094.html" title="Contact profiles stored in simulator. " alt="" coords="1301,179,1493,205"/><area shape="rect" id="node43" href="../../d4/d3e/a00116.html" title="Header for the ContactHandler class. " alt="" coords="340,179,511,205"/><area shape="rect" id="node44" href="../../de/db1/a00197.html" title="Interface of RNManager. " alt="" coords="253,261,376,288"/><area shape="rect" id="node47" href="../../db/ddf/a00164.html" title="Header for the InfectorExec class. " alt="" coords="969,179,1123,205"/><area shape="rect" id="node48" href="../../da/d31/a00234.html" title="Header for the TransmissionProfile class. " alt="" coords="700,179,895,205"/><area shape="rect" id="node42" href="../../d4/d7d/a00093.html" title="Contact profile. " alt="" coords="1473,261,1660,288"/><area shape="rect" id="node45" href="../../d3/d2a/a00195.html" title="Interface of Random Engine Type. " alt="" coords="296,427,419,453"/></map>
+<div class="center"><img src="../../df/d95/a00299.gif" border="0" usemap="#ConfigInfo_8cpp" alt=""/></div>
+<map name="ConfigInfo_8cpp" id="ConfigInfo_8cpp">
+<area shape="rect" id="node2" href="../../d4/d81/a00110.html" title="Info on configuration. " alt="" coords="5,80,99,107"/></map>
 </div>
 </div>
 <p><a href="../../dd/d42/a00109_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
+<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/dcc/a00264"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dcc/a00264.html">stride::viewers</a></td></tr>
-<tr class="memdesc:d3/dcc/a00264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d5/de0/a00050.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br/></td></tr>
+<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride::util</a></td></tr>
+<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d42/a00109.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr class="separator:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9063e80f8777300c93afde6e6f4c9cea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d42/a00109.html#a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</a>(x)&#160;&#160;&#160;<a class="el" href="../../dd/d42/a00109.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)</td></tr>
+<tr class="separator:a9063e80f8777300c93afde6e6f4c9cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Observer for SimEvents for commandline interface usage. </p>
+<div class="textblock"><p>Info on configuration. </p>
 
-<p>Definition in file <a class="el" href="../../dd/d42/a00109_source.html">CliViewer.cpp</a>.</p>
-</div></div><!-- contents -->
+<p>Definition in file <a class="el" href="../../dd/d42/a00109_source.html">ConfigInfo.cpp</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a6df1d22fb5f09eccc23b9f399670cfd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STRINGIFY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/d42/a00109_source.html#l00027">27</a> of file <a class="el" href="../../dd/d42/a00109_source.html">ConfigInfo.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9063e80f8777300c93afde6e6f4c9cea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TOSTRING</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="../../dd/d42/a00109.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/d42/a00109_source.html#l00028">28</a> of file <a class="el" href="../../dd/d42/a00109_source.html">ConfigInfo.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/d42/a00109_source.html#l00033">stride::util::ConfigInfo::GitRevision()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../dd/d42/a00109.html">CliViewer.cpp</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/d42/a00109.html">ConfigInfo.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

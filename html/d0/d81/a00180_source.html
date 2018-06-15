@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Payload.h Source File</title>
+<title>Stride Reference Manual: PersonsFileViewer.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d0/d81/a00180_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Payload.h</div>  </div>
+<div class="title">PersonsFileViewer.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/d81/a00180.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,51 +122,50 @@ $(document).ready(function(){initNavTree('d0/d81/a00180_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/db2/a00151.html">Id.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d2d/a00229.html">TestResult.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>event {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../de/d21/a00006.html">Payload</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">   37</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">Payload</a>(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>) : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">   40</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">Payload</a>(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, <a class="code" href="../../d0/d1f/a00247.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> testResult = <a class="code" href="../../d0/d1f/a00247.html#a57199109a783f4e5805d20fe31019b29">TestResult</a>())</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(std::move(testResult)){};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">   44</a></span>&#160;        <a class="code" href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">Payload</a>(<a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a> <span class="keywordtype">id</span>, std::string testName, std::string msg)</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">   45</a></span>&#160;            : <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>(id), <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>(std::move(testName)), <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>(std::move(msg)), <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>(){};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">Id</a>                  <a class="code" href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">m_id</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">   48</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">m_test_name</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">   49</a></span>&#160;        std::string         <a class="code" href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">m_msg</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">   50</a></span>&#160;        <a class="code" href="../../d0/d1f/a00247.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a> <a class="code" href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">m_run_times</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;} <span class="comment">// namespace event</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00006_html_abdc5cdaa28a70d011d70d818c0fdd816"><div class="ttname"><a href="../../de/d21/a00006.html#abdc5cdaa28a70d011d70d818c0fdd816">myhayai::event::Payload::m_msg</a></div><div class="ttdeci">std::string m_msg</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00049">Payload.h:49</a></div></div>
-<div class="ttc" id="a00006_html_ae75ee4688a69ec6d9fd54c7df4e14b3b"><div class="ttname"><a href="../../de/d21/a00006.html#ae75ee4688a69ec6d9fd54c7df4e14b3b">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, myhayai::TestResult testResult=TestResult())</div><div class="ttdoc">Provide event id, name and possibly results (executed and disabled tests). </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00040">Payload.h:40</a></div></div>
-<div class="ttc" id="a00006_html_a5173609926327fea6ec1a8f6e48ebc37"><div class="ttname"><a href="../../de/d21/a00006.html#a5173609926327fea6ec1a8f6e48ebc37">myhayai::event::Payload::m_id</a></div><div class="ttdeci">Id m_id</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00045">Payload.h:45</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00006_html_a43788ef87b7096720a07819ee286eeff"><div class="ttname"><a href="../../de/d21/a00006.html#a43788ef87b7096720a07819ee286eeff">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id, std::string testName, std::string msg)</div><div class="ttdoc">Provide event id, name and message (aborted tests) </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00044">Payload.h:44</a></div></div>
-<div class="ttc" id="a00229_html"><div class="ttname"><a href="../../dd/d2d/a00229.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
-<div class="ttc" id="a00249_html_aa186a4b82f295d28f9c382967d2765f5"><div class="ttname"><a href="../../de/dbc/a00249.html#aa186a4b82f295d28f9c382967d2765f5">myhayai::event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/db2/a00151_source.html#l00029">Id.hpp:29</a></div></div>
-<div class="ttc" id="a00006_html_a1cc0d980c9a83a4ec5765a9f53b96313"><div class="ttname"><a href="../../de/d21/a00006.html#a1cc0d980c9a83a4ec5765a9f53b96313">myhayai::event::Payload::m_test_name</a></div><div class="ttdeci">std::string m_test_name</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00048">Payload.h:48</a></div></div>
-<div class="ttc" id="a00006_html_a45c0ccf1352f9c443b34ed1b3c972c5d"><div class="ttname"><a href="../../de/d21/a00006.html#a45c0ccf1352f9c443b34ed1b3c972c5d">myhayai::event::Payload::m_run_times</a></div><div class="ttdeci">myhayai::TestResult m_run_times</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00050">Payload.h:50</a></div></div>
-<div class="ttc" id="a00006_html_a28c8bf22e1beb49b5136caf90a6569cf"><div class="ttname"><a href="../../de/d21/a00006.html#a28c8bf22e1beb49b5136caf90a6569cf">myhayai::event::Payload::Payload</a></div><div class="ttdeci">Payload(Id id)</div><div class="ttdoc">Only provide event id (a.o. begin and end of benchmarking). </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00037">Payload.h:37</a></div></div>
-<div class="ttc" id="a00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
-<div class="ttc" id="a00247_html_a57199109a783f4e5805d20fe31019b29"><div class="ttname"><a href="../../d0/d1f/a00247.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a></div><div class="ttdeci">std::vector&lt; std::chrono::steady_clock::duration &gt; TestResult</div><div class="ttdoc">Test result descriptor. All durations are expressed in nanoseconds. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d2d/a00229_source.html#l00030">TestResult.h:30</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d90/a00178.html">output/PersonsFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00202.html">sim/SimRunner.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/da7/a00144.html">sim/event/Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>viewers {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d1f/a00083.html">PersonsFileViewer</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#a3a0f69649baabe6b4403195283d860bb">   37</a></span>&#160;        <a class="code" href="../../d2/d1f/a00083.html#a3a0f69649baabe6b4403195283d860bb">PersonsFileViewer</a>(std::shared_ptr&lt;SimRunner&gt; runner, <span class="keyword">const</span> std::string&amp; output_prefix)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            : <a class="code" href="../../d2/d1f/a00083.html#ab49193f33a4ddf52253f1f8cda7d8605">m_persons_file</a>(output_prefix), <a class="code" href="../../d2/d1f/a00083.html#a26e40cde6a79993c1d2a2e779fa48751">m_runner</a>(std::move(runner))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d2/d1f/a00083.html#ae2840bec7fc5f76db6e79130b61fff19">Update</a>(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#ab49193f33a4ddf52253f1f8cda7d8605">   46</a></span>&#160;        <a class="code" href="../../d6/d42/a00043.html">output::PersonsFile</a>        <a class="code" href="../../d2/d1f/a00083.html#ab49193f33a4ddf52253f1f8cda7d8605">m_persons_file</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d2/d1f/a00083.html#a26e40cde6a79993c1d2a2e779fa48751">   47</a></span>&#160;        std::shared_ptr&lt;SimRunner&gt; <a class="code" href="../../d2/d1f/a00083.html#a26e40cde6a79993c1d2a2e779fa48751">m_runner</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace viewers</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00144_html"><div class="ttname"><a href="../../d5/da7/a00144.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00083_html_ab49193f33a4ddf52253f1f8cda7d8605"><div class="ttname"><a href="../../d2/d1f/a00083.html#ab49193f33a4ddf52253f1f8cda7d8605">stride::viewers::PersonsFileViewer::m_persons_file</a></div><div class="ttdeci">output::PersonsFile m_persons_file</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00046">PersonsFileViewer.h:46</a></div></div>
+<div class="ttc" id="a00083_html_a26e40cde6a79993c1d2a2e779fa48751"><div class="ttname"><a href="../../d2/d1f/a00083.html#a26e40cde6a79993c1d2a2e779fa48751">stride::viewers::PersonsFileViewer::m_runner</a></div><div class="ttdeci">std::shared_ptr&lt; SimRunner &gt; m_runner</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00047">PersonsFileViewer.h:47</a></div></div>
+<div class="ttc" id="a00043_html"><div class="ttname"><a href="../../d6/d42/a00043.html">stride::output::PersonsFile</a></div><div class="ttdoc">Produces a file with daily cases count. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d90/a00178_source.html#l00035">PersonsFile.h:35</a></div></div>
+<div class="ttc" id="a00083_html_ae2840bec7fc5f76db6e79130b61fff19"><div class="ttname"><a href="../../d2/d1f/a00083.html#ae2840bec7fc5f76db6e79130b61fff19">stride::viewers::PersonsFileViewer::Update</a></div><div class="ttdeci">void Update(sim_event::Id id)</div><div class="ttdoc">Let viewer perform update. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dd9/a00179_source.html#l00031">PersonsFileViewer.cpp:31</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/a00144_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00083_html"><div class="ttname"><a href="../../d2/d1f/a00083.html">stride::viewers::PersonsFileViewer</a></div><div class="ttdoc">Viewer of Simulator for cases output. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00033">PersonsFileViewer.h:33</a></div></div>
+<div class="ttc" id="a00178_html"><div class="ttname"><a href="../../d9/d90/a00178.html">PersonsFile.h</a></div><div class="ttdoc">Header for the PersonFile class. </div></div>
+<div class="ttc" id="a00083_html_a3a0f69649baabe6b4403195283d860bb"><div class="ttname"><a href="../../d2/d1f/a00083.html#a3a0f69649baabe6b4403195283d860bb">stride::viewers::PersonsFileViewer::PersonsFileViewer</a></div><div class="ttdeci">PersonsFileViewer(std::shared_ptr&lt; SimRunner &gt; runner, const std::string &amp;output_prefix)</div><div class="ttdoc">Instantiate cases viewer. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d81/a00180_source.html#l00037">PersonsFileViewer.h:37</a></div></div>
+<div class="ttc" id="a00202_html"><div class="ttname"><a href="../../db/d53/a00202.html">SimRunner.h</a></div><div class="ttdoc">Header for the SimRunner class. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d0/d81/a00180.html">Payload.h</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d0/d81/a00180.html">PersonsFileViewer.h</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

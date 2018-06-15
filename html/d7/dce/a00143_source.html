@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: HBM.h Source File</title>
+<title>Stride Reference Manual: Id.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
+   &#160;<span id="projectnumber">- generated for commit 40b6974</span>
    </div>
   </td>
  </tr>
@@ -103,86 +103,82 @@ $(document).ready(function(){initNavTree('d7/dce/a00143_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">HBM.h</div>  </div>
+<div class="title">sim/event/Id.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d7/dce/a00143.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/df8/a00096.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_0              = -1;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_severity       = 0.626;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_susceptibility = 1.07;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_benefit        = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;constexpr <span class="keywordtype">double</span> odds_ratio_barriers       = -0.4;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <span class="comment">// namespace</span></div>
+<a href="../../d7/dce/a00143.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/da7/a00144.html">Id.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html">   27</a></span>&#160;<span class="keyword">namespace </span>sim_event {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> boost::to_upper;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// p(behaviour) = OR0 * (OR1^x1 * OR2^x2 * OR3^x3 * OR4^x4)/ (1 + OR0 * (prod ORi^xi))</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">   36</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>  = 0U,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a> = 1U</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html#a43c0310b3eef6024b540ffaa5c4c39b2">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d7/d03/a00254.html#a43c0310b3eef6024b540ffaa5c4c39b2">IsType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;ATSTART&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">Id::AtStart</a>), make_pair(<span class="stringliteral">&quot;STEPPED&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Id::Stepped</a>),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                   make_pair(<span class="stringliteral">&quot;FINISHED&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Id::Finished</a>), make_pair(<span class="stringliteral">&quot;SETUPBEGIN&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">Id::SetupBegin</a>),</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SETUPEND&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">Id::SetupEnd</a>)};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        to_upper(t);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d3c/a00028.html">HBM</a> : <span class="keyword">public</span> <a class="code" href="../../d2/de7/a00014.html">Belief</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html#aaa54357f0c5b3af4e7905ed503167ede">   42</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d7/d03/a00254.html#aaa54357f0c5b3af4e7905ed503167ede">ToString</a>(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> c)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">   45</a></span>&#160;        <a class="code" href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">HBM</a>()</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            : <a class="code" href="../../d2/de7/a00014.html">Belief</a>(), <a class="code" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">m_num_contacts</a>(0), <a class="code" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">m_num_contacts_infected</a>(0), <a class="code" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">m_num_contacts_adopted</a>(0),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;              <a class="code" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">m_perceived_severity</a>(<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>), <a class="code" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">m_perceived_susceptibility</a>(<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;              <a class="code" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">m_perceived_benefit</a>(<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a>), <a class="code" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">m_perceived_barriers</a>(<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a>::<a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">High</a>)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">   53</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">m_num_contacts</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">   54</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">m_num_contacts_infected</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">   55</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>  <a class="code" href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">m_num_contacts_adopted</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">   56</a></span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">m_perceived_severity</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">   57</a></span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">m_perceived_susceptibility</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">   58</a></span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">m_perceived_benefit</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">   59</a></span>&#160;        <a class="code" href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">VariableState</a> <a class="code" href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">m_perceived_barriers</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> map&lt;Id, string&gt; names{make_pair(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">Id::AtStart</a>, <span class="stringliteral">&quot;atstart&quot;</span>), make_pair(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Id::Stepped</a>, <span class="stringliteral">&quot;stepped&quot;</span>),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                     make_pair(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Id::Finished</a>, <span class="stringliteral">&quot;finished&quot;</span>), make_pair(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">Id::SetupBegin</a>, <span class="stringliteral">&quot;setupbegin&quot;</span>),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                     make_pair(<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">Id::SetupEnd</a>, <span class="stringliteral">&quot;setupend&quot;</span>)};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> (names.count(c) == 1) ? names[c] : <span class="stringliteral">&quot;null&quot;</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d7/d03/a00254.html#ac81b85da174b73232cac26f53bd6d3a0">   50</a></span>&#160;<a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> <a class="code" href="../../d7/d03/a00254.html#ac81b85da174b73232cac26f53bd6d3a0">ToType</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; ids{make_pair(<span class="stringliteral">&quot;ATSTART&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">Id::AtStart</a>), make_pair(<span class="stringliteral">&quot;STEPPED&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Id::Stepped</a>),</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                   make_pair(<span class="stringliteral">&quot;FINISHED&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Id::Finished</a>), make_pair(<span class="stringliteral">&quot;SETUPBEGIN&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">Id::SetupBegin</a>),</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                   make_pair(<span class="stringliteral">&quot;SETUPEND&quot;</span>, <a class="code" href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">Id::SetupEnd</a>)};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">string</span>                 t{s};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        to_upper(t);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> (ids.count(t) == 1) ? ids[t] : <span class="keywordflow">throw</span> runtime_error(<span class="stringliteral">&quot;EventId::ToString&gt; not available:&quot;</span> + t);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace sim_event</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00028_html_a9b2585958b898ee28d539f6a97304ad6"><div class="ttname"><a href="../../dc/d3c/a00028.html#a9b2585958b898ee28d539f6a97304ad6">stride::HBM::m_perceived_barriers</a></div><div class="ttdeci">VariableState m_perceived_barriers</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00059">HBM.h:59</a></div></div>
-<div class="ttc" id="a00028_html_a7585ba2adebbb683d257f4fabbd2f3b1"><div class="ttname"><a href="../../dc/d3c/a00028.html#a7585ba2adebbb683d257f4fabbd2f3b1">stride::HBM::HBM</a></div><div class="ttdeci">HBM()</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00045">HBM.h:45</a></div></div>
-<div class="ttc" id="a00255_html_a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35"><div class="ttname"><a href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a655d20c1ca69519ca647684edbb2db35">stride::VariableState::High</a></div></div>
-<div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
-<div class="ttc" id="a00028_html_a3a5d4864f02e70e780fb427763d50aa3"><div class="ttname"><a href="../../dc/d3c/a00028.html#a3a5d4864f02e70e780fb427763d50aa3">stride::HBM::m_num_contacts</a></div><div class="ttdeci">unsigned int m_num_contacts</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00053">HBM.h:53</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00027">Belief.h:27</a></div></div>
-<div class="ttc" id="a00028_html_a2acbb360276a70f7f774e3be6826a7f9"><div class="ttname"><a href="../../dc/d3c/a00028.html#a2acbb360276a70f7f774e3be6826a7f9">stride::HBM::m_perceived_severity</a></div><div class="ttdeci">VariableState m_perceived_severity</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00056">HBM.h:56</a></div></div>
-<div class="ttc" id="a00255_html_a9d01e8d18496c1065ce04a29ec8b3470"><div class="ttname"><a href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470">stride::VariableState</a></div><div class="ttdeci">VariableState</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00036">HBM.h:36</a></div></div>
-<div class="ttc" id="a00028_html_a9eea259a8ceafe84d5ee819c620107c7"><div class="ttname"><a href="../../dc/d3c/a00028.html#a9eea259a8ceafe84d5ee819c620107c7">stride::HBM::m_num_contacts_adopted</a></div><div class="ttdeci">unsigned int m_num_contacts_adopted</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00055">HBM.h:55</a></div></div>
-<div class="ttc" id="a00028_html"><div class="ttname"><a href="../../dc/d3c/a00028.html">stride::HBM</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00042">HBM.h:42</a></div></div>
-<div class="ttc" id="a00028_html_aca9896e5cfbd7c13086b35a45f571644"><div class="ttname"><a href="../../dc/d3c/a00028.html#aca9896e5cfbd7c13086b35a45f571644">stride::HBM::m_perceived_benefit</a></div><div class="ttdeci">VariableState m_perceived_benefit</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00058">HBM.h:58</a></div></div>
-<div class="ttc" id="a00028_html_a3c3349b5d5d1003e875fb31016ee6578"><div class="ttname"><a href="../../dc/d3c/a00028.html#a3c3349b5d5d1003e875fb31016ee6578">stride::HBM::m_num_contacts_infected</a></div><div class="ttdeci">unsigned int m_num_contacts_infected</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00054">HBM.h:54</a></div></div>
-<div class="ttc" id="a00028_html_a123b1b98d61ec00ee6052531d61a696c"><div class="ttname"><a href="../../dc/d3c/a00028.html#a123b1b98d61ec00ee6052531d61a696c">stride::HBM::m_perceived_susceptibility</a></div><div class="ttdeci">VariableState m_perceived_susceptibility</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00057">HBM.h:57</a></div></div>
-<div class="ttc" id="a00255_html_a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef"><div class="ttname"><a href="../../d4/d04/a00255.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef">stride::VariableState::Low</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">stride::sim_event::Id::Stepped</a></div></div>
+<div class="ttc" id="a00144_html"><div class="ttname"><a href="../../d5/da7/a00144.html">Id.h</a></div><div class="ttdoc">Definition of EventId. </div></div>
+<div class="ttc" id="a00254_html_a43c0310b3eef6024b540ffaa5c4c39b2"><div class="ttname"><a href="../../d7/d03/a00254.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00032">sim/event/Id.cpp:32</a></div></div>
+<div class="ttc" id="a00254_html_ac81b85da174b73232cac26f53bd6d3a0"><div class="ttname"><a href="../../d7/d03/a00254.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00050">sim/event/Id.cpp:50</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">stride::sim_event::Id::SetupEnd</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">stride::sim_event::Id::SetupBegin</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the event. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/da7/a00144_source.html#l00029">Id.h:29</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">stride::sim_event::Id::Finished</a></div></div>
+<div class="ttc" id="a00254_html_ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe"><div class="ttname"><a href="../../d7/d03/a00254.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">stride::sim_event::Id::AtStart</a></div></div>
+<div class="ttc" id="a00254_html_aaa54357f0c5b3af4e7905ed503167ede"><div class="ttname"><a href="../../d7/d03/a00254.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/dce/a00143_source.html#l00042">sim/event/Id.cpp:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d7/dce/a00143.html">HBM.h</a></li>
-    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d7/dce/a00143.html">Id.cpp</a></li>
+    <li class="footer">Generated on Fri Jun 15 2018 16:04:21 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
