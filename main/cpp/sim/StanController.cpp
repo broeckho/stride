@@ -26,8 +26,6 @@
 #include "util/CSV.h"
 #include "util/ConfigInfo.h"
 #include "util/FileSys.h"
-#include "util/GnuPlot.h"
-#include "util/GnuPlotCSV.h"
 #include "util/StringUtils.h"
 #include "viewers/InfectedViewer.h"
 

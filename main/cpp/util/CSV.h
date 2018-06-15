@@ -96,7 +96,7 @@ public:
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
-        virtual void Write(const boost::filesystem::path& path) const;
+        void Write(const boost::filesystem::path& path) const;
 
 private:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
@@ -105,14 +105,13 @@ private:
         /// Read data from input stream.
         void ReadFromStream(std::istream& inputStream);
 
-protected:
         /// Write header with labels.
-        virtual void WriteLabels(boost::filesystem::ofstream& file) const;
+        void WriteLabels(boost::filesystem::ofstream& file) const;
 
         /// Write the body of rows.
-        virtual void WriteRows(boost::filesystem::ofstream& file) const;
+        void WriteRows(boost::filesystem::ofstream& file) const;
 
-protected:
+private:
         std::vector<std::string> m_labels;
         size_t                   m_column_count = 0;
 };

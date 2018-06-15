@@ -84,8 +84,6 @@ set(LIB_SRC
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
-	util/GnuPlotCSV.cpp
-    util/GnuPlot.cpp
 	util/is_iterator.h
 	util/LogUtils.cpp
 	util/PtreeUtils.h
