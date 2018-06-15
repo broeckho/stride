@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
+   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
    </div>
   </td>
  </tr>
@@ -162,8 +162,8 @@ $(document).ready(function(){initNavTree('da/de7/a00210_source.html','../../');}
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Seeds for the stochastic analysis.</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>    stanCount = <a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">size_t</span>&gt;(<span class="stringliteral">&quot;run.stan_count&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        random_device rd;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>                              stanCount = <a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">size_t</span>&gt;(<span class="stringliteral">&quot;run.stan_count&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        random_device                           rd;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        vector&lt;std::random_device::result_type&gt; seeds;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; stanCount; i++) {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                seeds.emplace_back(rd());</div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('da/de7/a00210_source.html','../../');}
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="comment">// Output to file.</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// -----------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> numDays = <a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_days&quot;</span>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../d7/df7/a00058.html">CSV</a> csv(seeds.begin(), seeds.end());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="../../d7/df7/a00058.html">CSV</a>        csv(seeds.begin(), seeds.end());</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0U; i &lt; numDays + 1; ++i) {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                vector&lt;unsigned int&gt; v;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; res : results) {</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('da/de7/a00210_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../da/de7/a00210.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
+   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
    </div>
   </td>
  </tr>
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('d1/de1/a00213_source.html','../../');}
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../dc/d6a/a00261.html#a9694bd388159d8b8ddb0356cd1f0453c">   92</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../dc/d6a/a00261.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">typename</span> std::enable_if&lt;!std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">typename</span> std::enable_if&lt;!std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        std::vector&lt;std::string&gt; v;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span> (It it = first; it &lt; last; ++it) {</div>
@@ -198,7 +198,7 @@ $(document).ready(function(){initNavTree('d1/de1/a00213_source.html','../../');}
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
 <div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../dc/d6a/a00261.html#a0be3b48676adcc37f61a120fc862b4b1">  104</a></span>&#160;<span class="keyword">inline</span> std::vector&lt;std::string&gt; <a class="code" href="../../dc/d6a/a00261.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keyword">typename</span> std::enable_if&lt;std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">typename</span> std::enable_if&lt;std::is_same&lt;typename It::value_type, std::string&gt;::value, It&gt;::type first, It last)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        std::vector&lt;std::string&gt; v;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        std::copy(first, last, back_inserter(v));</div>
@@ -263,7 +263,7 @@ $(document).ready(function(){initNavTree('d1/de1/a00213_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d1/de1/a00213.html">StringUtils.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

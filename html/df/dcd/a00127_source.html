@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 139dea5</span>
+   &#160;<span id="projectnumber">- generated for commit 9c4e6cc</span>
    </div>
   </td>
  </tr>
@@ -124,8 +124,8 @@ $(document).ready(function(){initNavTree('df/dcd/a00127_source.html','../../');}
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d47/a00129.html">CSVRow.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">util/is_iterator.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/de1/a00213.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/de1/a00213.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/de6/a00167.html">util/is_iterator.h</a>&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/operations.hpp&gt;</span></div>
@@ -150,9 +150,9 @@ $(document).ready(function(){initNavTree('df/dcd/a00127_source.html','../../');}
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; labels);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a6d4944a529c10da58327ee8351688eca">   60</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6d4944a529c10da58327ee8351688eca">CSV</a>(It labelsBegin, It labelsEnd)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                : <a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>(<a class="code" href="../../dc/d6a/a00261.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(labelsBegin, labelsEnd)), <a class="code" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a>(<a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>.size())</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            : <a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>(<a class="code" href="../../dc/d6a/a00261.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(labelsBegin, labelsEnd)), <a class="code" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a>(<a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>.size())</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('df/dcd/a00127_source.html','../../');}
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... T&gt;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>(<span class="keyword">const</span> T&amp;... values);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">   85</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">AddRow</a>(<span class="keyword">typename</span> std::enable_if&lt;<a class="code" href="../../d9/db3/a00066.html">is_iterator&lt;It&gt;::value</a>, It&gt;::type first, It last)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <a class="code" href="../../d3/d8b/a00059.html">CSVRow</a> csvRow(<span class="keyword">this</span>, <a class="code" href="../../dc/d6a/a00261.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(first, last));</div>
@@ -223,7 +223,7 @@ $(document).ready(function(){initNavTree('df/dcd/a00127_source.html','../../');}
 <div class="ttc" id="a00058_html_a6fb7f772aabba9465da13e8d2abb197a"><div class="ttname"><a href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(typename std::enable_if&lt; is_iterator&lt; It &gt;::value, It &gt;::type first, It last)</div><div class="ttdoc">Add row of values (ToString handles the case when the iterator points to strings). </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcd/a00127_source.html#l00085">CSV.h:85</a></div></div>
 <div class="ttc" id="a00129_html"><div class="ttname"><a href="../../d9/d47/a00129.html">CSVRow.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
 <div class="ttc" id="a00058_html_a893717de16de8022736a1ecc92dd694c"><div class="ttname"><a href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">stride::util::CSV::m_labels</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_labels</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dcd/a00127_source.html#l00116">CSV.h:116</a></div></div>
-<div class="ttc" id="a00066_html"><div class="ttname"><a href="../../d9/db3/a00066.html">stride::util::is_iterator</a></div><div class="ttdoc">When it &#39;s not an iterator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00040">is_iterator.h:40</a></div></div>
+<div class="ttc" id="a00066_html"><div class="ttname"><a href="../../d9/db3/a00066.html">stride::util::is_iterator</a></div><div class="ttdoc">When it &#39;s not an iterator. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/de6/a00167_source.html#l00042">is_iterator.h:42</a></div></div>
 <div class="ttc" id="a00058_html_a2f3c33a76164f6cbc6e31aab6f8b560d"><div class="ttname"><a href="../../d7/df7/a00058.html#a2f3c33a76164f6cbc6e31aab6f8b560d">stride::util::CSV::ReadFromStream</a></div><div class="ttdeci">void ReadFromStream(std::istream &amp;inputStream)</div><div class="ttdoc">Read data from input stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/a00126_source.html#l00088">CSV.cpp:88</a></div></div>
 <div class="ttc" id="a00058_html_a11a080486a81df3276cabfac0f7a2b41"><div class="ttname"><a href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">stride::util::CSV::Write</a></div><div class="ttdeci">virtual void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d12/a00126_source.html#l00111">CSV.cpp:111</a></div></div>
 <div class="ttc" id="a00213_html"><div class="ttname"><a href="../../d1/de1/a00213.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
@@ -239,7 +239,7 @@ $(document).ready(function(){initNavTree('df/dcd/a00127_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../df/dcd/a00127.html">CSV.h</a></li>
-    <li class="footer">Generated on Wed Jun 6 2018 15:53:52 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Jun 15 2018 09:14:17 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

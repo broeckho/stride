@@ -40,7 +40,8 @@ var hierarchy =
       [ "stride::util::CSV", "d7/df7/a00058.html", [
         [ "stride::util::GnuPlotCSV", "df/d5f/a00064.html", null ]
       ] ],
-      [ "stride::util::GnuPlot", "d1/d6f/a00063.html", null ]
+      [ "stride::util::GnuPlot", "d1/d6f/a00063.html", null ],
+      [ "stride::util::RnPcg", "d0/d89/a00071.html", null ]
     ] ],
     [ "stride::Belief", "d2/de7/a00014.html", [
       [ "stride::HBM", "dc/d3c/a00028.html", null ],
@@ -92,7 +93,6 @@ var hierarchy =
     [ "stride::util::LogUtils", "da/d24/a00068.html", null ],
     [ "stride::util::RNManager", "d4/d31/a00069.html", null ],
     [ "stride::util::RNManager::Info", "d2/db1/a00070.html", null ],
-    [ "stride::util::RnPcg", "d0/d89/a00071.html", null ],
     [ "stride::util::RnPcg::Info", "d6/d2c/a00072.html", null ],
     [ "stride::util::RunConfigManager", "d1/d6e/a00073.html", null ],
     [ "stride::util::SegmentedVector< T, N, Safe >", "df/d86/a00012.html", null ],
@@ -118,6 +118,7 @@ var hierarchy =
     [ "Chunk *", "d9/da5/a00493.html", null ],
     [ "const void", "db/dc4/a00495.html", null ],
     [ "double", "d1/dd4/a00267.html", null ],
+    [ "random_generator< pcg64, randutils::seed_seq_fe128 >", "d8/d57/a00498.html", null ],
     [ "size_t", "d2/d0a/a00333.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "d8/d67/a00499.html", null ]
+    [ "tuple< stride::ContactLogMode::Id, bool, std::string >", "d8/db6/a00501.html", null ]
 ];

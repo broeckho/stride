@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['generatortype',['GeneratorType',['../d0/d89/a00071.html#a542fa7ff67bbd6cdab5c7d7bfd31b9a3',1,'stride::util::RnPcg']]],
   ['get',['Get',['../d4/de8/a00061.html#a811a1d113f57785952045d9541c95db5',1,'stride::util::FileSys::Get()'],['../db/db6/a00074.html#ac63541daeed03c7731fb820005e64f06',1,'stride::util::SliceIndexer::Get(const Key &amp;s)'],['../db/db6/a00074.html#aaa3ea63497e88e0f8673cecd56de8b57',1,'stride::util::SliceIndexer::Get(const Key &amp;s) const '],['../db/db6/a00074.html#a7c0b86821b30ab6830b3846231b52b9f',1,'stride::util::SliceIndexer::Get()'],['../d9/da5/a00075.html#afe36cf7e76eb1de8cda4490fc5b41829',1,'stride::util::Stopwatch::Get()']]],
   ['get_5fblock_5fcount',['get_block_count',['../df/d86/a00012.html#a87837cab9ccde57c5179dc7f9245f9fc',1,'stride::util::SegmentedVector']]],
   ['get_5fchunk',['get_chunk',['../df/d86/a00012.html#a4f98e9e54da37bbf7c6ed0c2b40361d9',1,'stride::util::SegmentedVector']]],
@@ -24,10 +25,9 @@ var searchData=
   ['getdistribution',['GetDistribution',['../d5/d79/a00030.html#a7b240a326b204767217481b3fcc46237',1,'stride::HealthSeeder']]],
   ['getendinfectiousness',['GetEndInfectiousness',['../d5/d16/a00029.html#a8e8b3c6fe823b70820f868bb597ade73',1,'stride::Health']]],
   ['getendsymptomatic',['GetEndSymptomatic',['../d5/d16/a00029.html#aac2a22ae31603c4dbaea3f440974d0d5',1,'stride::Health']]],
-  ['getengine',['GetEngine',['../d0/d89/a00071.html#a889402461e37c2ae98c48507dd99b301',1,'stride::util::RnPcg::GetEngine(size_t i=0)'],['../d0/d89/a00071.html#abb319327d8c92787542fe06f95f90902',1,'stride::util::RnPcg::GetEngine(size_t i=0) const ']]],
   ['getexecpath',['GetExecPath',['../d4/de8/a00061.html#ad4bcf3a836909fad40dbff80ae4157c8',1,'stride::util::FileSys']]],
   ['getgender',['GetGender',['../d6/d97/a00045.html#ada6071b93ce9d5b5611a2151e14d0740',1,'stride::Person']]],
-  ['getgenerator',['GetGenerator',['../d4/d31/a00069.html#a6508932485d419a6e7ab3cac60754ae6',1,'stride::util::RNManager::GetGenerator()'],['../d0/d89/a00071.html#abc6a2975cfc4e2a85afde8a9f678253f',1,'stride::util::RnPcg::GetGenerator()']]],
+  ['getgenerator',['GetGenerator',['../d4/d31/a00069.html#a6508932485d419a6e7ab3cac60754ae6',1,'stride::util::RNManager']]],
   ['gethealth',['GetHealth',['../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2',1,'stride::Person::GetHealth()'],['../d6/d97/a00045.html#a22421b0318583235939e935361b77c90',1,'stride::Person::GetHealth() const ']]],
   ['gethostname',['GetHostname',['../d1/d22/a00057.html#a502bd4410a3e77792ea575f77f470d41',1,'stride::util::ConfigInfo']]],
   ['getid',['GetId',['../d6/d97/a00045.html#afab3ab2a1a33004f9e25d4873c3c1921',1,'stride::Person']]],
