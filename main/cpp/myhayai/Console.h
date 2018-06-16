@@ -50,7 +50,7 @@ inline std::ostream& operator<<(std::ostream& stream, const Color& color)
 {
         static bool c = false;
 
-        const char* value;
+        const char* value = "";
         switch (color) {
         case Color::EnableColor: {
                 if ((isatty(fileno(stdout)) == 1) &&
@@ -63,15 +63,15 @@ inline std::ostream& operator<<(std::ostream& stream, const Color& color)
                 c = false;
                 return stream;
         }
-        case Color::Default: value = c ? "\033[m" : ""; break;
-        case Color::Black: value = c ? "\033[0;30m" : ""; break;
-        case Color::Blue: value = c ? "\033[0;34m" : ""; break;
-        case Color::Green: value = c ? "\033[0;32m" : ""; break;
-        case Color::Cyan: value = c ? "\033[0;36m" : ""; break;
-        case Color::Red: value = c ? "\033[0;31m" : ""; break;
-        case Color::Purple: value = c ? "\033[0;35m" : ""; break;
-        case Color::Yellow: value = c ? "\033[0;33m" : ""; break;
-        case Color::White: value = c ? "\033[0;37m" : ""; break;
+        case Color::Default: value = (c ? "\033[m" : ""); break;
+        case Color::Black: value = (c ? "\033[0;30m" : ""); break;
+        case Color::Blue: value = (c ? "\033[0;34m" : ""); break;
+        case Color::Green: value = (c ? "\033[0;32m" : ""); break;
+        case Color::Cyan: value = (c ? "\033[0;36m" : ""); break;
+        case Color::Red: value = (c ? "\033[0;31m" : ""); break;
+        case Color::Purple: value = (c ? "\033[0;35m" : ""); break;
+        case Color::Yellow: value = (c ? "\033[0;33m" : ""); break;
+        case Color::White: value = (c ? "\033[0;37m" : ""); break;
         }
 
         return stream << value;
