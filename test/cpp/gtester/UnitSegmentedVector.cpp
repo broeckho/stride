@@ -110,15 +110,6 @@ public:
         }
 
         TestType& operator=(const TestType& rhs) = delete;
-                /*
-        {
-                if (&rhs != this) {
-                        m_array = rhs.m_array;
-                        m_i = rhs.m_i;
-                        m_str
-
-                }
-        } */
 
         ~TestType()
         {

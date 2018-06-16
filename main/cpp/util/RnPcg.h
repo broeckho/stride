@@ -31,7 +31,7 @@ namespace util {
 /**
  * Manages random number generation in parallel (OpenMP) calculations.
  */
-class RnPcg : protected  std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>
+class RnPcg : protected std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>
 {
 public:
         using EngineType    = pcg64;

@@ -31,8 +31,7 @@ namespace stride {
 namespace util {
 
 RnPcg::RnPcg(const Info& info)
-    : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init),
-      m_stream_count(info.m_stream_count)
+    : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init), m_stream_count(info.m_stream_count)
 {
         Seed(info);
 }
