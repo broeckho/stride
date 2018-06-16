@@ -22,12 +22,6 @@ file(GLOB DEPLOY_FILES "data/*")
 INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
 
 #============================================================================
-# Copy all files from data/* to ${DATA_INSTALL_LOCATION}
-#============================================================================
-file(GLOB DEPLOY_FILES "gnuplot/*")
-INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${BIN_INSTALL_LOCATION} )
-
-#============================================================================
 # Copy all files from config/* to ${CONFIG_INSTALL_LOCATION}
 #============================================================================
 file(GLOB DEPLOY_FILES "config/*")

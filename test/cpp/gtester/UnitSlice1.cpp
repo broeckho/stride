@@ -146,7 +146,8 @@ TYPED_TEST(UnitSliceIndex1, Content2)
 
         int sub1 = 30;
         for (auto e : rvec[2]) {
-                EXPECT_EQ(sub1++, e);
+                EXPECT_EQ(sub1, e);
+                sub1++;
         }
 
         int accum = 0;
@@ -163,7 +164,8 @@ TYPED_TEST(UnitSliceIndex1, Content2)
         auto s2   = si.Get("last_71");
         int  sub2 = 30;
         for (auto it = s2.begin(); it < s2.end(); ++it) {
-                EXPECT_EQ(sub2++, *it);
+                EXPECT_EQ(sub2, *it);
+                sub2++;
         }
 }
 
