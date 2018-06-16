@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 7deb979</span>
+   &#160;<span id="projectnumber">- generated for commit d9f0734</span>
    </div>
   </td>
  </tr>
@@ -138,40 +138,37 @@ $(document).ready(function(){initNavTree('d9/d77/a00095_source.html','../../');}
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a10e523b7ce6b4d819812b0a75f1e443b">   38</a></span>&#160;BeliefSeeder::BeliefSeeder(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../dc/ddf/a00067.html">util::RNManager</a>&amp;)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    : m_config_pt(configPt)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">BeliefSeeder::Seed</a>(std::shared_ptr&lt;stride::Population&gt; pop)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  policy     = <a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.belief_policy.name&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  num_thrds  = <a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d6/d2d/a00047.html">Population</a>&amp; population = *pop;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// This gets extended as we add belief policies.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;NoBelief&quot;</span>) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                pop-&gt;<a class="code" href="../../d6/d2d/a00047.html#a452f55c55c494f5db179d36dd7e8161b">InitBeliefPolicy</a>&lt;<a class="code" href="../../d8/d41/a00038.html">NoBelief</a>&gt;();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../d8/d41/a00038.html">NoBelief</a> nob;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../d8/d41/a00038.html">NoBelief</a>&gt;(i, nob);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;Imitation&quot;</span>) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                pop-&gt;InitBeliefPolicy&lt;<a class="code" href="../../df/d61/a00031.html">Imitation</a>&gt;();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../df/d61/a00031.html">Imitation</a> imi(<a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../df/d61/a00031.html">Imitation</a>&gt;(i, imi);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="keywordtype">string</span>(__func__) + <span class="stringliteral">&quot;Not a valid belief policy!&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a10e523b7ce6b4d819812b0a75f1e443b">   38</a></span>&#160;BeliefSeeder::BeliefSeeder(<span class="keyword">const</span> boost::property_tree::ptree&amp; configPt, <a class="code" href="../../dc/ddf/a00067.html">util::RNManager</a>&amp;) : m_config_pt(configPt) {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">   40</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">BeliefSeeder::Seed</a>(std::shared_ptr&lt;stride::Population&gt; pop)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  policy     = <a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.belief_policy.name&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>  num_thrds  = <a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>.get&lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;run.num_threads&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="../../d6/d2d/a00047.html">Population</a>&amp; population = *pop;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">// This gets extended as we add belief policies.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;NoBelief&quot;</span>) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                pop-&gt;<a class="code" href="../../d6/d2d/a00047.html#a452f55c55c494f5db179d36dd7e8161b">InitBeliefPolicy</a>&lt;<a class="code" href="../../d8/d41/a00038.html">NoBelief</a>&gt;();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../d8/d41/a00038.html">NoBelief</a> nob;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../d8/d41/a00038.html">NoBelief</a>&gt;(i, nob);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (policy == <span class="stringliteral">&quot;Imitation&quot;</span>) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                pop-&gt;InitBeliefPolicy&lt;<a class="code" href="../../df/d61/a00031.html">Imitation</a>&gt;();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">// some randomness in actual seeding; for later on</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <a class="code" href="../../df/d61/a00031.html">Imitation</a> imi(<a class="code" href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#pragma omp parallel for num_threads(num_thrds)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; population.size(); ++i) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        pop-&gt;SetBeliefPolicy&lt;<a class="code" href="../../df/d61/a00031.html">Imitation</a>&gt;(i, imi);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">throw</span> runtime_error(<span class="keywordtype">string</span>(__func__) + <span class="stringliteral">&quot;Not a valid belief policy!&quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace stride</span></div>
 <div class="ttc" id="a00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">RNManager.h</a></div><div class="ttdoc">Interface of RNManager. </div></div>
 <div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00037">Population.h:37</a></div></div>
 <div class="ttc" id="a00096_html"><div class="ttname"><a href="../../d9/df8/a00096.html">BeliefSeeder.h</a></div><div class="ttdoc">Header file for the HealthSeeder. </div></div>
@@ -180,7 +177,7 @@ $(document).ready(function(){initNavTree('d9/d77/a00095_source.html','../../');}
 <div class="ttc" id="a00038_html"><div class="ttname"><a href="../../d8/d41/a00038.html">stride::NoBelief</a></div><div class="ttdoc">No beliefs w.r.t vaccination. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d0d/a00171_source.html#l00029">NoBelief.h:29</a></div></div>
 <div class="ttc" id="a00047_html_a452f55c55c494f5db179d36dd7e8161b"><div class="ttname"><a href="../../d6/d2d/a00047.html#a452f55c55c494f5db179d36dd7e8161b">stride::Population::InitBeliefPolicy</a></div><div class="ttdeci">void InitBeliefPolicy()</div><div class="ttdoc">Initialize beliefs container (including this in SetBeliefPolicy function slows you down due to guardi...</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d94/a00184_source.html#l00073">Population.h:73</a></div></div>
 <div class="ttc" id="a00031_html"><div class="ttname"><a href="../../df/d61/a00031.html">stride::Imitation</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d4a/a00147_source.html#l00028">Imitation.h:28</a></div></div>
-<div class="ttc" id="a00015_html_a0f7876d2c8d1a4c2bc8057da26f82df5"><div class="ttname"><a href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">stride::BeliefSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with Health data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00043">BeliefSeeder.cpp:43</a></div></div>
+<div class="ttc" id="a00015_html_a0f7876d2c8d1a4c2bc8057da26f82df5"><div class="ttname"><a href="../../dd/d1b/a00015.html#a0f7876d2c8d1a4c2bc8057da26f82df5">stride::BeliefSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Seeds the population with Health data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d77/a00095_source.html#l00040">BeliefSeeder.cpp:40</a></div></div>
 <div class="ttc" id="a00015_html_ab4d508461f5bd220425e75ee6e6c443c"><div class="ttname"><a href="../../dd/d1b/a00015.html#ab4d508461f5bd220425e75ee6e6c443c">stride::BeliefSeeder::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/df8/a00096_source.html#l00047">BeliefSeeder.h:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -188,7 +185,7 @@ $(document).ready(function(){initNavTree('d9/d77/a00095_source.html','../../');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../d9/d77/a00095.html">BeliefSeeder.cpp</a></li>
-    <li class="footer">Generated on Sat Jun 16 2018 19:32:18 for Stride Reference Manual by
+    <li class="footer">Generated on Sat Jun 16 2018 20:20:37 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
