@@ -70,22 +70,29 @@ set(LIB_SRC
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
+    sim/ControlHelper.cpp
 	sim/SimRunner.cpp
     sim/Sim.cpp
     sim/SimBuilder.cpp
+	sim/StanController.cpp
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---
     util/Any.h
+	util/BoxPlotData.h
     util/ConfigInfo.cpp
     util/CSV.cpp
 	util/CSVRow.cpp
     util/FileSys.cpp
+	util/is_iterator.h
 	util/LogUtils.cpp
+	util/PtreeUtils.h
     util/RNEngineType.cpp
     util/RNManager.cpp
+	util/RnPcg.cpp
     util/RunConfigManager.cpp
     util/SegmentedVector.h
+    util/SliceIndexer.h
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h
@@ -93,11 +100,12 @@ set(LIB_SRC
     util/TimeStamp.h
     util/TimeToString.h
 #---
-	viewers/AdoptedViewer.cpp
-	viewers/InfectedViewer.cpp
+    viewers/AdoptedFileViewer.cpp
+    viewers/InfectedFileViewer.cpp
+    viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp
-    viewers/PersonsViewer.cpp
-	viewers/SummaryViewer.cpp
+    viewers/PersonsFileViewer.cpp
+    viewers/SummaryFileViewer.cpp
 )
 
 #============================================================================
@@ -113,9 +121,15 @@ set_target_properties(libstride PROPERTIES PREFIX "")
 #============================================================================
 # Build and install the stride executable.
 #============================================================================
-add_executable(stride sim/main.cpp)
+add_executable(stride execs/main.cpp)
 target_link_libraries(stride ${LIBS} libstride)
 install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
+
+
+#============================================================================
+# Build the Myhayai library.
+#============================================================================
+add_subdirectory(myhayai)
 
 #============================================================================
 # Clean up.

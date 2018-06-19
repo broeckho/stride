@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Definition of Observer for SimEvents for commandline interface usage.
+ * Observer for SimEvents for commandline interface usage.
  */
 
 #include "InfectedViewer.h"
@@ -33,18 +33,10 @@ namespace viewers {
 void InfectedViewer::Update(const sim_event::Id id)
 {
         switch (id) {
-        case Id::AtStart: {
-                const auto pop = m_runner->GetSim()->GetPopulation();
-                m_infected.push_back(pop->GetInfectedCount());
-                break;
-        }
+        case Id::AtStart:
         case Id::Stepped: {
                 const auto pop = m_runner->GetSim()->GetPopulation();
                 m_infected.push_back(pop->GetInfectedCount());
-                break;
-        }
-        case Id::Finished: {
-                m_infected_file.Print(m_infected);
                 break;
         }
         default: break;

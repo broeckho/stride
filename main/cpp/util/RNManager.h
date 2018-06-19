@@ -27,6 +27,7 @@
 #include <trng/mrg3.hpp>
 #include <trng/yarn2.hpp>
 #include <trng/yarn3.hpp>
+#include <algorithm>
 #include <functional>
 #include <string>
 #include <vector>
@@ -109,6 +110,10 @@ public:
 
         /// Initalize with data in Info.
         void Initialize(const Info& info = Info());
+
+private:
+        template <typename T>
+        void para_seed(std::vector<T>& engines, const Info& info);
 
 private:
         unsigned long    m_seed;         ///< Actual seed used with random engine.

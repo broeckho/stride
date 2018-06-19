@@ -25,6 +25,7 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+
 #include <vector>
 
 namespace stride {
@@ -40,8 +41,7 @@ inline T FromString(const std::string& s)
         return t;
 }
 
-/// Split a string (in order of occurence) by splitting it on the given
-/// delimiters.
+/// Split a string (in order of occurence) by splitting it on the given delimiters.
 inline std::vector<std::string> Split(const std::string& str, const std::string& delimiters)
 {
         std::vector<std::string> tokens;
@@ -79,6 +79,34 @@ inline std::string ToString(const T& value)
         std::stringstream ss;
         ss << value;
         return ss.str();
+}
+
+template <>
+inline std::string ToString<std::string>(const std::string& value)
+{
+        return value;
+}
+
+/// Stringify values (that are not strings) in a range and put them in a vector.
+template <typename It>
+inline std::vector<std::string> ToString(
+    typename std::enable_if<!std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
+{
+        std::vector<std::string> v;
+        for (It it = first; it < last; ++it) {
+                v.emplace_back(ToString(*it));
+        }
+        return v;
+}
+
+/// Stringify values (that are strings - so no-op) in a range and put them in a vector.
+template <typename It>
+inline std::vector<std::string> ToString(
+    typename std::enable_if<std::is_same<typename It::value_type, std::string>::value, It>::type first, It last)
+{
+        std::vector<std::string> v;
+        std::copy(first, last, back_inserter(v));
+        return v;
 }
 
 /// Builds a string representation with minimum width of a value of type T.

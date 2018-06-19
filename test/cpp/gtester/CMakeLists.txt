@@ -11,7 +11,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E, Stijven S & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E, Stijven S & Broeckhove J
 #############################################################################
 
 #============================================================================
@@ -29,14 +29,29 @@ set(SRC
     main.cpp
     BatchRuns.cpp
     ScenarioData.cpp
+    UnitCsvTest.cpp
+    UnitIsIterator.cpp
+    UnitPcg.cpp
+    UnitPtreeUtilsHelper.h
+    UnitPtreeUtils1.cpp
+    UnitPtreeUtils2.cpp
+    UnitRnMan.cpp
+    UnitSlice1.cpp
+    UnitSlice2.cpp
     UnitSegmentedVector.cpp
+    UnitSVIterator.cpp
+#---
+    myhayai/class_delivery.cpp
+    myhayai/DeliveryMan.cpp
+    myhayai/flex_delivery.cpp
+    myhayai/MyhayaiTests.cpp
 )
 if (OPENMP_FOUND)
     set(SRC ${SRC} ParallelRuns.cpp)
 endif()
 
 add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride)
+target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libmyhayai)
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================

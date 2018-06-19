@@ -60,7 +60,7 @@ public:
 
 private:
         ///
-        Population() = default;
+        Population() : m_beliefs(), m_pool_sys(), m_contact_logger() {}
 
         /// Create Person in the population.
         void CreatePerson(unsigned int id, double age, unsigned int householdId, unsigned int schoolId,

@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J
  */
 
 /**
@@ -22,10 +22,13 @@
 #include "CSVRow.h"
 
 #include "util/StringUtils.h"
+#include "util/is_iterator.h"
 
+#include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <fstream>
+#include <type_traits>
 #include <vector>
 
 namespace stride {
@@ -37,50 +40,93 @@ namespace util {
 class CSV : protected std::vector<CSVRow>
 {
 public:
+        /// Initialize from file.
+        explicit CSV(const boost::filesystem::path& path);
+
+        /// Initialize from inputstream.
+        explicit CSV(std::istream& inputStream);
+
+        /// Initialize with columnCount only; labels default to sequence numbers.
+        explicit CSV(size_t columnCount);
+
+        /// Initialize with header only.
+        CSV(const std::initializer_list<std::string>& labels);
+
+        /// Initialize with header only.
+        explicit CSV(const std::vector<std::string>& labels);
+
+        /// Initialize with header labels only.
+        template <typename It>
+        explicit CSV(It labelsBegin, It labelsEnd)
+            : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
+        {
+        }
+
+        /// Default constructor, used for swig.
+        CSV() = default;
+
+        /// Comparison operator.
+        bool operator==(const CSV& other) const;
+
+        /// iterators
         using std::vector<CSVRow>::begin;
         using std::vector<CSVRow>::end;
         using std::vector<CSVRow>::size;
 
-public:
-        /// Initialize from file. If optLabels not specied, the file is required. Otherwise initialize like second
-        /// constructor.
-        explicit CSV(const boost::filesystem::path& path, std::initializer_list<std::string> optLabels = {});
-
-        /// Initialize with header.
-        CSV(std::initializer_list<std::string> labels);
-
-        /// Default constructor. Mainly used for swig.
-        CSV() = default;
-
-        /// Compare operator.
-        bool operator==(const CSV& other) const;
-
-        /// Add row of values. Will all be converted to string with StringUtils::ToString
+        /// Add row of values.
         template <typename... T>
         void AddRow(const T&... values);
 
-        /// Add row of string values.
-        void AddRow(std::vector<std::string> values);
+        /// Add row of values (ToString handles the case when the iterator points to strings).
+        /// \tparam It      Iterator type pointing to the values.
+        /// \param first    Start of the range to be included
+        /// \param last     Past-the-end of the range.
+        template <typename It>
+        void AddRow(typename std::enable_if<is_iterator<It>::value, It>::type first, It last)
+        {
+                CSVRow csvRow(this, ToString(first, last));
+                this->push_back(csvRow);
+        }
 
-        /// Amount of columns in the CSV.
-        size_t GetColumnCount() const { return columnCount; }
+        /// Number of columns in the CSV.
+        size_t GetColumnCount() const { return m_column_count; }
 
-        /// Convert label to index for more user friendly and robuust implementation. This level of indirection does
-        /// introduce a perfomance tradeoff.
+        /// Convert label to index for more user friendly and robust implementation.
+        /// This level of indirection does introduce a perfomance tradeoff.
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
         void Write(const boost::filesystem::path& path) const;
 
-protected:
-        std::vector<std::string> labels;
-        size_t                   columnCount = 0;
+private:
+        friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
+
+private:
+        /// Read data from input stream.
+        void ReadFromStream(std::istream& inputStream);
+
+        /// Write header with labels.
+        void WriteLabels(boost::filesystem::ofstream& file) const;
+
+        /// Write the body of rows.
+        void WriteRows(boost::filesystem::ofstream& file) const;
+
+private:
+        std::vector<std::string> m_labels;
+        size_t                   m_column_count = 0;
 };
 
 template <typename... T>
 inline void CSV::AddRow(const T&... values)
 {
         AddRow({ToString(values)...});
+}
+
+inline boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv)
+{
+        csv.WriteLabels(ofs);
+        csv.WriteRows(ofs);
+        return ofs;
 }
 
 } // namespace util

@@ -153,5 +153,3 @@ def parseLogfile(simulator, event):
     p.close()
     c.close()
     t.close()
-        
-        
