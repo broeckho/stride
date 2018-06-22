@@ -8,6 +8,8 @@ var a00048 =
     [ "GetPopulation", "d4/dca/a00048.html#ae0d62bc95008a4974dd9227b5084e161", null ],
     [ "GetRNManager", "d4/dca/a00048.html#a678c64e042d050ed6bf8e1a7cc0effa7", null ],
     [ "TimeStep", "d4/dca/a00048.html#a032911d7270c91e0a6a9c55f68800096", null ],
+    [ "GetConfigValue", "d4/dca/a00048.html#afb5bcfc564e62f540ac20c9da978c941", null ],
+    [ "GetTransmissionRate", "d4/dca/a00048.html#a6f8baa80a9ee3aeabe82eb1ac3a00818", null ],
     [ "SimBuilder", "d4/dca/a00048.html#a9a439036c5f4a413765b48764c0b1741", null ],
     [ "m_config_pt", "d4/dca/a00048.html#ac0f1837c346b11b4cea734b6769b8d1d", null ],
     [ "m_contact_log_mode", "d4/dca/a00048.html#af58f9eda3c97affca6acbfde33bc68c0", null ],

@@ -14,6 +14,7 @@ var searchData=
   ['getcolumncount',['GetColumnCount',['../d7/df7/a00058.html#a63ffba1157ea6381bbce102c430e189b',1,'stride::util::CSV']]],
   ['getconfig',['GetConfig',['../d5/de0/a00050.html#a9eeaa63450413a62f31bcee07df29fa3',1,'stride::SimRunner']]],
   ['getconfigdir',['GetConfigDir',['../d4/de8/a00061.html#aacc5928eeee467f5e0c21c7ec5aaaf5a',1,'stride::util::FileSys']]],
+  ['getconfigvalue',['GetConfigValue',['../d4/dca/a00048.html#afb5bcfc564e62f540ac20c9da978c941',1,'stride::Sim']]],
   ['getcontactlogger',['GetContactLogger',['../d6/d2d/a00047.html#a314f886a6abeb0e08aac8fee085e76bd',1,'stride::Population']]],
   ['getcontactpoolsys',['GetContactPoolSys',['../d6/d2d/a00047.html#a7ba18751ce5eb62217b105e716e61d63',1,'stride::Population::GetContactPoolSys()'],['../d6/d2d/a00047.html#a590df694a5ec7f41695a5bfec5fcd6e6',1,'stride::Population::GetContactPoolSys() const ']]],
   ['getcurrentdir',['GetCurrentDir',['../d4/de8/a00061.html#a39efd4d2a1344ebc5d26759693d3d546',1,'stride::util::FileSys']]],
@@ -52,6 +53,7 @@ var searchData=
   ['gettestdescriptors',['GetTestDescriptors',['../d0/d0b/a00004.html#aae222bfc0fbe506cf156dabba6f355bb',1,'myhayai::BenchmarkRunner']]],
   ['gettestsdir',['GetTestsDir',['../d4/de8/a00061.html#a59f5c71c35d9170db7fc3d37ca8a36ba',1,'stride::util::FileSys']]],
   ['gettransmissionprofile',['GetTransmissionProfile',['../d4/dca/a00048.html#a59f0ea739583f91283738089112a08dc',1,'stride::Sim']]],
+  ['gettransmissionrate',['GetTransmissionRate',['../d4/dca/a00048.html#a6f8baa80a9ee3aeabe82eb1ac3a00818',1,'stride::Sim']]],
   ['getvalue',['GetValue',['../d3/d8b/a00059.html#a6462fb781526ce386453ea4ee8e353e5',1,'stride::util::CSVRow::GetValue(size_t index) const '],['../d3/d8b/a00059.html#a70dfc26893fa920410a7e4a049a1578a',1,'stride::util::CSVRow::GetValue(const std::string &amp;label) const '],['../d3/d8b/a00059.html#a65777e0c58ce4632c96009ce1180250a',1,'stride::util::CSVRow::GetValue(size_t index) const '],['../d3/d8b/a00059.html#a03e8149406514c601f7095c55460977d',1,'stride::util::CSVRow::GetValue(const std::string &amp;label) const ']]],
   ['getyear',['GetYear',['../d7/d7a/a00016.html#a43a71244d76958385cc83e761d748c88',1,'stride::Calendar']]],
   ['gitrevision',['GitRevision',['../d1/d22/a00057.html#aea2c9d397f10f54b7ae47f4b0f181799',1,'stride::util::ConfigInfo']]]
