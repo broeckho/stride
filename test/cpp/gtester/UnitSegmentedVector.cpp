@@ -45,7 +45,7 @@ public:
 
         using EventList = std::vector<EventType>;
 
-        TraceMemory() : m_counter(0) {}
+        TraceMemory() : m_counter(0), m_event_list() {}
 
         void Allocated()
         {
@@ -90,13 +90,13 @@ public:
 class TestType
 {
 public:
-        TestType(int i, std::string str, TraceMemory& t) : m_i(i), m_str(std::move(str)), m_t(t)
+        TestType(int i, std::string str, TraceMemory& t) : m_array{nullptr}, m_i(i), m_str(std::move(str)), m_t(t)
         {
                 m_t.Allocated();
                 m_array = new int[10];
         }
 
-        TestType(const TestType& other) : m_i(other.m_i), m_str(other.m_str), m_t(other.m_t)
+        TestType(const TestType& other) : m_array{nullptr}, m_i(other.m_i), m_str(other.m_str), m_t(other.m_t)
         {
                 m_t.Copied();
                 m_array = new int[10];
@@ -108,6 +108,8 @@ public:
                 m_t.Moved();
                 other.m_array = nullptr;
         }
+
+        TestType& operator=(const TestType& rhs) = delete;
 
         ~TestType()
         {

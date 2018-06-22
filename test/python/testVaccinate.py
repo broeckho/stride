@@ -12,9 +12,9 @@ def vaccinate(simulator, event):
 def check(simulator, event):
     if event.timestep == 20:
         check.value = getattr(check, 'value', 0)
-        check.value = sim.GetPopulation().GetInfectedCount()
+        check.value = simulator.GetPopulation().GetInfectedCount()
     if event.timestep > 20:
-        assert(sim.GetPopulation().GetInfectedCount() == check.value), "Infection count still changing on day {}".format(event.timestep)
+        assert(simulator.GetPopulation().GetInfectedCount() == check.value), "Infection count still changing on day {}".format(event.timestep)
 
 # Configure simulation
 controller = PyController(config_path="../config/run_default.xml")

@@ -57,7 +57,7 @@ struct TestDescriptor
         /// @param infoFactory     Provides extra info that can be recorded by viewers
         /// @param isDiabled       Lets you put a test in place but (temporarily) disable it.
         TestDescriptor(std::string groupName, std::string testName, std::size_t numRuns, TestFactory testFactory,
-                       InfoFactory infoFactory = InfoFactory(), bool isDisabled = false, bool isInFilter = true)
+                       InfoFactory infoFactory = InfoFactory(), bool isDisabled = false)
             : m_group_name(std::move(groupName)), m_test_name(std::move(testName)), m_num_runs(numRuns),
               m_test_factory(std::move(testFactory)), m_info_factory(std::move(infoFactory)), m_is_disabled(isDisabled)
         {

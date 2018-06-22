@@ -95,7 +95,6 @@
  *       http://www.pcg-random.org/posts/ease-of-use-without-loss-of-power.html
  */
 
-
 #include <algorithm>
 #include <array>
 #include <cstddef>
@@ -107,6 +106,7 @@
 #include <random>
 #include <utility>
 #include <type_traits>
+#include <stdexcept>
 
 // Ugly platform-specific code for auto_seeded
 
@@ -689,6 +689,18 @@ public:
         // Nothing (else) to do
     }
 
+        // JB: Additional constructors & operators
+        random_generator() : engine_() {}
+        random_generator(const engine_type& e) : engine_(e) {}
+        random_generator(const engine_type&& e) : engine_(std::move(e)) {}
+
+        bool operator==(random_generator& other) {
+                return engine() == other.engine();
+        }
+        bool operator==(const random_generator& other) const {
+            return engine() == other.engine();
+        }
+
     template <typename Seeding = default_seed_type,
               typename... Params>
     void seed(Seeding&& seeding = default_seed_type{})
@@ -713,6 +725,13 @@ public:
         return engine_;
     }
 
+    // JB
+
+        const RandomEngine& engine() const
+        {
+                return engine_;
+        }
+
     template <typename ResultType,
               template <typename> class DistTmpl = std::normal_distribution,
               typename... Params>
@@ -723,11 +742,42 @@ public:
         return dist(engine_);
     }
 
+        // JB : variate generator
+        /// @return      The random variate generator g that can be called as g()
+        template <typename ResultType,
+                template <typename> class DistTmpl = std::normal_distribution,
+                typename... Params>
+        std::function<ResultType ()> variate_generator(Params&&... params)
+        {
+            DistTmpl<ResultType> dist(std::forward<Params>(params)...);
+            return std::bind(dist, std::ref(engine()));
+        }
+
+        /// JB: Produce a random generator out of a distribution bound to sim's random engine.
+        /// @param   d   The distribution object.
+        /// @param   i   Which thread stream gets sampled, 0 by default.
+        /// @return      The random variate generator g that can be called as g()
+        template <typename D>
+        std::function<typename D::result_type()> variate_generator(const D& d)
+        {
+            return std::bind(d, std::ref(engine()));
+        }
+
+
     template <typename Numeric>
     Numeric uniform(Numeric lower, Numeric upper)
     {
         return variate<Numeric,uniform_distribution>(lower, upper);
     }
+
+
+        // JB
+        template <typename Numeric>
+        std::function<Numeric ()> uniform_generator(Numeric lower, Numeric upper)
+        {
+                return variate_generator<Numeric, uniform_distribution>(lower, upper);
+        }
+
 
     template <template <typename> class DistTmpl = uniform_distribution,
               typename Iter,
@@ -839,6 +889,23 @@ template<typename Rng = default_rng>
 Rng& global_rng() {
 	thread_local Rng instance{};
 	return instance;
+}
+
+template<typename UInt, typename SeedSeq>
+inline std::vector<UInt> generate_seed_vector(size_t n, SeedSeq&& generator)
+{
+        constexpr size_t N = 64;
+        std::vector<UInt> vec;
+        if (n <= N) {
+                UInt result[N];
+                pcg_detail::generate_to<N>(std::forward<SeedSeq>(generator), result);
+                for (size_t i=0; i < n; ++i) {
+                        vec.push_back(result[i]);
+                }
+        } else {
+                throw std::runtime_error("generate_seed_vector> cannot handle large n.");
+        }
+        return vec;
 }
 
 }

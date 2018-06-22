@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,28 +12,42 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2018, Kuylen E, Willem L, Broeckhove J
+ *  Author bistromatics/Robin Jadoul.
  */
 
 /**
  * @file
- * Source file of GnuPlotCSV.
+ * Interface/Implementation of is_iterator.
  */
 
-#include "GnuPlotCSV.h"
-
-#include <boost/filesystem/fstream.hpp>
-
-using namespace boost;
-using namespace std;
+#include <iterator>
+#include <type_traits>
 
 namespace stride {
 namespace util {
 
-void GnuPlotCSV::WriteLabels(boost::filesystem::ofstream& file) const
+// This ought to be redundant, but ApplClang does not have the std::void_t yet so ...
+namespace ii_detail {
+template <typename... Ts>
+struct make_void
 {
-        file << "#";
-        CSV::WriteLabels(file);
-}
+        typedef void type;
+};
+template <typename... Ts>
+using void_t = typename make_void<Ts...>::type;
+} // namespace ii_detail
+
+/// When it 's not an iterator.
+template <class T, class = void>
+struct is_iterator : std::false_type
+{
+};
+
+/// When it is an iterator.
+template <class T>
+struct is_iterator<T, ii_detail::void_t<typename std::iterator_traits<T>::iterator_category>> : std::true_type
+{
+};
 
 } // namespace util
 } // namespace stride

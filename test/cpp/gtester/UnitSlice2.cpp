@@ -67,7 +67,8 @@ TYPED_TEST(UnitSliceIndex2, Resize1)
         auto s2   = rvec[2];
         int  sub2 = 30;
         for (auto it = s2.begin(); it < s2.end(); ++it) {
-                EXPECT_EQ(sub2++, *it);
+                EXPECT_EQ(sub2, *it);
+                sub2++;
         }
 }
 
@@ -115,12 +116,14 @@ TYPED_TEST(UnitSliceIndex2, Resize3)
         auto s2   = si.Get("last_71");
         int  sub2 = 30;
         for (auto it = s2.begin(); it < s2.end(); ++it) {
-                EXPECT_EQ(sub2++, *it);
+                EXPECT_EQ(sub2, *it);
+                sub2++;
         }
 
         int sub3 = 101;
         for (auto e : si.Get("new_last")) {
-                EXPECT_EQ(sub3++, e);
+                EXPECT_EQ(sub3, e);
+                sub3++;
         }
 }
 

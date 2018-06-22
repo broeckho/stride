@@ -31,18 +31,29 @@ namespace stride {
 namespace util {
 
 RnPcg::RnPcg(const Info& info)
-    : m_engines(info.m_stream_count, RnPcg::EngineType()), m_seed_seq_init(info.m_seed_seq_init),
-      m_stream_count(info.m_stream_count)
+    : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init), m_stream_count(info.m_stream_count)
 {
         Seed(info);
+}
+
+bool RnPcg::operator==(const RnPcg& other)
+{
+        bool status = m_stream_count == other.m_stream_count;
+        if (status) {
+                for (size_t i = 0; i < size(); ++i) {
+                        status = status && ((*this)[i] == other[i]);
+                }
+        }
+        return status;
 }
 
 bool RnPcg::CheckAllDigits(const string& s)
 {
         bool status = true;
-        for (const auto& e: s) {
+        for (const auto& e : s) {
                 status = (status && isdigit(e));
-                if (!status) break;
+                if (!status)
+                        break;
         }
         return status;
 }
@@ -51,8 +62,8 @@ RnPcg::Info RnPcg::GetInfo() const
 {
         Info         info;
         stringstream ss;
-        for (auto& e : m_engines) {
-                ss << e;
+        for (auto& e : *this) {
+                ss << e.engine() << " "; // space as a separator
         }
         info.m_seed_seq_init = m_seed_seq_init;
         info.m_state         = ss.str();
@@ -63,32 +74,30 @@ RnPcg::Info RnPcg::GetInfo() const
 void RnPcg::Seed(const Info& info)
 {
         if (m_stream_count != info.m_stream_count) {
-                throw runtime_error("RnManager> stream count does not match in Seed.");
+                throw runtime_error("RnPcg::Seed> stream count does not match in Seed.");
         }
         m_seed_seq_init = info.m_seed_seq_init;
 
         auto state = info.m_state;
         if (state.empty()) {
-                vector<string> seed_vec = Split(m_seed_seq_init, ",");
-                vector<unsigned int> seed_seq_vec;
-                for (const auto& e : seed_vec) {
+                vector<unsigned int> seseq_init_vec;
+                for (const auto& e : Split(m_seed_seq_init, ",")) {
                         if (!CheckAllDigits(e)) {
-                                throw runtime_error("RnManager> Error in seeding definiton.");
+                                throw runtime_error("RnPcg::Seed> Error in seeding definiton.");
                         }
-                        seed_seq_vec.push_back(FromString<unsigned int>(e));
+                        seseq_init_vec.push_back(FromString<unsigned int>(e));
                 }
 
-                seed_seq_fe128 seseq(seed_seq_vec.begin(), seed_seq_vec.end());
-                vector<pcg64::state_type> seed(2*m_stream_count);
-                seseq.generate(seed.begin(), seed.end());
+                seed_seq_fe128 seseq(seseq_init_vec.begin(), seseq_init_vec.end());
+                auto           seeds = generate_seed_vector<pcg64::state_type>(2 * m_stream_count, seseq);
 
                 for (size_t i = 0; i < m_stream_count; ++i) {
-                        m_engines[i].seed(seed[i], seed[i+1]);
+                        (*this)[i].engine().seed(seeds[i + 1], seeds[i]);
                 }
         } else {
                 stringstream ss(state);
                 for (size_t i = 0; i < m_stream_count; ++i) {
-                        ss >> m_engines[i];
+                        ss >> (*this)[i].engine();
                 }
         }
 }

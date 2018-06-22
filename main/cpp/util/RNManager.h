@@ -27,6 +27,7 @@
 #include <trng/mrg3.hpp>
 #include <trng/yarn2.hpp>
 #include <trng/yarn3.hpp>
+#include <algorithm>
 #include <functional>
 #include <string>
 #include <vector>

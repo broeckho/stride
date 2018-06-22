@@ -22,11 +22,13 @@
 #include "CSVRow.h"
 
 #include "util/StringUtils.h"
+#include "util/is_iterator.h"
 
 #include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <fstream>
+#include <type_traits>
 #include <vector>
 
 namespace stride {
@@ -54,9 +56,9 @@ public:
         explicit CSV(const std::vector<std::string>& labels);
 
         /// Initialize with header labels only.
-        template<typename It>
+        template <typename It>
         explicit CSV(It labelsBegin, It labelsEnd)
-                : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
+            : m_labels(ToString(labelsBegin, labelsEnd)), m_column_count(m_labels.size())
         {
         }
 
@@ -75,15 +77,12 @@ public:
         template <typename... T>
         void AddRow(const T&... values);
 
-        /// Add row of string values.
-        //void AddRow(std::vector<std::string> values);
-
         /// Add row of values (ToString handles the case when the iterator points to strings).
         /// \tparam It      Iterator type pointing to the values.
         /// \param first    Start of the range to be included
         /// \param last     Past-the-end of the range.
-        template<typename It>
-        void AddRow(It first, It last)
+        template <typename It>
+        void AddRow(typename std::enable_if<is_iterator<It>::value, It>::type first, It last)
         {
                 CSVRow csvRow(this, ToString(first, last));
                 this->push_back(csvRow);
@@ -97,7 +96,7 @@ public:
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
-        virtual void Write(const boost::filesystem::path& path) const;
+        void Write(const boost::filesystem::path& path) const;
 
 private:
         friend boost::filesystem::ofstream& operator<<(boost::filesystem::ofstream& ofs, const CSV& csv);
@@ -106,14 +105,13 @@ private:
         /// Read data from input stream.
         void ReadFromStream(std::istream& inputStream);
 
-protected:
         /// Write header with labels.
-        virtual void WriteLabels(boost::filesystem::ofstream& file) const;
+        void WriteLabels(boost::filesystem::ofstream& file) const;
 
         /// Write the body of rows.
-        virtual void WriteRows(boost::filesystem::ofstream& file) const;
+        void WriteRows(boost::filesystem::ofstream& file) const;
 
-protected:
+private:
         std::vector<std::string> m_labels;
         size_t                   m_column_count = 0;
 };

@@ -44,6 +44,7 @@
 #include <utility>
 #include <locale>
 #include <iterator>
+#include <vector>
 
 #ifdef __GNUC__
     #include <cxxabi.h>
@@ -539,6 +540,18 @@ inline UInt generate_one(SeedSeq&& generator)
     UInt result[N];
     generate_to<N>(std::forward<SeedSeq>(generator), result);
     return result[i];
+}
+
+template <typename UInt, size_t N, typename SeedSeq>
+inline std::vector<UInt> generate_vector(SeedSeq&& generator)
+{
+    UInt result[N];
+    generate_to<N>(std::forward<SeedSeq>(generator), result);
+    std::vector<UInt> vec;
+    for (size_t i=0; i < N; ++i) {
+        vec.push_back(result[i]);
+    }
+    return vec;
 }
 
 template <typename RngType>
