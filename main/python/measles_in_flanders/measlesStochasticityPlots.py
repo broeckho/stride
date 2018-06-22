@@ -27,28 +27,14 @@ def histogram(data, numBins, title, xLabel, yLabel):
     plt.ylabel(yLabel)
     plt.show()
 
-def histogram3D(sizes, durations):
+def histogram3D(data, xBinSize, yBinSize, title, xLabel, yLabel, zLabel):
     """
     """
-    frequencies = {}
-    '''for i in range(len(sizes)):
-        sizeAndDuration = (sizes[i], durations[i])
-        if sizeAndDuration in frequencies:
-            frequencies[sizeAndDuration] += 1
-        else:
-            frequencies[sizeAndDuration] = 1'''
-    for i in range(0, 30001, 100):
-        for j in range(0, 366, 5):
-            frequencies[(i, j)] = 0
-    for i in range(len(sizes)):
-        size = sizes[i] - (sizes[i] % 100)
-        duration = durations[i] - (durations[i] % 5)
-        frequencies[(size, duration)] += 1
-
     xs = []
     ys = []
     zs = []
-    for key, val in frequencies.items():
+
+    for key, val in data.items():
         if val != 0:
             xs.append(key[0])
             ys.append(key[1])
@@ -56,34 +42,12 @@ def histogram3D(sizes, durations):
 
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
-
-    ax.bar3d(xs, ys, [0] * len(xs), 100, 5, zs, shade=True)
+    ax.set_xlabel(xLabel)
+    ax.set_ylabel(yLabel)
+    ax.set_zlabel(zLabel)
+    ax.set_title(title)
+    ax.bar3d(xs, ys, [0] * len(xs), xBinSize, yBinSize, zs, shade=True)
     plt.show()
-
-'''
-import numpy as np
-
-x, y = np.random.rand(2, 100) * 4
-hist, xedges, yedges = np.histogram2d(x, y, bins=4, range=[[0, 4], [0, 4]])
-
-# Construct arrays for the anchor positions of the 16 bars.
-# Note: np.meshgrid gives arrays in (ny, nx) so we use 'F' to flatten xpos,
-# ypos in column-major order. For numpy >= 1.7, we could instead call meshgrid
-# with indexing='ij'.
-xpos, ypos = np.meshgrid(xedges[:-1] + 0.25, yedges[:-1] + 0.25)
-xpos = xpos.flatten('F')
-ypos = ypos.flatten('F')
-zpos = np.zeros_like(xpos)
-
-# Construct arrays with the dimensions for the 16 bars.
-dx = 0.5 * np.ones_like(zpos)
-dy = dx.copy()
-dz = hist.flatten()
-
-ax.bar3d(xpos, ypos, zpos, dx, dy, dz, color='b', zsort='average')
-
-plt.show()
-'''
 
 def getCasesPerDay(directory, scenarioName, ensembleId):
     casesPerDay = []
@@ -112,6 +76,17 @@ def getOutbreakDurations(casesPerDay, numDays):
             if casesThisDay[i] != totalCases[i] and outbreakDurations[i] == 0:
                 outbreakDurations[i] = day
     return outbreakDurations
+
+def getSizeAndDurationFrequencies(outbreakSizes, outbreakDurations, sizeScale, durationScale):
+    frequencies = {}
+    for i in range(0, 30001, sizeScale):
+        for j in range(0, 366, durationScale):
+            frequencies[(i, j)] = 0
+    for i in range(len(outbreakSizes)):
+        size = outbreakSizes[i] - (outbreakSizes[i] % sizeScale)
+        duration = outbreakDurations[i] - (outbreakDurations[i] % durationScale)
+        frequencies[(size, duration)] += 1
+    return frequencies
 
 def removeNoOutbreaks(casesPerDay, minOutbreakSize):
     totalCases = casesPerDay[-1]
@@ -150,13 +125,18 @@ def main(directory, scenarios, onlyOutbreaks):
         title = "Cumulative cases per day for " + scenarioName + " scenario"
         data = list(scenarioCases.values())[1::30]
         labels = list(scenarioCases.keys())[1::30]
-        #boxplot(data, labels, title, "Day", "Number of infected", 0, 30000)
+        boxplot(data, labels, title, "Day", "Number of infected", 0, 30000)
         # Plot distribution of outbreak sizes for scenario
-        #histogram(scenarioOutbreakSizes, 100, "Outbreak size distribution for " + scenarioName + " scenario", "Outbreak size", "Frequency")
+        histogram(scenarioOutbreakSizes, 100, "Outbreak size distribution for " + scenarioName + " scenario", "Outbreak size", "Frequency")
         # Plot distribution of outbreak durations for scenario
-        #histogram(scenarioOutbreakDurations, 100, "Outbreak duration distribution for " + scenarioName + " scenario", "Outbreak duration", "Frequency")
+        histogram(scenarioOutbreakDurations, 100, "Outbreak duration distribution for " + scenarioName + " scenario", "Outbreak duration", "Frequency")
 
-        histogram3D(scenarioOutbreakSizes, scenarioOutbreakDurations)
+        # Plot distribution of sizes + durations
+        sizeScale = 250
+        durationScale = 30
+        sizeDurationFreqs = getSizeAndDurationFrequencies(scenarioOutbreakSizes, scenarioOutbreakDurations, sizeScale, durationScale)
+        histogram3D(sizeDurationFreqs, sizeScale, durationScale, "Distribution of outbreak sizes and durations for " + scenarioName + " scenario", "Outbreak size", "Outbreak duration", "Frequency")
+        #histogram3D(scenarioOutbreakSizes, scenarioOutbreakDurations, scenarioName)
     # Plot proportion of outbreak occurences per ensemble
     boxplot(allProportionOutbreaks, scenarios, "Occurence of outbreaks", "", "Proportion outbreaks", 0, 1)
     # Plot distribution of outbreak sizes
