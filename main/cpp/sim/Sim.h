@@ -84,12 +84,12 @@ private:
         bool                        m_track_index_case;  ///< General simulation or tracking index case.
         std::string                 m_local_info_policy; ///< Local information policy name.
 
-        std::shared_ptr<Calendar>   m_calendar;             ///< Managment of calendar.
+        std::shared_ptr<Calendar>   m_calendar;             ///< Management of calendar.
         AgeContactProfiles          m_contact_profiles;     ///< Contact profiles w.r.t age.
         std::vector<ContactHandler> m_handlers;             ///< Contact handlers (rng & rates).
         InfectorExec*               m_infector;             ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population> m_population;           ///< Pointer to the Population.
-        util::RNManager             m_rn_manager;           ///< Random numbere generation management.
+        util::RNManager             m_rn_manager;           ///< Random number generation management.
         TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 };
 
