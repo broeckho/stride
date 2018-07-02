@@ -8,6 +8,8 @@ The project is hosted in a GitHub [code repository](https://github.com/broeckho/
 
 The current status of the project build is : [![Build Status](https://travis-ci.org/broeckho/stride.svg?branch=master)](https://travis-ci.org/broeckho/stride)
 
+The current release is Stride V1, 18.06.
+
 Information on layout, installation, dependencies of the project, and platforms that  
 are supported, can be found in the files INSTALL.txt, DEPENDENCIES.txt and  
 PLATFORMS.txt respectively.
