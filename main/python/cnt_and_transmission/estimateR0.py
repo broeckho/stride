@@ -56,7 +56,7 @@ for r0, rng_seed in list(itertools.product(r0_opt,rng_opt)):
     fork.registerCallback(getCases, EventType.Stepped)
     fork.registerCallback(getSummary, EventType.AtFinished)
     fork.registerCallback(parseLogfile, EventType.AtFinished)
-    
+
     f_id = f_id + 1
 
 

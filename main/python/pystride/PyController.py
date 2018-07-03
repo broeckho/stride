@@ -73,7 +73,7 @@ class PyController:
         # Create output directory and write configuration to file
         os.makedirs(self.getOutputPrefix(), exist_ok=True)
         self.runConfig.toFile(os.path.join(self.getOutputPrefix(), "config.xml"))
-        
+
         # Build population and simulator
         population = Population.Create(self.runConfig.toString())
         self.runner.setup(self.runConfig, population)

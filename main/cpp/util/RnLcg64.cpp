@@ -21,8 +21,8 @@
 #include "RnLcg64.h"
 #include "StringUtils.h"
 
-#include <pcg/pcg_random.hpp>
 #include <cctype>
+#include <pcg/pcg_random.hpp>
 #include <sstream>
 
 using namespace std;

@@ -43,7 +43,7 @@ def getSummary(simulator, event):
     for child in root:
         header_list.append(child.tag)
         values_list.append(child.text)
-    
+
     # Write input and output to summary file
     summary_filename = os.path.join(output_prefix,"summary.csv")
     with open(summary_filename, "w") as csvfile:
@@ -57,16 +57,16 @@ def getCases(simulator, event):
     num_cases = simulator.GetPopulation().GetInfectedCount()
     time_step = event.timestep
     output_prefix = simulator.GetConfigValue("run.output_prefix")
-    
+
     cases_filename = os.path.join(output_prefix,"cases.csv")
     with open(cases_filename, "a",newline="") as csvfile:
         writer = csv.writer(csvfile)
         if time_step == 0:
             writer.writerow([output_prefix])
         writer.writerow({num_cases})
-        
-        
-# Callback function to parse the logfile  
+
+
+# Callback function to parse the logfile
 """
     From logfile with all contacts or transmissions logged in the following format:
     [PART] local_id part_age part_gender
@@ -74,12 +74,12 @@ def getCases(simulator, event):
     [TRAN] local_id start_infection
 
     Create csv-files participants.csv, contacts.csv and transmissions.csv
-    """      
+    """
 def parseLogfile(simulator, event):
-    
+
     # get output prefix
     log_file_path = simulator.GetConfigValue("run.output_prefix")
-    
+
     # setup ouput files
     participants_file = os.path.join(log_file_path, 'participants.csv')
     contacts_file     = os.path.join(log_file_path, 'contacts.csv')
@@ -109,11 +109,11 @@ def parseLogfile(simulator, event):
 
     f = open(os.path.join(log_file_path, 'contact_log.txt'),'r',10)
     for line in f:
-        
+
         identifier = line[:6]
         line = line[7:]
         line = line.split()
-        
+
         # participant details
         if identifier == "[PART]":
             flag_p = 1
@@ -130,7 +130,7 @@ def parseLogfile(simulator, event):
                 value = line[i]
                 dic[c_fieldnames[i]] = value
             c_writer.writerow(dic)
-            
+
         # transmission details
         if identifier == "[TRAN]" or identifier == "[PRIM]":
             flag_t = 1

@@ -19,8 +19,8 @@
  * Interface of RnLcg64.
  */
 
-#include <functional>
 #include <trng/lcg64.hpp>
+#include <functional>
 #include <randutils/randutils.hpp>
 #include <string>
 #include <vector>

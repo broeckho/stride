@@ -577,7 +577,8 @@ operator<<(std::basic_ostream<CharT,Traits>& out,
 
     out << rng.multiplier() << space
         << rng.increment() << space
-        << rng.state_;
+        << rng.state_
+            << ' ';
 
     out.flags(orig_flags);
     out.fill(orig_fill);
