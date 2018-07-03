@@ -20,6 +20,7 @@
 #============================================================================
 
 INSTALL( FILES 	
+            collect_fork_output.R
             create_immunity_profile.R
             plot_immunity.R
             plot_results_lib.R 

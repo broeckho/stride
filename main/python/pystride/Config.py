@@ -25,7 +25,7 @@ class Config:
                 else:
                     new_elem = ET.SubElement(root, elem)
                     root = new_elem
-            self._etree.find(name).text = str(value)
+            self._etree.find(name.replace('.', '/')).text = str(value)
 
     def fromFile(self, filepath: str):
         if os.path.isfile(filepath):
