@@ -89,6 +89,7 @@ set(LIB_SRC
 	util/PtreeUtils.h
     util/RNEngineType.cpp
     util/RNManager.cpp
+	util/RnLcg64.cpp
 	util/RnPcg.cpp
     util/RunConfigManager.cpp
     util/SegmentedVector.h

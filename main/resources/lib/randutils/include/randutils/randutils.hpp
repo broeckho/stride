@@ -891,23 +891,6 @@ Rng& global_rng() {
 	return instance;
 }
 
-template<typename UInt, typename SeedSeq>
-inline std::vector<UInt> generate_seed_vector(size_t n, SeedSeq&& generator)
-{
-        constexpr size_t N = 64;
-        std::vector<UInt> vec;
-        if (n <= N) {
-                UInt result[N];
-                pcg_detail::generate_to<N>(std::forward<SeedSeq>(generator), result);
-                for (size_t i=0; i < n; ++i) {
-                        vec.push_back(result[i]);
-                }
-        } else {
-                throw std::runtime_error("generate_seed_vector> cannot handle large n.");
-        }
-        return vec;
-}
-
 }
 
 

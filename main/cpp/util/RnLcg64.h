@@ -16,11 +16,11 @@
 
 /**
  * @file
- * Interface of RnPcg.
+ * Interface of RnLcg64.
  */
 
 #include <functional>
-#include <pcg/pcg_random.hpp>
+#include <trng/lcg64.hpp>
 #include <randutils/randutils.hpp>
 #include <string>
 #include <vector>
@@ -31,12 +31,12 @@ namespace util {
 /**
  * Manages random number generation in parallel (OpenMP) calculations.
  */
-class RnPcg : protected std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>
+class RnLcg64 : protected std::vector<randutils::random_generator<trng::lcg64, randutils::seed_seq_fe128>>
 {
 public:
-        using EngineType    = pcg64;
-        using GeneratorType = randutils::random_generator<pcg64, randutils::seed_seq_fe128>;
-        using ContainerType = std::vector<randutils::random_generator<pcg64, randutils::seed_seq_fe128>>;
+        using EngineType    = trng::lcg64;
+        using GeneratorType = randutils::random_generator<trng::lcg64, randutils::seed_seq_fe128>;
+        using ContainerType = std::vector<randutils::random_generator<trng::lcg64, randutils::seed_seq_fe128>>;
 
 public:
         /// POD representation of the RNManager's state. If no state is available, i.e. state
@@ -60,16 +60,16 @@ public:
         using ContainerType::size;
 
         /// Initializes.
-        explicit RnPcg(const Info& info = Info());
+        explicit RnLcg64(const Info& info = Info());
 
         /// No copying.
-        RnPcg(const RnPcg&) = delete;
+        RnLcg64(const RnLcg64&) = delete;
 
         /// No copy assignment.
-        RnPcg& operator=(const RnPcg&) = delete;
+        RnLcg64& operator=(const RnLcg64&) = delete;
 
         /// Equality of states
-        bool operator==(const RnPcg& other);
+        bool operator==(const RnLcg64& other);
 
         /// Return the state of the random engines.
         Info GetInfo() const;

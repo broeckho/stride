@@ -21,7 +21,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <pcg/pcg_random.hpp>
-#include <pcg/randutils.hpp>
+#include <randutils/randutils.hpp>
 #include <sstream>
 
 namespace Tests {

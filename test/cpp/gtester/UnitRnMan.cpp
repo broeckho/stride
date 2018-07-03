@@ -28,7 +28,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <pcg/pcg_random.hpp>
-#include <pcg/randutils.hpp>
+#include <randutils/randutils.hpp>
 #include <random>
 #include <sstream>
 #include <thread>
@@ -69,7 +69,7 @@ TEST(UnitRnMan, Reset1)
         seed_seq_fe128 seseq{1, 2, 3, 4};
         pcg64          engine1(seseq);
 
-        auto  seeds = generate_seed_vector<pcg64::state_type>(2, seseq);
+        auto  seeds = pcg_extras::generate_vector<pcg64::state_type,2>(seseq);
         pcg64 engine2(seeds[1], seeds[0]);
 
         EXPECT_TRUE(engine1 == engine2);

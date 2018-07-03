@@ -15,12 +15,13 @@
 
 /**
  * @file
- * Implementation of RnPcg.
+ * Implementation of RnLcg64.
  */
 
-#include "RnPcg.h"
+#include "RnLcg64.h"
 #include "StringUtils.h"
 
+#include <pcg/pcg_random.hpp>
 #include <cctype>
 #include <sstream>
 
@@ -30,13 +31,13 @@ using namespace randutils;
 namespace stride {
 namespace util {
 
-RnPcg::RnPcg(const Info& info)
+RnLcg64::RnLcg64(const Info& info)
     : ContainerType(info.m_stream_count), m_seed_seq_init(info.m_seed_seq_init), m_stream_count(info.m_stream_count)
 {
         Seed(info);
 }
 
-bool RnPcg::operator==(const RnPcg& other)
+bool RnLcg64::operator==(const RnLcg64& other)
 {
         bool status = m_stream_count == other.m_stream_count;
         if (status) {
@@ -47,7 +48,7 @@ bool RnPcg::operator==(const RnPcg& other)
         return status;
 }
 
-RnPcg::Info RnPcg::GetInfo() const
+RnLcg64::Info RnLcg64::GetInfo() const
 {
         Info         info;
         stringstream ss;
@@ -60,10 +61,10 @@ RnPcg::Info RnPcg::GetInfo() const
         return info;
 }
 
-void RnPcg::Seed(const Info& info)
+void RnLcg64::Seed(const Info& info)
 {
         if (m_stream_count != info.m_stream_count) {
-                throw runtime_error("RnPcg::Seed> stream count does not match in Seed.");
+                throw runtime_error("RnLcg64::Seed> stream count does not match in Seed.");
         }
         m_seed_seq_init = info.m_seed_seq_init;
 
@@ -72,23 +73,23 @@ void RnPcg::Seed(const Info& info)
                 vector<unsigned int> seseq_init_vec;
                 for (const auto& e : Split(m_seed_seq_init, ",")) {
                         if (!CheckAllDigits(e)) {
-                                throw runtime_error("RnPcg::Seed> Error in seeding definiton.");
+                                throw runtime_error("RnLcg64::Seed> Error in seeding definiton.");
                         }
                         seseq_init_vec.push_back(FromString<unsigned int>(e));
                 }
 
                 seed_seq_fe128 seseq(seseq_init_vec.begin(), seseq_init_vec.end());
-                if (2 * m_stream_count > 64) {
-                        throw std::runtime_error("RnPcg generate seed vector, cannot handle large n.");
-                }
-                auto seeds = pcg_extras::generate_vector<pcg64::state_type, 64>(seseq);
+                auto           seeds = pcg_extras::generate_one<unsigned long>(seseq);
+
                 for (size_t i = 0; i < m_stream_count; ++i) {
-                        (*this)[i].engine().seed(seeds[i + 1], seeds[i]);
+                        (*this)[i].engine().seed(seeds);
+                        (*this)[i].engine().split(m_stream_count, i);
                 }
         } else {
                 stringstream ss(state);
                 for (size_t i = 0; i < m_stream_count; ++i) {
                         ss >> (*this)[i].engine();
+                        (*this)[i].engine().split(m_stream_count, i);
                 }
         }
 }
