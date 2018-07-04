@@ -71,9 +71,9 @@ class PyController:
         # Set correct links to data files in configuration
         self.linkData()
         # Create output directory and write configuration to file
-        os.makedirs(self.getOutputDirectory(), exist_ok=True)
-        self.runConfig.toFile(os.path.join(self.getOutputDirectory(), self.getOutputPrefix() + ".xml"))
-
+        os.makedirs(self.getOutputPrefix(), exist_ok=True)
+        self.runConfig.toFile(os.path.join(self.getOutputPrefix(), "config.xml"))
+        
         # Build population and simulator
         population = Population.Create(self.runConfig.toString())
         self.runner.setup(self.runConfig, population)

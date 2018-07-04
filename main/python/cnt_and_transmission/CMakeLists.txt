@@ -16,14 +16,11 @@
 #################################################################################################
 
 #================================================================================================
-# Copy Python example scripts to the bin folder.
+# Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
-		create_contactmatrix.py
-		experimenter.py
-		experimenter_r0.py
-		interactive_maps.py
-		plot_maps.py
+		estimateR0.py
+		outputUtil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 )

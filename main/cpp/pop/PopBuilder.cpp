@@ -21,7 +21,6 @@
 #include "PopBuilder.h"
 
 #include "pop/Population.h"
-#include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/RNManager.h"
 #include "util/StringUtils.h"
@@ -84,7 +83,7 @@ shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 shared_ptr<Population> PopBuilder::MakePersons(std::shared_ptr<Population> pop)
 {
         //------------------------------------------------
-        // Read persosns from file.
+        // Read persons from file.
         //------------------------------------------------
         const auto file_name        = m_config_pt.get<string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
@@ -132,9 +131,9 @@ shared_ptr<Population> PopBuilder::Build(std::shared_ptr<Population> pop)
         }
 
         //------------------------------------------------
-        // Add persons & fill pools & surveyseeding.
+        // Add persons & fill pools
         //------------------------------------------------
-        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePoolSys(MakePersons(pop)));
+        MakePoolSys(MakePersons(pop));
         return pop;
 }
 

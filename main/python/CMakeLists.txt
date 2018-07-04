@@ -21,6 +21,11 @@
 add_subdirectory(examples)
 
 #============================================================================
+# Scripts for 'Constact and Transmission' study
+#============================================================================
+add_subdirectory(cnt_and_transmission)
+
+#============================================================================
 # Scripts for 'Measles in Flanders' study
 #============================================================================
 add_subdirectory(measles_in_flanders)
@@ -34,6 +39,7 @@ set(SWIG_IFACE
 	swig/population.i
 	swig/sim.i
 	swig/stride.i
+	swig/transmissionprofile.i
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w")

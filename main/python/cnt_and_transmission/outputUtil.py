@@ -14,32 +14,76 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
-"""
-Create .csv files from logfiles produced by the simulator.
-
-"""
-
 import sys
-import csv
-import random
 import os
+import csv
+import xml.etree.ElementTree as ET
 
-def prepare_csv(log_file_path):
-    """
+import pystride
+from pystride.Event import EventType
+
+# Callback function to create a summary file with input and output details
+def getSummary(simulator, event):
+    # Get simulator details
+    num_cases = simulator.GetPopulation().GetInfectedCount()
+    population_size = simulator.GetPopulation().size()
+    transmission_rate = simulator.GetTransmissionRate()
+    output_prefix = simulator.GetConfigValue("run.output_prefix")
+
+    # Parse the config file
+    tree = ET.parse(os.path.join(output_prefix,"config.xml"))
+    root = tree.getroot()
+
+    # Add input and output values and names to a list
+    header_list = ["output_prefix","population_size", "num_cases","transmission_rate"]
+    values_list = [output_prefix,population_size, num_cases, transmission_rate]
+    for child in root:
+        header_list.append(child.tag)
+        values_list.append(child.text)
+    
+    # Write input and output to summary file
+    summary_filename = os.path.join(output_prefix,"summary.csv")
+    with open(summary_filename, "w") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(header_list)
+        writer.writerow(values_list)
+
+# Callback function to create a summary file with input and output details
+def getCases(simulator, event):
+    # Get simulator details
+    num_cases = simulator.GetPopulation().GetInfectedCount()
+    time_step = event.timestep
+    output_prefix = simulator.GetConfigValue("run.output_prefix")
+    
+    cases_filename = os.path.join(output_prefix,"cases.csv")
+    with open(cases_filename, "a",newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        if time_step == 0:
+            writer.writerow([output_prefix])
+        writer.writerow({num_cases})
+        
+        
+# Callback function to parse the logfile  
+"""
     From logfile with all contacts or transmissions logged in the following format:
     [PART] local_id part_age part_gender
     [CONT] local_id part_age cnt_age cnt_home cnt_school cnt_work cnt_other sim_day
     [TRAN] local_id start_infection
 
     Create csv-files participants.csv, contacts.csv and transmissions.csv
-    """
-
-    participants_file = log_file_path + '_participants.csv'
-    contacts_file     = log_file_path + '_contacts.csv'
-    transmission_file = log_file_path + '_transmissions.csv'
+    """      
+def parseLogfile(simulator, event):
+    
+    # get output prefix
+    log_file_path = simulator.GetConfigValue("run.output_prefix")
+    
+    # setup ouput files
+    participants_file = os.path.join(log_file_path, 'participants.csv')
+    contacts_file     = os.path.join(log_file_path, 'contacts.csv')
+    transmission_file = os.path.join(log_file_path, 'transmissions.csv')
 
     # Open csv files to write to.
     p = open(participants_file, 'w')
@@ -63,11 +107,14 @@ def prepare_csv(log_file_path):
     flag_c = 0
     flag_t = 0
 
-    f = open(log_file_path+'_logfile.txt', 'r')
+    f = open(os.path.join(log_file_path, 'contact_log.txt'),'r',10)
     for line in f:
+        
         identifier = line[:6]
         line = line[7:]
         line = line.split()
+        
+        # participant details
         if identifier == "[PART]":
             flag_p = 1
             dic = {}
@@ -75,7 +122,7 @@ def prepare_csv(log_file_path):
                 value = line[i]
                 dic[p_fieldnames[i]] = value
             p_writer.writerow(dic)
-        # else for Contacts.csv
+        # contact details
         if identifier == "[CONT]":
             flag_c = 1
             dic = {}
@@ -83,7 +130,8 @@ def prepare_csv(log_file_path):
                 value = line[i]
                 dic[c_fieldnames[i]] = value
             c_writer.writerow(dic)
-        # else for transmissions
+            
+        # transmission details
         if identifier == "[TRAN]" or identifier == "[PRIM]":
             flag_t = 1
             dic = {}
@@ -92,22 +140,16 @@ def prepare_csv(log_file_path):
                 dic[t_fieldnames[i]] = value
             t_writer.writerow(dic)
 
-
+    # if no log info on partipants, contacts or transmission present, delete that file
     if(flag_p==0):
         os.remove(participants_file)
     if(flag_c==0):
         os.remove(contacts_file)
     if(flag_t==0):
         os.remove(transmission_file)
-    os.remove(log_file_path+'_logfile.txt')
 
-
-def main(argv):
-    if len(argv) == 1:
-        prepare_csv(argv[0])
-    else:
-        print ("Usage: python prepare_csv.py <run_file_path>")
-
-
-if __name__ == "__main__":
-    main(sys.argv[1:])
+    #os.remove(log_file_path+'_logfile.txt')
+    f.close()
+    p.close()
+    c.close()
+    t.close()

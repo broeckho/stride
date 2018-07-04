@@ -64,6 +64,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         const auto maxPopIndex = static_cast<unsigned int>(popSize - 1);
         auto       generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
         auto&      logger      = pop->GetContactLogger();
+        const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
 
         auto numInfected = static_cast<unsigned int>(floor(static_cast<double>(popSize) * sRate));
         while (numInfected > 0) {
@@ -71,7 +72,10 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
                 if (p.GetHealth().IsSusceptible() && (p.GetAge() >= sAgeMin) && (p.GetAge() <= sAgeMax)) {
                         p.GetHealth().StartInfection();
                         numInfected--;
-                        logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        if(log_level != "None"){
+                        		logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                        }
+
                 }
         }
 }

@@ -39,7 +39,7 @@ SurveySeeder::SurveySeeder(const ptree& configPt, RNManager& rnManager) : m_conf
 shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {
         const string log_level = m_config_pt.get<string>("run.contact_log_level", "None");
-        if (log_level == "All" || log_level == "Susceptibles") {
+        if (log_level != "None") {
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
@@ -53,8 +53,11 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {}", p.GetId(), p.GetAge(), p.GetGender(),
-                                             p.GetPoolId(Id::School), p.GetPoolId(Id::Work));
+                                logger->info("[PART] {} {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(),
+                                             p.GetGender(), p.GetPoolId(Id::School), p.GetPoolId(Id::Work),
+                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
+                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
+                                             p.GetHealth().IsImmune());
                                 num_samples++;
                         }
                 }

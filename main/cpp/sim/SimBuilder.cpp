@@ -25,6 +25,7 @@
 #include "disease/DiseaseSeeder.h"
 #include "disease/HealthSeeder.h"
 #include "pool/ContactPoolType.h"
+#include "pop/SurveySeeder.h"
 #include "sim/Sim.h"
 #include "util/FileSys.h"
 
@@ -87,14 +88,19 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         HealthSeeder(diseasePt).Seed(sim->m_population, sim->m_handlers);
 
         // --------------------------------------------------------------
-        // Seed population wrt immunity/vaccination/infection.
+        // Seed population with immunity/vaccination/infection.
         // --------------------------------------------------------------
         DiseaseSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
-        // Seed population wrt belief policies.
+        // Seed population with belief policies.
         // --------------------------------------------------------------
         BeliefSeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
+
+        // --------------------------------------------------------------
+        // Seed population with survey participants.
+        // --------------------------------------------------------------
+        SurveySeeder(m_config_pt, sim->m_rn_manager).Seed(sim->m_population);
 
         // --------------------------------------------------------------
         // Done.
