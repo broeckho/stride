@@ -53,8 +53,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_calendar          = make_shared<Calendar>(m_config_pt);
         sim->m_local_info_policy = m_config_pt.get<string>("run.local_information_policy", "NoLocalInformation");
         sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
-        sim->m_rn_manager.Initialize(RNManager::Info{m_config_pt.get<string>("run.rng_type", "mrg2"),
-                                                     m_config_pt.get<unsigned long>("run.rng_seed", 1UL), "",
+        sim->m_rn_manager.Initialize(RnMan::Info{m_config_pt.get<string>("run.rng_seed", "1,2,3,4"), "",
                                                      sim->m_num_threads});
 
         // --------------------------------------------------------------
@@ -62,7 +61,7 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // random engine stream) and infector.
         // --------------------------------------------------------------
         for (size_t i = 0; i < sim->m_num_threads; i++) {
-                auto gen = sim->m_rn_manager.GetGenerator(trng::uniform01_dist<double>(), i);
+                auto gen = sim->m_rn_manager[i].variate_generator(trng::uniform01_dist<double>());
                 sim->m_handlers.emplace_back(ContactHandler(gen));
         }
         const auto& select = make_tuple(sim->m_contact_log_mode, sim->m_track_index_case, sim->m_local_info_policy);

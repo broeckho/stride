@@ -21,7 +21,7 @@
 #include "HealthSeeder.h"
 
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>

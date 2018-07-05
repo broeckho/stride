@@ -19,15 +19,15 @@
  * Initialize populations.
  */
 
+#include "util/RnMan.h"
+
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 
 namespace stride {
 
 class Population;
-namespace util {
-class RNManager;
-}
+
 
 /**
  * Initializes Population objects.
@@ -37,8 +37,7 @@ class PopBuilder
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
-        /// \param rnManager   Random number manager for pop build process.
-        PopBuilder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        PopBuilder(const boost::property_tree::ptree& configPt);
 
         /// Build Population and return it afterwards.
         /// The steps are:
@@ -57,7 +56,6 @@ private:
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree
-        util::RNManager&                   m_rn_manager; ///< Random numbere generation management.
 };
 
 } // namespace stride

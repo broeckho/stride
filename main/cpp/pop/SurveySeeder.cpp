@@ -21,7 +21,7 @@
 #include "SurveySeeder.h"
 
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform_int_dist.hpp>
 
@@ -32,7 +32,7 @@ using namespace std;
 
 namespace stride {
 
-SurveySeeder::SurveySeeder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
+SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
 {
 }
 
@@ -43,7 +43,7 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                 Population& population   = *pop;
                 auto&       logger       = population.GetContactLogger();
                 const auto  max_index    = static_cast<unsigned int>(population.size() - 1);
-                auto        generator    = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, max_index));
+                auto        generator    = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, max_index));
                 const auto  participants = m_config_pt.get<unsigned int>("run.num_participants_survey");
 
                 // Use while-loop to get 'participants' unique participants (default sampling is with replacement).

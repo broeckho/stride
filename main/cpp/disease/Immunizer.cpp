@@ -21,22 +21,25 @@
 #include "Immunizer.h"
 
 #include "pop/Person.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <numeric>
+#include <vector>
 
 namespace stride {
 
+using namespace std;
 using namespace util;
 
-Immunizer::Immunizer(stride::util::RNManager& rnManager) : m_rn_manager(rnManager) {}
+Immunizer::Immunizer(stride::util::RnMan& rnManager) : m_rn_manager(rnManager) {}
 
 void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double>& immunityDistribution,
                        double immunityLinkProbability)
 {
         // Initialize a vector to count the population per age class [0-100].
-        std::vector<double> populationBrackets(100, 0.0);
+        vector<double> populationBrackets(100, 0.0);
 
         // Count individuals per age class and set all "susceptible" individuals "immune".
         // note: focusing on measles, we expect the number of susceptible individuals
@@ -53,8 +56,8 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
 
         // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
         const auto poolsSize          = static_cast<int>(pools.size());
-        auto       intGenerator       = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, poolsSize));
-        auto       uniform01Generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        auto       intGenerator       = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, poolsSize));
+        auto       uniform01Generator = m_rn_manager[0].variate_generator(trng::uniform01_dist<double>());
 
         // Calculate the number of susceptible individuals per age class.
         unsigned int numSusceptible = 0;
@@ -68,11 +71,10 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
                 // random pool, random order of members
                 const ContactPool&        p_pool = pools[intGenerator()];
                 const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
-                std::vector<unsigned int> indices(size);
-                for (unsigned int i = 0; i < size; i++) {
-                        indices[i] = i;
-                }
-                m_rn_manager.RandomShuffle(indices.begin(), indices.end());
+                vector<unsigned int> indices(size);
+
+                iota(indices.begin(), indices.end(), 0U);
+                m_rn_manager[0].shuffle(indices);
 
                 // loop over members, in random order
                 for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {

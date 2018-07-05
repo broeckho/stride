@@ -38,7 +38,7 @@ using namespace stride::ContactPoolType;
 using namespace util;
 using namespace std;
 
-DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RNManager& rnManager)
+DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RnMan& rnManager)
     : m_config_pt(configPt), m_rn_manager(rnManager)
 {
 }
@@ -62,7 +62,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
         const auto   sAgeMax     = m_config_pt.get<double>("run.seeding_age_max", 99);
         const auto   popSize     = pop->size();
         const auto   maxPopIndex = static_cast<unsigned int>(popSize - 1);
-        auto         generator   = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, maxPopIndex));
+        auto         generator   = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, maxPopIndex));
         auto&        logger      = pop->GetContactLogger();
         const string log_level   = m_config_pt.get<string>("run.contact_log_level", "None");
 

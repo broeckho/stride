@@ -88,10 +88,7 @@ set(LIB_SRC
 	util/LogUtils.cpp
 	util/PtreeUtils.h
 	util/Rn.cpp
-    util/RNEngineType.cpp
-    util/RNManager.cpp
-	util/RnLcg64.cpp
-	util/RnPcg.cpp
+	util/RnMan.h
     util/RunConfigManager.cpp
     util/SegmentedVector.h
     util/SliceIndexer.h

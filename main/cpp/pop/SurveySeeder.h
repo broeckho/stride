@@ -19,7 +19,7 @@
  * Header file for the SurveySeeder class.
  */
 
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
@@ -37,7 +37,7 @@ public:
         /// Initialize Seeder.
         /// \param configPt         Configuration parameters.
         /// \param rnManager         Random number manager.
-        SurveySeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        SurveySeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
 
         /// Seeds the population with survey participants.
         /// \param pop               Population.
@@ -45,7 +45,7 @@ public:
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RNManager&                   m_rn_manager; ///< Random number manager.
+        util::RnMan&                       m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

@@ -21,7 +21,7 @@
 
 #include "behaviour/belief_policies/Imitation.h"
 #include "behaviour/belief_policies/NoBelief.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <functional>
@@ -38,7 +38,7 @@ class BeliefSeeder
 {
 public:
         /// Constructor requires diease data and random number manager.
-        BeliefSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        BeliefSeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
 
         /// Seeds the population with Health data.
         void Seed(std::shared_ptr<Population> pop);

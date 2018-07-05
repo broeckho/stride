@@ -20,14 +20,10 @@
  */
 
 #include "pool/ContactPool.h"
-
+#include "util/RnMan.h"
 #include <vector>
 
 namespace stride {
-
-namespace util {
-class RNManager;
-}
 
 /**
  * Deals with immunization strategies.
@@ -36,7 +32,7 @@ class Immunizer
 {
 public:
         ///
-        explicit Immunizer(util::RNManager& rnManager);
+        explicit Immunizer(util::RnMan& rnManager);
 
         /// Random immunization.
         void Random(const std::vector<ContactPool>& pools, std::vector<double>& immunityDistribution,
@@ -47,7 +43,7 @@ public:
                     double immunityLinkProbability);
 
 private:
-        util::RNManager& m_rn_manager; ///< Random number manager.
+        util::RnMan& m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

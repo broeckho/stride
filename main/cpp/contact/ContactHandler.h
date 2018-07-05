@@ -19,7 +19,7 @@
  * Header for the ContactHandler class.
  */
 
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <functional>
 

@@ -21,7 +21,7 @@
 #include "BeliefSeeder.h"
 
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <trng/uniform01_dist.hpp>
@@ -35,7 +35,7 @@ using namespace std;
 
 namespace stride {
 
-BeliefSeeder::BeliefSeeder(const boost::property_tree::ptree& configPt, util::RNManager&) : m_config_pt(configPt) {}
+BeliefSeeder::BeliefSeeder(const boost::property_tree::ptree& configPt, util::RnMan&) : m_config_pt(configPt) {}
 
 void BeliefSeeder::Seed(std::shared_ptr<stride::Population> pop)
 {

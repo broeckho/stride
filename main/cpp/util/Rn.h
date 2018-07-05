@@ -42,7 +42,7 @@ class Rn : protected std::vector<randutils::random_generator<E, randutils::seed_
 {
 public:
         using EngineType    = E;
-        using GeneratorType = randutils::random_generator<E, randutils::seed_seq_fe128>;
+        using RnType        = randutils::random_generator<E, randutils::seed_seq_fe128>;
         using ContainerType = std::vector<randutils::random_generator<E, randutils::seed_seq_fe128>>;
 
 public:
@@ -106,12 +106,12 @@ public:
                 return info;
         }
 
-private:
         /// Initalize with data in Info.
         void Initialize(const Info& info = Info())
         {
                 if (m_stream_count != info.m_stream_count) {
-                        throw std::runtime_error("RnLcg64::Seed> stream count does not match in Seed.");
+                        m_stream_count = info.m_stream_count;
+                        this->resize(m_stream_count);
                 }
                 m_seed_seq_init = info.m_seed_seq_init;
 
@@ -135,6 +135,7 @@ private:
                 }
         }
 
+private:
         /// Actual first-time seeding. Procedure varies according to engine type, see scpecialisations.
         void Seed(randutils::seed_seq_fe128& seseq)
         {
