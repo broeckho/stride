@@ -27,7 +27,7 @@ namespace util {
 using RnPcg64 = Rn<pcg64>;
 using RnLcg64 = Rn<trng::lcg64>;
 
-using RnMan = RnPcg64 ;
+using RnMan = RnPcg64;
 
 } // namespace util
 } // namespace stride

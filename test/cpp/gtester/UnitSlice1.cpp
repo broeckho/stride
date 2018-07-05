@@ -21,10 +21,10 @@
 #include "util/SegmentedVector.h"
 #include "util/SliceIndexer.h"
 
-#include <boost/range/irange.hpp>
 #include <array>
 #include <gtest/gtest.h>
 #include <iterator>
+#include <numeric>
 #include <type_traits>
 
 using namespace std;
@@ -75,8 +75,11 @@ TYPED_TEST_CASE(UnitSliceIndex1, TestCombos);
 
 TYPED_TEST(UnitSliceIndex1, Setup)
 {
-        auto& c = TestFixture::c;
-        boost::range::copy(boost::irange(0, 101), begin(c));
+        auto&       c = TestFixture::c;
+        vector<int> ivec(101);
+        std::iota(ivec.begin(), ivec.end(), 0);
+        std::copy(ivec.begin(), ivec.end(), begin(c));
+
         EXPECT_EQ(0, c[0]);
         EXPECT_EQ(1, c[1]);
         EXPECT_EQ(50, c[50]);
@@ -85,8 +88,10 @@ TYPED_TEST(UnitSliceIndex1, Setup)
 
 TYPED_TEST(UnitSliceIndex1, Size1)
 {
-        auto& c = TestFixture::c;
-        boost::range::copy(boost::irange(0, 101), begin(c));
+        auto&       c = TestFixture::c;
+        vector<int> ivec(101);
+        std::iota(ivec.begin(), ivec.end(), 0);
+        std::copy(ivec.begin(), ivec.end(), begin(c));
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -101,8 +106,10 @@ TYPED_TEST(UnitSliceIndex1, Size1)
 
 TYPED_TEST(UnitSliceIndex1, Size2)
 {
-        auto& c = TestFixture::c;
-        boost::range::copy(boost::irange(0, 101), begin(c));
+        auto&       c = TestFixture::c;
+        vector<int> ivec(101);
+        std::iota(ivec.begin(), ivec.end(), 0);
+        std::copy(ivec.begin(), ivec.end(), begin(c));
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -116,8 +123,10 @@ TYPED_TEST(UnitSliceIndex1, Size2)
 
 TYPED_TEST(UnitSliceIndex1, Content1)
 {
-        auto& c = TestFixture::c;
-        boost::range::copy(boost::irange(0, 101), begin(c));
+        auto&       c = TestFixture::c;
+        vector<int> ivec(101);
+        std::iota(ivec.begin(), ivec.end(), 0);
+        std::copy(ivec.begin(), ivec.end(), begin(c));
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -135,8 +144,10 @@ TYPED_TEST(UnitSliceIndex1, Content1)
 
 TYPED_TEST(UnitSliceIndex1, Content2)
 {
-        auto& c = TestFixture::c;
-        boost::range::copy(boost::irange(0, 101), begin(c));
+        auto&       c = TestFixture::c;
+        vector<int> ivec(101);
+        std::iota(ivec.begin(), ivec.end(), 0);
+        std::copy(ivec.begin(), ivec.end(), begin(c));
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");

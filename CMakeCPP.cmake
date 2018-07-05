@@ -32,7 +32,6 @@ endif()
 #----------------------------------------------------------------------------
 # Compile flags
 #----------------------------------------------------------------------------
-set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 #
@@ -40,7 +39,7 @@ include(ProcessorCount)
 ProcessorCount(PROCCOUNT)
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -DPROCCOUNT=${PROCCOUNT}")
 #
-set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -Weffc++")
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -pedantic -Weffc++")
 set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -Wno-unknown-pragmas")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Ofast" )
 set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )

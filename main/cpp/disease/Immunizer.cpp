@@ -69,8 +69,8 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
         // Sample susceptible individuals, until all age-dependent quota are reached.
         while (numSusceptible > 0) {
                 // random pool, random order of members
-                const ContactPool&        p_pool = pools[intGenerator()];
-                const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
+                const ContactPool&   p_pool = pools[intGenerator()];
+                const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
                 vector<unsigned int> indices(size);
 
                 iota(indices.begin(), indices.end(), 0U);

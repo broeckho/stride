@@ -32,9 +32,7 @@ using namespace std;
 
 namespace stride {
 
-SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
-{
-}
+SurveySeeder::SurveySeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
 shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
 {

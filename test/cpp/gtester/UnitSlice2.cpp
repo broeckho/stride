@@ -21,8 +21,8 @@
 #include "util/SegmentedVector.h"
 #include "util/SliceIndexer.h"
 
-#include <boost/range/irange.hpp>
 #include <gtest/gtest.h>
+#include <numeric>
 #include <type_traits>
 
 using namespace std;
@@ -43,7 +43,7 @@ TYPED_TEST_CASE(UnitSliceIndex2, TestCombos);
 TYPED_TEST(UnitSliceIndex2, Resize1)
 {
         TypeParam c(101, 0);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -75,7 +75,7 @@ TYPED_TEST(UnitSliceIndex2, Resize1)
 TYPED_TEST(UnitSliceIndex2, Resize2)
 {
         TypeParam c(101, 0);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -84,13 +84,13 @@ TYPED_TEST(UnitSliceIndex2, Resize2)
 
         c.resize(201);
         si.Set(101, "new_last");
-        boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
+        std::iota(si.Get("new_last").begin(), si.Get("new_last").end(), 101);
 }
 
 TYPED_TEST(UnitSliceIndex2, Resize3)
 {
         TypeParam c(101, 0);
-        boost::range::copy(boost::irange(0, 101), c.begin());
+        std::iota(c.begin(), c.end(), 0);
 
         auto si = make_slice_indexer(c);
         si.Set(0, 10, "first_10");
@@ -100,7 +100,8 @@ TYPED_TEST(UnitSliceIndex2, Resize3)
         c.resize(201);
 
         si.Set(101, "new_last");
-        boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
+        // boost::range::copy(boost::irange(101, 201), si.Get("new_last").begin());
+        std::iota(si.Get("new_last").begin(), si.Get("new_last").end(), 101);
 
         int accum = 0;
         for (auto e : si.Get("first_10")) {

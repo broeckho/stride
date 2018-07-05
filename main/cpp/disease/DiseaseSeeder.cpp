@@ -38,8 +38,7 @@ using namespace stride::ContactPoolType;
 using namespace util;
 using namespace std;
 
-DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RnMan& rnManager)
-    : m_config_pt(configPt), m_rn_manager(rnManager)
+DiseaseSeeder::DiseaseSeeder(const ptree& configPt, RnMan& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager)
 {
 }
 

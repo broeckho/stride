@@ -28,7 +28,6 @@ namespace stride {
 
 class Population;
 
-
 /**
  * Initializes Population objects.
  */
@@ -55,7 +54,7 @@ private:
         std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
 
 private:
-        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree
+        const boost::property_tree::ptree& m_config_pt; ///< Configuration property tree
 };
 
 } // namespace stride
