@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: SurveySeeder.cpp File Reference</title>
+<title>Stride Reference Manual: TestDescriptors.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -105,43 +105,40 @@ $(document).ready(function(){initNavTree('d3/dd5/a00215.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SurveySeeder.cpp File Reference</div>  </div>
+<div class="title">TestDescriptors.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation for the SurveySeeder class.  
+<p>Implementation file for TestDescriptors container.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d43/a00216_source.html">SurveySeeder.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d2/d94/a00184_source.html">pop/Population.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/RNManager.h</a>&quot;</code><br/>
-<code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d43/a00216_source.html">TestDescriptors.h</a>&quot;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SurveySeeder.cpp:</div>
+Include dependency graph for TestDescriptors.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d63/a00455.gif" border="0" usemap="#SurveySeeder_8cpp" alt=""/></div>
-<map name="SurveySeeder_8cpp" id="SurveySeeder_8cpp">
-<area shape="rect" id="node2" href="../../d6/d43/a00216.html" title="Header file for the SurveySeeder class. " alt="" coords="1181,80,1296,107"/><area shape="rect" id="node3" href="../../d9/dd0/a00191.html" title="Interface of RNManager. " alt="" coords="735,163,859,189"/><area shape="rect" id="node17" href="../../d2/d94/a00184.html" title="Header file for the core Population class. " alt="" coords="1530,80,1648,107"/><area shape="rect" id="node4" href="../../da/deb/a00189.html" title="Interface of Random Engine Type. " alt="" coords="5,336,128,363"/><area shape="rect" id="node18" href="../../df/d6a/a00119.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1435,163,1591,189"/><area shape="rect" id="node31" href="../../d5/de9/a00176.html" title="Header file for the Person class. " alt="" coords="1616,163,1715,189"/><area shape="rect" id="node34" href="../../d4/d7d/a00093.html" title="Interface/Implementation of Any. " alt="" coords="1739,163,1815,189"/><area shape="rect" id="node36" href="../../d7/ded/a00196.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2018,336,2176,363"/><area shape="rect" id="node19" href="../../d8/d87/a00118.html" title="Header for the core ContactPool class. " alt="" coords="1243,336,1376,363"/><area shape="rect" id="node21" href="../../d8/dfa/a00121.html" title="Definition of ContactPoolType. " alt="" coords="1421,411,1584,437"/><area shape="rect" id="node26" href="../../d9/db6/a00146.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1451,253,1609,280"/><area shape="rect" id="node20" href="../../d4/d3e/a00116.html" title="Header for the ContactLogMode class. " alt="" coords="1093,411,1272,437"/><area shape="rect" id="node32" href="../../de/d14/a00139.html" title="Header for the Health class. " alt="" coords="1685,253,1805,280"/><area shape="rect" id="node37" href="../../df/d24/a00217.html" title="Interface/Implementation for SVIterator. " alt="" coords="2135,411,2227,437"/></map>
+<div class="center"><img src="../../dd/d63/a00455.gif" border="0" usemap="#TestDescriptors_8cpp" alt=""/></div>
+<map name="TestDescriptors_8cpp" id="TestDescriptors_8cpp">
+<area shape="rect" id="node2" href="../../d6/d43/a00216.html" title="Header file for TestDescriptors container. " alt="" coords="758,80,884,107"/><area shape="rect" id="node3" href="../../d3/dd1/a00214.html" title="Header file for TestDescriptor. " alt="" coords="575,155,693,181"/><area shape="rect" id="node4" href="../../d6/db8/a00158.html" title="Header file for InfoFactory. " alt="" coords="101,229,200,256"/><area shape="rect" id="node7" href="../../df/d24/a00217.html" title="Header file for TestFactory. " alt="" coords="275,229,377,256"/><area shape="rect" id="node8" href="../../d1/de1/a00213.html" title="Header file for Test. " alt="" coords="297,312,355,339"/><area shape="rect" id="node9" href="../../dc/d9a/a00218.html" title="Header file for TestResult. " alt="" coords="197,395,293,421"/><area shape="rect" id="node15" href="../../dd/de3/a00201.html" title="Definition of Stopwatch. " alt="" coords="478,395,593,421"/><area shape="rect" id="node16" href="../../dd/d52/a00221.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="478,469,588,496"/></map>
 </div>
 </div>
 <p><a href="../../d3/dd5/a00215_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
-<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d7/d40/a00236"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d40/a00236.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation for the SurveySeeder class. </p>
+<div class="textblock"><p>Implementation file for TestDescriptors container. </p>
 
-<p>Definition in file <a class="el" href="../../d3/dd5/a00215_source.html">SurveySeeder.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/dd5/a00215_source.html">TestDescriptors.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d3/dd5/a00215.html">SurveySeeder.cpp</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d3/dd5/a00215.html">TestDescriptors.cpp</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

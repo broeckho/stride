@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mrg2',['mrg2',['../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba73ab14a245ef684f30a4aa9264aa6fb5',1,'stride::RNEngineType']]],
-  ['mrg3',['mrg3',['../d0/d3e/a00253.html#a4dad7ad4a2f8f59eb0e51b89ba0c192ba6a2923899d3ebb06023aa5298c8bbbd3',1,'stride::RNEngineType']]]
+  ['none',['None',['../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode']]]
 ];

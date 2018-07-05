@@ -1,5 +1,5 @@
 var namespaces =
 [
-    [ "myhayai", "d6/db6/a00241.html", "d6/db6/a00241" ],
-    [ "stride", "de/dbc/a00249.html", "de/dbc/a00249" ]
+    [ "myhayai", "d7/d40/a00236.html", "d7/d40/a00236" ],
+    [ "stride", "d6/d08/a00244.html", "d6/d08/a00244" ]
 ];

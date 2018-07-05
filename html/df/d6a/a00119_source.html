@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ContactPoolSys.h Source File</title>
+<title>Stride Reference Manual: ContactPoolType.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('df/d6a/a00119_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ContactPoolSys.h</div>  </div>
+<div class="title">ContactPoolType.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../df/d6a/a00119.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,29 +119,63 @@ $(document).ready(function(){initNavTree('df/d6a/a00119_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d87/a00118.html">pool/ContactPool.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/dfa/a00121.html">pool/ContactPoolType.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/db6/a00146.html">pool/IdSubscriptArray.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#a557f14d9340c7e258a8b9a2dc649bca5">   32</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d8/d84/a00001.html">ContactPoolSys</a> = <a class="code" href="../../d8/d84/a00001.html">ContactPoolType::IdSubscriptArray&lt;std::vector&lt;ContactPool&gt;</a>&gt;;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00001_html"><div class="ttname"><a href="../../d8/d84/a00001.html">stride::ContactPoolType::IdSubscriptArray</a></div><div class="ttdoc">An std::array modified to enable subscripting with the constact pool type indentifiers. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/db6/a00146_source.html#l00048">IdSubscriptArray.h:48</a></div></div>
-<div class="ttc" id="a00121_html"><div class="ttname"><a href="../../d8/dfa/a00121.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
-<div class="ttc" id="a00118_html"><div class="ttname"><a href="../../d8/d87/a00118.html">ContactPool.h</a></div><div class="ttdoc">Header for the core ContactPool class. </div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">IdSubscriptArray.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>ContactPoolType {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">   33</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">Id</a> : std::size_t</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Household</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">School</a>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Work</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">PrimaryCommunity</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">SecondaryCommunity</a>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d4/d9a/a00246.html#af724b7d598645a8c1054b66306dee629">   43</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d9a/a00246.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>() { <span class="keywordflow">return</span> 5U; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/d9a/a00246.html#a1269217f56908f0da981dbe4e43bb73d">IsType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d4/d9a/a00246.html#ac36d342acc9d969f5de3aa55e95b9fe6">   49</a></span>&#160;<span class="keyword">inline</span> constexpr std::size_t <a class="code" href="../../d4/d9a/a00246.html#ac36d342acc9d969f5de3aa55e95b9fe6">ToSizeT</a>(<a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">Id</a> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(id); }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;std::string <a class="code" href="../../d4/d9a/a00246.html#a0cf9d3425b406cd76acdc02ef9c0286d">ToString</a>(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> w);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d4/d9a/a00246.html#af529300a78547c29c95b81ad8ac62afe">ToType</a>(<span class="keyword">const</span> std::string&amp; s);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d4/d9a/a00246.html#a19ba4d58aafc6ea7ff765e3a7cd54332">   58</a></span>&#160;constexpr std::initializer_list&lt;Id&gt; <a class="code" href="../../d4/d9a/a00246.html#a19ba4d58aafc6ea7ff765e3a7cd54332">IdList</a>{<a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">Id::Household</a>, <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">Id::School</a>, <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">Id::Work</a>, <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">Id::PrimaryCommunity</a>,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                           <a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">Id::SecondaryCommunity</a>};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace ContactPoolType</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00246_html_af724b7d598645a8c1054b66306dee629"><div class="ttname"><a href="../../d4/d9a/a00246.html#af724b7d598645a8c1054b66306dee629">stride::ContactPoolType::NumOfTypes</a></div><div class="ttdeci">constexpr unsigned int NumOfTypes()</div><div class="ttdoc">Number of ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00043">ContactPoolType.h:43</a></div></div>
+<div class="ttc" id="a00246_html_a0cf9d3425b406cd76acdc02ef9c0286d"><div class="ttname"><a href="../../d4/d9a/a00246.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a></div><div class="ttdeci">string ToString(Id c)</div><div class="ttdoc">Converts a ContactPoolType::Id value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00046">ContactPoolType.cpp:46</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Id::Household</a></div></div>
+<div class="ttc" id="a00246_html_ac36d342acc9d969f5de3aa55e95b9fe6"><div class="ttname"><a href="../../d4/d9a/a00246.html#ac36d342acc9d969f5de3aa55e95b9fe6">stride::ContactPoolType::ToSizeT</a></div><div class="ttdeci">constexpr std::size_t ToSizeT(Id id)</div><div class="ttdoc">Cast to size_t for indexing. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00049">ContactPoolType.h:49</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::Id::SecondaryCommunity</a></div></div>
+<div class="ttc" id="a00246_html_a19ba4d58aafc6ea7ff765e3a7cd54332"><div class="ttname"><a href="../../d4/d9a/a00246.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a></div><div class="ttdeci">constexpr std::initializer_list&lt; Id &gt; IdList</div><div class="ttdoc">To allow iteration over the type ids. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00058">ContactPoolType.h:58</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba955cd8691ca89a6baa6ea10c7787e604">stride::ContactPoolType::Id::School</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::Id::PrimaryCommunity</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Id::Work</a></div></div>
+<div class="ttc" id="a00246_html_a1269217f56908f0da981dbe4e43bb73d"><div class="ttname"><a href="../../d4/d9a/a00246.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a></div><div class="ttdeci">bool IsType(const string &amp;s)</div><div class="ttdoc">Check whether string is name of a ContactPoolType::Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00032">ContactPoolType.cpp:32</a></div></div>
+<div class="ttc" id="a00246_html_af529300a78547c29c95b81ad8ac62afe"><div class="ttname"><a href="../../d4/d9a/a00246.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a></div><div class="ttdeci">Id ToType(const string &amp;s)</div><div class="ttdoc">Converts a string with name to Id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00058">ContactPoolType.cpp:58</a></div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00033">ContactLogMode.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">ContactPoolSys.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">ContactPoolType.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

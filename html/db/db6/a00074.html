@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -105,119 +105,61 @@ $(document).ready(function(){initNavTree('db/db6/a00074.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d5/d40/a00672.html">List of all members</a>  </div>
+<a href="../../da/d46/a00665.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Template for Subject/Observer (or Publish/Subscribe).  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../db/db6/a00074.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/de7/a00210_source.html">Subject.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d4f/a00673.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
-<area shape="rect" id="node2" href="../../db/db6/a00074.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,235,169,400"/><area shape="rect" id="node4" href="../../db/db6/a00074.html" title="{stride::util::Subject\l\&lt; event::Payload \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="199,235,332,400"/><area shape="rect" id="node3" href="../../d5/de0/a00050.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="22,451,148,661"/><area shape="rect" id="node5" href="../../d0/d0b/a00004.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b..." alt="" coords="173,466,360,646"/></map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d73/a00674.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
-<area shape="rect" id="node4" href="../../dc/da0/a00483.html" title="{const void\n||}" alt="" coords="5,147,87,224"/><area shape="rect" id="node5" title="STL class. " alt="" coords="112,147,245,224"/><area shape="rect" id="node8" title="STL class. " alt="" coords="269,147,392,224"/><area shape="rect" id="node7" href="../../d9/d4a/a00479.html" title="{CallbackType\n||}" alt="" coords="501,296,603,373"/></map>
+<div class="center"><img src="../../d9/d41/a00666.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
+</map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
-<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
-<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
-<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
-<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
-<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
-<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
-<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
-<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br/></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br/></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br/></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br/></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const <br class="typebreak"/>
-void &gt;, <a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, <br class="typebreak"/>
-std::owner_less&lt; std::weak_ptr<br class="typebreak"/>
-&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
-<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename E&gt;<br/>
-class stride::util::Subject&lt; E &gt;</h3>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Template for Subject/Observer (or Publish/Subscribe). </p>
-<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../db/db6/a00074.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00035">35</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00036">36</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00038">38</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00039">39</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../db/db6/a00074.html">Subject</a> </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -230,124 +172,25 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00042">42</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
+<p>Constructor marks the time for the time stamp. </p>
 
-</div>
-</div>
-<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../db/db6/a00074.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00044">44</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00040">40</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00047">47</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/de6/a00167_source.html#l00158">myhayai::MyhayaiController::RunBenchmarks()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00053">53</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -357,27 +200,28 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00058">58</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
+<p>Returns string with the time stamp after eliminating newline. </p>
 
-<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00044">stride::util::Subject&lt; event::Payload &gt;::~Subject()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00043">43</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/d0b/a00220_source.html#l00073">m_tp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d0b/a00220_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/db6/a00074.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -387,22 +231,51 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00060">60</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00052">52</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns time stamp as a time_t. </p>
+
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00070">70</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../d5/d0b/a00220_source.html#l00073">m_tp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../db/db6/a00074.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../db/db6/a00074.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
   </td>
@@ -412,22 +285,22 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00073">73</a> of file <a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00073">73</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00060">stride::util::Subject&lt; event::Payload &gt;::Notify()</a>, <a class="el" href="../../da/de7/a00210_source.html#l00047">stride::util::Subject&lt; event::Payload &gt;::Register()</a>, <a class="el" href="../../da/de7/a00210_source.html#l00053">stride::util::Subject&lt; event::Payload &gt;::Unregister()</a>, and <a class="el" href="../../da/de7/a00210_source.html#l00058">stride::util::Subject&lt; event::Payload &gt;::UnregisterAll()</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/d0b/a00220_source.html#l00043">ToString()</a>, and <a class="el" href="../../d5/d0b/a00220_source.html#l00070">ToTimeT()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/de7/a00210_source.html">util/Subject.h</a></li>
+<li><a class="el" href="../../d5/d0b/a00220_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/dbc/a00249.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">util</a></li><li class="navelem"><a class="el" href="../../db/db6/a00074.html">Subject</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d08/a00244.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/da7/a00250.html">util</a></li><li class="navelem"><a class="el" href="../../db/db6/a00074.html">TimeStamp</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:48 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

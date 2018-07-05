@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: InfoFactory.h Source File</title>
+<title>Stride Reference Manual: LocalDiscussion.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d38/a00160_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InfoFactory.h</div>  </div>
+<div class="title">LocalDiscussion.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d38/a00160.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,23 +119,39 @@ $(document).ready(function(){initNavTree('de/d38/a00160_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>Person;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/db6/a00241.html#a94d26b57ca1b2d6a79381d09ff546ba6">   27</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../d6/db6/a00241.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> = std::function&lt;boost::property_tree::ptree()&gt;;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00241_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d6/db6/a00241.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00027">InfoFactory.h:27</a></div></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../de/d8c/a00036.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d8c/a00036.html">LocalDiscussion</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../de/d8c/a00036.html#ae927760d0eb3e5a3114305c53ebe70e3">   35</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d8c/a00036.html#ae927760d0eb3e5a3114305c53ebe70e3">Update</a>(<a class="code" href="../../d6/d97/a00045.html">Person</a>*, <a class="code" href="../../d6/d97/a00045.html">Person</a>*)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="comment">// TODO discussion probability</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="comment">// TODO if discussion: update p1</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="comment">// TODO if discussion: update p2</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../de/d8c/a00036.html#abec64aa38907d3ffde96d9f848bd1d0d">   43</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="../../de/d8c/a00036.html#abec64aa38907d3ffde96d9f848bd1d0d">m_discussion_probability</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00035">Person.h:35</a></div></div>
+<div class="ttc" id="a00036_html_ae927760d0eb3e5a3114305c53ebe70e3"><div class="ttname"><a href="../../de/d8c/a00036.html#ae927760d0eb3e5a3114305c53ebe70e3">stride::LocalDiscussion::Update</a></div><div class="ttdeci">static void Update(Person *, Person *)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00035">LocalDiscussion.h:35</a></div></div>
+<div class="ttc" id="a00036_html_abec64aa38907d3ffde96d9f848bd1d0d"><div class="ttname"><a href="../../de/d8c/a00036.html#abec64aa38907d3ffde96d9f848bd1d0d">stride::LocalDiscussion::m_discussion_probability</a></div><div class="ttdeci">static double m_discussion_probability</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00043">LocalDiscussion.h:43</a></div></div>
+<div class="ttc" id="a00036_html"><div class="ttname"><a href="../../de/d8c/a00036.html">stride::LocalDiscussion</a></div><div class="ttdoc">Class for local information policy &#39;LocalDiscussion&#39;. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00032">LocalDiscussion.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">InfoFactory.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_697403cd96b9981a35e127a5a5c069d8.html">information_policies</a></li><li class="navelem"><a class="el" href="../../de/d38/a00160.html">LocalDiscussion.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

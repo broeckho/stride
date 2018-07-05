@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Age.h Source File</title>
+<title>Stride Reference Manual: AgeContactProfile.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Age.h</div>  </div>
+<div class="title">AgeContactProfile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../db/dab/a00089.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,25 +122,35 @@ $(document).ready(function(){initNavTree('db/dab/a00089_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#ae2682ff4058ec78d0809d073dcdea2d1">   25</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dbc/a00249.html#ae2682ff4058ec78d0809d073dcdea2d1">MaximumAge</a>() { <span class="keywordflow">return</span> 80U; }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#a2b354a18a7f6986d363385ff46c9a473">   28</a></span>&#160;<span class="keyword">inline</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dbc/a00249.html#a2b354a18a7f6986d363385ff46c9a473">MinAdultAge</a>() { <span class="keywordflow">return</span> 18U; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d6a/a00119.html">pool/ContactPoolType.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d1/d1e/a00087.html">pop/Age.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>stride {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../de/dbc/a00249.html#abe2f1ef509d97ae6c13bdcd187e495f2">   31</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dbc/a00249.html#abe2f1ef509d97ae6c13bdcd187e495f2">EffectiveAge</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> age) { <span class="keywordflow">return</span> (age &lt;= <a class="code" href="../../de/dbc/a00249.html#ae2682ff4058ec78d0809d073dcdea2d1">MaximumAge</a>()) ? age : <a class="code" href="../../de/dbc/a00249.html#ae2682ff4058ec78d0809d073dcdea2d1">MaximumAge</a>(); }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00249_html_ae2682ff4058ec78d0809d073dcdea2d1"><div class="ttname"><a href="../../de/dbc/a00249.html#ae2682ff4058ec78d0809d073dcdea2d1">stride::MaximumAge</a></div><div class="ttdeci">constexpr unsigned int MaximumAge()</div><div class="ttdoc">Maximum age for Persons. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00025">Age.h:25</a></div></div>
-<div class="ttc" id="a00249_html_abe2f1ef509d97ae6c13bdcd187e495f2"><div class="ttname"><a href="../../de/dbc/a00249.html#abe2f1ef509d97ae6c13bdcd187e495f2">stride::EffectiveAge</a></div><div class="ttdeci">unsigned int EffectiveAge(unsigned int age)</div><div class="ttdoc">Effective age (topping of at maximum). </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00031">Age.h:31</a></div></div>
-<div class="ttc" id="a00249_html_a2b354a18a7f6986d363385ff46c9a473"><div class="ttname"><a href="../../de/dbc/a00249.html#a2b354a18a7f6986d363385ff46c9a473">stride::MinAdultAge</a></div><div class="ttdeci">constexpr unsigned int MinAdultAge()</div><div class="ttdoc">Maximum age for Person&#39;s. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00028">Age.h:28</a></div></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/dd4/a00013.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/dd4/a00013.html">AgeContactProfile</a> : <span class="keyword">public</span> std::array&lt;double, MaximumAge() + 1&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">AgeContactProfile</a>(<a class="code" href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> poolType, <span class="keyword">const</span> boost::property_tree::ptree&amp; contactPt);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00087_html"><div class="ttname"><a href="../../d1/d1e/a00087.html">Age.h</a></div><div class="ttdoc">Helpers for age. </div></div>
+<div class="ttc" id="a00013_html"><div class="ttname"><a href="../../d7/dd4/a00013.html">stride::AgeContactProfile</a></div><div class="ttdoc">Contact rates as a function of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/dab/a00089_source.html#l00033">AgeContactProfile.h:33</a></div></div>
+<div class="ttc" id="a00013_html_abcac910ea28f2cefae9efd6f462aa34d"><div class="ttname"><a href="../../d7/dd4/a00013.html#abcac910ea28f2cefae9efd6f462aa34d">stride::AgeContactProfile::AgeContactProfile</a></div><div class="ttdeci">AgeContactProfile()=default</div><div class="ttdoc">Need to keep the default constructor available. </div></div>
+<div class="ttc" id="a00246_html_aaa214aee675050e781497b0dd15449ab"><div class="ttname"><a href="../../d4/d9a/a00246.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a></div><div class="ttdeci">Id</div><div class="ttdoc">Enumerates the ContactPool types. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/d6a/a00119_source.html#l00033">ContactPoolType.h:33</a></div></div>
+<div class="ttc" id="a00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">ContactPoolType.h</a></div><div class="ttdoc">Definition of ContactPoolType. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">Age.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">AgeContactProfile.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

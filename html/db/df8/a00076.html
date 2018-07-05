@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
+<title>Stride Reference Manual: stride::Vaccination&lt; belief_policy &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -105,202 +105,106 @@ $(document).ready(function(){initNavTree('db/df8/a00076.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../da/d31/a00678.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../dc/d19/a00515.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
+<div class="title">stride::Vaccination&lt; belief_policy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides wall-clock time stamp using the time call.  
+<p><a class="el" href="../../db/df8/a00076.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual.  
  <a href="../../db/df8/a00076.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">Vaccination.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::TimeStamp:</div>
+Collaboration diagram for stride::Vaccination&lt; belief_policy &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
+<div class="center"><img src="../../d4/d40/a00516.gif" border="0" usemap="#stride_1_1Vaccination_3_01belief__policy_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Vaccination_3_01belief__policy_01_4_coll__map" id="stride_1_1Vaccination_3_01belief__policy_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
-<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br/></td></tr>
-<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
-<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br/></td></tr>
-<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
-<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br/></td></tr>
-<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
-<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br/></td></tr>
-<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
-<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8dcb01be7e194bb29d6a379322781a14"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a8dcb01be7e194bb29d6a379322781a14">PracticesSocialDistancing</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:a8dcb01be7e194bb29d6a379322781a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df8/a00076.html#a4db3031aaeba5b0de11bd821ece9adbe">PracticesVaccination</a> (const typename belief_policy::Data &amp;belief_data)</td></tr>
+<tr class="separator:a4db3031aaeba5b0de11bd821ece9adbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
-<p>The time is that of the constructor call. </p>
+<div class="textblock"><h3>template&lt;typename belief_policy&gt;<br/>
+class stride::Vaccination&lt; belief_policy &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00036">36</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
+<p><a class="el" href="../../db/df8/a00076.html" title="Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...">Vaccination</a> beliefs and information have an influence on the vaccination behaviour of an individual. </p>
+
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00024">24</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Vaccination.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8dcb01be7e194bb29d6a379322781a14"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
+          <td class="memname">static bool <a class="el" href="../../db/df8/a00076.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesSocialDistancing </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor marks the time for the time stamp. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00040">40</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00027">27</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Vaccination.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
+<a class="anchor" id="a4db3031aaeba5b0de11bd821ece9adbe"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename belief_policy &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
+          <td class="memname">static bool <a class="el" href="../../db/df8/a00076.html">stride::Vaccination</a>&lt; belief_policy &gt;::PracticesVaccination </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const typename belief_policy::Data &amp;&#160;</td>
+          <td class="paramname"><em>belief_data</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns string with the time stamp after eliminating newline. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00043">43</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/d98/a00225_source.html#l00073">m_tp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns string with the time stamp after eliminating newline. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00052">52</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns time stamp as a time_t. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00070">70</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/d98/a00225_source.html#l00073">m_tp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00073">73</a> of file <a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d98/a00225_source.html#l00043">ToString()</a>, and <a class="el" href="../../dc/d98/a00225_source.html#l00070">ToTimeT()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00029">29</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">Vaccination.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d98/a00225_source.html">TimeStamp.h</a></li>
+<li><a class="el" href="../../d5/ddf/a00224_source.html">Vaccination.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/dbc/a00249.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d04/a00255.html">util</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">TimeStamp</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d6/d08/a00244.html">stride</a></li><li class="navelem"><a class="el" href="../../db/df8/a00076.html">Vaccination</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Belief.h File Reference</title>
+<title>Stride Reference Manual: BeliefSeeder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -106,45 +106,58 @@ $(document).ready(function(){initNavTree('dc/d54/a00094.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Belief.h File Reference</div>  </div>
+<div class="title">BeliefSeeder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for Belief.  
+<p>Header file for the HealthSeeder.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/ddb/a00145_source.html">behaviour/belief_policies/Imitation.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../de/d53/a00169_source.html">behaviour/belief_policies/NoBelief.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d15/a00188_source.html">util/RnMan.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
+<code>#include &lt;functional&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for BeliefSeeder.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d56/a00274.gif" border="0" usemap="#BeliefSeeder_8h" alt=""/></div>
+<map name="BeliefSeeder_8h" id="BeliefSeeder_8h">
+<area shape="rect" id="node2" href="../../da/ddb/a00145.html" title="Header file for Imitation belief policy. " alt="" coords="490,81,653,122"/><area shape="rect" id="node5" href="../../de/d53/a00169.html" title="Header file for NoBelief class. " alt="" coords="302,81,465,122"/><area shape="rect" id="node6" href="../../da/d15/a00188.html" title="Interface of RnMan. " alt="" coords="729,88,825,115"/><area shape="rect" id="node3" href="../../d1/dc1/a00092.html" title="Header file for Belief. " alt="" coords="309,171,472,213"/><area shape="rect" id="node7" href="../../d6/daa/a00187.html" title="Interface of RnPcg. " alt="" coords="729,179,780,205"/><area shape="rect" id="node8" href="../../db/d53/a00202.html" title="Miscellaneous string utilities. " alt="" coords="127,261,221,288"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d4b/a00277.gif" border="0" usemap="#Belief_8hdep" alt=""/></div>
-<map name="Belief_8hdep" id="Belief_8hdep">
-<area shape="rect" id="node2" href="../../d2/df5/a00137.html" title="Header file for HBM belief. " alt="" coords="18,80,80,107"/><area shape="rect" id="node3" href="../../d0/d4a/a00147.html" title="Header file for Imitation belief policy. " alt="" coords="105,80,187,107"/><area shape="rect" id="node8" href="../../d1/d0d/a00171.html" title="Header file for NoBelief class. " alt="" coords="212,80,293,107"/><area shape="rect" id="node9" href="../../d5/ddf/a00224.html" title="Header file for Threshold belief policy. " alt="" coords="319,80,409,107"/><area shape="rect" id="node4" href="../../d9/df8/a00096.html" title="Header file for the HealthSeeder. " alt="" coords="81,155,188,181"/><area shape="rect" id="node7" href="../../dc/d52/a00183.html" title="Core Population class. " alt="" coords="213,155,320,181"/><area shape="rect" id="node5" href="../../d9/d77/a00095.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,229,125,256"/><area shape="rect" id="node6" href="../../d8/d72/a00199.html" title="Implementation for the SimBuilder class. " alt="" coords="150,229,260,256"/></map>
+<div class="center"><img src="../../d3/d5e/a00275.gif" border="0" usemap="#BeliefSeeder_8hdep" alt=""/></div>
+<map name="BeliefSeeder_8hdep" id="BeliefSeeder_8hdep">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,80,125,107"/><area shape="rect" id="node3" href="../../dc/d57/a00194.html" title="Implementation for the SimBuilder class. " alt="" coords="150,80,260,107"/></map>
 </div>
 </div>
 <p><a href="../../dc/d54/a00094_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/a00014.html">stride::Belief</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all belief policies.  <a href="../../d2/de7/a00014.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d1b/a00015.html">stride::BeliefSeeder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d5/d16/a00029.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="../../dd/d1b/a00015.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
-<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
+<tr class="memitem:d6/d08/a00244"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00244.html">stride</a></td></tr>
+<tr class="memdesc:d6/d08/a00244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for Belief. </p>
+<div class="textblock"><p>Header file for the HealthSeeder. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d54/a00094_source.html">Belief.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d54/a00094_source.html">BeliefSeeder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">Belief.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">BeliefSeeder.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

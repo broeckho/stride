@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Infector.h Source File</title>
+<title>Stride Reference Manual: InfectorMap.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d1/db7/a00157_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Infector.h</div>  </div>
+<div class="title">InfectorMap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d1/db7/a00157.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,106 +119,65 @@ $(document).ready(function(){initNavTree('d1/db7/a00157_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3e/a00116.html">ContactLogMode.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dc2/a00228.html">TransmissionProfile.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d44/a00162.html">behaviour/information_policies/LocalDiscussion.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/d3f/a00173.html">behaviour/information_policies/NoLocalInformation.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/dc2/a00104.html">calendar/Calendar.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d82/a00091.html">contact/AgeContactProfile.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">contact/ContactHandler.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">contact/ContactLogMode.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">contact/Infector.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d34/a00156.html">contact/InfectorExec.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d7a/a00016.html">Calendar</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d2d/a00047.html">Population</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using namespace </span>stride;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;ContactLogMode::Id LL, <span class="keyword">typename</span> LIP&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">struct </span>UseOptimizedInfector</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">struct </span>UseOptimizedInfector&lt;ContactLogMode::Id::None, <a class="code" href="../../db/d3a/a00040.html">NoLocalInformation</a>&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">struct </span>UseOptimizedInfector&lt;ContactLogMode::Id::Transmissions, <a class="code" href="../../db/d3a/a00040.html">NoLocalInformation</a>&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> value = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d8c/a00035.html">InfectorMap</a> : <span class="keyword">public</span> std::map&lt;std::tuple&lt;stride::ContactLogMode::Id, bool, std::string&gt;, InfectorExec*&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html#a389bcbbddf547f27cb2e60feadca12af">   43</a></span>&#160;        <a class="code" href="../../d4/d8c/a00035.html#a389bcbbddf547f27cb2e60feadca12af">InfectorMap</a>()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                Add&lt;NoLocalInformation, true&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                Add&lt;NoLocalInformation, false&gt;(<span class="stringliteral">&quot;NoLocalInformation&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                Add&lt;LocalDiscussion, true&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                Add&lt;LocalDiscussion, false&gt;(<span class="stringliteral">&quot;LocalDiscussion&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">bool</span> B&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d4/d8c/a00035.html#a2abaaf56ff495aa37bfead7eea5405de">   54</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d4/d8c/a00035.html#a2abaaf56ff495aa37bfead7eea5405de">Add</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keyword">using namespace </span>ContactLogMode;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Suscep = Id::Susceptibles;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> Transm = Id::Transmissions;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/da2/a00019.html">ContactPool</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;template &lt;ContactLogMode::Id LL, bool TIC, typename LIP, bool TO = UseOptimizedInfector&lt;LL, LIP&gt;::value&gt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d0/dc0/a00033.html">   71</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector</a></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a45b455fb644270329ae1d53aad9de4db">Exec</a>(<a class="code" href="../../dd/da2/a00019.html">ContactPool</a>&amp; pool, <span class="keyword">const</span> <a class="code" href="../../d7/dd4/a00013.html">AgeContactProfile</a>&amp; profile, <span class="keyword">const</span> <a class="code" href="../../d1/dea/a00054.html">TransmissionProfile</a>&amp; transProfile,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                         <a class="code" href="../../d1/d2b/a00018.html">ContactHandler</a>&amp; cHandler, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> simDay, std::shared_ptr&lt;spdlog::logger&gt; cLogger);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;ContactLogMode::Id LL, <span class="keywordtype">bool</span> TIC&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../db/df3/a00034.html">   83</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector</a>&lt;LL, TIC, <a class="code" href="../../db/d3a/a00040.html">NoLocalInformation</a>, true&gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d0/dc0/a00033.html#a45b455fb644270329ae1d53aad9de4db">Exec</a>(<a class="code" href="../../dd/da2/a00019.html">ContactPool</a>&amp; pool, <span class="keyword">const</span> <a class="code" href="../../d7/dd4/a00013.html">AgeContactProfile</a>&amp; profile, <span class="keyword">const</span> <a class="code" href="../../d1/dea/a00054.html">TransmissionProfile</a>&amp; transProfile,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                         <a class="code" href="../../d1/d2b/a00018.html">ContactHandler</a>&amp; cHandler, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> simDay, std::shared_ptr&lt;spdlog::logger&gt; cLogger);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::None, false, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::None, false, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::None, true, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::None, true, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Transmissions, false, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Transmissions, false, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Transmissions, true, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Transmissions, true, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::All, false, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::All, false, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::All, true, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::All, true, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Susceptibles, false, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Susceptibles, false, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Susceptibles, true, NoLocalInformation&gt;</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../d0/dc0/a00033.html">Infector&lt;ContactLogMode::Id::Susceptibles, true, LocalDiscussion&gt;</a>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00091_html"><div class="ttname"><a href="../../da/d82/a00091.html">AgeContactProfile.h</a></div><div class="ttdoc">Contact profile. </div></div>
-<div class="ttc" id="a00162_html"><div class="ttname"><a href="../../db/d44/a00162.html">LocalDiscussion.h</a></div><div class="ttdoc">Header file for LocalDiscussion info policy. </div></div>
-<div class="ttc" id="a00018_html"><div class="ttname"><a href="../../d1/d2b/a00018.html">stride::ContactHandler</a></div><div class="ttdoc">Processes the contacts between persons and determines whether transmission occurs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00031">ContactHandler.h:31</a></div></div>
-<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">ContactHandler.h</a></div><div class="ttdoc">Header for the ContactHandler class. </div></div>
-<div class="ttc" id="a00054_html"><div class="ttname"><a href="../../d1/dea/a00054.html">stride::TransmissionProfile</a></div><div class="ttdoc">Transmission rates from disease data. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dc2/a00228_source.html#l00029">TransmissionProfile.h:29</a></div></div>
-<div class="ttc" id="a00013_html"><div class="ttname"><a href="../../d7/dd4/a00013.html">stride::AgeContactProfile</a></div><div class="ttdoc">Contact rates as a function of age. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d82/a00091_source.html#l00033">AgeContactProfile.h:33</a></div></div>
-<div class="ttc" id="a00040_html"><div class="ttname"><a href="../../db/d3a/a00040.html">stride::NoLocalInformation</a></div><div class="ttdoc">No information about beliefs or health status is exchanged upon contact. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d3f/a00173_source.html#l00026">NoLocalInformation.h:26</a></div></div>
-<div class="ttc" id="a00033_html"><div class="ttname"><a href="../../d0/dc0/a00033.html">stride::Infector</a></div><div class="ttdoc">Actual contacts and transmission in contactpool (primary template). </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00071">Infector.h:71</a></div></div>
-<div class="ttc" id="a00228_html"><div class="ttname"><a href="../../de/dc2/a00228.html">TransmissionProfile.h</a></div><div class="ttdoc">Header for the TransmissionProfile class. </div></div>
-<div class="ttc" id="a00116_html"><div class="ttname"><a href="../../d4/d3e/a00116.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
-<div class="ttc" id="a00104_html"><div class="ttname"><a href="../../d0/dc2/a00104.html">Calendar.h</a></div><div class="ttdoc">Header file for the Calendar class. </div></div>
-<div class="ttc" id="a00033_html_a45b455fb644270329ae1d53aad9de4db"><div class="ttname"><a href="../../d0/dc0/a00033.html#a45b455fb644270329ae1d53aad9de4db">stride::Infector::Exec</a></div><div class="ttdeci">static void Exec(ContactPool &amp;pool, const AgeContactProfile &amp;profile, const TransmissionProfile &amp;transProfile, ContactHandler &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d34/a00156_source.html#l00144">Infector.cpp:144</a></div></div>
-<div class="ttc" id="a00019_html"><div class="ttname"><a href="../../dd/da2/a00019.html">stride::ContactPool</a></div><div class="ttdoc">Represents a group of Persons that potentially have contacts. </div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d87/a00118_source.html#l00035">ContactPool.h:35</a></div></div>
-<div class="ttc" id="a00173_html"><div class="ttname"><a href="../../d7/d3f/a00173.html">NoLocalInformation.h</a></div></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Suscep, B, name), &amp;<a class="code" href="../../d0/dc0/a00033.html">Infector&lt;Suscep, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Transm, B, name), &amp;<a class="code" href="../../d0/dc0/a00033.html">Infector&lt;Transm, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::All, B, name), &amp;<a class="code" href="../../d0/dc0/a00033.html">Infector&lt;Id::All, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                this-&gt;emplace(make_pair(make_tuple(Id::None, B, name), &amp;<a class="code" href="../../d0/dc0/a00033.html">Infector&lt;Id::None, B, T&gt;::Exec</a>));</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00156_html"><div class="ttname"><a href="../../d2/d34/a00156.html">InfectorExec.h</a></div><div class="ttdoc">Header for the InfectorExec class. </div></div>
+<div class="ttc" id="a00047_html"><div class="ttname"><a href="../../d6/d2d/a00047.html">stride::Population</a></div><div class="ttdoc">Container for persons in population. </div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d25/a00182_source.html#l00037">Population.h:37</a></div></div>
+<div class="ttc" id="a00035_html"><div class="ttname"><a href="../../d4/d8c/a00035.html">stride::InfectorMap</a></div><div class="ttdoc">Simulator can time step and reveal some of the key data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00039">InfectorMap.h:39</a></div></div>
+<div class="ttc" id="a00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">Infector.h</a></div><div class="ttdoc">Header for the Infector class. </div></div>
+<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
+<div class="ttc" id="a00035_html_a2abaaf56ff495aa37bfead7eea5405de"><div class="ttname"><a href="../../d4/d8c/a00035.html#a2abaaf56ff495aa37bfead7eea5405de">stride::InfectorMap::Add</a></div><div class="ttdeci">void Add(const std::string &amp;name)</div><div class="ttdoc">Filling up the InfectorMap. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00054">InfectorMap.h:54</a></div></div>
+<div class="ttc" id="a00035_html_a389bcbbddf547f27cb2e60feadca12af"><div class="ttname"><a href="../../d4/d8c/a00035.html#a389bcbbddf547f27cb2e60feadca12af">stride::InfectorMap::InfectorMap</a></div><div class="ttdeci">InfectorMap()</div><div class="ttdoc">Fully initialized. </div><div class="ttdef"><b>Definition:</b> <a href="../../d1/db7/a00157_source.html#l00043">InfectorMap.h:43</a></div></div>
+<div class="ttc" id="a00033_html"><div class="ttname"><a href="../../d0/dc0/a00033.html">stride::Infector</a></div><div class="ttdoc">Actual contacts and transmission in contactpool (primary template). </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/df8/a00155_source.html#l00071">Infector.h:71</a></div></div>
+<div class="ttc" id="a00016_html"><div class="ttname"><a href="../../d7/d7a/a00016.html">stride::Calendar</a></div><div class="ttdoc">Class that keeps track of the &#39;state&#39; of simulated world. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dcc/a00102_source.html#l00036">Calendar.h:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d1/db7/a00157.html">Infector.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d1/db7/a00157.html">InfectorMap.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

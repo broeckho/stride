@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: RnPcg.h File Reference</title>
+<title>Stride Reference Manual: Sim.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -106,63 +106,60 @@ $(document).ready(function(){initNavTree('dd/df4/a00193.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RnPcg.h File Reference</div>  </div>
+<div class="title">Sim.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface of RnPcg.  
+<p>Header for the Simulator class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;functional&gt;</code><br/>
-<code>#include &lt;pcg/pcg_random.hpp&gt;</code><br/>
-<code>#include &lt;pcg/randutils.hpp&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dec/a00090_source.html">contact/AgeContactProfiles.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../db/d57/a00112_source.html">contact/ContactHandler.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d8/d17/a00114_source.html">contact/ContactLogMode.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../d2/d34/a00156_source.html">contact/InfectorExec.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../dc/d28/a00223_source.html">contact/TransmissionProfile.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="../../da/d15/a00188_source.html">util/RnMan.h</a>&quot;</code><br/>
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RnPcg.h:</div>
+Include dependency graph for Sim.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d4f/a00420.gif" border="0" usemap="#RnPcg_8h" alt=""/></div>
-<map name="RnPcg_8h" id="RnPcg_8h">
-</map>
+<div class="center"><img src="../../d3/d29/a00419.gif" border="0" usemap="#Sim_8h" alt=""/></div>
+<map name="Sim_8h" id="Sim_8h">
+<area shape="rect" id="node2" href="../../d9/dec/a00090.html" title="Contact profiles stored in simulator. " alt="" coords="308,80,500,107"/><area shape="rect" id="node15" href="../../d8/d17/a00114.html" title="Header for the ContactLogMode class. " alt="" coords="472,320,651,347"/><area shape="rect" id="node20" href="../../db/d57/a00112.html" title="Header for the ContactHandler class. " alt="" coords="1150,80,1320,107"/><area shape="rect" id="node21" href="../../da/d15/a00188.html" title="Interface of RnMan. " alt="" coords="1066,155,1162,181"/><area shape="rect" id="node33" href="../../d2/d34/a00156.html" title="Header for the InfectorExec class. " alt="" coords="1344,80,1498,107"/><area shape="rect" id="node35" href="../../dc/d28/a00223.html" title="Header for the TransmissionProfile class. " alt="" coords="880,80,1075,107"/><area shape="rect" id="node3" href="../../db/dab/a00089.html" title="Contact profile. " alt="" coords="479,155,666,181"/><area shape="rect" id="node4" href="../../df/d6a/a00119.html" title="Definition of ContactPoolType. " alt="" coords="160,320,323,347"/><area shape="rect" id="node13" href="../../d5/da7/a00144.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="226,155,384,181"/><area shape="rect" id="node10" href="../../d1/d1e/a00087.html" title="Helpers for age. " alt="" coords="622,237,703,264"/><area shape="rect" id="node14" href="../../d4/d3e/a00116.html" title="Header for the core ContactPool class. " alt="" coords="339,237,472,264"/><area shape="rect" id="node22" href="../../d6/daa/a00187.html" title="Interface of RnPcg. " alt="" coords="1088,237,1139,264"/><area shape="rect" id="node23" href="../../db/d53/a00202.html" title="Miscellaneous string utilities. " alt="" coords="932,320,1026,347"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/de1/a00421.gif" border="0" usemap="#RnPcg_8hdep" alt=""/></div>
-<map name="RnPcg_8hdep" id="RnPcg_8hdep">
-<area shape="rect" id="node2" href="../../dd/da2/a00192.html" title="Implementation of RnPcg. " alt="" coords="5,80,91,107"/></map>
+<div class="center"><img src="../../db/d4f/a00420.gif" border="0" usemap="#Sim_8hdep" alt=""/></div>
+<map name="Sim_8hdep" id="Sim_8hdep">
+<area shape="rect" id="node2" href="../../d7/d06/a00131.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,80,140,107"/><area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="Implementation for the Simulator class. " alt="" coords="165,80,235,107"/><area shape="rect" id="node4" href="../../dc/d57/a00194.html" title="Implementation for the SimBuilder class. " alt="" coords="259,80,369,107"/><area shape="rect" id="node5" href="../../d7/ded/a00196.html" title="Implementation for SimRunner. " alt="" coords="395,80,505,107"/><area shape="rect" id="node6" href="../../df/d13/a00085.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="531,80,687,107"/><area shape="rect" id="node7" href="../../d3/d32/a00105.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="711,80,813,107"/><area shape="rect" id="node8" href="../../d9/d7d/a00150.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="839,80,992,107"/><area shape="rect" id="node9" href="../../d7/d9a/a00152.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1018,80,1152,107"/><area shape="rect" id="node10" href="../../dd/d4c/a00177.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1177,80,1332,107"/><area shape="rect" id="node11" href="../../dc/d31/a00208.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1357,80,1520,107"/></map>
 </div>
 </div>
 <p><a href="../../dd/df4/a00193_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d31/a00069.html">stride::util::RnPcg</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages random number generation in parallel (OpenMP) calculations.  <a href="../../d4/d31/a00069.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/db1/a00070.html">stride::util::RnPcg::Info</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">POD representation of the <a class="el" href="../../dc/ddf/a00067.html" title="Manages random number generation in parallel (OpenMP) calculations. ">RNManager</a>'s state.  <a href="../../d2/db1/a00070.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dca/a00048.html">stride::Sim</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator can time step and reveal some of the key data.  <a href="../../d4/dca/a00048.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:de/dbc/a00249"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dbc/a00249.html">stride</a></td></tr>
-<tr class="memdesc:de/dbc/a00249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d4/d04/a00255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d04/a00255.html">stride::util</a></td></tr>
-<tr class="memdesc:d4/d04/a00255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br/></td></tr>
+<tr class="memitem:d6/d08/a00244"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d08/a00244.html">stride</a></td></tr>
+<tr class="memdesc:d6/d08/a00244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface of RnPcg. </p>
+<div class="textblock"><p>Header for the Simulator class. </p>
 
-<p>Definition in file <a class="el" href="../../dd/df4/a00193_source.html">RnPcg.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/df4/a00193_source.html">Sim.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">RnPcg.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dd/df4/a00193.html">Sim.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

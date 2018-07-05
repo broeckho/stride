@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: Threshold.h Source File</title>
+<title>Stride Reference Manual: Vaccination.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d5/ddf/a00224_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Threshold.h</div>  </div>
+<div class="title">Vaccination.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d5/ddf/a00224.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -119,49 +119,34 @@ $(document).ready(function(){initNavTree('d5/ddf/a00224_source.html','../../');}
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Willem L, Kuylen E, Stijven S &amp; Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d54/a00094.html">behaviour/belief_policies/Belief.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/dee/a00053.html">Threshold</a> : <span class="keyword">public</span> <a class="code" href="../../d2/de7/a00014.html">Belief</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a8da3ada04e2f53f0d6a8424c58e0065f">   29</a></span>&#160;        <a class="code" href="../../dc/dee/a00053.html#a8da3ada04e2f53f0d6a8424c58e0065f">Threshold</a>()</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            : <a class="code" href="../../d2/de7/a00014.html">Belief</a>(), <a class="code" href="../../dc/dee/a00053.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a>(false), <a class="code" href="../../dc/dee/a00053.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a>(0), <a class="code" href="../../dc/dee/a00053.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a>(0), <a class="code" href="../../dc/dee/a00053.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a>(0),</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;              <a class="code" href="../../dc/dee/a00053.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a>(1), <a class="code" href="../../dc/dee/a00053.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a>(1)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> belief_policy&gt;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="../../db/df8/a00076.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/df8/a00076.html">Vaccination</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../db/df8/a00076.html#a8dcb01be7e194bb29d6a379322781a14">   27</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/df8/a00076.html#a8dcb01be7e194bb29d6a379322781a14">PracticesSocialDistancing</a>(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/df8/a00076.html#a4db3031aaeba5b0de11bd821ece9adbe">   29</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/df8/a00076.html#a4db3031aaeba5b0de11bd821ece9adbe">PracticesVaccination</a>(<span class="keyword">const</span> <span class="keyword">typename</span> belief_policy::Data&amp; belief_data)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                <span class="keywordflow">return</span> belief_policy::HasAdopted(belief_data);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#ac4b88b840219d9df9585234a67cb7240">   36</a></span>&#160;        <span class="keywordtype">bool</span>         <a class="code" href="../../dc/dee/a00053.html#ac4b88b840219d9df9585234a67cb7240">m_is_aware</a>;              </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a4ae3466c106da6e6f9e074d6b0841e86">   37</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/dee/a00053.html#a4ae3466c106da6e6f9e074d6b0841e86">m_num_contacts</a>;          </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a3c6f98311139eaa035d84d2c6d951f7f">   38</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/dee/a00053.html#a3c6f98311139eaa035d84d2c6d951f7f">m_num_contacts_infected</a>; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a788abd97461a417f3acf3db796c62514">   39</a></span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/dee/a00053.html#a788abd97461a417f3acf3db796c62514">m_num_contacts_adopted</a>;  </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#a9fcb580f7bc164aceb380a3ccb71b337">   40</a></span>&#160;        <span class="keywordtype">double</span>       <a class="code" href="../../dc/dee/a00053.html#a9fcb580f7bc164aceb380a3ccb71b337">m_threshold_infected</a>;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../dc/dee/a00053.html#aae2cf98f557c4be064d719fc3e6caaba">   41</a></span>&#160;        <span class="keywordtype">double</span>       <a class="code" href="../../dc/dee/a00053.html#aae2cf98f557c4be064d719fc3e6caaba">m_threshold_adopted</a>;     </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00053_html_a788abd97461a417f3acf3db796c62514"><div class="ttname"><a href="../../dc/dee/a00053.html#a788abd97461a417f3acf3db796c62514">stride::Threshold::m_num_contacts_adopted</a></div><div class="ttdeci">unsigned int m_num_contacts_adopted</div><div class="ttdoc">Number of contacts that have adopted the behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00039">Threshold.h:39</a></div></div>
-<div class="ttc" id="a00053_html_aae2cf98f557c4be064d719fc3e6caaba"><div class="ttname"><a href="../../dc/dee/a00053.html#aae2cf98f557c4be064d719fc3e6caaba">stride::Threshold::m_threshold_adopted</a></div><div class="ttdeci">double m_threshold_adopted</div><div class="ttdoc">Fraction of contacts that needs to have adopted to adopt behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00041">Threshold.h:41</a></div></div>
-<div class="ttc" id="a00053_html_a3c6f98311139eaa035d84d2c6d951f7f"><div class="ttname"><a href="../../dc/dee/a00053.html#a3c6f98311139eaa035d84d2c6d951f7f">stride::Threshold::m_num_contacts_infected</a></div><div class="ttdeci">unsigned int m_num_contacts_infected</div><div class="ttdoc">Number of contacts that is symptomatic. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00038">Threshold.h:38</a></div></div>
-<div class="ttc" id="a00053_html_a4ae3466c106da6e6f9e074d6b0841e86"><div class="ttname"><a href="../../dc/dee/a00053.html#a4ae3466c106da6e6f9e074d6b0841e86">stride::Threshold::m_num_contacts</a></div><div class="ttdeci">unsigned int m_num_contacts</div><div class="ttdoc">The total number of contacts the person has had. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00037">Threshold.h:37</a></div></div>
-<div class="ttc" id="a00053_html_a9fcb580f7bc164aceb380a3ccb71b337"><div class="ttname"><a href="../../dc/dee/a00053.html#a9fcb580f7bc164aceb380a3ccb71b337">stride::Threshold::m_threshold_infected</a></div><div class="ttdeci">double m_threshold_infected</div><div class="ttdoc">Fraction of contacts that needs to be infected to adopt behaviour. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00040">Threshold.h:40</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="../../d2/de7/a00014.html">stride::Belief</a></div><div class="ttdoc">Base class for all belief policies. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d54/a00094_source.html#l00027">Belief.h:27</a></div></div>
-<div class="ttc" id="a00053_html_ac4b88b840219d9df9585234a67cb7240"><div class="ttname"><a href="../../dc/dee/a00053.html#ac4b88b840219d9df9585234a67cb7240">stride::Threshold::m_is_aware</a></div><div class="ttdeci">bool m_is_aware</div><div class="ttdoc">Whether the person is aware of the current epidemic. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00036">Threshold.h:36</a></div></div>
-<div class="ttc" id="a00094_html"><div class="ttname"><a href="../../dc/d54/a00094.html">Belief.h</a></div><div class="ttdoc">Header file for Belief. </div></div>
-<div class="ttc" id="a00053_html"><div class="ttname"><a href="../../dc/dee/a00053.html">stride::Threshold</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00026">Threshold.h:26</a></div></div>
-<div class="ttc" id="a00053_html_a8da3ada04e2f53f0d6a8424c58e0065f"><div class="ttname"><a href="../../dc/dee/a00053.html#a8da3ada04e2f53f0d6a8424c58e0065f">stride::Threshold::Threshold</a></div><div class="ttdeci">Threshold()</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00029">Threshold.h:29</a></div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00076_html"><div class="ttname"><a href="../../db/df8/a00076.html">stride::Vaccination</a></div><div class="ttdoc">Vaccination beliefs and information have an influence on the vaccination behaviour of an individual...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00024">Vaccination.h:24</a></div></div>
+<div class="ttc" id="a00076_html_a4db3031aaeba5b0de11bd821ece9adbe"><div class="ttname"><a href="../../db/df8/a00076.html#a4db3031aaeba5b0de11bd821ece9adbe">stride::Vaccination::PracticesVaccination</a></div><div class="ttdeci">static bool PracticesVaccination(const typename belief_policy::Data &amp;belief_data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00029">Vaccination.h:29</a></div></div>
+<div class="ttc" id="a00076_html_a8dcb01be7e194bb29d6a379322781a14"><div class="ttname"><a href="../../db/df8/a00076.html#a8dcb01be7e194bb29d6a379322781a14">stride::Vaccination::PracticesSocialDistancing</a></div><div class="ttdeci">static bool PracticesSocialDistancing(const typename belief_policy::Data &amp;belief_data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/ddf/a00224_source.html#l00027">Vaccination.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_d37f885605a0d18b58fa0cf77723ad22.html">belief_policies</a></li><li class="navelem"><a class="el" href="../../d5/ddf/a00224.html">Threshold.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:31 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_daae16215ac7def5c531522e1dfab593.html">behaviour</a></li><li class="navelem"><a class="el" href="../../dir_6619f542450013781d0ff5d08067d16d.html">behaviour_policies</a></li><li class="navelem"><a class="el" href="../../d5/ddf/a00224.html">Vaccination.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

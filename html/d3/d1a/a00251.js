@@ -1,5 +1,4 @@
 var a00251 =
 [
-    [ "IdSubscriptArray", "d8/d84/a00001.html", "d8/d84/a00001" ],
-    [ "IdSubscriptArray< bool >", "db/db2/a00020.html", "db/db2/a00020" ]
+    [ "pair2data", "d9/d73/a00060.html", "d9/d73/a00060" ]
 ];

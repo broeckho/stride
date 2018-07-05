@@ -6,10 +6,10 @@ var a00048 =
     [ "GetCalendar", "d4/dca/a00048.html#afea0f1297e849966883bcc1d8e3d8e86", null ],
     [ "GetTransmissionProfile", "d4/dca/a00048.html#a59f0ea739583f91283738089112a08dc", null ],
     [ "GetPopulation", "d4/dca/a00048.html#ae0d62bc95008a4974dd9227b5084e161", null ],
-    [ "GetRNManager", "d4/dca/a00048.html#a678c64e042d050ed6bf8e1a7cc0effa7", null ],
+    [ "GetRnManager", "d4/dca/a00048.html#ab93f63f0db601f8cd6543e6510808048", null ],
     [ "TimeStep", "d4/dca/a00048.html#a032911d7270c91e0a6a9c55f68800096", null ],
-    [ "GetConfigValue", "d4/dca/a00048.html#afb5bcfc564e62f540ac20c9da978c941", null ],
-    [ "GetTransmissionRate", "d4/dca/a00048.html#a6f8baa80a9ee3aeabe82eb1ac3a00818", null ],
+    [ "GetConfigValue", "d4/dca/a00048.html#a1b5ec0fca8e7496868ca067afe83f560", null ],
+    [ "GetTransmissionRate", "d4/dca/a00048.html#a484ffc98b4b45673cf1533a0571f38fd", null ],
     [ "SimBuilder", "d4/dca/a00048.html#a9a439036c5f4a413765b48764c0b1741", null ],
     [ "m_config_pt", "d4/dca/a00048.html#ac0f1837c346b11b4cea734b6769b8d1d", null ],
     [ "m_contact_log_mode", "d4/dca/a00048.html#af58f9eda3c97affca6acbfde33bc68c0", null ],
@@ -21,6 +21,6 @@ var a00048 =
     [ "m_handlers", "d4/dca/a00048.html#aa32eb53f04209e58c93b25d8c6c24a40", null ],
     [ "m_infector", "d4/dca/a00048.html#a36d96f3112de535bd8a48b8694545212", null ],
     [ "m_population", "d4/dca/a00048.html#ab558b35470a8f91f051a32f374e54e00", null ],
-    [ "m_rn_manager", "d4/dca/a00048.html#a289410fd500f6af88c45168a2cb0c803", null ],
+    [ "m_rn_manager", "d4/dca/a00048.html#aa97b8ebbc7a7172b6d055ae1346919ab", null ],
     [ "m_transmission_profile", "d4/dca/a00048.html#a07c55a625ad780341af4eef33ad3d5cf", null ]
 ];

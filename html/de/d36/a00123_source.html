@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ControlHelper.h Source File</title>
+<title>Stride Reference Manual: CSV.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('de/d36/a00123_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ControlHelper.h</div>  </div>
+<div class="title">CSV.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../de/d36/a00123.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
@@ -122,72 +122,123 @@ $(document).ready(function(){initNavTree('de/d36/a00123_source.html','../../');}
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2017, 2018, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/df1/a00206.html">util/Stopwatch.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/dfe/a00125.html">CSVRow.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>SimRunner;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d11/a00021.html">ControlHelper</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d11/a00021.html#adf5c02b1632443f385cc0359dc76506b">ControlHelper</a>(std::string name, <span class="keyword">const</span> boost::property_tree::ptree&amp; configPt);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00202.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/db9/a00159.html">util/is_iterator.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/fstream.hpp&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/operations.hpp&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;boost/filesystem/path.hpp&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/df7/a00058.html">CSV</a> : <span class="keyword">protected</span> std::vector&lt;CSVRow&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(std::istream&amp; inputStream);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../de/d11/a00021.html#adf5c02b1632443f385cc0359dc76506b">ControlHelper</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#a9fd666ad523f15ba9f3b3249ba6b0a90">CheckEnv</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// Output_prefix: if it&#39;s a string not containing any / it gets interpreted as a</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// filename prefix; otherwise we &#39;ll create the corresponding directory.</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#a7015fce5931f444015baca6c73e67360">CheckOutputPrefix</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#a49b3d3980626e92e16758d63bd6240a7">InstallLogger</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#adc021af008df0bf673682b81aa8d0010">LogStartup</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../de/d11/a00021.html#af0131365a6c658898bf3dd49eead3ed7">RegisterViewers</a>(std::shared_ptr&lt;SimRunner&gt; runner);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">   73</a></span>&#160;        boost::property_tree::ptree     <a class="code" href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a>;        </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a84806de1e330126ab6c895924d1296f4">   74</a></span>&#160;        std::string                     <a class="code" href="../../de/d11/a00021.html#a84806de1e330126ab6c895924d1296f4">m_name</a>;             </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a3be4db55fc19e28be55d6f3de9cc4c08">   75</a></span>&#160;        std::string                     <a class="code" href="../../de/d11/a00021.html#a3be4db55fc19e28be55d6f3de9cc4c08">m_output_prefix</a>;    </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a9586d0f5815c7d4c24c9fe2563b2e00e">   76</a></span>&#160;        <a class="code" href="../../d1/d6e/a00073.html">util::Stopwatch&lt;&gt;</a>               <a class="code" href="../../de/d11/a00021.html#a9586d0f5815c7d4c24c9fe2563b2e00e">m_run_clock</a>;        </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#ab8633301b0187b5a1077a2d583910cd0">   77</a></span>&#160;        std::shared_ptr&lt;spdlog::logger&gt; <a class="code" href="../../de/d11/a00021.html#ab8633301b0187b5a1077a2d583910cd0">m_stride_logger</a>;    </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../de/d11/a00021.html#a9a7386ab81543b81bbc888176c55d7e0">   78</a></span>&#160;        <span class="keywordtype">bool</span>                            <a class="code" href="../../de/d11/a00021.html#a9a7386ab81543b81bbc888176c55d7e0">m_use_install_dirs</a>; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00021_html_a7015fce5931f444015baca6c73e67360"><div class="ttname"><a href="../../de/d11/a00021.html#a7015fce5931f444015baca6c73e67360">stride::ControlHelper::CheckOutputPrefix</a></div><div class="ttdeci">void CheckOutputPrefix()</div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00069">ControlHelper.cpp:69</a></div></div>
-<div class="ttc" id="a00021_html_ab8633301b0187b5a1077a2d583910cd0"><div class="ttname"><a href="../../de/d11/a00021.html#ab8633301b0187b5a1077a2d583910cd0">stride::ControlHelper::m_stride_logger</a></div><div class="ttdeci">std::shared_ptr&lt; spdlog::logger &gt; m_stride_logger</div><div class="ttdoc">General logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00077">ControlHelper.h:77</a></div></div>
-<div class="ttc" id="a00021_html"><div class="ttname"><a href="../../de/d11/a00021.html">stride::ControlHelper</a></div><div class="ttdoc">Controls a simulation run initiated with the command line interface (cli). </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00043">ControlHelper.h:43</a></div></div>
-<div class="ttc" id="a00021_html_ae233d4c8a65307b49f65327093bdda59"><div class="ttname"><a href="../../de/d11/a00021.html#ae233d4c8a65307b49f65327093bdda59">stride::ControlHelper::m_config_pt</a></div><div class="ttdeci">boost::property_tree::ptree m_config_pt</div><div class="ttdoc">Main configuration for run and sim. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00073">ControlHelper.h:73</a></div></div>
-<div class="ttc" id="a00206_html"><div class="ttname"><a href="../../d5/df1/a00206.html">Stopwatch.h</a></div><div class="ttdoc">Definition of Stopwatch. </div></div>
-<div class="ttc" id="a00021_html_a3be4db55fc19e28be55d6f3de9cc4c08"><div class="ttname"><a href="../../de/d11/a00021.html#a3be4db55fc19e28be55d6f3de9cc4c08">stride::ControlHelper::m_output_prefix</a></div><div class="ttdeci">std::string m_output_prefix</div><div class="ttdoc">Prefix to output (name prefix or prefix dir) </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00075">ControlHelper.h:75</a></div></div>
-<div class="ttc" id="a00021_html_a84806de1e330126ab6c895924d1296f4"><div class="ttname"><a href="../../de/d11/a00021.html#a84806de1e330126ab6c895924d1296f4">stride::ControlHelper::m_name</a></div><div class="ttdeci">std::string m_name</div><div class="ttdoc">Contoller&#39;s name. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00074">ControlHelper.h:74</a></div></div>
-<div class="ttc" id="a00021_html_adf5c02b1632443f385cc0359dc76506b"><div class="ttname"><a href="../../de/d11/a00021.html#adf5c02b1632443f385cc0359dc76506b">stride::ControlHelper::ControlHelper</a></div><div class="ttdeci">ControlHelper()</div><div class="ttdoc">Empty controller: used as target for delegation. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00045">ControlHelper.cpp:45</a></div></div>
-<div class="ttc" id="a00021_html_aa40b02ef62cb1b4a2db78eb847ffe964"><div class="ttname"><a href="../../de/d11/a00021.html#aa40b02ef62cb1b4a2db78eb847ffe964">stride::ControlHelper::LogShutdown</a></div><div class="ttdeci">void LogShutdown()</div><div class="ttdoc">Logs info on setup for cli environment to stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00090">ControlHelper.cpp:90</a></div></div>
-<div class="ttc" id="a00021_html_a9fd666ad523f15ba9f3b3249ba6b0a90"><div class="ttname"><a href="../../de/d11/a00021.html#a9fd666ad523f15ba9f3b3249ba6b0a90">stride::ControlHelper::CheckEnv</a></div><div class="ttdeci">void CheckEnv()</div><div class="ttdoc">Check install environment. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00059">ControlHelper.cpp:59</a></div></div>
-<div class="ttc" id="a00021_html_af0131365a6c658898bf3dd49eead3ed7"><div class="ttname"><a href="../../de/d11/a00021.html#af0131365a6c658898bf3dd49eead3ed7">stride::ControlHelper::RegisterViewers</a></div><div class="ttdeci">void RegisterViewers(std::shared_ptr&lt; SimRunner &gt; runner)</div><div class="ttdoc">Register the viewers of the SimRunner. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00118">ControlHelper.cpp:118</a></div></div>
-<div class="ttc" id="a00021_html_a9586d0f5815c7d4c24c9fe2563b2e00e"><div class="ttname"><a href="../../de/d11/a00021.html#a9586d0f5815c7d4c24c9fe2563b2e00e">stride::ControlHelper::m_run_clock</a></div><div class="ttdeci">util::Stopwatch m_run_clock</div><div class="ttdoc">Stopwatch for timing the computation. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00076">ControlHelper.h:76</a></div></div>
-<div class="ttc" id="a00021_html_a49b3d3980626e92e16758d63bd6240a7"><div class="ttname"><a href="../../de/d11/a00021.html#a49b3d3980626e92e16758d63bd6240a7">stride::ControlHelper::InstallLogger</a></div><div class="ttdeci">void InstallLogger()</div><div class="ttdoc">Make the appropriate logger for cli environment and register as stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00081">ControlHelper.cpp:81</a></div></div>
-<div class="ttc" id="a00021_html_adc021af008df0bf673682b81aa8d0010"><div class="ttname"><a href="../../de/d11/a00021.html#adc021af008df0bf673682b81aa8d0010">stride::ControlHelper::LogStartup</a></div><div class="ttdeci">void LogStartup()</div><div class="ttdoc">Logs info on setup for cli environment to stride_logger. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00096">ControlHelper.cpp:96</a></div></div>
-<div class="ttc" id="a00021_html_a9a7386ab81543b81bbc888176c55d7e0"><div class="ttname"><a href="../../de/d11/a00021.html#a9a7386ab81543b81bbc888176c55d7e0">stride::ControlHelper::m_use_install_dirs</a></div><div class="ttdeci">bool m_use_install_dirs</div><div class="ttdoc">Working dir or install dir mode. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00078">ControlHelper.h:78</a></div></div>
-<div class="ttc" id="a00073_html"><div class="ttname"><a href="../../d1/d6e/a00073.html">stride::util::Stopwatch</a></div><div class="ttdoc">Provides a stopwatch interface to time: it accumulates time between start/stop pairs. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/df1/a00206_source.html#l00034">Stopwatch.h:34</a></div></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(<span class="keywordtype">size_t</span> columnCount);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(<span class="keyword">const</span> std::initializer_list&lt;std::string&gt;&amp; labels);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; labels);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a6d4944a529c10da58327ee8351688eca">   60</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../d7/df7/a00058.html#a6d4944a529c10da58327ee8351688eca">CSV</a>(It labelsBegin, It labelsEnd)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            : <a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>(<a class="code" href="../../d0/da7/a00250.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(labelsBegin, labelsEnd)), <a class="code" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a>(<a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>.size())</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">CSV</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="../../d7/df7/a00058.html#a2f700f0aa2b27d664adb69e27a6eb4b1">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d7/df7/a00058.html">CSV</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">using</span> std::vector&lt;CSVRow&gt;::begin;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">using</span> std::vector&lt;CSVRow&gt;::end;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">using</span> std::vector&lt;CSVRow&gt;::size;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... T&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>(<span class="keyword">const</span> T&amp;... values);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">   85</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">AddRow</a>(<span class="keyword">typename</span> std::enable_if&lt;<a class="code" href="../../df/d5f/a00064.html">is_iterator&lt;It&gt;::value</a>, It&gt;::type first, It last)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <a class="code" href="../../d3/d8b/a00059.html">CSVRow</a> csvRow(<span class="keyword">this</span>, <a class="code" href="../../d0/da7/a00250.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(first, last));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                this-&gt;push_back(csvRow);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a63ffba1157ea6381bbce102c430e189b">   92</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="../../d7/df7/a00058.html#a63ffba1157ea6381bbce102c430e189b">GetColumnCount</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a>; }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="../../d7/df7/a00058.html#aed99cf47769a6284b45c2815b08d1bd0">GetIndexForLabel</a>(<span class="keyword">const</span> std::string&amp; label) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">Write</a>(<span class="keyword">const</span> boost::filesystem::path&amp; path) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">friend</span> boost::filesystem::ofstream&amp; <a class="code" href="../../d7/df7/a00058.html#a1bee4176f884d3d076010c345d972f83">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../d7/df7/a00058.html">CSV</a>&amp; csv);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a2f3c33a76164f6cbc6e31aab6f8b560d">ReadFromStream</a>(std::istream&amp; inputStream);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a53d1ff0f9d249aa5b43b6b6f44bea116">WriteLabels</a>(boost::filesystem::ofstream&amp; file) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">WriteRows</a>(boost::filesystem::ofstream&amp; file) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">  115</a></span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">m_labels</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">  116</a></span>&#160;        <span class="keywordtype">size_t</span>                   <a class="code" href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">m_column_count</a> = 0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... T&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">  120</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">CSV::AddRow</a>(<span class="keyword">const</span> T&amp;... values)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">AddRow</a>({<a class="code" href="../../d0/da7/a00250.html#a256d75fffdad0f4f49c6e58c69f76e20">ToString</a>(values)...});</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d0/da7/a00250.html#ad1dad0220087330dc882206f7f985f2b">  125</a></span>&#160;<span class="keyword">inline</span> boost::filesystem::ofstream&amp; <a class="code" href="../../d0/da7/a00250.html#ad1dad0220087330dc882206f7f985f2b">operator&lt;&lt;</a>(boost::filesystem::ofstream&amp; ofs, <span class="keyword">const</span> <a class="code" href="../../d7/df7/a00058.html">CSV</a>&amp; csv)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        csv.<a class="code" href="../../d7/df7/a00058.html#a53d1ff0f9d249aa5b43b6b6f44bea116">WriteLabels</a>(ofs);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        csv.<a class="code" href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">WriteRows</a>(ofs);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> ofs;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00250_html_a256d75fffdad0f4f49c6e58c69f76e20"><div class="ttname"><a href="../../d0/da7/a00250.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;value)</div><div class="ttdoc">Builds a string representation of a value of type T. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d53/a00202_source.html#l00089">StringUtils.h:89</a></div></div>
+<div class="ttc" id="a00059_html"><div class="ttname"><a href="../../d3/d8b/a00059.html">stride::util::CSVRow</a></div><div class="ttdoc">Row in CSV file. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/dfe/a00125_source.html#l00037">CSVRow.h:37</a></div></div>
+<div class="ttc" id="a00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">is_iterator.h</a></div><div class="ttdoc">Interface/Implementation of is_iterator. </div></div>
+<div class="ttc" id="a00058_html_a1bee4176f884d3d076010c345d972f83"><div class="ttname"><a href="../../d7/df7/a00058.html#a1bee4176f884d3d076010c345d972f83">stride::util::CSV::operator&lt;&lt;</a></div><div class="ttdeci">friend boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const CSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00125">CSV.h:125</a></div></div>
+<div class="ttc" id="a00064_html"><div class="ttname"><a href="../../df/d5f/a00064.html">stride::util::is_iterator</a></div><div class="ttdoc">When it &#39;s not an iterator. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/db9/a00159_source.html#l00042">is_iterator.h:42</a></div></div>
+<div class="ttc" id="a00058_html_a63ffba1157ea6381bbce102c430e189b"><div class="ttname"><a href="../../d7/df7/a00058.html#a63ffba1157ea6381bbce102c430e189b">stride::util::CSV::GetColumnCount</a></div><div class="ttdeci">size_t GetColumnCount() const </div><div class="ttdoc">Number of columns in the CSV. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00092">CSV.h:92</a></div></div>
+<div class="ttc" id="a00058_html_aee5a6e4570ae6c4efc6f316b97f9c174"><div class="ttname"><a href="../../d7/df7/a00058.html#aee5a6e4570ae6c4efc6f316b97f9c174">stride::util::CSV::WriteRows</a></div><div class="ttdeci">void WriteRows(boost::filesystem::ofstream &amp;file) const </div><div class="ttdoc">Write the body of rows. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00135">CSV.cpp:135</a></div></div>
+<div class="ttc" id="a00058_html_a2f700f0aa2b27d664adb69e27a6eb4b1"><div class="ttname"><a href="../../d7/df7/a00058.html#a2f700f0aa2b27d664adb69e27a6eb4b1">stride::util::CSV::operator==</a></div><div class="ttdeci">bool operator==(const CSV &amp;other) const </div><div class="ttdoc">Comparison operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00074">CSV.cpp:74</a></div></div>
+<div class="ttc" id="a00250_html_ad1dad0220087330dc882206f7f985f2b"><div class="ttname"><a href="../../d0/da7/a00250.html#ad1dad0220087330dc882206f7f985f2b">stride::util::operator&lt;&lt;</a></div><div class="ttdeci">boost::filesystem::ofstream &amp; operator&lt;&lt;(boost::filesystem::ofstream &amp;ofs, const CSV &amp;csv)</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00125">CSV.h:125</a></div></div>
+<div class="ttc" id="a00058_html"><div class="ttname"><a href="../../d7/df7/a00058.html">stride::util::CSV</a></div><div class="ttdoc">A collection of CSVRow elements. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00040">CSV.h:40</a></div></div>
+<div class="ttc" id="a00058_html_a1ae467f9599974c0f180c529f8a9f298"><div class="ttname"><a href="../../d7/df7/a00058.html#a1ae467f9599974c0f180c529f8a9f298">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(const T &amp;...values)</div><div class="ttdoc">Add row of values. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00120">CSV.h:120</a></div></div>
+<div class="ttc" id="a00058_html_a6aadfb52b95c349f14469a203d21472b"><div class="ttname"><a href="../../d7/df7/a00058.html#a6aadfb52b95c349f14469a203d21472b">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV()=default</div><div class="ttdoc">Default constructor, used for swig. </div></div>
+<div class="ttc" id="a00058_html_a6fb7f772aabba9465da13e8d2abb197a"><div class="ttname"><a href="../../d7/df7/a00058.html#a6fb7f772aabba9465da13e8d2abb197a">stride::util::CSV::AddRow</a></div><div class="ttdeci">void AddRow(typename std::enable_if&lt; is_iterator&lt; It &gt;::value, It &gt;::type first, It last)</div><div class="ttdoc">Add row of values (ToString handles the case when the iterator points to strings). </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00085">CSV.h:85</a></div></div>
+<div class="ttc" id="a00058_html_a893717de16de8022736a1ecc92dd694c"><div class="ttname"><a href="../../d7/df7/a00058.html#a893717de16de8022736a1ecc92dd694c">stride::util::CSV::m_labels</a></div><div class="ttdeci">std::vector&lt; std::string &gt; m_labels</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00115">CSV.h:115</a></div></div>
+<div class="ttc" id="a00125_html"><div class="ttname"><a href="../../dc/dfe/a00125.html">CSVRow.h</a></div><div class="ttdoc">Header file of base class for config that needs to be read from a file. </div></div>
+<div class="ttc" id="a00058_html_a2f3c33a76164f6cbc6e31aab6f8b560d"><div class="ttname"><a href="../../d7/df7/a00058.html#a2f3c33a76164f6cbc6e31aab6f8b560d">stride::util::CSV::ReadFromStream</a></div><div class="ttdeci">void ReadFromStream(std::istream &amp;inputStream)</div><div class="ttdoc">Read data from input stream. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00088">CSV.cpp:88</a></div></div>
+<div class="ttc" id="a00058_html_a11a080486a81df3276cabfac0f7a2b41"><div class="ttname"><a href="../../d7/df7/a00058.html#a11a080486a81df3276cabfac0f7a2b41">stride::util::CSV::Write</a></div><div class="ttdeci">void Write(const boost::filesystem::path &amp;path) const </div><div class="ttdoc">Write CSV to file. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00111">CSV.cpp:111</a></div></div>
+<div class="ttc" id="a00058_html_a53d1ff0f9d249aa5b43b6b6f44bea116"><div class="ttname"><a href="../../d7/df7/a00058.html#a53d1ff0f9d249aa5b43b6b6f44bea116">stride::util::CSV::WriteLabels</a></div><div class="ttdeci">void WriteLabels(boost::filesystem::ofstream &amp;file) const </div><div class="ttdoc">Write header with labels. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00122">CSV.cpp:122</a></div></div>
+<div class="ttc" id="a00058_html_a6d4944a529c10da58327ee8351688eca"><div class="ttname"><a href="../../d7/df7/a00058.html#a6d4944a529c10da58327ee8351688eca">stride::util::CSV::CSV</a></div><div class="ttdeci">CSV(It labelsBegin, It labelsEnd)</div><div class="ttdoc">Initialize with header labels only. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00060">CSV.h:60</a></div></div>
+<div class="ttc" id="a00058_html_a46f209713ecbcb6b2aeb52974b098b86"><div class="ttname"><a href="../../d7/df7/a00058.html#a46f209713ecbcb6b2aeb52974b098b86">stride::util::CSV::m_column_count</a></div><div class="ttdeci">size_t m_column_count</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d36/a00123_source.html#l00116">CSV.h:116</a></div></div>
+<div class="ttc" id="a00058_html_aed99cf47769a6284b45c2815b08d1bd0"><div class="ttname"><a href="../../d7/df7/a00058.html#aed99cf47769a6284b45c2815b08d1bd0">stride::util::CSV::GetIndexForLabel</a></div><div class="ttdeci">size_t GetIndexForLabel(const std::string &amp;label) const </div><div class="ttdoc">Convert label to index for more user friendly and robust implementation. </div><div class="ttdef"><b>Definition:</b> <a href="../../df/dc8/a00122_source.html#l00079">CSV.cpp:79</a></div></div>
+<div class="ttc" id="a00202_html"><div class="ttname"><a href="../../db/d53/a00202.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../de/d36/a00123.html">ControlHelper.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d36/a00123.html">CSV.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

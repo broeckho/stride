@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['self_5ftype',['self_type',['../df/d86/a00012.html#aa72e1f8f1437134e2ead160ca23c35bd',1,'stride::util::SegmentedVector::self_type()'],['../d9/da5/a00075.html#acf4391226c3334af2ab02fdbfcbe81c8',1,'stride::util::SVIterator::self_type()']]],
-  ['size_5ftype',['size_type',['../df/d86/a00012.html#a4344636a6d7dea3aff481c178b5ff008',1,'stride::util::SegmentedVector']]]
+  ['tclock',['TClock',['../d0/d89/a00071.html#aedbb343fde64ffebcdb371dd862aae7f',1,'stride::util::Stopwatch']]],
+  ['testfactory',['TestFactory',['../d7/d40/a00236.html#a28985c82b74a8191bbd1b16b7662378c',1,'myhayai']]],
+  ['testresult',['TestResult',['../d7/d40/a00236.html#a57199109a783f4e5805d20fe31019b29',1,'myhayai']]],
+  ['type',['type',['../d1/d6f/a00063.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void']]]
 ];

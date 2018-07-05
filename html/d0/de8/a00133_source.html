@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: DiseaseSeeder.cpp Source File</title>
+<title>Stride Reference Manual: FileSys.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,7 +103,7 @@ $(document).ready(function(){initNavTree('d0/de8/a00133_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">DiseaseSeeder.cpp</div>  </div>
+<div class="title">FileSys.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/de8/a00133.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -118,136 +118,247 @@ $(document).ready(function(){initNavTree('d0/de8/a00133_source.html','../../');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d76/a00134.html">DiseaseSeeder.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d76/a00134.html">FileSys.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">disease/Immunizer.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/d6a/a00119.html">pool/ContactPoolSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d94/a00184.html">pop/Population.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/da0/a00198.html">sim/Sim.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d5e/a00136.html">util/FileSys.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/ddf/a00164.html">util/LogUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/dd2/a00207.html">util/StringUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;trng/uniform_int_dist.hpp&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>stride {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">using namespace </span>stride::ContactPoolType;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">using namespace </span>util;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">   41</a></span>&#160;<a class="code" href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">DiseaseSeeder::DiseaseSeeder</a>(<span class="keyword">const</span> ptree&amp; configPt, <a class="code" href="../../dc/ddf/a00067.html">RNManager</a>&amp; rnManager)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    : m_config_pt(configPt), m_rn_manager(rnManager)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d53/a00202.html">util/StringUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if defined(WIN32)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#elif defined(__linux__)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#elif defined(__APPLE__)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;mach-o/dyld.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span>{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">const</span> <span class="keyword">auto</span> empty_path = boost::filesystem::path();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span>util {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">DiseaseSeeder::Seed</a>(std::shared_ptr&lt;Population&gt; pop)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// Population immunity (natural immunity &amp; vaccination).</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> immunityProfile = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;std::string&gt;(<span class="stringliteral">&quot;run.immunity_profile&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a>(<span class="stringliteral">&quot;immunity&quot;</span>, immunityProfile, pop-&gt;GetContactPoolSys()[Id::Household]);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> vaccinationProfile = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;std::string&gt;(<span class="stringliteral">&quot;run.vaccine_profile&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a>(<span class="stringliteral">&quot;vaccine&quot;</span>, vaccinationProfile, pop-&gt;GetContactPoolSys()[Id::Household]);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">// Seed infected persons.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">// --------------------------------------------------------------</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sRate       = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_rate&quot;</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sAgeMin     = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_age_min&quot;</span>, 1);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> sAgeMax     = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.seeding_age_max&quot;</span>, 99);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> popSize     = pop-&gt;size();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> maxPopIndex = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(popSize - 1);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">auto</span>       generator   = <a class="code" href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">m_rn_manager</a>.<a class="code" href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">GetGenerator</a>(trng::uniform_int_dist(0, maxPopIndex));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">auto</span>&amp;      logger      = pop-&gt;GetContactLogger();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">string</span> log_level = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.contact_log_level&quot;</span>, <span class="stringliteral">&quot;None&quot;</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">auto</span> numInfected = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(floor(static_cast&lt;double&gt;(popSize) * sRate));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">while</span> (numInfected &gt; 0) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <a class="code" href="../../d6/d97/a00045.html">Person</a>&amp; p = pop-&gt;at(static_cast&lt;size_t&gt;(generator()));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span> (p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#ae2a3b14e79e08a261ca7122afba9b95c">IsSusceptible</a>() &amp;&amp; (p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>() &gt;= sAgeMin) &amp;&amp; (p.<a class="code" href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a>() &lt;= sAgeMax)) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        p.<a class="code" href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a>().<a class="code" href="../../d5/d16/a00029.html#a5d85541b8e22aeaa75b364a454f59088">StartInfection</a>();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        numInfected--;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        <span class="keywordflow">if</span>(log_level != <span class="stringliteral">&quot;None&quot;</span>){</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                        logger-&gt;info(<span class="stringliteral">&quot;[PRIM] {} {} {} {}&quot;</span>, -1, p.<a class="code" href="../../d6/d97/a00045.html#afab3ab2a1a33004f9e25d4873c3c1921">GetId</a>(), -1, 0);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">DiseaseSeeder::Vaccinate</a>(<span class="keyword">const</span> std::string&amp; immunityType, <span class="keyword">const</span> std::string&amp; immunizationProfile,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                              std::vector&lt;ContactPool&gt;&amp; immunityPools)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        std::vector&lt;double&gt; immunityDistribution;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">double</span>        linkProbability = 0;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="../../dc/d87/a00032.html">Immunizer</a>           immunizer(<a class="code" href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">m_rn_manager</a>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span> (immunizationProfile == <span class="stringliteral">&quot;Random&quot;</span>) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> immunityRate = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.&quot;</span> + <a class="code" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(immunityType) + <span class="stringliteral">&quot;_rate&quot;</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index_age = 0; index_age &lt; 100; index_age++) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        immunityDistribution.push_back(immunityRate);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                immunizer.<a class="code" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Random</a>(immunityPools, immunityDistribution, linkProbability);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (immunizationProfile == <span class="stringliteral">&quot;AgeDependent&quot;</span>) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                <span class="keyword">const</span> <span class="keyword">auto</span> immunityFile = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;run.&quot;</span> + <a class="code" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(immunityType) + <span class="stringliteral">&quot;_distribution&quot;</span>);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                <span class="keyword">const</span> ptree&amp; immunity_pt = <a class="code" href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">FileSys::ReadPtreeFile</a>(immunityFile);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                linkProbability = <a class="code" href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a>.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;run.&quot;</span> + <a class="code" href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(immunityType) + <span class="stringliteral">&quot;_link_probability&quot;</span>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <span class="comment">//const auto immunityRate = m_config_pt.get&lt;double&gt;(&quot;run.&quot; + ToLower(immunityType) + &quot;_rate&quot;);</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index_age = 0; index_age &lt; 100; index_age++) {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                <span class="keywordtype">double</span> immunityRate = immunity_pt.get&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;immunity.age&quot;</span> + std::to_string(index_age));</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                         immunityDistribution.push_back(immunityRate);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    immunizer.<a class="code" href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">Random</a>(immunityPools, immunityDistribution, linkProbability);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (immunizationProfile == <span class="stringliteral">&quot;Cocoon&quot;</span>) {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                immunizer.<a class="code" href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">Cocoon</a>(immunityPools, immunityDistribution, linkProbability);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;} <span class="comment">// namespace stride</span></div>
-<div class="ttc" id="a00029_html_ae2a3b14e79e08a261ca7122afba9b95c"><div class="ttname"><a href="../../d5/d16/a00029.html#ae2a3b14e79e08a261ca7122afba9b95c">stride::Health::IsSusceptible</a></div><div class="ttdeci">bool IsSusceptible() const </div><div class="ttdoc">Is this person susceptible? </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d14/a00139_source.html#l00076">Health.h:76</a></div></div>
-<div class="ttc" id="a00164_html"><div class="ttname"><a href="../../db/ddf/a00164.html">LogUtils.h</a></div><div class="ttdoc">Logging (spdlog) utilities. </div></div>
-<div class="ttc" id="a00067_html"><div class="ttname"><a href="../../dc/ddf/a00067.html">stride::util::RNManager</a></div><div class="ttdoc">Manages random number generation in parallel (OpenMP) calculations. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00042">RNManager.h:42</a></div></div>
-<div class="ttc" id="a00184_html"><div class="ttname"><a href="../../d2/d94/a00184.html">Population.h</a></div><div class="ttdoc">Header file for the core Population class. </div></div>
-<div class="ttc" id="a00027_html_afd5a1be8a601cb5f5d07ee0a12a10547"><div class="ttname"><a href="../../d0/d33/a00027.html#afd5a1be8a601cb5f5d07ee0a12a10547">stride::DiseaseSeeder::m_rn_manager</a></div><div class="ttdeci">util::RNManager &amp; m_rn_manager</div><div class="ttdoc">Random number manager. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00053">DiseaseSeeder.h:53</a></div></div>
-<div class="ttc" id="a00027_html_a47b0a54271fcce196ed8546690563c4c"><div class="ttname"><a href="../../d0/d33/a00027.html#a47b0a54271fcce196ed8546690563c4c">stride::DiseaseSeeder::DiseaseSeeder</a></div><div class="ttdeci">DiseaseSeeder(const boost::property_tree::ptree &amp;configPt, util::RNManager &amp;rnManager)</div><div class="ttdoc">Initializing DiseaseSeeder. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00041">DiseaseSeeder.cpp:41</a></div></div>
-<div class="ttc" id="a00045_html_afab3ab2a1a33004f9e25d4873c3c1921"><div class="ttname"><a href="../../d6/d97/a00045.html#afab3ab2a1a33004f9e25d4873c3c1921">stride::Person::GetId</a></div><div class="ttdeci">unsigned int GetId() const </div><div class="ttdoc">Get the id. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00080">Person.h:80</a></div></div>
-<div class="ttc" id="a00027_html_a48f13b3f9815374425e9618f152026d8"><div class="ttname"><a href="../../d0/d33/a00027.html#a48f13b3f9815374425e9618f152026d8">stride::DiseaseSeeder::Vaccinate</a></div><div class="ttdeci">void Vaccinate(const std::string &amp;immunityType, const std::string &amp;immunizationProfile, std::vector&lt; ContactPool &gt; &amp;immunityPools)</div><div class="ttdoc">Seed for vaccination/natural immunity. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00083">DiseaseSeeder.cpp:83</a></div></div>
-<div class="ttc" id="a00032_html_a2528a05439bfde66f4c85e9a19a6ef48"><div class="ttname"><a href="../../dc/d87/a00032.html#a2528a05439bfde66f4c85e9a19a6ef48">stride::Immunizer::Cocoon</a></div><div class="ttdeci">void Cocoon(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Cocoon immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00094">Immunizer.cpp:94</a></div></div>
-<div class="ttc" id="a00045_html_a53081dbb062c019153b8be62083d59a2"><div class="ttname"><a href="../../d6/d97/a00045.html#a53081dbb062c019153b8be62083d59a2">stride::Person::GetHealth</a></div><div class="ttdeci">Health &amp; GetHealth()</div><div class="ttdoc">Return person&#39;s health status. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00074">Person.h:74</a></div></div>
-<div class="ttc" id="a00032_html_a3b4663bfb6bfdb19e02f8cfd962e12b6"><div class="ttname"><a href="../../dc/d87/a00032.html#a3b4663bfb6bfdb19e02f8cfd962e12b6">stride::Immunizer::Random</a></div><div class="ttdeci">void Random(const std::vector&lt; ContactPool &gt; &amp;pools, std::vector&lt; double &gt; &amp;immunityDistribution, double immunityLinkProbability)</div><div class="ttdoc">Random immunization. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d48/a00148_source.html#l00035">Immunizer.cpp:35</a></div></div>
-<div class="ttc" id="a00027_html_adc5b1f152367382afe3dade9421357da"><div class="ttname"><a href="../../d0/d33/a00027.html#adc5b1f152367382afe3dade9421357da">stride::DiseaseSeeder::Seed</a></div><div class="ttdeci">void Seed(std::shared_ptr&lt; Population &gt; pop)</div><div class="ttdoc">Build the simulator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00046">DiseaseSeeder.cpp:46</a></div></div>
-<div class="ttc" id="a00027_html_a564d8b1346c1160f4e68f3ab8ad0bf8a"><div class="ttname"><a href="../../d0/d33/a00027.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">stride::DiseaseSeeder::m_config_pt</a></div><div class="ttdeci">const boost::property_tree::ptree &amp; m_config_pt</div><div class="ttdoc">Run config. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00052">DiseaseSeeder.h:52</a></div></div>
-<div class="ttc" id="a00061_html_a2e80d7e6f1045279269a967ad8476422"><div class="ttname"><a href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a></div><div class="ttdeci">static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path &amp;f_p)</div><div class="ttdoc">Read ptree from file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d5b/a00135_source.html#l00198">FileSys.cpp:198</a></div></div>
-<div class="ttc" id="a00134_html"><div class="ttname"><a href="../../de/d76/a00134.html">DiseaseSeeder.h</a></div><div class="ttdoc">Header for the DiseaseSeeder class. </div></div>
-<div class="ttc" id="a00032_html"><div class="ttname"><a href="../../dc/d87/a00032.html">stride::Immunizer</a></div><div class="ttdoc">Deals with immunization strategies. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/d1e/a00149_source.html#l00035">Immunizer.h:35</a></div></div>
-<div class="ttc" id="a00029_html_a5d85541b8e22aeaa75b364a454f59088"><div class="ttname"><a href="../../d5/d16/a00029.html#a5d85541b8e22aeaa75b364a454f59088">stride::Health::StartInfection</a></div><div class="ttdeci">void StartInfection()</div><div class="ttdoc">Start the infection. </div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddd/a00138_source.html#l00039">Health.cpp:39</a></div></div>
-<div class="ttc" id="a00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">Immunizer.h</a></div><div class="ttdoc">Header for the Immunizer class. </div></div>
-<div class="ttc" id="a00045_html_ad85ecf5500764ae2c025f7e2aab8003c"><div class="ttname"><a href="../../d6/d97/a00045.html#ad85ecf5500764ae2c025f7e2aab8003c">stride::Person::GetAge</a></div><div class="ttdeci">double GetAge() const </div><div class="ttdoc">Get the age. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00059">Person.h:59</a></div></div>
-<div class="ttc" id="a00198_html"><div class="ttname"><a href="../../d7/da0/a00198.html">Sim.h</a></div><div class="ttdoc">Header for the Simulator class. </div></div>
-<div class="ttc" id="a00045_html"><div class="ttname"><a href="../../d6/d97/a00045.html">stride::Person</a></div><div class="ttdoc">Store and handle person data. </div><div class="ttdef"><b>Definition:</b> <a href="../../d5/de9/a00176_source.html#l00035">Person.h:35</a></div></div>
-<div class="ttc" id="a00255_html_aa45ab4a5a30f65dcd1bf25c3d095825b"><div class="ttname"><a href="../../d4/d04/a00255.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a></div><div class="ttdeci">std::string ToLower(const std::string &amp;source)</div><div class="ttdoc">Builds a string with lower case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/dd2/a00207_source.html#l00122">StringUtils.h:122</a></div></div>
-<div class="ttc" id="a00067_html_a6508932485d419a6e7ab3cac60754ae6"><div class="ttname"><a href="../../dc/ddf/a00067.html#a6508932485d419a6e7ab3cac60754ae6">stride::util::RNManager::GetGenerator</a></div><div class="ttdeci">std::function&lt; typename D::result_type()&gt; GetGenerator(const D &amp;d, size_t i=0)</div><div class="ttdoc">Produce a random generator out of a distribution bound to sim&#39;s random engine. </div><div class="ttdef"><b>Definition:</b> <a href="../../d9/dd0/a00191_source.html#l00078">RNManager.h:78</a></div></div>
-<div class="ttc" id="a00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">ContactPoolSys.h</a></div><div class="ttdoc">Container for the contact pools of various type (household, work, ...). </div></div>
-<div class="ttc" id="a00136_html"><div class="ttname"><a href="../../d0/d5e/a00136.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
-<div class="ttc" id="a00207_html"><div class="ttname"><a href="../../de/dd2/a00207.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">using namespace </span>boost::filesystem;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">using namespace </span>boost::property_tree;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">using namespace </span>boost::property_tree::xml_parser;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">   51</a></span>&#160;boost::filesystem::path <a class="code" href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">FileSys::BuildPath</a>(<span class="keyword">const</span> std::string&amp; output_prefix, <span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        boost::filesystem::path p = output_prefix;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d4/de8/a00061.html#a33c582aaa9397e6ba22efc14b1a44189">FileSys::IsDirectoryString</a>(output_prefix)) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">// file &lt;filename&gt; in dircetory &lt;output_prefix&gt;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                p /= filename;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="comment">// full name is &lt;output_prefix&gt;&lt;filename&gt;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                p += <span class="stringliteral">&quot;_&quot;</span> + filename;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> p;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949">   64</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/a00061.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949">FileSys::CheckInstallEnv</a>(<span class="keyword">function</span>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp;)&gt; logger)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> status = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// Current working dir has to be install root dir.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (GetCurrentDir().compare(GetRootDir()) != 0) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span> (logger)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        logger(<span class="stringliteral">&quot;Current working dir not install root!&quot;</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                status = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span> (GetConfigDir().empty()) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (logger)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        logger(<span class="stringliteral">&quot;Config dir not present in install root!&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                status = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> (GetDataDir().empty()) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span> (logger)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        logger(<span class="stringliteral">&quot;Data dir not present in install root!&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                status = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (GetTestsDir().empty()) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">if</span> (logger)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        logger(<span class="stringliteral">&quot;Tests dir not present in install root!&quot;</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                status = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> status;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a811a1d113f57785952045d9541c95db5">   95</a></span>&#160;<a class="code" href="../../df/d03/a00062.html">FileSys::Dirs</a>&amp; <a class="code" href="../../d4/de8/a00061.html#a811a1d113f57785952045d9541c95db5">FileSys::Get</a>()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">static</span> <a class="code" href="../../df/d03/a00062.html">Dirs</a> dirs = Initialize();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> dirs;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a6f86062b82181245b6b483926eea62f1">  101</a></span>&#160;<a class="code" href="../../df/d03/a00062.html">FileSys::Dirs</a> <a class="code" href="../../d4/de8/a00061.html#a6f86062b82181245b6b483926eea62f1">FileSys::Initialize</a>()</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="../../df/d03/a00062.html">Dirs</a> dirs;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="comment">//------- Retrieving path of executable</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#if defined(WIN32)</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span>                <span class="keywordtype">char</span>    exePath[MAX_PATH];</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                HMODULE hModule = GetModuleHandle(NULL);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">if</span> (GetModuleFileName(NULL, exePath, <span class="keyword">sizeof</span>(exePath)) != 0)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                        ;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        dirs.<a class="code" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a> = canonical(system_complete(exePath));</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#elif defined(__linux__)</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor"></span>                <span class="keywordtype">char</span>   exePath[PATH_MAX];</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordtype">size_t</span> size = ::readlink(<span class="stringliteral">&quot;/proc/self/exe&quot;</span>, exePath, <span class="keyword">sizeof</span>(exePath));</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (size &gt; 0 &amp;&amp; size &lt; <span class="keyword">sizeof</span>(exePath)) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        exePath[size]    = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        dirs.<a class="code" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a> = canonical(system_complete(exePath));</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#elif defined(__APPLE__)</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor"></span>                <span class="keywordtype">char</span>     exePath[PATH_MAX];</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                uint32_t size = <span class="keyword">sizeof</span>(exePath);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordflow">if</span> (_NSGetExecutablePath(exePath, &amp;size) == 0) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        dirs.<a class="code" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a> = canonical(system_complete(exePath));</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span>        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="comment">//------- Retrieving root and bin directory (the subdirectory of the install root)</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                boost::filesystem::path exec_dir = dirs.<a class="code" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a>.parent_path();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keywordflow">if</span> (!dirs.<a class="code" href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">m_exec_path</a>.empty()) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#if (__APPLE__)</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor"></span>                        <span class="keywordflow">if</span> (exec_dir.filename().string() == <span class="stringliteral">&quot;MacOS&quot;</span>) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                <span class="comment">// app</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                                <span class="comment">//      -Contents               &lt;-Root Path</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                                <span class="comment">//              -MacOS</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                                <span class="comment">//                   -executables</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a>  = exec_dir;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> = exec_dir.parent_path();</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                        } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor"></span>                            <span class="keywordflow">if</span> (<a class="code" href="../../d0/da7/a00250.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(exec_dir.filename().string()) == <span class="stringliteral">&quot;debug&quot;</span> ||</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                                <a class="code" href="../../d0/da7/a00250.html#aa45ab4a5a30f65dcd1bf25c3d095825b">ToLower</a>(exec_dir.filename().string()) == <span class="stringliteral">&quot;release&quot;</span>) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                                <span class="comment">// x/exec                &lt;-Root Path</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                                <span class="comment">//      -bin</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                <span class="comment">//              -release/debug</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                <span class="comment">//                      -executables</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a>  = exec_dir.parent_path();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> = exec_dir.parent_path().parent_path();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                        } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#if (WIN32)</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span>                            <span class="keywordflow">if</span> (exec_dir.filename().string() != <span class="stringliteral">&quot;bin&quot;</span>) {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                <span class="comment">// Executables in root folder</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a>  = exec_dir;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> = exec_dir;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                        } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor"></span>                        {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                                <span class="comment">// x/exec                &lt;-Root Path</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                                <span class="comment">//      -bin</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                                <span class="comment">//              -executables</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">m_bin_dir</a>  = exec_dir;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                                dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> = exec_dir.parent_path();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">//------- Current Dir</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#a0f2510f1e56e9702540ae0ee41ae082a">m_current_dir</a> = system_complete(current_path());</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">//------- Config Dir</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a> = dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> / <span class="stringliteral">&quot;config&quot;</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a> = is_directory(dirs.<a class="code" href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a>) ? dirs.<a class="code" href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">m_config_dir</a> : empty_path;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="comment">//------- Data Dir</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">m_data_dir</a> = dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> / <span class="stringliteral">&quot;data&quot;</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">m_data_dir</a> = is_directory(dirs.<a class="code" href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">m_data_dir</a>) ? dirs.<a class="code" href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">m_data_dir</a> : empty_path;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="comment">//------- Tests Dir</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a> = dirs.<a class="code" href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">m_root_dir</a> / <span class="stringliteral">&quot;tests&quot;</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                dirs.<a class="code" href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a> = is_directory(dirs.<a class="code" href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a>) ? dirs.<a class="code" href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">m_tests_dir</a> : empty_path;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> dirs;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a33c582aaa9397e6ba22efc14b1a44189">  192</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../d4/de8/a00061.html#a33c582aaa9397e6ba22efc14b1a44189">FileSys::IsDirectoryString</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> n = s.find(<span class="charliteral">&#39;/&#39;</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> n != string::npos;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">  198</a></span>&#160;ptree <a class="code" href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">FileSys::ReadPtreeFile</a>(<span class="keyword">const</span> boost::filesystem::path&amp; f_p)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        ptree ret;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">if</span> (!exists(f_p) || !is_regular_file(f_p)) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;FileSys::ReadPtreeFile&gt; Abort! File &quot;</span> + f_p.string() + <span class="stringliteral">&quot; not present.&quot;</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                cerr &lt;&lt; s &lt;&lt; endl;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                <span class="keywordflow">throw</span> runtime_error(s);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                        read_xml(canonical(f_p).<span class="keywordtype">string</span>(), ret, xml_parser::trim_whitespace);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                } <span class="keywordflow">catch</span> (xml_parser_error&amp; e) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;FileSys::ReadPtreeFile&gt; Abort! Error reading &quot;</span> + f_p.string();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                        cerr &lt;&lt; s &lt;&lt; endl;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                        <span class="keywordflow">throw</span> runtime_error(s);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#ad397ab1440ed0fb182ed9afc7ea6fa10">  217</a></span>&#160;ptree <a class="code" href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">FileSys::ReadPtreeFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; f_n) { <span class="keywordflow">return</span> ReadPtreeFile(system_complete(f_n)); }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a1bc06882ff174f1005045311b714dcfd">  219</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/de8/a00061.html#a1bc06882ff174f1005045311b714dcfd">FileSys::WritePtreeFile</a>(<span class="keyword">const</span> boost::filesystem::path&amp; f_p, <span class="keyword">const</span> boost::property_tree::ptree&amp; pt)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                write_xml(f_p.string(), pt, std::locale(), xml_writer_make_settings&lt;ptree::key_type&gt;(<span class="charliteral">&#39; &#39;</span>, 8));</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        } <span class="keywordflow">catch</span> (xml_parser_error&amp; e) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">string</span> s = <span class="stringliteral">&quot;FileSys::ReadPtreeFile&gt; Abort! Error reading &quot;</span> + f_p.string();</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                cerr &lt;&lt; s &lt;&lt; endl;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                <span class="keywordflow">throw</span> runtime_error(s);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="../../d4/de8/a00061.html#a30bfccbc01dda2a7a09fda4560cb13ea">  230</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/de8/a00061.html#a1bc06882ff174f1005045311b714dcfd">FileSys::WritePtreeFile</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; f_n, <span class="keyword">const</span> boost::property_tree::ptree&amp; pt)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;{</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        WritePtreeFile(system_complete(f_n), pt);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;}</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00061_html_a811a1d113f57785952045d9541c95db5"><div class="ttname"><a href="../../d4/de8/a00061.html#a811a1d113f57785952045d9541c95db5">stride::util::FileSys::Get</a></div><div class="ttdeci">static Dirs &amp; Get()</div><div class="ttdoc">Return paths. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00095">FileSys.cpp:95</a></div></div>
+<div class="ttc" id="a00061_html_a750e3b3e045bb2e17639b4d014d33974"><div class="ttname"><a href="../../d4/de8/a00061.html#a750e3b3e045bb2e17639b4d014d33974">stride::util::FileSys::BuildPath</a></div><div class="ttdeci">static boost::filesystem::path BuildPath(const std::string &amp;output_prefix, const std::string &amp;filename)</div><div class="ttdoc">Interpret prefix (directory or filename prefix) and return appropriate path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00051">FileSys.cpp:51</a></div></div>
+<div class="ttc" id="a00062_html"><div class="ttname"><a href="../../df/d03/a00062.html">stride::util::FileSys::Dirs</a></div><div class="ttdoc">Using this to avoid global variables &amp; their initialization. </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00087">FileSys.h:87</a></div></div>
+<div class="ttc" id="a00062_html_a7b91aab4bd5ca85b91fad338a228b7b9"><div class="ttname"><a href="../../df/d03/a00062.html#a7b91aab4bd5ca85b91fad338a228b7b9">stride::util::FileSys::Dirs::m_tests_dir</a></div><div class="ttdeci">boost::filesystem::path m_tests_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00101">FileSys.h:101</a></div></div>
+<div class="ttc" id="a00062_html_a5ed650fa0f4f0fd3f5d57f2b5e3088ef"><div class="ttname"><a href="../../df/d03/a00062.html#a5ed650fa0f4f0fd3f5d57f2b5e3088ef">stride::util::FileSys::Dirs::m_config_dir</a></div><div class="ttdeci">boost::filesystem::path m_config_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00098">FileSys.h:98</a></div></div>
+<div class="ttc" id="a00061_html_a1bc06882ff174f1005045311b714dcfd"><div class="ttname"><a href="../../d4/de8/a00061.html#a1bc06882ff174f1005045311b714dcfd">stride::util::FileSys::WritePtreeFile</a></div><div class="ttdeci">static void WritePtreeFile(const boost::filesystem::path &amp;f_p, const boost::property_tree::ptree &amp;pt)</div><div class="ttdoc">Write ptree to file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00219">FileSys.cpp:219</a></div></div>
+<div class="ttc" id="a00062_html_a0f2510f1e56e9702540ae0ee41ae082a"><div class="ttname"><a href="../../df/d03/a00062.html#a0f2510f1e56e9702540ae0ee41ae082a">stride::util::FileSys::Dirs::m_current_dir</a></div><div class="ttdeci">boost::filesystem::path m_current_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00091">FileSys.h:91</a></div></div>
+<div class="ttc" id="a00062_html_aa84e5bea799040c78f75190d7fa242e9"><div class="ttname"><a href="../../df/d03/a00062.html#aa84e5bea799040c78f75190d7fa242e9">stride::util::FileSys::Dirs::m_bin_dir</a></div><div class="ttdeci">boost::filesystem::path m_bin_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00097">FileSys.h:97</a></div></div>
+<div class="ttc" id="a00062_html_a02d39f43d1e81ea01c51c6715c4b7041"><div class="ttname"><a href="../../df/d03/a00062.html#a02d39f43d1e81ea01c51c6715c4b7041">stride::util::FileSys::Dirs::m_root_dir</a></div><div class="ttdeci">boost::filesystem::path m_root_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00100">FileSys.h:100</a></div></div>
+<div class="ttc" id="a00061_html_a2e80d7e6f1045279269a967ad8476422"><div class="ttname"><a href="../../d4/de8/a00061.html#a2e80d7e6f1045279269a967ad8476422">stride::util::FileSys::ReadPtreeFile</a></div><div class="ttdeci">static boost::property_tree::ptree ReadPtreeFile(const boost::filesystem::path &amp;f_p)</div><div class="ttdoc">Read ptree from file at path. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00198">FileSys.cpp:198</a></div></div>
+<div class="ttc" id="a00134_html"><div class="ttname"><a href="../../de/d76/a00134.html">FileSys.h</a></div><div class="ttdoc">Interface for install directory queries. </div></div>
+<div class="ttc" id="a00062_html_af9e0a5016367c19e14e102efcbf6ff4b"><div class="ttname"><a href="../../df/d03/a00062.html#af9e0a5016367c19e14e102efcbf6ff4b">stride::util::FileSys::Dirs::m_exec_path</a></div><div class="ttdeci">boost::filesystem::path m_exec_path</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00094">FileSys.h:94</a></div></div>
+<div class="ttc" id="a00250_html_aa45ab4a5a30f65dcd1bf25c3d095825b"><div class="ttname"><a href="../../d0/da7/a00250.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a></div><div class="ttdeci">std::string ToLower(const std::string &amp;source)</div><div class="ttdoc">Builds a string with lower case characters only. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d53/a00202_source.html#l00134">StringUtils.h:134</a></div></div>
+<div class="ttc" id="a00061_html_a33c582aaa9397e6ba22efc14b1a44189"><div class="ttname"><a href="../../d4/de8/a00061.html#a33c582aaa9397e6ba22efc14b1a44189">stride::util::FileSys::IsDirectoryString</a></div><div class="ttdeci">static bool IsDirectoryString(const std::string &amp;s)</div><div class="ttdoc">String represents a directory path (relative or absolute) iff it contains at least one / (may be a tr...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00192">FileSys.cpp:192</a></div></div>
+<div class="ttc" id="a00062_html_ad844a270ca421636f164982233789d2f"><div class="ttname"><a href="../../df/d03/a00062.html#ad844a270ca421636f164982233789d2f">stride::util::FileSys::Dirs::m_data_dir</a></div><div class="ttdeci">boost::filesystem::path m_data_dir</div><div class="ttdef"><b>Definition:</b> <a href="../../de/d76/a00134_source.html#l00099">FileSys.h:99</a></div></div>
+<div class="ttc" id="a00061_html_a9dde9db2fbf4a2f6fa9e3116b5fe2949"><div class="ttname"><a href="../../d4/de8/a00061.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949">stride::util::FileSys::CheckInstallEnv</a></div><div class="ttdeci">static bool CheckInstallEnv(std::function&lt; void(const std::string &amp;)&gt; logger=std::function&lt; void(const std::string &amp;)&gt;())</div><div class="ttdoc">Verify that current dir is root dir and all install dirs are present. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00064">FileSys.cpp:64</a></div></div>
+<div class="ttc" id="a00061_html_a6f86062b82181245b6b483926eea62f1"><div class="ttname"><a href="../../d4/de8/a00061.html#a6f86062b82181245b6b483926eea62f1">stride::util::FileSys::Initialize</a></div><div class="ttdeci">static Dirs Initialize()</div><div class="ttdoc">Initialize all paths. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/de8/a00133_source.html#l00101">FileSys.cpp:101</a></div></div>
+<div class="ttc" id="a00202_html"><div class="ttname"><a href="../../db/d53/a00202.html">StringUtils.h</a></div><div class="ttdoc">Miscellaneous string utilities. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../d0/de8/a00133.html">DiseaseSeeder.cpp</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/de8/a00133.html">FileSys.cpp</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

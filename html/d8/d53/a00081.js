@@ -1,8 +1,7 @@
 var a00081 =
 [
-    [ "InfectedFileViewer", "d8/d53/a00081.html#aca10d70842e06a7a00cd633c4071d0ac", null ],
-    [ "Update", "d8/d53/a00081.html#a8128b6620992860cad456275e2173b16", null ],
-    [ "m_infected", "d8/d53/a00081.html#a29f6d1abe2d4b71535a0c0134a48a5a0", null ],
-    [ "m_infected_file", "d8/d53/a00081.html#ae3711a48a4aba215ee7c45893c18532c", null ],
-    [ "m_runner", "d8/d53/a00081.html#af4ffa40d65229dcd9ae06ad592809c1c", null ]
+    [ "PersonsFileViewer", "d8/d53/a00081.html#a3a0f69649baabe6b4403195283d860bb", null ],
+    [ "Update", "d8/d53/a00081.html#ae2840bec7fc5f76db6e79130b61fff19", null ],
+    [ "m_persons_file", "d8/d53/a00081.html#ab49193f33a4ddf52253f1f8cda7d8605", null ],
+    [ "m_runner", "d8/d53/a00081.html#a26e40cde6a79993c1d2a2e779fa48751", null ]
 ];

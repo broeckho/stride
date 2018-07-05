@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['tclock',['TClock',['../d1/d6e/a00073.html#aedbb343fde64ffebcdb371dd862aae7f',1,'stride::util::Stopwatch']]],
-  ['testfactory',['TestFactory',['../d6/db6/a00241.html#a28985c82b74a8191bbd1b16b7662378c',1,'myhayai']]],
-  ['testresult',['TestResult',['../d6/db6/a00241.html#a57199109a783f4e5805d20fe31019b29',1,'myhayai']]],
-  ['type',['type',['../d1/d6f/a00063.html#a4183f045c6086dabede526dea8e6cedb',1,'stride::util::ii_detail::make_void']]]
+  ['value_5ftype',['value_type',['../df/d86/a00012.html#a7882e74f6cb8dd40fe7f359daf0376c3',1,'stride::util::SegmentedVector']]],
+  ['void_5ft',['void_t',['../dc/ded/a00252.html#a5548d91f3cf721a08ab97267e8dd80ec',1,'stride::util::ii_detail']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: ConsoleViewer.h Source File</title>
+<title>Stride Reference Manual: ContactLogMode.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,81 +103,68 @@ $(document).ready(function(){initNavTree('d3/d00/a00113_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ConsoleViewer.h</div>  </div>
+<div class="title">ContactLogMode.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d3/d00/a00113.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/a00101.html">BenchmarkRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d6d/a00111.html">Console.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/df1/a00174.html">Payload.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">TestDescriptors.h</a>&quot;</span></div>
+<a href="../../d3/d00/a00113.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2017, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d17/a00114.html">ContactLogMode.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;boost/algorithm/string.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html">   27</a></span>&#160;<span class="keyword">namespace </span>ContactLogMode {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">   42</a></span>&#160;        <span class="keyword">explicit</span> <a class="code" href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">ConsoleViewer</a>(std::ostream&amp; stream = std::cout, <span class="keywordtype">bool</span> noColor = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            : <a class="code" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">m_descriptors</a>(<a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>::Instance().GetTestDescriptors()), <a class="code" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">m_stream</a>(stream)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keywordflow">if</span> (noColor) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        stream &lt;&lt; <a class="code" href="../../d2/dc8/a00242.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">console::Color::DisableColor</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        stream &lt;&lt; <a class="code" href="../../d2/dc8/a00242.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">console::Color::EnableColor</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="../../dd/dad/a00005.html#af9b52cce5ff9de14ef6af6b69bc9c6e1">Update</a>(<span class="keyword">const</span> <a class="code" href="../../de/d21/a00006.html">event::Payload</a>&amp; payload);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">   56</a></span>&#160;        <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a> <a class="code" href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">m_descriptors</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">   57</a></span>&#160;        std::ostream&amp;   <a class="code" href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">m_stream</a>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::microseconds&gt;</a>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::milliseconds&gt;</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="../../dd/dad/a00005.html">ConsoleViewer&lt;std::chrono::seconds&gt;</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00005_html_af9b52cce5ff9de14ef6af6b69bc9c6e1"><div class="ttname"><a href="../../dd/dad/a00005.html#af9b52cce5ff9de14ef6af6b69bc9c6e1">myhayai::ConsoleViewer::Update</a></div><div class="ttdeci">void Update(const event::Payload &amp;payload)</div><div class="ttdoc">Observer method, registered with subject. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d57/a00112_source.html#l00036">ConsoleViewer.cpp:36</a></div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
-<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">TestDescriptors.h</a></div><div class="ttdoc">Header file for TestDescriptors container. </div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00005_html"><div class="ttname"><a href="../../dd/dad/a00005.html">myhayai::ConsoleViewer</a></div><div class="ttdoc">Console viewer outputs (on the console) info on the benchmarks as they run. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00037">ConsoleViewer.h:37</a></div></div>
-<div class="ttc" id="a00005_html_a16c27293848605139f3ee5215a5e07eb"><div class="ttname"><a href="../../dd/dad/a00005.html#a16c27293848605139f3ee5215a5e07eb">myhayai::ConsoleViewer::ConsoleViewer</a></div><div class="ttdeci">ConsoleViewer(std::ostream &amp;stream=std::cout, bool noColor=false)</div><div class="ttdoc">Initialize. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00042">ConsoleViewer.h:42</a></div></div>
-<div class="ttc" id="a00242_html_a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da"><div class="ttname"><a href="../../d2/dc8/a00242.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">myhayai::console::Color::EnableColor</a></div></div>
-<div class="ttc" id="a00005_html_aa58660e72c483ef09007cf88a7a9779b"><div class="ttname"><a href="../../dd/dad/a00005.html#aa58660e72c483ef09007cf88a7a9779b">myhayai::ConsoleViewer::m_stream</a></div><div class="ttdeci">std::ostream &amp; m_stream</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00057">ConsoleViewer.h:57</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00031">TestDescriptors.h:31</a></div></div>
-<div class="ttc" id="a00111_html"><div class="ttname"><a href="../../dd/d6d/a00111.html">Console.h</a></div><div class="ttdoc">Header file for Console. </div></div>
-<div class="ttc" id="a00242_html_a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed"><div class="ttname"><a href="../../d2/dc8/a00242.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">myhayai::console::Color::DisableColor</a></div></div>
-<div class="ttc" id="a00005_html_a82aea22db88a50b951c6f5a10fd03a9a"><div class="ttname"><a href="../../dd/dad/a00005.html#a82aea22db88a50b951c6f5a10fd03a9a">myhayai::ConsoleViewer::m_descriptors</a></div><div class="ttdeci">TestDescriptors m_descriptors</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00056">ConsoleViewer.h:56</a></div></div>
-<div class="ttc" id="a00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">Payload.h</a></div><div class="ttdoc">Payload for Subject/Observer for myhayaia::events. </div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></div><div class="ttdoc">BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00038">BenchmarkRunner.h:38</a></div></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using</span> boost::to_upper;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">   32</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="../../d6/d22/a00245.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">ToString</a>(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> l)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">static</span> map&lt;Id, string&gt; names{make_pair(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">Id::None</a>, <span class="stringliteral">&quot;None&quot;</span>), make_pair(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Id::Transmissions</a>, <span class="stringliteral">&quot;Transmissions&quot;</span>),</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                     make_pair(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">Id::All</a>, <span class="stringliteral">&quot;All&quot;</span>), make_pair(<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Id::Susceptibles</a>, <span class="stringliteral">&quot;Susceptibles&quot;</span>)};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span> names.at(l);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d6/d22/a00245.html#a12707c23b43baa1a0f5bed51db72756d">   39</a></span>&#160;<a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">Id</a> <a class="code" href="../../d6/d22/a00245.html#a12707c23b43baa1a0f5bed51db72756d">ToMode</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">static</span> map&lt;string, Id&gt; modes{make_pair(<span class="stringliteral">&quot;NONE&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">Id::None</a>), make_pair(<span class="stringliteral">&quot;TRANSMISSIONS&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">Id::Transmissions</a>),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                     make_pair(<span class="stringliteral">&quot;ALL&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">Id::All</a>), make_pair(<span class="stringliteral">&quot;SUSCEPTIBLES&quot;</span>, <a class="code" href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">Id::Susceptibles</a>)};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        std::string            t{s};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        to_upper(t);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> modes.at(t);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <span class="comment">// namespace ContactLogMode</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00245_html_a025f9ff3cf2df8c0c8b95e48724d9b7c"><div class="ttname"><a href="../../d6/d22/a00245.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a></div><div class="ttdeci">string ToString(Id l)</div><div class="ttdoc">Converts a LogMode value to corresponding name. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00032">ContactLogMode.cpp:32</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">stride::ContactLogMode::Id::All</a></div></div>
+<div class="ttc" id="a00114_html"><div class="ttname"><a href="../../d8/d17/a00114.html">ContactLogMode.h</a></div><div class="ttdoc">Header for the ContactLogMode class. </div></div>
+<div class="ttc" id="a00245_html_a12707c23b43baa1a0f5bed51db72756d"><div class="ttname"><a href="../../d6/d22/a00245.html#a12707c23b43baa1a0f5bed51db72756d">stride::ContactLogMode::ToMode</a></div><div class="ttdeci">Id ToMode(const string &amp;s)</div><div class="ttdoc">Converts a string with name to LogMode value. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d00/a00113_source.html#l00039">ContactLogMode.cpp:39</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">stride::ContactLogMode::Id::Transmissions</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">stride::ContactLogMode::Id::Susceptibles</a></div></div>
+<div class="ttc" id="a00245_html_a8f1467c1f622638893d3a1c12eead2ba"><div class="ttname"><a href="../../d6/d22/a00245.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a></div><div class="ttdeci">Id</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d17/a00114_source.html#l00033">ContactLogMode.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d3/d00/a00113.html">ConsoleViewer.h</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../d3/d00/a00113.html">ContactLogMode.cpp</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

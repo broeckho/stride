@@ -1,8 +1,7 @@
 var a00068 =
 [
-    [ "Info", "da/d24/a00068.html#a2e5ec406a473f68ca95c7d81651d6aac", null ],
-    [ "m_seed", "da/d24/a00068.html#abefb5eab599569a9ee18079889c2d11b", null ],
-    [ "m_state", "da/d24/a00068.html#ae73dd6b56912771808eeb8d9aa095389", null ],
-    [ "m_stream_count", "da/d24/a00068.html#a2275a26478b89ec7b7d0f02f02b0b0af", null ],
-    [ "m_type", "da/d24/a00068.html#a7280978393526b5420e330cd87888b41", null ]
+    [ "Info", "da/d24/a00068.html#a88cf7dab5c5c75a98cb84f106fef8b5d", null ],
+    [ "m_seed_seq_init", "da/d24/a00068.html#a4067dec485ede8eff56975b1c18e2a0b", null ],
+    [ "m_state", "da/d24/a00068.html#a490ea3a4ab4d9ed306da0e001e862d22", null ],
+    [ "m_stream_count", "da/d24/a00068.html#a9c7ee86d933d5098e8a517152e99e235", null ]
 ];

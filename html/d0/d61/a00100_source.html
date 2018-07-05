@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Stride Reference Manual: BenchmarkRunner.cpp Source File</title>
+<title>Stride Reference Manual: BoxPlotData.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1abb4dc</span>
+   &#160;<span id="projectnumber">- generated for commit 95a4f31</span>
    </div>
   </td>
  </tr>
@@ -103,111 +103,102 @@ $(document).ready(function(){initNavTree('d0/d61/a00100_source.html','../../');}
 
 <div class="header">
   <div class="headertitle">
-<div class="title">BenchmarkRunner.cpp</div>  </div>
+<div class="title">BoxPlotData.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d0/d61/a00100.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  any later version.</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d3a/a00101.html">BenchmarkRunner.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../da/ddb/a00145.html">Id.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d38/a00160.html">InfoFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d9a/a00218.html">Test.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/d52/a00221.html">TestDescriptors.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d24/a00222.html">TestFactory.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d28/a00223.html">TestResult.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">using namespace </span>std::chrono;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>myhayai {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#aae222bfc0fbe506cf156dabba6f355bb">   34</a></span>&#160;<span class="keyword">const</span> <a class="code" href="../../da/d45/a00011.html">TestDescriptors</a>&amp; BenchmarkRunner::GetTestDescriptors()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_test_descriptors; }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a0540c5f748e83674854f76e6090768fd">   36</a></span>&#160;<a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a>&amp; BenchmarkRunner::Instance()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d0/d0b/a00004.html">BenchmarkRunner</a> singleton;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> singleton;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#aaa4a2b4e7f2312c9543c9b93f8649403">   42</a></span>&#160;<span class="keywordtype">bool</span> BenchmarkRunner::RegisterTest(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; groupName, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; testName, <span class="keywordtype">size_t</span> numRuns,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                   <a class="code" href="../../d6/db6/a00241.html#a28985c82b74a8191bbd1b16b7662378c">TestFactory</a> testFactory, <a class="code" href="../../d6/db6/a00241.html#a94d26b57ca1b2d6a79381d09ff546ba6">InfoFactory</a> infoFactory, <span class="keywordtype">bool</span> isDisabled)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="../../d7/dec/a00010.html">TestDescriptor</a> d(groupName, testName, numRuns, std::move(testFactory), std::move(infoFactory), isDisabled);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>     ret = Instance().m_test_descriptors.emplace(make_pair(d.<a class="code" href="../../d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32">GetCanonicalName</a>(), d));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> ret.second;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d0/d0b/a00004.html#a65fb971cdc8ff02a2c5a67f74c1c506c">   50</a></span>&#160;<span class="keywordtype">void</span> BenchmarkRunner::RunTests(<span class="keyword">const</span> vector&lt;string&gt;&amp; canonicalNames)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Setup.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">auto</span> test_descriptors = Instance().GetTestDescriptors();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::BeginBench));</div>
+<a href="../../d0/d61/a00100.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="comment">/*</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  This is free software: you can redistribute it and/or modify it</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *  the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *  any later version.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *  The software is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *  but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *  You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *  along with the software. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *  Copyright 2018, Kuylen E, Willem L, Broeckhove J</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>stride {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>util {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../d9/d2e/a00056.html">BoxPlotData</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#add3e678e6738fbd9b3f1949f8059388f">   37</a></span>&#160;        <a class="code" href="../../d9/d2e/a00056.html#add3e678e6738fbd9b3f1949f8059388f">BoxPlotData</a>() : <a class="code" href="../../d9/d2e/a00056.html#a777b86b3f8efb046dc4de8830c720e45">m_total</a>(), <a class="code" href="../../d9/d2e/a00056.html#a7087ab4e72c5c9a6606d76996bfac882">m_min</a>(), <a class="code" href="../../d9/d2e/a00056.html#a41acae191d30af298e9bac71d430cc41">m_max</a>(), <a class="code" href="../../d9/d2e/a00056.html#a9433b5584a47b7cba8c8090f081a2e5c">m_median</a>(), <a class="code" href="../../d9/d2e/a00056.html#a6a1a8baaa4280bc35b5e58b5185b8471">m_quartile1</a>(), <a class="code" href="../../d9/d2e/a00056.html#a2ca894900d4879cf4841408c85deaf92">m_quartile3</a>() {}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a777b86b3f8efb046dc4de8830c720e45">   39</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a777b86b3f8efb046dc4de8830c720e45">m_total</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a7087ab4e72c5c9a6606d76996bfac882">   40</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a7087ab4e72c5c9a6606d76996bfac882">m_min</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a41acae191d30af298e9bac71d430cc41">   41</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a41acae191d30af298e9bac71d430cc41">m_max</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a9433b5584a47b7cba8c8090f081a2e5c">   42</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a9433b5584a47b7cba8c8090f081a2e5c">m_median</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a6a1a8baaa4280bc35b5e58b5185b8471">   43</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a6a1a8baaa4280bc35b5e58b5185b8471">m_quartile1</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a2ca894900d4879cf4841408c85deaf92">   44</a></span>&#160;        T <a class="code" href="../../d9/d2e/a00056.html#a2ca894900d4879cf4841408c85deaf92">m_quartile3</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d9/d2e/a00056.html#a25162798845f45f11620427e4c7baf6b">   47</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d9/d2e/a00056.html">BoxPlotData</a> <a class="code" href="../../d9/d2e/a00056.html#a25162798845f45f11620427e4c7baf6b">Calculate</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; data)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                assert(data.size() &gt;= 1 &amp;&amp; <span class="stringliteral">&quot;TestResult&gt; cannot calculate stats for empty vector.&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="../../d9/d2e/a00056.html">BoxPlotData</a> stats;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="comment">// Sort the durations.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">auto</span> temp(data);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                std::sort(temp.begin(), temp.end());</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// Run through all the test_descriptors in ascending order.</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; name : canonicalNames) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="comment">// If test is disabled, then skip it.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span>&amp; t_d = test_descriptors[name];</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">if</span> (t_d.m_is_disabled) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::SkipTest, name));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">// Runs for test with canonical name &lt;name&gt;.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::BeginTest, name));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <a class="code" href="../../d6/db6/a00241.html#a57199109a783f4e5805d20fe31019b29">TestResult</a> runTimes(t_d.m_num_runs);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; rt : runTimes) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                rt = t_d.m_test_factory().Run&lt;steady_clock&gt;();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                } <span class="keywordflow">catch</span> (exception&amp; e) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::AbortTest, name, e.what()));</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="comment">// Runs for this test done.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::EndTest, name, runTimes));</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="comment">// Total, min, max</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                stats.m_total = std::accumulate(temp.cbegin(), temp.cend(), T());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                stats.m_min   = temp.front();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                stats.m_max   = temp.back();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="comment">// Median, quartiles.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">const</span> std::size_t size     = temp.size();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keyword">const</span> std::size_t sizeHalf = size / 2;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">if</span> (size &gt;= 4) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keyword">const</span> std::size_t quartile = sizeHalf / 2;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        <span class="keywordflow">if</span> ((size % 2) == 0) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                stats.m_median    = (temp[sizeHalf - 1] + temp[sizeHalf]) / 2;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                stats.m_quartile1 = temp[quartile];</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                stats.m_quartile3 = temp[sizeHalf + quartile];</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                stats.m_median    = temp[sizeHalf];</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                stats.m_quartile1 = (temp[quartile - 1] + temp[quartile]) / 2;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                stats.m_quartile3 = (temp[sizeHalf + (quartile - 1)] + temp[sizeHalf + quartile]) / 2;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (size &gt; 0) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        stats.m_median    = temp[sizeHalf];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        stats.m_quartile1 = temp.front();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        stats.m_quartile3 = temp.back();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// End output.</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        Notify(<a class="code" href="../../de/d21/a00006.html">event::Payload</a>(event::Id::EndBench));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">return</span> stats;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// namespace myhayai</span></div>
-<div class="ttc" id="a00222_html"><div class="ttname"><a href="../../d0/d24/a00222.html">TestFactory.h</a></div><div class="ttdoc">Header file for TestFactory. </div></div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="../../d7/dec/a00010.html">myhayai::TestDescriptor</a></div><div class="ttdoc">Benchmark test descriptor. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00044">TestDescriptor.h:44</a></div></div>
-<div class="ttc" id="a00241_html_a57199109a783f4e5805d20fe31019b29"><div class="ttname"><a href="../../d6/db6/a00241.html#a57199109a783f4e5805d20fe31019b29">myhayai::TestResult</a></div><div class="ttdeci">std::vector&lt; std::chrono::steady_clock::duration &gt; TestResult</div><div class="ttdoc">Test result descriptor. All durations are expressed in nanoseconds. </div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d28/a00223_source.html#l00030">TestResult.h:30</a></div></div>
-<div class="ttc" id="a00101_html"><div class="ttname"><a href="../../d4/d3a/a00101.html">BenchmarkRunner.h</a></div><div class="ttdoc">Header file for Benchmarker. </div></div>
-<div class="ttc" id="a00223_html"><div class="ttname"><a href="../../dc/d28/a00223.html">TestResult.h</a></div><div class="ttdoc">Header file for TestResult. </div></div>
-<div class="ttc" id="a00221_html"><div class="ttname"><a href="../../dd/d52/a00221.html">TestDescriptors.h</a></div><div class="ttdoc">Header file for TestDescriptors container. </div></div>
-<div class="ttc" id="a00010_html_aef102b936506c555ab1f278dec55cd32"><div class="ttname"><a href="../../d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32">myhayai::TestDescriptor::GetCanonicalName</a></div><div class="ttdeci">std::string GetCanonicalName() const </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/df3/a00219_source.html#l00066">TestDescriptor.h:66</a></div></div>
-<div class="ttc" id="a00218_html"><div class="ttname"><a href="../../dc/d9a/a00218.html">Test.h</a></div><div class="ttdoc">Header file for Test. </div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="../../de/d21/a00006.html">myhayai::event::Payload</a></div><div class="ttdoc">The payload of the event notification used by the BenchmarkRunner and accepted in the Update by the e...</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df1/a00174_source.html#l00034">Payload.h:34</a></div></div>
-<div class="ttc" id="a00241_html_a28985c82b74a8191bbd1b16b7662378c"><div class="ttname"><a href="../../d6/db6/a00241.html#a28985c82b74a8191bbd1b16b7662378c">myhayai::TestFactory</a></div><div class="ttdeci">std::function&lt; Test()&gt; TestFactory</div><div class="ttdoc">Produces a test instance via its call operator. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d24/a00222_source.html#l00028">TestFactory.h:28</a></div></div>
-<div class="ttc" id="a00011_html"><div class="ttname"><a href="../../da/d45/a00011.html">myhayai::TestDescriptors</a></div><div class="ttdoc">Container for the test descriptors. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d52/a00221_source.html#l00031">TestDescriptors.h:31</a></div></div>
-<div class="ttc" id="a00145_html"><div class="ttname"><a href="../../da/ddb/a00145.html">Id.hpp</a></div><div class="ttdoc">Definition of myhayai::event::Id. </div></div>
-<div class="ttc" id="a00160_html"><div class="ttname"><a href="../../de/d38/a00160.html">InfoFactory.h</a></div><div class="ttdoc">Header file for InfoFactory. </div></div>
-<div class="ttc" id="a00241_html_a94d26b57ca1b2d6a79381d09ff546ba6"><div class="ttname"><a href="../../d6/db6/a00241.html#a94d26b57ca1b2d6a79381d09ff546ba6">myhayai::InfoFactory</a></div><div class="ttdeci">std::function&lt; boost::property_tree::ptree()&gt; InfoFactory</div><div class="ttdoc">Produces info (int property tree format) on the test (for use by viewers). </div><div class="ttdef"><b>Definition:</b> <a href="../../de/d38/a00160_source.html#l00027">InfoFactory.h:27</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="../../d0/d0b/a00004.html">myhayai::BenchmarkRunner</a></div><div class="ttdoc">BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d3a/a00101_source.html#l00038">BenchmarkRunner.h:38</a></div></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <span class="comment">// namespace stride</span></div>
+<div class="ttc" id="a00056_html_a25162798845f45f11620427e4c7baf6b"><div class="ttname"><a href="../../d9/d2e/a00056.html#a25162798845f45f11620427e4c7baf6b">stride::util::BoxPlotData::Calculate</a></div><div class="ttdeci">static BoxPlotData Calculate(const std::vector&lt; T &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00047">BoxPlotData.h:47</a></div></div>
+<div class="ttc" id="a00056_html_a41acae191d30af298e9bac71d430cc41"><div class="ttname"><a href="../../d9/d2e/a00056.html#a41acae191d30af298e9bac71d430cc41">stride::util::BoxPlotData::m_max</a></div><div class="ttdeci">T m_max</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00041">BoxPlotData.h:41</a></div></div>
+<div class="ttc" id="a00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">stride::util::BoxPlotData</a></div><div class="ttdoc">BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00034">BoxPlotData.h:34</a></div></div>
+<div class="ttc" id="a00056_html_a6a1a8baaa4280bc35b5e58b5185b8471"><div class="ttname"><a href="../../d9/d2e/a00056.html#a6a1a8baaa4280bc35b5e58b5185b8471">stride::util::BoxPlotData::m_quartile1</a></div><div class="ttdeci">T m_quartile1</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00043">BoxPlotData.h:43</a></div></div>
+<div class="ttc" id="a00056_html_add3e678e6738fbd9b3f1949f8059388f"><div class="ttname"><a href="../../d9/d2e/a00056.html#add3e678e6738fbd9b3f1949f8059388f">stride::util::BoxPlotData::BoxPlotData</a></div><div class="ttdeci">BoxPlotData()</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00037">BoxPlotData.h:37</a></div></div>
+<div class="ttc" id="a00056_html_a777b86b3f8efb046dc4de8830c720e45"><div class="ttname"><a href="../../d9/d2e/a00056.html#a777b86b3f8efb046dc4de8830c720e45">stride::util::BoxPlotData::m_total</a></div><div class="ttdeci">T m_total</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00039">BoxPlotData.h:39</a></div></div>
+<div class="ttc" id="a00056_html_a2ca894900d4879cf4841408c85deaf92"><div class="ttname"><a href="../../d9/d2e/a00056.html#a2ca894900d4879cf4841408c85deaf92">stride::util::BoxPlotData::m_quartile3</a></div><div class="ttdeci">T m_quartile3</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00044">BoxPlotData.h:44</a></div></div>
+<div class="ttc" id="a00056_html_a9433b5584a47b7cba8c8090f081a2e5c"><div class="ttname"><a href="../../d9/d2e/a00056.html#a9433b5584a47b7cba8c8090f081a2e5c">stride::util::BoxPlotData::m_median</a></div><div class="ttdeci">T m_median</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00042">BoxPlotData.h:42</a></div></div>
+<div class="ttc" id="a00056_html_a7087ab4e72c5c9a6606d76996bfac882"><div class="ttname"><a href="../../d9/d2e/a00056.html#a7087ab4e72c5c9a6606d76996bfac882">stride::util::BoxPlotData::m_min</a></div><div class="ttdeci">T m_min</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d61/a00100_source.html#l00040">BoxPlotData.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d0/d61/a00100.html">BenchmarkRunner.cpp</a></li>
-    <li class="footer">Generated on Mon Jul 2 2018 13:37:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d0/d61/a00100.html">BoxPlotData.h</a></li>
+    <li class="footer">Generated on Thu Jul 5 2018 12:57:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

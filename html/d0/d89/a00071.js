@@ -1,15 +1,16 @@
 var a00071 =
 [
-    [ "CleanConfigFile", "d0/d89/a00071.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
-    [ "Create", "d0/d89/a00071.html#ab4007f793a1924a65458824fef455208", null ],
-    [ "CreateNumThreads", "d0/d89/a00071.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
-    [ "FromString", "d0/d89/a00071.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
-    [ "ToString", "d0/d89/a00071.html#af968f949efaf2876f48a86da65faa5ca", null ],
-    [ "ToSha1", "d0/d89/a00071.html#a32ec1961852a81d4873a519f6bea1e36", null ],
-    [ "ToShortSha1", "d0/d89/a00071.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
-    [ "CreateBenchInfluenza", "d0/d89/a00071.html#a7014479a2c8efe57b292b9f61435ab61", null ],
-    [ "CreateBenchMeasles", "d0/d89/a00071.html#abf62ab97dafdce994e503296fe5d9394", null ],
-    [ "CreateDefault", "d0/d89/a00071.html#a93470c7c74cc217254876c704fa81a0f", null ],
-    [ "CreateTestsInfluenza", "d0/d89/a00071.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
-    [ "CreateTestsMeasles", "d0/d89/a00071.html#aa430eb71461536d855db5725ebc59cda", null ]
+    [ "TClock", "d0/d89/a00071.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
+    [ "Stopwatch", "d0/d89/a00071.html#a925b07b32b747a519b37c549ba7f1531", null ],
+    [ "Start", "d0/d89/a00071.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
+    [ "Stop", "d0/d89/a00071.html#a4b6145f590e94467a0048817f348ac75", null ],
+    [ "Reset", "d0/d89/a00071.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
+    [ "IsRunning", "d0/d89/a00071.html#a6afa0761326b35e675517b6a81ffef1f", null ],
+    [ "GetName", "d0/d89/a00071.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
+    [ "Get", "d0/d89/a00071.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
+    [ "ToString", "d0/d89/a00071.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
+    [ "m_accumulated", "d0/d89/a00071.html#a765784978119de616443c956d98166c4", null ],
+    [ "m_last_start", "d0/d89/a00071.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
+    [ "m_name", "d0/d89/a00071.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
+    [ "m_running", "d0/d89/a00071.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
 ];
