@@ -18,7 +18,7 @@
  * Implementation of scenario tests running in batch mode.
  */
 
-#include "util/Rn.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>

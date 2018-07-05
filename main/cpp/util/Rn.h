@@ -166,8 +166,5 @@ inline void Rn<pcg64>::Seed(randutils::seed_seq_fe128& seseq)
 extern template class Rn<pcg64>;
 extern template class Rn<trng::lcg64>;
 
-using RnPcg64 = Rn<pcg64>;
-using RnLcg64 = Rn<trng::lcg64>;
-
 } // namespace util
 } // namespace stride
