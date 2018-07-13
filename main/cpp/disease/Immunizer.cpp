@@ -63,31 +63,62 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
                 numSusceptible += populationBrackets[age];
         }
 
-        // Sample susceptible individuals, until all age-dependent quota are reached.
-        while (numSusceptible > 0) {
-                // random pool, random order of members
-                const ContactPool&        p_pool = pools[intGenerator()];
-                const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
-                std::vector<unsigned int> indices(size);
-                for (unsigned int i = 0; i < size; i++) {
-                        indices[i] = i;
-                }
-                m_rn_manager.RandomShuffle(indices.begin(), indices.end());
+        if (immunityLinkProbability < 1) {
+            // Sample susceptible individuals, until all age-dependent quota are reached.
+            while (numSusceptible > 0) {
+                    // random pool, random order of members
+                    const ContactPool&        p_pool = pools[intGenerator()];
+                    const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
+                    std::vector<unsigned int> indices(size);
+                    for (unsigned int i = 0; i < size; i++) {
+                            indices[i] = i;
+                    }
+                    m_rn_manager.RandomShuffle(indices.begin(), indices.end());
 
-                // loop over members, in random order
-                for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
-                        Person& p = *p_pool.GetMember(indices[i_p]);
-                        // if p is immune and his/her age class has not reached the quota => make susceptible
-                        if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
-                                p.GetHealth().SetSusceptible();
-                                populationBrackets[p.GetAge()]--;
-                                numSusceptible--;
-                        }
-                        // random draw to continue in this pool or to sample a new one
-                        if (uniform01Generator() < (1 - immunityLinkProbability)) {
-                                break;
-                        }
-                }
+                    // loop over members, in random order
+                    for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
+                            Person& p = *p_pool.GetMember(indices[i_p]);
+                            // if p is immune and his/her age class has not reached the quota => make susceptible
+                            if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
+                                    p.GetHealth().SetSusceptible();
+                                    populationBrackets[p.GetAge()]--;
+                                    numSusceptible--;
+                            }
+                            // random draw to continue in this pool or to sample a new one
+                            if (uniform01Generator() < (1 - immunityLinkProbability)) {
+                                    break;
+                            }
+                    }
+            }
+        } else {
+        		// Extreme case: vaccinate all members of family
+            while (numSusceptible > 0) {
+            		// select a random pool
+            		const ContactPool& p_pool = pools[intGenerator()];
+
+            		bool susceptibleChildrenNeeded = false; // are there any more family members that need to be made susceptible?
+
+            		// loop over members
+            		for (unsigned int i_p = 0; i_p < p_pool.GetSize(); i_p++) {
+            			Person& p = *p_pool.GetMember(i_p);
+            			if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
+            				susceptibleChildrenNeeded = true;
+            				break;
+            			}
+            		}
+
+            		if (susceptibleChildrenNeeded) {
+            			// make all children in household susceptible
+            			for (unsigned int i_p = 0; i_p < p_pool.GetSize(); i_p++) {
+            				Person& p = *p_pool.GetMember(i_p);
+            				if (p.GetHealth().IsImmune() && p.GetAge() < 18) {
+            					p.GetHealth().SetSusceptible();
+            					populationBrackets[p.GetAge()]--;
+            					numSusceptible--;
+            				}
+            			}
+            		}
+            }
         }
 }
 

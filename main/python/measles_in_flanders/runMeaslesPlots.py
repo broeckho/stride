@@ -33,6 +33,7 @@ def plotAgeImmunityProfile(scenarioName):
     plt.title("Age-related immunity profile for " + scenarioName + " scenario")
     plt.xlabel("Age")
     plt.ylabel("Fraction susceptible")
+    plt.ylim((0, 1))
     plt.show()
 
 def getCasesPerDay(scenarioName):

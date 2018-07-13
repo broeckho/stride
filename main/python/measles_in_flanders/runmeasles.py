@@ -7,6 +7,38 @@ from pystride.PyController import PyController
 
 SUSCEPTIBLES_AT_START = []
 
+def checkHouseholds(simulator, event):
+    pop = simulator.GetPopulation()
+    households = {}
+    for i in range(pop.size()):
+        hhId = pop[i].GetHouseholdId()
+        age = pop[i].GetAge()
+        susceptible = pop[i].GetHealth().IsSusceptible()
+        if hhId in households:
+            households[hhId].append((age, susceptible))
+        else:
+            households[hhId] = [(age, susceptible)]
+    numHouseholds = len(households)
+    numScatteredHouseholds = 0
+    for hhId, members in households.items():
+        numSusceptible = 0
+        for p in members:
+            if p[1]:
+                numSusceptible += 1
+        pctSusceptible = numSusceptible / len(members)
+        if pctSusceptible > 0 and pctSusceptible < 1:
+            # Not all members have same vaccination status
+            children = [p for p in members if p[0] < 18 and p[0] > 0]
+            if len(children) > 0:
+                numSusceptible = 0
+                for c in children:
+                    if c[1]:
+                        numSusceptible += 1
+                pctSusceptible = numSusceptible / len(children)
+                if pctSusceptible > 0 and pctSusceptible < 1:
+                    numScatteredHouseholds += 1
+    print(float(numScatteredHouseholds) / numHouseholds)
+
 def getNumSusceptible(simulator, event):
     numSusceptible = 0
     pop = simulator.GetPopulation()
@@ -123,6 +155,7 @@ def runScenario(scenarioName, scenarioParams):
     # Register callbacks
     control.registerCallback(getAgeImmunityProfile, EventType.AtStart)
     control.registerCallback(getNumSusceptible, EventType.AtStart)
+    control.registerCallback(checkHouseholds, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
     # Run simulation
     control.control()

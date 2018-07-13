@@ -132,7 +132,7 @@ def main(directory, scenarios, onlyOutbreaks):
         histogram(scenarioOutbreakDurations, 100, "Outbreak duration distribution for " + scenarioName + " scenario", "Outbreak duration", "Frequency")
 
         # Plot distribution of sizes + durations
-        sizeScale = 250
+        sizeScale = 1000
         durationScale = 30
         sizeDurationFreqs = getSizeAndDurationFrequencies(scenarioOutbreakSizes, scenarioOutbreakDurations, sizeScale, durationScale)
         histogram3D(sizeDurationFreqs, sizeScale, durationScale, "Distribution of outbreak sizes and durations for " + scenarioName + " scenario", "Outbreak size", "Outbreak duration", "Frequency")

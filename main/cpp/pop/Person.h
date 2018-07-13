@@ -67,6 +67,8 @@ public:
         /// Get ID of contactpool_type
         unsigned int GetPoolId(const ContactPoolType::Id& poolType) const { return m_pool_ids[poolType]; }
 
+        unsigned int GetHouseholdId() const { return m_pool_ids[ContactPoolType::Id::Household]; }
+
         /// Return person's gender.
         char GetGender() const { return m_gender; }
 
