@@ -98,7 +98,7 @@ def removeNoOutbreaks(casesPerDay, minOutbreakSize):
 
 def main(directory, scenarios, onlyOutbreaks):
     numDays = 365
-    numEnsembles = 40
+    numEnsembles = 1
     minOutbreakSize = 2
     allProportionOutbreaks = []
     allOutbreakSizes = []
@@ -147,4 +147,5 @@ if __name__=="__main__":
     parser.add_argument("dir", type=str, help="path to directory containing data")
     parser.add_argument("--onlyOutbreaks", type=bool, default=False)
     args = parser.parse_args()
-    main(args.dir, ["Random", "AgeDependent", "Clustering"], args.onlyOutbreaks)
+    #main(args.dir, ["Random", "AgeDependent", "Clustering"], args.onlyOutbreaks)
+    main(args.dir, ["Random"], args.onlyOutbreaks)

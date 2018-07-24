@@ -22,6 +22,7 @@ def runNaive(ensembleSize, numEnsembles, scenarioName):
 
 def main(ensembleSize, numEnsembles):
     t1 = time.perf_counter()
+    print(numEnsembles)
     for i in range(numEnsembles):
         runEnsemble(ensembleSize, i, "Random")
         #runEnsemble(ensembleSize, i, "AgeDependent")
@@ -39,10 +40,3 @@ if __name__=="__main__":
     parser.add_argument('numEnsembles', type=int, help='number of ensembles to run')
     args = parser.parse_args()
     main(args.ensembleSize, args.numEnsembles)
-
-
-'''
-t = time.process_time()
-#do some stuff
-elapsed_time = time.process_time() - t
-'''
