@@ -31,12 +31,18 @@ source('./lib/rStride.R')
 ## DESIGN OF EXPERIMENTS        ##
 ##################################
 
-num_seeds <- 2
+# uncomment the following line to inspect the config xml tags
+#names(xmlToList('./config/run_default.xml'))
+
+# set the number of realisations per configuration set
+num_seeds  <- 2
+
+# add parameters and values to combine in a full-factorial grid
 exp_design <- expand.grid(r0       = 14:16,
                           num_days = c(20,30),
                           rng_seed = 1:num_seeds)
 
-# add unique seed for each run
+# add a unique seed for each run
 set.seed(125)
 exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 
