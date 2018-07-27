@@ -17,7 +17,7 @@
 # 
 # R controller for the Stride software
 #
-#########################
+#############################################################################
 rm(list=ls(all=TRUE))
 
 library(XML)
@@ -75,7 +75,6 @@ run_rStride <- function(design_of_experiment)
   config_filename <- './config/run_default.xml'
   output_dir <- 'sim_output'
   
-  
   ##################################
   ## GENERAL CONFIG MODIFICATIONS ##
   ##################################
@@ -86,21 +85,6 @@ run_rStride <- function(design_of_experiment)
   config_default$immunity_profile <- 'None'
   config_default$immunity_rate    <- 0
   config_default$output_summary   <- 'true'
-  
-  
-  ##################################
-  ## DESIGN OF EXPERIMENTS        ##
-  ##################################
-  
-  # num_seeds <- 2
-  # exp_design <- expand.grid(r0       = 14:16,
-  #                           num_days = c(20,30),
-  #                           rng_seed = 1:num_seeds)
-  
-  # add unique seed for each run
-  set.seed(125)
-  exp_design$rng_seed <- sample(1e4,nrow(exp_design))
-  
   
   ##################################
   ## RUN                          ##
@@ -123,8 +107,8 @@ run_rStride <- function(design_of_experiment)
     config_exp <-   config_default
     
     # add design parameters
-    for(i_param in 1:ncol(exp_design)){
-      config_exp[names(exp_design)[i_param]] <- exp_design[i_exp,i_param]
+    for(i_param in 1:ncol(design_of_experiment)){
+      config_exp[names(design_of_experiment)[i_param]] <- design_of_experiment[i_exp,i_param]
     }  
   
     # update experiment output prefix
@@ -137,12 +121,19 @@ run_rStride <- function(design_of_experiment)
     system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=T)
   
     # load summary
-    run_summary <- read.table(file.path(config_exp$output_prefix,'summary.csv'),header=T,sep=',')
+    summary_filename <- file.path(config_exp$output_prefix,'summary.csv')
+    run_summary <- read.table(summary_filename,header=T,sep=',')
     
     # merge with config
     config_df <- as.data.frame(config_exp)
     run_summary <- merge(run_summary,config_df)
   
+    # clean output folder: remove local summary and config file
+    unlink(summary_filename,recursive = T)
+    unlink(config_exp_filename,recursive = T)
+    unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
+    
+    
     # return summary
     return(run_summary)
   }
