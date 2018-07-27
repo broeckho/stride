@@ -12,27 +12,37 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
+#
+#  Copyright 2018, Willem L
+#############################################################################
+#
+# USE rStride
+#
 #############################################################################
 
-#============================================================================
-# Copy the R scripts to the lib folder.
-#============================================================================
+# load rStride
+source('./lib/rStride.R')
 
-INSTALL( FILES 	
-            rStride/rStride.R
-            collect_fork_output.R
-            create_immunity_profile.R
-            explore_rStride.R
-            plot_immunity.R
-            plot_results_lib.R 
-		    plot_social_contacts_lib.R
-		    
-			
-				 
-	DESTINATION ${LIB_INSTALL_LOCATION}  
-	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
-	)
+num_seeds <- 2
+exp_design <- expand.grid(r0       = 14:16,
+                          num_days = c(20,30),
+                          rng_seed = 1:num_seeds)
+
+run_rStride(exp_design)
+
+################################################
+## COMMAND LINE FUNCTIONALITY                 ##
+################################################
+#!/usr/bin/env Rscript
+
+#args = commandArgs(trailingOnly=TRUE)
 
 
-#############################################################################
+
+
+
+
+
+
+
+
