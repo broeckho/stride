@@ -23,6 +23,11 @@
 library(XML,quietly = TRUE)
 library(doParallel,quietly = TRUE)
 
+# load other scripts
+source('./bin/rstride/LogParser.R')
+source('./bin/rstride/PlotContacts.R')
+
+
 run_rStride <- function(design_of_experiment)
 {
   
@@ -95,7 +100,7 @@ run_rStride <- function(design_of_experiment)
   ##################################
   
   # command line message
-  print(paste('[',Sys.time(),'] READY TO RUN ',nrow(design_of_experiment),' EXPERIMENTS'))
+  print(paste('[',Sys.time(),'] READY TO RUN',nrow(design_of_experiment),'EXPERIMENTS'))
   
   # create run tag using the current time
   run_tag <- format(Sys.time(), format="%Y%m%d_%H%M%S")
@@ -162,5 +167,7 @@ run_rStride <- function(design_of_experiment)
 
   # command line message
   print(paste('[',Sys.time(),'] rSTRIDE FINISHED'))
+  
+  return(run_dir)
   
 } # end run_rStride function

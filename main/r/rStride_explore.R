@@ -20,12 +20,12 @@
 # Call this script from the main project folder (containing bin, config, lib, ...)
 # to get all relative data links right. 
 #
-# E.g.: path/to/stride-557 $ ./lib/explore_rStride.R 
+# E.g.: path/to/stride-557 $ ./bin/rStride_explore.R 
 #
 #############################################################################
 
 # load rStride
-source('./lib/rStride.R')
+source('./bin/rstride/rStride.R')
 
 ##################################
 ## DESIGN OF EXPERIMENTS        ##

@@ -15,15 +15,34 @@
 #  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
+#================================================================================================
+# Copy the rStride scripts to the bin folder.
+#================================================================================================
+
+# rStride main files
+INSTALL(DIRECTORY
+		   rstride
+	   DESTINATION ${BIN_INSTALL_LOCATION}
+	   )
+
+
+# rStride analysis scripts
+INSTALL( FILES 	
+            rStride_explore.R
+            rStride_contacts.R
+ 						 
+	DESTINATION ${BIN_INSTALL_LOCATION}  
+	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
+	)
+
+
 #============================================================================
-# Copy the R scripts to the lib folder.
+# Copy the original R scripts to the lib folder. (decapricated)
 #============================================================================
 
 INSTALL( FILES 	
-            rStride/rStride.R
             collect_fork_output.R
             create_immunity_profile.R
-            explore_rStride.R
             plot_immunity.R
             plot_results_lib.R 
 		    plot_social_contacts_lib.R
