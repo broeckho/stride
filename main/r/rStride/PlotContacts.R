@@ -17,11 +17,8 @@
 #############################################################################
 
 # Load packages
-require(ggplot2)
-require(XML)
-library(grid)
-library(gridExtra)
-library(lattice)
+library(ggplot2,quietly = TRUE)
+library(grid,quietly = TRUE)
 
 if(0==1) # for debugging
 {
@@ -66,24 +63,22 @@ plot_contacts <- function(exp_summary,data_dir)
     pdf(paste0(exp_summary$output_prefix,'_cnt_patterns.pdf'),10,5)
     #par(mfrow=c(2,2))
     ## TOTAL
-    mij_total <- plot_cnt_matrix(data_cnt$part_age>=0,data_part$part_age>=0,'total',num_days)
+    mij_total <- plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
     
     ## HOUSEHOLD
-    mij_hh <- plot_cnt_matrix(data_cnt$cnt_home==1,data_part$part_age>=0,'household',num_days)
+    mij_hh <- plot_cnt_matrix(data_cnt[data_cnt$cnt_home==1,],data_part,'household',L,num_days)
     
     ## SCHOOL
-    mij_school <- plot_cnt_matrix(data_cnt$cnt_school==1,data_part$student==T,'school',num_days)
+    mij_school <- plot_cnt_matrix(data_cnt[data_cnt$cnt_school==1,],data_part[data_part$student==T,],'school',L,num_days)
     
     ## WORK
-    mij_work <- plot_cnt_matrix(data_cnt$cnt_work==1,data_part$employed==T,'work',num_days)
+    mij_work <- plot_cnt_matrix(data_cnt[data_cnt$cnt_work==1,],data_part[data_part$employed==T,],'work',L,num_days)
     
     ## PRIMARY COMMUNITY
-    mij_prim_comm <- plot_cnt_matrix(data_cnt$cnt_prim_comm==1,data_part$part_age>=0,'prim_comm',num_days)
-    dim(mij_prim_comm)
+    mij_prim_comm <- plot_cnt_matrix(data_cnt[data_cnt$cnt_prim_comm==1,],data_part,'prim_comm',L,num_days)
     
     ## SECUNDARY COMMUNITY
-    mij_sec_comm <- plot_cnt_matrix(data_cnt$cnt_sec_comm==1,data_part$part_age>=0,'sec_comm',num_days)
-    dim(mij_sec_comm)
+    mij_sec_comm <- plot_cnt_matrix(data_cnt[data_cnt$cnt_sec_comm==1,],data_part,'sec_comm',L,num_days)
     
     #dev.off()
     
@@ -107,7 +102,7 @@ plot_contacts <- function(exp_summary,data_dir)
     
     
     ## COMPARE
-    par(mfrow=c(1,2))
+    par(mfrow=c(2,3))
     
     plot(rowSums(survey_mij_total),main='total',xlab='age',ylab='contacts',type='l',ylim=c(-0.1,30))
     lines(rowSums(survey_mij_total_weekend),main='total',xlab='age',ylab='contacts',type='l',lty=2)
@@ -146,19 +141,21 @@ plot_contacts <- function(exp_summary,data_dir)
   } # end if dim(data)...
 } # end function
 
-
+# f_data_cnt <- data_cnt
+# f_data_part <- data_part
 ## HELP FUNCTION: RESHAPE DATA AND PLOT
-plot_cnt_matrix <- function(data_cnt_flag,data_part_flag,tag,num_days)
+plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
 {
   
   # select participants
-  data_cnt_flag <- data_cnt_flag & data_cnt$local_id %in% data_part$local_id[data_part_flag] 
+ data_cnt_flag <- f_data_cnt$local_id %in% f_data_part$local_id 
+  
   
   # temporary max age
-  L_temp <- max(data_cnt$part_age,L,data_cnt$cnt_age)+1
+  L_temp <- max(f_data_cnt$part_age,L,f_data_cnt$cnt_age)+1
   
   # count contacts
-  mij_tbl <- table(data_cnt$part_age[data_cnt_flag],data_cnt$cnt_age[data_cnt_flag])
+  mij_tbl <- table(f_data_cnt$part_age,f_data_cnt$cnt_age)
   row_ind <- as.numeric(row.names(mij_tbl)) +1 # age 0 == index 1
   col_ind <- as.numeric(colnames(mij_tbl))  +1 # age 0 == index 1
   mij <- matrix(0,L_temp,L_temp)
@@ -170,8 +167,7 @@ plot_cnt_matrix <- function(data_cnt_flag,data_part_flag,tag,num_days)
     row_ind <- 1:(L+1)
     col_ind <- 1:(L+1)
   }
-  data_part_flag_update   <- data_part_flag
-  p_ages_tbl          <- table(data_part$part_age[data_part_flag_update])
+  p_ages_tbl              <- table(f_data_part$part_age)
   
   row_ind <- as.numeric(names(p_ages_tbl)) +1
   p_ages <- matrix(0,L_temp,1)
@@ -201,7 +197,7 @@ plot_cnt_matrix <- function(data_cnt_flag,data_part_flag,tag,num_days)
   g_matrix <- plot_cnt_matrix_ggplot(mij,tag,FALSE)
   
   # plot number of contacts
-  g_count <- plot_cnt_count_ggplot(data_cnt[data_cnt_flag,],data_part[data_part_flag,],L,num_days,tag)
+  g_count <- plot_cnt_count_ggplot(f_data_cnt,f_data_part,L,num_days,tag)
   
   grid.arrange(g_matrix, g_count, ncol = 2)
   
@@ -211,19 +207,29 @@ plot_cnt_matrix <- function(data_cnt_flag,data_part_flag,tag,num_days)
 ## HELP FUNCTION: PLOT CNT MATRIX
 plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
 {
+  ## remove small numbers
+  mij[mij < quantile(mij,0.1)] <- 0
+  
+  # Function to rescale z according to quantiles
+  mij_ecdf <- ecdf(mij)
+  
   # Covert matrix into data.frame for plotting with ggplot
   ggplot_data <- expand.grid(x = 0:(nrow(mij) - 1), y = 0:(nrow(mij) - 1))
   ggplot_data <- within(ggplot_data, {
     z <- as.vector(mij)
+    z.rescaled <- mij_ecdf(mij)
   })
+
+  
   z.breaks <- signif(unique(quantile(ggplot_data$z, prob = seq(from = 0, to = 1, length = 5))), digits = 1)
+  z.breaks.rescaled <- mij_ecdf(z.breaks)
   
   # Create the plot
-  g <- ggplot(data = ggplot_data, mapping = aes(x = x, y = y, fill = z, z = z)) +
+  g <- ggplot(data = ggplot_data, mapping = aes(x = x, y = y, fill = z.rescaled, z = z.rescaled)) +
     geom_raster() +
     scale_fill_distiller(
       palette = "YlOrRd",
-      breaks = z.breaks, labels = z.breaks,
+      breaks = z.breaks.rescaled, labels = z.breaks,
       name = 'Rate') +
     labs(x = "Age", y = "Age of contacts") +
     scale_x_continuous(expand = c(0, 0)) +

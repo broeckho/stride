@@ -24,7 +24,10 @@
 #
 #############################################################################
 
-# load rStride
+# Clear work environment
+rm(list=ls())
+
+# Load rStride
 source('./bin/rstride/rStride.R')
 
 ##################################

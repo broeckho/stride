@@ -24,10 +24,11 @@
 #
 #############################################################################
 
+# Clear work environment
 rm(list=ls())
 
 # temporary
-setwd('/Users/lwillem/opt/stride-559+')
+#setwd('/Users/lwillem/opt/stride-560+')
 
 # load rStride
 source('./bin/rstride/rStride.R')
