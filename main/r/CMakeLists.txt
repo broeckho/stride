@@ -21,7 +21,7 @@
 
 # rStride main files
 INSTALL(DIRECTORY
-		   rstride
+		   rStride
 	   DESTINATION ${BIN_INSTALL_LOCATION}
 	   )
 
@@ -30,28 +30,10 @@ INSTALL(DIRECTORY
 INSTALL( FILES 	
             rStride_explore.R
             rStride_contacts.R
+            rStride_r0.R
  						 
 	DESTINATION ${BIN_INSTALL_LOCATION}  
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 	)
-
-
-#============================================================================
-# Copy the original R scripts to the lib folder. (decapricated)
-#============================================================================
-
-INSTALL( FILES 	
-            collect_fork_output.R
-            create_immunity_profile.R
-            plot_immunity.R
-            plot_results_lib.R 
-		    plot_social_contacts_lib.R
-		    
-			
-				 
-	DESTINATION ${LIB_INSTALL_LOCATION}  
-	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
-	)
-
 
 #############################################################################

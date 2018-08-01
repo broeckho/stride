@@ -23,71 +23,61 @@
 library(XML,quietly = TRUE)
 library(doParallel,quietly = TRUE)
 
-# load other scripts
+# load general help functions
+source('./bin/rstride/misc.R')
+
+# load specific functions
+source('./bin/rstride/ContactInspector.R')
 source('./bin/rstride/LogParser.R')
-source('./bin/rstride/PlotContacts.R')
+source('./bin/rstride/TransmissionInspector.R')
+source('./bin/rstride/SummaryInspector.R')
 
 
-run_rStride <- function(design_of_experiment)
+# Function to run rStride for a given design of experiment
+run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ignore_stride_stdout = TRUE)
 {
-  
+
   # command line message
-  print(paste('[',Sys.time(),'] START rSTRIDE'))
-  
-  ###############################
-  ## HELP FUNCIONS             ##
-  ###############################
-  
-  # convert a list into XML format
-  listToXML <- function(node, sublist){
-    for(i in 1:length(sublist)){
-      child <- newXMLNode(names(sublist)[i], parent=node);
-      
-      if (typeof(sublist[[i]]) == "list"){
-        listToXML(child, sublist[[i]])
-      }
-      else{
-        xmlValue(child) <- sublist[[i]]
-      }
-    } 
-  }
-  
-  # save config file
-  save_config_xml <- function(list_config,output_prefix){
-    root <- newXMLNode("run")
-    listToXML(root, list_config)
-    filename <- paste0(output_prefix,'.xml')
-    saveXML(root,file=filename)
-    #return
-    return(filename)
-  }
+  .rstride$cli_print('STARTING rSTRIDE CONTROLLER')
   
   ###############################
   ## PARALLEL SETUP            ##
   ###############################
-  
-  ## SETUP PARALLEL NODES
-  # note: they will be removed after 280 seconds inactivity
-  num_proc <- detectCores()
-  cl <- makeCluster(num_proc,cores=num_proc, timeout = 280)
-  registerDoParallel(cl)
-  
-  # get process id of first node (to produce a status bar)
-  cl_pid <- clusterEvalQ(cl, { Sys.getpid() })[[1]]
+  .rstride$start_slaves()
   
   
   ###############################
   ## GENERAL OPTIONS           ##
   ###############################
-  stride_bin <- './bin/stride'
-  config_opt <- '-c'
-  config_filename <- './config/run_default.xml'
-  output_dir <- 'sim_output'
+  stride_bin              <- './bin/stride'
+  config_opt              <- '-c'
+  config_default_filename <- './config/run_default.xml'
+  output_dir              <- 'sim_output'
+  
+  ###############################
+  ## RUN TAG AND DIRECTORY     ##
+  ###############################
+  
+  # create run tag using the current time
+  run_tag <- format(Sys.time(), format="%Y%m%d_%H%M%S")
+  
+  # add dir_postfix
+  run_tag <- paste0(run_tag,dir_postfix)
+  
+  # create run directory
+  run_dir <- file.path(output_dir,run_tag)
+  # if it does not exist: create full path using the recursive option
+  if(!file.exists(run_dir)){
+    dir.create(run_dir, recursive =  TRUE)
+  }
+  
+  # command line message
+  .rstride$cli_print('PROJECT DIR',run_dir)
   
   ##################################
   ## GENERAL CONFIG MODIFICATIONS ##
   ##################################
-  config_default                  <- xmlToList(config_filename)
+  config_default                  <- xmlToList(config_default_filename)
   config_default$num_threads      <- 1
   config_default$vaccine_profile  <- 'None'
   config_default$vaccine_rate     <- 0
@@ -100,21 +90,15 @@ run_rStride <- function(design_of_experiment)
   ##################################
   
   # command line message
-  print(paste('[',Sys.time(),'] READY TO RUN',nrow(design_of_experiment),'EXPERIMENTS'))
-  
-  # create run tag using the current time
-  run_tag <- format(Sys.time(), format="%Y%m%d_%H%M%S")
-  
-  # create run directory
-  run_dir <- file.path(output_dir,run_tag)
-  # if it does not exist: create full path using the recursive option
-  if(!file.exists(run_dir)){
-    dir.create(run_dir, recursive =  TRUE)
-  }
+  .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),'EXPERIMENTS')
   
   # run all experiments (in parallel)
-  par_out <- foreach(i_exp=1:nrow(design_of_experiment),.combine='rbind',.packages='XML',.verbose=FALSE) %dopar%
+  par_out <- foreach(i_exp=1:nrow(design_of_experiment),
+                     .combine='rbind',
+                     .packages='XML',
+                     .verbose=FALSE) %dopar%
   {  
+   
     # create experiment tag
     exp_tag <- paste0('exp',sprintf("%04s", i_exp))
     
@@ -130,43 +114,46 @@ run_rStride <- function(design_of_experiment)
     config_exp$output_prefix <- file.path(run_dir,exp_tag)
     
     # create xml file
-    config_exp_filename <- save_config_xml(config_exp,config_exp$output_prefix)
+    config_exp_filename <- .rstride$save_config_xml(config_exp,'run',config_exp$output_prefix)
     
     # run stride (using the C++ CliController)
-    system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=T)
+    system(paste(stride_bin,config_opt,paste0('../',config_exp_filename)),ignore.stdout=ignore_stride_stdout)
   
     # load output summary
     summary_filename <- file.path(config_exp$output_prefix,'summary.csv')
-    run_summary <- read.table(summary_filename,header=T,sep=',')
+    run_summary      <- read.table(summary_filename,header=T,sep=',')
     
-    # merge output with configurations
-    config_df <- as.data.frame(config_exp)
+    # merge output summary with input param
+    config_df   <- as.data.frame(config_exp)
     run_summary <- merge(run_summary,config_df)
   
-    # clean output folder: remove local summary, configuration and stride_log file
+    # parse contact_log (if present)
+    contact_log_filename <- file.path(config_exp$output_prefix,'contact_log.txt')
+    if(file.exists(contact_log_filename)){
+      parse_contact_logfile(contact_log_filename)
+    }
+    
+    # clean output folder: remove configuration, contact_log, summary and stride_log
     unlink(summary_filename,recursive = T)
     unlink(config_exp_filename,recursive = T)
+    unlink(contact_log_filename,recursive = T)
     unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
     
-    # return experiment output
+    # return experiment output summary
     return(run_summary)
   }
   
-  # save total summary
+  # save overal summary
   write.table(par_out,file=file.path(run_dir,paste0(run_tag,'_summary.csv')),sep=',',row.names=F)
   
   
   ###############################
   ## TERMINATE PARALLEL NODES  ##
   ###############################
-  
-  # close nodes
-  if(exists('cl')){
-    stopCluster(cl); rm(cl)
-  }
+  .rstride$end_slaves()
 
   # command line message
-  print(paste('[',Sys.time(),'] rSTRIDE FINISHED'))
+  .rstride$cli_print('rSTRIDE CONTROLLER FINISHED')
   
   return(run_dir)
   

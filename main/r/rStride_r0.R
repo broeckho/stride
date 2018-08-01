@@ -20,7 +20,7 @@
 # Call this script from the main project folder (containing bin, config, lib, ...)
 # to get all relative data links right. 
 #
-# E.g.: path/to/stride $ ./bin/rStride_explore.R 
+# E.g.: path/to/stride $ ./bin/rStride_r0.R 
 #
 #############################################################################
 
@@ -31,7 +31,7 @@ rm(list=ls())
 source('./bin/rstride/rStride.R')
 
 # set directory postfix (optional)
-dir_postfix <- '_expl'
+dir_postfix <- '_r0'
 
 ##################################
 ## DESIGN OF EXPERIMENTS        ##
@@ -41,11 +41,11 @@ dir_postfix <- '_expl'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 1
+num_seeds  <- 5
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(10,20,10),
-                          num_days             = c(20,30),
+exp_design <- expand.grid(r0                   = seq(0,20,2),
+                          num_days             = c(20),
                           rng_seed             = 1:num_seeds,
                           track_index_case     = 'true',
                           contact_log_level    = "Transmissions",
@@ -63,16 +63,10 @@ exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 project_dir <- run_rStride(exp_design,dir_postfix)
 
 
-#####################################
-## EXPLORE INPUT-OUTPUT BEHAVIOR   ##
-#####################################
-explore_input_output_behavior(project_dir)
-
-
 ##################################
-## EXPLORE TRANSMISSION         ##
+## REPRODUCTION NUMBER          ##
 ##################################
-explore_transmission(project_dir)
+#.rstride$load_pd()
 
-
+callibrate_r0(project_dir)
 

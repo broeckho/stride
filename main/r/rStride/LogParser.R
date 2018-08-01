@@ -24,27 +24,28 @@
 ## PARSE LOGFILE               ##
 ##################################
 
+"DEVELOPMENT CODE"
+if(0==1){
+  #f_exp_dir <- file.path(output_dir,output_exp_dirs[i_exp])
+  f_exp_dir <- './sim_output/20180730_113633/exp0001'
+  logfile <- file.path(project_summary$output_prefix[i_exp],'contact_log.txt')
+  
+  
+}
 
-#f_exp_dir <- file.path(output_dir,output_exp_dirs[i_exp])
-f_exp_dir <- './sim_output/20180730_113633/exp0001'
-
-parse_contact_logfile <- function(f_exp_dir)
+parse_contact_logfile <- function(contact_log_filename)
 {
 
-  # get contact log file
-  log_file  <- file.path(f_exp_dir,'contact_log.txt')
-  
   # terminal message
-  print(paste("PARSING LOGFILE:",log_file))
+  cat("PARSING LOGFILE:",contact_log_filename,fill=TRUE)
   
   # count the maximum number of columns in the logfile
-  data_ncol <- max(count.fields(log_file, sep = " "))
+  data_ncol <- max(count.fields(contact_log_filename, sep = " "))
   
   # load log file using a specified number of columns and fill empty columns
   # By default, the first record determines the number of columns, so info might get lost
-  data_log  <- read.table(log_file, sep=' ',fill=T,col.names = paste0("V", seq_len(data_ncol)),stringsAsFactors = F)
-  data_log[1,]
-
+  data_log  <- read.table(contact_log_filename, sep=' ',fill=T,col.names = paste0("V", seq_len(data_ncol)),stringsAsFactors = F)
+ 
   # Parse log file using the following tags tags: 
   # - PART    participant info
   # - PRIM    seed infection
@@ -54,7 +55,10 @@ parse_contact_logfile <- function(f_exp_dir)
   # note:
   # - drop the first column with the log tag
   
-  # GET PARTICIPANT DATA
+  
+  ######################
+  ## PARTICIPANT DATA ##
+  ######################
   header_part         <- c('local_id', 'part_age', 'part_gender', 'school_id', 'workplace_id')
   data_part           <- data_log[data_log[,1] == "[PART]",seq_len(length(header_part))+1]
   names(data_part)    <- header_part
@@ -64,17 +68,23 @@ parse_contact_logfile <- function(f_exp_dir)
   data_part[,-3] <- data.frame(apply(data_part[,-3], 2, as.integer))
   apply(data_part, 2, typeof)
   
-  # GET TRANSMISSION DATA
+  
+  #######################
+  ## TRANSMISSION DATA ##
+  #######################
   header_transm       <- c('local_id', 'new_infected_id', 'cnt_location','sim_day')
   data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
   names(data_transm)  <- header_transm
   data_transm[1,]
   
   # make sure, all values are stored as integers
-  data_transm <- data.frame(apply(data_transm, 2, as.integer))
+  data_transm[,-3] <- data.frame(apply(data_transm[,-3], 2, as.integer))
   apply(data_transm, 2, typeof)
   
-  # GET CONTACT DATA
+  
+  ######################
+  ## CONTACT DATA     ##
+  ###################### 
   header_cnt          <- c('local_id', 'part_age', 'cnt_age', 'cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm', 'sim_day')
   data_cnt            <- data_log[data_log[,1] == "[CONT]",seq_len(length(header_cnt))+1]
   names(data_cnt)     <- header_cnt
@@ -85,12 +95,15 @@ parse_contact_logfile <- function(f_exp_dir)
   dim(data_cnt)
   
 
-  ## STORE DATA
-  save(data_part,file=file.path(f_exp_dir,'data_participant.RData'))
-  save(data_transm,file=file.path(f_exp_dir,'data_transmission.RData'))
-  save(data_cnt,file=file.path(f_exp_dir,'data_contact.RData'))
+  ######################
+  ## STORE DATA       ##
+  ######################
+  exp_dir <- dirname(contact_log_filename)
+  save(data_part,file=file.path(exp_dir,'data_participants.RData'))
+  save(data_transm,file=file.path(exp_dir,'data_transmission.RData'))
+  save(data_cnt,file=file.path(exp_dir,'data_contacts.RData'))
   
   # terminal message
-  print("LOG PARSING COMPLETE")
+  cat("LOG PARSING COMPLETE",fill=TRUE)
   
 }

@@ -20,18 +20,18 @@
 # Call this script from the main project folder (containing bin, config, lib, ...)
 # to get all relative data links right. 
 #
-# E.g.: path/to/stride-557 $ ./bin/rStride_contacts.R 
+# E.g.: path/to/stride $ ./bin/rStride_contacts.R 
 #
 #############################################################################
 
 # Clear work environment
 rm(list=ls())
 
-# temporary
-#setwd('/Users/lwillem/opt/stride-560+')
-
 # load rStride
 source('./bin/rstride/rStride.R')
+
+# set directory postfix (optional)
+dir_postfix <- '_cnt'
 
 ##################################
 ## DESIGN OF EXPERIMENTS        ##
@@ -44,12 +44,12 @@ source('./bin/rstride/rStride.R')
 num_seeds  <- 1
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(contact_log_level = "All",
-                          num_days = 1,
-                          seeding_rate = 1e-5,
-                          num_participants_survey = 3000,
-                          start_date = c("2017-01-01","2017-01-02"),
-                          rng_seed = 1:num_seeds,
+exp_design <- expand.grid(contact_log_level         = "All",
+                          num_days                  = 1,
+                          seeding_rate              = 1e-5,
+                          num_participants_survey   = 3000,
+                          start_date                = c("2017-01-01","2017-01-02"),
+                          rng_seed                  = 1:num_seeds,
                           stringsAsFactors = F)
 
 # add a unique seed for each run
@@ -59,26 +59,18 @@ exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 ##################################
 ## RUN rSTRIDE                  ##
 ##################################
-project_dir <- run_rStride(exp_design)
+project_dir <- run_rStride(exp_design,dir_postfix)
+
 
 #####################################################
-## PARSE LOGFILES & EXPLORE SOCIAL CONTACTS        ##
+## EXPLORE SOCIAL CONTACT PATTERNS                 ##
 #####################################################
-
-#project_dir <- './sim_output/20180730_113633'
-
-project_output           <- file.path(project_dir,dir(project_dir))
-exp_dirs                 <- project_output[grepl('exp',project_output)]
-project_summary_filename <- project_output[grepl('_summary.csv',project_output)]
 
 # load summary
-project_summary <- read.table(project_summary_filename,sep=',',header=T)
+project_summary <- .rstride$load_project_summary(project_dir)
 
 i_exp <- 1
 for(i_exp in 1:nrow(project_summary)){
-  
-  # parse logfile
-  parse_contact_logfile(project_summary$output_prefix[i_exp])
   
   # plot contacts
   plot_contacts(project_summary[i_exp,],'./data')

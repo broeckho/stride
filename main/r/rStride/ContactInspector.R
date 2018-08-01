@@ -19,6 +19,10 @@
 # Load packages
 library(ggplot2,quietly = TRUE)
 library(grid,quietly = TRUE)
+library(gridExtra,quietly = TRUE)
+
+# load help functions
+source('./bin/rstride/misc.R')
 
 if(0==1) # for debugging
 {
@@ -38,12 +42,9 @@ plot_contacts <- function(exp_summary,data_dir)
   ## GET DATA       ##
   ######################
   
-  # get experiment data
-  project_summary$output_prefix
-  
   # load data
-  load(file.path(exp_summary$output_prefix,'data_contact.RData'))
-  load(file.path(exp_summary$output_prefix,'data_participant.RData'))
+  load(file.path(exp_summary$output_prefix,'data_contacts.RData'))
+  load(file.path(exp_summary$output_prefix,'data_participants.RData'))
   
 
   if(dim(data_cnt)[1]>0 && dim(data_part)[1]>0)
@@ -63,22 +64,22 @@ plot_contacts <- function(exp_summary,data_dir)
     pdf(paste0(exp_summary$output_prefix,'_cnt_patterns.pdf'),10,5)
     #par(mfrow=c(2,2))
     ## TOTAL
-    mij_total <- plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
+    mij_total  <- .rstride$plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
     
     ## HOUSEHOLD
-    mij_hh <- plot_cnt_matrix(data_cnt[data_cnt$cnt_home==1,],data_part,'household',L,num_days)
+    mij_hh     <- .rstride$plot_cnt_matrix(data_cnt[data_cnt$cnt_home==1,],data_part,'household',L,num_days)
     
     ## SCHOOL
-    mij_school <- plot_cnt_matrix(data_cnt[data_cnt$cnt_school==1,],data_part[data_part$student==T,],'school',L,num_days)
+    mij_school <- .rstride$plot_cnt_matrix(data_cnt[data_cnt$cnt_school==1,],data_part[data_part$student==T,],'school',L,num_days)
     
     ## WORK
-    mij_work <- plot_cnt_matrix(data_cnt[data_cnt$cnt_work==1,],data_part[data_part$employed==T,],'work',L,num_days)
+    mij_work   <- .rstride$plot_cnt_matrix(data_cnt[data_cnt$cnt_work==1,],data_part[data_part$employed==T,],'work',L,num_days)
     
     ## PRIMARY COMMUNITY
-    mij_prim_comm <- plot_cnt_matrix(data_cnt[data_cnt$cnt_prim_comm==1,],data_part,'prim_comm',L,num_days)
+    mij_prim_comm <- .rstride$plot_cnt_matrix(data_cnt[data_cnt$cnt_prim_comm==1,],data_part,'prim_comm',L,num_days)
     
     ## SECUNDARY COMMUNITY
-    mij_sec_comm <- plot_cnt_matrix(data_cnt[data_cnt$cnt_sec_comm==1,],data_part,'sec_comm',L,num_days)
+    mij_sec_comm <- .rstride$plot_cnt_matrix(data_cnt[data_cnt$cnt_sec_comm==1,],data_part,'sec_comm',L,num_days)
     
     #dev.off()
     
@@ -95,10 +96,10 @@ plot_contacts <- function(exp_summary,data_dir)
     survey_mij_community  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     survey_mij_total      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     
-    survey_mij_school_weekend    <- survey_mij_school*0
-    survey_mij_work_weekend      <- survey_mij_work*0
+    survey_mij_school_weekend     <- survey_mij_school*0
+    survey_mij_work_weekend       <- survey_mij_work*0
     survey_mij_community_weekend  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
-    survey_mij_total_weekend     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_gam_mij_rec.csv')),sep=';',dec=',',header=T)
+    survey_mij_total_weekend      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     
     
     ## COMPARE
@@ -136,19 +137,20 @@ plot_contacts <- function(exp_summary,data_dir)
     
     dev.off() # close pdf stream
     
-    print(paste('PLOT SOCIAL CONTACTS COMPLETE for:', exp_summary$output_prefix))
-      
+    # terminal message
+    .rstride$cli_print('SOCIAL CONTACTS PLOTS COMPLETE FOR', exp_summary$output_prefix)
+
   } # end if dim(data)...
 } # end function
 
-# f_data_cnt <- data_cnt
-# f_data_part <- data_part
+#################################  EMBEDDED HELP FUNCTIONS  #################################
+
 ## HELP FUNCTION: RESHAPE DATA AND PLOT
-plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
+.rstride$plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
 {
   
   # select participants
- data_cnt_flag <- f_data_cnt$local_id %in% f_data_part$local_id 
+  data_cnt_flag <- f_data_cnt$local_id %in% f_data_part$local_id 
   
   
   # temporary max age
@@ -194,10 +196,10 @@ plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
   mij <- mij/num_days
   
   # plot matrix 
-  g_matrix <- plot_cnt_matrix_ggplot(mij,tag,FALSE)
+  g_matrix <- .rstride$plot_cnt_matrix_ggplot(mij,tag,FALSE)
   
   # plot number of contacts
-  g_count <- plot_cnt_count_ggplot(f_data_cnt,f_data_part,L,num_days,tag)
+  g_count  <- .rstride$plot_cnt_count_ggplot(f_data_cnt,f_data_part,L,num_days,tag)
   
   grid.arrange(g_matrix, g_count, ncol = 2)
   
@@ -205,7 +207,7 @@ plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)
 }
 
 ## HELP FUNCTION: PLOT CNT MATRIX
-plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
+.rstride$plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
 {
   ## remove small numbers
   mij[mij < quantile(mij,0.1)] <- 0
@@ -219,7 +221,7 @@ plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
     z <- as.vector(mij)
     z.rescaled <- mij_ecdf(mij)
   })
-
+  
   
   z.breaks <- signif(unique(quantile(ggplot_data$z, prob = seq(from = 0, to = 1, length = 5))), digits = 1)
   z.breaks.rescaled <- mij_ecdf(z.breaks)
@@ -244,7 +246,7 @@ plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
           axis.text=element_text(size=20),
           axis.title=element_text(size=20),
           plot.title = element_text(size=40, face="bold",hjust = 0.5)
-          )
+    )
   
   # Add contour lines?
   if (bool_contour) {
@@ -256,11 +258,11 @@ plot_cnt_matrix_ggplot <- function(mij,title,bool_contour)
 }
 
 ## HELP FUNCTION: PLOT CNT COUNT
-plot_cnt_count_ggplot <- function(f_data_cnt,f_data_part,L,num_days,title){
-
+.rstride$plot_cnt_count_ggplot <- function(f_data_cnt,f_data_part,L,num_days,title){
+  
   if(nrow(f_data_cnt)==0){
     ggplot_data <-data.frame(local_id = -1,
-                              part_age = f_data_part$part_age,
+                             part_age = f_data_part$part_age,
                              cnt_count = 0)
   } else{
     # Covert matrix into data.frame for plotting with ggplot
@@ -268,7 +270,7 @@ plot_cnt_count_ggplot <- function(f_data_cnt,f_data_part,L,num_days,title){
     names(ggplot_data) <- c('local_id','cnt_count')
     ggplot_data <- merge(ggplot_data,f_data_part)
   }
-    
+  
   # remove oldest ages
   ggplot_data <- ggplot_data[ggplot_data$part_age<=L,]
   
@@ -277,21 +279,22 @@ plot_cnt_count_ggplot <- function(f_data_cnt,f_data_part,L,num_days,title){
   
   # create plot
   g_plot <- ggplot(ggplot_data, aes(x=part_age, y=cnt_count)) + 
-                    aes(group = part_age) +
-                    geom_boxplot() +
-                    labs(x = "Age", y = "Count") +
-                    theme_bw() +
-                    ggtitle(title) +
-                    geom_line(data = cnt_age_mean, aes(x=part_age, y=cnt_count,group = 1),
-                              size=2, colour="red") +
-                    theme(legend.justification = c(1, 1),
-                          legend.position = 'right',
-                          legend.text = element_text(size=18),
-                          legend.title = element_text(size=18),
-                          axis.text=element_text(size=20),
-                          axis.title=element_text(size=20),
-                          plot.title = element_text(size=40, face="bold",hjust = 0.5)
-                    )
+    aes(group = part_age) +
+    geom_boxplot() +
+    labs(x = "Age", y = "Count") +
+    theme_bw() +
+    ggtitle(title) +
+    geom_line(data = cnt_age_mean, aes(x=part_age, y=cnt_count,group = 1),
+              size=2, colour="red") +
+    theme(legend.justification = c(1, 1),
+          legend.position = 'right',
+          legend.text = element_text(size=18),
+          legend.title = element_text(size=18),
+          axis.text=element_text(size=20),
+          axis.title=element_text(size=20),
+          plot.title = element_text(size=40, face="bold",hjust = 0.5)
+    )
   return(g_plot)
   
 }
+
