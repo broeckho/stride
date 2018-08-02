@@ -85,7 +85,7 @@ explore_transmission <- function(project_dir)
     
     sec_transm <- merge(infection_time,sec_transm,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
-    boxplot(sec_cases ~ infection_day, data = sec_transm)
+    boxplot(sec_cases ~ infection_day, data = sec_transm,outline = F)
     
   }
   
@@ -137,7 +137,6 @@ callibrate_r0 <- function(project_dir)
     
     sec_transm <- merge(infection_time,sec_transm,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
-    #xx <- boxplot(sec_cases ~ infection_day, data = sec_transm)
     
     sec_transm$r0 <- project_summary$r0[i_exp]
     sec_transm$transmission_rate <- project_summary$transmission_rate[i_exp]
@@ -193,15 +192,17 @@ callibrate_r0 <- function(project_dir)
           xlab='R0',ylab='secundary cases',
           at=sort(unique(sec_transm_all$r0)),
           boxwex=0.5)
-  abline(0,1)
+  abline(0,1,col=2,lwd=2)
+  legend('topleft',legend='x=y',cex=0.8,title='reference',col=2,lwd=2)
+  
   
   
   ###############################
-  ## UPDATE DISEASE FILE       ##
+  ## EXPLORE DISEASE FILE       ##
   ###############################
   
   # get disease config filename
-  disease_config_file <- unique(project_summary$disease_config_file)
+  disease_config_file     <- unique(project_summary$disease_config_file)
   
   # load disease config file
   config_disease    <- xmlToList(file.path('data',disease_config_file))
@@ -237,19 +238,58 @@ callibrate_r0 <- function(project_dir)
   lines(colMeans(all_symp),lwd=3,col=4)
   legend('topleft',c('infectious','symptomatic'),col=c(2,4),lwd=4,cex=0.8)
   
+  R0_poly_orig <- .rstride$f_poly_r0(poly_input,
+                                     as.numeric(config_disease$transmission$b0),
+                                     as.numeric(config_disease$transmission$b1),
+                                     as.numeric( config_disease$transmission$b2))
+  
+  plot(poly_input,R0_poly_orig,type='l',lwd=2,xlab='transmission probability',ylab='secundary cases')
+  lines(poly_input,R0_poly_fit,col=3,lwd=2)
+  legend('topleft',c('original fit','new fit'),col=c(1,3),lwd=1)
+  
   # close pdf stream
   dev.off()
   
   ####################################
-  ## UPDATE TRANSMISSION PARAMETERS ##
+  ## UPDATE DISEASE CONFIG FILE     ##
   ####################################
  
+  # update transmission param
   config_disease$transmission$b0 <- fit_b0
   config_disease$transmission$b1 <- fit_b1
   config_disease$transmission$b2 <- fit_b2
   
+  # add/update meta data
+  
+  
+  num_infected_seeds          <- unique(project_summary$seeding_rate * project_summary$population_size)
+  par_exp_design              <- .rstride$get_variable_model_param(project_summary) # changing parameters in the exp design
+  total_num_index_cases       <- nrow(sec_transm_all)
+  num_rng_seeds               <- length(unique(project_summary$rng_seed))
+  dim_exp_design              <- nrow(expand.grid(par_exp_design))
+  num_realisations            <- unique(table(project_summary[,names(par_exp_design)]))
+  
+  # if the disease config file has only one value (original state), set value as pathogen
+  if(length(config_disease$label) == 1) {
+    config_disease$label <- list(pathogen = config_disease$label)
+  }
+  
+  # add the population and contact file, together with the current date  
+  config_disease$label <- list(pathogen = config_disease$label$pathogen,
+                               population_file         = unique(project_summary$population_file),
+                               age_contact_matrix_file = unique(project_summary$age_contact_matrix_file),
+                               r0                      = unique(project_summary$r0),
+                               start_date              = unique(project_summary$start_date),
+                               num_infected_seeds      = num_infected_seeds,
+                               total_num_index_cases   = total_num_index_cases,
+                               num_rng_seeds           = num_rng_seeds,
+                               dim_exp_design          = dim_exp_design,
+                               num_realisations        = num_realisations
+                              ) 
+  # update filename
   disease_config_update_file <- sub('.xml','_updated',disease_config_file)
   
+  # save
   new_disease_config_filename <- .rstride$save_config_xml(config_disease,'disease',file.path(project_dir,disease_config_update_file))
   
   # terminal message

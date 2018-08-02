@@ -44,13 +44,13 @@ dir_postfix <- '_expl'
 num_seeds  <- 1
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(10,20,10),
-                          num_days             = c(20,30),
+exp_design <- expand.grid(r0                   = seq(14,18,2),
+                          num_days             = c(120),
                           rng_seed             = 1:num_seeds,
-                          track_index_case     = 'true',
+                          track_index_case     = 'false',
                           contact_log_level    = "Transmissions",
-                          num_threads          = 1,
-                          disease_config_file = "disease_measles.xml",
+                          seeding_rate         = 0.00002,
+                          disease_config_file  = "disease_measles_updated.xml",
                           stringsAsFactors = F)
 
 # add a unique seed for each run

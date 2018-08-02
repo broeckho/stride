@@ -47,10 +47,12 @@ num_seeds  <- 5
 exp_design <- expand.grid(r0                   = seq(0,20,2),
                           num_days             = c(20),
                           rng_seed             = 1:num_seeds,
+                          start_date           = c("2017-01-01","2017-01-02","2017-01-03","2017-01-04","2017-01-05","2017-01-06","2017-01-07"),
                           track_index_case     = 'true',
                           contact_log_level    = "Transmissions",
                           num_threads          = 1,
-                          disease_config_file = "disease_measles.xml",
+                          seeding_rate         = 0.00002,
+                          disease_config_file  = "disease_measles_updated.xml",
                           stringsAsFactors = F)
 
 # add a unique seed for each run
@@ -66,6 +68,8 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 ##################################
 ## REPRODUCTION NUMBER          ##
 ##################################
+
+#.rstride$set_wd()
 #.rstride$load_pd()
 
 callibrate_r0(project_dir)

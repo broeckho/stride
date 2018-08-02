@@ -92,12 +92,18 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   # command line message
   .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),'EXPERIMENTS')
   
+  # store local copy of slave1 pid
+  pid_slave1 <- par_nodes_info$pid_slave1
+  
   # run all experiments (in parallel)
   par_out <- foreach(i_exp=1:nrow(design_of_experiment),
                      .combine='rbind',
                      .packages='XML',
                      .verbose=FALSE) %dopar%
   {  
+
+    # print progress (only the slave1)
+    .rstride$print_progress(i_exp,nrow(design_of_experiment),pid_slave1)
    
     # create experiment tag
     exp_tag <- paste0('exp',sprintf("%04s", i_exp))

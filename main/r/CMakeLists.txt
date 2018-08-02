@@ -21,7 +21,7 @@
 
 # rStride main files
 INSTALL(DIRECTORY
-		   rStride
+		   rstride
 	   DESTINATION ${BIN_INSTALL_LOCATION}
 	   )
 

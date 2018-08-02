@@ -24,7 +24,9 @@
 library(XML,quietly = TRUE)
 library(doParallel,quietly = TRUE)
 
-.rstride <- new.env()
+if(!(exists('.rstride'))){
+  .rstride <- new.env()
+}
 
 ###############################
 ## COMMAND LINE MESSAGES     ##
@@ -44,9 +46,10 @@ library(doParallel,quietly = TRUE)
   }
  
   # print time + arguments
-  cat('[',format(Sys.time()),']',function_arguments,fill=TRUE)
+  cli_out <- paste(c('echo', '[',format(Sys.time()),']',function_arguments),collapse = ' ')
+  system(cli_out)
+  
 }
-
 
 ###############################
 ## PARALLEL START & END      ##
@@ -57,19 +60,36 @@ library(doParallel,quietly = TRUE)
   ## SETUP PARALLEL NODES
   # note: they will be removed after 280 seconds inactivity
   num_proc <- detectCores()
-  par_cl   <<- makeForkCluster(num_proc, cores=num_proc, timeout = 280) # CREATE GLOBAL VARIABLE
+  par_cluster   <- makeForkCluster(num_proc, cores=num_proc, timeout = 280) 
+  registerDoParallel(par_cluster)
   
-  registerDoParallel(par_cl)
-}
+  # store the process id (pid) of the first slave
+  pid_slave1 <- clusterEvalQ(par_cluster, { Sys.getpid() })[[1]]
+  
+  # CREATE GLOBAL VARIABLE
+  par_nodes_info <<- list(par_cluster = par_cluster,
+                          pid_slave1 = pid_slave1)
+
+  }
 
 .rstride$end_slaves <- function()
 {
-  ## CLOSE NODES
-  if(exists('par_cl')){
-    stopCluster(par_cl); 
-    rm(par_cl,envir = .GlobalEnv) # REMOVE GLOBAL VARIABLE
+  ## CLOSE NODES AND NODE INFO
+  if(exists('par_nodes_info')){
+    stopCluster(par_nodes_info$par_cluster); 
+    rm(par_nodes_info,envir = .GlobalEnv) # REMOVE GLOBAL VARIABLE
   }
+  
 }
+
+.rstride$print_progress <- function(i_current,i_total,pid_slave1){
+  
+   if(Sys.getpid() == pid_slave1){
+     .rstride$cli_print('RUNNING...',i_current,'/',i_total)
+   }
+  
+}
+
 
 ###############################
 ## PROJECT SUMMARY           ##
@@ -103,16 +123,22 @@ library(doParallel,quietly = TRUE)
       .rstride$listToXML(child, sublist[[i]])
     }
     else{
-      xmlValue(child) <- sublist[[i]]
+      xmlValue(child) <- paste(sublist[[i]],collapse= ';')
     }
   } 
 }
 
+# list_config <- config_disease
+# root_name <- 'disease'
+# output_prefix <- 'sim_output'
 # Save a list in XML format with given root node
 .rstride$save_config_xml <- function(list_config,root_name,output_prefix){
   
+  # setup XML doc (to add prefix)
+  xml_doc = newXMLDoc()
+  
   # setup XML root
-  root <- newXMLNode(root_name)
+  root <- newXMLNode(root_name, doc = xml_doc)
   
   # add list info
   .rstride$listToXML(root, list_config)
@@ -120,8 +146,13 @@ library(doParallel,quietly = TRUE)
   # create filename
   filename <- paste0(output_prefix,'.xml')
   
-  # save as XML
-  saveXML(root,file=filename)
+  # xml prefix
+  xml_prefix <- paste0(' This file is part of the Stride software [', format(Sys.time()), ']')
+  
+  # save as XML,
+  # note: if we use an XMLdoc to include prefix, the line break dissapears...
+  # fix: http://r.789695.n4.nabble.com/saveXML-prefix-argument-td4678407.html
+  cat( saveXML( xml_doc, indent = TRUE, prefix = newXMLCommentNode(xml_prefix)),  file = filename) 
   
   # return the filename
   return(filename)
@@ -143,6 +174,9 @@ library(doParallel,quietly = TRUE)
   # create project_dir (global)
   project_dir <<- file.path(output_dir,sim_dirs[length(sim_dirs)])
   
+  # terminal message
+  cat('SET PROJECT DIR TO ', project_dir)
+  
 }
 
 # set most recent stride install directory as work directory 
@@ -162,7 +196,7 @@ library(doParallel,quietly = TRUE)
   setwd(file.path(install_dir,last_stride_dir))
 
   # terminal message
-  cat('NEW WORK DIRECTORY:',file.path(install_dir,last_stride_dir))
+  cat('NEW WORK DIRECTORY ',file.path(install_dir,last_stride_dir))
 
 }
 
