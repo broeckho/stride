@@ -60,7 +60,9 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
         if (tag == "measles_26") {
                 pt.put("run.disease_config_file", "disease_measles.xml");
                 pt.put("run.r0", 26U);
+                pt.put("run.num_days",200U);
                 target = 600000U;
+
         }
 
         // Run_r0 data
