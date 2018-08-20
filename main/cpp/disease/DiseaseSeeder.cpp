@@ -72,7 +72,7 @@ void DiseaseSeeder::Seed(std::shared_ptr<Population> pop)
                         p.GetHealth().StartInfection();
                         numInfected--;
                         if (log_level != "None") {
-                                logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, 0);
+                                logger->info("[PRIM] {} {} {} {}", -1, p.GetId(), -1, -1);
                         }
                 }
         }
