@@ -20,6 +20,9 @@
 #
 #############################################################################
 
+#.rstride$set_wd()  #DEVELOPMENT: to set the last install dir as work directory 
+#.rstride$load_pd() #DEVELOPMENT: to retrieve the last project_dir
+
 # load R packages
 library(XML,quietly = TRUE)
 library(doParallel,quietly = TRUE)

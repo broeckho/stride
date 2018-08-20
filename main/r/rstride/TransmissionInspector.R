@@ -30,8 +30,8 @@ explore_transmission <- function(project_dir)
   input_opt     <- .rstride$get_variable_model_param(project_summary)
   
   # open PDF stream
-  pdf(file.path(project_dir,'transmission_exploration.pdf'))
-  par(mfrow=c(2,2))
+  pdf(file.path(project_dir,'transmission_exploration.pdf'),10,7)
+  par(mfrow=c(2,3))
   
   # explore all project experiments
   i_exp <- 1
@@ -49,13 +49,18 @@ explore_transmission <- function(project_dir)
     
     # INCIDENCE
     tbl_transm <- table(data_transm$sim_day)
-    incidence <- data.frame(day = as.numeric(names(tbl_transm)),
+    incidence  <- data.frame(day = as.numeric(names(tbl_transm)),
                             count = as.numeric(tbl_transm))
-    plot(incidence$day,incidence$count,xlim=c(0,project_summary$num_days[i_exp]),
-         xlab='time',ylab='incidence')
+    plot_xlim <- c(0,max(incidence$day)+2)
     
+    plot(incidence$day,incidence$count,
+         xlab='time',ylab='incidence',xlim=plot_xlim,
+         main='incidence')
+   
     # add some key param to the legend
-    legend('topleft',paste(names(input_opt),project_summary[i_exp,names(input_opt)]))
+    if(length(input_opt)>0){
+      legend('topleft',paste(names(input_opt),project_summary[i_exp,names(input_opt)]))
+    }
     
     # LOCATION
     num_transm_events <- nrow(data_transm)
@@ -68,24 +73,96 @@ explore_transmission <- function(project_dir)
     incidence_days      <- as.numeric(row.names(tbl_loc_transm))
     incidence_day_total <- rowSums(tbl_loc_transm,na.rm = T)
     
-    plot(c(0,project_summary$num_days[i_exp]*1.5),0:1,col=0,xlab='day',ylab='relative daily incidence')
+    plot(plot_xlim,0:1,col=0,xlab='day',ylab='relative daily incidence',
+         main='transmission context over time')
     for(i_loc in 1:ncol(tbl_loc_transm)){
       lines(incidence_days, tbl_loc_transm[,i_loc]/incidence_day_total,col=i_loc,lwd=4)
     }
-    legend('topright',c(colnames(tbl_loc_transm)),col=1:ncol(tbl_loc_transm),lwd=4)
+    legend('topleft',c(colnames(tbl_loc_transm)),col=1:ncol(tbl_loc_transm),lwd=4,cex=0.8)
     
     
     # REPRODUCTION NUMBER
+    # secundary cases per local_id
     tbl_infections <- table(data_transm$local_id)
-    sec_transm <- data.frame(local_id = as.numeric(names(tbl_infections)),
-                             sec_cases = as.numeric(tbl_infections))
+    data_infectors <- data.frame(local_id  = as.numeric(names(tbl_infections)),
+                                 sec_cases = as.numeric(tbl_infections))
     
-    infection_time <- data.frame(local_id = data_transm$new_infected_id,
+    # remove initial seeding events
+    data_infectors <- data_infectors[data_infectors$local_id>=0,]
+    
+    # day of infection: case
+    infection_time <- data.frame(local_id      = data_transm$new_infected_id,
+                                 infector_id   = data_transm$local_id,
                                  infection_day = data_transm$sim_day)
     
-    sec_transm <- merge(infection_time,sec_transm,all=T)
+    # day of infection: infector
+    infector_time  <- data.frame(infector_id      = data_transm$new_infected_id,
+                                 infector_infection_day = data_transm$sim_day)
+   
+    # merge case and infector timings
+    infection_time <- merge(infection_time,infector_time)
+    
+    # merge secundary cases with time of infection
+    sec_transm <- merge(infection_time,data_infectors,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
-    boxplot(sec_cases ~ infection_day, data = sec_transm,outline = F)
+
+    # plot    
+    boxplot(sec_cases ~ infection_day, data = sec_transm,outline = F,
+            at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
+            xlab='day',ylab='secundary infections',
+            main='reproduction number')
+    
+
+    ## SERIAL INTERVAL
+    sec_transm$serial_interval <- sec_transm$infection_day - sec_transm$infector_infection_day
+
+    boxplot(serial_interval ~ infection_day, data = sec_transm,outline = F,
+            at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
+            xlab='day',ylab='serial interval [infection]',
+            main='serial interval\n[infection]')
+    
+    boxplot(sec_transm$serial_interval, outline = F,
+            ylab='serial interval [infection]',
+            main='serial interval\n[infection]')
+
+    # hist(sec_transm$serial_interval,0:30, 
+    #         ylab='serial interval [infection]',
+    #         main='serial interval\n[infection]')
+    # 
+
+    # load participant data
+    load(file.path(project_summary$output_prefix[i_exp],'data_participants.RData'))
+  
+    num_part <- nrow(data_part)
+    freq_start_inf  <- table(data_part$start_infectiousness) / num_part
+    freq_start_symp <- table(data_part$start_symptomatic)    / num_part
+    data_part[1,]
+    all_inf <- matrix(0,num_part,30)
+    all_symp <- matrix(0,num_part,30)
+    for(i in 1:num_part){
+      all_inf[i,data_part$start_infectiousness[i]:data_part$end_infectiousness[i]] <- 1
+      all_symp[i,data_part$start_symptomatic[i]:data_part$end_symptomatic[i]] <- 1
+    }
+    
+    plot(1:30,colMeans(all_inf),ylab='fraction',xlab='day',type='b',lwd=3,col=2)
+    points(1:30,colMeans(all_symp),lwd=3,col=4,type='b')
+    legend('topright',c('infectious','symptomatic'),col=c(2,4),lwd=4,cex=0.8)
+    abline(v=6:9,lty=3)
+  
+    f_data <- data_part$start_infectiousness
+    plot_cum_distr <- function(f_data,f_main){
+      tbl_data <- table(f_data)/length(f_data)
+      tbl_data_cumm <- cumsum(tbl_data)
+      plot(tbl_data,xlim=c(0,20),ylim=0:1,xlab='day',ylab='frequency',main=f_main)
+      lines(as.numeric(names(tbl_data_cumm)),tbl_data_cumm,col=4,lwd=2,type='b')
+      legend('topleft',c('per day','cummulative'),col=c(1,4),lwd=2)
+      }
+    
+    plot_cum_distr(data_part$start_infectiousness,f_main='start_infectiousness')
+    plot_cum_distr(data_part$end_infectiousness-data_part$start_infectiousness,f_main='days infectious')
+    plot_cum_distr(f_data=data_part$start_symptomatic-data_part$start_infectiousness,f_main='days infectious \n& not symptomatic')
+    plot_cum_distr(data_part$start_symptomatic,f_main='start_symptomatic')
+    plot_cum_distr(data_part$end_symptomatic-data_part$start_symptomatic,f_main='days symptomatic')
     
   }
   
@@ -117,7 +194,7 @@ callibrate_r0 <- function(project_dir)
   ##################################
 
   project_summary <- .rstride$load_project_summary(project_dir)
-
+  
   i_exp <- 1
   # get all results (in parallel)
   sec_transm_all <- foreach(i_exp=1:nrow(project_summary),.combine='rbind',.verbose=FALSE) %dopar%
@@ -147,7 +224,7 @@ callibrate_r0 <- function(project_dir)
   dim(sec_transm_all)
   
   # select index cases
-  flag <- sec_transm_all$infection_day == 0
+  flag <- sec_transm_all$infection_day == -1
   sec_transm_all <- sec_transm_all[flag,]
   dim(sec_transm_all)
   
@@ -166,9 +243,14 @@ callibrate_r0 <- function(project_dir)
   fit_b1 <- mod$coefficients[1,1]
   fit_b2 <- mod$coefficients[2,1]
   
-  # R0 limit
-  R0_limit <- -fit_b1^2/(4*fit_b2) 
-
+  
+  # R0 limit: to prevent complex root values                
+  R0_limit_fit           <- -fit_b1^2/(4*fit_b2)
+  transmission_limit_fit <- min(1,.rstride$f_poly_transm(floor(R0_limit_fit),fit_b0,fit_b1,fit_b2))
+  
+  # R0 limit: prevent complex roots and transmission rates >1
+  R0_limit <- .rstride$f_poly_r0(transmission_limit_fit,fit_b0,fit_b1,fit_b2)
+  
   # Reformat fitted values to plot
   R2_poly2 <- round(mod$r.squared,digits=4)
   
@@ -178,7 +260,7 @@ callibrate_r0 <- function(project_dir)
   # open pdf stream
   pdf(file.path(project_dir,'fit_r0.pdf'))
   
-  boxplot(round(sec_transm_all$sec_cases,digits=3) ~ sec_transm_all$transmission_rate, 
+  boxplot(round(sec_transm_all$sec_cases,digits=3) ~ round(sec_transm_all$transmission_rate,digits=2), 
           xlab='transmission probability',ylab='secundary cases',
           at=sort(round(unique(sec_transm_all$transmission_rate),digits=3)),
           xlim=range(sec_transm_all$transmission_rate),
@@ -196,7 +278,6 @@ callibrate_r0 <- function(project_dir)
   legend('topleft',legend='x=y',cex=0.8,title='reference',col=2,lwd=2)
   
   
-  
   ###############################
   ## EXPLORE DISEASE FILE       ##
   ###############################
@@ -208,35 +289,11 @@ callibrate_r0 <- function(project_dir)
   config_disease    <- xmlToList(file.path('data',disease_config_file))
   
   par(mfrow=c(2,2))
-  plot(unlist(config_disease$start_infectiousness),xlab='days',ylab='probability',main='start_infectiousness')
-  plot(unlist(config_disease$time_infectious),xlab='days',ylab='probability',main='time_infectious')
-  plot(unlist(config_disease$start_symptomatic),xlab='days',ylab='probability',main='start_symptomatic')
-  plot(unlist(config_disease$time_symptomatic),xlab='days',ylab='probability',main='time_symptomatic')
-  
-  prob_start_inf  <- as.numeric(unlist(config_disease$start_infectiousness))
-  prob_dur_inf    <- as.numeric(unlist(config_disease$time_infectious))
-  prob_start_symp <- as.numeric(unlist(config_disease$start_symptomatic))
-  prob_dur_symp   <- as.numeric(unlist(config_disease$time_symptomatic))
-  
-  diff(prob_start_inf)
-  n_sim <- 100
-  start_inf  <- sample(1:length(prob_start_inf),n_sim,prob=c(0,diff(prob_start_inf)),replace = T)
-  dur_inf    <- sample(1:length(prob_dur_inf),n_sim,prob=c(0,diff(prob_dur_inf)),replace = T)
-  start_symp <- sample(1:length(prob_start_symp),n_sim,prob=c(0,diff(prob_start_symp)),replace = T)
-  dur_symp   <- sample(1:length(prob_dur_symp),n_sim,prob=c(0,diff(prob_dur_symp)),replace = T)
-  
-  all_inf <- matrix(0,n_sim,30)
-  all_symp <- matrix(0,n_sim,30)
-  for(i in 1:n_sim){
-    all_inf[i,(1:dur_inf[i])+start_inf[i]] <- 1
-    all_symp[i,(1:dur_symp[i])+start_symp[i]] <- 1
-    
-  }
-  
+  plot(seq_len(length(config_disease$time_asymptomatic))-1,config_disease$time_asymptomatic,xlab='days',ylab='probability',main='time_asymptomatic')
+  plot(seq_len(length(config_disease$time_infectious))-1,config_disease$time_infectious,xlab='days',ylab='probability',main='time_infectious')
+  plot(seq_len(length(config_disease$start_symptomatic))-1,config_disease$start_symptomatic,xlab='days',ylab='probability',main='start_symptomatic')
+  plot(seq_len(length(config_disease$time_symptomatic))-1,config_disease$time_symptomatic,xlab='days',ylab='probability',main='time_symptomatic')
   par(mfrow=c(1,1))
-  plot(colMeans(all_inf),ylab='fraction',xlab='day',type='l',lwd=3,col=2)
-  lines(colMeans(all_symp),lwd=3,col=4)
-  legend('topleft',c('infectious','symptomatic'),col=c(2,4),lwd=4,cex=0.8)
   
   R0_poly_orig <- .rstride$f_poly_r0(poly_input,
                                      as.numeric(config_disease$transmission$b0),
@@ -246,6 +303,47 @@ callibrate_r0 <- function(project_dir)
   plot(poly_input,R0_poly_orig,type='l',lwd=2,xlab='transmission probability',ylab='secundary cases')
   lines(poly_input,R0_poly_fit,col=3,lwd=2)
   legend('topleft',c('original fit','new fit'),col=c(1,3),lwd=1)
+  
+
+  
+  ####################################
+  ## DISEASE HISTORY MEASLES        ##
+  ####################################
+  
+  if(exists('config_disease$label$pathogen') && config_disease$label$pathogen ==  'measles')
+  {
+    # # REF:Lesler et al (2009), Lancet Infect Dis
+    # # incubation period: lognormal distribution with median 12.5 and dispersion 1.23
+    # lognormal distribution,
+    days_opt       <- c(0:170)/10                                              # setup time horizon with a small day-interval     
+    lnorm_dist     <- dlnorm(days_opt, meanlog = log(12.5), sdlog = log(1.23)) # get lognormal densities
+    cum_lnorm_dist <- cumsum(lnorm_dist)/sum(lnorm_dist)                       # get cumulative density
+    cum_lnorm_dist <- round(cum_lnorm_dist,digits=2)                           # round 
+    cum_lnorm_dist <- data.frame(day=days_opt,prob=cum_lnorm_dist)             # add time horizon 
+    
+    plot(cum_lnorm_dist$day,cum_lnorm_dist$prob,xlab='day',ylab='probability',main='start symptoms\n(Lesler et al. 2009)')
+    
+    abline(v=12.5); abline(h=0.5) # median
+    abline(h=0.25); abline(v=10.9) # 25% percentile
+    abline(h=0.75); abline(v=14.4) # 75% percentile
+    
+    prob_symp <- cum_lnorm_dist$prob[cum_lnorm_dist$day %in% 0:17]                # store probability for discrete time steps
+    prob_symp[1:9] <- 0                                                           # set probability for day 0-8 to "0"
+    
+    lines(0:17,prob_symp,lwd=4,col=2)
+    legend('topleft',c('lesler et al. 2009','STRIDE'),col=1:2,lwd=2)
+    if(any(as.numeric(config_disease$start_symptomatic[1:18]) != prob_symp)){
+      # command line message
+      .rstride$cli_print('"START SYMPTOMATIC" NOT CONFORM LESLER ET AL 2009.')
+      
+      config_disease$start_symptomatic[1:18] <- prob_symp
+      
+      # command line message
+      .rstride$cli_print('UPDATED "START SYMPTOMATIC" ACCORDING LESLER ET AL 2009.')
+    }
+    
+  }
+  
   
   # close pdf stream
   dev.off()
@@ -260,8 +358,6 @@ callibrate_r0 <- function(project_dir)
   config_disease$transmission$b2 <- fit_b2
   
   # add/update meta data
-  
-  
   num_infected_seeds          <- unique(project_summary$seeding_rate * project_summary$population_size)
   par_exp_design              <- .rstride$get_variable_model_param(project_summary) # changing parameters in the exp design
   total_num_index_cases       <- nrow(sec_transm_all)
@@ -284,7 +380,8 @@ callibrate_r0 <- function(project_dir)
                                total_num_index_cases   = total_num_index_cases,
                                num_rng_seeds           = num_rng_seeds,
                                dim_exp_design          = dim_exp_design,
-                               num_realisations        = num_realisations
+                               num_realisations        = num_realisations,
+                               fit_r0_limit            = round(R0_limit,digits=2) 
                               ) 
   # update filename
   disease_config_update_file <- sub('.xml','_updated',disease_config_file)

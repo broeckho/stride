@@ -50,6 +50,7 @@ exp_design <- expand.grid(contact_log_level         = "All",
                           num_participants_survey   = 3000,
                           start_date                = c("2017-01-01","2017-01-02"),
                           rng_seed                  = 1:num_seeds,
+                          age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
                           stringsAsFactors = F)
 
 # add a unique seed for each run

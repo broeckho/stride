@@ -28,7 +28,7 @@
 if(0==1){
   #f_exp_dir <- file.path(output_dir,output_exp_dirs[i_exp])
   f_exp_dir <- './sim_output/20180730_113633/exp0001'
-  logfile <- file.path(project_summary$output_prefix[i_exp],'contact_log.txt')
+  contact_log_filename <- file.path(project_summary$output_prefix[i_exp],'contact_log.txt')
   
   
 }
@@ -59,13 +59,19 @@ parse_contact_logfile <- function(contact_log_filename)
   ######################
   ## PARTICIPANT DATA ##
   ######################
-  header_part         <- c('local_id', 'part_age', 'part_gender', 'school_id', 'workplace_id')
+  header_part         <- c('local_id', 'part_age', 'part_gender', 'school_id', 'workplace_id',
+                           'is_susceptible','is_infected','is_infectious','is_recovered','is_immune',
+                           'start_infectiousness','start_symptomatic','end_infectiousness','end_symptomatic')
   data_part           <- data_log[data_log[,1] == "[PART]",seq_len(length(header_part))+1]
   names(data_part)    <- header_part
   data_part[1,]
   
-  # make sure, all values (exept the gender) are stored as integers
-  data_part[,-3] <- data.frame(apply(data_part[,-3], 2, as.integer))
+  # set 'true' and 'false' in the R-format
+  data_part[data_part=="true"] <- TRUE
+  data_part[data_part=="false"] <- FALSE
+  
+  # make sure, all values (exept the gender and booleans) are stored as integers
+  data_part[,-c(3,6:10)] <- data.frame(apply(data_part[,-c(3,6:10)], 2, as.integer))
   apply(data_part, 2, typeof)
   
   

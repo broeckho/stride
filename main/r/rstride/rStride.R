@@ -90,7 +90,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   ##################################
   
   # command line message
-  .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),'EXPERIMENTS')
+  .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),"'EXPERIMENT(S)'")
   
   # store local copy of slave1 pid
   pid_slave1 <- par_nodes_info$pid_slave1

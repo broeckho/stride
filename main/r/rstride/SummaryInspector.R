@@ -30,33 +30,37 @@ explore_input_output_behavior <- function(project_dir)
   # retrieve all variable model parameters
   input_opt     <- .rstride$get_variable_model_param(project_summary)
   
-  # calculate a scale factor and ticks for the second y-axis [cases vs. incidence]
-  range_num_cases   <- range(project_summary$num_cases)
-  ticks_cases       <- seq(range_num_cases[1],range_num_cases[2],diff(range_num_cases)/5) 
+  # continue only if there are different input parameter values
+  if(length(input_opt)>0){
+    
+    # calculate a scale factor and ticks for the second y-axis [cases vs. incidence]
+    range_num_cases   <- range(project_summary$num_cases)
+    ticks_cases       <- seq(range_num_cases[1],range_num_cases[2],diff(range_num_cases)/5) 
+    
+    r0_axis_factor     <- median(project_summary$num_cases / project_summary$AR)
+    r0_axis_scale      <- diff(range_num_cases)/r0_axis_factor
   
-  r0_axis_factor     <- median(project_summary$num_cases / project_summary$AR)
-  r0_axis_scale      <- diff(range_num_cases)/axis_factor
-
-  num_digits        <- ceiling(abs(log10(r0_axis_scale)))
-  ticks_r0          <- round(ticks_cases/axis_factor,digits=num_digits)
-  
-  # OPEN PDF STREAM
-  pdf(file.path(project_dir,'parameter_exploration.pdf'))
-  
-  # loop over the changing input parameters => plot cases and incidence
-  #par(mfrow=c(2,2))
-  par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
-  for(i in 1:length(input_opt)){
-    boxplot(num_cases ~ project_summary[,names(input_opt)[i]],
-            data = project_summary,
-            xlab = names(input_opt)[i],
-            ylab = '')
-    axis(4, at = ticks_cases , labels = ticks_r0 )
-    mtext("incidence", side=4, line=2,cex=0.9)
-    mtext("number of cases", side=2, line=2,cex=0.9)
-  }
-  
-  dev.off()
+    num_digits        <- ceiling(abs(log10(r0_axis_scale)))
+    ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
+    
+    # OPEN PDF STREAM
+    pdf(file.path(project_dir,'parameter_exploration.pdf'))
+    
+    # loop over the changing input parameters => plot cases and incidence
+    #par(mfrow=c(2,2))
+    par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
+    for(i in 1:length(input_opt)){
+      boxplot(num_cases ~ project_summary[,names(input_opt)[i]],
+              data = project_summary,
+              xlab = names(input_opt)[i],
+              ylab = '')
+      axis(4, at = ticks_cases , labels = ticks_r0 )
+      mtext("incidence", side=4, line=2,cex=0.9)
+      mtext("number of cases", side=2, line=2,cex=0.9)
+    }
+    
+    dev.off()
+  } # end if(length(param_opt)>0)
   
   # terminal message
   .rstride$cli_print('INPUT-OUTPUT EXPLORATION COMPLETE')
