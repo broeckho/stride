@@ -28,6 +28,7 @@ source('./bin/rstride/misc.R')
 
 # load specific functions
 source('./bin/rstride/ContactInspector.R')
+source('./bin/rstride/HealthInspector.R')
 source('./bin/rstride/LogParser.R')
 source('./bin/rstride/TransmissionInspector.R')
 source('./bin/rstride/SummaryInspector.R')
@@ -40,23 +41,36 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   # command line message
   .rstride$cli_print('STARTING rSTRIDE CONTROLLER')
   
-  ###############################
-  ## PARALLEL SETUP            ##
-  ###############################
+  ################################
+  ## CHECK DESIGN OF EXPERIMENT ##
+  ################################
+  if(.rstride$data_files_exist(design_of_experiment) == FALSE ||
+     .rstride$log_levels_exist(design_of_experiment) == FALSE ||
+     .rstride$valid_r0_values(design_of_experiment)  == FALSE ||
+     .rstride$valid_immunity_profiles(design_of_experiment)  == FALSE ){
+    
+    .rstride$cli_abort()
+    return(-1)
+    #stop()
+  }
+  
+  ################################
+  ## PARALLEL SETUP             ##
+  ################################
   .rstride$start_slaves()
   
   
-  ###############################
-  ## GENERAL OPTIONS           ##
-  ###############################
+  ################################
+  ## GENERAL OPTIONS            ##
+  ################################
   stride_bin              <- './bin/stride'
   config_opt              <- '-c'
   config_default_filename <- './config/run_default.xml'
   output_dir              <- 'sim_output'
   
-  ###############################
-  ## RUN TAG AND DIRECTORY     ##
-  ###############################
+  ################################
+  ## RUN TAG AND DIRECTORY      ##
+  ################################
   
   # create run tag using the current time
   run_tag <- format(Sys.time(), format="%Y%m%d_%H%M%S")
@@ -90,7 +104,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   ##################################
   
   # command line message
-  .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),"'EXPERIMENT(S)'")
+  .rstride$cli_print('READY TO RUN',nrow(design_of_experiment),'EXPERIMENT(S)')
   
   # store local copy of slave1 pid
   pid_slave1 <- par_nodes_info$pid_slave1
@@ -102,7 +116,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
                      .verbose=FALSE) %dopar%
   {  
 
-    # print progress (only the slave1)
+    # print progress (only slave1)
     .rstride$print_progress(i_exp,nrow(design_of_experiment),pid_slave1)
    
     # create experiment tag

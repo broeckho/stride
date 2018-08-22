@@ -17,101 +17,117 @@
 #############################################################################
 
 #############################################################################
-# EXPLORE TRANSMISSION EVENTS AND THE (BASIC) REPRODUCTION NUMBER          ##
+# EXPLORE TRANSMISSION EVENTS, OUTBREAKS GENERATION INTERVALS AND R0       ##
 #############################################################################
-
-explore_transmission <- function(project_dir)
+explore_outbreaks <- function(project_dir)
 {
-  
+  # check if project_dir exists
+  if(.rstride$dir_not_present(project_dir)){
+    return(-1)
+  }
+
   # load project summary
-  project_summary <- .rstride$load_project_summary(project_dir)
-  
+  project_summary      <- .rstride$load_project_summary(project_dir)
+
   # retrieve all variable model parameters
-  input_opt     <- .rstride$get_variable_model_param(project_summary)
+  input_opt_design     <- .rstride$get_variable_model_param(project_summary)
   
   # open PDF stream
-  pdf(file.path(project_dir,'transmission_exploration.pdf'),10,7)
-  par(mfrow=c(2,3))
-  
-  # explore all project experiments
-  i_exp <- 1
-  for(i_exp in 1:nrow(project_summary))
+   pdf(file.path(project_dir,'health_exploration.pdf'),10,7)
+   par(mfrow=c(3,3))
+
+  for(i_config in 1:nrow(input_opt_design))
   {
-    # load transmission data
-    load(file.path(project_summary$output_prefix[i_exp],'data_transmission.RData'))
+    flag_exp <- .rstride$get_equal_rows(project_summary,input_opt_design[i_config,])
+    project_summary_exp <- project_summary[flag_exp,]
+
+    max_pop_size <- max(project_summary$population_size)
+    id_factor <- 10^ceiling(log10(max_pop_size))
+
+    # explore all project experiments
+    i_exp <- 1
+    data_transm <- foreach(i_exp = 1:nrow(project_summary_exp),.combine='rbind') %do%
+    {
+      # load transmission data
+      load(file.path(project_summary_exp$output_prefix[i_exp],'data_transmission.RData'))
+
+      # add run index
+      data_transm$run_index <- i_exp
+
+      # set local_id of initial seeding as NA
+      data_transm$local_id[data_transm$local_id==-1] <- NA
+
+      # adjust ids
+      data_transm$local_id        <- data_transm$local_id + (i_exp*id_factor)
+      data_transm$new_infected_id <- data_transm$new_infected_id + (i_exp*id_factor)
+
+      data_transm
+    }
+
+    # INCIDENCE
+    tbl_transm <- table(data_transm$sim_day,data_transm$run_index)
+    tbl_transm_matrix <- matrix(c(tbl_transm),nrow=nrow(tbl_transm))
+    boxplot(t(tbl_transm_matrix),at=as.numeric(rownames(tbl_transm)),
+            xlab='time (days)',ylab='new cases',
+            main='new cases (total)')
     
-    names(data_transm)
+    # add some key param to the legend
+    if(nrow(input_opt_design)>0){
+      legend('topleft',paste(colnames(input_opt_design),input_opt_design[i_config,]))
+    }
+    
+    # LOCATION
     data_transm$cnt_location[data_transm$cnt_location == 'primary_community'] <- 'prim comm'
     data_transm$cnt_location[data_transm$cnt_location == 'secondary_community'] <- 'sec comm'
     
     # rename the cnt location for the "seed infected"
     data_transm$cnt_location [data_transm$cnt_location == -1] <- NA
-    
-    # INCIDENCE
-    tbl_transm <- table(data_transm$sim_day)
-    incidence  <- data.frame(day = as.numeric(names(tbl_transm)),
-                            count = as.numeric(tbl_transm))
-    plot_xlim <- c(0,max(incidence$day)+2)
-    
-    plot(incidence$day,incidence$count,
-         xlab='time',ylab='incidence',xlim=plot_xlim,
-         main='incidence')
-   
-    # add some key param to the legend
-    if(length(input_opt)>0){
-      legend('topleft',paste(names(input_opt),project_summary[i_exp,names(input_opt)]))
-    }
-    
-    # LOCATION
+
     num_transm_events <- nrow(data_transm)
     barplot(table(data_transm$cnt_location)/num_transm_events,las=2,
             main='tranmission context',ylab='relative incidence')
-    
+
     tbl_loc_transm <- table(data_transm$sim_day,data_transm$cnt_location)
     tbl_loc_transm[tbl_loc_transm==0] <- NA
-    
+
     incidence_days      <- as.numeric(row.names(tbl_loc_transm))
     incidence_day_total <- rowSums(tbl_loc_transm,na.rm = T)
     
-    plot(plot_xlim,0:1,col=0,xlab='day',ylab='relative daily incidence',
+    plot(range(incidence_days),0:1,col=0,xlab='day',ylab='relative daily incidence',
          main='transmission context over time')
     for(i_loc in 1:ncol(tbl_loc_transm)){
-      lines(incidence_days, tbl_loc_transm[,i_loc]/incidence_day_total,col=i_loc,lwd=4)
+      points(incidence_days, tbl_loc_transm[,i_loc]/incidence_day_total,col=i_loc,lwd=4,pch=19)
     }
     legend('topleft',c(colnames(tbl_loc_transm)),col=1:ncol(tbl_loc_transm),lwd=4,cex=0.8)
-    
-    
+
     # REPRODUCTION NUMBER
     # secundary cases per local_id
     tbl_infections <- table(data_transm$local_id)
     data_infectors <- data.frame(local_id  = as.numeric(names(tbl_infections)),
                                  sec_cases = as.numeric(tbl_infections))
-    
-    # remove initial seeding events
-    data_infectors <- data_infectors[data_infectors$local_id>=0,]
-    
+
     # day of infection: case
     infection_time <- data.frame(local_id      = data_transm$new_infected_id,
                                  infector_id   = data_transm$local_id,
                                  infection_day = data_transm$sim_day)
-    
+
     # day of infection: infector
-    infector_time  <- data.frame(infector_id      = data_transm$new_infected_id,
+    infector_time  <- data.frame(infector_id            = data_transm$new_infected_id,
                                  infector_infection_day = data_transm$sim_day)
-   
+
     # merge case and infector timings
     infection_time <- merge(infection_time,infector_time)
-    
+
     # merge secundary cases with time of infection
     sec_transm <- merge(infection_time,data_infectors,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
 
-    # plot    
+    # plot
+    plot_xlim <- range(c(0,sec_transm$infection_day),na.rm=T)
     boxplot(sec_cases ~ infection_day, data = sec_transm,outline = F,
             at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
             xlab='day',ylab='secundary infections',
             main='reproduction number')
-    
 
     ## SERIAL INTERVAL
     sec_transm$serial_interval <- sec_transm$infection_day - sec_transm$infector_infection_day
@@ -125,53 +141,67 @@ explore_transmission <- function(project_dir)
             ylab='serial interval [infection]',
             main='serial interval\n[infection]')
 
-    # hist(sec_transm$serial_interval,0:30, 
-    #         ylab='serial interval [infection]',
-    #         main='serial interval\n[infection]')
-    # 
+  ## OUTBREAKS
+    data_outbreak <- data_transm
+    data_outbreak$outbreak_id <- NA
+    flag <- data_outbreak$sim_day == -1
+    data_outbreak$outbreak_id[flag] <- seq(sum(flag))
+    data_outbreak_all <- NULL
 
-    # load participant data
-    load(file.path(project_summary$output_prefix[i_exp],'data_participants.RData'))
-  
-    num_part <- nrow(data_part)
-    freq_start_inf  <- table(data_part$start_infectiousness) / num_part
-    freq_start_symp <- table(data_part$start_symptomatic)    / num_part
-    data_part[1,]
-    all_inf <- matrix(0,num_part,30)
-    all_symp <- matrix(0,num_part,30)
-    for(i in 1:num_part){
-      all_inf[i,data_part$start_infectiousness[i]:data_part$end_infectiousness[i]] <- 1
-      all_symp[i,data_part$start_symptomatic[i]:data_part$end_symptomatic[i]] <- 1
+    while(is.null(data_outbreak_all) || nrow(data_outbreak_all) < nrow(data_transm)){
+      d_source <- data_outbreak[!is.na(data_outbreak$outbreak_id),]
+      d_sink   <- data_outbreak[is.na(data_outbreak$outbreak_id),-6]
+      dim(d_source)
+      dim(d_sink)
+      d_source <- d_source[,c(2,6)]
+      names(d_source)[1] <- 'local_id'
+      data_outbreak <- merge(d_sink,d_source,all.x = TRUE)
+      dim(data_outbreak)
+
+      sum(is.na(data_outbreak$outbreak_id))
+      data_outbreak_all <- rbind(data_outbreak_all,d_source)
     }
-    
-    plot(1:30,colMeans(all_inf),ylab='fraction',xlab='day',type='b',lwd=3,col=2)
-    points(1:30,colMeans(all_symp),lwd=3,col=4,type='b')
-    legend('topright',c('infectious','symptomatic'),col=c(2,4),lwd=4,cex=0.8)
-    abline(v=6:9,lty=3)
-  
-    f_data <- data_part$start_infectiousness
-    plot_cum_distr <- function(f_data,f_main){
-      tbl_data <- table(f_data)/length(f_data)
-      tbl_data_cumm <- cumsum(tbl_data)
-      plot(tbl_data,xlim=c(0,20),ylim=0:1,xlab='day',ylab='frequency',main=f_main)
-      lines(as.numeric(names(tbl_data_cumm)),tbl_data_cumm,col=4,lwd=2,type='b')
-      legend('topleft',c('per day','cummulative'),col=c(1,4),lwd=2)
-      }
-    
-    plot_cum_distr(data_part$start_infectiousness,f_main='start_infectiousness')
-    plot_cum_distr(data_part$end_infectiousness-data_part$start_infectiousness,f_main='days infectious')
-    plot_cum_distr(f_data=data_part$start_symptomatic-data_part$start_infectiousness,f_main='days infectious \n& not symptomatic')
-    plot_cum_distr(data_part$start_symptomatic,f_main='start_symptomatic')
-    plot_cum_distr(data_part$end_symptomatic-data_part$start_symptomatic,f_main='days symptomatic')
-    
+
+    names(data_outbreak_all)[1] <- 'new_infected_id'
+    names(data_transm)
+    data_outbreak_all <- merge(data_outbreak_all,data_transm)
+    dim(data_outbreak_all)
+
+    boxplot(as.numeric(table(data_outbreak_all$outbreak_id)),
+            ylab='outbreak size',
+            main='outbreak size')
+
+    # count / day
+    tbl_all <- table(data_outbreak_all$sim_day,data_outbreak_all$outbreak_id) # table
+
+    tbl_all_inv <- tbl_all[nrow(tbl_all):1,] # take the inverse for the cummulative sum
+    tbl_all_cum <- apply(tbl_all_inv,2,cumsum)
+
+    outbreaks_over_time <- data.frame(day = as.numeric(rownames(tbl_all_cum)),
+                                      count = rowSums(tbl_all_cum > 0))
+
+    # plot the number of ongoing outbreaks over time
+    plot(outbreaks_over_time$day,outbreaks_over_time$count,
+         xlab='time (days)',ylab='count (oubtreaks)',
+         main='number ongoing outbreaks over time')
+
+    # plot new cases per outbreak over time
+    tbl_all_matrix <- matrix(c(tbl_all),nrow=nrow(tbl_all))
+    boxplot(t(tbl_all_matrix),at=as.numeric(rownames(tbl_all)),
+            ylab='new cases/outbreak',
+            main='new cases/outbreak',
+            xlab='day',
+            ylim=range(c(0,tbl_all+1)))
+    legend('topleft',paste0('count = ',ncol(tbl_all)))
+
   }
-  
+
   # close PDF stream
   dev.off()
-  
+
   # command line message
-  .rstride$cli_print('EXPLORE TRANSMISSION FINISHED')
-  
+  .rstride$cli_print('OUTBREAK EXPLORATION COMPLETE')
+
 } # function end
 
 
@@ -181,6 +211,12 @@ explore_transmission <- function(project_dir)
 
 callibrate_r0 <- function(project_dir)
 {
+  
+  # check if project_dir exists
+  if(.rstride$dir_not_present(project_dir)){
+    return(-1)
+  }
+  
   # terminal message
   .rstride$cli_print('START TO CALLIBRATE R0')
   
@@ -363,7 +399,7 @@ callibrate_r0 <- function(project_dir)
   total_num_index_cases       <- nrow(sec_transm_all)
   num_rng_seeds               <- length(unique(project_summary$rng_seed))
   dim_exp_design              <- nrow(expand.grid(par_exp_design))
-  num_realisations            <- unique(table(project_summary[,names(par_exp_design)]))
+  num_realisations            <- unique(table(project_summary[,colnames(par_exp_design)]))
   
   # if the disease config file has only one value (original state), set value as pathogen
   if(length(config_disease$label) == 1) {

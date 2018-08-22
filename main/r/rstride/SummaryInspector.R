@@ -22,16 +22,22 @@
 #
 #############################################################################
 
-explore_input_output_behavior <- function(project_dir)
+explore_summary <- function(project_dir)
 {
+  
+  # check if project_dir exists
+  if(.rstride$dir_not_present(project_dir)){
+    return(-1)
+  }
+  
   # load project output summary
-  project_summary <- .rstride$load_project_summary(project_dir)
+  project_summary    <- .rstride$load_project_summary(project_dir)
   
   # retrieve all variable model parameters
-  input_opt     <- .rstride$get_variable_model_param(project_summary)
+  input_opt_design   <- .rstride$get_variable_model_param(project_summary)
   
   # continue only if there are different input parameter values
-  if(length(input_opt)>0){
+  if(nrow(input_opt_design)>1){
     
     # calculate a scale factor and ticks for the second y-axis [cases vs. incidence]
     range_num_cases   <- range(project_summary$num_cases)
@@ -49,10 +55,10 @@ explore_input_output_behavior <- function(project_dir)
     # loop over the changing input parameters => plot cases and incidence
     #par(mfrow=c(2,2))
     par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
-    for(i in 1:length(input_opt)){
-      boxplot(num_cases ~ project_summary[,names(input_opt)[i]],
+    for(i in 1:ncol(input_opt_design)){
+      boxplot(num_cases ~ project_summary[,colnames(input_opt_design)[i]],
               data = project_summary,
-              xlab = names(input_opt)[i],
+              xlab = colnames(input_opt_design)[i],
               ylab = '')
       axis(4, at = ticks_cases , labels = ticks_r0 )
       mtext("incidence", side=4, line=2,cex=0.9)
@@ -60,13 +66,13 @@ explore_input_output_behavior <- function(project_dir)
     }
     
     dev.off()
-  } # end if(length(param_opt)>0)
+  } # end if(length(input_opt)>0)
+  
   
   # terminal message
-  .rstride$cli_print('INPUT-OUTPUT EXPLORATION COMPLETE')
+  .rstride$cli_print('SUMMARY EXPLORATION COMPLETE')
   
 }
-
 
 ## HELP FUNCTION
 .rstride$get_variable_model_param <- function(project_summary){
@@ -75,9 +81,17 @@ explore_input_output_behavior <- function(project_dir)
   col_extra  <- c('rng_seed','output_prefix','transmission_rate') 
   col_input  <- !(names(project_summary) %in% c(col_output,col_extra))
   
-  input_opt     <- lapply(project_summary[col_input],unique)
+  input_opt     <- lapply(project_summary[,col_input],unique)
   input_opt     <- input_opt[lapply(input_opt,length)>1]
+  
+  # get parameter combinations
+  input_opt_design <- unique(project_summary[,names(input_opt)])
+  
+  # with only one parameter, convert vector into matrix
+  if(length(input_opt)==1){
+    input_opt_design <- as.matrix(data.frame(input_opt))
+  }
 
-  return(input_opt)
+  return(input_opt_design)
 
 }

@@ -28,8 +28,9 @@ INSTALL(DIRECTORY
 
 # rStride analysis scripts
 INSTALL( FILES 	
-            rStride_explore.R
             rStride_contacts.R
+            rStride_explore.R
+            rStride_immunity.R
             rStride_r0.R
  						 
 	DESTINATION ${BIN_INSTALL_LOCATION}  

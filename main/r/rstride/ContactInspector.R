@@ -29,7 +29,7 @@ if(0==1) # for debugging
   #setwd('..')
   exp_summary <- project_summary[1,]
   data_dir    <- './data'
-  plot_social_contacts(exp_summary,data_dir)
+  plot_contacts(exp_summary,data_dir)
 }
 
 #############################################################################

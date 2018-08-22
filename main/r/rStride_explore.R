@@ -44,9 +44,9 @@ dir_postfix <- '_expl'
 num_seeds  <- 1
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(10,10,2),
+exp_design <- expand.grid(r0                   = seq(12,14,2),
                           num_days             = c(150),
-                          rng_seed             = 1:num_seeds,
+                          rng_seed             = seq(num_seeds),
                           num_participants_survey   = 3000,
                           track_index_case     = 'false',
                           contact_log_level    = "Transmissions",
@@ -69,13 +69,19 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 #####################################
 ## EXPLORE INPUT-OUTPUT BEHAVIOR   ##
 #####################################
-explore_input_output_behavior(project_dir)
+explore_summary(project_dir)
+
+
+##################################
+## EXPLORE HEALTH               ##
+##################################
+explore_disease_history(project_dir)
 
 
 ##################################
 ## EXPLORE TRANSMISSION         ##
 ##################################
-explore_transmission(project_dir)
+explore_outbreaks(project_dir)
 
 
 

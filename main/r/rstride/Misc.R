@@ -35,7 +35,7 @@ if(!(exists('.rstride'))){
 ## COMMAND LINE MESSAGES     ##
 ###############################
 
-.rstride$cli_print <- function(...) {
+.rstride$cli_print <- function(...,WARNING=F) {
 
   # get function arguments
   function_arguments <- as.list(match.call(expand.dots=FALSE))$...
@@ -48,10 +48,23 @@ if(!(exists('.rstride'))){
     eval(unlist(function_arguments[[i]]),envir = pf)
   }
  
-  # print time + arguments
-  cli_out <- paste(c('echo', '[',format(Sys.time()),']',function_arguments),collapse = ' ')
-  system(cli_out)
+  # add a space to each function arguments
+  function_arguments <- paste(' ',function_arguments)
   
+  text_color <- ''
+  if(WARNING){
+    text_color   <- '\033[0;31m'
+  }
+  
+  # print time + arguments (without spaces)
+  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',function_arguments,'"'),collapse = '')
+  system(cli_out)
+}
+
+# terminate rStride
+.rstride$cli_abort <- function()
+{
+  .rstride$cli_print('!! TERMINATE rSTRIDE CONTROLLER !!',WARNING=T)
 }
 
 ###############################
@@ -162,7 +175,126 @@ if(!(exists('.rstride'))){
 }
 
 ###############################
-## DEVELOPING FUNCTIONS      ##
+## MATRIX OPERATIONS         ##
+###############################
+
+.rstride$get_equal_rows <- function(f_matrix,f_vector){
+  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == as.numeric(t(f_vector))) == length(f_vector)))
+}
+
+
+
+###############################
+## DEFENSIVE PROGRAMMING     ##
+###############################
+
+.rstride$dir_not_present <- function(path_dir){
+  
+  # if directory does not exists, return TRUE (+warning)
+  if(!file.exists(paste(path_dir))){
+    .rstride$cli_print('[',paste(match.call(),collapse=' '),'] DIRECTORY NOT PRESENT:',path_dir,WARNING=T)
+    return(TRUE)
+  } 
+  
+  # else, return FALSE
+  return(FALSE)
+}
+  
+# check file presence
+.rstride$data_files_exist <- function(design_of_experiment = exp_design){
+  
+  # get the unique file names
+  file_names <- unique(c(design_of_experiment$age_contact_matrix_file,
+                         design_of_experiment$disease_config_file,
+                         design_of_experiment$holidays_file,
+                         design_of_experiment$population_file))
+  
+  # add the path to the data folder
+  data_dir <- './data'
+  file_names <- file.path(data_dir,file_names)
+
+  # check the existance of the files
+  file_not_exist_bool   <- !file.exists(file_names)
+
+  # if any file missing => return FALSE
+  if(any(file_not_exist_bool)){
+    .rstride$cli_print('DATA FILE(S) MISSING:', paste(file_names[file_not_exist_bool],collapse = ' '),WARNING=T)
+    return(FALSE)
+  }  
+  
+  # else => return TRUE
+  return(TRUE)
+}
+
+# log level
+# check file presence
+.rstride$log_levels_exist <- function(design_of_experiment = exp_design){
+
+  valid_levels <- design_of_experiment$contact_log_level %in% c('None','Transmissions','All')
+  
+  if(any(!valid_levels)){
+    .rstride$cli_print('INVALID LOG LEVEL(S):', paste(design_of_experiment$contact_log_level[!valid_levels],collapse = ' '),WARNING=T)
+    return(FALSE)
+  }  
+  
+  # else => return TRUE
+  return(TRUE)
+  
+}
+
+# R0
+.rstride$valid_r0_values <- function(design_of_experiment = exp_design){
+  
+  if(any(!is.null(design_of_experiment$r0)))
+  {
+    
+    r0_max <- max(design_of_experiment$r0)
+    
+    for(disease_config_file in unique(design_of_experiment$disease_config_file)){
+      
+      # load disease config file
+      config_disease    <- xmlToList(file.path('data',disease_config_file))
+      
+      # get R0 limit    
+      fit_r0_limit <- as.numeric(config_disease$label$fit_r0_limit)
+      
+      # check
+      if(r0_max > fit_r0_limit){
+        .rstride$cli_print('INVALID R0 CONFIG VALUE(S):', paste(design_of_experiment$r0,collapse = ' '),paste0('(R0 LIMIT = ',fit_r0_limit,')') ,WARNING=T)
+        return(FALSE)
+      } 
+    } # end for-loop
+  }
+  
+  # else => return TRUE
+  return(TRUE)
+  
+}
+
+# immunity
+.rstride$valid_immunity_profiles <- function(design_of_experiment = exp_design){
+  
+  immunity_profiles <- unique(c(design_of_experiment$immunity_profile,design_of_experiment$vaccine_profile))
+  
+   # get immunity profile names
+  disease_immunity_profiles <- c('None','Random','AgeDependent','Cocoon')
+  
+  # check if given profile names are valid
+  if(!all(immunity_profiles %in% disease_immunity_profiles)){
+    .rstride$cli_print('INVALID IMMUNITY PROFILE(S):', paste(immunity_profiles,collapse = ' '),WARNING=T)
+    return(FALSE)
+  } # end if-compare
+  
+  # else => return TRUE
+  return(TRUE)
+  
+}
+
+
+
+
+###############################
+## DEVELOPMENT FUNCTIONS     ##
 ###############################
 
 # load last project_dir
