@@ -36,7 +36,7 @@ explore_outbreaks <- function(project_dir)
   pdf(file.path(project_dir,'transmission_exploration.pdf'),10,7)
   par(mfrow=c(3,3))
 
-   i_config <- 2
+  i_config <- 1
   for(i_config in 1:nrow(input_opt_design)){
 
     # load the transmission output subset, corresponding the 'input_opt_design' row
@@ -89,17 +89,17 @@ explore_outbreaks <- function(project_dir)
    
     # REPRODUCTION NUMBER
     # secundary cases per local_id
-    tbl_infections <- table(data_transm$local_id)
-    data_infectors <- data.frame(local_id  = as.numeric(names(tbl_infections)),
-                                 sec_cases = as.numeric(tbl_infections))
+    tbl_infections <- table(data_transm$infector_id)
+    data_infectors <- data.frame(infector_id  = as.numeric(names(tbl_infections)),
+                                 sec_cases    = as.numeric(tbl_infections))
 
     # day of infection: case
-    infection_time <- data.frame(local_id      = data_transm$new_infected_id,
-                                 infector_id   = data_transm$local_id,
+    infection_time <- data.frame(local_id      = data_transm$local_id,
+                                 infector_id   = data_transm$infector_id,
                                  infection_day = data_transm$sim_day)
 
     # day of infection: infector
-    infector_time  <- data.frame(infector_id            = data_transm$new_infected_id,
+    infector_time  <- data.frame(infector_id            = data_transm$local_id,
                                  infector_infection_day = data_transm$sim_day)
 
     # merge case and infector timings
@@ -111,7 +111,6 @@ explore_outbreaks <- function(project_dir)
       infection_time <- merge(infection_time,infector_time)
     }
     
-
     # merge secundary cases with time of infection
     sec_transm <- merge(infection_time,data_infectors,all=T)
     sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
@@ -150,13 +149,12 @@ explore_outbreaks <- function(project_dir)
     data_outbreak_all <- NULL
 
     while(is.null(data_outbreak_all) || nrow(data_outbreak_all) < nrow(data_transm)){
-      d_source <- data_outbreak[!is.na(data_outbreak$outbreak_id),]
-      d_sink   <- data_outbreak[is.na(data_outbreak$outbreak_id),-6]
+      d_source <- data_outbreak[!is.na(data_outbreak$outbreak_id),c('local_id','outbreak_id')]
+      d_sink   <- data_outbreak[is.na(data_outbreak$outbreak_id),names(data_outbreak) != 'outbreak_id']
       dim(d_source)
       dim(d_sink)
       
-      d_source           <- d_source[,c(2,6)]
-      names(d_source)[1] <- 'local_id'
+      names(d_source)[1] <- 'infector_id'
       data_outbreak      <- merge(d_sink,d_source,all.x = TRUE)
       dim(data_outbreak)
 
@@ -164,7 +162,7 @@ explore_outbreaks <- function(project_dir)
       
     }
 
-    names(data_outbreak_all)[1] <- 'new_infected_id'
+    names(data_outbreak_all)[1] <- 'local_id'
     names(data_transm)
     data_outbreak_all <- merge(data_outbreak_all,data_transm)
     dim(data_outbreak_all)
@@ -209,7 +207,21 @@ explore_outbreaks <- function(project_dir)
             ylim=range(c(0,tbl_all+1)))
     legend('topleft',paste0('num. outbreaks = ',max(data_outbreak_all$outbreak_id)),cex=0.8)
 
-  }
+    # cases by age
+    names(data_outbreak_all)
+    hist(data_outbreak_all$part_age,0:99,right = F,freq = F)  
+  
+    data_outbreak_tmp <- data_outbreak_all
+    data_outbreak_tmp$sim_day[is.na(data_outbreak_tmp$sim_day)] <- -10
+    
+    boxplot(part_age ~ outbreak_id, data=data_outbreak_tmp)  
+    boxplot(part_age ~ sim_day, data=data_outbreak_tmp,
+            at=sort(unique(data_outbreak_tmp$sim_day)))  
+    
+    data_case_age <- cut(data_outbreak_all$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
+    barplot(table(data_case_age),las=2)
+    
+  } # end for-loop to vary the input_opt_design
 
   # close PDF stream
   dev.off()

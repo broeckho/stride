@@ -257,7 +257,7 @@ if(!(exists('.rstride'))){
   # make person ids unique over all experiment, using a person id increment factor
   max_pop_size <- max(project_summary$population_size)
   id_factor    <- 10^ceiling(log10(max_pop_size))
-  col_names    <- c('local_id','new_infected_id')
+  col_names    <- c('local_id','infector_id')
   col_names    <- col_names[col_names %in% names(data_out)]
   data_out[,col_names] <- data_out[,col_names] + (data_out$exp_id*id_factor)
   

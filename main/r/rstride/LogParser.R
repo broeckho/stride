@@ -89,26 +89,25 @@ parse_contact_logfile <- function(contact_log_filename)
   #######################
   if(any(c("[PRIM]","[TRAN]") %in% data_log[,1]))
   {
-    header_transm       <- c('local_id', 'new_infected_id', 'cnt_location','sim_day')
+    header_transm       <- c('local_id', 'infector_id','part_age','infector_age','cnt_location','sim_day')
     data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
     names(data_transm)  <- header_transm
     data_transm[1,]
     
     # make sure, all values are stored as integers
     if(any(apply(data_transm, 2, typeof) != 'integer')){
-      data_transm[,-3] <- data.frame(apply(data_transm[,-3], 2, as.integer))
+      location_col <- names(data_transm) == 'cnt_location'
+      data_transm[,!location_col] <- data.frame(apply(data_transm[,!location_col], 2, as.integer))
     }
     
     # set local_id and cnt_location from the seed infected cases to NA (instead as -1)
-    data_transm$local_id[data_transm$local_id == -1]         <- NA
-    data_transm$cnt_location[data_transm$cnt_location == -1] <- NA
-    data_transm$sim_day[data_transm$sim_day == -1]           <- NA
+    data_transm[data_transm == -1]   <- NA
     data_transm$cnt_location[data_transm$cnt_location == '<NA>'] <- NA
     
     # save
     save(data_transm,file=file.path(exp_dir,'data_transmission.RData'))
-  
   }
+  
   ######################
   ## CONTACT DATA     ##
   ###################### 
@@ -131,11 +130,7 @@ parse_contact_logfile <- function(contact_log_filename)
   ######################
   ## STORE DATA       ##
   ######################
-  
-  
-  
-  
-  
+
   # terminal message
   cat("LOG PARSING COMPLETE",fill=TRUE)
   
