@@ -20,8 +20,8 @@
 #
 #############################################################################
 
-#.rstride$set_wd()  #DEVELOPMENT: to set the last install dir as work directory 
-#.rstride$load_pd() #DEVELOPMENT: to retrieve the last project_dir
+#.rstride$set_wd()  #DEVELOPMENT: to set the work directory as the latest stride install dir 
+#.rstride$load_pd() #DEVELOPMENT: to retrieve the latest project_dir
 
 # load R packages
 library(XML,quietly = TRUE)
@@ -182,6 +182,89 @@ if(!(exists('.rstride'))){
   return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == as.numeric(t(f_vector))) == length(f_vector)))
 }
 
+
+########################################
+## AGGREGATE EXPERIMENT OUTPUT FILES  ##
+########################################
+
+.rstride$aggregate_exp_output <- function(project_dir){
+  
+  # load project summary
+  project_summary      <- .rstride$load_project_summary(project_dir)
+  
+  # id increment factor
+  max_pop_size <- max(project_summary$population_size)
+  id_factor <- 10^ceiling(log10(max_pop_size))
+  
+  data_type <- 'data_transmission.RData'
+  for(data_type in c('data_transmission.RData',
+                     'data_participants.RData',
+                     'data_contacts.RData',
+                     'data_prevalence.RData'))
+  {
+    # check if output exists for the specified data_type
+    if(file.exists(file.path(project_summary$output_prefix[1],data_type))){
+      # load all project experiments
+      i_exp <- 1
+      data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
+      {
+       
+        # get file name
+        exp_file_name <- file.path(project_summary$output_prefix[i_exp],data_type)
+        
+        # load output data
+        param_name <- load(exp_file_name)
+        
+        # remove original file
+        unlink(exp_file_name)
+        
+        # add run index
+        data_exp <- get(param_name)
+        data_exp$exp_id <- project_summary$exp_id[i_exp]
+        
+        # return experiment data
+        data_exp
+      }
+      
+      # save
+      run_tag <- unique(project_summary$run_tag)
+      save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
+      
+    }
+  }
+}
+
+.rstride$load_aggregated_output <- function(project_dir,file_type,exp_id_opt = NA){
+  
+  # load project summary
+  project_summary <- .rstride$load_project_summary(project_dir)
+  
+  # get ouput filenames
+  dir_files       <- dir(project_dir,full.names = TRUE)
+  output_filename <- dir_files[grepl(file_type,dir_files)]
+  
+  # load output
+  param_name          <- load(output_filename)
+  
+  # rename parameter
+  data_out <- get(param_name)
+  
+  # selection?
+  if(!any(is.na(exp_id_opt))){
+    data_out <- data_out[data_out$exp_id %in% exp_id_opt,]
+  }
+  
+  # make person ids unique over all experiment, using a person id increment factor
+  max_pop_size <- max(project_summary$population_size)
+  id_factor    <- 10^ceiling(log10(max_pop_size))
+  col_names    <- c('local_id','new_infected_id')
+  col_names    <- col_names[col_names %in% names(data_out)]
+  data_out[,col_names] <- data_out[,col_names] + (data_out$exp_id*id_factor)
+  
+  # return
+  return(data_out)
+  
+}
 
 
 ###############################

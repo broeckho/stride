@@ -43,10 +43,9 @@ plot_contacts <- function(exp_summary,data_dir)
   ######################
   
   # load data
-  load(file.path(exp_summary$output_prefix,'data_contacts.RData'))
-  load(file.path(exp_summary$output_prefix,'data_participants.RData'))
+  data_cnt      <- .rstride$load_aggregated_output(project_dir,'data_contacts',exp_summary$exp_id)
+  data_part     <- .rstride$load_aggregated_output(project_dir,'data_participants',exp_summary$exp_id)
   
-
   if(dim(data_cnt)[1]>0 && dim(data_part)[1]>0)
   {
     

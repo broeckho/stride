@@ -27,8 +27,8 @@
 "DEVELOPMENT CODE"
 if(0==1){
   #f_exp_dir <- file.path(output_dir,output_exp_dirs[i_exp])
-  f_exp_dir <- './sim_output/20180730_113633/exp0001'
-  contact_log_filename <- file.path(project_summary$output_prefix[i_exp],'contact_log.txt')
+  f_exp_dir <- './sim_output/20180822_174153_imm/exp0004'
+  contact_log_filename <- file.path(f_exp_dir,'contact_log.txt')
   
   
 }
@@ -46,6 +46,9 @@ parse_contact_logfile <- function(contact_log_filename)
   # By default, the first record determines the number of columns, so info might get lost
   data_log  <- read.table(contact_log_filename, sep=' ',fill=T,col.names = paste0("V", seq_len(data_ncol)),stringsAsFactors = F)
  
+  # experiment output directory
+  exp_dir <- dirname(contact_log_filename)
+  
   # Parse log file using the following tags tags: 
   # - PART    participant info
   # - PRIM    seed infection
@@ -55,59 +58,83 @@ parse_contact_logfile <- function(contact_log_filename)
   # note:
   # - drop the first column with the log tag
   
-  
   ######################
   ## PARTICIPANT DATA ##
   ######################
-  header_part         <- c('local_id', 'part_age', 'part_gender', 'school_id', 'workplace_id',
-                           'is_susceptible','is_infected','is_infectious','is_recovered','is_immune',
-                           'start_infectiousness','start_symptomatic','end_infectiousness','end_symptomatic')
-  data_part           <- data_log[data_log[,1] == "[PART]",seq_len(length(header_part))+1]
-  names(data_part)    <- header_part
-  data_part[1,]
+  if(any(data_log[,1] == "[PART]"))
+  {
+    header_part         <- c('local_id', 'part_age', 'part_gender', 'school_id', 'workplace_id',
+                             'is_susceptible','is_infected','is_infectious','is_recovered','is_immune',
+                             'start_infectiousness','start_symptomatic','end_infectiousness','end_symptomatic')
+    data_part           <- data_log[data_log[,1] == "[PART]",seq_len(length(header_part))+1]
+    names(data_part)    <- header_part
+    data_part[1,]
+    
+    # set 'true' and 'false' in the R-format
+    data_part[data_part=="true"] <- TRUE
+    data_part[data_part=="false"] <- FALSE
+    
+    # make sure, all values (exept the gender and booleans) are stored as integers
+    data_part[,-c(3,6:10)] <- data.frame(apply(data_part[,-c(3,6:10)], 2, as.integer))
+    apply(data_part, 2, typeof)
+    
+    # save
+    save(data_part,file=file.path(exp_dir,'data_participants.RData'))
+  }
   
-  # set 'true' and 'false' in the R-format
-  data_part[data_part=="true"] <- TRUE
-  data_part[data_part=="false"] <- FALSE
-  
-  # make sure, all values (exept the gender and booleans) are stored as integers
-  data_part[,-c(3,6:10)] <- data.frame(apply(data_part[,-c(3,6:10)], 2, as.integer))
-  apply(data_part, 2, typeof)
   
   
   #######################
   ## TRANSMISSION DATA ##
   #######################
-  header_transm       <- c('local_id', 'new_infected_id', 'cnt_location','sim_day')
-  data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
-  names(data_transm)  <- header_transm
-  data_transm[1,]
+  if(any(c("[PRIM]","[TRAN]") %in% data_log[,1]))
+  {
+    header_transm       <- c('local_id', 'new_infected_id', 'cnt_location','sim_day')
+    data_transm         <- data_log[data_log[,1] == "[PRIM]" | data_log[,1] == "[TRAN]",seq_len(length(header_transm))+1]
+    names(data_transm)  <- header_transm
+    data_transm[1,]
+    
+    # make sure, all values are stored as integers
+    if(any(apply(data_transm, 2, typeof) != 'integer')){
+      data_transm[,-3] <- data.frame(apply(data_transm[,-3], 2, as.integer))
+    }
+    
+    # set local_id and cnt_location from the seed infected cases to NA (instead as -1)
+    data_transm$local_id[data_transm$local_id == -1]         <- NA
+    data_transm$cnt_location[data_transm$cnt_location == -1] <- NA
+    data_transm$sim_day[data_transm$sim_day == -1]           <- NA
+    data_transm$cnt_location[data_transm$cnt_location == '<NA>'] <- NA
+    
+    # save
+    save(data_transm,file=file.path(exp_dir,'data_transmission.RData'))
   
-  # make sure, all values are stored as integers
-  data_transm[,-3] <- data.frame(apply(data_transm[,-3], 2, as.integer))
-  apply(data_transm, 2, typeof)
-  
-  
+  }
   ######################
   ## CONTACT DATA     ##
   ###################### 
-  header_cnt          <- c('local_id', 'part_age', 'cnt_age', 'cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm', 'sim_day')
-  data_cnt            <- data_log[data_log[,1] == "[CONT]",seq_len(length(header_cnt))+1]
-  names(data_cnt)     <- header_cnt
-  data_cnt[1,]
-  
-  # make sure, all values are stored as integers
-  data_cnt <- data.frame(apply(data_cnt,  2, as.integer))
-  dim(data_cnt)
-  
+  if(any(data_log[,1] == "[CONT]"))
+  {
+    header_cnt          <- c('local_id', 'part_age', 'cnt_age', 'cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm', 'sim_day')
+    data_cnt            <- data_log[data_log[,1] == "[CONT]",seq_len(length(header_cnt))+1]
+    names(data_cnt)     <- header_cnt
+    data_cnt[1,]
+    
+    # make sure, all values are stored as integers
+    data_cnt <- data.frame(apply(data_cnt,  2, as.integer))
+    dim(data_cnt)
+    
+    # save
+    save(data_cnt,file=file.path(exp_dir,'data_contacts.RData'))
+    
+  }
 
   ######################
   ## STORE DATA       ##
   ######################
-  exp_dir <- dirname(contact_log_filename)
-  save(data_part,file=file.path(exp_dir,'data_participants.RData'))
-  save(data_transm,file=file.path(exp_dir,'data_transmission.RData'))
-  save(data_cnt,file=file.path(exp_dir,'data_contacts.RData'))
+  
+  
+  
+  
   
   # terminal message
   cat("LOG PARSING COMPLETE",fill=TRUE)

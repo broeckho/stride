@@ -78,11 +78,11 @@ explore_summary <- function(project_dir)
 .rstride$get_variable_model_param <- function(project_summary){
   
   col_output <- c('run_time', 'total_time', 'num_cases', 'AR' )
-  col_extra  <- c('rng_seed','output_prefix','transmission_rate') 
+  col_extra  <- c('rng_seed','output_prefix','transmission_rate','exp_id') 
   col_input  <- !(names(project_summary) %in% c(col_output,col_extra))
   
-  input_opt     <- lapply(project_summary[,col_input],unique)
-  input_opt     <- input_opt[lapply(input_opt,length)>1]
+  input_opt    <- lapply(project_summary[,col_input],unique)
+  input_opt    <- input_opt[lapply(input_opt,length)>1]
   
   # get parameter combinations
   input_opt_design <- unique(project_summary[,names(input_opt)])
@@ -91,7 +91,12 @@ explore_summary <- function(project_dir)
   if(length(input_opt)==1){
     input_opt_design <- as.matrix(data.frame(input_opt))
   }
-
+  
+  # with identical parameters, use the r0
+  if(length(input_opt)==0){
+    input_opt_design <- as.matrix(data.frame(r0=unique(project_summary$r0)))
+  }
+  
   return(input_opt_design)
 
 }

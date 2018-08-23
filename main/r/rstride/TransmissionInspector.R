@@ -33,73 +33,60 @@ explore_outbreaks <- function(project_dir)
   input_opt_design     <- .rstride$get_variable_model_param(project_summary)
   
   # open PDF stream
-   pdf(file.path(project_dir,'health_exploration.pdf'),10,7)
-   par(mfrow=c(3,3))
+  pdf(file.path(project_dir,'transmission_exploration.pdf'),10,7)
+  par(mfrow=c(3,3))
 
-  for(i_config in 1:nrow(input_opt_design))
-  {
-    flag_exp <- .rstride$get_equal_rows(project_summary,input_opt_design[i_config,])
-    project_summary_exp <- project_summary[flag_exp,]
+   i_config <- 2
+  for(i_config in 1:nrow(input_opt_design)){
 
-    max_pop_size <- max(project_summary$population_size)
-    id_factor <- 10^ceiling(log10(max_pop_size))
-
-    # explore all project experiments
-    i_exp <- 1
-    data_transm <- foreach(i_exp = 1:nrow(project_summary_exp),.combine='rbind') %do%
-    {
-      # load transmission data
-      load(file.path(project_summary_exp$output_prefix[i_exp],'data_transmission.RData'))
-
-      # add run index
-      data_transm$run_index <- i_exp
-
-      # set local_id of initial seeding as NA
-      data_transm$local_id[data_transm$local_id==-1] <- NA
-
-      # adjust ids
-      data_transm$local_id        <- data_transm$local_id + (i_exp*id_factor)
-      data_transm$new_infected_id <- data_transm$new_infected_id + (i_exp*id_factor)
-
-      data_transm
-    }
-
+    # load the transmission output subset, corresponding the 'input_opt_design' row
+    flag_exp            <- .rstride$get_equal_rows(project_summary,input_opt_design[i_config,])
+    data_transm         <- .rstride$load_aggregated_output(project_dir,'data_transmission',project_summary$exp_id[flag_exp])
+    num_runs_exp        <- sum(flag_exp)
+    dim(data_transm)
+    
     # INCIDENCE
-    tbl_transm <- table(data_transm$sim_day,data_transm$run_index)
-    tbl_transm_matrix <- matrix(c(tbl_transm),nrow=nrow(tbl_transm))
-    boxplot(t(tbl_transm_matrix),at=as.numeric(rownames(tbl_transm)),
-            xlab='time (days)',ylab='new cases',
+    tbl_transm <- table(data_transm$sim_day,data_transm$exp_id)
+    tbl_transm_matrix <- matrix(c(tbl_transm),nrow=nrow(tbl_transm),dimnames=list(rownames(tbl_transm)))
+    if(nrow(tbl_transm_matrix)==0) tbl_transm_matrix <- matrix(0,nrow=1,ncol=1,dimnames=list(0))
+    boxplot(t(tbl_transm_matrix),at=as.numeric(rownames(tbl_transm_matrix)),
+            xlab='time (days)',ylab='new cases per run',
             main='new cases (total)')
     
-    # add some key param to the legend
-    if(nrow(input_opt_design)>0){
-      legend('topleft',paste(colnames(input_opt_design),input_opt_design[i_config,]))
+    legend_info <- paste('num. runs',num_runs_exp)
+    if(nrow(input_opt_design)>0){ # add some param info to the legend
+      legend_info <- c(legend_info,paste(colnames(input_opt_design),input_opt_design[i_config,]))
     }
+    legend('topleft',legend_info,cex=0.8)
     
     # LOCATION
-    data_transm$cnt_location[data_transm$cnt_location == 'primary_community'] <- 'prim comm'
-    data_transm$cnt_location[data_transm$cnt_location == 'secondary_community'] <- 'sec comm'
+    data_transm$cnt_location[data_transm$cnt_location == 'household'] <- 'HH'
+    data_transm$cnt_location[data_transm$cnt_location == 'primary_community'] <- 'com wknd'
+    data_transm$cnt_location[data_transm$cnt_location == 'secondary_community'] <- 'com week'
     
     # rename the cnt location for the "seed infected"
-    data_transm$cnt_location [data_transm$cnt_location == -1] <- NA
-
     num_transm_events <- nrow(data_transm)
-    barplot(table(data_transm$cnt_location)/num_transm_events,las=2,
+    tbl_location <- table(data_transm$cnt_location)
+    if(nrow(tbl_location)==0) tbl_location <- matrix(0,nrow=1,ncol=1,dimnames=list(0))
+    barplot(tbl_location/num_transm_events,las=2,
             main='tranmission context',ylab='relative incidence')
 
-    tbl_loc_transm <- table(data_transm$sim_day,data_transm$cnt_location)
+    tbl_loc_transm  <- table(data_transm$sim_day,data_transm$cnt_location)
+    if(nrow(tbl_loc_transm)==0) tbl_loc_transm <- matrix(0,nrow=1,ncol=1,dimnames=list(0))
     tbl_loc_transm[tbl_loc_transm==0] <- NA
 
     incidence_days      <- as.numeric(row.names(tbl_loc_transm))
     incidence_day_total <- rowSums(tbl_loc_transm,na.rm = T)
     
-    plot(range(incidence_days),0:1,col=0,xlab='day',ylab='relative daily incidence',
+    plot(range(incidence_days),c(0,1.4),col=0,xlab='day',ylab='relative daily incidence',
          main='transmission context over time')
     for(i_loc in 1:ncol(tbl_loc_transm)){
       points(incidence_days, tbl_loc_transm[,i_loc]/incidence_day_total,col=i_loc,lwd=4,pch=19)
     }
-    legend('topleft',c(colnames(tbl_loc_transm)),col=1:ncol(tbl_loc_transm),lwd=4,cex=0.8)
-
+    if(!any(is.null(colnames(tbl_loc_transm)))) {
+      legend('topleft',c(colnames(tbl_loc_transm)),col=1:ncol(tbl_loc_transm),pch=19,cex=0.8,ncol=5)
+    }
+   
     # REPRODUCTION NUMBER
     # secundary cases per local_id
     tbl_infections <- table(data_transm$local_id)
@@ -116,7 +103,14 @@ explore_outbreaks <- function(project_dir)
                                  infector_infection_day = data_transm$sim_day)
 
     # merge case and infector timings
-    infection_time <- merge(infection_time,infector_time)
+    if(nrow(data_infectors)==0){
+      infection_time$sec_cases <- 0
+      infection_time$infection_day <- -1
+      infection_time$infector_infection_day <- -1
+    } else{
+      infection_time <- merge(infection_time,infector_time)
+    }
+    
 
     # merge secundary cases with time of infection
     sec_transm <- merge(infection_time,data_infectors,all=T)
@@ -129,22 +123,29 @@ explore_outbreaks <- function(project_dir)
             xlab='day',ylab='secundary infections',
             main='reproduction number')
 
-    ## SERIAL INTERVAL
-    sec_transm$serial_interval <- sec_transm$infection_day - sec_transm$infector_infection_day
+    ## GENERATION INTERVAL
+    # note: the generation interval is the time between the infection time of an infected person and the infection time of his or her infector.
+    # reference: Kenah et al (2007)
+    # remove the generation intervals counted form the initial infected seed infections
+    #sec_transm$infector_infection_day[sec_transm$infector_infection_day == -1] <- NA
+    sec_transm$generation_interval <- sec_transm$infection_day - sec_transm$infector_infection_day
 
-    boxplot(serial_interval ~ infection_day, data = sec_transm,outline = F,
-            at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
-            xlab='day',ylab='serial interval [infection]',
-            main='serial interval\n[infection]')
+    gen_interval <- sec_transm[!is.na(sec_transm$generation_interval),]
+    gen_interval[gen_interval$infection_day==18,]
+    if(nrow(gen_interval)==0) gen_interval <- data.frame(matrix(rep(0,6),nrow=1)); names(gen_interval) <- names(sec_transm)
+    boxplot(generation_interval ~ infection_day, data = gen_interval,outline = F,
+            at=sort(unique(gen_interval$infection_day)),xlim=plot_xlim,
+            xlab='day',ylab='generation interval [infection]',
+            main='generation interval\n[infection]')
     
-    boxplot(sec_transm$serial_interval, outline = F,
-            ylab='serial interval [infection]',
-            main='serial interval\n[infection]')
+    boxplot(gen_interval$generation_interval, outline = T,
+            ylab='generation interval [infection]',
+            main='generation interval\n[infection]')
 
   ## OUTBREAKS
-    data_outbreak <- data_transm
+    data_outbreak             <- data_transm
     data_outbreak$outbreak_id <- NA
-    flag <- data_outbreak$sim_day == -1
+    flag <- is.na(data_outbreak$sim_day)
     data_outbreak$outbreak_id[flag] <- seq(sum(flag))
     data_outbreak_all <- NULL
 
@@ -153,13 +154,14 @@ explore_outbreaks <- function(project_dir)
       d_sink   <- data_outbreak[is.na(data_outbreak$outbreak_id),-6]
       dim(d_source)
       dim(d_sink)
-      d_source <- d_source[,c(2,6)]
+      
+      d_source           <- d_source[,c(2,6)]
       names(d_source)[1] <- 'local_id'
-      data_outbreak <- merge(d_sink,d_source,all.x = TRUE)
+      data_outbreak      <- merge(d_sink,d_source,all.x = TRUE)
       dim(data_outbreak)
 
-      sum(is.na(data_outbreak$outbreak_id))
       data_outbreak_all <- rbind(data_outbreak_all,d_source)
+      
     }
 
     names(data_outbreak_all)[1] <- 'new_infected_id'
@@ -167,32 +169,45 @@ explore_outbreaks <- function(project_dir)
     data_outbreak_all <- merge(data_outbreak_all,data_transm)
     dim(data_outbreak_all)
 
-    boxplot(as.numeric(table(data_outbreak_all$outbreak_id)),
-            ylab='outbreak size',
-            main='outbreak size')
+    outbreak_size_data <- as.numeric(table(data_outbreak_all$outbreak_id))
+    outbreak_size_cat <- cut(outbreak_size_data,breaks=c(1,2,5,10,50,max(c(100,outbreak_size_data))),right = F)
+    barplot(table(outbreak_size_cat)/length(outbreak_size_cat),
+            ylab='fraction',
+            xlab='outbreak size',
+            main='outbreak size',
+            las=2)
+   
+    # add some info in the legend
+    num_infected_seeds <- sum(is.na(data_outbreak_all$local_id)) / max(data_outbreak_all$exp_id)
+    legend('topright',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
 
     # count / day
     tbl_all <- table(data_outbreak_all$sim_day,data_outbreak_all$outbreak_id) # table
-
-    tbl_all_inv <- tbl_all[nrow(tbl_all):1,] # take the inverse for the cummulative sum
-    tbl_all_cum <- apply(tbl_all_inv,2,cumsum)
-
+    if(nrow(tbl_all)==0) {
+      tbl_all     <- matrix(0,nrow=1,dimnames=list(0))
+      tbl_all_cum <- matrix(0,nrow=1,dimnames=list(0))
+    } else{
+      tbl_all_inv <- tbl_all[nrow(tbl_all):1,] # take the inverse for the cummulative sum
+      tbl_all_cum <- apply(tbl_all_inv,2,cumsum)
+    }
+   
     outbreaks_over_time <- data.frame(day = as.numeric(rownames(tbl_all_cum)),
                                       count = rowSums(tbl_all_cum > 0))
 
     # plot the number of ongoing outbreaks over time
     plot(outbreaks_over_time$day,outbreaks_over_time$count,
-         xlab='time (days)',ylab='count (oubtreaks)',
+         ylim=range(c(0,outbreaks_over_time$count)),
+         xlab='time of last infection (days)',ylab='count (oubtreaks)',
          main='number ongoing outbreaks over time')
 
     # plot new cases per outbreak over time
     tbl_all_matrix <- matrix(c(tbl_all),nrow=nrow(tbl_all))
     boxplot(t(tbl_all_matrix),at=as.numeric(rownames(tbl_all)),
             ylab='new cases/outbreak',
-            main='new cases/outbreak',
+            main='new cases / outbreak',
             xlab='day',
             ylim=range(c(0,tbl_all+1)))
-    legend('topleft',paste0('count = ',ncol(tbl_all)))
+    legend('topleft',paste0('num. outbreaks = ',max(data_outbreak_all$outbreak_id)),cex=0.8)
 
   }
 
@@ -220,57 +235,43 @@ callibrate_r0 <- function(project_dir)
   # terminal message
   .rstride$cli_print('START TO CALLIBRATE R0')
   
-  ###############################
-  ## PARALLEL SETUP            ##
-  ###############################
-  .rstride$start_slaves()
-  
   ##################################
   ## REPRODUCTION NUMBER          ##
   ##################################
 
   project_summary <- .rstride$load_project_summary(project_dir)
   
-  i_exp <- 1
-  # get all results (in parallel)
-  sec_transm_all <- foreach(i_exp=1:nrow(project_summary),.combine='rbind',.verbose=FALSE) %dopar%
-  {
-    
-    # load transmission data
-    load(file.path(project_summary$output_prefix[i_exp],'data_transmission.RData'))
-    
-    # count secundary infections
-    tbl_infections <- table(data_transm$local_id,exclude = -1)
-    sec_transm <- data.frame(local_id = as.numeric(names(tbl_infections)),
-                             sec_cases = as.numeric(tbl_infections))
-    
-    # add infection time
-    infection_time <- data.frame(local_id = data_transm$new_infected_id,
-                                 infection_day = data_transm$sim_day)
-    
-    sec_transm <- merge(infection_time,sec_transm,all=T)
-    sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
-    
-    sec_transm$r0 <- project_summary$r0[i_exp]
-    sec_transm$transmission_rate <- project_summary$transmission_rate[i_exp]
-    
-    return(sec_transm)
-  }
+  # load the transmission output
+  data_transm     <- .rstride$load_aggregated_output(project_dir,'data_transmission',project_summary$exp_id)
+
+  # count secundary infections
+  tbl_infections  <- table(data_transm$local_id)
+  sec_transm      <- data.frame(local_id = as.numeric(names(tbl_infections)),
+                               sec_cases = as.numeric(tbl_infections))
   
-  dim(sec_transm_all)
+  # add infection time
+  infection_time <- data.frame(local_id      = data_transm$new_infected_id,
+                               infection_day = data_transm$sim_day,
+                               exp_id        = data_transm$exp_id)
   
+  sec_transm <- merge(infection_time,sec_transm,all=T)
+  sec_transm$sec_cases[is.na(sec_transm$sec_cases)] <- 0
+  
+  # add R0 and transmission rate from the project_summary
+  sec_transm <- merge(sec_transm,project_summary[,c('exp_id','r0','transmission_rate')])
+    
   # select index cases
-  flag <- sec_transm_all$infection_day == -1
-  sec_transm_all <- sec_transm_all[flag,]
-  dim(sec_transm_all)
+  flag       <- is.na(sec_transm$infection_day)
+  sec_transm <- sec_transm[flag,]
+  dim(sec_transm)
   
-  # plot(sec_transm_all$r0,sec_transm_all$sec_cases)
-  # boxplot(sec_cases ~ r0, data = sec_transm_all)
-  # boxplot(sec_cases ~ transmission_rate, data = sec_transm_all)
+  # plot(sec_transm$r0,sec_transm$sec_cases)
+  # boxplot(sec_cases ~ r0, data = sec_transm)
+  # boxplot(sec_cases ~ transmission_rate, data = sec_transm)
   # boxplot(r0 ~ transmission_rate, data = project_summary,add =T ,col=2,border=2)
   
   # FIT SECOND ORDER POLYNOMIAL
-  temp <- data.frame(x=sec_transm_all$transmission_rate, y=sec_transm_all$sec_cases)
+  temp <- data.frame(x=sec_transm$transmission_rate, y=sec_transm$sec_cases)
   mod <- summary(lm(y ~ 0 + x + I(x^2), data= temp))
   mod
   
@@ -296,19 +297,19 @@ callibrate_r0 <- function(project_dir)
   # open pdf stream
   pdf(file.path(project_dir,'fit_r0.pdf'))
   
-  boxplot(round(sec_transm_all$sec_cases,digits=3) ~ round(sec_transm_all$transmission_rate,digits=2), 
+  boxplot(round(sec_transm$sec_cases,digits=3) ~ round(sec_transm$transmission_rate,digits=2), 
           xlab='transmission probability',ylab='secundary cases',
-          at=sort(round(unique(sec_transm_all$transmission_rate),digits=3)),
-          xlim=range(sec_transm_all$transmission_rate),
+          at=sort(round(unique(sec_transm$transmission_rate),digits=3)),
+          xlim=range(sec_transm$transmission_rate),
           boxwex=0.005)
   
   lines(poly_input,R0_poly_fit,type='l',col=3,lwd=4)
   leg_text_bis <- paste0(c(paste0('b',0:2,': '),'R^2: ','R0 lim: '),round(c(fit_b0,fit_b1,fit_b2,mod$r.squared,R0_limit),digits=2))
   legend('topleft',legend=leg_text_bis,cex=0.8,title='b0+b1*x+b2*x^2',fill=3)
   
-  boxplot(sec_transm_all$sec_cases ~ sec_transm_all$r0,
+  boxplot(sec_transm$sec_cases ~ sec_transm$r0,
           xlab='R0',ylab='secundary cases',
-          at=sort(unique(sec_transm_all$r0)),
+          at=sort(unique(sec_transm$r0)),
           boxwex=0.5)
   abline(0,1,col=2,lwd=2)
   legend('topleft',legend='x=y',cex=0.8,title='reference',col=2,lwd=2)
@@ -396,7 +397,7 @@ callibrate_r0 <- function(project_dir)
   # add/update meta data
   num_infected_seeds          <- unique(project_summary$seeding_rate * project_summary$population_size)
   par_exp_design              <- .rstride$get_variable_model_param(project_summary) # changing parameters in the exp design
-  total_num_index_cases       <- nrow(sec_transm_all)
+  total_num_index_cases       <- nrow(sec_transm)
   num_rng_seeds               <- length(unique(project_summary$rng_seed))
   dim_exp_design              <- nrow(expand.grid(par_exp_design))
   num_realisations            <- unique(table(project_summary[,colnames(par_exp_design)]))

@@ -72,10 +72,10 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 explore_summary(project_dir)
 
 
-##################################
-## EXPLORE HEALTH               ##
-##################################
-explore_disease_history(project_dir)
+#####################################
+## EXPLORE SURVEY PARTICIPANT DATA ##
+#####################################
+explore_participant_data(project_dir)
 
 
 ##################################

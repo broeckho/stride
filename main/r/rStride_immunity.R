@@ -41,16 +41,16 @@ dir_postfix <- '_imm'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 4
+num_seeds  <- 2
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                         = seq(12,14,2),
-                          num_days                   = c(30,40),
+exp_design <- expand.grid(r0                         = seq(12,12,2),
+                          num_days                   = c(90),
                           rng_seed                   = seq(num_seeds),
                           num_participants_survey    = 3000,
                           track_index_case           = 'false',
                           contact_log_level          = 'Transmissions',
-                          seeding_rate               = 0.00002,
+                          seeding_rate               = 0.00004,#0.000002,
                           disease_config_file        = 'disease_measles.xml',
                           population_file            = 'pop_flanders600.csv',
                           age_contact_matrix_file    = 'contact_matrix_flanders_subpop.xml',
@@ -70,15 +70,18 @@ exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 #################################################
 project_dir <- run_rStride(exp_design,dir_postfix)
 
+
 #################################################
 ## EXPLORE SUMMARY                             ##
 #################################################
 explore_summary(project_dir)
 
+
 #################################################
-## EXPLORE HEALTH STATES                       ##
+## EXPLORE SURVEY PARTICIPANT DATA             ##
 #################################################
-explore_disease_history(project_dir)
+explore_participant_data(project_dir)
+
 
 #################################################
 ## EXPLORE TRANSMISSION & OUTBREAKS            ##

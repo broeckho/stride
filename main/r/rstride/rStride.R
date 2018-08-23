@@ -28,11 +28,10 @@ source('./bin/rstride/misc.R')
 
 # load specific functions
 source('./bin/rstride/ContactInspector.R')
-source('./bin/rstride/HealthInspector.R')
 source('./bin/rstride/LogParser.R')
-source('./bin/rstride/TransmissionInspector.R')
 source('./bin/rstride/SummaryInspector.R')
-
+source('./bin/rstride/SurveyParticipantInspector.R')
+source('./bin/rstride/TransmissionInspector.R')
 
 # Function to run rStride for a given design of experiment
 run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ignore_stride_stdout = TRUE)
@@ -98,6 +97,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   config_default$immunity_profile <- 'None'
   config_default$immunity_rate    <- 0
   config_default$output_summary   <- 'true'
+  config_default$run_tag          <- run_tag
   
   ##################################
   ## RUN                          ##
@@ -108,6 +108,9 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   
   # store local copy of slave1 pid
   pid_slave1 <- par_nodes_info$pid_slave1
+  
+  # add an "experiment id" to the design of experiment matrix
+  design_of_experiment$exp_id <- 1:nrow(design_of_experiment) 
   
   # run all experiments (in parallel)
   par_out <- foreach(i_exp=1:nrow(design_of_experiment),
@@ -153,8 +156,18 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
       parse_contact_logfile(contact_log_filename)
     }
     
+    # convert 'cases' file (if present) => "prevalence"
+    cases_filename <- file.path(config_exp$output_prefix,'cases.csv')
+    if(file.exists(cases_filename)){
+      data_cases        <- read.table(cases_filename,sep=',')
+      names(data_cases) <- paste0('day',seq(length(data_cases))-1)
+      data_cases$exp_id <- config_exp$exp_id
+      save(data_cases,file=file.path(config_exp$output_prefix,'data_prevalence.RData'))
+    }
+    
     # clean output folder: remove configuration, contact_log, summary and stride_log
     unlink(summary_filename,recursive = T)
+    unlink(cases_filename,recursive = T)
     unlink(config_exp_filename,recursive = T)
     unlink(contact_log_filename,recursive = T)
     unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
@@ -165,6 +178,14 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   
   # save overal summary
   write.table(par_out,file=file.path(run_dir,paste0(run_tag,'_summary.csv')),sep=',',row.names=F)
+  
+  ###############################
+  ## AGGREGATE OUTPUT          ##
+  ###############################
+  .rstride$aggregate_exp_output(run_dir)
+  
+  # remove project output
+  unlink(par_out$output_prefix,recursive = T)
   
   
   ###############################
