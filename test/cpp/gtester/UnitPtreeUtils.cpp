@@ -23,8 +23,6 @@
 #include "util/RunConfigManager.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <boost/range/algorithm.hpp>
-#include <boost/range/irange.hpp>
 #include <array>
 #include <deque>
 #include <forward_list>
@@ -40,7 +38,7 @@ using namespace boost::property_tree;
 namespace stride {
 namespace tests {
 
-class UnitPtreeUtils1 : public ::testing::Test
+class UnitPtreeUtils : public ::testing::Test
 {
 public:
 };
@@ -48,9 +46,11 @@ public:
 TEST(UnitPtreeUtils1, toArray)
 {
         auto pt = RunConfigManager::FromString(UnitPtreeUtilsHelper::GetXml1());
-        auto l  = ToArray<int, 5>(pt.get_child("run"));
+        auto a  = ToArray<int, 5>(pt.get_child("run"));
 
-        EXPECT_EQ(true, boost::range::equal(boost::irange(0, 5), l));
+        array<int, 5> comp{0, 1, 2, 3, 4};
+
+        EXPECT_EQ(true, comp == a);
 }
 
 TEST(UnitPtreeUtils1, Merge)
@@ -58,9 +58,11 @@ TEST(UnitPtreeUtils1, Merge)
         auto pt1 = RunConfigManager::FromString(UnitPtreeUtilsHelper::GetXml1());
         auto pt2 = RunConfigManager::FromString(UnitPtreeUtilsHelper::GetXml2());
         auto pt  = Merge(pt1.get_child("run"), pt2.get_child("run"));
-        auto c   = ToSequence<list<int>>(pt);
+        auto l   = ToSequence<list<int>>(pt);
 
-        EXPECT_EQ(true, boost::range::equal(boost::irange(0, 9), c));
+        list<int> comp{0, 1, 2, 3, 4, 5, 6, 7, 8};
+
+        EXPECT_EQ(true, comp == l);
 }
 
 } // namespace tests

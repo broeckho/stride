@@ -16,35 +16,18 @@
 
 /**
  * @file
- * Header file for the HealthSeeder.
+ * Interface of RnMan.
  */
 
-#include "behaviour/belief_policies/Imitation.h"
-#include "behaviour/belief_policies/NoBelief.h"
-#include "util/RnMan.h"
-
-#include <boost/property_tree/ptree.hpp>
-#include <functional>
-#include <memory>
+#include "Rn.h"
 
 namespace stride {
+namespace util {
 
-class Population;
+using RnPcg64 = Rn<pcg64>;
+using RnLcg64 = Rn<trng::lcg64>;
 
-/**
- * Seeds the population with Health data.
- */
-class BeliefSeeder
-{
-public:
-        /// Constructor requires diease data and random number manager.
-        BeliefSeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+using RnMan = RnPcg64;
 
-        /// Seeds the population with Health data.
-        void Seed(std::shared_ptr<Population> pop);
-
-private:
-        boost::property_tree::ptree m_config_pt;
-};
-
+} // namespace util
 } // namespace stride

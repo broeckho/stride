@@ -77,14 +77,14 @@ string RunConfigManager::CreateBenchInfluenza()
         <immunity_profile>Random</immunity_profile>
         <immunity_rate>0</immunity_rate>
         <local_information_policy>NoLocalInformation</local_information_policy>
-        <num_days>30</num_days>
+        <num_days>14</num_days>
         <num_participants_survey>10</num_participants_survey>
         <num_threads>1</num_threads>
         <output_prefix>BenchRuns</output_prefix>
         <population_file>pop_flanders1600.csv</population_file>
         <rng_seed>343869</rng_seed>
         <rng_type>mrg2</rng_type>
-        <r0>3</r0>
+        <r0>1.5</r0>
         <seeding_rate>0.001</seeding_rate>
         <seeding_age_min>1</seeding_age_min>
         <seeding_age_max>99</seeding_age_max>
@@ -166,7 +166,7 @@ string RunConfigManager::CreateBenchMeasles()
         <population_file>pop_flanders600.csv</population_file>
         <rng_seed>1</rng_seed>
         <rng_type>mrg2</rng_type>
-        <r0>15</r0>
+        <r0>12</r0>
         <seeding_age_max>99</seeding_age_max>
         <seeding_age_min>1</seeding_age_min>
         <seeding_rate>0.02</seeding_rate>

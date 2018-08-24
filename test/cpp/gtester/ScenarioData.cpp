@@ -38,7 +38,7 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
 
         // Influenza data
         if (tag == "influenza_a") {
-                target = 1200U;
+                target = 550429U;
         }
         if (tag == "influenza_b") {
                 pt.put("run.seeding_rate", 0.0);
@@ -48,18 +48,21 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
                 pt.put("run.seeding_rate", (1 - 0.9991) / 100);
                 pt.put("run.immunity_rate", 0.9991);
                 target = 5U;
+                margin = 0.2;
         }
 
         // Measles data.
         if (tag == "measles_16") {
                 pt.put("run.disease_config_file", "disease_measles.xml");
                 pt.put("run.r0", 16U);
-                target = 599900U;
+                target = 262470U;
         }
-        if (tag == "measles_60") {
+        if (tag == "measles_26") {
                 pt.put("run.disease_config_file", "disease_measles.xml");
-                pt.put("run.r0", 60U);
+                pt.put("run.r0", 26U);
+                pt.put("run.num_days",200U);
                 target = 600000U;
+
         }
 
         // Run_r0 data
@@ -69,19 +72,19 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(const string& tag)
         }
         if (tag == "r0_4") {
                 pt.put("run.r0", 4.0);
-                target = 40000U;
+                target = 4077U;
         }
         if (tag == "r0_8") {
                 pt.put("run.r0", 8.0);
-                target = 110884U;
+                target = 14588U;
         }
         if (tag == "r0_12") {
                 pt.put("run.r0", 12.0);
-                target = 118342U;
+                target = 39234U;
         }
         if (tag == "r0_16") {
                 pt.put("run.r0", 16.0);
-                target = 119459;
+                target = 71171;
         }
 
         return make_tuple(pt, target, margin);

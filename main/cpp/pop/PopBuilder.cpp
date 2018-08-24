@@ -22,7 +22,7 @@
 
 #include "pop/Population.h"
 #include "util/FileSys.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -33,7 +33,7 @@ using namespace std;
 using namespace util;
 using namespace boost::property_tree;
 
-PopBuilder::PopBuilder(const ptree& configPt, RNManager& rnManager) : m_config_pt(configPt), m_rn_manager(rnManager) {}
+PopBuilder::PopBuilder(const ptree& configPt) : m_config_pt(configPt) {}
 
 shared_ptr<Population> PopBuilder::MakePoolSys(std::shared_ptr<Population> pop)
 {

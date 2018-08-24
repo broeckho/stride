@@ -12,25 +12,29 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2016, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
-#============================================================================
-# Copy the R scripts to the lib folder.
-#============================================================================
+#================================================================================================
+# Copy the rStride scripts to the bin folder.
+#================================================================================================
 
+# rStride main files
+INSTALL(DIRECTORY
+		   rstride
+	   DESTINATION ${BIN_INSTALL_LOCATION}
+	   )
+
+
+# rStride analysis scripts
 INSTALL( FILES 	
-            collect_fork_output.R
-            create_immunity_profile.R
-            plot_immunity.R
-            plot_results_lib.R 
-		    plot_social_contacts_lib.R
-			
-				 
-	DESTINATION ${LIB_INSTALL_LOCATION}  
+            rStride_contacts.R
+            rStride_explore.R
+            rStride_immunity.R
+            rStride_r0.R
+ 						 
+	DESTINATION ${BIN_INSTALL_LOCATION}  
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 	)
-
-
 
 #############################################################################

@@ -21,7 +21,7 @@
 #include "HealthSeeder.h"
 
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <omp.h>
@@ -33,18 +33,18 @@ using namespace std;
 namespace stride {
 
 HealthSeeder::HealthSeeder(const boost::property_tree::ptree& diseasePt)
-    : m_distrib_start_infectiousness(), m_distrib_start_symptomatic(), m_distrib_time_infectious(),
+    : m_distrib_start_symptomatic(), m_distrib_time_asymptomatic(), m_distrib_time_infectious(),
       m_distrib_time_symptomatic()
 {
-        GetDistribution(m_distrib_start_infectiousness, diseasePt, "disease.start_infectiousness");
         GetDistribution(m_distrib_start_symptomatic, diseasePt, "disease.start_symptomatic");
+        GetDistribution(m_distrib_time_asymptomatic, diseasePt, "disease.time_asymptomatic");
         GetDistribution(m_distrib_time_infectious, diseasePt, "disease.time_infectious");
         GetDistribution(m_distrib_time_symptomatic, diseasePt, "disease.time_symptomatic");
 
-        assert((abs(m_distrib_start_infectiousness.back() - 1.0) < 1.e-10) &&
-               "HealthSampler> Error in start_infectiousness distribution!");
         assert((abs(m_distrib_start_symptomatic.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in start_symptomatic distribution!");
+        assert((abs(m_distrib_time_asymptomatic.back() - 1.0) < 1.e-10) &&
+                       "HealthSampler> Error in time_asymptomatic distribution!");
         assert((abs(m_distrib_time_infectious.back() - 1.0) < 1.e-10) &&
                "HealthSampler> Error in time_infectious distribution!");
         assert((abs(m_distrib_time_symptomatic.back() - 1.0) < 1.e-10) &&
@@ -80,8 +80,9 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
                 auto& gen01 = handlers[static_cast<size_t>(omp_get_thread_num())];
 #pragma omp for
                 for (size_t i = 0; i < population.size(); ++i) {
-                        const auto startInfectiousness = Sample(m_distrib_start_infectiousness, gen01());
                         const auto startSymptomatic    = Sample(m_distrib_start_symptomatic, gen01());
+                       // const auto startInfectiousness = startSymptomatic - 2;
+                        const auto startInfectiousness = startSymptomatic - Sample(m_distrib_time_asymptomatic, gen01());
                         const auto timeInfectious      = Sample(m_distrib_time_infectious, gen01());
                         const auto timeSymptomatic     = Sample(m_distrib_time_symptomatic, gen01());
                         population[i].GetHealth() =

@@ -87,9 +87,8 @@ set(LIB_SRC
 	util/is_iterator.h
 	util/LogUtils.cpp
 	util/PtreeUtils.h
-    util/RNEngineType.cpp
-    util/RNManager.cpp
-	util/RnPcg.cpp
+	util/Rn.cpp
+	util/RnMan.h
     util/RunConfigManager.cpp
     util/SegmentedVector.h
     util/SliceIndexer.h

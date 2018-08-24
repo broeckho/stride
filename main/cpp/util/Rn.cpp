@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -16,36 +15,23 @@
 
 /**
  * @file
- * Interface of Random Engine Type
+ * Implementation of RnPcg.
  */
 
-#include <string>
+#include "Rn.h"
+#include "StringUtils.h"
+
+#include <cctype>
+#include <sstream>
+
+using namespace std;
+using namespace randutils;
 
 namespace stride {
-namespace RNEngineType {
+namespace util {
 
-/// Random number engine type ids. We use a subset of engines provided by the trng library.
-enum class Id
-{
-        lcg64,
-        lcg64_shift,
-        mrg2,
-        mrg3,
-        yarn2,
-        yarn3,
-};
+template class Rn<pcg64>;
+template class Rn<trng::lcg64>;
 
-/// Check whether type with name s exists.
-bool IsType(std::string s);
-
-/// Cast to size_t for indexing.
-inline std::size_t ToSizeT(Id id) { return static_cast<std::size_t>(id); }
-
-/// Convert a type id to corresponding name.
-std::string ToString(Id b);
-
-/// Converts a string with name to Id.
-Id ToType(const std::string& s);
-
-} // namespace RNEngineType
+} // namespace util
 } // namespace stride

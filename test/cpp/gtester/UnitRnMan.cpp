@@ -18,7 +18,7 @@
  * Implementation of scenario tests running in batch mode.
  */
 
-#include "util/RnPcg.h"
+#include "util/RnMan.h"
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -28,8 +28,8 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <pcg/pcg_random.hpp>
-#include <pcg/randutils.hpp>
 #include <random>
+#include <randutils/randutils.hpp>
 #include <sstream>
 #include <thread>
 
@@ -41,61 +41,52 @@ using namespace stride::util;
 namespace Tests {
 using pcg_extras::operator<<;
 
-TEST(UnitRnMan, DefaultInfo)
+template <typename T>
+class UnitRnMan : public ::testing::Test
 {
-        const RnPcg::Info info;
+};
+
+TYPED_TEST_CASE_P(UnitRnMan);
+
+TYPED_TEST_P(UnitRnMan, DefaultInfo)
+{
+        const typename TypeParam::Info info;
 
         EXPECT_EQ("1,2,3,4", info.m_seed_seq_init);
         EXPECT_EQ("", info.m_state);
         EXPECT_EQ(1u, info.m_stream_count);
 }
 
-TEST(UnitRnMan, GetInfo1)
+TYPED_TEST_P(UnitRnMan, Reset1)
 {
-        RnPcg      rnPcg;
-        const auto info = rnPcg.GetInfo();
-
-        pcg64        engine1(seed_seq_fe128{1, 2, 3, 4});
-        stringstream ss;
-        ss << engine1 << " ";
-
-        EXPECT_EQ("1,2,3,4", info.m_seed_seq_init);
-        EXPECT_EQ(ss.str(), info.m_state);
-        EXPECT_EQ(1u, info.m_stream_count);
-}
-
-TEST(UnitRnMan, Reset1)
-{
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq);
-
-        auto  seeds = generate_seed_vector<pcg64::state_type>(2, seseq);
-        pcg64 engine2(seeds[1], seeds[0]);
-
-        EXPECT_TRUE(engine1 == engine2);
-}
-
-TEST(UnitRnMan, Reset2)
-{
-        const RnPcg::Info info("1,2,3,4", "", 2);
-        RnPcg             rnPcg(info);
-        const auto        info2 = rnPcg.GetInfo();
-        RnPcg             rnPcg2(info2);
-        const auto        info3 = rnPcg2.GetInfo();
-
+        const typename TypeParam::Info info("1,2,3,4", "", 1);
+        TypeParam                      rn(info);
+        const auto                     info2 = rn.GetInfo();
+        TypeParam                      rn2(info2);
+        const auto                     info3 = rn2.GetInfo();
         EXPECT_EQ(info2.m_state, info3.m_state);
 }
 
-TEST(UnitRnMan, Distribution)
+TYPED_TEST_P(UnitRnMan, Reset2)
 {
-        const RnPcg::Info info("1,2,3,4", "", 2);
+        const typename TypeParam::Info info("1,2,3,4", "", 1);
+        TypeParam                      rn(info);
+        const auto                     info2 = rn.GetInfo();
+        TypeParam                      rn2(info2);
+        const auto                     info3 = rn2.GetInfo();
+        EXPECT_EQ(info2.m_state, info3.m_state);
+}
 
-        RnPcg                            rnPcg1(info);
+TYPED_TEST_P(UnitRnMan, Distribution)
+{
+        const typename TypeParam::Info info("1,2,3,4", "", 2);
+
+        TypeParam                        rnPcg1(info);
         std::normal_distribution<double> dist;
         auto                             gen1 = rnPcg1[0].variate_generator(dist);
 
-        RnPcg rnPcg2(info);
-        auto  gen2 = rnPcg2[0].variate_generator<double, std::normal_distribution>();
+        TypeParam rnPcg2(info);
+        auto      gen2 = rnPcg2[0].template variate_generator<double, std::normal_distribution>();
 
         EXPECT_DOUBLE_EQ(gen1(), gen2());
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
@@ -107,16 +98,16 @@ TEST(UnitRnMan, Distribution)
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
 }
 
-TEST(UnitRnMan, Uniform1)
+TYPED_TEST_P(UnitRnMan, Uniform1)
 {
-        const RnPcg::Info info("1,2,3,4", "", 2);
+        const typename TypeParam::Info info("1,2,3,4", "", 2);
 
-        RnPcg                                  rnPcg1(info);
+        TypeParam                              rnPcg1(info);
         std::uniform_real_distribution<double> dist(0.0, 1.0);
         auto                                   gen1 = rnPcg1[0].variate_generator(dist);
 
-        RnPcg rnPcg2(info);
-        auto  gen2 = rnPcg2[0].uniform_generator(0.0, 1.0);
+        TypeParam rnPcg2(info);
+        auto      gen2 = rnPcg2[0].uniform_generator(0.0, 1.0);
 
         EXPECT_DOUBLE_EQ(gen1(), gen2());
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
@@ -128,16 +119,16 @@ TEST(UnitRnMan, Uniform1)
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
 }
 
-TEST(UnitRnMan, Uniform2)
+TYPED_TEST_P(UnitRnMan, Uniform2)
 {
-        const RnPcg::Info info("1,2,3,4", "", 2);
+        const typename TypeParam::Info info("1,2,3,4", "", 2);
 
-        RnPcg                                       rnPcg1(info);
+        TypeParam                                   rnPcg1(info);
         std::uniform_int_distribution<unsigned int> dist(0, 10);
         auto                                        gen1 = rnPcg1[0].variate_generator(dist);
 
-        RnPcg rnPcg2(info);
-        auto  gen2 = rnPcg2[0].uniform_generator(0, 10);
+        TypeParam rnPcg2(info);
+        auto      gen2 = rnPcg2[0].uniform_generator(0, 10);
 
         EXPECT_DOUBLE_EQ(gen1(), gen2());
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
@@ -148,5 +139,10 @@ TEST(UnitRnMan, Uniform2)
         EXPECT_DOUBLE_EQ(gen1(), gen2());
         EXPECT_TRUE(rnPcg1[0].engine() == rnPcg2[0].engine());
 }
+
+REGISTER_TYPED_TEST_CASE_P(UnitRnMan, DefaultInfo, Reset1, Reset2, Distribution, Uniform1, Uniform2);
+
+typedef ::testing::Types<RnPcg64, RnLcg64> TestedTypes;
+INSTANTIATE_TYPED_TEST_CASE_P(Rn, UnitRnMan, TestedTypes);
 
 } // namespace Tests

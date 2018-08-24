@@ -24,7 +24,7 @@
 #include "contact/ContactLogMode.h"
 #include "contact/InfectorExec.h"
 #include "contact/TransmissionProfile.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <string>
@@ -59,16 +59,19 @@ public:
         std::shared_ptr<Population> GetPopulation() { return m_population; }
 
         /// Get the random number manager.
-        util::RNManager& GetRNManager() { return m_rn_manager; }
+        util::RnMan& GetRnManager() { return m_rn_manager; }
 
         /// Run one time step, computing full simulation (default) or only index case.
         void TimeStep();
 
         /// Get the Sim configuration for the given attribute.
-        const std::string GetConfigValue(const std::string attribute) const {return m_config_pt.get<std::string>(attribute);}
+        std::string GetConfigValue(const std::string& attribute) const
+        {
+                return m_config_pt.get<std::string>(attribute);
+        }
 
         /// Get the stored transmission rate.
-        const double GetTransmissionRate() const {return m_transmission_profile.GetRate();}
+        double GetTransmissionRate() const { return m_transmission_profile.GetRate(); }
 
 private:
         /// Default constructor for empty Simulator.
@@ -89,7 +92,7 @@ private:
         std::vector<ContactHandler> m_handlers;             ///< Contact handlers (rng & rates).
         InfectorExec*               m_infector;             ///< Executes contacts/transmission loops in contact pool.
         std::shared_ptr<Population> m_population;           ///< Pointer to the Population.
-        util::RNManager             m_rn_manager;           ///< Random number generation management.
+        util::RnMan                 m_rn_manager;           ///< Random number generation management.
         TransmissionProfile         m_transmission_profile; ///< Profile of disease.
 };
 

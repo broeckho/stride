@@ -18,10 +18,11 @@
  * Implementation of pcg tests.
  */
 
+#include <trng/lcg64.hpp>
 #include <gtest/gtest.h>
 #include <iostream>
 #include <pcg/pcg_random.hpp>
-#include <pcg/randutils.hpp>
+#include <randutils/randutils.hpp>
 #include <sstream>
 
 namespace Tests {
@@ -30,61 +31,55 @@ using namespace std;
 using namespace ::testing;
 using namespace randutils;
 
-TEST(UnitPcg, Reset1)
+template <typename T>
+class UnitRnEngine : public ::testing::Test
 {
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq); // seeded engine
+};
 
+TYPED_TEST_CASE_P(UnitRnEngine);
+
+TYPED_TEST_P(UnitRnEngine, Reset1)
+{
+        TypeParam    engine1(517UL); // seeded engine
         stringstream ss1;
         ss1 << engine1; // capture initial engine state
 
-        engine1(); // advance engine one step
-
+        engine1();      // advance engine one step
         ss1 >> engine1; // reset to initial state
 
-        EXPECT_TRUE(engine1 == pcg64(seseq));
+        EXPECT_TRUE(engine1 == TypeParam(517UL));
 }
 
-TEST(UnitPcg, Reset1bis)
+TYPED_TEST_P(UnitRnEngine, Reset1bis)
 {
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq); // seeded engine
-
+        TypeParam    engine1(517UL); // seeded engine
         stringstream ss1;
         ss1 << engine1; // capture initial engine state
-        auto s1 = ss1.str();
-        ss1 << "a"; // stick a non-digit at the end of the stream
+        ss1 << "a";     // stick a non-digit at the end of the stream
 
-        engine1(); // advance engine one step
-
+        engine1();      // advance engine one step
         ss1 >> engine1; // reset to initial state
 
-        EXPECT_TRUE(engine1 == pcg64(seseq));
+        EXPECT_TRUE(engine1 == TypeParam(517UL));
 }
 
-TEST(UnitPcg, SeparatorRequired)
+TYPED_TEST_P(UnitRnEngine, SeparatorNotRequired)
 {
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq); // seeded engine
-
+        TypeParam    engine1(517UL); // seeded engine
         stringstream ss1;
         ss1 << engine1; // capture initial engine state
-        auto s1 = ss1.str();
-        ss1 << "1"; // stick a digit at the end of stream
+        ss1 << "1";     // stick a digit at the end of stream
 
-        engine1(); // advance engine one step
-
+        engine1();      // advance engine one step
         ss1 >> engine1; // reset to initial state
 
-        EXPECT_FALSE(engine1 == pcg64(seseq));
+        EXPECT_TRUE(engine1 == TypeParam(517UL));
 }
 
-TEST(UnitPcg, Reset2)
+TYPED_TEST_P(UnitRnEngine, Reset2)
 {
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq); // seeded engine
-        pcg64          engine2;        // default constructed engine
-
+        TypeParam    engine1(517UL); // seeded engine
+        TypeParam    engine2;        // default constructed engine
         stringstream ss1;
         ss1 << engine1; // capture initial seeded state
         ss1 >> engine2; // insert seeded state into default engine
@@ -92,12 +87,10 @@ TEST(UnitPcg, Reset2)
         EXPECT_TRUE(engine1 == engine2);
 }
 
-TEST(UnitPcg, MultipleReset)
+TYPED_TEST_P(UnitRnEngine, MultipleReset)
 {
-        seed_seq_fe128 seseq{1, 2, 3, 4};
-        pcg64          engine1(seseq); // seeded engine
-        pcg64          engine2;        // default constructed engine
-
+        TypeParam    engine1(517UL); // seeded engine
+        TypeParam    engine2;        // default constructed engine
         stringstream ss;
         ss << engine1; // capture state seeded engine
         ss << " ";     // need to insert a separator
@@ -109,8 +102,13 @@ TEST(UnitPcg, MultipleReset)
         ss >> engine1; // reset to initial state
         ss >> engine2; // reset to initial state;
 
-        EXPECT_TRUE(engine1 == pcg64(seseq));
-        EXPECT_TRUE(engine2 == pcg64());
+        EXPECT_TRUE(engine1 == TypeParam(517UL));
+        EXPECT_TRUE(engine2 == TypeParam());
 }
+
+REGISTER_TYPED_TEST_CASE_P(UnitRnEngine, Reset1, Reset1bis, SeparatorNotRequired, Reset2, MultipleReset);
+
+typedef ::testing::Types<pcg64, trng::lcg64> TestedTypes;
+INSTANTIATE_TYPED_TEST_CASE_P(Engine, UnitRnEngine, TestedTypes);
 
 } // namespace Tests

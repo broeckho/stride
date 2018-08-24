@@ -26,7 +26,7 @@
 #include "pop/PopBuilder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 #include "util/RunConfigManager.h"
 #include "util/SegmentedVector.h"
 
@@ -60,14 +60,13 @@ std::shared_ptr<Population> Population::Create(const boost::property_tree::ptree
         // ------------------------------------------------
         // Setup RNManager.
         // ------------------------------------------------
-        RNManager rnManager(RNManager::Info{configPt.get<string>("pop.rng_type", "lcg64"),
-                                            configPt.get<unsigned long>("pop.rng_seed", 101UL), "",
-                                            configPt.get<unsigned int>("run.num_threads")});
+        RnMan rnManager(RnMan::Info{configPt.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                                    configPt.get<unsigned int>("run.num_threads")});
 
         // -----------------------------------------------------------------------------------------
         // Build population (at later date multiple builder or build instances ...).
         // -----------------------------------------------------------------------------------------
-        return PopBuilder(configPt, rnManager).Build(pop);
+        return PopBuilder(configPt).Build(pop);
 }
 
 std::shared_ptr<Population> Population::Create(const string& configString)

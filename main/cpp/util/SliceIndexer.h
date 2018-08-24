@@ -21,8 +21,8 @@
 
 #include <boost/range.hpp>
 #include <boost/range/adaptors.hpp>
-#include <boost/range/algorithm.hpp>
-#include <boost/range/algorithm_ext.hpp>
+//#include <boost/range/algorithm.hpp>
+//#include <boost/range/algorithm_ext.hpp>
 #include <iterator>
 
 namespace stride {

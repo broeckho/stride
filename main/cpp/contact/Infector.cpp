@@ -58,7 +58,8 @@ public:
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
+                logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
+                		          p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
         }
 };
 
@@ -84,7 +85,8 @@ public:
         static void Trans(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
                           ContactPoolType::Id type, unsigned short int sim_day)
         {
-                logger->info("[TRAN] {} {} {} {}", p1->GetId(), p2->GetId(), ToString(type), sim_day);
+        			logger->info("[TRAN] {} {} {} {} {} {}", p2->GetId(), p1->GetId(),
+        	                		  p2->GetAge(), p1->GetAge(), ToString(type), sim_day);
         }
 };
 

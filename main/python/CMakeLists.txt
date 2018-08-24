@@ -21,11 +21,6 @@
 add_subdirectory(examples)
 
 #============================================================================
-# Scripts for 'Constact and Transmission' study
-#============================================================================
-add_subdirectory(cnt_and_transmission)
-
-#============================================================================
 # Scripts for 'Measles in Flanders' study
 #============================================================================
 add_subdirectory(measles_in_flanders)

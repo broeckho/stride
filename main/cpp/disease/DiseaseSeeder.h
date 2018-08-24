@@ -21,7 +21,7 @@
 
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree.hpp>
 #include <memory>
@@ -38,7 +38,7 @@ class DiseaseSeeder
 {
 public:
         /// Initializing DiseaseSeeder.
-        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RNManager& rnManager);
+        DiseaseSeeder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
 
         /// Build the simulator.
         void Seed(std::shared_ptr<Population> pop);
@@ -50,7 +50,7 @@ private:
 
 private:
         const boost::property_tree::ptree& m_config_pt;  ///< Run config.
-        util::RNManager&                   m_rn_manager; ///< Random number manager.
+        util::RnMan&                       m_rn_manager; ///< Random number manager.
 };
 
 } // namespace stride

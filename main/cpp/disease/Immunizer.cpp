@@ -21,22 +21,25 @@
 #include "Immunizer.h"
 
 #include "pop/Person.h"
-#include "util/RNManager.h"
+#include "util/RnMan.h"
 
 #include <trng/uniform01_dist.hpp>
 #include <trng/uniform_int_dist.hpp>
+#include <numeric>
+#include <vector>
 
 namespace stride {
 
+using namespace std;
 using namespace util;
 
-Immunizer::Immunizer(stride::util::RNManager& rnManager) : m_rn_manager(rnManager) {}
+Immunizer::Immunizer(stride::util::RnMan& rnManager) : m_rn_manager(rnManager) {}
 
 void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double>& immunityDistribution,
                        double immunityLinkProbability)
 {
         // Initialize a vector to count the population per age class [0-100].
-        std::vector<double> populationBrackets(100, 0.0);
+        vector<double> populationBrackets(100, 0.0);
 
         // Count individuals per age class and set all "susceptible" individuals "immune".
         // note: focusing on measles, we expect the number of susceptible individuals
@@ -53,8 +56,8 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
 
         // Sampler for int in [0, pools.size()) and for double in [0.0, 1.0).
         const auto poolsSize          = static_cast<int>(pools.size());
-        auto       intGenerator       = m_rn_manager.GetGenerator(trng::uniform_int_dist(0, poolsSize));
-        auto       uniform01Generator = m_rn_manager.GetGenerator(trng::uniform01_dist<double>());
+        auto       intGenerator       = m_rn_manager[0].variate_generator(trng::uniform_int_dist(0, poolsSize));
+        auto       uniform01Generator = m_rn_manager[0].variate_generator(trng::uniform01_dist<double>());
 
         // Calculate the number of susceptible individuals per age class.
         unsigned int numSusceptible = 0;
@@ -63,62 +66,30 @@ void Immunizer::Random(const std::vector<ContactPool>& pools, std::vector<double
                 numSusceptible += populationBrackets[age];
         }
 
-        if (immunityLinkProbability < 1) {
-            // Sample susceptible individuals, until all age-dependent quota are reached.
-            while (numSusceptible > 0) {
-                    // random pool, random order of members
-                    const ContactPool&        p_pool = pools[intGenerator()];
-                    const auto                size   = static_cast<unsigned int>(p_pool.GetSize());
-                    std::vector<unsigned int> indices(size);
-                    for (unsigned int i = 0; i < size; i++) {
-                            indices[i] = i;
-                    }
-                    m_rn_manager.RandomShuffle(indices.begin(), indices.end());
+        // Sample susceptible individuals, until all age-dependent quota are reached.
+        while (numSusceptible > 0) {
+                // random pool, random order of members
+                const ContactPool&   p_pool = pools[intGenerator()];
+                const auto           size   = static_cast<unsigned int>(p_pool.GetSize());
+                vector<unsigned int> indices(size);
 
-                    // loop over members, in random order
-                    for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
-                            Person& p = *p_pool.GetMember(indices[i_p]);
-                            // if p is immune and his/her age class has not reached the quota => make susceptible
-                            if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
-                                    p.GetHealth().SetSusceptible();
-                                    populationBrackets[p.GetAge()]--;
-                                    numSusceptible--;
-                            }
-                            // random draw to continue in this pool or to sample a new one
-                            if (uniform01Generator() < (1 - immunityLinkProbability)) {
-                                    break;
-                            }
-                    }
-            }
-        } else {
-        		// Extreme case: vaccinate all members of family
-            while (numSusceptible > 0) {
-            		// select a random pool
-            		const ContactPool& p_pool = pools[intGenerator()];
+                iota(indices.begin(), indices.end(), 0U);
+                m_rn_manager[0].shuffle(indices);
 
-            		bool susceptibleChildrenNeeded = false; // are there any more family members that need to be made susceptible?
-
-            		// loop over members
-            		for (unsigned int i_p = 0; i_p < p_pool.GetSize(); i_p++) {
-            			Person& p = *p_pool.GetMember(i_p);
-            			if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
-            				susceptibleChildrenNeeded = true;
-            				break;
-            			}
-            		}
-
-            		if (susceptibleChildrenNeeded) {
-            			// make all children in household susceptible
-            			for (unsigned int i_p = 0; i_p < p_pool.GetSize(); i_p++) {
-            				Person& p = *p_pool.GetMember(i_p);
-            				if (p.GetHealth().IsImmune() && p.GetAge() < 18) {
-            					p.GetHealth().SetSusceptible();
-            					populationBrackets[p.GetAge()]--;
-            					numSusceptible--;
-            				}
-            			}
-            		}
-            }
+                // loop over members, in random order
+                for (unsigned int i_p = 0; i_p < size && numSusceptible > 0; i_p++) {
+                        Person& p = *p_pool.GetMember(indices[i_p]);
+                        // if p is immune and his/her age class has not reached the quota => make susceptible
+                        if (p.GetHealth().IsImmune() && populationBrackets[p.GetAge()] > 0) {
+                                p.GetHealth().SetSusceptible();
+                                populationBrackets[p.GetAge()]--;
+                                numSusceptible--;
+                        }
+                        // random draw to continue in this pool or to sample a new one
+                        if (uniform01Generator() < (1 - immunityLinkProbability)) {
+                                break;
+                        }
+                }
         }
 }
 

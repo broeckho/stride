@@ -31,6 +31,18 @@
 namespace stride {
 namespace util {
 
+/// All characters in string are digits (or string is empty)
+inline bool CheckAllDigits(const std::string& s)
+{
+        bool status = true;
+        for (const auto& e : s) {
+                status = (status && isdigit(e));
+                if (!status)
+                        break;
+        }
+        return status;
+}
+
 /// Builds a value of type T representation from a string.
 template <typename T>
 inline T FromString(const std::string& s)
@@ -42,10 +54,10 @@ inline T FromString(const std::string& s)
 }
 
 /// Split a string (in order of occurence) by splitting it on the given delimiters.
-inline std::vector<std::string> Split(const std::string& str, const std::string& delimiters)
+inline std::vector<std::string> Split(const std::string& s, const std::string& delimiters)
 {
         std::vector<std::string> tokens;
-        boost::algorithm::split(tokens, str, boost::is_any_of(delimiters));
+        boost::algorithm::split(tokens, s, boost::is_any_of(delimiters));
         return tokens;
 }
 
