@@ -1,4 +1,4 @@
-import csv
+"""import csv
 import matplotlib.pyplot as plt
 import os
 
@@ -92,3 +92,4 @@ def main(scenarioNames):
 
 if __name__=="__main__":
     main(["Random", "AgeDependent", "Clustering"])
+"""

@@ -61,7 +61,7 @@ add_custom_target(pythonInstallPyStride ALL
 )
 
 add_custom_command(OUTPUT _pythonInstallPyStride
-		COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/stride pystride/stride
+		#COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/stride pystride/stride
 		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/stride.py pystride/stride/stride.py
 		COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/main/python/_stride.so pystride/stride/_stride.so
 )

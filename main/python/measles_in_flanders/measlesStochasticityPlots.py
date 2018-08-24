@@ -149,3 +149,114 @@ if __name__=="__main__":
     args = parser.parse_args()
     #main(args.dir, ["Random", "AgeDependent", "Clustering"], args.onlyOutbreaks)
     main(args.dir, ["Random"], args.onlyOutbreaks)
+
+'''
+'''
+
+def main(directory, numRuns):
+    # Plot results of Stan runs
+    casesPerDayStan = [[]] * 366
+    totalCasesStan = []
+    for i in range(5):
+        with open(os.path.join(directory, "Random" + str(i) + "_stan_infected.csv")) as csvfile:
+            reader = csv.reader(csvfile)
+            header = next(reader) # skip header
+            casesPerDay = []
+            day = 0
+            for row in reader:
+                dayRes = [int(x) for x in row]
+                casesPerDay.append(dayRes)
+                casesPerDayStan[day] = casesPerDayStan[day] + dayRes
+                day += 1
+        totalCasesStan += [x for x in casesPerDay[200]]
+
+    durationsStan = getOutbreakDurations(casesPerDayStan, 200)
+
+    # Plot results of naive runs
+    totalCasesNaive = []
+    casesPerDayNaive = [[]] * 201
+    for i in range(numRuns):
+        filename = "NaiveRandom" + str(i) + "_cases.csv"
+        cases = []
+        with open(os.path.join(directory, filename)) as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                cases = [int(x) for x in row]
+                for i in range(len(cases)):
+                    casesPerDayNaive[i] = casesPerDayNaive[i] + [cases[i]]
+        totalCasesNaive.append(cases[200])
+
+    durationsNaive = getOutbreakDurations(casesPerDayNaive, 200)
+
+
+    #plt.hist(totalCasesNaive, np.logspace(np.log10(1.0),np.log10(50000.0), 50))
+    #plt.hist(totalCasesStan, np.logspace(np.log10(1.0),np.log10(50000.0), 50))
+    #plt.gca().set_xscale("log")
+    histogram(durationsStan, 15, "Using Stan", "", "")
+    histogram(durationsNaive, 15, "Naive approach", "", "")
+
+    histogram(totalCasesStan, 20, "Using Stan", "", "Frequency")
+    histogram(totalCasesNaive, 20, "Naive approach", "", "Frequency")
+'''
+
+import argparse
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+
+def histogram(data, numBins, xMin, xMax, xLabel, yLabel):
+    """
+        Create histogram.
+    """
+    plt.hist(data, bins=numBins, range=(xMin, xMax))
+    plt.ylim(0, 300)
+    plt.xlabel(xLabel)
+    plt.ylabel(yLabel)
+    plt.show()
+
+def main(directory, numDays, numEnsembles, ensembleSize):
+    # Read stan results
+    totalCasesStan = []
+    for i in range(numEnsembles):
+        filename = "Random" + str(i) + "_stan_infected.csv"
+        with open(os.path.join(directory, filename)) as csvfile:
+            reader = csv.reader(csvfile)
+            casesPerDay = [[]] * 366
+            next(reader) # Skip header
+            day = 0
+            for row in reader:
+                casesPerDay[day] = [int(x) for x in row]
+                day += 1
+            totalCasesStan = totalCasesStan + casesPerDay[numDays - 1]
+
+    # Read naive results
+    totalCasesNaive = []
+    for i in range(numEnsembles * ensembleSize):
+        filename = "NaiveRandom" + str(i) + "_cases.csv"
+        with open(os.path.join(directory, filename)) as csvfile:
+            reader = csv.reader(csvfile)
+            casesPerDay = [int(x) for x in next(reader)]
+            totalCasesNaive.append(casesPerDay[numDays - 1])
+
+    minInfected = 0
+    maxInfected = max(max(totalCasesNaive), max(totalCasesStan))
+    # Plot results
+    numBins = [40]
+    for b in numBins:
+        histogram(totalCasesStan, b, minInfected, maxInfected, "Total number of infected cases after " + str(numDays) + " days", "Frequency")
+        histogram(totalCasesNaive, b, minInfected, maxInfected, "Total number of infected cases after " + str(numDays) + " days", "Frequency")
+
+
+
+if __name__=="__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("dir", type=str, help="path to directory containing data")
+    parser.add_argument("--numDays", type=int, default=366)
+    parser.add_argument("--numEnsembles", type=int, default=10)
+    parser.add_argument("--ensembleSize", type=int, default=100)
+
+    args = parser.parse_args()
+    main(args.dir, args.numDays, args.numEnsembles, args.ensembleSize)
+
+'''

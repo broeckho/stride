@@ -29,7 +29,7 @@ def main(ensembleSize, numEnsembles):
         #runEnsemble(ensembleSize, i, "Clustering")
     elapsed_time1 = time.perf_counter() - t1
     t2 = time.perf_counter()
-    runNaive(ensembleSize, numEnsembles, "Random")
+    #runNaive(ensembleSize, numEnsembles, "Random")
     elapsed_time2 = time.perf_counter() - t2
     print("Using stan: " + str(elapsed_time1))
     print("Naive: " + str(elapsed_time2))

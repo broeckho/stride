@@ -21,8 +21,8 @@
 INSTALL(FILES
 		measlesStochasticity.py
 		measlesStochasticityPlots.py
-		runmeasles.py
-		runmeaslesPlots.py
+		measlesClustering.py
+		measlesClusteringPlots.py
 		graphutil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
