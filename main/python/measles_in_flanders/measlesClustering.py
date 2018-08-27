@@ -8,12 +8,12 @@ from pystride.PyController import PyController
 SUSCEPTIBLES_AT_START = {}
 
 COMMON_PARAMS = {
-    'age_contact_matrix_file': 'contact_matrix_flanders_subpop.xml',
+    'age_contact_matrix_file': 'contact_matrix_flanders_subpop_paper18.xml',
     'behaviour_policy': 'NoBehaviour',
     'belief_policy.name': 'NoBelief',
     'contact_log_level': 'None',
     'contact_output_file': 'false',
-    'disease_config_file': 'disease_measles.xml',
+    'disease_config_file': 'disease_measles_paper18.xml',
     'global_information_policy': 'NoGlobalInformation',
     'holidays_file': 'holidays_none.json',
     'local_information_policy': 'NoLocalInformation',
