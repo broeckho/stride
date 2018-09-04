@@ -50,7 +50,7 @@ if (OPENMP_FOUND)
 endif()
 
 add_executable(${EXEC}   ${SRC} )
-target_link_libraries( ${EXEC}    ${LIBS} gtest pthread libstride libmyhayai)
+target_link_libraries(${EXEC}  gtest pthread libstride libmyhayai ${LIBS})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
 
 #============================================================================

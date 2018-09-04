@@ -28,11 +28,15 @@ message(STATUS "\nReading configuration info from CMakeLocal.cmake! \n")
 #============================================================================
 set(STRIDE_INCLUDE_DOC      FALSE)
 set(STRIDE_FORCE_NO_OPENMP  FALSE)
-set(STRIDE_COMPILER_ID      GNU)
-#set(STRIDE_COMPILER_ID      Clang)
-#set(STRIDE_COMPILER_ID      Apple)
 
-#set(CMAKE_BUILD_TYPE "Debug")
+if(NOT DEFINED CMAKE_CXX_COMPILER)
+    set(STRIDE_COMPILER_ID      GNU)
+    #set(STRIDE_COMPILER_ID      Clang)
+    #set(STRIDE_COMPILER_ID      Apple)
+endif()
+if(NOT DEFINED CMAKE_BUILD_TYPE)
+    #set(CMAKE_BUILD_TYPE "Debug")
+endif()
 
 #============================================================================
 # To help find modules.
@@ -61,27 +65,38 @@ if(LINUX)
         set(CMAKE_C_COMPILER   /opt/clang/bin/clang    CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/clang/bin/clang++  CACHE PATH "CXX compiler path")
     endif()
-    set(STRIDE_BOOST_ROOT "/opt/boost/gcc/boost_1_66_0/")
-    set(STRIDE_BOOST_NO_SYSTEM_PATHS ON)
 endif()
 #
 if(APPLE)
     if(STRIDE_COMPILER_ID STREQUAL "GNU")
         set(CMAKE_C_COMPILER   /opt/local/bin/gcc  CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/local/bin/g++  CACHE PATH "CXX compiler path")
-        set(BOOST_ROOT /opt/boost-1.66.0)
-        set(BOOST_NO_SYSTEM_PATHS ON)
     elseif(STRIDE_COMPILER_ID STREQUAL "Clang")
         set(CMAKE_C_COMPILER   /opt/local/bin/clang   CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /opt/local/bin/clang++ CACHE PATH "CXX compiler path")
-        set(BOOST_ROOT /opt/local)
-        set(BOOST_NO_SYSTEM_PATHS ON)
     elseif(STRIDE_COMPILER_ID STREQUAL "Apple")
         set(CMAKE_C_COMPILER   /usr/bin/cc   CACHE PATH "C compiler path")
         set(CMAKE_CXX_COMPILER /usr/bin/c++  CACHE PATH "CXX compiler path")
+    endif()
+endif()
+
+#============================================================================
+# Compiler & Boost.
+#============================================================================
+if(LINUX)
+    set(STRIDE_BOOST_ROOT "/opt/boost/gcc/boost_1_66_0/")
+    set(STRIDE_BOOST_NO_SYSTEM_PATHS ON)
+endif()
+#
+if(APPLE)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        set(BOOST_ROOT /opt/boost-1.67.0)
+        set(BOOST_NO_SYSTEM_PATHS ON)
+    else()
         set(BOOST_ROOT /opt/local)
         set(BOOST_NO_SYSTEM_PATHS ON)
     endif()
 endif()
+
 
 #############################################################################
