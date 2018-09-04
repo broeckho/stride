@@ -34,7 +34,7 @@ class BenchControlHelper
 {
 public:
         /// Defaults.
-        BenchControlHelper(const TestDescriptors&          td,
+        explicit BenchControlHelper(const TestDescriptors& td,
                            const std::vector<std::string>& positive = std::vector<std::string>(),
                            const std::vector<std::string>& negative = std::vector<std::string>());
 

@@ -99,7 +99,7 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
 
                 // const auto immunityRate = m_config_pt.get<double>("run." + ToLower(immunityType) + "_rate");
                 for (unsigned int index_age = 0; index_age < 100; index_age++) {
-                        double immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
+                        auto immunityRate = immunity_pt.get<double>("immunity.age" + std::to_string(index_age));
                         immunityDistribution.push_back(immunityRate);
                 }
                 immunizer.Random(immunityPools, immunityDistribution, linkProbability);
