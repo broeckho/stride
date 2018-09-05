@@ -1,41 +1,12 @@
-"""import csv
+import argparse
+import csv
+import math
 import matplotlib.pyplot as plt
+import numpy as np
 import os
+import xml.etree.ElementTree as ET
 
-def plotTargetImmunityProfile():
-    pass
-
-'''
-def ageDependentImmunityProfile():
-    ages = range(100)
-    immunityProbs = [1] * 100
-    immunityProbs[0:10] = [0.30, 0.95, 0.94, 0.93, 0.91, 0.89, 0.87, 0.87, 0.89, 0.91]
-    immunityProbs[10:20] = [0.93, 0.94, 0.95, 0.95, 0.94, 0.92, 0.88, 0.83, 0.81, 0.83]
-    immunityProbs[20:30] = [0.84, 0.86, 0.87, 0.88, 0.93, 0.96, 0.97, 0.98, 0.99, 0.99]
-
-    susceptibleProbs = [1 - x for x in immunityProbs]
-    plt.plot(ages, susceptibleProbs, 'bo')
-    plt.xlabel("Age")
-    plt.ylabel("Percent susceptible")
-    plt.ylim([0,1])
-    plt.show()
-'''
-
-def plotAgeImmunityProfile(scenarioName):
-    ages = []
-    susceptibles = []
-    with open(os.path.join(scenarioName, "age_immunity_profile.csv")) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            ages.append(int(row["age"]))
-            susceptibles.append(float(row["susceptible"]))
-    plt.plot(ages, susceptibles, 'bo')
-    plt.title("Age-related immunity profile for " + scenarioName + " scenario")
-    plt.xlabel("Age")
-    plt.ylabel("Fraction susceptible")
-    plt.ylim((0, 1))
-    plt.show()
-
+"""
 def getCasesPerDay(scenarioName):
     timesteps = []
     total_cases = []
@@ -83,13 +54,125 @@ def plotTotalCasesPerDay(scenarios):
     plt.title("Total number of cases per day\n(black horizontal line = # susceptibles at start)")
     plt.legend(handles=handles)
     plt.show()
+"""
+'''
+def plotAgeImmunityProfiles(scenarioNames, seeds):
+    # Plot target immunity profile
+    targetImmunityChild = ET.parse(os.path.join('data', 'measles_child_immunity.xml')).getroot()
+    targetImmunityAdult = ET.parse(os.path.join('data', 'measles_adult_immunity.xml')).getroot()
+    targetProfile = []
+    for age in range(18):
+        tag = 'age' + str(age)
+        targetProfile.append(1 - float(targetImmunityChild.find(tag).text))
+    for age in range(19, 100):
+        tag = 'age' + str(age)
+        targetProfile.append(1 - float(targetImmunityAdult.find(tag).text))
+    plt.plot(targetProfile, 'bo')
+    linestyles = ['g', 'y', 'm', 'r']
+    for scenario in scenarioNames:
+        for seed in seeds:
+            directory = scenario + '_' + str(seed)
+            immunityFile = os.path.join(directory, 'susceptibles_by_age.json')
+            with open(immunityFile) as jsonFile:
+                immunityProfile = json.load(jsonFile)
+            plt.plot(list(immunityProfile.values()))
 '''
 
-def main(scenarioNames):
+def summary(l):
+    mean = sum(l) / len(l)
+    list.sort(l)
+    minIndex = math.floor((len(l) / 100) * 5)
+    maxIndex = math.floor((len(l) / 100) * 95)
+    min95Conf = l[minIndex]
+    max95Conf = l[maxIndex]
+    return {'mean': mean, 'min_95_conf': min95Conf, 'max_95_conf': max95Conf}
+
+def getTargetSusceptibilityRates(outputDir):
+    targetRatesChildTree = ET.parse(os.path.join(outputDir, 'data', 'measles_child_immunity.xml'))
+    targetRatesChild = []
+    for r in targetRatesChildTree.iter():
+        if r.tag not in ['immunity', 'data_source', 'data_manipulation']:
+            targetRatesChild.append(float(r.text))
+    targetRatesAdultTree = ET.parse(os.path.join(outputDir, 'data', 'measles_adult_immunity.xml'))
+    targetRatesAdult = []
+    for r in targetRatesAdultTree.iter():
+        if r.tag not in ['immunity', 'data_source', 'data_manipulation']:
+            targetRatesAdult.append(float(r.text))
+    # 1 - immunityRate = susceptibilityRate
+    return [1 - (x + y) for x, y in zip(targetRatesChild, targetRatesAdult)]
+
+def getActualSusceptibilityRates(outputDir, scenarioName, seed):
+    maxAge = 99
+    susceptiblesFile = os.path.join(outputDir, scenarioName + str(seed), 'susceptibles.csv')
+    totalsByAge = {}
+    susceptiblesByAge = {}
+    for age in range(maxAge + 1):
+        totalsByAge[age] = 0
+        susceptiblesByAge[age] = 0
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            age = int(float(row['age']))
+            isSusceptible = int(float(row['susceptible']))
+            totalsByAge[age] += 1
+            if isSusceptible:
+                susceptiblesByAge[age] += 1
+    susceptibilityRates = []
+    for age in range(maxAge + 1):
+        susceptibilityRates.append(susceptiblesByAge[age] / totalsByAge[age])
+    return susceptibilityRates
+
+def ageImmunityPlots(outputDir, scenarioNames, seeds):
+    # Plot target immunity rates by age
+    ages = range(100)
+    targetSusceptibilityRates = getTargetSusceptibilityRates(outputDir)
+    '''plt.plot(ages, targetSusceptibilityRates, 'bo')
+    plt.xlabel("Age")
+    plt.ylabel("Fraction susceptible")
+    plt.ylim(0, 1)
+    plt.show()'''
     for scenario in scenarioNames:
-        plotAgeImmunityProfile(scenario)
-    plotNewCasesPerDay(scenarioNames)
+        print(scenario)
+        totalSuscpetibilityRates = []
+        for i in range(100):
+            totalSuscpetibilityRates.append([])
+        for s in seeds:
+            actualSusceptibilityRates = getActualSusceptibilityRates(outputDir, scenario, s)
+            for age in range(100):
+                totalSuscpetibilityRates[age].append(actualSusceptibilityRates[age])
+        means = []
+        minConfs = []
+        maxConfs = []
+        for age in range(100):
+            s = summary(totalSuscpetibilityRates[age])
+            means.append(s['mean'])
+            minConfs.append(abs(s['mean'] - s['min_95_conf']))
+            maxConfs.append(abs(s['mean'] - s['max_95_conf']))
+        plt.errorbar(ages, means, yerr=[minConfs, maxConfs])
+        plt.ylim(0,1)
+        plt.show()
+
+def getSeeds(outputDir):
+    seedsFile = os.path.join(outputDir, 'seeds.csv')
+    with open(seedsFile) as csvfile:
+        reader = csv.reader(csvfile)
+        seeds = [int(x) for x in next(reader)]
+    return seeds
+
+def main(outputDir):
+    scenarioNames = ['Random', 'AgeClustering', 'HouseholdClustering', 'AgeAndHouseholdClustering']
+    seeds = getSeeds(outputDir)
+    # Age-dependent immunity plots
+    ageImmunityPlots(outputDir, scenarioNames, seeds)
+    # TODO household constitution
+    # TODO outbreak occurence
+    # TODO outbreak sizes
+    # TODO outbreak durations
+    # TODO new cases per day
+    # TODO time + size of peak
 
 if __name__=="__main__":
-    main(["Random", "AgeDependent", "Clustering"])
-"""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("dir", type=str, help="Directory containing simulation output files.")
+    args = parser.parse_args()
+    main(args.dir)
