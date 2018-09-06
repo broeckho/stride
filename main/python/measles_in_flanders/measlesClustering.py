@@ -6,6 +6,8 @@ import xml.etree.ElementTree as ET
 from pystride.Event import Event, SteppedEvent, EventType
 from pystride.PyController import PyController
 
+# Callback function to register person's age, household id
+# and immunity status at the beginning of the simulation
 def registerSusceptibles(simulator, event):
     outputPrefix = simulator.GetConfigValue('run.output_prefix')
     pop = simulator.GetPopulation()
@@ -25,6 +27,8 @@ def registerSusceptibles(simulator, event):
             writer.writerow({"age": age, "susceptible": isSusceptibleInt,
                              "household": hhId})
 
+# Callback function to track the cumulative cases
+# at each timestep
 def trackCases(simulator, event):
     outputPrefix = simulator.GetConfigValue("run.output_prefix")
     timestep = event.timestep
@@ -36,29 +40,17 @@ def trackCases(simulator, event):
             writer.writeheader()
         writer.writerow({"timestep": timestep, "cases": cases})
 
-def generateRngSeeds(numSeeds):
-    seeds = []
-    for i in range(numSeeds):
-        random_data = os.urandom(4)
-        seeds.append(int.from_bytes(random_data, byteorder='big'))
+def getSeeds(scenarioName):
+    with open(scenarioName + "Seeds.csv") as csvfile:
+        reader = csv.reader(csvfile)
+        seeds = [int(x) for x in next(reader)]
     return seeds
 
-def runSimulations(scenarioName, seeds, extraParams={}):
-    configFile = os.path.join("config", "measles" + scenarioName + "Immunity.xml")
-    for s in seeds:
-        control = PyController(data_dir='data')
-        control.loadRunConfig(configFile)
-        control.runConfig.setParameter('output_prefix', scenarioName + str(s))
-        control.runConfig.setParameter('rng_seed', s)
-        for paramName, paramValue in extraParams.items():
-            control.runConfig.setParameter(paramName, paramValue)
-        control.registerCallback(registerSusceptibles, EventType.AtStart)
-        control.registerCallback(trackCases, EventType.Stepped)
-        control.control()
-
-def getAvgImmunityRate(scenarioNames, seeds):
+def getAvgImmunityRate(scenarioNames):
     immunityRates = []
     for scenario in scenarioNames:
+        # Get seeds
+        seeds = getSeeds(scenario)
         for s in seeds:
             totalPersons = 0
             totalSusceptibles = 0
@@ -92,27 +84,46 @@ def createRandomImmunityDistributionFiles(immunityRate):
     ET.ElementTree(randomChildImmunity).write(os.path.join('data', 'measles_random_child_immunity.xml'))
     ET.ElementTree(randomAdultImmunity).write(os.path.join('data', 'measles_random_adult_immunity.xml'))
 
-def main(numRuns):
+def generateRngSeeds(numSeeds):
+    seeds = []
+    for i in range(numSeeds):
+        random_data = os.urandom(4)
+        seeds.append(int.from_bytes(random_data, byteorder='big'))
+    return seeds
+
+def runSimulations(scenarioName, numRuns, extraParams={}):
+    # Generate seeds
     seeds = generateRngSeeds(numRuns)
-    with open('seeds.csv', 'w') as csvfile:
+    with open(scenarioName + 'Seeds.csv', 'w') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(seeds)
+    configFile = os.path.join("config", "measles" + scenarioName + "Immunity.xml")
+    for s in seeds:
+        control = PyController(data_dir='data')
+        control.loadRunConfig(configFile)
+        control.runConfig.setParameter('output_prefix', scenarioName + str(s))
+        control.runConfig.setParameter('rng_seed', s)
+        for paramName, paramValue in extraParams.items():
+            control.runConfig.setParameter(paramName, paramValue)
+        control.registerCallback(registerSusceptibles, EventType.AtStart)
+        control.registerCallback(trackCases, EventType.Stepped)
+        control.control()
+
+def main(numRuns):
     # Run AgeClustering scenario
-    runSimulations('AgeClustering', seeds)
-    # Rung AgeAndHouseholdClustering scenario
-    runSimulations('AgeAndHouseholdClustering', seeds)
-    # Calculate % immune in populations + generate files for random distribution
-    immunityRate = getAvgImmunityRate(['AgeClustering', 'AgeAndHouseholdClustering'], seeds)
+    runSimulations('AgeClustering', numRuns)
+    # Run AgeAndHouseholdClustering scenario
+    runSimulations('AgeAndHouseholdClustering', numRuns)
+    # Calculate immunity rates from previous runs and generate distribution files
+    immunityRate = getAvgImmunityRate(['AgeClustering', 'AgeAndHouseholdClustering'])
     createRandomImmunityDistributionFiles(immunityRate)
     # Run Random scenario
-    runSimulations('Random', seeds, {'immunity_rate': immunityRate})
+    runSimulations('Random', numRuns, {'immunity_rate': immunityRate})
     # Run HouseholdClustering scenario
-    #runSimulations('HouseholdClustering',
-    #{'immunity_distribution_file': 'measles_random_adult_immunity.xml',
-    # 'vaccine_distribution_file': 'measles_random_child_immunity.xml'})
-    runSimulations('HouseholdClustering', seeds,
-                   {'immunity_distribution_file': 'data/measles_random_adult_immunity.xml',
-                   'vaccine_distribution_file': 'data/measles_random_child_immunity.xml'})
+    runSimulations('HouseholdClustering',
+                    numRuns,
+                    {'immunity_distribution_file': 'data/measles_random_adult_immunity.xml',
+                    'vaccine_distribution_file': 'data/measles_random_child_immunity.xml'})
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
