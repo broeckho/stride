@@ -32,10 +32,10 @@ namespace {
 /// @param root       root of the path.
 /// @return the full path to the file if it exists
 /// @throws runtime error if file doesn't exist
-const filesystem::path check(const filesystem::path& filename,
-                             const filesystem::path& root = boost::filesystem::current_path())
+const boost::filesystem::path check(const boost::filesystem::path& filename,
+                                        const boost::filesystem::path& root = boost::filesystem::current_path())
 {
-        const filesystem::path file_path = canonical(complete(filename, root));
+        const boost::filesystem::path file_path = canonical(complete(filename, root));
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }
