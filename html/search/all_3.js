@@ -1,11 +1,11 @@
 var searchData=
 [
   ['daysoffall',['DaysOffAll',['../d7/de0/a00022.html',1,'stride']]],
-  ['daysoffall',['DaysOffAll',['../d7/de0/a00022.html#a673773c659725f4dc92b0a262955af1c',1,'stride::DaysOffAll']]],
+  ['daysoffall',['DaysOffAll',['../d7/de0/a00022.html#a8804c46ae3703253cb96e5f81f92251b',1,'stride::DaysOffAll']]],
   ['daysoffall_2eh',['DaysOffAll.h',['../d7/d12/a00126.html',1,'']]],
   ['daysoffinterface',['DaysOffInterface',['../d3/d52/a00023.html',1,'stride']]],
   ['daysoffinterface_2eh',['DaysOffInterface.h',['../df/dcd/a00127.html',1,'']]],
-  ['daysoffnone',['DaysOffNone',['../dc/de2/a00024.html#a14d76fd72838aa5d10c53b0115d1ff3a',1,'stride::DaysOffNone']]],
+  ['daysoffnone',['DaysOffNone',['../dc/de2/a00024.html#afa7a609a793bf8aa77b5ee94fdb94fda',1,'stride::DaysOffNone']]],
   ['daysoffnone',['DaysOffNone',['../dc/de2/a00024.html',1,'stride']]],
   ['daysoffnone_2eh',['DaysOffNone.h',['../d1/d88/a00128.html',1,'']]],
   ['daysoffschool',['DaysOffSchool',['../d3/dfe/a00025.html',1,'stride']]],
