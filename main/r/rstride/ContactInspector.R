@@ -46,7 +46,7 @@ plot_contacts <- function(exp_summary,data_dir)
   data_cnt      <- .rstride$load_aggregated_output(project_dir,'data_contacts',exp_summary$exp_id)
   data_part     <- .rstride$load_aggregated_output(project_dir,'data_participants',exp_summary$exp_id)
   
-  if(dim(data_cnt)[1]>0 && dim(data_part)[1]>0)
+  if(nrow(data_cnt)>0 && nrow(data_part)>0)
   {
     
     ## people without contacts
@@ -133,6 +133,27 @@ plot_contacts <- function(exp_summary,data_dir)
     points(rowSums(mij_sec_comm),col=2)
     legend('topright',c('week','weekend','model'),col=c(1,1,2),lty=c(1,2,0),pch=c(-1,-1,1),cex=0.8,title=ref_data_tag)
     par(mfrow=c(1,1))
+    
+    dev.off() # close pdf stream
+    
+    
+    # new
+    pdf(paste0(exp_summary$output_prefix,'_cnt_transm_probability.pdf'),7,7)
+    par(mfrow=c(2,2))
+    cnt_location_opt <- c('cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm')
+    for(i_cnt in cnt_location_opt){
+      flag <- data_cnt[,i_cnt] == 1
+      if(any(flag))
+        boxplot(cnt_prob ~ part_age, data=data_cnt[flag,],
+                main=paste(i_cnt, '[CNT]'),xlab='age',ylab='contact probability')
+    }
+    
+    for(i_cnt in cnt_location_opt){
+      flag <- data_cnt[,i_cnt] == 1
+      if(any(flag))
+        boxplot(trm_prob ~ part_age, data=data_cnt[flag,],
+                main=paste(i_cnt, '[TRM]'),xlab='age',ylab='transmission probability')
+    }
     
     dev.off() # close pdf stream
     

@@ -21,7 +21,7 @@
 #############################################################################
 
 #.rstride$set_wd()  #DEVELOPMENT: to set the work directory as the latest stride install dir 
-#.rstride$load_pd() #DEVELOPMENT: to retrieve the latest project_dir
+#.rstride$load_pd() #DEVELOPMENT: to retrieve the latest project directory (project_dir)
 
 # load R packages
 library(XML,quietly = TRUE)
@@ -51,9 +51,9 @@ if(!(exists('.rstride'))){
   # add a space to each function arguments
   function_arguments <- paste(' ',function_arguments)
   
-  text_color <- ''
+  text_color <- '\033[0;30m'     # black
   if(WARNING){
-    text_color   <- '\033[0;31m'
+    text_color   <- '\033[0;31m' # red
   }
   
   # print time + arguments (without spaces)
@@ -179,7 +179,7 @@ if(!(exists('.rstride'))){
 ###############################
 
 .rstride$get_equal_rows <- function(f_matrix,f_vector){
-  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == as.numeric(t(f_vector))) == length(f_vector)))
+  return(as.logical(colSums(t(f_matrix[,names(f_vector)]) == c(f_vector)) == length(f_vector)))
 }
 
 
@@ -196,21 +196,24 @@ if(!(exists('.rstride'))){
   max_pop_size <- max(project_summary$population_size)
   id_factor <- 10^ceiling(log10(max_pop_size))
   
-  data_type <- 'data_transmission.RData'
-  for(data_type in c('data_transmission.RData',
-                     'data_participants.RData',
-                     'data_contacts.RData',
-                     'data_prevalence.RData'))
+  # get output data types
+  data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
+ 
+  data_type <- data_type_opt[1]
+  for(data_type in data_type_opt)
   {
-    # check if output exists for the specified data_type
-    if(file.exists(file.path(project_summary$output_prefix[1],data_type))){
-      # load all project experiments
-      i_exp <- 1
-      data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
-      {
-       
-        # get file name
-        exp_file_name <- file.path(project_summary$output_prefix[i_exp],data_type)
+    
+    data_filenames <- dir(project_dir,pattern=data_type,recursive = T,full.names = T)
+    
+    # load all project experiments
+    i_exp <- 1
+    data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
+    {
+      # get file name
+      exp_file_name <- file.path(project_summary$output_prefix[i_exp],data_type)
+      
+      # check if output exists for the specified data_type
+      if(file.exists(exp_file_name)){
         
         # load output data
         param_name <- load(exp_file_name)
@@ -225,12 +228,11 @@ if(!(exists('.rstride'))){
         # return experiment data
         data_exp
       }
-      
-      # save
-      run_tag <- unique(project_summary$run_tag)
-      save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
-      
     }
+    
+    # save
+    run_tag <- unique(project_summary$run_tag)
+    save(data_all,file=file.path(project_dir,paste0(run_tag,'_',data_type)))
   }
 }
 

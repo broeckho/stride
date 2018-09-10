@@ -27,12 +27,12 @@ INSTALL(DIRECTORY
 
 
 # rStride analysis scripts
-INSTALL( FILES 	
+INSTALL( FILES 			
             rStride_contacts.R
+            rStride_diseasecontrol.R
             rStride_explore.R
             rStride_immunity.R
-            rStride_r0.R
- 						 
+            rStride_r0.R 						 
 	DESTINATION ${BIN_INSTALL_LOCATION}  
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
 	)

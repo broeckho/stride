@@ -31,10 +31,13 @@ source('./bin/rstride/ContactInspector.R')
 source('./bin/rstride/LogParser.R')
 source('./bin/rstride/SummaryInspector.R')
 source('./bin/rstride/SurveyParticipantInspector.R')
+source('./bin/rstride/TransmissionAnalyst.R')
 source('./bin/rstride/TransmissionInspector.R')
 
+
 # Function to run rStride for a given design of experiment
-run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ignore_stride_stdout = TRUE)
+run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
+                        ignore_stride_stdout = TRUE, remove_tmp_output = TRUE)
 {
 
   # command line message
@@ -165,13 +168,16 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
       save(data_cases,file=file.path(config_exp$output_prefix,'data_prevalence.RData'))
     }
     
-    # clean output folder: remove configuration, contact_log, summary and stride_log
-    unlink(summary_filename,recursive = T)
-    unlink(cases_filename,recursive = T)
-    unlink(config_exp_filename,recursive = T)
-    unlink(contact_log_filename,recursive = T)
-    unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
-    
+    # remove experiment output folder
+    if(remove_tmp_output){
+      unlink(summary_filename,recursive = T)
+      unlink(cases_filename,recursive = T)
+      unlink(config_exp_filename,recursive = T)
+      unlink(contact_log_filename,recursive = T)
+      unlink(file.path(config_exp$output_prefix,'stride_log.txt'),recursive = T)
+    }
+   
+
     # return experiment output summary
     return(run_summary)
   }
@@ -185,7 +191,10 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',ign
   .rstride$aggregate_exp_output(run_dir)
   
   # remove project output
-  unlink(par_out$output_prefix,recursive = T)
+  if(remove_tmp_output){
+    unlink(par_out$output_prefix,recursive = T)
+  }
+
   
   
   ###############################

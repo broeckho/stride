@@ -30,7 +30,8 @@ using namespace stride::ContactPoolType;
 
 void Person::Update(bool isWorkOff, bool isSchoolOff)
 {
-        m_health.Update();
+        // Update health (and disease status)
+		m_health.Update();
 
         // Update presence in contactpools.
         if (m_health.IsSymptomatic()) {
