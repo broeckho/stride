@@ -82,6 +82,12 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         sim->m_transmission_profile.Initialize(m_config_pt, diseasePt);
 
         // --------------------------------------------------------------
+		// Initialize the public health agency (fixes detection probability).
+		// --------------------------------------------------------------
+		const double detection_probability = m_config_pt.get<double>("run.case_detection_probability", 0.0);
+		sim->m_public_health_agency.Initialize(detection_probability);
+
+        // --------------------------------------------------------------
         // Seed the population with health data.
         // --------------------------------------------------------------
         HealthSeeder(diseasePt).Seed(sim->m_population, sim->m_handlers);

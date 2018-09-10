@@ -52,6 +52,7 @@ set(LIB_SRC
 	disease/Health.cpp
     disease/HealthSeeder.cpp
 	disease/Immunizer.cpp
+	disease/PublicHealthAgency.cpp
 #---
 	output/AdoptedFile.cpp
     output/InfectedFile.cpp
