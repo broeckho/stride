@@ -50,6 +50,7 @@ exp_design <- expand.grid(contact_log_level         = "All",
                           num_participants_survey   = 3000,
                           start_date                = c("2017-01-01","2017-01-02"),
                           rng_seed                  = 1:num_seeds,
+                          population_file           = "pop_flanders600.csv",
                           age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
                           stringsAsFactors = F)
 
@@ -66,17 +67,7 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 #####################################################
 ## EXPLORE SOCIAL CONTACT PATTERNS                 ##
 #####################################################
-
-# load summary
-project_summary <- .rstride$load_project_summary(project_dir)
-
-i_exp <- 1
-for(i_exp in 1:nrow(project_summary)){
-  
-  # plot contacts
-  plot_contacts(project_summary[i_exp,],'./data')
-}
-
+inspect_contact_data(project_dir)
 
 
 

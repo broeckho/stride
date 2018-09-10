@@ -20,13 +20,8 @@
 # EXPLORE PARTICIPANT DATA                                                 ##
 #############################################################################
 
-explore_participant_data <- function(project_dir)
+inspect_participant_data <- function(project_dir)
 {
-  
-  # check if project_dir exists
-  if(.rstride$dir_not_present(project_dir)){
-    return(-1)
-  }
   
   # load project summary
   project_summary <- .rstride$load_project_summary(project_dir)
@@ -35,7 +30,7 @@ explore_participant_data <- function(project_dir)
   if(any(project_summary$num_participants_survey==0)){
     # command line message
     .rstride$cli_print('NO PARTICIPANT DATA AVAILABLE')
-    return(-1)
+    return(.rstride$no_return_value())
   }
   
   # person id increment factor, to obtain unique ids in each experiment
@@ -137,6 +132,6 @@ explore_participant_data <- function(project_dir)
   dev.off()
   
   # command line message
-  .rstride$cli_print('EXPLORATION OF PARTICIPANT DATA COMPLETE')
+  .rstride$cli_print('INSPECTION OF PARTICIPANT DATA COMPLETE')
   
 } # function end

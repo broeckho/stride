@@ -33,9 +33,36 @@ if(0==1) # for debugging
 }
 
 #############################################################################
+# INSPECT SOCIAL CONTACT PATTERNS                                          ##
+#############################################################################
+
+inspect_contact_data <- function(project_dir){
+  
+  # load summary
+  project_summary <- .rstride$load_project_summary(project_dir)
+  
+  # start slave nodes
+  .rstride$start_slaves()
+  
+  # analyse data
+  i_exp <- 1
+  foreach(i_exp = 1:nrow(project_summary)) %do% 
+  {  
+    # plot contacts
+    .rstride$plot_contacts(project_summary[i_exp,],'./data')
+  }
+  
+  # end slave nodes
+  .rstride$end_slaves()
+  
+  # terminal message
+  .rstride$cli_print('INSPECTION OF SOCIAL CONTACTS PATTERNS COMPLETE')
+}
+
+#############################################################################
 # FUNCTION TO PLOT SOCIAL CONTACT MATRICES AND COUNTS                      ##
 #############################################################################
-plot_contacts <- function(exp_summary,data_dir)
+.rstride$plot_contacts <- function(exp_summary,data_dir)
 {
   
   ######################
@@ -156,14 +183,11 @@ plot_contacts <- function(exp_summary,data_dir)
     }
     
     dev.off() # close pdf stream
-    
-    # terminal message
-    .rstride$cli_print('SOCIAL CONTACTS PLOTS COMPLETE FOR', exp_summary$output_prefix)
 
   } # end if dim(data)...
 } # end function
 
-#################################  EMBEDDED HELP FUNCTIONS  #################################
+#################################  OTHER HELP FUNCTIONS  #################################
 
 ## HELP FUNCTION: RESHAPE DATA AND PLOT
 .rstride$plot_cnt_matrix <- function(f_data_cnt,f_data_part,tag,L,num_days)

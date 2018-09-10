@@ -44,15 +44,15 @@ dir_postfix <- '_r0'
 num_seeds  <- 5
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(0,24,3),
-                          num_days             = c(20),
-                          rng_seed             = seq(num_seeds),
-                          start_date           = c("2017-01-01"),#,"2017-01-02","2017-01-03","2017-01-04","2017-01-05","2017-01-06","2017-01-07"),
-                          track_index_case     = 'true',
-                          contact_log_level    = "Transmissions",
-                          num_threads          = 1,
-                          seeding_rate         = 0.00002,
-                          disease_config_file  = "disease_measles.xml",
+exp_design <- expand.grid(r0                        = seq(0,24,3),
+                          num_days                  = c(20),
+                          rng_seed                  = seq(num_seeds),
+                          start_date                = c("2017-01-01"),#,"2017-01-02","2017-01-03","2017-01-04","2017-01-05","2017-01-06","2017-01-07"),
+                          track_index_case          = 'true',
+                          contact_log_level         = "Transmissions",
+                          num_threads               = 1,
+                          seeding_rate              = 0.00002,
+                          disease_config_file       = "disease_measles.xml",
                           age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
                           stringsAsFactors = F)
 
@@ -69,5 +69,5 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 ##################################
 ## REPRODUCTION NUMBER          ##
 ##################################
-callibrate_r0(project_dir)
+analyse_transmission_data_for_r0(project_dir)
 

@@ -22,13 +22,8 @@
 #
 #############################################################################
 
-explore_summary <- function(project_dir)
+inspect_summary <- function(project_dir)
 {
-  
-  # check if project_dir exists
-  if(.rstride$dir_not_present(project_dir)){
-    return(-1)
-  }
   
   # load project output summary
   project_summary    <- .rstride$load_project_summary(project_dir)
@@ -36,41 +31,56 @@ explore_summary <- function(project_dir)
   # retrieve all variable model parameters
   input_opt_design   <- .rstride$get_variable_model_param(project_summary)
   
-  # continue only if there are different input parameter values
-  if(nrow(input_opt_design)>1){
+  # stop if there are no different input parameter values
+  if(nrow(input_opt_design)>=1){
     
-    # calculate a scale factor and ticks for the second y-axis [cases vs. incidence]
-    range_num_cases   <- range(project_summary$num_cases)
-    ticks_cases       <- seq(range_num_cases[1],range_num_cases[2],diff(range_num_cases)/5) 
+    # terminal message
+    .rstride$cli_print('NO VARYING INPUT PARAMETERS IN THE SUMMARY DATA')
     
-    r0_axis_factor     <- median(project_summary$num_cases / project_summary$AR)
-    r0_axis_scale      <- diff(range_num_cases)/r0_axis_factor
+    # stop
+    return(.rstride$no_return_value())
+  }
+  # calculate a scale factor and ticks for the second y-axis [cases vs. incidence]
+  range_num_cases   <- range(project_summary$num_cases)
+  ticks_cases       <- seq(range_num_cases[1],range_num_cases[2],diff(range_num_cases)/5) 
   
-    num_digits        <- ceiling(abs(log10(r0_axis_scale)))
-    ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
-    
-    # OPEN PDF STREAM
-    pdf(file.path(project_dir,'parameter_exploration.pdf'))
-    
-    # loop over the changing input parameters => plot cases and incidence
-    #par(mfrow=c(2,2))
-    par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
-    for(i in 1:ncol(input_opt_design)){
-      boxplot(num_cases ~ project_summary[,colnames(input_opt_design)[i]],
-              data = project_summary,
-              xlab = colnames(input_opt_design)[i],
-              ylab = '')
-      axis(4, at = ticks_cases , labels = ticks_r0 )
-      mtext("incidence", side=4, line=2,cex=0.9)
-      mtext("number of cases", side=2, line=2,cex=0.9)
-    }
-    
-    dev.off()
-  } # end if(length(input_opt)>0)
+  r0_axis_factor     <- median(project_summary$num_cases / project_summary$AR)
+  r0_axis_scale      <- diff(range_num_cases)/r0_axis_factor
+
+  num_digits        <- ceiling(abs(log10(r0_axis_scale)))
+  ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
   
+  # OPEN PDF STREAM
+  pdf(file.path(project_dir,'parameter_exploration.pdf'))
   
+  # loop over the changing input parameters => plot cases and incidence
+  #par(mfrow=c(2,2))
+  par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
+  for(i in 1:ncol(input_opt_design)){
+    boxplot(num_cases ~ project_summary[,colnames(input_opt_design)[i]],
+            data = project_summary,
+            xlab = colnames(input_opt_design)[i],
+            ylab = '')
+    axis(4, at = ticks_cases , labels = ticks_r0 )
+    mtext("incidence", side=4, line=2,cex=0.9)
+    mtext("number of cases", side=2, line=2,cex=0.9)
+  }
+  
+  # combined plot (if multiple parameters are varied)
+  if(ncol(input_opt_design)>1){
+    boxplot(num_cases ~ project_summary[,colnames(input_opt_design)],
+            data = project_summary,
+            xlab = colnames(input_opt_design)[i],
+            ylab = '')
+    axis(4, at = ticks_cases , labels = ticks_r0 )
+    mtext("incidence", side=4, line=2,cex=0.9)
+    mtext("number of cases", side=2, line=2,cex=0.9)
+  }
+  
+  dev.off()
+
   # terminal message
-  .rstride$cli_print('SUMMARY EXPLORATION COMPLETE')
+  .rstride$cli_print('INSPECTION OF SUMMARY DATA COMPLETE')
   
 }
 

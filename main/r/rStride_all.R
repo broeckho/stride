@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 #############################################################################
 #  This file is part of the Stride software. 
 #  It is free software: you can redistribute it and/or modify
@@ -12,30 +13,43 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
+#
 #  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
-
-#================================================================================================
-# Copy the rStride scripts to the bin folder.
-#================================================================================================
-
-# rStride main files
-INSTALL(DIRECTORY
-		   rstride
-	   DESTINATION ${BIN_INSTALL_LOCATION}
-	   )
-
-
-# rStride analysis scripts
-INSTALL( FILES 			
-            rStride_all.R
-            rStride_contacts.R
-            rStride_explore.R
-            rStride_immunity.R
-            rStride_r0.R 						 
-            rStride_reactive.R
-	DESTINATION ${BIN_INSTALL_LOCATION}  
-	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ
-	)
-
+#
+# Call this script from the main project folder (containing bin, config, lib, ...)
+# to get all relative data links right. 
+#
+# E.g.: path/to/stride $ ./bin/rStride_all.R 
+#
 #############################################################################
+
+# Clear work environment
+rm(list=ls())
+
+# load rStride
+source('./bin/rstride/rStride.R')
+
+# list all rStride scripts
+script_opt <- list.files('./bin',pattern='rStride_',full.names = T)
+
+# remove current '_all' script
+script_opt <- script_opt[!grepl('rStride_all',script_opt)]
+
+script_opt <- script_opt[grepl('rStride_expl',script_opt)]
+
+
+
+# run all rStride scripts
+for(script_i in script_opt){
+  # print script name
+  .rstride$cli_print('RUN',script_i)
+  
+  # run script
+  system(script_i,ignore.stdout=FALSE)
+}
+  
+
+
+
+

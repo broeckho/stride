@@ -51,13 +51,13 @@ if(!(exists('.rstride'))){
   # add a space to each function arguments
   function_arguments <- paste(' ',function_arguments)
   
-  text_color <- '\033[0;30m'     # black
-  if(WARNING){
-    text_color   <- '\033[0;31m' # red
-  }
+  # set text color: black (default) or red (warning)
+  web_color_black <- '\033[0;30m'
+  web_color_red   <- '\033[0;31m'
+  text_color      <- ifelse(WARNING,web_color_red,web_color_black)
   
   # print time + arguments (without spaces)
-  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',function_arguments,'"'),collapse = '')
+  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',function_arguments,web_color_black,'"'),collapse = '')
   system(cli_out)
 }
 
@@ -113,6 +113,11 @@ if(!(exists('.rstride'))){
 
 .rstride$load_project_summary <- function(project_dir){
  
+  # check if project_dir exists
+  if(.rstride$dir_not_present(project_dir)){
+    stop('PROJECT DIR NOT PRESENT')
+  }
+  
   # get the filename in the project dir that contains "summary.csv" (full path)
   project_summary_filename <- file.path(project_dir,dir(project_dir,pattern = 'summary.csv'))
   
@@ -273,6 +278,11 @@ if(!(exists('.rstride'))){
 ## DEFENSIVE PROGRAMMING     ##
 ###############################
 
+.rstride$no_return_value <- function(){
+
+  return(invisible())
+}
+
 .rstride$dir_not_present <- function(path_dir){
   
   # if directory does not exists, return TRUE (+warning)
@@ -385,6 +395,9 @@ if(!(exists('.rstride'))){
 # load last project_dir
 .rstride$load_pd <- function(){
 
+  # set most recent build as work directory
+  .rstride$set_wd()
+  
   # default output dir
   output_dir              <- 'sim_output'
   

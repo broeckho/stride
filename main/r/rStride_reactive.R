@@ -20,7 +20,7 @@
 # Call this script from the main project folder (containing bin, config, lib, ...)
 # to get all relative data links right. 
 #
-# E.g.: path/to/stride $ ./bin/rStride_publichealth.R 
+# E.g.: path/to/stride $ ./bin/rStride_reactive.R 
 #
 #############################################################################
 
@@ -31,7 +31,7 @@ rm(list=ls())
 source('./bin/rstride/rStride.R')
 
 # set directory postfix (optional)
-dir_postfix <- '_cdc'
+dir_postfix <- '_react'
 
 #################################################
 ## DESIGN OF EXPERIMENTS                       ##
@@ -58,7 +58,7 @@ exp_design <- expand.grid(r0                         = seq(12,12,2),
                           immunity_distribution_file = 'data/immunity_measles_belgium.xml',
                           immunity_link_probability  = 0,
                           immunity_rate              = 0,
-                          case_detection_probability = c(0,1.0),
+                          case_detection_probability = c(0,1),                              # Enable case finding
                           stringsAsFactors = F)
 
 
@@ -75,19 +75,19 @@ project_dir <- run_rStride(exp_design,dir_postfix)
 #################################################
 ## EXPLORE SUMMARY                             ##
 #################################################
-explore_summary(project_dir)
+inspect_summary(project_dir)
 
 
 #################################################
 ## EXPLORE SURVEY PARTICIPANT DATA             ##
 #################################################
-explore_participant_data(project_dir)
+inspect_participant_data(project_dir)
 
 
 #################################################
 ## EXPLORE TRANSMISSION & OUTBREAKS            ##
 #################################################
-explore_outbreaks(project_dir)
+inspect_transmission_data(project_dir)
 
 
 
