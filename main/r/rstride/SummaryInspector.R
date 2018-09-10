@@ -32,7 +32,7 @@ inspect_summary <- function(project_dir)
   input_opt_design   <- .rstride$get_variable_model_param(project_summary)
   
   # stop if there are no different input parameter values
-  if(nrow(input_opt_design)>=1){
+  if(nrow(input_opt_design)<=1){
     
     # terminal message
     .rstride$cli_print('NO VARYING INPUT PARAMETERS IN THE SUMMARY DATA')
@@ -51,24 +51,13 @@ inspect_summary <- function(project_dir)
   ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
   
   # OPEN PDF STREAM
-  pdf(file.path(project_dir,'parameter_exploration.pdf'))
+  pdf(file.path(project_dir,'summary_inspection.pdf'))
   
   # loop over the changing input parameters => plot cases and incidence
   #par(mfrow=c(2,2))
   par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
   for(i in 1:ncol(input_opt_design)){
     boxplot(num_cases ~ project_summary[,colnames(input_opt_design)[i]],
-            data = project_summary,
-            xlab = colnames(input_opt_design)[i],
-            ylab = '')
-    axis(4, at = ticks_cases , labels = ticks_r0 )
-    mtext("incidence", side=4, line=2,cex=0.9)
-    mtext("number of cases", side=2, line=2,cex=0.9)
-  }
-  
-  # combined plot (if multiple parameters are varied)
-  if(ncol(input_opt_design)>1){
-    boxplot(num_cases ~ project_summary[,colnames(input_opt_design)],
             data = project_summary,
             xlab = colnames(input_opt_design)[i],
             ylab = '')

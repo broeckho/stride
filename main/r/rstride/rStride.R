@@ -52,8 +52,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
      .rstride$valid_immunity_profiles(design_of_experiment)  == FALSE ){
     
     .rstride$cli_abort()
-    return(-1)
-    #stop()
+    return(.rstride$no_return_value())
   }
   
   ################################
@@ -88,6 +87,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
   }
   
   # command line message
+  .rstride$cli_print('WORKING DIR',getwd())
   .rstride$cli_print('PROJECT DIR',run_dir)
   
   ##################################
@@ -195,7 +195,6 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
     unlink(par_out$output_prefix,recursive = T)
   }
 
-  
   
   ###############################
   ## TERMINATE PARALLEL NODES  ##

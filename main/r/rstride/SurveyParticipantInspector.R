@@ -42,7 +42,7 @@ inspect_participant_data <- function(project_dir)
   input_opt_design        <- .rstride$get_variable_model_param(project_summary)
   
   # open PDF stream
-  pdf(file.path(project_dir,'survey_participant_exploration.pdf'),10,7)
+  pdf(file.path(project_dir,'survey_participant_inspection.pdf'),10,7)
   par(mfrow=c(2,4))
   
   i_config <- 1

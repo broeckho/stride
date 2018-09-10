@@ -33,7 +33,7 @@ inspect_transmission_data <- function(project_dir)
   input_opt_design     <- .rstride$get_variable_model_param(project_summary)
   
   # open PDF stream
-  pdf(file.path(project_dir,'transmission_exploration.pdf'),10,7)
+  pdf(file.path(project_dir,'transmission_inspection.pdf'),10,7)
   
   i_config <- 1
   for(i_config in 1:nrow(input_opt_design)){

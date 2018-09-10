@@ -57,7 +57,8 @@ if(!(exists('.rstride'))){
   text_color      <- ifelse(WARNING,web_color_red,web_color_black)
   
   # print time + arguments (without spaces)
-  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',function_arguments,web_color_black,'"'),collapse = '')
+  cli_out <- paste0(c('echo "',text_color, '[',format(Sys.time()),']',
+                      function_arguments, web_color_black,'"'),collapse = '')
   system(cli_out)
 }
 
@@ -199,19 +200,19 @@ if(!(exists('.rstride'))){
   
   # id increment factor
   max_pop_size <- max(project_summary$population_size)
-  id_factor <- 10^ceiling(log10(max_pop_size))
+  id_factor    <- 10^ceiling(log10(max_pop_size))
   
   # get output data types
   data_type_opt <- unique(dir(file.path(project_summary$output_prefix),pattern='.RData'))
  
-  data_type <- data_type_opt[1]
+  data_type <- data_type_opt[2]
   for(data_type in data_type_opt)
   {
     
     data_filenames <- dir(project_dir,pattern=data_type,recursive = T,full.names = T)
     
     # load all project experiments
-    i_exp <- 1
+    i_exp <- 2
     data_all <- foreach(i_exp = 1:nrow(project_summary),.combine='rbind') %do%
     {
       # get file name
@@ -221,14 +222,31 @@ if(!(exists('.rstride'))){
       if(file.exists(exp_file_name)){
         
         # load output data
-        param_name <- load(exp_file_name)
+        param_name  <- load(exp_file_name)
         
-        # remove original file
-        unlink(exp_file_name)
+        # load data
+        data_exp    <- get(param_name)
+        
+        # for prevalence data, check the number of days
+        if(grepl('prevalence',exp_file_name)){
+          
+          # create full-size data frame to include the maximum number of days
+          data_tmp        <- data.frame(matrix(NA,ncol=max(project_summary$num_days)+2)) # +1 for day 0 and +1 for exp_id
+          names(data_tmp) <-  c(paste0('day',0:max(project_summary$num_days)),
+                                'exp_id')
+                                 
+          # insert the experiment data
+          data_tmp[names(data_exp)] <- data_exp
+          
+          # replace the experiment data by the newly constructed data.frame
+          data_exp <- data_tmp
+        }
         
         # add run index
-        data_exp <- get(param_name)
         data_exp$exp_id <- project_summary$exp_id[i_exp]
+        
+        # remove the original data file
+        unlink(exp_file_name)
         
         # return experiment data
         data_exp

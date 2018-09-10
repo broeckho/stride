@@ -41,11 +41,11 @@ dir_postfix <- '_expl'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 1
+num_seeds  <- 2
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(r0                   = seq(12,12,2),
-                          num_days             = c(40),
+exp_design <- expand.grid(r0                   = seq(12,14,2),
+                          num_days             = c(40,50),
                           rng_seed             = seq(num_seeds),
                           num_participants_survey   = 5000,
                           track_index_case     = 'false',
