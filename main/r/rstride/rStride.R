@@ -20,6 +20,17 @@
 #############################################################################
 
 # load R packages
+for(package_i in c('XML','doParallel','ggplot2','gridExtra')){
+
+  # if not present => install
+  if(!package_i %in% rownames(installed.packages())){
+    install.packages(package_i)
+  }
+
+  # load package
+  library(package_i,character.only=TRUE, quietly = T, verbose = F)
+}
+
 library(XML,quietly = TRUE)
 library(doParallel,quietly = TRUE)
 

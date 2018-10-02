@@ -57,8 +57,8 @@ void PublicHealthAgency::PerformCaseFinding(std::shared_ptr<Population> pop,
 		auto  uniform01Generator = rnManager[0].variate_generator(trng::uniform01_dist<double>());
 		auto& logger             = pop->GetContactLogger();
 
-		/// To allow iteration over different pool types.
-		constexpr std::initializer_list<Id> AgencyPoolIdList {Id::Household};
+		/// To allow iteration over pool types for the PublicHealthAgency.
+		std::initializer_list<Id> AgencyPoolIdList {Id::Household};
 
 		for (auto& p_case : population) {
 			if (p_case.GetHealth().IsSymptomatic() && p_case.GetHealth().SymptomsStartedToday()) {
