@@ -55,16 +55,30 @@ inspect_summary <- function(project_dir)
   
   # loop over the changing input parameters => plot cases and incidence
   #par(mfrow=c(2,2))
-  par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
+  par(mar = c(10, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
   for(i in 1:ncol(input_opt_design)){
     boxplot(num_cases ~ project_summary[,colnames(input_opt_design)[i]],
             data = project_summary,
             xlab = colnames(input_opt_design)[i],
-            ylab = '')
+            ylab = '',cex.axis=0.8,las=2)
     axis(4, at = ticks_cases , labels = ticks_r0 )
     mtext("incidence", side=4, line=2,cex=0.9)
     mtext("number of cases", side=2, line=2,cex=0.9)
   }
+  
+  par(mar = c(10, 4, 1, 4) + 0.3)  # Leave space for 3rd axis
+  boxplot(as.formula(paste("num_cases",paste(colnames(input_opt_design),collapse='+'),sep="~")),
+          data = project_summary,
+          ylab = '',
+          las=2,
+          cex.axis=0.8)
+  axis(4, at = ticks_cases , labels = ticks_r0 )
+  mtext("incidence", side=4, line=2,cex=0.9)
+  mtext("total number of cases", side=2, line=2,cex=0.9)
+  
+  
+             
+  
   
   dev.off()
 
