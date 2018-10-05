@@ -42,7 +42,6 @@ inspect_transmission_data <- function(project_dir)
     num_runs_exp        <- sum(flag_exp)
     num_infected_seeds  <- sum(is.na(data_transm$infector_id)) / num_runs_exp
  
-    
     # INCIDENCE
     tbl_transm <- table(data_transm$sim_day,data_transm$exp_id)
     tbl_transm_matrix <- matrix(c(tbl_transm),nrow=nrow(tbl_transm),dimnames=list(rownames(tbl_transm)))
@@ -110,16 +109,10 @@ inspect_transmission_data <- function(project_dir)
      infector_time$infector_id[is.na(infector_time$infector_id)] <- 0
 
     # merge case and infector timings
-    if(nrow(data_infectors)==0){
-      infection_time$sec_cases <- 0
-      infection_time$infection_day <- -1
-      infection_time$infector_infection_day <- -1
-    } else{
-      infection_time <- merge(infection_time,infector_time, all.x = TRUE)
-    }
+    infection_time <- merge(infection_time,infector_time, all.x = TRUE)
     
     
-# secundary cases per local_id
+    # secundary cases per local_id
     tbl_infections <- table(data_transm$infector_id)
     data_infectors <- data.frame(local_id     = as.numeric(names(tbl_infections)),
                                  sec_cases    = as.numeric(tbl_infections))
@@ -163,48 +156,47 @@ inspect_transmission_data <- function(project_dir)
     }
     
   ## OUTBREAKS
-    data_outbreak             <- data_transm
-    data_outbreak$outbreak_id <- NA
-    flag <- is.na(data_outbreak$sim_day)
-    data_outbreak$outbreak_id[flag] <- seq(sum(flag))
-    data_outbreak_all <- NULL
-
-    while(is.null(data_outbreak_all) || nrow(data_outbreak_all) < nrow(data_transm)){
+    data_outbreak                   <- data_transm                       # copy all info
+    data_outbreak$outbreak_id       <- NA                                # create placeholder for the outbreak id
+    flag                            <- is.na(data_outbreak$sim_day)      # infectious seeds
+    data_outbreak$outbreak_id[flag] <- seq(sum(flag))                    # give the infectious seeds a unique outbreak id
+    data_outbreak$infector_id[flag] <- data_outbreak$local_id[flag]
+   
+    while(any(is.na(data_outbreak$outbreak_id))){
+      # get individuals that are part of an outbreak
       d_source <- data_outbreak[!is.na(data_outbreak$outbreak_id),c('local_id','outbreak_id')]
-      d_sink   <- data_outbreak[is.na(data_outbreak$outbreak_id),names(data_outbreak) != 'outbreak_id']
       dim(d_source)
+      
+      # # get individuals that are not (yet) part of an outbreak
+      d_sink   <- data_outbreak[,names(data_outbreak) != 'outbreak_id']
       dim(d_sink)
       
+      # rename column in 'source' to set them as 'infector'
       names(d_source)[1] <- 'infector_id'
-      data_outbreak      <- merge(d_sink,d_source,all.x = TRUE)
-      dim(data_outbreak)
-
-      data_outbreak_all <- rbind(data_outbreak_all,d_source)
       
+      # merge source and sink => transfer outbreak id
+      data_outbreak      <- merge(d_sink,d_source,all.x = TRUE)
+   
     }
 
-    names(data_outbreak_all)[1] <- 'local_id'
-    names(data_transm)
-    data_outbreak_all <- merge(data_outbreak_all,data_transm)
-    dim(data_outbreak_all)
-
-    outbreak_size_data <- c(table(data_outbreak_all$outbreak_id))
-    outbreak_size_breaks <- c(1,2,5,10,50,max(c(100,outbreak_size_data+1)))
+    outbreak_size_data <- c(table(data_outbreak$outbreak_id))
+    outbreak_size_breaks <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
     outbreak_size_cat    <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
+    levels(outbreak_size_cat)[5] <- "[50,+]"
     barplot(table(outbreak_size_cat)/length(outbreak_size_cat),
             ylab='fraction',
             xlab='outbreak size',
-            main='outbreak size',
+            main=paste0('outbreak size (n:',max(data_outbreak$outbreak_id),')'),
             las=2,
             ylim=0:1)
    
     # add some info in the legend
-    num_infected_seeds <- max(data_outbreak_all$outbreak_id) / max(data_outbreak_all$exp_id)
+    num_infected_seeds <- max(data_outbreak$outbreak_id) / length(unique(data_outbreak$exp_id))
     legend('top',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
 
     # count / day
-    data_outbreak_all$sim_day[is.na(data_outbreak_all$sim_day)] <- 0
-    tbl_all <- table(data_outbreak_all$sim_day,data_outbreak_all$outbreak_id) # table
+    data_outbreak$sim_day[is.na(data_outbreak$sim_day)] <- 0
+    tbl_all <- table(data_outbreak$sim_day,data_outbreak$outbreak_id) # table
     if(nrow(tbl_all)==0) {
       tbl_all     <- matrix(0,nrow=1,dimnames=list(0))
       tbl_all_cum <- matrix(0,nrow=1,dimnames=list(0))
@@ -237,18 +229,18 @@ inspect_transmission_data <- function(project_dir)
 
     # plot the number of ongoing outbreaks over time
     plot(outbreaks_over_time$day,outbreaks_over_time$count,
-         ylim=c(0,max(data_outbreak_all$outbreak_id)),
+         ylim=c(0,max(data_outbreak$outbreak_id)),
          xlab='day of last infection',ylab='count (oubtreaks)',
          main='number ongoing outbreaks over time')
     
     # cases by age
-    names(data_outbreak_all)
-    hist(data_outbreak_all$part_age,0:99,right = F,
+    names(data_outbreak)
+    hist(data_outbreak$part_age,0:99,right = F,
          freq = F,xlab='age of a case',
          ylim = c(0,0.2),
          main = 'incidence by age')  
   
-    data_outbreak_tmp <- data_outbreak_all
+    data_outbreak_tmp <- data_outbreak
     data_outbreak_tmp$sim_day[is.na(data_outbreak_tmp$sim_day)] <- -10
     
     bymedian <- with(data_outbreak_tmp, reorder(outbreak_id, -part_age, median))
@@ -260,7 +252,7 @@ inspect_transmission_data <- function(project_dir)
             xlab='time (days)',ylab='age of the cases',
             cex=0.8)  
     
-    data_case_age <- cut(data_outbreak_all$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
+    data_case_age <- cut(data_outbreak$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
     barplot(table(data_case_age)/length(data_case_age),
             las=2,xlab='age',ylab='Fraction',cex.names=0.8,
             ylim=c(0,0.3),main = 'incidence by age group')

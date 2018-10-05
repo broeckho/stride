@@ -66,7 +66,7 @@ set(STRIDE_FORCE_NO_HDF5	FALSE
 list( APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/resources/cmake/" )
 
 #============================================================================
-# Distinguish Linux from Aplle in UNIX family.
+# Distinguish Linux from Apple in UNIX family.
 #============================================================================
 if(UNIX AND NOT APPLE)
     set(LINUX TRUE)

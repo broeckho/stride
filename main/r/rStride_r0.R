@@ -41,7 +41,7 @@ dir_postfix <- '_r0'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 5
+num_seeds  <- 2
 
 # add parameters and values to combine in a full-factorial grid
 exp_design <- expand.grid(r0                        = seq(0,24,3),
@@ -53,6 +53,7 @@ exp_design <- expand.grid(r0                        = seq(0,24,3),
                           num_threads               = 1,
                           seeding_rate              = 0.00002,
                           disease_config_file       = "disease_measles.xml",
+                          population_file           = "pop_flanders600.csv",
                           age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
                           stringsAsFactors = F)
 
