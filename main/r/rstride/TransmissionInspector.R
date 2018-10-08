@@ -182,7 +182,7 @@ inspect_transmission_data <- function(project_dir)
     outbreak_size_data <- c(table(data_outbreak$outbreak_id))
     outbreak_size_breaks <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
     outbreak_size_cat    <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
-    levels(outbreak_size_cat)[5] <- "[50,+]"
+    levels(outbreak_size_cat)[6] <- "[50,+]"
     barplot(table(outbreak_size_cat)/length(outbreak_size_cat),
             ylab='fraction',
             xlab='outbreak size',
@@ -190,7 +190,7 @@ inspect_transmission_data <- function(project_dir)
             las=2,
             ylim=0:1)
    
-    # add some info in the legend
+    # add some info to the legend
     num_infected_seeds <- max(data_outbreak$outbreak_id) / length(unique(data_outbreak$exp_id))
     legend('top',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
 
