@@ -101,11 +101,7 @@ inspect_summary <- function(project_dir)
 ## HELP FUNCTION
 .rstride$get_variable_model_param <- function(project_summary){
   
-  col_output <- c('run_time', 'total_time', 'num_cases', 'AR' )
-  col_extra  <- c('rng_seed','output_prefix','transmission_rate','exp_id') 
-  col_input  <- !(names(project_summary) %in% c(col_output,col_extra))
-  
-  input_opt    <- lapply(project_summary[,col_input],unique)
+  input_opt    <- .rstride$get_unique_param_list(project_summary)
   input_opt    <- input_opt[lapply(input_opt,length)>1]
   
   # get parameter combinations
@@ -124,3 +120,18 @@ inspect_summary <- function(project_dir)
   return(input_opt_design)
 
 }
+
+## HELP FUNCTION
+.rstride$get_unique_param_list <- function(project_summary){
+  
+  col_output <- c('run_time', 'total_time', 'num_cases', 'AR' )
+  col_extra  <- c('rng_seed','output_prefix','transmission_rate','exp_id') 
+  col_input  <- !(names(project_summary) %in% c(col_output,col_extra))
+  
+  # get unique values per parameter
+  input_opt    <- lapply(project_summary[,col_input],unique)
+  
+  # return
+  return(input_opt)
+}
+

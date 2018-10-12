@@ -84,26 +84,33 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   
   poly_input   <- sort(temp$x)
   R0_poly_fit  <- .rstride$f_poly_r0(poly_input,fit_b0,fit_b1,fit_b2)
+  sec_transm$R0_poly_fit <- round(.rstride$f_poly_r0(sec_transm$transmission_rate,fit_b0,fit_b1,fit_b2),digits=1)
   
+  # fix y-axis limits (default: 0-40)
+  y_lim <- range(c(0,36,sec_transm$sec_cases))
+  
+
   # open pdf stream
-  pdf(file.path(project_dir,'fit_r0.pdf'))
+  run_tag <- unique(project_summary$run_tag)
+  pdf(file.path(project_dir,paste0(run_tag,'_fit_r0.pdf')))
   
   boxplot(round(sec_transm$sec_cases,digits=3) ~ round(sec_transm$transmission_rate,digits=2), 
           xlab='transmission probability',ylab='secundary cases',
           at=sort(round(unique(sec_transm$transmission_rate),digits=3)),
           xlim=range(sec_transm$transmission_rate),
-          boxwex=0.005)
+          ylim=y_lim,boxwex=0.005)
   
   lines(poly_input,R0_poly_fit,type='l',col=3,lwd=4)
   leg_text_bis <- paste0(c(paste0('b',0:2,': '),'R^2: ','R0 lim: '),round(c(fit_b0,fit_b1,fit_b2,mod$r.squared,R0_limit),digits=2))
   legend('topleft',legend=leg_text_bis,cex=0.8,title='b0+b1*x+b2*x^2',fill=3)
   
-  boxplot(sec_transm$sec_cases ~ sec_transm$r0,
-          xlab='R0',ylab='secundary cases',
-          at=sort(unique(sec_transm$r0)),
-          boxwex=0.5)
+  boxplot(sec_transm$sec_cases ~ sec_transm$R0_poly_fit,
+          xlab='model R0 (using new transmission parameters)',ylab='secundary cases',
+          at=sort(unique(sec_transm$R0_poly_fit)),
+          ylim=y_lim,boxwex=0.5)
   abline(0,1,col=2,lwd=2)
-  legend('topleft',legend='x=y',cex=0.8,title='reference',col=2,lwd=2)
+  legend('topleft',legend=leg_text_bis,cex=0.8,title='b0+b1*x+b2*x^2',fill=3)
+  legend('topright',legend='x=y',cex=0.8,title='reference',col=2,lwd=2)
   
   
   ###############################
@@ -123,16 +130,26 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   plot(seq_len(length(config_disease$time_symptomatic))-1,config_disease$time_symptomatic,xlab='days',ylab='probability',main='time_symptomatic')
   par(mfrow=c(1,1))
   
+  # compare original and new fit
   R0_poly_orig <- .rstride$f_poly_r0(poly_input,
                                      as.numeric(config_disease$transmission$b0),
                                      as.numeric(config_disease$transmission$b1),
                                      as.numeric( config_disease$transmission$b2))
   
-  plot(poly_input,R0_poly_orig,type='l',lwd=2,xlab='transmission probability',ylab='secundary cases')
+  plot(poly_input,R0_poly_orig,
+       type='l',lwd=2,
+       xlab='transmission probability',
+       ylab='secundary cases',
+       ylim=y_lim)
   lines(poly_input,R0_poly_fit,col=3,lwd=2)
-  legend('topleft',c('original fit','new fit'),col=c(1,3),lwd=1)
+  # add grid
+  abline(v=seq(0,1,0.1),lty=3,col=9)
+  abline(h=seq(0,max(y_lim),2),lty=3,col=9)
+  # add legend
+  legend('topleft',c('original fit','new fit'),
+         col=c(1,3),lwd=1,bg= "white")
   
-
+  
   
   ####################################
   ## DISEASE HISTORY MEASLES        ##
@@ -180,6 +197,12 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   ## UPDATE DISEASE CONFIG FILE     ##
   ####################################
  
+  variable_param <- .rstride$get_variable_model_param(project_summary)
+  
+  .rstride$get_unique_param_list(project_summary)
+  lapply(project_summary,unique)
+  ?lapply       
+  
   # update transmission param
   config_disease$transmission$b0 <- fit_b0
   config_disease$transmission$b1 <- fit_b1
@@ -198,27 +221,31 @@ analyse_transmission_data_for_r0 <- function(project_dir)
     config_disease$label <- list(pathogen = config_disease$label)
   }
   
-  # add the population and contact file, together with the current date  
-  config_disease$label <- list(pathogen = config_disease$label$pathogen,
-                               population_file         = unique(project_summary$population_file),
-                               age_contact_matrix_file = unique(project_summary$age_contact_matrix_file),
-                               r0                      = unique(project_summary$r0),
-                               start_date              = unique(project_summary$start_date),
+  # add all population, contact, disease, model parameters 
+  config_disease$label <- unlist(list(pathogen           = config_disease$label$pathogen,
+                               # population_file         = unique(project_summary$population_file),
+                               # age_contact_matrix_file = unique(project_summary$age_contact_matrix_file),
+                               # r0                      = unique(project_summary$r0),
+                               # start_date              = unique(project_summary$start_date),
                                num_infected_seeds      = num_infected_seeds,
                                total_num_index_cases   = total_num_index_cases,
                                num_rng_seeds           = num_rng_seeds,
                                dim_exp_design          = dim_exp_design,
                                num_realisations        = num_realisations,
-                               fit_r0_limit            = round(R0_limit,digits=2) 
-                              ) 
-  # update filename
-  disease_config_update_file <- sub('.xml','_updated',disease_config_file)
+                               fit_r0_limit            = round(R0_limit,digits=2),
+                               .rstride$get_unique_param_list(project_summary)
+                              ),recursive = F)
+  
+  # update filename: add run_tag
+  disease_config_update_file <- paste0(run_tag,'_',disease_config_file)
+  # update filename: remove file extension
+  disease_config_update_file <- sub('.xml','',disease_config_update_file)
   
   # save
   new_disease_config_filename <- .rstride$save_config_xml(config_disease,'disease',file.path(project_dir,disease_config_update_file))
   
   # terminal message
-  .rstride$cli_print('NEW DISEASE CONFIG FILE', new_disease_config_filename)
+  .rstride$cli_print('NEW DISEASE CONFIG FILE', disease_config_update_file)
   
   ###############################
   ## TERMINATE PARALLEL NODES  ##
