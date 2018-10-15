@@ -86,19 +86,19 @@ def writeSeeds(scenarioName, seeds):
         writer = csv.writer(csvfile)
         writer.writerow(seeds)
 
-def runSimulations(scenarioName, numRuns, r0s, startDates, extraParams={}):
-    configFile = os.path.join("config", "measles" + scenarioName + "Immunity.xml")
-    for r0 in r0s:
+def runSimulations(scenarioName, numRuns, R0s, startDates, extraParams={}):
+    configFile = os.path.join("config", "measles" + scenarioName + ".xml")
+    for R0 in R0s:
         for startDate in startDates:
             seeds = generateRngSeeds(numRuns)
             writeSeeds(scenarioName, seeds)
             for s in seeds:
-                print("Running " + scenarioName + " with R0 " + str(r0) + " and start " + startDate)
+                print("Running " + scenarioName + " with R0 " + str(R0) + " and start " + startDate)
                 control = PyController(data_dir="data")
                 control.loadRunConfig(configFile)
-                control.runConfig.setParameter("output_prefix", scenarioName + str(s))
+                control.runConfig.setParameter("output_prefix", scenarioName + "_" + str(s))
                 control.runConfig.setParameter("rng_seed", s)
-                control.runConfig.setParameter("r0", r0)
+                control.runConfig.setParameter("r0", R0)
                 control.runConfig.setParameter("start_date", startDate)
                 for paramName, paramValue in extraParams.items():
                     control.runConfig.setParameter(paramName, paramValue)
@@ -106,29 +106,39 @@ def runSimulations(scenarioName, numRuns, r0s, startDates, extraParams={}):
                 control.registerCallback(trackCases, EventType.Stepped)
                 control.control()
 
-def main(numRuns):
+def main(numRuns, R0s, startDates):
     start = time.perf_counter()
-    r0s = [12]
-    #startDates = ["2017-01-01", "2017-01-02", "2017-01-03", "2017-01-04", "2017-01-05", "2017-01-06", "2017-01-07"]
-    startDates = ["2017-01-01"]
-    # Run AgeClustering scenarios
-    runSimulations("AgeClustering", numRuns, r0s, startDates)
-    # Run AgeAndHouseholdClustering scenario
-    runSimulations("AgeAndHouseholdClustering", numRuns, r0s, startDates)
+    """
+    Run scenarios with age-dependent immunity rates.
+    From this runs, a uniform immunity rate can then be calculated.
+    """
+    # Age-dependent immunity rates + no household-based clustering
+    runSimulations("Scenario2", numRuns, R0s, startDates)
+    # Age-dependent immunity rates + household-based clustering
+    runSimulations("Scenario4", numRuns, R0s, startDates)
+    """
+    Calculate uniform immunity rate from previous runs, and
+    create uniform age-immunity files.
+    """
     immunityRate = getAvgImmunityRate()
     createRandomImmunityDistributionFiles(immunityRate)
-    # Run Random scenario
-    runSimulations("Random", numRuns, r0s, startDates, {'immunity_rate': immunityRate})
-    # Run HouseholdClustering scenario
-    runSimulations('HouseholdClustering',
-                    numRuns, r0s, startDates,
-                    {'immunity_distribution_file': 'data/measles_random_adult_immunity.xml',
-                     'vaccine_distribution_file': 'data/measles_random_child_immunity.xml'})
+    """
+    Run scenarios with uniform immunity rates.
+    """
+    # Uniform immunity rates + no household-based clustering
+    runSimulations("Scenario1", numRuns, R0s, startDates, {"immunity_rate": immunityRate})
+    # Uniform immunity rates + household-based clustering
+    runSimulations("Scenario3", numRuns, R0s, startDates,
+                    {"immunity_distribution_file": "data/measles_random_adult_immunity.xml",
+                    "vaccine_distribution_file": "data/measles_random_child_immunity.xml"})
     end = time.perf_counter()
-    print("Total time: " + str(end - start))
+    print("Total time: {}".format(end - start))
+    # TODO convert to more readable time format minutes - seconds - milliseconds - ...
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--numRuns", type=int, default=10, help="Number of simulation runs per scenario")
+    parser.add_argument("--R0s", type=int, nargs="+", default=[12], help="Values for r0")
+    parser.add_argument("--startDates", type=str, nargs="+", default=["2017-01-01"], help="Values for start_date")
     args = parser.parse_args()
-    main(args.numRuns)
+    main(args.numRuns, args.R0s, args.startDates)
