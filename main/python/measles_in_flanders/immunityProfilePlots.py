@@ -77,75 +77,6 @@ def createAgeImmunityPlots(outputDir, scenarioNames):
     plt.savefig(os.path.join(outputDir, "AgeImmunityPlots.png"))
     plt.clf()
 
-def getFinalOutbreaksSizes(outputDir, scenarioName, numDays):
-    finalSizes = []
-    seeds = getRngSeeds(outputDir, scenarioName)
-    for s in seeds:
-        casesFile = os.path.join(outputDir, scenarioName + str(s), "cases.csv")
-        with open(casesFile) as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                if int(row['timestep']) == (numDays - 1):
-                    finalSizes.append(int(row['cases']))
-                    break
-    return finalSizes
-
-def createOutbreakSizesPlots(outputDir, scenarioNames, numDays):
-    allFinalSizes = []
-    for scenario in scenarioNames:
-        finalSizes = getFinalOutbreaksSizes(outputDir, scenario, numDays)
-        allFinalSizes.append(finalSizes)
-    plt.boxplot(allFinalSizes, labels=["Uniform +\nnot clustered",
-                "Age-dependent +\nnot clustered", "Uniform +\nclustered",
-                "Age-dependent +\nclustered"])
-    plt.ylabel("Final outbreak sizes after {} days".format(numDays + 1))
-    plt.savefig(os.path.join(outputDir, "FinalSizesPlot.png"))
-    plt.clf()
-
-def getCumulativeCasesPerDay(outputDir, scenarioName, numDays):
-    cumulativeCasesPerDay = []
-    for day in range(numDays):
-        cumulativeCasesPerDay.append([])
-    seeds = getRngSeeds(outputDir, scenarioName)
-    for s in seeds:
-        casesFile = os.path.join(outputDir, scenarioName + str(s), 'cases.csv')
-        with open(casesFile) as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                if int(row['timestep']) < numDays:
-                    cumulativeCasesPerDay[int(row['timestep'])].append(int(row['cases']))
-    return cumulativeCasesPerDay
-
-def getNewCasesPerDay(cumulativeCases):
-    newCasesPerDay = []
-    lastDay = [1] * len(cumulativeCases[0])
-    for today in cumulativeCases:
-        newToday = [x - y for x, y in zip(today, lastDay)]
-        newCasesPerDay.append(newToday)
-        lastDay = today
-    return newCasesPerDay
-
-def createOutbreakEvolutionPlots(outputDir, scenarioNames, numDays):
-    dayScale = 10
-    days = range(numDays)[::dayScale]
-    for scenario in scenarioNames:
-        cumulativeCases = getCumulativeCasesPerDay(outputDir, scenario, numDays)
-        plt.boxplot(cumulativeCases[::dayScale], labels=days)
-        plt.xticks(rotation=90)
-        plt.xlabel("Day")
-        plt.ylabel("Cumulative cases per day")
-        plt.ylim(0, 50000)
-        plt.savefig(os.path.join(outputDir, scenario + "CumulativeCasesPlot.png"))
-        plt.clf()
-        newCases = getNewCasesPerDay(cumulativeCases)
-        plt.boxplot(newCases[::dayScale], labels=days)
-        plt.xticks(rotation=90)
-        plt.xlabel("Day")
-        plt.ylabel("New cases per day")
-        plt.ylim(0, 600)
-        plt.savefig(os.path.join(outputDir, scenario + "NewCasesPlot.png"))
-        plt.clf()
-
 def createHouseholdConstitutionPlots(outputDir, scenarioNames):
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
@@ -168,27 +99,6 @@ def createHouseholdConstitutionPlots(outputDir, scenarioNames):
             plt.hist(householdImmunities)
             plt.title(scenario)
             plt.show()
-
-def getActualSusceptibilityRates(outputDir, scenarioName, seed):
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            age = int(float(row['age']))
-            isSusceptible = int(row['susceptible'])
-            totalsByAge[age] += 1
-            if isSusceptible:
-                susceptiblesByAge[age] += 1
-    return [x / y for x, y in zip(susceptiblesByAge, totalsByAge)]
-
-def getActualAvgSusceptibilityRates(outputDir, scenarioName):
-    maxAge = 99
-    seeds = getRngSeeds(outputDir, scenarioName)
-    totalRates = [0] * (maxAge + 1)
-    for s in seeds:
-        actualRates = getActualSusceptibilityRates(outputDir, scenarioName, s)
-        totalRates = [x + y for x,y in zip(totalRates, actualRates)]
-    totalRates = [x / len(seeds) for x in totalRates]
-    return totalRates
 """
 
 def main(outputDir, numDays):
@@ -204,6 +114,10 @@ def main(outputDir, numDays):
     # TODO calculate effective R0 per scenario
     # TODO escape probabilities?
     # TODO outbreak evolution plots? Added value for paper?
+'''
+
+def main():
+    pass
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
@@ -211,4 +125,3 @@ if __name__=="__main__":
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulation days for which to make plots.")
     args = parser.parse_args()
     main(args.outputDir, args.numDays)
-'''
