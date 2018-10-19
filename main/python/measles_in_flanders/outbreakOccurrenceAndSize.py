@@ -60,7 +60,8 @@ def outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDa
     plt.bar(scenarioDisplayNames, outbreakOccurrences)
     plt.ylim(0, 1)
     plt.ylabel("Fraction outbreaks")
-    plt.show()
+    plt.savefig("OutbreakOccurrencePlot.png")
+    plt.clf()
 
 def main(outputDir, numDays, extinctionThreshold):
     scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
