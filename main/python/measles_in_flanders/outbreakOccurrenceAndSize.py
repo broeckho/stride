@@ -44,7 +44,7 @@ def finalSizesPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, exti
         allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
     plt.ylabel("Final outbreak size")
-    plt.savefig("FinalSizesNoExtinction.png")
+    plt.savefig(os.path.join(outputDir, "FinalSizesNoExtinction.png"))
     plt.clf()
 
 def outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold):
@@ -62,39 +62,8 @@ def outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDa
     plt.bar(scenarioDisplayNames, outbreakOccurrences)
     plt.ylim(0, 1)
     plt.ylabel("Fraction outbreaks")
-    plt.savefig("OutbreakOccurrencePlot.png")
+    plt.savefig(os.path.join(outputDir, "OutbreakOccurrencePlot.png"))
     plt.clf()
-
-def getSusceptiblesAtStart(outputDir, scenario, seed):
-    totalSusceptibles = 0
-    susceptiblesFile = os.path.join(outputDir, scenario + "_" + str(seed), "susceptibles.csv")
-    with open(susceptiblesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            isSusceptible = int(row["susceptible"])
-            if isSusceptible == 1:
-                totalSusceptibles += 1
-    return totalSusceptibles
-
-def getEscapeProbability(outputDir, scenario, seed, numDays):
-    totalSusceptibles = getSusceptiblesAtStart(outputDir, scenario, seed)
-    finalSize = getFinalOutbreakSize(outputDir, scenario, seed, numDays)
-    # susceptibles - infected) / susceptibles
-    escapeProbability = (totalSusceptibles - finalSize) / totalSusceptibles
-    return escapeProbability
-
-def escapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays):
-    allEscapeProbabilities = []
-    for scenario in scenarioNames:
-        seeds = getRngSeeds(outputDir, scenario)
-        scenarioEscapeProbabilities = []
-        for s in seeds:
-            scenarioEscapeProbabilities.append(getEscapeProbability(outputDir, scenario, s, numDays))
-        allEscapeProbabilities.append(scenarioEscapeProbabilities)
-    plt.boxplot(allEscapeProbabilities, labels=scenarioDisplayNames)
-    plt.ylabel("Escape probability")
-    plt.ylim(0, 1.1)
-    plt.show()
 
 def main(outputDir, numDays, extinctionThreshold):
     scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
@@ -106,8 +75,6 @@ def main(outputDir, numDays, extinctionThreshold):
     outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold)
     # Final size distribution without extinction cases
     finalSizesPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold)
-    # Escape probabilities
-    escapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()

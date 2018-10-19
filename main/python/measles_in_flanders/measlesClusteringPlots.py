@@ -1,4 +1,4 @@
-import argparse
+'''import argparse
 import csv
 import matplotlib.pyplot as plt
 import os
@@ -80,3 +80,4 @@ if __name__=="__main__":
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulation days for which to make plots.")
     args = parser.parse_args()
     main(args.outputDir, args.numDays)
+'''
