@@ -1,7 +1,10 @@
-'''import argparse
+import argparse
 import csv
 import matplotlib.pyplot as plt
 import os
+import xml.etree.ElementTree as ET
+
+MAX_AGE = 99
 
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
@@ -13,8 +16,6 @@ def getRngSeeds(outputDir, scenarioName):
                 seeds.append(int(s))
     return seeds
 
-"""
-import xml.etree.ElementTree as ET
 def getTargetSusceptibilityRates(outputDir):
     targetRatesChildTree = ET.parse(os.path.join(outputDir, 'data', 'measles_child_immunity.xml'))
     targetRatesChild = []
@@ -30,7 +31,7 @@ def getTargetSusceptibilityRates(outputDir):
     return [1 - (x + y) for x, y in zip(targetRatesChild, targetRatesAdult)]
 
 def getActualSusceptibilityRates(outputDir, scenarioName, seed):
-    susceptiblesFile = os.path.join(outputDir, scenarioName + str(seed), 'susceptibles.csv')
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), 'susceptibles.csv')
     maxAge = 99
     totalsByAge = [0] * (maxAge + 1)
     susceptiblesByAge = [0] * (maxAge + 1)
@@ -44,39 +45,7 @@ def getActualSusceptibilityRates(outputDir, scenarioName, seed):
                 susceptiblesByAge[age] += 1
     return [x / y for x, y in zip(susceptiblesByAge, totalsByAge)]
 
-def getActualAvgSusceptibilityRates(outputDir, scenarioName):
-    maxAge = 99
-    seeds = getRngSeeds(outputDir, scenarioName)
-    totalRates = [0] * (maxAge + 1)
-    for s in seeds:
-        actualRates = getActualSusceptibilityRates(outputDir, scenarioName, s)
-        totalRates = [x + y for x,y in zip(totalRates, actualRates)]
-    totalRates = [x / len(seeds) for x in totalRates]
-    return totalRates
-
-def createAgeImmunityPlots(outputDir, scenarioNames):
-    # Plot target immunity rates
-    targetRates = getTargetSusceptibilityRates(outputDir)
-    plt.plot(targetRates, 'bo')
-    # Plot immunity rates per scenario
-    maxAge = 99
-    ages = range(maxAge + 1)
-    for scenario in scenarioNames:
-        actualRates = getActualAvgSusceptibilityRates(outputDir, scenario)
-        plt.plot(ages, actualRates)
-
-    # Plot layout
-    plt.xlabel("Age")
-    plt.xlim(0,100)
-    plt.ylabel("Fraction susceptible")
-    plt.ylim(0,1)
-    plt.legend(["Data", "Uniform +\nnot clustered",
-                "Age-dependent +\nnot clustered", "Uniform +\nclustered",
-                "Age-dependent +\nclustered"])
-    # Save plot and clear figure
-    plt.savefig(os.path.join(outputDir, "AgeImmunityPlots.png"))
-    plt.clf()
-
+'''
 def createHouseholdConstitutionPlots(outputDir, scenarioNames):
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
@@ -99,29 +68,43 @@ def createHouseholdConstitutionPlots(outputDir, scenarioNames):
             plt.hist(householdImmunities)
             plt.title(scenario)
             plt.show()
-"""
+'''
 
-def main(outputDir, numDays):
+def getActualAvgSusceptibilityRates(outputDir, scenarioName):
+    seeds = getRngSeeds(outputDir, scenarioName)
+    totalRates = [0] * (MAX_AGE + 1)
+    for s in seeds:
+        actualRates = getActualSusceptibilityRates(outputDir, scenarioName, s)
+        totalRates = [x + y for x,y in zip(totalRates, actualRates)]
+    totalRates = [x / len(seeds) for x in totalRates]
+    return totalRates
+
+def ageImmunityPlot(outputDir, scenarioNames, scenarioDisplayNames):
+    targetSusceptibilityRates = getTargetSusceptibilityRates(outputDir)
+    plt.plot(targetSusceptibilityRates, 'bo')
+    for scenario in scenarioNames:
+        actualRates = getActualAvgSusceptibilityRates(outputDir, scenario)
+        plt.plot(actualRates)
+    plt.xlim(0, 100)
+    plt.xlabel("Age")
+    plt.ylim(0,1)
+    plt.ylabel("Fraction susceptible")
+    plt.legend(scenarioDisplayNames)
+    plt.savefig(os.path.join(outputDir, "AgeImmunityPlot.png"))
+    plt.clf()
+
+def main(outputDir):
     scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
     scenarioDisplayNames = ["Uniform immunity rates +\nno household-based clustering",
                             "Age-dependent immunity rates +\nno household-based clustering",
                             "Uniform immunity rates +\nhousehold-based clustering",
                             "Age-dependent immunity rates +\nhousehold-based clustering"]
-    # TODO age-immunity plots
-    # TODO occurrence of outbreaks
-    # TODO final size distribution when no extinction
-    # TODO compare different R0s -> plane of R0 vs size vs ??
-    # TODO calculate effective R0 per scenario
-    # TODO escape probabilities?
-    # TODO outbreak evolution plots? Added value for paper?
-'''
-
-def main():
-    pass
+    # Plot age-dependent immunity rates for each scenario
+    ageImmunityPlot(outputDir, scenarioNames, ["Data"] + scenarioDisplayNames)
+    # TODO plot household constitutions
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("outputDir", type=str, help="Directory containing simulation output files.")
-    parser.add_argument("--numDays", type=int, default=365, help="Number of simulation days for which to make plots.")
     args = parser.parse_args()
-    main(args.outputDir, args.numDays)
+    main(args.outputDir)

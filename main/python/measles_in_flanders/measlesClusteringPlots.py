@@ -70,10 +70,7 @@ def main(outputDir, numDays):
                             "Age-dependent immunity rates +\nno household-based clustering",
                             "Uniform immunity rates +\nhousehold-based clustering",
                             "Age-dependent immunity rates +\nhousehold-based clustering"]
-    # TODO occurrence of outbreaks
-    # TODO final size distribution when no extinction
     # TODO compare different R0s -> plane of R0 vs size vs ??
-    # TODO calculate effective R0 per scenario
     # TODO escape probabilities?
     # TODO outbreak evolution plots? Added value for paper?
 
