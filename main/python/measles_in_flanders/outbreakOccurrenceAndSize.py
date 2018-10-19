@@ -3,6 +3,13 @@ import csv
 import matplotlib.pyplot as plt
 import os
 
+'''
+def chunks(l, n):
+    """Yield successive n-sized chunks from l."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+'''
+
 def getRngSeeds(outputDir, scenarioName):
     seeds = []
     seedsFile = os.path.join(outputDir, scenarioName + "Seeds.csv")
@@ -12,41 +19,6 @@ def getRngSeeds(outputDir, scenarioName):
             for s in row:
                 seeds.append(int(s))
     return seeds
-
-'''
-
-
-def plotHistogram(xs, filename):
-    plt.hist(xs)
-    plt.savefig(filename)
-    plt.clf()
-
-"""
-def getFinalOutbreaksSizes(outputDir, scenarioName, numDays):
-    finalSizes = []
-    seeds = getRngSeeds(outputDir, scenarioName)
-    for s in seeds:
-        casesFile = os.path.join(outputDir, scenarioName + str(s), "cases.csv")
-        with open(casesFile) as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                if int(row['timestep']) == (numDays - 1):
-                    finalSizes.append(int(row['cases']))
-                    break
-    return finalSizes
-
-def createOutbreakSizesPlots(outputDir, scenarioNames, numDays):
-    allFinalSizes = []
-    for scenario in scenarioNames:
-        finalSizes = getFinalOutbreaksSizes(outputDir, scenario, numDays)
-        allFinalSizes.append(finalSizes)
-    plt.boxplot(allFinalSizes, labels=["Uniform +\nnot clustered",
-                "Age-dependent +\nnot clustered", "Uniform +\nclustered",
-                "Age-dependent +\nclustered"])
-    plt.ylabel("Final outbreak sizes after {} days".format(numDays + 1))
-    plt.savefig(os.path.join(outputDir, "FinalSizesPlot.png"))
-    plt.clf()
-'''
 
 def getFinalOutbreakSizes(outputDir, scenarioName, numDays):
     finalSizes = []
@@ -69,8 +41,25 @@ def finalSizesPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, exti
         finalSizes = [x for x in finalSizes if x > extinctionThreshold]
         allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
-    #plt.tick_params(labelsize=9)
     plt.ylabel("Final outbreak size")
+    plt.savefig("FinalSizesNoExtinction.png")
+    plt.clf()
+
+def outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold):
+    outbreakOccurrences = []
+    for scenario in scenarioNames:
+        finalSizes = getFinalOutbreakSizes(outputDir, scenario, numDays)
+        outbreaks = []
+        for f in finalSizes:
+            if f <= extinctionThreshold:
+                outbreaks.append(0)
+            else:
+                outbreaks.append(1)
+        pctOutbreaks = sum(outbreaks) / len(outbreaks)
+        outbreakOccurrences.append(pctOutbreaks)
+    plt.bar(scenarioDisplayNames, outbreakOccurrences)
+    plt.ylim(0, 1)
+    plt.ylabel("Fraction outbreaks")
     plt.show()
 
 def main(outputDir, numDays, extinctionThreshold):
@@ -79,7 +68,8 @@ def main(outputDir, numDays, extinctionThreshold):
                             "Age-dependent\nimmunity rates\n+ no clustering",
                             "Uniform\nimmunity rates\n+ clustering",
                             "Age-dependent\nimmunity rates +\nclustering"]
-    # TODO occurrence of outbreaks
+    # Occurrence of outbreaks
+    outbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold)
     # Final size distribution without extinction cases
     finalSizesPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold)
     # TODO escape probability?
