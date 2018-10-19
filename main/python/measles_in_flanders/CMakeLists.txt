@@ -19,6 +19,8 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+    effectiveRs.py
+    escapeProbability.py
     extinctionThreshold.py
     immunityProfilePlots.py
 		measlesStochasticity.py
