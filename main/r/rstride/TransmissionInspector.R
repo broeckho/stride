@@ -30,7 +30,7 @@ inspect_transmission_data <- function(project_dir)
   # open PDF stream
   pdf(file.path(project_dir,'transmission_inspection.pdf'),10,7)
   
-  i_config <- 1
+  i_config <- 2
   for(i_config in 1:nrow(input_opt_design)){
 
     # reset figure arrangements... and start new plot
@@ -96,6 +96,7 @@ inspect_transmission_data <- function(project_dir)
     }
    
     # REPRODUCTION NUMBER
+    data_transm$sim_day[is.na(data_transm$sim_day)] <- 0
     # day of infection: case
     infection_time <- data.frame(local_id      = data_transm$local_id,
                                  infector_id   = data_transm$infector_id,
@@ -104,7 +105,8 @@ inspect_transmission_data <- function(project_dir)
     # day of infection: infector
     infector_time  <- data.frame(infector_id            = data_transm$local_id,
                                  infector_infection_day = data_transm$sim_day)
-
+    
+  
      infection_time$infector_id[is.na(infection_time$infector_id)] <- 0
      infector_time$infector_id[is.na(infector_time$infector_id)] <- 0
 
@@ -123,12 +125,12 @@ inspect_transmission_data <- function(project_dir)
     
     # plot
     plot_xlim <- range(c(0,sec_transm$infection_day),na.rm=T)
-    plot_ymax <- ifelse(mean(sec_transm$sec_cases)<6,6,30)
+    plot_ymax <- range(c(0,6,sec_transm$sec_cases))
     boxplot(sec_cases ~ infection_day, data = sec_transm, outline = F,
             at=sort(unique(sec_transm$infection_day)), xlim=plot_xlim,
             xlab='day',ylab='secundary infections',
             main='reproduction number',
-            ylim=c(0,plot_ymax))
+            ylim=plot_ymax)
 
     ## GENERATION INTERVAL
     # note: the generation interval is the time between the infection time of an infected person and the infection time of his or her infector.
@@ -158,7 +160,7 @@ inspect_transmission_data <- function(project_dir)
   ## OUTBREAKS
     data_outbreak                   <- data_transm                       # copy all info
     data_outbreak$outbreak_id       <- NA                                # create placeholder for the outbreak id
-    flag                            <- is.na(data_outbreak$sim_day)      # infectious seeds
+    flag                            <- is.na(data_outbreak$infector_id)  # infectious seeds
     data_outbreak$outbreak_id[flag] <- seq(sum(flag))                    # give the infectious seeds a unique outbreak id
     data_outbreak$infector_id[flag] <- data_outbreak$local_id[flag]
    
@@ -195,20 +197,22 @@ inspect_transmission_data <- function(project_dir)
     legend('top',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
 
     # count / day
-    data_outbreak$sim_day[is.na(data_outbreak$sim_day)] <- 0
-    tbl_all <- table(data_outbreak$sim_day,data_outbreak$outbreak_id) # table
-    if(nrow(tbl_all)==0) {
-      tbl_all     <- matrix(0,nrow=1,dimnames=list(0))
-      tbl_all_cum <- matrix(0,nrow=1,dimnames=list(0))
-    } else{
-      tbl_all_inv <- tbl_all[nrow(tbl_all):1,] # take the inverse for the cummulative sum
-      tbl_all_cum <- apply(tbl_all_inv,2,cumsum)
-    }
-   
+    tbl_all <- table(data_outbreak$sim_day+1,data_outbreak$outbreak_id)
+    
+    # insert this in standard matrix: [sim_day;outbreak_id]
+    tbl_all_matrix <- matrix(0,nrow=max(project_summary$num_days),ncol=max(data_outbreak$outbreak_id))
+    tbl_all_matrix[as.numeric(row.names(tbl_all)),] <- tbl_all
+    rownames(tbl_all_matrix) <- 0:max(project_summary$num_days-1)
+    
+    # take the inverse for the cummulative sum
+    tbl_all_inv  <- tbl_all_matrix[nrow(tbl_all_matrix):1,] 
+    tbl_all_cum  <- apply(tbl_all_inv,2,cumsum)
+    
+    # analyse the outbreaks over time
     outbreaks_over_time <- data.frame(day = as.numeric(rownames(tbl_all_cum)),
                                       count = rowSums(tbl_all_cum > 0))
     
-    # outbreak size over time
+    # plot outbreak size over time
     for(i in 2:length(levels(outbreak_size_cat))){
       if(sum(as.numeric(outbreak_size_cat) == i) > 1){
         tbl_selection <- t(apply(tbl_all[,as.numeric(outbreak_size_cat) == i],2,cumsum))  
@@ -240,25 +244,50 @@ inspect_transmission_data <- function(project_dir)
          ylim = c(0,0.2),
          main = 'incidence by age')  
   
+    # plot age-interval per outbreak
     data_outbreak_tmp <- data_outbreak
     data_outbreak_tmp$sim_day[is.na(data_outbreak_tmp$sim_day)] <- -10
-    
-    bymedian <- with(data_outbreak_tmp, reorder(outbreak_id, -part_age, median))
+        bymedian <- with(data_outbreak_tmp, reorder(outbreak_id, -part_age, median))
     boxplot(part_age ~ bymedian, data = data_outbreak_tmp,
-            xlab='outbreak id (sorted by the median)',ylab='age of the cases')
+            xlab='outbreak id (sorted by the median age)',ylab='age of the cases')
     
+    # plot age-interval over time
     boxplot(part_age ~ sim_day, data=data_outbreak_tmp,
             at=sort(unique(data_outbreak_tmp$sim_day)),
             xlab='time (days)',ylab='age of the cases',
             cex=0.8)  
-    
-    data_case_age <- cut(data_outbreak$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
-    barplot(table(data_case_age)/length(data_case_age),
-            las=2,xlab='age',ylab='Fraction',cex.names=0.8,
-            ylim=c(0,0.3),main = 'incidence by age group')
   
-
     
+    ###############################
+    # incidence per age group  
+    ###############################
+    
+    # get population size
+    pop_size <- project_summary$population_size[flag_exp]
+    
+    # get age distribution in the (survey) population
+    data_part         <- .rstride$load_aggregated_output(project_dir,'data_participant',project_summary$exp_id[flag_exp])
+    summary_pop_age <- table(cut(data_part$part_age,c(0,1,5,10,15,20,25,30,100),right=F))
+    summary_pop_age <- summary_pop_age/sum(summary_pop_age)*pop_size
+    
+    # get age distribution in the (secondary) cases
+    data_case_age     <- cut(data_outbreak$part_age,c(0,1,5,10,15,20,25,30,100),right=F)
+    data_sec_case_age <- cut(data_outbreak$part_age[data_outbreak$sim_day>0],c(0,1,5,10,15,20,25,30,100),right=F)
+    
+    # calculate the incidence pr 1000PY
+    inc_case_age     <- table(data_case_age)/summary_pop_age*1000
+    inc_sec_case_age <- table(data_sec_case_age)/summary_pop_age*1000
+    plot_ylim <- range((c(0,inc_case_age,inc_sec_case_age)))
+    
+    # plot the incidence per age group
+    barplot(inc_case_age,
+            las=2,xlab='age',ylab='Incidence per 1000PY',cex.names=0.8,
+            ylim=plot_ylim, main = 'total incidence by age group')
+  
+    # plot the secondary incidence per age group
+    barplot(inc_sec_case_age,
+            las=2,xlab='age',ylab='Secundary incidence per 1000PY',cex.names=0.8,
+            ylim=plot_ylim, main = 'secundary cases by age group')
     
     
   } # end for-loop to vary the input_opt_design

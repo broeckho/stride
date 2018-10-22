@@ -51,13 +51,14 @@ exp_design <- expand.grid(r0                         = seq(12,12,2),
                           track_index_case           = 'false',
                           contact_log_level          = 'Transmissions',
                           seeding_rate               = 0.00004,#0.000002,
-                          disease_config_file        = 'disease_measles.xml',
+                          disease_config_file        = 'disease_measles_adaptive_behavior.xml',
                           population_file            = 'pop_flanders600.csv',
                           age_contact_matrix_file    = 'contact_matrix_flanders_subpop.xml',
                           immunity_profile           = 'AgeDependent',                        # 'None', 'Random', 'AgeDependent'
                           immunity_distribution_file = 'data/immunity_measles_belgium.xml',   # to be used with 'AgeDependent'
                           immunity_link_probability  = 0,                                     # to be used with 'AgeDependent'
                           immunity_rate              = 0,                                     # to be used with 'Random'
+                          adaptive_symptomatic_behavior = 'true',
                           stringsAsFactors = F)
 
 

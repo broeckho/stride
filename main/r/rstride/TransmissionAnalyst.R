@@ -223,10 +223,6 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   
   # add all population, contact, disease, model parameters 
   config_disease$label <- unlist(list(pathogen           = config_disease$label$pathogen,
-                               # population_file         = unique(project_summary$population_file),
-                               # age_contact_matrix_file = unique(project_summary$age_contact_matrix_file),
-                               # r0                      = unique(project_summary$r0),
-                               # start_date              = unique(project_summary$start_date),
                                num_infected_seeds      = num_infected_seeds,
                                total_num_index_cases   = total_num_index_cases,
                                num_rng_seeds           = num_rng_seeds,
