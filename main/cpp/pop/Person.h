@@ -94,7 +94,7 @@ public:
         void SetBelief(Belief* belief) { m_belief = belief; };
 
         /// Update the health status and presence in contact pools.
-        void Update(bool isWorkOff, bool isSchoolOff, bool trackIndexCase);
+        void Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior);
 
         ///
         void Update(Person* p);
