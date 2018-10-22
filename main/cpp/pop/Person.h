@@ -81,7 +81,7 @@ public:
         /// Get the id.
         unsigned int GetId() const { return m_id; }
 
-        /// Check if a person is present today in a given contactpool
+        /// Check if a person is present today in a given contact pool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 
         /// Does this person participates in the social contact study?
@@ -93,8 +93,8 @@ public:
         /// Set the beliefs. Pointer into Population's beliefcontainer.
         void SetBelief(Belief* belief) { m_belief = belief; };
 
-        /// Update the health status and presence in contactpools.
-        void Update(bool isWorkOff, bool isSchoolOff);
+        /// Update the health status and presence in contact pools.
+        void Update(bool isWorkOff, bool isSchoolOff, bool trackIndexCase);
 
         ///
         void Update(Person* p);
