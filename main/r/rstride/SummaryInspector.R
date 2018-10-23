@@ -51,8 +51,8 @@ inspect_summary <- function(project_dir)
   ticks_r0          <- round(ticks_cases/r0_axis_factor,digits=num_digits)
   
   # OPEN PDF STREAM
-  pdf(file.path(project_dir,'summary_inspection.pdf'))
-  
+  .rstride$create_pdf(project_dir,'summary_inspection',10,7)
+
   # loop over the changing input parameters => plot cases and incidence
   #par(mfrow=c(2,2))
   par(mar = c(10, 4, 4, 4) + 0.3)  # Leave space for 3rd axis
@@ -112,7 +112,7 @@ inspect_summary <- function(project_dir)
     input_opt_design <- as.matrix(data.frame(input_opt))
   }
   
-  # with identical parameters, use the r0
+  # with only identical parameters, use the r0
   if(length(input_opt)==0){
     input_opt_design <- as.matrix(data.frame(r0=unique(project_summary$r0)))
   }

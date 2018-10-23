@@ -129,6 +129,35 @@ if(!(exists('.rstride'))){
   return(project_summary)
 }
 
+###############################
+## OPEN PDF STREAM           ##
+###############################
+
+.rstride$create_pdf <- function(project_dir,file_name,width=7,height=7){
+  
+  # load project summary
+  project_summary   <- .rstride$load_project_summary(project_dir)
+  
+  # get run_tag
+  run_tag           <- unique(project_summary$run_tag)
+  
+  # get file name with path
+  file_name_path    <- file.path(project_dir,paste0(run_tag,'_',file_name,'.pdf'))
+  
+  # open pdf stream
+  pdf(file_name_path,width,height)
+  
+}
+
+###############################
+## CREATE EXPERIMENT TAG     ##
+###############################
+
+# create experiment tag
+.rstride$create_exp_tag <- function(exp_id){
+  return(paste0('exp',sprintf("%04s", i_exp)))
+}
+
 
 ###############################
 ## XML FUNCTIONS             ##
@@ -267,6 +296,11 @@ if(!(exists('.rstride'))){
   # get ouput filenames
   dir_files       <- dir(project_dir,full.names = TRUE)
   output_filename <- dir_files[grepl(file_type,dir_files)]
+  
+  # if the file does not exists, return NA
+  if(length(output_filename)==0){
+    return(NA)
+  }
   
   # load output
   param_name          <- load(output_filename)

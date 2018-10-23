@@ -62,6 +62,8 @@ inspect_contact_data <- function(project_dir){
 #############################################################################
 # FUNCTION TO PLOT SOCIAL CONTACT MATRICES AND COUNTS                      ##
 #############################################################################
+# exp_summary <- project_summary[i_exp,]
+# data_dir <- './data'
 .rstride$plot_contacts <- function(exp_summary,data_dir)
 {
   
@@ -86,10 +88,13 @@ inspect_contact_data <- function(project_dir){
     ## SETTINGS 
     L <- 80
     num_days      <- exp_summary$num_days
-    
-    pdf(paste0(exp_summary$output_prefix,'_cnt_patterns.pdf'),10,5)
+  
+    # open pdf stream  
+    exp_tag <- .rstride$create_exp_tag(exp_summary$exp_id)
+    .rstride$create_pdf(project_dir,paste0(exp_tag,'_cnt_patterns'),10,5)
     #par(mfrow=c(2,2))
-    ## TOTAL
+    
+     ## TOTAL
     mij_total  <- .rstride$plot_cnt_matrix(data_cnt,data_part,'total',L,num_days)
     
     ## HOUSEHOLD
@@ -165,7 +170,8 @@ inspect_contact_data <- function(project_dir){
     
     
     # new
-    pdf(paste0(exp_summary$output_prefix,'_cnt_transm_probability.pdf'),7,7)
+    
+    .rstride$create_pdf(project_dir,paste0(exp_summary$output_prefix,'_cnt_transm_probability'))
     par(mfrow=c(2,2))
     cnt_location_opt <- c('cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm')
     for(i_cnt in cnt_location_opt){

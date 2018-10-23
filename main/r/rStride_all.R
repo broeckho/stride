@@ -41,11 +41,18 @@ script_opt <- script_opt[!grepl('rStride_all',script_opt)]
 
 # run all rStride scripts
 for(script_i in script_opt){
+  .rstride$cli_print('---------------------------------------')
   # print script name
   .rstride$cli_print('RUN',script_i)
   
   # run script
   system(script_i,ignore.stdout=FALSE)
+  
+  # print script name
+  .rstride$cli_print('CLOSE',script_i)
+  .rstride$cli_print('---------------------------------------')
+  
+  
 }
   
 

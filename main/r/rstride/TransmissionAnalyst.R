@@ -71,13 +71,21 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   fit_b1 <- mod$coefficients[1,1]
   fit_b2 <- mod$coefficients[2,1]
   
-  
-  # R0 limit: to prevent complex root values                
+  # check R0 limit: prevent upwards parabola and complex root values                
   R0_limit_fit           <- -fit_b1^2/(4*fit_b2)
-  transmission_limit_fit <- min(1,.rstride$f_poly_transm(floor(R0_limit_fit),fit_b0,fit_b1,fit_b2))
   
-  # R0 limit: prevent complex roots and transmission rates >1
-  R0_limit <- .rstride$f_poly_r0(transmission_limit_fit,fit_b0,fit_b1,fit_b2)
+  # check R0 limit
+  if(R0_limit_fit<0){
+    .rstride$cli_print("FITTING NOT SUCCESFULL... THE PARABOLA OPENS UPWARDS",WARNING=TRUE)
+    .rstride$cli_print("PLEASE INCREASE THE NUMBER OF REALISATIONS AND/OR TRANSMISSION PROBABILITIES",WARNING=TRUE)
+    return(.rstride$no_return_value())
+  }
+  
+  # check R0 limit: prevent complex roots and transmission rates >1
+  transmission_limit_fit <- min(1,.rstride$f_poly_transm(floor(R0_limit_fit),fit_b0,fit_b1,fit_b2))
+  R0_limit               <- .rstride$f_poly_r0(transmission_limit_fit,fit_b0,fit_b1,fit_b2)
+  
+  
   
   # Reformat fitted values to plot
   R2_poly2 <- round(mod$r.squared,digits=4)
@@ -89,11 +97,10 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   # fix y-axis limits (default: 0-40)
   y_lim <- range(c(0,36,sec_transm$sec_cases))
   
-
   # open pdf stream
-  run_tag <- unique(project_summary$run_tag)
-  pdf(file.path(project_dir,paste0(run_tag,'_fit_r0.pdf')))
+  .rstride$create_pdf(project_dir,'fit_r0')
   
+  # plot secundary cases vs transmission rate 
   boxplot(round(sec_transm$sec_cases,digits=3) ~ round(sec_transm$transmission_rate,digits=2), 
           xlab='transmission probability',ylab='secundary cases',
           at=sort(round(unique(sec_transm$transmission_rate),digits=3)),
@@ -201,8 +208,7 @@ analyse_transmission_data_for_r0 <- function(project_dir)
   
   .rstride$get_unique_param_list(project_summary)
   lapply(project_summary,unique)
-  ?lapply       
-  
+
   # update transmission param
   config_disease$transmission$b0 <- fit_b0
   config_disease$transmission$b1 <- fit_b1
@@ -233,6 +239,7 @@ analyse_transmission_data_for_r0 <- function(project_dir)
                               ),recursive = F)
   
   # update filename: add run_tag
+  run_tag                    <- unique(project_summary$run_tag)
   disease_config_update_file <- paste0(run_tag,'_',disease_config_file)
   # update filename: remove file extension
   disease_config_update_file <- sub('.xml','',disease_config_update_file)

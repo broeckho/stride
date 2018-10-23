@@ -12,6 +12,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
+#
 #  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 # 
@@ -137,7 +138,7 @@ run_rStride <- function(design_of_experiment = exp_design , dir_postfix = '',
     .rstride$print_progress(i_exp,nrow(design_of_experiment),pid_slave1)
    
     # create experiment tag
-    exp_tag <- paste0('exp',sprintf("%04s", i_exp))
+    exp_tag <- .rstride$create_exp_tag(i_exp)
     
     # copy default param
     config_exp <-   config_default
