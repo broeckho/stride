@@ -27,7 +27,7 @@ INSTALL(FILES
 		measlesStochasticityPlots.py
 		measlesClustering.py
 		measlesClusteringFitting.py
-		measlesClusteringPlots.py
+		outbreakEvolutionPlots.py
     outbreakOccurrenceAndSize.py
 		graphutil.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
