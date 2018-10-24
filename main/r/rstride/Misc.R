@@ -154,7 +154,7 @@ if(!(exists('.rstride'))){
 ###############################
 
 # create experiment tag
-.rstride$create_exp_tag <- function(exp_id){
+.rstride$create_exp_tag <- function(i_exp){
   return(paste0('exp',sprintf("%04s", i_exp)))
 }
 

@@ -170,8 +170,7 @@ inspect_contact_data <- function(project_dir){
     
     
     # new
-    
-    .rstride$create_pdf(project_dir,paste0(exp_summary$output_prefix,'_cnt_transm_probability'))
+    .rstride$create_pdf(project_dir,paste0(exp_tag,'_cnt_transm_probability'))
     par(mfrow=c(2,2))
     cnt_location_opt <- c('cnt_home', 'cnt_school', 'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm')
     for(i_cnt in cnt_location_opt){

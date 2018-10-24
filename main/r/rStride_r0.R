@@ -41,7 +41,7 @@ dir_postfix <- '_r0'
 #names(xmlToList('./config/run_default.xml'))
 
 # set the number of realisations per configuration set
-num_seeds  <- 4
+num_seeds  <- 3
 
 # add parameters and values to combine in a full-factorial grid
 exp_design <- expand.grid(r0                            = seq(0,24,3),

@@ -27,7 +27,7 @@ if(0==1) # for debugging
  #  source('./Misc.R')
  # .rstride$set_wd()
 
-    ref_data_tag <- 'ref_fl2010_15min'
+    ref_data_tag  <- 'ref_fl2010'
     generate_social_contact_data_file(ref_data_tag)
   # if(grepl('15touch',exp_summary$age_contact_matrix_file)){
   #   ref_data_tag <- 'ref_fl2010_15touch'
@@ -44,11 +44,11 @@ generate_social_contact_data_file <- function(ref_data_tag){
   data_dir <- './data'
   output_prefix <- paste0('contact_matrix_',ref_data_tag)
   output_prefix <- sub('ref_','',output_prefix)
-  
-  
+
  cnt_matrices_opt <- paste0(ref_data_tag,
                             c('_regular_weekday_household_gam_mij_rec.csv',
-                           '_regular_weekday_school_student_age24_gam_mij_median.csv',
+                           # '_regular_weekday_school_student_age24_gam_mij_median.csv',
+                           '_regular_weekday_school_student_age24_teachers_gam_mij_median.csv',
                            '_regular_weekday_workplace_employed_age_gam_mij_median.csv',
                            '_regular_weekday_community_gam_mij_rec.csv',
                            '_weekend_community_gam_mij_rec.csv'))
@@ -65,7 +65,7 @@ generate_social_contact_data_file <- function(ref_data_tag){
   
   cnt_matrix_xml  <- newXMLNode("matrices", doc = xml_doc)
   cnt_matrix_meta <- newXMLNode("raw_data_files", parent = cnt_matrix_xml)
-  i_context <- 1
+  i_context <- 2
   for(i_context in 1:length(cnt_matrices_opt))
   {
     print(cnt_matrices_opt[i_context])
