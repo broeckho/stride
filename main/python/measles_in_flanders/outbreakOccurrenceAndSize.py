@@ -43,7 +43,7 @@ def finalSizesPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, exti
         finalSizes = [x for x in finalSizes if x > extinctionThreshold]
         allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
-    plt.ylabel("Final outbreak size")
+    plt.ylabel("Final outbreak size after {} days".format(numDays))
     plt.savefig(os.path.join(outputDir, "FinalSizesNoExtinction.png"))
     plt.clf()
 

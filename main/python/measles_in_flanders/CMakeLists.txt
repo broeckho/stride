@@ -19,6 +19,7 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+    compareR0s.py
     effectiveRs.py
     escapeProbability.py
     extinctionThreshold.py
