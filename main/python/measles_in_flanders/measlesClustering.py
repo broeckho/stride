@@ -106,21 +106,26 @@ def runSimulations(scenarioName, numRuns, R0s, startDates, extraParams={}):
                 control.registerCallback(trackCases, EventType.Stepped)
                 control.control()
 
-def main(numRuns, R0s, startDates):
+def main(numRuns, immunityFileChildren, immunityFileAdults, R0s, startDates):
     start = time.perf_counter()
     """
     Run scenarios with age-dependent immunity rates.
     From this runs, a uniform immunity rate can then be calculated.
     """
     # Age-dependent immunity rates + no household-based clustering
-    runSimulations("Scenario2", numRuns, R0s, startDates)
+    runSimulations("Scenario2", numRuns, R0s, startDates,
+                    {"immunity_distribution_file": immunityFileAdults,
+                    "vaccine_distribution_file": immunityFileChildren})
     # Age-dependent immunity rates + household-based clustering
-    runSimulations("Scenario4", numRuns, R0s, startDates)
+    runSimulations("Scenario4", numRuns, R0s, startDates,
+                    {"immunity_distribution_file": immunityFileAdults,
+                    "vaccine_distribution_file": immunityFileChildren})
     """
     Calculate uniform immunity rate from previous runs, and
     create uniform age-immunity files.
     """
     immunityRate = getAvgImmunityRate()
+    print(immunityRate)
     createRandomImmunityDistributionFiles(immunityRate)
     """
     Run scenarios with uniform immunity rates.
@@ -138,7 +143,9 @@ def main(numRuns, R0s, startDates):
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--numRuns", type=int, default=10, help="Number of simulation runs per scenario")
+    parser.add_argument("--immunityFileChildren", type=str, default="data/measles_child_immunity.xml")
+    parser.add_argument("--immunityFileAdults", type=str, default="data/measles_adult_immunity.xml")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12], help="Values for r0")
     parser.add_argument("--startDates", type=str, nargs="+", default=["2017-01-01"], help="Values for start_date")
     args = parser.parse_args()
-    main(args.numRuns, args.R0s, args.startDates)
+    main(args.numRuns, args.immunityFileChildren, args.immunityFileAdults, args.R0s, args.startDates)

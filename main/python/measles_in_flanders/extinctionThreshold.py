@@ -13,8 +13,8 @@ def getRngSeeds(outputDir, scenarioName):
                 seeds.append(int(s))
     return seeds
 
-def plotHistogram(xs, filename):
-    plt.hist(xs)
+def plotHistogram(xs, numBins, filename):
+    plt.hist(xs, bins=numBins)
     plt.savefig(filename)
     plt.clf()
 
@@ -33,8 +33,8 @@ def plotOutbreakSizeFrequencies(outputDir, scenarioNames, scenarioDisplayNames, 
                         cases = int(row["cases"])
                         allFinalSizes.append(cases)
                         scenarioFinalSizes.append(cases)
-        plotHistogram(scenarioFinalSizes, os.path.join(outputDir, scenario + "_FinalSizeFrequencies.png"))
-    plotHistogram(allFinalSizes, os.path.join(outputDir, "All_FinalSizeFrequencies.png"))
+        plotHistogram(scenarioFinalSizes, 20, os.path.join(outputDir, scenario + "_FinalSizeFrequencies.png"))
+    plotHistogram(allFinalSizes, 20, os.path.join(outputDir, "All_FinalSizeFrequencies.png"))
 
 def main(outputDir, numDays):
     scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
