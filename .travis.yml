@@ -15,8 +15,10 @@ addons:
     update: true
     sources: &default_sources
       - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-6.0
     packages: &default_packages
       # - libhdf5-dev
+      - cmake
       - doxygen
       - doxygen-doc
       - doxygen-latex
@@ -42,24 +44,29 @@ matrix:
       addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
+      compiler: gcc
+      env: CXX_NAME='g++-8'
+      addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
+      
+    - os: linux
       compiler: clang
       env: CXX_NAME='clang++-6.0'
       addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
 
     - os: osx
-      osx_image: xcode8.3
+      osx_image: xcode9.4
       compiler: clang
       env: CXX_NAME='c++'
 
     - os: osx
-      osx_image: xcode9.2
+      osx_image: xcode10.1
       compiler: clang
       env: CXX_NAME='c++'
-
+      
     - os: osx
       osx_image: xcode9.3
-      compiler: clang
-      env: CXX_NAME='clang++'
+      compiler: gcc
+      env: CXX_NAME='g++8'
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
@@ -69,7 +76,13 @@ before_install:
       brew install --with-clang llvm@6
       brew link --force --overwrite llvm@6
     fi
-  # This is required to override Travis's definitions of CC and CXX that lead to old Ubuntu-packaged compilers
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "g++8" ]]; then
+      # https://github.com/Homebrew/brew/issues/1742
+      rm -f /usr/local/include/c++;
+      brew install gcc@8; fi
+    fi    
+  # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
   - export CXX="$CXX_NAME"
 
 install:
