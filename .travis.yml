@@ -80,7 +80,7 @@ before_install:
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "g++8" ]]; then
       # https://github.com/Homebrew/brew/issues/1742
       rm -f /usr/local/include/c++;
-      brew install gcc@8; fi
+      brew install gcc@8;
     fi    
   # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
   - export CXX="$CXX_NAME"
