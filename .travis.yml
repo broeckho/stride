@@ -35,7 +35,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-6' CMAKE_BUILD_TYPE=Debug
+      env: CXX_NAME='g++-6' CMAKE_BUILD_TYPE=Debug MAKE_TEST=true
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
@@ -50,7 +50,7 @@ matrix:
       
     - os: linux
       compiler: clang
-      env: CXX_NAME='clang++-6.0'
+      env: CXX_NAME='clang++-6.0' MAKE_TEST=true
       addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
 
     - os: osx
@@ -61,23 +61,28 @@ matrix:
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_NAME='c++'
-      
+      env: CXX_ID=apple CXX_NAME='c++'
+
+    - os: osx
+      osx_image: xcode10.1
+      compiler: clang
+      env: CXX_ID=clang6 CXX_NAME='c++'
+
     - os: osx
       osx_image: xcode9.3
       compiler: gcc
-      env: CXX_NAME='g++8'
+      env: CXX_ID=gcc CXX_NAME='g++'
 
 before_install:
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
   - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "clang++" ]]; then
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang6" ]]; then
       brew install --with-clang llvm@6
       brew link --force --overwrite llvm@6
     fi
   - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_NAME" == "g++8" ]]; then
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
       # https://github.com/Homebrew/brew/issues/1742
       rm -f /usr/local/include/c++;
       brew install gcc@8;
@@ -140,7 +145,7 @@ install:
     sudo ln -s $BOOST_ROOT/lib/*.{so,dylib}* /usr/local/lib
 
 script:
-  - make all && make test
+  - make all && if [[ "$MAKE_TEST" = "true" ]]; then make test; fi
 
 after_success:
     # Generate the docs only if master, the travis_build_docs is true and we can use secure variables
