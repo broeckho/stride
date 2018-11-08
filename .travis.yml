@@ -66,12 +66,12 @@ matrix:
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_ID=clang6 CXX_NAME='/usr/local/opt/llvm/bin/c++'
+      env: CXX_ID=clang6 CXX_NAME='/usr/local/opt/llvm@6/bin/c++'
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_ID=clang7 CXX_NAME='c++'
+      env: CXX_ID=clang7 CXX_NAME='/usr/local/opt/llvm@7/bin/c++'
 
     - os: osx
       osx_image: xcode9.3
@@ -83,22 +83,24 @@ before_install:
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang6" ]]; then
-      brew install --with-clang llvm@6
+      brew install llvm@6
       brew link --force --overwrite llvm@6
-      ls $(brew --prefix llvm)/bin
+      export PATH="/usr/local/opt/llvm@6/bin:$PATH"
+      ls $(brew --prefix llvm@6)/bin
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang7" ]]; then
       brew install --with-clang llvm@7
       brew link --force --overwrite llvm@7
-      ls $(brew --prefix llvm)/bin
+    export PATH="/usr/local/opt/llvm@7/bin:$PATH"
+      ls $(brew --prefix llvm@7)/bin
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
       # https://github.com/Homebrew/brew/issues/1742
       rm -f /usr/local/include/c++;
       brew install gcc@8;
-      ls $(brew --prefix llvm)/bin
+      ls $(brew --prefix gcc@8)/bin
     fi    
   # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
   - export CXX="$CXX_NAME"
