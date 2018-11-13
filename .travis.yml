@@ -29,7 +29,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-6 && CXX='g++-6"
+      env: MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
@@ -49,13 +49,8 @@ matrix:
       
     - os: linux
       compiler: clang
-      env: MATRIX_EVAL="CC=clang=6.0 && CXX=clang++-6.0 && MAKE_TEST=true"
+      env: MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0 && MAKE_TEST=true"
       addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
-
-    - os: linux
-      compiler: clang
-      env: MATRIX_EVAL="CC=clang-7 && CXX=clang++-7"
-      addons: {apt: { packages: [*default_packages, clang-7, libstdc++7-dev], sources: [*default_sources, llvm-toolchain-trusty-7]}}
 
     - os: osx
       osx_image: xcode9.4
