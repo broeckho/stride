@@ -30,7 +30,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-6' TRAVIS_BUILD_DOCS=true
+      env: CXX_NAME='g++-6'
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
@@ -74,7 +74,7 @@ matrix:
       env: CXX_ID=clang7 CXX_NAME='/usr/local/opt/llvm@7/bin/clang++'
 
     - os: osx
-      osx_image: xcode9.3
+      osx_image: xcode10.1
       compiler: gcc
       env: CXX_ID=gcc CXX_NAME='/usr/local/bin/g++-8'
 
