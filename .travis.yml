@@ -15,7 +15,6 @@ addons:
     update: true
     sources: &default_sources
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-trusty-6.0
     packages: &default_packages
       # - libhdf5-dev
       - cmake
@@ -30,60 +29,61 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-6'
+      env: MATRIX_EVAL="CC=gcc-6 && CXX='g++-6"
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-6' CMAKE_BUILD_TYPE=Debug MAKE_TEST=true
+      env: MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && CMAKE_BUILD_TYPE=Debug"
       addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-7'
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
       addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
       compiler: gcc
-      env: CXX_NAME='g++-8'
+      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
       addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
       
     - os: linux
       compiler: clang
-      env: CXX_NAME='clang++-6.0' MAKE_TEST=true
+      env: MATRIX_EVAL="CC=clang=6.0 && CXX=clang++-6.0 && MAKE_TEST=true"
       addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
 
     - os: linux
       compiler: clang
-      env: CXX_NAME='clang++-7.0' MAKE_TEST=true
-      addons: {apt: { packages: [*default_packages, clang-7.0], sources: [*default_sources, llvm-toolchain-trusty-7.0]}}
+      env: MATRIX_EVAL="CC=clang-7 && CXX=clang++-7"
+      addons: {apt: { packages: [*default_packages, clang-7, libstdc++7-dev], sources: [*default_sources, llvm-toolchain-trusty-7]}}
 
     - os: osx
       osx_image: xcode9.4
       compiler: clang
-      env: CXX_ID=apple CXX_NAME='c++'
+      env: MATRIX_EVAL="CXX_ID=apple && CC=cc && CXX=c++"
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_ID=apple CXX_NAME='c++'
+      env: MATRIX_EVAL="CXX_ID=apple && CC=cc && CXX=c++"
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_ID=clang6 CXX_NAME='/usr/local/opt/llvm@6/bin/clang++'
+      env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++"
 
     - os: osx
       osx_image: xcode10.1
       compiler: clang
-      env: CXX_ID=clang7 CXX_NAME='/usr/local/opt/llvm@7/bin/clang++'
+      env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
 
     - os: osx
       osx_image: xcode10.1
       compiler: gcc
-      env: CXX_ID=gcc CXX_NAME='/usr/local/bin/g++-8'
+      env: MATRIX_EVAL="CXX_ID=gcc && CC= /usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
 
 before_install:
+  - eval "${MATRIX_EVAL}"
   # Check commit matches expected commit (because of Travis bug)
   - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
   - |
@@ -109,7 +109,7 @@ before_install:
       ls $(brew --prefix gcc@8)/bin
     fi    
   # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
-  - export CXX="$CXX_NAME"
+  #- export CXX="$CXX"
 
 install:
     #--------- Linux
