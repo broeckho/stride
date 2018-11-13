@@ -75,7 +75,7 @@ matrix:
     - os: osx
       osx_image: xcode10.1
       compiler: gcc
-      env: MATRIX_EVAL="CXX_ID=gcc && CC= /usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
+      env: MATRIX_EVAL="CXX_ID=gcc && CC=/usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
 
 before_install:
   - eval "${MATRIX_EVAL}"
