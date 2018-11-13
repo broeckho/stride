@@ -8,7 +8,7 @@ env:
 cache:
   directories:
     - $HOME/.ccache
-    - $HOME/deps
+    # - $HOME/deps
 
 addons:
   apt:
@@ -52,6 +52,11 @@ matrix:
       compiler: clang
       env: CXX_NAME='clang++-6.0' MAKE_TEST=true
       addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
+
+    - os: linux
+      compiler: clang
+      env: CXX_NAME='clang++-7.0' MAKE_TEST=true
+      addons: {apt: { packages: [*default_packages, clang-7.0], sources: [*default_sources, llvm-toolchain-trusty-7.0]}}
 
     - os: osx
       osx_image: xcode9.4
