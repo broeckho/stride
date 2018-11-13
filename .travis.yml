@@ -100,6 +100,7 @@ before_install:
       # https://github.com/Homebrew/brew/issues/1742
       rm -f /usr/local/include/c++;
       brew install gcc@8;
+      brew link gcc
       ls $(brew --prefix gcc@8)/bin
     fi    
   # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
