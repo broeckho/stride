@@ -151,9 +151,7 @@ install:
       tar xf boost_1_66_0.tar.gz > /dev/null 2>&1
       cd boost_1_66_0/
       if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
-        cat <<EOF > ./tools/build/v2/user-config.jam
-        using gcc : : ${CXX} ;
-        EOF
+        echo "using gcc : : ${CXX} ;" > ./tools/build/v2/user-config.jam
       fi
       ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
       if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
