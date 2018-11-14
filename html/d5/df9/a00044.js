@@ -1,8 +1,8 @@
 var a00044 =
 [
-    [ "SummaryFile", "d5/df9/a00044.html#a1f848c3aa92042b2fa7d399ad31b0e33", null ],
-    [ "~SummaryFile", "d5/df9/a00044.html#ade602b6935ee6c38f21f15b5bcc77847", null ],
-    [ "Print", "d5/df9/a00044.html#a9b4fb82839ddf6a7c8d10fc119bf22fb", null ],
-    [ "Initialize", "d5/df9/a00044.html#a73334b641e8aeb7edff5cc8b6affc86c", null ],
-    [ "m_fstream", "d5/df9/a00044.html#a473d1c4d75f2e873e1b0ee256dabf73a", null ]
+    [ "PersonsFile", "d5/df9/a00044.html#ab2c1e70237152817647dded0f5906c6b", null ],
+    [ "~PersonsFile", "d5/df9/a00044.html#aafacf4448a2354eff812e02d2048e114", null ],
+    [ "Print", "d5/df9/a00044.html#ac72a90d142c34ca2137bdf09760ba2c4", null ],
+    [ "Initialize", "d5/df9/a00044.html#a70798ee06674e243f7dad24ae2dca7fd", null ],
+    [ "m_fstream", "d5/df9/a00044.html#a426f21983cf23767cfa51c0f4b9fb068", null ]
 ];

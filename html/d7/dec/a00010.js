@@ -1,12 +1,8 @@
 var a00010 =
 [
-    [ "TestDescriptor", "d7/dec/a00010.html#ac2c9bc03bb9a4bb7aeef53f823a60e80", null ],
-    [ "TestDescriptor", "d7/dec/a00010.html#afdd2fe1478741e9aa0dbd2e798c0c004", null ],
-    [ "GetCanonicalName", "d7/dec/a00010.html#aef102b936506c555ab1f278dec55cd32", null ],
-    [ "m_group_name", "d7/dec/a00010.html#af47969015a44578d9d4b43380d6d49de", null ],
-    [ "m_test_name", "d7/dec/a00010.html#a20f285aaa4a424030677d5dd68259c55", null ],
-    [ "m_num_runs", "d7/dec/a00010.html#a939b1d0c6cbcbe2754960e01dad21b4f", null ],
-    [ "m_test_factory", "d7/dec/a00010.html#a021979e41987d8821b169a458f921a2f", null ],
-    [ "m_info_factory", "d7/dec/a00010.html#ae71ed676b789cede41d1e77ff5963d23", null ],
-    [ "m_is_disabled", "d7/dec/a00010.html#a6a95aa408e725a8f07314d4ef3d807c3", null ]
+    [ "Test", "d7/dec/a00010.html#a41281dd5e867ec86414390fd3ab39d8b", null ],
+    [ "Run", "d7/dec/a00010.html#a5d7972d7a7af3154b465033e40fd1877", null ],
+    [ "m_body", "d7/dec/a00010.html#ae756a89b70b7fef74e4f29e79db30edb", null ],
+    [ "m_setup", "d7/dec/a00010.html#a62e47d46bbc27e42a54f61c23ebe3737", null ],
+    [ "m_teardown", "d7/dec/a00010.html#aa211e6f82e3e8a32017042e0a085c597", null ]
 ];

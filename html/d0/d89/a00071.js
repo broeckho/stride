@@ -1,16 +1,14 @@
 var a00071 =
 [
-    [ "TClock", "d0/d89/a00071.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
-    [ "Stopwatch", "d0/d89/a00071.html#a925b07b32b747a519b37c549ba7f1531", null ],
-    [ "Start", "d0/d89/a00071.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
-    [ "Stop", "d0/d89/a00071.html#a4b6145f590e94467a0048817f348ac75", null ],
-    [ "Reset", "d0/d89/a00071.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
-    [ "IsRunning", "d0/d89/a00071.html#a6afa0761326b35e675517b6a81ffef1f", null ],
-    [ "GetName", "d0/d89/a00071.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
-    [ "Get", "d0/d89/a00071.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
-    [ "ToString", "d0/d89/a00071.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
-    [ "m_accumulated", "d0/d89/a00071.html#a765784978119de616443c956d98166c4", null ],
-    [ "m_last_start", "d0/d89/a00071.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
-    [ "m_name", "d0/d89/a00071.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
-    [ "m_running", "d0/d89/a00071.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
+    [ "range_type", "d0/d89/a00071.html#aa697693cf36c60a25c469e21b26cb84f", null ],
+    [ "SliceIndexer", "d0/d89/a00071.html#af2bedaa13b9427b736bfc88bcb974741", null ],
+    [ "Get", "d0/d89/a00071.html#ac63541daeed03c7731fb820005e64f06", null ],
+    [ "Get", "d0/d89/a00071.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
+    [ "Get", "d0/d89/a00071.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
+    [ "Set", "d0/d89/a00071.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
+    [ "Set", "d0/d89/a00071.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
+    [ "check", "d0/d89/a00071.html#a194f218151d935420737a20c40c27a00", null ],
+    [ "m_map", "d0/d89/a00071.html#ad7137d9d5caad8581de354a750b70403", null ],
+    [ "m_slices", "d0/d89/a00071.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
+    [ "m_t", "d0/d89/a00071.html#a00a95be5edf914ec430a0890a3c82005", null ]
 ];

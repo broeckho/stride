@@ -1,8 +1,10 @@
 var a00003 =
 [
-    [ "Benchmark", "d1/d7c/a00003.html#ab7a707f913d835b3b11f6149d6c3df04", null ],
-    [ "Benchmark", "d1/d7c/a00003.html#aa735313fa26ebd81d6a1529aa82ab488", null ],
-    [ "Benchmark", "d1/d7c/a00003.html#a9ad5a8f5757ea433bda9eb215b226422", null ],
-    [ "operator bool", "d1/d7c/a00003.html#a5f4f6dd9578a759c1b9789ac5a3abcd5", null ],
-    [ "m_status", "d1/d7c/a00003.html#a41bde1d5c9abcac9f401919c0a9d0d12", null ]
+    [ "BenchControlHelper", "d1/d7c/a00003.html#afbc1060b2d21eca2a0ed325837f1a805", null ],
+    [ "GetIncludedNames", "d1/d7c/a00003.html#a4de28233a06fe10c870348227e85c0a0", null ],
+    [ "IsIncluded", "d1/d7c/a00003.html#ac2ac9f1d14772639a3bfff5e1ec5345f", null ],
+    [ "Shuffle", "d1/d7c/a00003.html#a18e3d64ee063bdd2c0fd58a858d28a20", null ],
+    [ "m_descriptors", "d1/d7c/a00003.html#a44e392ac92fc60ab184386d7d28b1987", null ],
+    [ "m_negative", "d1/d7c/a00003.html#aed467e0bab01abbc254f4dc54b554085", null ],
+    [ "m_positive", "d1/d7c/a00003.html#af9e9dc4626a1769e5dede074dccab070", null ]
 ];

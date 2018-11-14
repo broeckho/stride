@@ -1,6 +1,5 @@
 var a00014 =
 [
-    [ "Belief", "d2/de7/a00014.html#a4c6ab9b7c9f11aa7651337c30aa50dc8", null ],
-    [ "~Belief", "d2/de7/a00014.html#a48ced869d4ea27db2c4120a068750248", null ],
-    [ "HasAdopted", "d2/de7/a00014.html#a4e01f1bfbad7923d1dff35558e47887f", null ]
+    [ "AgeContactProfile", "d2/de7/a00014.html#abcac910ea28f2cefae9efd6f462aa34d", null ],
+    [ "AgeContactProfile", "d2/de7/a00014.html#ac325eb59f82e16bbe16cfc850947dd94", null ]
 ];

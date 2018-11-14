@@ -1,5 +1,5 @@
 var a00036 =
 [
-    [ "Update", "de/d8c/a00036.html#ae927760d0eb3e5a3114305c53ebe70e3", null ],
-    [ "m_discussion_probability", "de/d8c/a00036.html#abec64aa38907d3ffde96d9f848bd1d0d", null ]
+    [ "InfectorMap", "de/d8c/a00036.html#a389bcbbddf547f27cb2e60feadca12af", null ],
+    [ "Add", "de/d8c/a00036.html#a2abaaf56ff495aa37bfead7eea5405de", null ]
 ];

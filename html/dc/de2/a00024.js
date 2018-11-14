@@ -1,6 +1,6 @@
 var a00024 =
 [
-    [ "DaysOffNone", "dc/de2/a00024.html#afa7a609a793bf8aa77b5ee94fdb94fda", null ],
-    [ "IsWorkOff", "dc/de2/a00024.html#a6287fa68ca109373fc9be31f3941079d", null ],
-    [ "IsSchoolOff", "dc/de2/a00024.html#a939df1a48d594f56ec3099d1edcfdca7", null ]
+    [ "~DaysOffInterface", "dc/de2/a00024.html#afec638f8fcc3e653e389f47bd30d63e1", null ],
+    [ "IsWorkOff", "dc/de2/a00024.html#a2ae431c15cddca106e2a0753fde99f83", null ],
+    [ "IsSchoolOff", "dc/de2/a00024.html#a747d7b072b24545437aa9326ba024185", null ]
 ];
