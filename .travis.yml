@@ -18,6 +18,8 @@ addons:
       - boost-latest
     packages: &default_packages
       # - libhdf5-dev
+      - doxygen
+      - graphviz
 
 matrix:
   include:
@@ -34,7 +36,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && $TRAVIS_BUILD_DOCS=true"
       addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
       
     - os: linux
