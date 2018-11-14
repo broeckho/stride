@@ -1,5 +1,5 @@
 language: cpp
-dist: trusty
+dist: xenial
 
 env:
   global:
@@ -72,15 +72,18 @@ matrix:
       compiler: clang
       env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: gcc
-      env: MATRIX_EVAL="CXX_ID=gcc && CC=/usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
+    #- os: osx
+    #  osx_image: xcode10.1
+    #  compiler: gcc
+    #  env: MATRIX_EVAL="CXX_ID=gcc && CC=/usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
 
 before_install:
   - eval "${MATRIX_EVAL}"
   # Check commit matches expected commit (because of Travis bug)
-  - if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then echo "Commit doesn't match expected $TRAVIS_COMMIT"; fi
+  - |
+    if [[ "$TRAVIS_COMMIT" != "$(git rev-parse HEAD)" ]]; then
+      echo "Commit doesn't match expected $TRAVIS_COMMIT";
+    fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "clang6" ]]; then
       brew install llvm@6
@@ -102,9 +105,7 @@ before_install:
       brew install gcc@8;
       brew link gcc
       ls $(brew --prefix gcc@8)/bin
-    fi    
-  # This is required to override Travis's definitions of CC and CXX that lead to old packaged compilers
-  #- export CXX="$CXX"
+    fi
 
 install:
     #--------- Linux
@@ -154,11 +155,7 @@ install:
         echo "using gcc : : ${CXX} ;" > ./tools/build/v2/user-config.jam
       fi
       ./bootstrap.sh --prefix=$BOOST_ROOT --with-libraries=chrono,date_time,filesystem,iostreams,locale,regex,system,thread
-      if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
-        ./b2 --toolset=gcc -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      else
-        ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
-      fi
+      ./b2 -q -a -j2 -d0 --disable-filesystem2 cxxflags="-v -std=c++11" threading=multi install
       cd $TRAVIS_BUILD_DIR;
     else
       echo "Already have boost cache"
