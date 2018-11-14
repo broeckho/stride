@@ -1,5 +1,5 @@
 language: cpp
-dist: trusty
+dist: xenial
 
 env:
   global:
@@ -15,31 +15,22 @@ addons:
     update: true
     sources: &default_sources
       - ubuntu-toolchain-r-test
+      - boost-latest
     packages: &default_packages
       # - libhdf5-dev
-      - cmake
-      - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
-      - graphviz
+      - boost
 
 matrix:
   include:
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-      addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
-
-    - os: linux
-      compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && CMAKE_BUILD_TYPE=Debug"
-      addons: {apt: { packages: [*default_packages, g++-6], sources: [*default_sources]}}
-
-    - os: linux
-      compiler: gcc
       env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
+
+    - os: linux
+      compiler: gcc
+      env: MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && CMAKE_BUILD_TYPE=Debug"
       addons: {apt: { packages: [*default_packages, g++-7], sources: [*default_sources]}}
 
     - os: linux
@@ -49,8 +40,8 @@ matrix:
       
     - os: linux
       compiler: clang
-      env: MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0 && MAKE_TEST=true"
-      addons: {apt: { packages: [*default_packages, clang-6.0], sources: [*default_sources, llvm-toolchain-trusty-6.0]}}
+      env: MATRIX_EVAL="CC=clang-7 && CXX=clang++-7 && MAKE_TEST=true"
+      addons: {apt: { packages: [*default_packages, clang-7], sources: [*default_sources]}}
 
     - os: osx
       osx_image: xcode9.4
