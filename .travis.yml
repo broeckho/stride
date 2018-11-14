@@ -8,7 +8,7 @@ env:
 cache:
   directories:
     - $HOME/.ccache
-    # - $HOME/deps
+    - $HOME/deps
 
 addons:
   apt:
@@ -64,7 +64,7 @@ matrix:
 
 before_install:
   - eval "${MATRIX_EVAL}"
-  # OpenMP issue
+  # OpenMP issue with linux+clang
   - export LD_LIBRARY_PATH=/usr/local/clang/lib:$LD_LIBRARY_PATH
   # Check commit matches expected commit (because of Travis bug)
   - |
