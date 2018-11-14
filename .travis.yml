@@ -36,7 +36,7 @@ matrix:
 
     - os: linux
       compiler: gcc
-      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && $TRAVIS_BUILD_DOCS=true"
+      env: MATRIX_EVAL="CC=gcc-8 && CXX=g++-8 && TRAVIS_BUILD_DOCS=true"
       addons: {apt: { packages: [*default_packages, g++-8], sources: [*default_sources]}}
       
     - os: linux
