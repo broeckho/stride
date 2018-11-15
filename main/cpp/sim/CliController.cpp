@@ -43,10 +43,7 @@ void CliController::Control()
         InstallLogger();
         LogStartup();
 
-        // -----------------------------------------------------------------------------------------
-        // Build population, instantiate SimRunner & register viewers & run.
-        // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(m_config_pt, Population::Create(m_config_pt));
+        auto runner = make_shared<SimRunner>(m_config_pt, Population::Create(m_config_pt, m_rn_manager), m_rn_manager);
         RegisterViewers(runner);
         runner->Run();
 

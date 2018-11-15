@@ -22,6 +22,7 @@
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
+#include "util/SegmentedVector.h"
 
 namespace stride {
 
@@ -29,6 +30,6 @@ namespace stride {
 /// a vector of with all of the contcatpools of the type.
 /// The ContactPoolSys container is an std::array extended to be subscriptable
 /// with the enum class of the pool types.
-using ContactPoolSys = ContactPoolType::IdSubscriptArray<std::vector<ContactPool>>;
+using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
 
 } // namespace stride

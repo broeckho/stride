@@ -85,9 +85,14 @@ TEST_P(ParallelRuns, Run)
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
         for (const auto n : numThreads) {
+
+                stride::util::RnMan rn_manager;
+                rn_manager.Initialize(stride::util::RnMan::Info{configPt.get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                                configPt.get<std::string>("run.rng_state", ""),
+                                                                configPt.get<unsigned int>("run.num_threads")});
                 configPt.put("run.num_threads", n);
-                auto pop    = Population::Create(configPt);
-                auto runner = make_shared<SimRunner>(configPt, pop);
+                auto pop    = Population::Create(configPt, rn_manager);
+                auto runner = make_shared<SimRunner>(configPt, pop, rn_manager);
                 runner->Run();
                 const auto result = runner->GetSim()->GetPopulation()->GetInfectedCount();
                 EXPECT_NEAR(result, target, target * margin)

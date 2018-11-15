@@ -21,7 +21,6 @@
 
 #include "util/StringUtils.h"
 
-#include <boost/filesystem/path.hpp>
 #include <boost/lexical_cast.hpp>
 #include <iostream>
 #include <ostream>

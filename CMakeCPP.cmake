@@ -49,6 +49,9 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
+# Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
 #----------------------------------------------------------------------------

@@ -16,6 +16,13 @@
 #############################################################################
 
 #============================================================================
+# Subdirectories.
+#============================================================================
+add_subdirectory(gengeopop)
+add_subdirectory(calibration)
+add_subdirectory(execs)
+
+#============================================================================
 # Sources. Includes headers to enable code insight by CLion.
 #============================================================================
 set(LIB_SRC
@@ -66,7 +73,10 @@ set(LIB_SRC
     pop/Age.h
     pop/Person.cpp
     pop/Population.cpp
-	pop/PopBuilder.cpp
+    pop/DefaultPopBuilder.cpp
+    pop/GenPopBuilder.cpp
+    pop/ImportPopBuilder.cpp
+    pop/AbstractPopBuilder.cpp
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
@@ -78,24 +88,25 @@ set(LIB_SRC
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---
-    util/Any.h
 	util/BoxPlotData.h
-    util/ConfigInfo.cpp
-    util/CSV.cpp
 	util/CSVRow.cpp
-    util/FileSys.cpp
-	util/is_iterator.h
 	util/LogUtils.cpp
 	util/PtreeUtils.h
 	util/Rn.cpp
 	util/RnMan.h
+	util/is_iterator.h
+    util/Any.h
+    util/CSV.cpp
+    util/ConfigInfo.cpp
+    util/Exception.cpp
+    util/FileSys.cpp
     util/RunConfigManager.cpp
+    util/SVIterator.h
     util/SegmentedVector.h
     util/SliceIndexer.h
     util/Stopwatch.h
     util/StringUtils.h
     util/Subject.h
-    util/SVIterator.h
     util/TimeStamp.h
     util/TimeToString.h
 #---
@@ -112,18 +123,10 @@ set(LIB_SRC
 #============================================================================
 add_library(libstride ${LIB_SRC})
 set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
-target_link_libraries(libstride ${LIBS})
+target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_target_properties(libstride PROPERTIES PREFIX "")
-
-#============================================================================
-# Build and install the stride executable.
-#============================================================================
-add_executable(stride execs/main.cpp)
-target_link_libraries(stride ${LIBS} libstride)
-install(TARGETS stride  DESTINATION   ${BIN_INSTALL_LOCATION})
-
 
 #============================================================================
 # Build the Myhayai library.

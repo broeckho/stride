@@ -51,11 +51,11 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
                         Person& p = population[generator()];
                         if (!p.IsSurveyParticipant()) {
                                 p.ParticipateInSurvey();
-                                logger->info("[PART] {} {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(),
-                                             p.GetGender(), p.GetPoolId(Id::School), p.GetPoolId(Id::Work),
-                                             p.GetHealth().IsSusceptible(), p.GetHealth().IsInfected(),
-                                             p.GetHealth().IsInfectious(), p.GetHealth().IsRecovered(),
-                                             p.GetHealth().IsImmune());
+                                logger->info("[PART] {} {} {} {} {} {} {} {} {} {} {}", p.GetId(), p.GetAge(),
+                                             p.GetGender(), p.GetPoolId(Id::K12School), p.GetPoolId(Id::College),
+                                             p.GetPoolId(Id::Work), p.GetHealth().IsSusceptible(),
+                                             p.GetHealth().IsInfected(), p.GetHealth().IsInfectious(),
+                                             p.GetHealth().IsRecovered(), p.GetHealth().IsImmune());
                                 num_samples++;
                         }
                 }

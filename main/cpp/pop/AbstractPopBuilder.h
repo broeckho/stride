@@ -12,49 +12,44 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2017, 2018 Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Niels Aerens, Thomas Avé, Tobia De Koninck, Robin Jadoul
  */
 
 /**
  * @file
- * Initialize populations.
+ * Base Class for PopBuilders
  */
-
-#include "util/RnMan.h"
 
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
+#include <spdlog/logger.h>
+#include <util/RnMan.h>
 
 namespace stride {
 
 class Population;
+namespace util {
+}
 
 /**
- * Initializes Population objects.
+ * Base Class for PopBuilders
  */
-class PopBuilder
+class AbstractPopBuilder
 {
 public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
-        PopBuilder(const boost::property_tree::ptree& configPt);
+        /// \param rnManager   Random number manager for pop build process.
+        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
 
         /// Build Population and return it afterwards.
-        /// The steps are:
-        /// - Check input data.
-        /// - Read persons from file and instatiate them.
-        /// - Fill up the various type of contactpools.
-        /// - Seed the population with contact survey participants.
-        std::shared_ptr<Population> Build(std::shared_ptr<Population> pop);
+        virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
 
-private:
-        /// Fills up pop's contact pool system and return pop.
-        std::shared_ptr<Population> MakePoolSys(std::shared_ptr<Population> pop);
+        virtual ~AbstractPopBuilder() = default;
 
-        /// Generates pop's individuals and return pop.
-        std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
-
-private:
-        const boost::property_tree::ptree& m_config_pt; ///< Configuration property tree
+protected:
+        const boost::property_tree::ptree& m_config_pt;  ///< Configuration property tree.
+        util::RnMan&                       m_rn_manager; ///< Random number generation management.
 };
 
 } // namespace stride

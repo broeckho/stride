@@ -76,7 +76,8 @@ void StanController::Control()
                 configPt.put("run.rng_seed", seeds[i]);
                 m_stride_logger->info("Starting run using seed {}", seeds[i]);
 
-                auto runner  = make_shared<SimRunner>(configPt, Population::Create(configPt));
+                auto runner =
+                    make_shared<SimRunner>(configPt, Population::Create(configPt, m_rn_manager), m_rn_manager);
                 auto iViewer = make_shared<viewers::InfectedViewer>(runner);
                 runner->Register(iViewer, bind(&viewers::InfectedViewer::Update, iViewer, std::placeholders::_1));
 

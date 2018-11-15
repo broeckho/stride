@@ -20,22 +20,19 @@
 
 #include "CSV.h"
 
-#include <boost/filesystem/fstream.hpp>
-
-using namespace boost;
 using namespace std;
 
 namespace {
 
-/// Checks if there is a file with "filename" relative to the exectution path.
-/// @param filename    filename to check.
-/// @param root       root of the path.
+/// Checks if there is a file with "filename" relative to the execution path.
+/// @param filename filename to check.
+/// @param root root of the path.
 /// @return the full path to the file if it exists
 /// @throws runtime error if file doesn't exist
-const boost::filesystem::path check(const boost::filesystem::path& filename,
-                                        const boost::filesystem::path& root = boost::filesystem::current_path())
+const filesystem::path check(const filesystem::path& filename,
+                             const filesystem::path& root = filesystem::current_path())
 {
-        const boost::filesystem::path file_path = canonical(complete(filename, root));
+        const filesystem::path file_path = canonical(absolute(root / filename));
         if (!is_regular_file(file_path)) {
                 throw runtime_error(string(__func__) + ">File " + file_path.string() + " not present. Aborting.");
         }
@@ -47,20 +44,31 @@ const boost::filesystem::path check(const boost::filesystem::path& filename,
 namespace stride {
 namespace util {
 
-CSV::CSV(const boost::filesystem::path& path) : m_labels(), m_column_count(0)
+CSV::CSV(const filesystem::path& path, std::initializer_list<std::string> optLabels)
+    : m_labels(), m_column_count(0)
 {
-        boost::filesystem::path     full_path = check(path);
-        boost::filesystem::ifstream file;
-        file.open(full_path.string());
-        if (!file.is_open()) {
-                throw runtime_error("Error opening csv file: " + full_path.string());
+        try {
+                filesystem::path full_path = check(path);
+                std::ifstream         file;
+                file.open(full_path.string());
+                if (!file.is_open()) {
+                        throw runtime_error("Error opening csv file: " + full_path.string());
+                }
+
+                ReadFromStream(file);
+
+        } catch (std::runtime_error& error) {
+                // thrown by util::checkFile
+                if (optLabels.size() == 0) {
+                        throw error;
+                } else {
+                        m_labels       = optLabels;
+                        m_column_count = m_labels.size();
+                }
         }
-        ReadFromStream(file);
 }
 
-CSV::CSV(istream& inputStream) : m_labels(), m_column_count(0) { ReadFromStream(inputStream); }
-
-CSV::CSV(const initializer_list<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
+CSV::CSV(std::istream& inputStream) : m_labels(), m_column_count(0) { ReadFromStream(inputStream); }
 
 CSV::CSV(const vector<string>& labels) : m_labels(labels), m_column_count(labels.size()) {}
 
@@ -68,6 +76,13 @@ CSV::CSV(size_t columnCount) : m_labels(), m_column_count(columnCount)
 {
         for (unsigned i = 1U; i < columnCount + 1; ++i) {
                 m_labels.emplace_back(ToString(i));
+        }
+}
+
+void CSV::AddRows(const vector<vector<string>>& rows)
+{
+        for (const vector<string>& row : rows) {
+                AddRow(row);
         }
 }
 
@@ -85,32 +100,9 @@ size_t CSV::GetIndexForLabel(const string& label) const
         throw runtime_error("Label: " + label + " not found in CSV");
 }
 
-void CSV::ReadFromStream(istream& inputStream)
+void CSV::Write(const filesystem::path& path) const
 {
-        string line;
-
-        // process header, get labels and columnCount
-        getline(inputStream, line);
-        line                        = Trim(line);
-        vector<string> headerLabels = Split(line, ",");
-        for (const string& label : headerLabels) {
-                m_labels.push_back(Trim(label, "\""));
-        }
-        m_column_count = m_labels.size();
-
-        // body
-        while (getline(inputStream, line)) {
-                line = Trim(line);
-                if (!line.empty()) {
-                        vector<string> values = Split(line, ",");
-                        AddRow(values.begin(), values.end());
-                }
-        }
-}
-
-void CSV::Write(const boost::filesystem::path& path) const
-{
-        boost::filesystem::ofstream file;
+        std::ofstream file;
         file.open(path.string());
         if (!file.is_open()) {
                 throw runtime_error("Error opening csv file: " + path.string());
@@ -119,7 +111,7 @@ void CSV::Write(const boost::filesystem::path& path) const
         file.close();
 }
 
-void CSV::WriteLabels(boost::filesystem::ofstream& file) const
+void CSV::WriteLabels(std::ofstream& file) const
 {
         for (unsigned int i = 0; i < m_labels.size(); ++i) {
                 const string& label = m_labels.at(i);
@@ -132,12 +124,44 @@ void CSV::WriteLabels(boost::filesystem::ofstream& file) const
         }
 }
 
-void CSV::WriteRows(boost::filesystem::ofstream& file) const
+void CSV::WriteRows(std::ofstream& file) const
 {
         for (const CSVRow& row : *this) {
                 file << row << endl;
         }
 }
+
+void CSV::ReadFromStream(std::istream& inputStream)
+{
+        std::string line;
+
+        // header
+        getline(inputStream, line);
+        line                                  = Trim(line);
+        std::vector<std::string> headerLabels = Split(line, ","); // Split is bad! There is no option to escape ",".
+        for (const std::string& label : headerLabels) {
+                m_labels.push_back(Trim(label, "\""));
+        }
+        m_column_count = m_labels.size();
+
+        // body
+        while (getline(inputStream, line)) {
+                line = Trim(line);
+                if (!line.empty()) {
+                        std::vector<std::string> values =
+                            Split(line, ","); // Split is bad! There is no option to escape ",".
+                        AddRow(values);
+                }
+        }
+}
+
+void CSV::AddRow(const vector<string>& values)
+{
+        CSVRow csvRow(this, values);
+        this->push_back(csvRow);
+}
+
+const std::vector<std::string>& CSV::GetLabels() const { return m_labels; }
 
 } // namespace util
 } // namespace stride

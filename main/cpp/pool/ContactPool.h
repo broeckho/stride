@@ -38,8 +38,10 @@ public:
         /// Initializing constructor.
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
+        ~ContactPool() {}
+
         /// Add the given Person.
-        void AddMember(const Person* p);
+        void AddMember(Person* p);
 
         /// Get member at index.
         Person* GetMember(unsigned int index) const { return m_members[index]; }
@@ -49,6 +51,20 @@ public:
 
         /// Get size (number of members).
         std::size_t GetSize() const { return m_members.size(); }
+
+        /// Get Infected count
+        std::size_t GetInfectedCount();
+
+        using iterator = std::vector<stride::Person*>::iterator;
+
+        /// Iterator to first person
+        iterator begin() { return m_members.begin(); }
+
+        /// Iterator to end of persons
+        iterator end() { return m_members.end(); }
+
+        /// Get the pool id
+        std::size_t GetId() const { return m_pool_id; }
 
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.

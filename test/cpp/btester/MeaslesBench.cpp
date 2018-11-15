@@ -39,7 +39,10 @@ void MeaslesBench()
                 return [n, configPt]() {
                         return Test([n, configPt]() {
                                 configPt->put("run.num_threads", n);
-                                SimRunner(*configPt, Population::Create(*configPt)).Run();
+                                RnMan rn_manager;
+                                rn_manager.Initialize(RnMan::Info(configPt->get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                                  configPt->get<string>("run.rng_state", ""),
+                                                                  configPt->get<unsigned int>("run.num_threads")));
                         });
                 };
         };

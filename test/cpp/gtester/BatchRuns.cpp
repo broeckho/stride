@@ -70,7 +70,11 @@ TEST_P(BatchRuns, Run)
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
+        stride::util::RnMan rn_manager;
+        rn_manager.Initialize(stride::util::RnMan::Info{configPt.get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                        configPt.get<std::string>("run.rng_state", ""),
+                                                        configPt.get<unsigned int>("run.num_threads")});
+        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt, rn_manager), rn_manager);
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
