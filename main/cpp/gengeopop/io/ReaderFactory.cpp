@@ -25,37 +25,37 @@ namespace gengeopop {
 
 std::shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const std::string& filename)
 {
-        return CreateCitiesReader(stride::util::FileSys::GetDataDir() / filesystem::path(filename));
+        return CreateCitiesReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
 }
 
-std::shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesystem::path& path)
+std::shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
 {
         return std::make_shared<CitiesCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const std::string& filename)
 {
-        return CreateCommutesReader(stride::util::FileSys::GetDataDir() / filesystem::path(filename));
+        return CreateCommutesReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
 }
 
-std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesystem::path& path)
+std::shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::path& path)
 {
         return std::make_shared<CommutesCSVReader>(OpenFile(path));
 }
 
 std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const std::string& filename)
 {
-        return CreateHouseholdReader(stride::util::FileSys::GetDataDir() / filesystem::path(filename));
+        return CreateHouseholdReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
 }
 
-std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesystem::path& path)
+std::shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
 {
         return std::make_shared<HouseholdCSVReader>(OpenFile(path));
 }
 
-std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesystem::path& path) const
+std::unique_ptr<std::istream> ReaderFactory::OpenFile(const filesys::path& path) const
 {
-        if (!filesystem::exists(path)) {
+        if (!filesys::exists(path)) {
                 throw stride::util::Exception("File not found: " + path.string());
         }
 

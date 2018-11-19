@@ -22,14 +22,14 @@
 #include <util/Exception.h>
 #include <boost/filesystem.hpp>
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 
 namespace gengeopop {
 
 std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string filename, stride::Population* pop) const
 {
-        filesystem::path path(filename);
-        if (!filesystem::exists(path)) {
+        filesys::path path(filename);
+        if (!filesys::exists(path)) {
                 throw stride::util::Exception("File not found: " + path.string());
         }
 

@@ -19,7 +19,7 @@
 
 #include <boost/filesystem.hpp>
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 
 #include <iostream>
 #include <util/Exception.h>
@@ -27,7 +27,7 @@ namespace gengeopop {
 
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string filename) const
 {
-        filesystem::path path(filename);
+        filesys::path path(filename);
 
         if (path.extension().string() == ".json") {
                 return std::make_shared<GeoGridJSONWriter>();

@@ -21,7 +21,7 @@
 #include <string>
 #include <boost/filesystem.hpp>
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 
 namespace gengeopop {
 
@@ -34,7 +34,7 @@ class ReaderFactory
 {
 public:
         /// Create a CitiesReader based on an absolute Boost Filesystem Path pointing to the input file
-        std::shared_ptr<CitiesReader> CreateCitiesReader(const filesystem::path& path);
+        std::shared_ptr<CitiesReader> CreateCitiesReader(const filesys::path& path);
 
         /// Create a CitiesReader based on the filename of the input file, relative to the data directory
         std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
@@ -43,16 +43,16 @@ public:
         std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);
 
         /// Create a CommutesReader based on the filename of the input file, relative to the data directory
-        std::shared_ptr<CommutesReader> CreateCommutesReader(const filesystem::path& path);
+        std::shared_ptr<CommutesReader> CreateCommutesReader(const filesys::path& path);
 
         /// Create a HouseholdReader based on the filename of the input file, relative to the data directory
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
 
         /// Create a HouseholdReader based on an absolute Boost Filesystem Path pointing to the input file
-        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const filesystem::path& path);
+        std::shared_ptr<HouseholdReader> CreateHouseholdReader(const filesys::path& path);
 
 private:
         /// Create an istream based on the provided Boost Filesystem Path
-        std::unique_ptr<std::istream> OpenFile(const filesystem::path& path) const;
+        std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
 };
 } // namespace gengeopop

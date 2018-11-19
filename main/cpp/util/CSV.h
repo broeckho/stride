@@ -29,7 +29,7 @@
 #include <vector>
 #include <boost/filesystem.hpp>
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 
 namespace stride {
 namespace util {
@@ -42,7 +42,7 @@ class CSV : protected std::vector<CSVRow>
 public:
         /// Initialize from file. If optLabels not specifed, the file is required. Otherwise initialize like second
         /// constructor.
-        explicit CSV(const filesystem::path& path, std::initializer_list<std::string> optLabels = {});
+        explicit CSV(const filesys::path& path, std::initializer_list<std::string> optLabels = {});
 
         /// Initialize from inputstream.
         explicit CSV(std::istream& inputStream);
@@ -100,7 +100,7 @@ public:
         size_t GetIndexForLabel(const std::string& label) const;
 
         /// Write CSV to file.
-        void Write(const filesystem::path& path) const;
+        void Write(const filesys::path& path) const;
 
         const std::vector<std::string>& GetLabels() const;
 

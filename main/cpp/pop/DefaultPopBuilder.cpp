@@ -37,7 +37,7 @@ namespace stride {
 
 using namespace ContactPoolType;
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 using namespace util;
 using namespace boost::property_tree;
 
@@ -48,7 +48,7 @@ std::shared_ptr<Population> DefaultPopBuilder::MakePersons(std::shared_ptr<Popul
         //------------------------------------------------
         const auto file_name        = m_config_pt.get<std::string>("run.population_file");
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
-        const auto file_path = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : filesystem::path(file_name);
+        const auto file_path = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : filesys::path(file_name);
         if (!is_regular_file(file_path)) {
                 throw std::runtime_error(std::string(__func__) + "> Population file " + file_path.string() +
                                          " not present.");

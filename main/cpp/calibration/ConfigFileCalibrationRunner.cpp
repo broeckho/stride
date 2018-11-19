@@ -22,7 +22,7 @@
 
 #include <regex>
 
-namespace filesystem = boost::filesystem;
+namespace filesys = boost::filesystem;
 
 namespace calibration {
 
@@ -36,7 +36,7 @@ ConfigFileCalibrationRunner::ConfigFileCalibrationRunner(std::vector<std::string
                         configPt = stride::util::RunConfigManager::Create(config);
                 } else {
                         config = regex_replace(config, std::regex(std::string("^file=")), std::string(""));
-                        const filesystem::path configPath = stride::util::FileSys::GetConfigDir() / config;
+                        const filesys::path configPath = stride::util::FileSys::GetConfigDir() / config;
                         configPt                          = stride::util::FileSys::ReadPtreeFile(configPath);
                 }
                 configs.emplace_back(configPt, config);
