@@ -179,9 +179,6 @@ public:
         /// Gets a Location by id and check if the id exists
         std::shared_ptr<Location> GetById(unsigned int id);
 
-        /// Gets the region name of this GeoGrid
-        std::string GetRegionName() const;
-
         /// Create and store a Person in the GeoGrid and return a pointer to it, which works until deletion of the
         /// GeoGrid
         template <typename... Args>

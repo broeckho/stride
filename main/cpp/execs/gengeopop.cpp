@@ -91,8 +91,7 @@ int main(int argc, char* argv[])
 
                 ValueArg<std::string> rng_state(
                     "", "state",
-                    "The state to be used for initializing the random engine. This can be used to continue with the "
-                    "same state when generating multiple regions.",
+                    "The state to be used for initializing the random engine.",
                     false, "", "RNG TYPE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
