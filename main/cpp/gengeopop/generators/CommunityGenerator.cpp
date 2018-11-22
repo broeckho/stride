@@ -67,7 +67,6 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 community->Fill(geoGrid);
                 loc->AddContactCenter(community);
         }
-
 }
 
 } // namespace gengeopop

@@ -27,7 +27,6 @@ namespace gengeopop {
 
 void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
-
         m_logger->info("Starting to populate Secondary Communities");
 
         std::set<stride::ContactPool*> found;

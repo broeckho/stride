@@ -56,7 +56,6 @@ CSV::CSV(const filesys::path& path, std::initializer_list<std::string> optLabels
                 }
 
                 ReadFromStream(file);
-
         } catch (std::runtime_error& error) {
                 // thrown by util::checkFile
                 if (optLabels.size() == 0) {

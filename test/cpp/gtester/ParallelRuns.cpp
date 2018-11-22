@@ -85,7 +85,6 @@ TEST_P(ParallelRuns, Run)
         // Run simulator and check result.
         // -----------------------------------------------------------------------------------------
         for (const auto n : numThreads) {
-
                 stride::util::RnMan rn_manager;
                 rn_manager.Initialize(stride::util::RnMan::Info{configPt.get<std::string>("run.rng_seed", "1,2,3,4"),
                                                                 configPt.get<std::string>("run.rng_state", ""),
