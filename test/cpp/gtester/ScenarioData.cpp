@@ -19,8 +19,9 @@
  */
 
 #include "ScenarioData.h"
-
 #include "util/RunConfigManager.h"
+
+#include <map>
 
 using namespace std;
 using namespace stride;
