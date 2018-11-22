@@ -21,6 +21,6 @@
 
 namespace Tests {
 
-void flex_delivery();
+void FlexDelivery();
 
 } // namespace Tests

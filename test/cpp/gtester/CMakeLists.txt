@@ -26,42 +26,70 @@ add_definitions(-DGTEST_LANG_CXX11)
 #============================================================================
 set(EXEC gtester)
 set(SRC
-    main.cpp
     BatchRuns.cpp
+    CSVTest.cpp
     ScenarioData.cpp
+    #---
     UnitCsvTest.cpp
     UnitIsIterator.cpp
-    UnitRnEngine.cpp
-    UnitPtreeUtilsHelper.h
     UnitPtreeUtils.cpp
+    UnitPtreeUtilsHelper.h
+    UnitRnEngine.cpp
     UnitRnMan.cpp
+    UnitSVIterator.cpp
+    UnitSegmentedVector.cpp
     UnitSlice1.cpp
     UnitSlice2.cpp
-    UnitSegmentedVector.cpp
-    UnitSVIterator.cpp
-#---
-    myhayai/class_delivery.cpp
+    #---
+    createlogger.h
+    #---
+    gengeopop/generators/CollegeGeneratorTest.cpp
+    gengeopop/generators/CommunityGeneratorTest.cpp
+    gengeopop/generators/HouseholdGeneratorTest.cpp
+    gengeopop/generators/SchoolGeneratorTest.cpp
+    gengeopop/generators/WorkplaceGeneratorTest.cpp
+    gengeopop/io/CitiesCSVReaderTest.cpp
+    gengeopop/io/CommutesCSVReaderTest.cpp
+    gengeopop/io/GeoGridIOUtils.cpp
+    gengeopop/io/GeoGridJSONReaderTest.cpp
+    gengeopop/io/GeoGridJSONWriterTest.cpp
+    gengeopop/io/GeoGridProtoReaderTest.cpp
+    gengeopop/io/GeoGridProtoWriterTest.cpp
+    gengeopop/io/HouseholdCSVReaderTest.cpp
+    gengeopop/io/ReaderFactoryTest.cpp
+    gengeopop/kdtree.cpp
+    gengeopop/populators/CommunityPopulatorTests.cpp
+    gengeopop/populators/CollegePopulatorTest.cpp
+    gengeopop/populators/HouseholdPopulatorTest.cpp
+    gengeopop/populators/K12SchoolPopulatorTest.cpp
+    gengeopop/populators/WorkplacePopulatorTest.cpp
+    gengeopop/populators/createGeogrid.cpp
+    #---
     myhayai/DeliveryMan.cpp
-    myhayai/flex_delivery.cpp
     myhayai/MyhayaiTests.cpp
+    myhayai/class_delivery.cpp
+    myhayai/flex_delivery.cpp
+    #---
+    main.cpp
 )
-if (OPENMP_FOUND)
-    set(SRC ${SRC} ParallelRuns.cpp)
-endif()
 
-add_executable(${EXEC}   ${SRC} )
-target_link_libraries(${EXEC}  gtest pthread libstride libmyhayai ${LIBS})
+if (OPENMP_FOUND)
+        set(SRC ${SRC} ParallelRuns.cpp)
+endif ()
+
+add_executable(${EXEC} ${SRC})
+target_link_libraries(${EXEC} gtest pthread libstride libgengeopop libmyhayai ${LIBS})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
+install(DIRECTORY testdata/ DESTINATION ${TESTS_INSTALL_LOCATION}/testdata/)
 
 #============================================================================
 # Define tests.
 #============================================================================
-add_test(NAME  ${EXEC}
-    WORKING_DIRECTORY  ${TESTS_DIR}
-    COMMAND   ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
+add_test(NAME ${EXEC}
+        WORKING_DIRECTORY ${TESTS_DIR}
+        COMMAND ${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_LOCATION}/${EXEC}
         --gtest_output=xml:gtester_all.xml
-)
-
+        )
 #============================================================================
 # Clean up.
 #============================================================================

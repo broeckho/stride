@@ -66,6 +66,9 @@ public:
         /// Get the pool id
         std::size_t GetId() const { return m_pool_id; }
 
+        /// Get the type of ContactPool, used for logging and tests
+        ContactPoolType::Id GetType() const { return m_pool_type; }
+
 private:
         /// Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.
         std::tuple<bool, size_t> SortMembers();
@@ -76,7 +79,7 @@ private:
 
 private:
         std::size_t          m_pool_id;      ///< The ID of the ContactPool (for logging purposes).
-        ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging purposes).
+        ContactPoolType::Id  m_pool_type;    ///< The type of the ContactPool (for logging and testing purposes).
         std::size_t          m_index_immune; ///< Index of the first immune member in the ContactPool.
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };

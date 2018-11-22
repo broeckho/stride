@@ -79,6 +79,9 @@ public:
         /// Get the id.
         unsigned int GetId() const { return m_id; }
 
+        /// Set the id.
+        void SetId(unsigned int id) { m_id = id; }
+
         /// Check if a person is present today in a given contactpool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -11,16 +10,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018 Willem L, Kuylen E, Stijven S & Broeckhove J
+ *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-/**
- * @file
- * Scenario tests data.
- */
+#pragma once
 
-namespace Tests {
+#include <spdlog/logger.h>
+#include <util/LogUtils.h>
 
-void ClassDelivery();
-
-} // namespace Tests
+inline std::shared_ptr<spdlog::logger> CreateLogger()
+{
+        std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger("test_logger");
+        return logger;
+}

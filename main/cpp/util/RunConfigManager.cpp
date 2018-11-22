@@ -58,6 +58,28 @@ ptree RunConfigManager::Create(const std::string& configName)
         return FromString(creators.at(configName)());
 }
 
+void RunConfigManager::ConvertToGenGeoPop(ptree& pt)
+{
+        std::string gengeopop_str   = R"###(
+<run>
+    <geopop_type>generate</geopop_type>
+    <geopop_gen>
+        <population_size>600000</population_size>
+        <fraction_1826_years_which_are_students>0.5</fraction_1826_years_which_are_students>
+        <fraction_active_commuting_people>0.5</fraction_active_commuting_people>
+        <fraction_student_commuting_people>0.5</fraction_student_commuting_people>
+        <fraction_1865_years_active>0.75</fraction_1865_years_active>
+        <cities_file>flanders_cities.csv</cities_file>
+        <commuting_file>flanders_commuting.csv</commuting_file>
+        <household_file>households_flanders.csv</household_file>
+    </geopop_gen>
+</run>
+        )###";
+        ptree       gengeopop_ptree = FromString(gengeopop_str);
+        pt.put_child("run.geopop_type", gengeopop_ptree.get_child("run.geopop_type"));
+        pt.put_child("run.geopop_gen", gengeopop_ptree.get_child("run.geopop_gen"));
+}
+
 string RunConfigManager::CreateBenchInfluenza()
 {
         return R"###(
