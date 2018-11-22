@@ -32,6 +32,7 @@ message( STATUS "------> STRIDE_INCLUDE_DOC          : ${STRIDE_INCLUDE_DOC} "  
 message( STATUS "------> STRIDE_FORCE_NO_OPENMP      : ${STRIDE_FORCE_NO_OPENMP}"   )
 message( STATUS "------> STRIDE_FORCE_NO_PYTHON      : ${STRIDE_FORCE_NO_PYTHON}"   )
 message( STATUS "------> STRIDE_FORCE_NO_HDF5        : ${STRIDE_FORCE_NO_HDF5}"     )
+message( STATUS "------> STRIDE_FORCE_NO_BOOST       : ${STRIDE_FORCE_NO_BOOST}"     )
 #
 message( STATUS " " )
 message( STATUS "------> CMAKE_SYSTEM                : ${CMAKE_SYSTEM} "           )

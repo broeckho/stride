@@ -20,9 +20,15 @@
 #include <fstream>
 #include <iostream>
 #include <util/Exception.h>
-#include <boost/filesystem.hpp>
 
+#ifdef BOOST_FOUND
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
 namespace filesys = boost::filesystem;
+#else
+#include <filesystem>
+namespace filesys = std::filesystem;
+#endif
 
 namespace gengeopop {
 

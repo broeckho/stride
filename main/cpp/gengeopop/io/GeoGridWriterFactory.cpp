@@ -17,12 +17,18 @@
 #include "GeoGridJSONWriter.h"
 #include "GeoGridProtoWriter.h"
 
-#include <boost/filesystem.hpp>
-
-namespace filesys = boost::filesystem;
-
 #include <iostream>
 #include <util/Exception.h>
+
+#ifdef BOOST_FOUND
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
+namespace filesys = boost::filesystem;
+#else
+#include <filesystem>
+namespace filesys = std::filesystem;
+#endif
+
 namespace gengeopop {
 
 std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string filename) const

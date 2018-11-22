@@ -19,9 +19,15 @@
 #include "HouseholdReader.h"
 
 #include <string>
-#include <boost/filesystem.hpp>
 
+#ifdef BOOST_FOUND
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
 namespace filesys = boost::filesystem;
+#else
+#include <filesystem>
+namespace filesys = std::filesystem;
+#endif
 
 namespace gengeopop {
 
@@ -33,13 +39,13 @@ namespace gengeopop {
 class ReaderFactory
 {
 public:
-        /// Create a CitiesReader based on an absolute Boost Filesystem Path pointing to the input file
+        /// Create a CitiesReader based on an absolute Filesystem Path pointing to the input file
         std::shared_ptr<CitiesReader> CreateCitiesReader(const filesys::path& path);
 
         /// Create a CitiesReader based on the filename of the input file, relative to the data directory
         std::shared_ptr<CitiesReader> CreateCitiesReader(const std::string& filename);
 
-        /// Create a CommutesReader based on an absolute Boost Filesystem Path pointing to the input file
+        /// Create a CommutesReader based on an absolute Filesystem Path pointing to the input file
         std::shared_ptr<CommutesReader> CreateCommutesReader(const std::string& filename);
 
         /// Create a CommutesReader based on the filename of the input file, relative to the data directory
@@ -48,11 +54,11 @@ public:
         /// Create a HouseholdReader based on the filename of the input file, relative to the data directory
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const std::string& filename);
 
-        /// Create a HouseholdReader based on an absolute Boost Filesystem Path pointing to the input file
+        /// Create a HouseholdReader based on an absolute Filesystem Path pointing to the input file
         std::shared_ptr<HouseholdReader> CreateHouseholdReader(const filesys::path& path);
 
 private:
-        /// Create an istream based on the provided Boost Filesystem Path
+        /// Create an istream based on the provided Filesystem Path
         std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
 };
 } // namespace gengeopop

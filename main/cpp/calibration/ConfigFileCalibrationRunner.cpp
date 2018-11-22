@@ -22,7 +22,14 @@
 
 #include <regex>
 
+#ifdef BOOST_FOUND
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
 namespace filesys = boost::filesystem;
+#else
+#include <filesystem>
+namespace filesys = std::filesystem;
+#endif
 
 namespace calibration {
 

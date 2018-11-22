@@ -21,7 +21,6 @@
 
 #include "util/ConfigInfo.h"
 
-#include <boost/filesystem/path.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <string>
 

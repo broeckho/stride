@@ -27,10 +27,16 @@
 #include <fstream>
 #include <type_traits>
 #include <vector>
+
+
+#ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
-
+#include <boost/filesystem/path.hpp>
 namespace filesys = boost::filesystem;
-
+#else
+#include <filesystem>
+namespace filesys = std::filesystem;
+#endif
 namespace stride {
 namespace util {
 

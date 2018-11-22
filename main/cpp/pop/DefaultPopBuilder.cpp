@@ -37,7 +37,6 @@ namespace stride {
 
 using namespace ContactPoolType;
 
-namespace filesys = boost::filesystem;
 using namespace util;
 using namespace boost::property_tree;
 
