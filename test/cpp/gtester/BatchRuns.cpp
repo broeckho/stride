@@ -60,10 +60,6 @@ class BatchRunsGenGeoPop : public BatchRuns
 {
 };
 
-class BatchRunsMultiRegion : public BatchRuns
-{
-};
-
 void RunTest(tuple<ptree, unsigned int, double> d)
 {
         // -----------------------------------------------------------------------------------------

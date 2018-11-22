@@ -27,8 +27,6 @@ Compilation and installation of the software will create the following files and
 		\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
         \item $run\_generate\_default.xml$: default configuration file for Stride to first generate a population and geographical grid and then perform a Nassau Simulation.
         \item $run\_import\_default.xml$: default configuration file for Stride to first import a population and geographical grid and then perform a Nassau Simulation.
-        \item $run\_regions\_default.xml$: default configuration file for Stride to first generate several regions with their own population and geographical grid and then perform a Nassau Simulation.
-        \item $run\_regions\_import.xml$: default configuration file for Stride to first import several regions with their own population and geographical grid and then perform a Nassau Simulation.
         \item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
 		\item $wrapper\_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
         \item \ldots
@@ -98,7 +96,7 @@ From the workspace directory, the generation of a population and geographical gr
     \item[\texttt{--output}] \ \\
         The file to write the GeoGrid to. By default this is \texttt{gengeopop.proto}
     \item[\texttt{--state}] \ \\
-        The state to be used for initializing the random engine. This can be used to continue with the same state when generating multiple regions.
+        The state to be used for initializing the random engine. 
     \item[\texttt{--seed}] \ \\
         The seed to be used for the random engine. The default is \texttt{"1,2,3,4"}.
     \item[\texttt{--loglevel}] \ \\
