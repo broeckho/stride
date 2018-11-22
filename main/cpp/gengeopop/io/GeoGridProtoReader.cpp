@@ -173,13 +173,14 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
                             protoContactCenter.pools(idx);
 #pragma omp task firstprivate(protoContactPool, typeId)
                         {
-                                stride::ContactPool* pool;
+                                stride::ContactPool* pool = nullptr;
                                 e->Run([&protoContactPool, &pool, this, &typeId] {
                                         pool = ParseContactPool(protoContactPool, typeId);
                                 });
-                                if (!e->HasError())
+                                if (!e->HasError()) {
 #pragma omp critical
                                         result->AddPool(pool);
+                                }
                         }
                 }
 #pragma omp taskwait

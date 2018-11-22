@@ -171,13 +171,14 @@ std::shared_ptr<ContactCenter> GeoGridJSONReader::ParseContactCenter(boost::prop
                 for (auto it = contactPools.begin(); it != contactPools.end(); it++) {
 #pragma omp task firstprivate(it)
                         {
-                                stride::ContactPool* pool;
+                                stride::ContactPool* pool = nullptr;
                                 e->Run([&it, &pool, this, typeId] {
                                         pool = ParseContactPool(it->second.get_child(""), typeId);
                                 });
-                                if (!e->HasError())
+                                if (!e->HasError()) {
 #pragma omp critical
                                         result->AddPool(pool);
+                                }
                         }
                 }
 #pragma omp taskwait
