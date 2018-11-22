@@ -158,10 +158,13 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
                     std::make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + std::to_string(size)));
         }
 
-        std::vector<std::tuple<size_t, size_t, double>> commuting{
-            // loc0 to loc10 -> 0.23 of loc0
-            {0, 10, 0.23}, {25, 3, 0.43}, {38, 17, 0.65}, {10, 17, 0.25}, {15, 17, 0.22}, {27, 17, 0.47},
-        };
+        std::vector<std::tuple<size_t, size_t, double>> commuting;
+        commuting.push_back({0, 10, 0.23});
+        commuting.push_back({25, 3, 0.43});
+        commuting.push_back({38, 17, 0.65});
+        commuting.push_back({10, 17, 0.25});
+        commuting.push_back({15, 17, 0.22});
+        commuting.push_back({27, 17, 0.47});
 
         for (const std::tuple<size_t, size_t, double>& info : commuting) {
                 geoGrid->Get(std::get<0>(info))
