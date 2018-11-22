@@ -159,12 +159,12 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
         }
 
         std::vector<std::tuple<size_t, size_t, double>> commuting;
-        commuting.push_back({0, 10, 0.23});
-        commuting.push_back({25, 3, 0.43});
-        commuting.push_back({38, 17, 0.65});
-        commuting.push_back({10, 17, 0.25});
-        commuting.push_back({15, 17, 0.22});
-        commuting.push_back({27, 17, 0.47});
+        commuting.push_back(std::make_tuple(0, 10, 0.23));
+        commuting.push_back(std::make_tuple(25, 3, 0.43));
+        commuting.push_back(std::make_tuple(38, 17, 0.65));
+        commuting.push_back(std::make_tuple(10, 17, 0.25));
+        commuting.push_back(std::make_tuple(15, 17, 0.22));
+        commuting.push_back(std::make_tuple(27, 17, 0.47));
 
         for (const std::tuple<size_t, size_t, double>& info : commuting) {
                 geoGrid->Get(std::get<0>(info))
