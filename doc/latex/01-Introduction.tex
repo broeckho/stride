@@ -17,18 +17,19 @@ can be found in:
 \textit{``Willem L, Stijven S, Tijskens E, Beutels P, Hens N \& Broeckhove J. (2015) Optimizing agent-based transmission models for infectious diseases, BMC Bioinformatics, 16:183''} \cite{willem2015}.
 
 The model population consists of households, schools, workplaces and
-communities, which represent a group of people we define as a ``cluster''.
-Social contacts can only happen within a cluster. 
+communities, which represent a group of people we define as a ``ContactPool''.
+Social contacts can only happen within a ContactPool.
 When school or work is off, people stay at home and in their primary
 community and can have social contacts with the other members.
-During other days, people are present in their household, secundary community
+During other days, people are present in their household, secondary community
 and a possible workplace or school.  
 
 
 
-We use a $Simulator$ class to organize the activities from the people in an $Area$. 
-The Area class has a $Population$, different $ContactPool$ objects and a $Contact
-Handler$.
+We use a $Simulator$ class to organize the activities from the people in the population.
+The ContactPools in a population are grouped into ContactCenters (e.g. the different classes of a school are grouped into one K12School ContactCenter).
+These ContactCenters are geographically grouped into a geographical grid (sometimes called GeoGrid)
+
 The $Contact Handler$ performs Bernoulli trials to decide whether a contact
 between an infectious and susceptible person leads to disease transmission. 
 People transit through Susceptible-Exposed-Infected-Recovered states,
