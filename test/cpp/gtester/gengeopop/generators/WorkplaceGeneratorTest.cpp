@@ -26,7 +26,6 @@ namespace {
 
 TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -45,7 +44,6 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
 TEST(WorkplaceGeneratorTest, NoCommuting)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -84,7 +82,6 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
 TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -137,7 +134,6 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
 TEST(WorkplaceGeneratorTest, TenCommuting)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);

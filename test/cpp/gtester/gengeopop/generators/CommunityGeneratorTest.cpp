@@ -25,7 +25,6 @@ namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -47,7 +46,6 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -73,7 +71,6 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);
@@ -91,7 +88,6 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-
         stride::util::RnMan::Info rnInfo;
         rnInfo.m_seed_seq_init = "1,2,3,4";
         stride::util::RnMan rnManager(rnInfo);

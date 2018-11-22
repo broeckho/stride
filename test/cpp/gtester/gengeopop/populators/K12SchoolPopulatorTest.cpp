@@ -209,7 +209,6 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         }
 
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsStudentCandidate()) {
                                 EXPECT_TRUE(person->GetK12SchoolId() >= 217 && person->GetK12SchoolId() <= 291);
