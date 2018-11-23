@@ -56,29 +56,40 @@ protected:
         void TearDown() override {}
 };
 
-TEST_P(BatchRuns, Run)
+class BatchRunsGenGeoPop : public BatchRuns
+{
+};
+
+void RunTest(tuple<ptree, unsigned int, double> d)
 {
         // -----------------------------------------------------------------------------------------
         // Scenario configuration and target numbers.
         // -----------------------------------------------------------------------------------------
-        const string testTag  = GetParam();
-        const auto   d        = ScenarioData::Get(testTag);
-        auto         configPt = get<0>(d);
-        const auto   target   = get<1>(d);
-        const auto   margin   = get<2>(d);
+        auto       configPt = get<0>(d);
+        const auto target   = get<1>(d);
+        const auto sigma    = get<2>(d);
 
         // -----------------------------------------------------------------------------------------
         // Actual simulator run.
         // -----------------------------------------------------------------------------------------
-        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt));
+        stride::util::RnMan rn_manager;
+        rn_manager.Initialize(stride::util::RnMan::Info{configPt.get<std::string>("run.rng_seed", "1,2,3,4"),
+                                                        configPt.get<std::string>("run.rng_state", ""),
+                                                        configPt.get<unsigned int>("run.num_threads")});
+        auto runner = make_shared<SimRunner>(configPt, Population::Create(configPt, rn_manager), rn_manager);
         runner->Run();
 
         // -----------------------------------------------------------------------------------------
         // Check resuts against target number.
         // -----------------------------------------------------------------------------------------
-        const unsigned int result = runner->GetSim()->GetPopulation()->GetInfectedCount();
-        EXPECT_NEAR(result, target, target * margin) << "!! Failure:" << testTag;
+        const unsigned int res = runner->GetSim()->GetPopulation()->GetInfectedCount();
+        // Check within a 95% confidence interval (distance of 2 std deviations)
+        EXPECT_NEAR(res, target, sigma * 2);
 }
+
+TEST_P(BatchRuns, Run) { RunTest(ScenarioData::Get(GetParam())); }
+
+TEST_P(BatchRunsGenGeoPop, Run) { RunTest(ScenarioData::Get(std::string(GetParam()) + "_gengeopop")); }
 
 namespace {
 
@@ -95,5 +106,11 @@ INSTANTIATE_TEST_CASE_P(influenza, BatchRuns, ValuesIn(tags_influenza));
 INSTANTIATE_TEST_CASE_P(measles, BatchRuns, ValuesIn(tags_measles));
 
 INSTANTIATE_TEST_CASE_P(r0, BatchRuns, ValuesIn(tags_r0));
+
+INSTANTIATE_TEST_CASE_P(influenza_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_influenza));
+
+INSTANTIATE_TEST_CASE_P(measles_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_measles));
+
+INSTANTIATE_TEST_CASE_P(r0_gengeopop, BatchRunsGenGeoPop, ValuesIn(tags_r0));
 
 } // namespace Tests

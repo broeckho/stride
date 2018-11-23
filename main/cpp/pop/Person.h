@@ -43,11 +43,11 @@ public:
         }
 
         /// Constructor: set the person data.
-        Person(unsigned int id, double age, unsigned int householdId, unsigned int schoolId, unsigned int workId,
-               unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
+        Person(unsigned int id, double age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId,
+               unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)
             : m_age(age), m_belief(nullptr), m_gender('M'), m_health(), m_id(id),
-              m_is_participant(false), m_pool_ids{householdId, schoolId, workId, primaryCommunityId,
-                                                  secondaryCommunityId},
+              m_is_participant(false), m_pool_ids{householdId, k12SchoolId,        collegeId,
+                                                  workId,      primaryCommunityId, secondaryCommunityId},
               m_in_pools(true)
         {
         }
@@ -79,6 +79,9 @@ public:
         /// Get the id.
         unsigned int GetId() const { return m_id; }
 
+        /// Set the id.
+        void SetId(unsigned int id) { m_id = id; }
+
         /// Check if a person is present today in a given contactpool
         bool IsInPool(const ContactPoolType::Id& poolType) const { return m_in_pools[poolType]; }
 
@@ -96,6 +99,65 @@ public:
 
         ///
         void Update(Person* p);
+
+        /// Set the age of the person
+        void SetAge(unsigned int newAge) { m_age = newAge; }
+
+        unsigned int GetHouseholdId() { return GetPoolId(ContactPoolType::Id::Household); }
+
+        void SetHouseholdId(unsigned int household_id) { SetPoolId(ContactPoolType::Id::Household, household_id); }
+
+        /// Returns the id of the K12School CP
+        unsigned int GetK12SchoolId() const { return GetPoolId(ContactPoolType::Id::K12School); }
+
+        /// Sets the id of the K12School CP
+        void SetK12SchoolId(unsigned int k12school_id) { SetPoolId(ContactPoolType::Id::K12School, k12school_id); }
+
+        /// Returns the id of the College CP
+        unsigned int GetCollegeId() const { return GetPoolId(ContactPoolType::Id::College); }
+
+        /// Sets the id of the College CP
+        void SetCollegeId(unsigned int college_id) { SetPoolId(ContactPoolType::Id::College, college_id); }
+
+        /// Gets the id of the Work CP
+        unsigned int GetWorkId() const { return GetPoolId(ContactPoolType::Id::Work); }
+
+        /// Sets the id of the Work CP
+        void SetWorkId(unsigned int work_id) { SetPoolId(ContactPoolType::Id::Work, work_id); }
+
+        /// Returns the id of the PrimaryCommunity CP
+        unsigned int GetPrimaryCommunityId() const { return GetPoolId(ContactPoolType::Id::PrimaryCommunity); }
+
+        /// Sets the id of the PrimaryCommunity CP
+        void SetPrimaryCommunityId(unsigned int primary_community_id)
+        {
+                SetPoolId(ContactPoolType::Id::PrimaryCommunity, primary_community_id);
+        }
+
+        /// Returns the id of the SecondaryCommunity CP
+        unsigned int GetSecondaryCommunityId() const { return GetPoolId(ContactPoolType::Id::SecondaryCommunity); }
+
+        /// Sets the id of the SecondaryCommunity CP
+        void SetSecondaryCommunityId(unsigned int secondary_community_id)
+        {
+                SetPoolId(ContactPoolType::Id::SecondaryCommunity, secondary_community_id);
+        }
+
+        /// Sets the id of the \p type CP
+        void SetPoolId(ContactPoolType::Id type, unsigned int poolId)
+        {
+                m_pool_ids[type] = poolId;
+                m_in_pools[type] = poolId != 0;
+        }
+
+        /// Returns whether this person may be a K12School student
+        bool IsStudentCandidate() const { return m_age < 18 && m_age >= 6; }
+
+        /// Returns whether this person may be a college student
+        bool IsCollegeStudentCandidate() const { return m_age >= 18 && m_age < 26; }
+
+        /// Returns whether this person may be a college worker
+        bool IsWorkableCandidate() const { return m_age >= 18 && m_age < 65; }
 
 private:
         double       m_age;    ///< The age.

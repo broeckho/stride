@@ -35,7 +35,7 @@ using namespace myhayai;
 
 namespace Tests {
 
-void class_delivery()
+void ClassDelivery()
 {
         //---------------------------------------------------------------------------------------------
         // The factory produces a test with all three stages (setup, body, teardown).

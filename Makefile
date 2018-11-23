@@ -65,7 +65,9 @@ endif
 ifneq ($(STRIDE_FORCE_NO_HDF5),)
 	CMAKE_ARGS += -DSTRIDE_FORCE_NO_HDF5:BOOL=$(STRIDE_FORCE_NO_HDF5)
 endif
-
+ifneq ($(STRIDE_FORCE_NO_BOOST),)
+	CMAKE_ARGS += -DSTRIDE_FORCE_NO_BOOST:BOOL=$(STRIDE_FORCE_NO_BOOST)
+endif
 #============================================================================
 #   Build directory.
 #============================================================================
@@ -95,6 +97,7 @@ help:
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_OPENMP        : " $(STRIDE_FORCE_NO_OPENMP)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_PYTHON        : " $(STRIDE_FORCE_NO_PYTHON)
 	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_HDF5          : " $(STRIDE_FORCE_NO_HDF5)
+	@ $(CMAKE) -E echo "   STRIDE_FORCE_NO_BOOST         : " $(STRIDE_FORCE_NO_BOOST)
 	@ $(CMAKE) -E echo " "
 
 cores:

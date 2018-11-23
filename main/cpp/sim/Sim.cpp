@@ -37,26 +37,37 @@ using namespace trng;
 using namespace util;
 using namespace ContactLogMode;
 
-Sim::Sim()
+Sim::Sim(util::RnMan& rnMan)
     : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
-      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(),
+      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(rnMan),
       m_transmission_profile()
 {
 }
 
-std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop)
+Sim::Sim(std::shared_ptr<util::RnMan> rnMan) : Sim(*rnMan.get()) { m_rn_manager_ptr = rnMan; }
+
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
+                                 util::RnMan& rnManager)
 {
         struct make_shared_enabler : public Sim
         {
+                explicit make_shared_enabler(util::RnMan& rnManager) : Sim(rnManager) {}
         };
-        shared_ptr<Sim> sim = make_shared<make_shared_enabler>();
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
         SimBuilder(configPt).Build(sim, std::move(pop));
         return sim;
 }
 
-std::shared_ptr<Sim> Sim::Create(const string& configString, shared_ptr<Population> pop)
+std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, shared_ptr<Population> pop,
+                                 std::shared_ptr<util::RnMan> rnManager)
 {
-        return Create(RunConfigManager::FromString(configString), std::move(pop));
+        struct make_shared_enabler : public Sim
+        {
+                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(rnManager) {}
+        };
+        shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
+        SimBuilder(configPt).Build(sim, std::move(pop));
+        return sim;
 }
 
 void Sim::TimeStep()
@@ -88,7 +99,8 @@ void Sim::TimeStep()
                 const auto thread_num = static_cast<unsigned int>(omp_get_thread_num());
                 for (auto typ : ContactPoolType::IdList) {
                         if ((typ == ContactPoolType::Id::Work && isWorkOff) ||
-                            (typ == ContactPoolType::Id::School && isSchoolOff)) {
+                            (typ == ContactPoolType::Id::K12School && isSchoolOff) ||
+                            (typ == ContactPoolType::Id::College && isSchoolOff)) {
                                 continue;
                         }
 #pragma omp for schedule(static)

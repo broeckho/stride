@@ -27,7 +27,6 @@ namespace stride {
 namespace output {
 
 using namespace std;
-using namespace boost::filesystem;
 using namespace stride::util;
 
 PersonsFile::PersonsFile(const string& output_prefix) : m_fstream() { Initialize(output_prefix); }

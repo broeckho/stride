@@ -51,10 +51,17 @@ public:
         /// What we 'll use most often and where we can have a default and
         /// initialize all array elements to the same value.
         /// e.g.    IdSubscriptArray<unsigned int> m(1U);
-        explicit IdSubscriptArray(T t = T())
+        explicit IdSubscriptArray(T t)
         {
                 for (auto typ : IdList) {
                         this->operator[](typ) = t;
+                }
+        }
+
+        explicit IdSubscriptArray()
+        {
+                for (auto typ : IdList) {
+                        this->operator[](typ) = T();
                 }
         }
 
@@ -74,6 +81,12 @@ public:
                         }
                 }
         }
+
+        /// Initialize with an array of the right dimensions.
+        /// Makes sure nothing is default constructed
+        /// Delegate it to the array move constructor
+        /// Destructive...
+        IdSubscriptArray(std::array<T, NumOfTypes()>&& l) : std::array<T, NumOfTypes()>(l) {}
 
         /// This actually works in itself but interferes annoyingly with the first
         /// constructor above and is for practical purpose redundant.

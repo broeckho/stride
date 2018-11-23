@@ -19,6 +19,7 @@
  * Header for the command line controller.
  */
 
+#include "util/RnMan.h"
 #include "util/Stopwatch.h"
 
 #include <boost/property_tree/ptree.hpp>
@@ -76,6 +77,7 @@ protected:
         util::Stopwatch<>               m_run_clock;        ///< Stopwatch for timing the computation.
         std::shared_ptr<spdlog::logger> m_stride_logger;    ///< General logger.
         bool                            m_use_install_dirs; ///< Working dir or install dir mode.
+        util::RnMan                     m_rn_manager;       ///< The manager for random numbers
 };
 
 } // namespace stride

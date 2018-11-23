@@ -21,6 +21,6 @@
 
 namespace Tests {
 
-void class_delivery();
+void ClassDelivery();
 
 } // namespace Tests

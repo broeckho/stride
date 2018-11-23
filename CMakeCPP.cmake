@@ -49,6 +49,9 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS_DEBUG} -O0"   )
 #
 include_directories(${CMAKE_HOME_DIRECTORY}/main/cpp)
 
+# Prevents (static) libraries having a double "lib" prefix (when they are named libxxx).
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+
 #----------------------------------------------------------------------------
 # Platform dependent compile flags
 #----------------------------------------------------------------------------
@@ -92,6 +95,12 @@ include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/spdlog/inc
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/tclap/include)
 
 #----------------------------------------------------------------------------
+# ProtoBuf
+#----------------------------------------------------------------------------
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/cpp/gengeopop/io/proto)
+include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/protobuf)
+
+#----------------------------------------------------------------------------
 # SHA1 hash code.
 #----------------------------------------------------------------------------
 include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/sha1/include)
@@ -100,9 +109,24 @@ set(LIBS ${LIBS} sha1)
 #----------------------------------------------------------------------------
 # Boost
 #----------------------------------------------------------------------------
-find_package(Boost COMPONENTS filesystem thread date_time system REQUIRED)
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
-set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+if (NOT STRIDE_FORCE_NO_BOOST)
+    find_package(Boost COMPONENTS filesystem thread date_time system)
+endif()
+if (Boost_FOUND)
+    include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
+    add_compile_definitions(BOOST_FOUND)
+    set(LIBS   ${LIBS} ${Boost_LIBRARIES})
+else()
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/boost/include)
+    include_directories(SYSTEM ${CMAKE_HOME_DIRECTORY}/main/resources/lib/date/include)
+    find_package(Threads)
+    set(LIBS ${LIBS} ${CMAKE_THREAD_LIBS_INIT})
+    if(CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?Clang" AND CMAKE_HOST_APPLE)
+        set(LIBS ${LIBS} c++fs)
+    else()
+        set(LIBS ${LIBS} stdc++fs)
+    endif()
+endif()
 
 #----------------------------------------------------------------------------
 # OpenMP

@@ -71,9 +71,10 @@ public:
                             ContactPoolType::Id type, unsigned short int sim_day)
         {
                 if (p1->IsSurveyParticipant()) {
-                        logger->info("[CONT] {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
+                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Household),
-                                     static_cast<unsigned int>(type == ContactPoolType::Id::School),
+                                     static_cast<unsigned int>(type == ContactPoolType::Id::K12School),
+                                     static_cast<unsigned int>(type == ContactPoolType::Id::College),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Work),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::SecondaryCommunity),

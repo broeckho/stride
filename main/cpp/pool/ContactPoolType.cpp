@@ -11,6 +11,7 @@
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
  *  Copyright 2017, Kuylen E, Willem L, Broeckhove J
+ *  Copyright 2018, Niels Aerens, Thomas Avé, Tobia De Koninck, Robin Jadoul
  */
 
 /**
@@ -33,7 +34,8 @@ bool IsType(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
-            make_pair("SCHOOL", Id::School),
+            make_pair("SCHOOL", Id::K12School),
+            make_pair("SCHOOL", Id::College),
             make_pair("WORK", Id::Work),
             make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
             make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),
@@ -47,7 +49,8 @@ string ToString(Id c)
 {
         static map<Id, string> names{
             make_pair(Id::Household, "household"),
-            make_pair(Id::School, "school"),
+            make_pair(Id::K12School, "school"),
+            make_pair(Id::College, "school"),
             make_pair(Id::Work, "work"),
             make_pair(Id::PrimaryCommunity, "primary_community"),
             make_pair(Id::SecondaryCommunity, "secondary_community"),
@@ -59,7 +62,8 @@ Id ToType(const string& s)
 {
         static map<string, Id> ids{
             make_pair("HOUSEHOLD", Id::Household),
-            make_pair("SCHOOL", Id::School),
+            make_pair("SCHOOL", Id::K12School),
+            make_pair("SCHOOL", Id::College),
             make_pair("WORK", Id::Work),
             make_pair("PRIMARY_COMMUNITY", Id::PrimaryCommunity),
             make_pair("SECONDARY_COMMUNITY", Id::SecondaryCommunity),

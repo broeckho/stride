@@ -39,7 +39,7 @@ using namespace myhayai;
 
 namespace Tests {
 
-void flex_delivery()
+void FlexDelivery()
 {
         //---------------------------------------------------------------------------------------------
         // The "all lambda" flex approach. You register a factory (outer lambda) that, on each call,
