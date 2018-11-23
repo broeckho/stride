@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactPoolType.cpp File Reference</title>
+<title>Stride Reference Manual: stride::NoBelief Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,61 +107,86 @@ $(document).ready(function(){initNavTree('df/d6a/a00119.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d4/d13/a01162.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ContactPoolType.cpp File Reference</div>  </div>
+<div class="title">stride::NoBelief Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of ContactPoolType.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d98/a00120_source.html">ContactPoolType.h</a>&quot;</code><br />
-<code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactPoolType.cpp:</div>
+<p>No beliefs w.r.t vaccination.  
+ <a href="../../df/d6a/a00119.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d0/d01/a00339_source.html">NoBelief.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stride::NoBelief:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db3/a00313.gif" border="0" usemap="#ContactPoolType_8cpp" alt=""/></div>
-<map name="ContactPoolType_8cpp" id="ContactPoolType_8cpp">
-<area shape="rect" id="node2" href="../../d4/d98/a00120.html" title="Definition of ContactPoolType. " alt="" coords="152,80,291,107"/>
+<div class="center"><img src="../../d6/d27/a01163.gif" border="0" usemap="#stride_1_1NoBelief_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1NoBelief_inherit__map" id="stride_1_1NoBelief_inherit__map">
+<area shape="rect" id="node2" href="../../da/d82/a00091.html" title="Base class for all belief policies. " alt="" coords="5,5,132,112"/>
 </map>
 </div>
+<div class="dynheader">
+Collaboration diagram for stride::NoBelief:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/dd2/a01164.gif" border="0" usemap="#stride_1_1NoBelief_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1NoBelief_coll__map" id="stride_1_1NoBelief_coll__map">
+<area shape="rect" id="node2" href="../../da/d82/a00091.html" title="Base class for all belief policies. " alt="" coords="5,5,132,112"/>
+</map>
 </div>
-<p><a href="../../df/d6a/a00119_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d0/d1f/a00247"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html">stride::ContactPoolType</a></td></tr>
-<tr class="memdesc:d0/d1f/a00247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../db/db2/a00020.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d0/d1f/a00247.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d0/d1f/a00247.html#a1269217f56908f0da981dbe4e43bb73d">More...</a><br /></td></tr>
-<tr class="separator:a1269217f56908f0da981dbe4e43bb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
-<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d0/d1f/a00247.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../d0/d1f/a00247.html#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br /></td></tr>
-<tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:af529300a78547c29c95b81ad8ac62afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d0/d1f/a00247.html#af529300a78547c29c95b81ad8ac62afe">More...</a><br /></td></tr>
-<tr class="separator:af529300a78547c29c95b81ad8ac62afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa0c36cb9e72aa68edd7671767b1e86b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#aa0c36cb9e72aa68edd7671767b1e86b7">NoBelief</a> ()</td></tr>
+<tr class="separator:aa0c36cb9e72aa68edd7671767b1e86b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00091"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00091')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/d82/a00091.html">stride::Belief</a></td></tr>
+<tr class="memitem:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00091"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html#a4c6ab9b7c9f11aa7651337c30aa50dc8">Belief</a> ()=default</td></tr>
+<tr class="separator:a4c6ab9b7c9f11aa7651337c30aa50dc8 inherit pub_methods_a00091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00091"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html#a48ced869d4ea27db2c4120a068750248">~Belief</a> ()=default</td></tr>
+<tr class="separator:a48ced869d4ea27db2c4120a068750248 inherit pub_methods_a00091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00091"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html#a4e01f1bfbad7923d1dff35558e47887f">HasAdopted</a> () const </td></tr>
+<tr class="separator:a4e01f1bfbad7923d1dff35558e47887f inherit pub_methods_a00091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of ContactPoolType. </p>
+<div class="textblock"><p>No beliefs w.r.t vaccination. </p>
 
-<p>Definition in file <a class="el" href="../../df/d6a/a00119_source.html">ContactPoolType.cpp</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../d0/d01/a00339_source.html#l00029">29</a> of file <a class="el" href="../../d0/d01/a00339_source.html">NoBelief.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa0c36cb9e72aa68edd7671767b1e86b7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::NoBelief::NoBelief </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d0/d01/a00339_source.html#l00032">32</a> of file <a class="el" href="../../d0/d01/a00339_source.html">NoBelief.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d0/d01/a00339_source.html">NoBelief.h</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">ContactPoolType.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dea/a00444.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">NoBelief</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

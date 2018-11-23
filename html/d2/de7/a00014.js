@@ -1,5 +1,6 @@
 var a00014 =
 [
-    [ "AgeContactProfile", "d2/de7/a00014.html#abcac910ea28f2cefae9efd6f462aa34d", null ],
-    [ "AgeContactProfile", "d2/de7/a00014.html#ac325eb59f82e16bbe16cfc850947dd94", null ]
+    [ "Collector", "d2/de7/a00014.html#ade1a346a6e6324ad1bbc872e93ba4717", null ],
+    [ "operator()", "d2/de7/a00014.html#ad0d0993c1c8f1c9ff517ede6f66dd8d7", null ],
+    [ "m_ins", "d2/de7/a00014.html#aeaa5ec032b107f7865299dad0aa0fb4d", null ]
 ];

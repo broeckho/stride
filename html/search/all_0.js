@@ -1,29 +1,4 @@
 var searchData=
 [
-  ['aborttest',['AbortTest',['../d0/d27/a00239.html#aa186a4b82f295d28f9c382967d2765f5abe52b63ce82234b93f4da0ea86a5cd42',1,'myhayai::event']]],
-  ['add',['Add',['../de/d8c/a00036.html#a2abaaf56ff495aa37bfead7eea5405de',1,'stride::InfectorMap']]],
-  ['addmember',['AddMember',['../db/db2/a00020.html#a1d78d0a3fd422a09f39e87d83c391d47',1,'stride::ContactPool']]],
-  ['addrow',['AddRow',['../d3/d8b/a00059.html#a1ae467f9599974c0f180c529f8a9f298',1,'stride::util::CSV::AddRow(const T &amp;...values)'],['../d3/d8b/a00059.html#a6fb7f772aabba9465da13e8d2abb197a',1,'stride::util::CSV::AddRow(typename std::enable_if&lt; is_iterator&lt; It &gt;::value, It &gt;::type first, It last)']]],
-  ['adoptedfile',['AdoptedFile',['../d5/db6/a00042.html#aa24c13053bcf131ad878b465a4125828',1,'stride::output::AdoptedFile']]],
-  ['adoptedfile',['AdoptedFile',['../d5/db6/a00042.html',1,'stride::output']]],
-  ['adoptedfile_2ecpp',['AdoptedFile.cpp',['../df/d5d/a00084.html',1,'']]],
-  ['adoptedfile_2eh',['AdoptedFile.h',['../df/d13/a00085.html',1,'']]],
-  ['adoptedfileviewer',['AdoptedFileViewer',['../d9/da4/a00078.html#a46c44f1a5065810bc501ed8669c9d75f',1,'stride::viewers::AdoptedFileViewer']]],
-  ['adoptedfileviewer',['AdoptedFileViewer',['../d9/da4/a00078.html',1,'stride::viewers']]],
-  ['adoptedfileviewer_2ecpp',['AdoptedFileViewer.cpp',['../da/d2a/a00086.html',1,'']]],
-  ['adoptedfileviewer_2eh',['AdoptedFileViewer.h',['../d1/d1e/a00087.html',1,'']]],
-  ['advanceday',['AdvanceDay',['../d4/d51/a00017.html#a73664cd7c25b08adff14429ca3291394',1,'stride::Calendar']]],
-  ['age_2eh',['Age.h',['../db/ddf/a00088.html',1,'']]],
-  ['agecontactprofile',['AgeContactProfile',['../d2/de7/a00014.html',1,'stride']]],
-  ['agecontactprofile',['AgeContactProfile',['../d2/de7/a00014.html#abcac910ea28f2cefae9efd6f462aa34d',1,'stride::AgeContactProfile::AgeContactProfile()=default'],['../d2/de7/a00014.html#ac325eb59f82e16bbe16cfc850947dd94',1,'stride::AgeContactProfile::AgeContactProfile(ContactPoolType::Id poolType, const boost::property_tree::ptree &amp;contactPt)']]],
-  ['agecontactprofile_2ecpp',['AgeContactProfile.cpp',['../db/dab/a00089.html',1,'']]],
-  ['agecontactprofile_2eh',['AgeContactProfile.h',['../d9/dec/a00090.html',1,'']]],
-  ['agecontactprofiles',['AgeContactProfiles',['../d6/d22/a00245.html#a0fdf5666e3837bb714ef0f0c58d65256',1,'stride']]],
-  ['agecontactprofiles_2eh',['AgeContactProfiles.h',['../da/d82/a00091.html',1,'']]],
-  ['all',['All',['../d4/d9a/a00246.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680',1,'stride::ContactLogMode']]],
-  ['any',['Any',['../d9/d2e/a00056.html',1,'stride::util']]],
-  ['any',['Any',['../d9/d2e/a00056.html#a78136d1eb13e5df0bd7f8043adff152a',1,'stride::util::Any::Any()'],['../d9/d2e/a00056.html#aaa382d9d331bfccce805ca47dd0e0998',1,'stride::util::Any::Any(const Any &amp;)=delete'],['../d9/d2e/a00056.html#aa37a30a7324377f7afe3b614d3c8f1eb',1,'stride::util::Any::Any(Any &amp;&amp;)=delete']]],
-  ['any_2eh',['Any.h',['../d1/dc1/a00092.html',1,'']]],
-  ['at',['at',['../d7/d46/a00002.html#a93371d1535b1a5252f93dfadfca1319b',1,'stride::ContactPoolType::IdSubscriptArray::at(ContactPoolType::Id id)'],['../d7/d46/a00002.html#a4486596a803a82b31b5df1b5bae7dea3',1,'stride::ContactPoolType::IdSubscriptArray::at(ContactPoolType::Id id) const '],['../de/d11/a00021.html#a09e9e0818406cc10eeacc3f992aef7cb',1,'stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::at(ContactPoolType::Id id)'],['../de/d11/a00021.html#a9e760b389cdca2516385b1600332a4f0',1,'stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;::at(ContactPoolType::Id id) const '],['../d7/dd4/a00013.html#a31c61443835e8d73449d0304bbe5b5bc',1,'stride::util::SegmentedVector::at(std::size_t pos)'],['../d7/dd4/a00013.html#a0d24e651eb0ed32e7103ed81d863ef06',1,'stride::util::SegmentedVector::at(std::size_t pos) const ']]],
-  ['atstart',['AtStart',['../d0/da7/a00250.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe',1,'stride::sim_event']]]
+  ['tablestruct',['TableStruct',['../df/d13/a00085.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Location_Coordinate::TableStruct()'],['../df/d5d/a00084.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::TableStruct()'],['../d2/d1f/a00083.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Location_ContactCenter::TableStruct()'],['../d4/d63/a00082.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Location_Commute::TableStruct()'],['../d8/d53/a00081.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Location::TableStruct()'],['../da/d2a/a00086.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid_Person::TableStruct()'],['../da/dec/a00080.html#a437672657e3af2123b8beae13f7edf12',1,'proto::GeoGrid::TableStruct()']]]
 ];

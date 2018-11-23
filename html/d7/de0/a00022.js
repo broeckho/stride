@@ -1,17 +1,18 @@
 var a00022 =
 [
-    [ "ControlHelper", "d7/de0/a00022.html#a56dc1ac0f26ed36e457b45a1a3d421da", null ],
-    [ "ControlHelper", "d7/de0/a00022.html#adf5c02b1632443f385cc0359dc76506b", null ],
-    [ "CheckEnv", "d7/de0/a00022.html#a9fd666ad523f15ba9f3b3249ba6b0a90", null ],
-    [ "CheckOutputPrefix", "d7/de0/a00022.html#a7015fce5931f444015baca6c73e67360", null ],
-    [ "InstallLogger", "d7/de0/a00022.html#a49b3d3980626e92e16758d63bd6240a7", null ],
-    [ "LogShutdown", "d7/de0/a00022.html#aa40b02ef62cb1b4a2db78eb847ffe964", null ],
-    [ "LogStartup", "d7/de0/a00022.html#adc021af008df0bf673682b81aa8d0010", null ],
-    [ "RegisterViewers", "d7/de0/a00022.html#af0131365a6c658898bf3dd49eead3ed7", null ],
-    [ "m_config_pt", "d7/de0/a00022.html#ae233d4c8a65307b49f65327093bdda59", null ],
-    [ "m_name", "d7/de0/a00022.html#a84806de1e330126ab6c895924d1296f4", null ],
-    [ "m_output_prefix", "d7/de0/a00022.html#a3be4db55fc19e28be55d6f3de9cc4c08", null ],
-    [ "m_run_clock", "d7/de0/a00022.html#a9586d0f5815c7d4c24c9fe2563b2e00e", null ],
-    [ "m_stride_logger", "d7/de0/a00022.html#ab8633301b0187b5a1077a2d583910cd0", null ],
-    [ "m_use_install_dirs", "d7/de0/a00022.html#a9a7386ab81543b81bbc888176c55d7e0", null ]
+    [ "iterator", "d7/de0/a00022.html#a7ffc40d11c7c2f8c2a6b012104e38179", null ],
+    [ "ContactCenter", "d7/de0/a00022.html#a9aaa45f62fcb16bcd4b6f382a94e5526", null ],
+    [ "~ContactCenter", "d7/de0/a00022.html#ac520d66f2268d03298cb36a47103aa74", null ],
+    [ "GetType", "d7/de0/a00022.html#a6accccf2036e95ef292fa475e75fa6fc", null ],
+    [ "GetPoolSize", "d7/de0/a00022.html#a29071ba50d10e1c2bad9d4ab52cbd561", null ],
+    [ "GetMaxPools", "d7/de0/a00022.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5", null ],
+    [ "Fill", "d7/de0/a00022.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff", null ],
+    [ "GetId", "d7/de0/a00022.html#a41db67c04a80efb125efdbfa4a39b4ad", null ],
+    [ "GetPopulationAndInfectedCount", "d7/de0/a00022.html#af8b55f34ee88976dc4e4cd124f508ffa", null ],
+    [ "AddPool", "d7/de0/a00022.html#a05e2ac775c782a156ad867059f3b5e57", null ],
+    [ "GetPools", "d7/de0/a00022.html#af52200fb10382cffac4fa67d987f5406", null ],
+    [ "begin", "d7/de0/a00022.html#a351f15c90b8cb94886b69752960dc741", null ],
+    [ "end", "d7/de0/a00022.html#aeb792059c787efb17ae9a9c91f6938a3", null ],
+    [ "m_pools", "d7/de0/a00022.html#ac0b05f8789a5272fa8ec5e1113c5b731", null ],
+    [ "m_id", "d7/de0/a00022.html#a785264e08f004b2e1f51e2fb158c0fdf", null ]
 ];

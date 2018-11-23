@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SimBuilder Class Reference</title>
+<title>Stride Reference Manual: gengeopop::KdTree&lt; P &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -108,198 +108,498 @@ $(document).ready(function(){initNavTree('d5/de0/a00050.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/dec/a00592.html">List of all members</a>  </div>
+<a href="../../d3/d7b/a00986.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimBuilder Class Reference</div>  </div>
+<div class="title">gengeopop::KdTree&lt; P &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Builds a simulator based a configuration property tree.  
+<p>A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when balanced).  
  <a href="../../d5/de0/a00050.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/ded/a00196_source.html">SimBuilder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::SimBuilder:</div>
+Inheritance diagram for gengeopop::KdTree&lt; P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/da3/a00593.gif" border="0" usemap="#stride_1_1SimBuilder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SimBuilder_coll__map" id="stride_1_1SimBuilder_coll__map">
+<div class="center"><img src="../../d4/d21/a00987.gif" border="0" usemap="#gengeopop_1_1KdTree_3_01P_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1KdTree_3_01P_01_4_inherit__map" id="gengeopop_1_1KdTree_3_01P_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../d5/de0/a00050.html" title="{gengeopop::KdTree\&lt;\l geogrid_detail::KdTree2DPoint \&gt;\n|&#45; m_size\l&#45; m_root\l|+ KdTree()\l+ Insert()\l+ Contains()\l+ Query()\l+ Apply()\l+ Apply()\l+ Height()\l+ Empty()\l+ Size()\l+ Build()\l&#45; Construct()\l}" alt="" coords="5,321,236,575"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::KdTree&lt; P &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d48/a00988.gif" border="0" usemap="#gengeopop_1_1KdTree_3_01P_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1KdTree_3_01P_01_4_coll__map" id="gengeopop_1_1KdTree_3_01P_01_4_coll__map">
+<area shape="rect" id="node4" href="../../d2/dee/a00049.html" title="{gengeopop::kd::Node\l\&lt; P, 0 \&gt;\n||+ Node()\l+ BorrowLeft()\l+ BorrowRight()\l+ BorrowSplitChild()\l+ AddChild()\l+ GetPoint()\l}" alt="" coords="371,631,529,796"/>
+<area shape="rect" id="node5" href="../../d7/d46/a00002.html" title="A base class for all instanciations of a Node with D. " alt="" coords="487,5,717,156"/>
+<area shape="rect" id="node7" href="../../d2/dee/a00049.html" title="A node in the KdTree. " alt="" coords="435,219,593,384"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="9,263,163,340"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada7d6656e97857b9bacd2285f7784021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ada7d6656e97857b9bacd2285f7784021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../d5/de0/a00050.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>.  <a href="#ada7d6656e97857b9bacd2285f7784021">More...</a><br /></td></tr>
-<tr class="separator:ada7d6656e97857b9bacd2285f7784021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ce5fb3cae915f0bdb261498f31c444"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">Sim</a> &gt; sim, std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a94ce5fb3cae915f0bdb261498f31c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator and return it afterwards.  <a href="#a94ce5fb3cae915f0bdb261498f31c444">More...</a><br /></td></tr>
-<tr class="separator:a94ce5fb3cae915f0bdb261498f31c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31373f76ffce6f1a479a65fc04f23e5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a31373f76ffce6f1a479a65fc04f23e5b">KdTree</a> ()</td></tr>
+<tr class="memdesc:a31373f76ffce6f1a479a65fc04f23e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: builds an empty tree.  <a href="#a31373f76ffce6f1a479a65fc04f23e5b">More...</a><br /></td></tr>
+<tr class="separator:a31373f76ffce6f1a479a65fc04f23e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a0a9ab7e8f5f5c9e8b561583a0d6e31f9">Insert</a> (P point)</td></tr>
+<tr class="memdesc:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new point into the tree, using this often may result in an unbalanced tree.  <a href="#a0a9ab7e8f5f5c9e8b561583a0d6e31f9">More...</a><br /></td></tr>
+<tr class="separator:a0a9ab7e8f5f5c9e8b561583a0d6e31f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a0b0bde4960cf9a4260e03f8ff0547db7">Contains</a> (const P &amp;point) const </td></tr>
+<tr class="memdesc:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test wether a point is contained in the tree.  <a href="#a0b0bde4960cf9a4260e03f8ff0547db7">More...</a><br /></td></tr>
+<tr class="separator:a0b0bde4960cf9a4260e03f8ff0547db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f91953317fe80faa03eca5dfd5ddf9e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; P &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a4f91953317fe80faa03eca5dfd5ddf9e">Query</a> (const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; P &gt; &amp;box) const </td></tr>
+<tr class="memdesc:a4f91953317fe80faa03eca5dfd5ddf9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all points in the tree that lie within <code>box</code>  <a href="#a4f91953317fe80faa03eca5dfd5ddf9e">More...</a><br /></td></tr>
+<tr class="separator:a4f91953317fe80faa03eca5dfd5ddf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d76910fa3cca092fa8e339226cf0c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ae9d76910fa3cca092fa8e339226cf0c0">Apply</a> (std::function&lt; bool(const P &amp;)&gt; f) const </td></tr>
+<tr class="memdesc:ae9d76910fa3cca092fa8e339226cf0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with each of the points in the tree.  <a href="#ae9d76910fa3cca092fa8e339226cf0c0">More...</a><br /></td></tr>
+<tr class="separator:ae9d76910fa3cca092fa8e339226cf0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c59ea871d0dd12c7ea751a974298a89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a8c59ea871d0dd12c7ea751a974298a89">Apply</a> (std::function&lt; bool(const P &amp;)&gt; f, const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; P &gt; &amp;box) const </td></tr>
+<tr class="memdesc:a8c59ea871d0dd12c7ea751a974298a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with every point contained in <code>box</code>  <a href="#a8c59ea871d0dd12c7ea751a974298a89">More...</a><br /></td></tr>
+<tr class="separator:a8c59ea871d0dd12c7ea751a974298a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6509dc9a5dd05d41e833a0e1acfed77e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a6509dc9a5dd05d41e833a0e1acfed77e">Height</a> () const </td></tr>
+<tr class="memdesc:a6509dc9a5dd05d41e833a0e1acfed77e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the height of the tree.  <a href="#a6509dc9a5dd05d41e833a0e1acfed77e">More...</a><br /></td></tr>
+<tr class="separator:a6509dc9a5dd05d41e833a0e1acfed77e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afad11c4405af9e2000dd75f751f4996d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#afad11c4405af9e2000dd75f751f4996d">Empty</a> () const </td></tr>
+<tr class="memdesc:afad11c4405af9e2000dd75f751f4996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the tree empty.  <a href="#afad11c4405af9e2000dd75f751f4996d">More...</a><br /></td></tr>
+<tr class="separator:afad11c4405af9e2000dd75f751f4996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe">Size</a> () const </td></tr>
+<tr class="memdesc:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the tree.  <a href="#a6dbf9612b7ee27fd4ea2ba216bbbe5fe">More...</a><br /></td></tr>
+<tr class="separator:a6dbf9612b7ee27fd4ea2ba216bbbe5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad551b02c507948570f07af10d85d29ce"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a> ()</td></tr>
-<tr class="memdesc:ad551b02c507948570f07af10d85d29ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the contact configuration data.  <a href="#ad551b02c507948570f07af10d85d29ce">More...</a><br /></td></tr>
-<tr class="separator:ad551b02c507948570f07af10d85d29ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adffa42c6b8b171616fcdfb4805260c92"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a> ()</td></tr>
-<tr class="memdesc:adffa42c6b8b171616fcdfb4805260c92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease configuration data.  <a href="#adffa42c6b8b171616fcdfb4805260c92">More...</a><br /></td></tr>
-<tr class="separator:adffa42c6b8b171616fcdfb4805260c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a94158f4c08d181a21d1d0eb76ce500d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d5/de0/a00050.html">KdTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a94158f4c08d181a21d1d0eb76ce500d1">Build</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="memdesc:a94158f4c08d181a21d1d0eb76ce500d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a balanced tree from the given set of points efficiently.  <a href="#a94158f4c08d181a21d1d0eb76ce500d1">More...</a><br /></td></tr>
+<tr class="separator:a94158f4c08d181a21d1d0eb76ce500d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:ac0c7aa7f1ab2657c7348205aecafae0c"><td class="memTemplParams" colspan="2">template&lt;std::size_t D&gt; </td></tr>
+<tr class="memitem:ac0c7aa7f1ab2657c7348205aecafae0c"><td class="memTemplItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">kd::Node</a>&lt; P, D &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#ac0c7aa7f1ab2657c7348205aecafae0c">Construct</a> (const std::vector&lt; P &gt; &amp;points)</td></tr>
+<tr class="separator:ac0c7aa7f1ab2657c7348205aecafae0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a24875cf5b77b860f11ed1327d71dce5f"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td></tr>
-<tr class="memdesc:a24875cf5b77b860f11ed1327d71dce5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config in ptree.  <a href="#a24875cf5b77b860f11ed1327d71dce5f">More...</a><br /></td></tr>
-<tr class="separator:a24875cf5b77b860f11ed1327d71dce5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a625810b7c176d77e5616f2c610bec58f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a625810b7c176d77e5616f2c610bec58f">m_size</a></td></tr>
+<tr class="memdesc:a625810b7c176d77e5616f2c610bec58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of points in the tree.  <a href="#a625810b7c176d77e5616f2c610bec58f">More...</a><br /></td></tr>
+<tr class="separator:a625810b7c176d77e5616f2c610bec58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">kd::Node</a>&lt; P, 0 &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/de0/a00050.html#a99fe9b7899ae84a4ee8637a7e7e5add3">m_root</a></td></tr>
+<tr class="memdesc:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root node of the tree.  <a href="#a99fe9b7899ae84a4ee8637a7e7e5add3">More...</a><br /></td></tr>
+<tr class="separator:a99fe9b7899ae84a4ee8637a7e7e5add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Builds a simulator based a configuration property tree. </p>
-<p>It </p><ul>
-<li>reads any additional configuration files (disease, contact, ...) </li>
-<li>initializes calendar and random number manager for the simulator </li>
-<li>builds a population and contact pool system (<dl class="section see"><dt>See also</dt><dd>PopulationBuilder) </dd></dl>
-</li>
-<li>deals with health and immunity (<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d61/a00031.html" title="Seeds the population with Health data. ">HealthSeeder</a>, </dd>
-<dd>
-DiseaseBuilder) </dd></dl>
-</li>
+<div class="textblock"><h3>template&lt;typename P&gt;<br />
+class gengeopop::KdTree&lt; P &gt;</h3>
+
+<p>A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for efficient lookup of points and range queries with an Axis-Aligned Bounding Box (when balanced). </p>
+<p>The template parameter <code>P</code> should have the following attributes and operations:</p><ul>
+<li>A <code>static constexpr std::size_t dim</code>: the number of dimensions of the point type.</li>
+<li>A <code>template &lt;std::size_d D&gt; get() const</code> method that returns the coordinate of the <code>D</code>th dimension of the point</li>
+<li>A nested <code>template &lt;std::size_t D&gt; struct dimension_type</code> that has a member type <code>type</code> giving the return type for <code>Get&lt;D&gt;</code></li>
+<li>A default constructor and a copy constructor</li>
+<li>The individual dimensions should each have a total order and equality</li>
+<li>A method <code>bool InBox(const <a class="el" href="../../d7/dec/a00010.html" title="Axis Aligned Bounding Box. ">AABB</a>&lt;P&gt;&amp; box) const</code> that indicates if a point falls withing the bounding box (only for range queries) </li>
 </ul>
 
-<p>Definition at line <a class="el" href="../../d7/ded/a00196_source.html#l00038">38</a> of file <a class="el" href="../../d7/ded/a00196_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00073">73</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ada7d6656e97857b9bacd2285f7784021"></a>
+<a class="anchor" id="a31373f76ffce6f1a479a65fc04f23e5b"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimBuilder::SimBuilder </td>
+          <td class="memname"><a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::<a class="el" href="../../d5/de0/a00050.html">KdTree</a> </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../d5/de0/a00050.html" title="Builds a simulator based a configuration property tree. ">SimBuilder</a>. </p>
+<p>Constructor: builds an empty tree. </p>
 
-<p>Definition at line <a class="el" href="../../d3/d2a/a00195_source.html#l00042">42</a> of file <a class="el" href="../../d3/d2a/a00195_source.html">SimBuilder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00081">81</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a94ce5fb3cae915f0bdb261498f31c444"></a>
+<a class="anchor" id="a94158f4c08d181a21d1d0eb76ce500d1"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">Sim</a> &gt; stride::SimBuilder::Build </td>
+          <td class="memname">static <a class="el" href="../../d5/de0/a00050.html">KdTree</a> <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Build </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d2/dee/a00049.html">Sim</a> &gt;&#160;</td>
-          <td class="paramname"><em>sim</em>, </td>
+          <td class="paramtype">const std::vector&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Build a balanced tree from the given set of points efficiently. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>The points to insert in the resulting tree </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A balanced <a class="el" href="../../d5/de0/a00050.html" title="A k-d tree: a k-dimensional generalization of binary search trees This data structure allows for effi...">KdTree</a> containing the given points </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00089">89</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d6a/a00261_source.html#l00089">gengeopop::GeoGrid::Finalize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a9ab7e8f5f5c9e8b561583a0d6e31f9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Insert </td>
+          <td>(</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert a new point into the tree, using this often may result in an unbalanced tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to insert into the tree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00102">102</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b0bde4960cf9a4260e03f8ff0547db7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Contains </td>
+          <td>(</td>
+          <td class="paramtype">const P &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test wether a point is contained in the tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>The point to test. P should support <code>bool operator==(const P&amp;) const</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the point is found in the tree </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00126">126</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f91953317fe80faa03eca5dfd5ddf9e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;P&gt; <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Query </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get all points in the tree that lie within <code>box</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">box</td><td>The limiting <a class="el" href="../../d7/dec/a00010.html" title="Axis Aligned Bounding Box. ">AABB</a> to search for points </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A collection of points found within <code>box</code> </dd></dl>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00145">145</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9d76910fa3cca092fa8e339226cf0c0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; bool(const P &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls a function with each of the points in the tree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A function that will be called with each point, if f returns false, the traversal stops </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00162">162</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c59ea871d0dd12c7ea751a974298a89"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; bool(const P &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Build the simulator and return it afterwards. </p>
+<p>Calls a function with every point contained in <code>box</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>A function that will be called with each point within <code>box</code>, if f returns false, the traversal stops </td></tr>
+    <tr><td class="paramname">box</td><td>The containing Axis-Aligned Bounding Box to search for points </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../d3/d2a/a00195_source.html#l00044">44</a> of file <a class="el" href="../../d3/d2a/a00195_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d4/d98/a00120_source.html#l00058">stride::ContactPoolType::IdList</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00055">m_config_pt</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00110">ReadAgeContactPtree()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00117">ReadDiseasePtree()</a>, <a class="el" href="../../dc/d54/a00094_source.html#l00040">stride::BeliefSeeder::Seed()</a>, <a class="el" href="../../dd/ded/a00211_source.html#l00037">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../d5/deb/a00132_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../de/d14/a00139_source.html#l00074">stride::HealthSeeder::Seed()</a>, and <a class="el" href="../../d8/d17/a00114_source.html#l00039">stride::ContactLogMode::ToMode()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00194">194</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad551b02c507948570f07af10d85d29ce"></a>
+<a class="anchor" id="a6509dc9a5dd05d41e833a0e1acfed77e"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadAgeContactPtree </td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Height </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the contact configuration data. </p>
+<p>Get the height of the tree. </p>
+<p>Mostly for testing purposes </p>
 
-<p>Definition at line <a class="el" href="../../d3/d2a/a00195_source.html#l00110">110</a> of file <a class="el" href="../../d3/d2a/a00195_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d5b/a00135_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../de/d76/a00134_source.html#l00198">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00044">Build()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00222">222</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adffa42c6b8b171616fcdfb4805260c92"></a>
+<a class="anchor" id="afad11c4405af9e2000dd75f751f4996d"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::SimBuilder::ReadDiseasePtree </td>
+          <td class="memname">bool <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is the tree empty. </p>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00243">243</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6dbf9612b7ee27fd4ea2ba216bbbe5fe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the size of the tree. </p>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00248">248</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0c7aa7f1ab2657c7348205aecafae0c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::unique_ptr&lt;<a class="el" href="../../d2/dee/a00049.html">kd::Node</a>&lt;P, D&gt; &gt; <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::Construct </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; P &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the disease configuration data. </p>
-
-<p>Definition at line <a class="el" href="../../d3/d2a/a00195_source.html#l00117">117</a> of file <a class="el" href="../../d3/d2a/a00195_source.html">SimBuilder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d5b/a00135_source.html#l00077">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../d7/ded/a00196_source.html#l00055">m_config_pt</a>, and <a class="el" href="../../de/d76/a00134_source.html#l00198">stride::util::FileSys::ReadPtreeFile()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00044">Build()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00252">252</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a24875cf5b77b860f11ed1327d71dce5f"></a>
+<a class="anchor" id="a625810b7c176d77e5616f2c610bec58f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimBuilder::m_config_pt</td>
+          <td class="memname">std::size_t <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::m_size</td>
         </tr>
       </table>
   </td>
@@ -309,25 +609,52 @@ DiseaseBuilder) </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Run config in ptree. </p>
+<p>The number of points in the tree. </p>
 
-<p>Definition at line <a class="el" href="../../d7/ded/a00196_source.html#l00055">55</a> of file <a class="el" href="../../d7/ded/a00196_source.html">SimBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00280">280</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00044">Build()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00110">ReadAgeContactPtree()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00117">ReadDiseasePtree()</a>.</p>
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00089">gengeopop::KdTree&lt; geogrid_detail::KdTree2DPoint &gt;::Build()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/ded/a00196_source.html">SimBuilder.h</a></li>
-<li><a class="el" href="../../d3/d2a/a00195_source.html">SimBuilder.cpp</a></li>
+<a class="anchor" id="a99fe9b7899ae84a4ee8637a7e7e5add3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d2/dee/a00049.html">kd::Node</a>&lt;P, 0&gt; &gt; <a class="el" href="../../d5/de0/a00050.html">gengeopop::KdTree</a>&lt; P &gt;::m_root</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The root node of the tree. </p>
+
+<p>Definition at line <a class="el" href="../../d4/db5/a00328_source.html#l00281">281</a> of file <a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00089">gengeopop::KdTree&lt; geogrid_detail::KdTree2DPoint &gt;::Build()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d4/db5/a00328_source.html">KdTree.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">SimBuilder</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/de0/a00050.html">KdTree</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

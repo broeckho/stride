@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: FileSys.cpp File Reference</title>
+<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,51 +107,176 @@ $(document).ready(function(){initNavTree('de/d76/a00134.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d3/d10/a01189.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">FileSys.cpp File Reference</div>  </div>
+<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for interaction with filesystem.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d5b/a00135_source.html">FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for FileSys.cpp:</div>
+<p>Transmission rates from disease data.  
+ <a href="../../de/d76/a00134.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::TransmissionProfile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d91/a00335.gif" border="0" usemap="#FileSys_8cpp" alt=""/></div>
-<map name="FileSys_8cpp" id="FileSys_8cpp">
-<area shape="rect" id="node2" href="../../d5/d5b/a00135.html" title="Interface for install directory queries. " alt="" coords="504,87,581,114"/>
-<area shape="rect" id="node8" href="../../de/d79/a00203.html" title="Miscellaneous string utilities. " alt="" coords="959,87,1081,114"/>
+<div class="center"><img src="../../dc/d19/a01190.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
+<area shape="rect" id="node2" href="../../de/d87/a00456.html" title="{double\n||}" alt="" coords="66,5,131,83"/>
 </map>
 </div>
-</div>
-<p><a href="../../de/d76/a00134_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d1a/a00251"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d1a/a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
+<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br /></td></tr>
+<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
+<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br /></td></tr>
+<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br /></td></tr>
+<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
+<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for interaction with filesystem. </p>
+<div class="textblock"><p>Transmission rates from disease data. </p>
 
-<p>Definition in file <a class="el" href="../../de/d76/a00134_source.html">FileSys.cpp</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00029">29</a> of file <a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00033">33</a> of file <a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d87/a00456.html">double</a> stride::TransmissionProfile::GetRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return transmission rate. </p>
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00036">36</a> of file <a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/dea/a00408_source.html#l00030">Initialize()</a>, and <a class="el" href="../../de/d3d/a00409_source.html#l00042">m_transmission_rate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/db8/a00316_source.html#l00145">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, <a class="el" href="../../d3/db8/a00316_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../dd/dcb/a00375_source.html#l00076">stride::Sim::GetTransmissionRate()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::TransmissionProfile::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dea/a00408_source.html#l00030">30</a> of file <a class="el" href="../../dd/dea/a00408_source.html">TransmissionProfile.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00036">GetRate()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d87/a00456.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d3d/a00409_source.html#l00042">42</a> of file <a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d3d/a00409_source.html#l00036">GetRate()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/d3d/a00409_source.html">TransmissionProfile.h</a></li>
+<li><a class="el" href="../../dd/dea/a00408_source.html">TransmissionProfile.cpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">FileSys.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dea/a00444.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">TransmissionProfile</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

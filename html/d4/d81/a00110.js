@@ -1,17 +1,11 @@
 var a00110 =
 [
-    [ "Color", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055f", [
-      [ "EnableColor", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da", null ],
-      [ "DisableColor", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed", null ],
-      [ "Default", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa7a1920d61156abc05a60135aefe8bc67", null ],
-      [ "Black", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fae90dfb84e30edf611e326eeb04d680de", null ],
-      [ "Blue", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa9594eec95be70e7b1710f730fdda33d9", null ],
-      [ "Green", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1", null ],
-      [ "Cyan", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa023c239d2f2538f140a20e72c7b73f20", null ],
-      [ "Red", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055faee38e4d5dd68c4e440825018d549cb47", null ],
-      [ "Purple", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7", null ],
-      [ "Yellow", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa51e6cd92b6c45f9affdc158ecca2b8b8", null ],
-      [ "White", "d4/d81/a00110.html#a196b4ed0c2880905970a7d5d38e2055fa25a81701fbfa4a1efdf660a950c1d006", null ]
-    ] ],
-    [ "operator<<", "d4/d81/a00110.html#a763bf6fbb35dca374fa5d59e6970286d", null ]
+    [ "HealthSeeder", "d4/d81/a00110.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
+    [ "Seed", "d4/d81/a00110.html#ad6a9061857cee5335745fe5501bcb73d", null ],
+    [ "GetDistribution", "d4/d81/a00110.html#a7b240a326b204767217481b3fcc46237", null ],
+    [ "Sample", "d4/d81/a00110.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
+    [ "m_distrib_start_infectiousness", "d4/d81/a00110.html#a2933ce9d9b3e17d11edb4d50bc005a1a", null ],
+    [ "m_distrib_start_symptomatic", "d4/d81/a00110.html#a09f22ca66e79edf806a249517ec6ac35", null ],
+    [ "m_distrib_time_infectious", "d4/d81/a00110.html#a520743c093005b7ccda658475107f0c2", null ],
+    [ "m_distrib_time_symptomatic", "d4/d81/a00110.html#a6d190e53a3a83864d7a40cb78b2188e4", null ]
 ];

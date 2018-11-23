@@ -1,8 +1,12 @@
 var a00078 =
 [
-    [ "AdoptedFileViewer", "d9/da4/a00078.html#a46c44f1a5065810bc501ed8669c9d75f", null ],
-    [ "Update", "d9/da4/a00078.html#a4c4df8f5c1de7318b196c9f6d1ee2f51", null ],
-    [ "m_adopted", "d9/da4/a00078.html#ad3e91689bf7d032e0bc24678a936b78a", null ],
-    [ "m_adopted_file", "d9/da4/a00078.html#aafce91e8bed6ce1185e2ae4d233318f7", null ],
-    [ "m_runner", "d9/da4/a00078.html#a3397e7a84c8081d0760014908d17262a", null ]
+    [ "TestDescriptor", "d9/da4/a00078.html#ac2c9bc03bb9a4bb7aeef53f823a60e80", null ],
+    [ "TestDescriptor", "d9/da4/a00078.html#afdd2fe1478741e9aa0dbd2e798c0c004", null ],
+    [ "GetCanonicalName", "d9/da4/a00078.html#aef102b936506c555ab1f278dec55cd32", null ],
+    [ "m_group_name", "d9/da4/a00078.html#af47969015a44578d9d4b43380d6d49de", null ],
+    [ "m_test_name", "d9/da4/a00078.html#a20f285aaa4a424030677d5dd68259c55", null ],
+    [ "m_num_runs", "d9/da4/a00078.html#a939b1d0c6cbcbe2754960e01dad21b4f", null ],
+    [ "m_test_factory", "d9/da4/a00078.html#a021979e41987d8821b169a458f921a2f", null ],
+    [ "m_info_factory", "d9/da4/a00078.html#ae71ed676b789cede41d1e77ff5963d23", null ],
+    [ "m_is_disabled", "d9/da4/a00078.html#a6a95aa408e725a8f07314d4ef3d807c3", null ]
 ];

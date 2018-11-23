@@ -1,16 +1,12 @@
 var a00072 =
 [
-    [ "TClock", "d6/d2c/a00072.html#aedbb343fde64ffebcdb371dd862aae7f", null ],
-    [ "Stopwatch", "d6/d2c/a00072.html#a925b07b32b747a519b37c549ba7f1531", null ],
-    [ "Start", "d6/d2c/a00072.html#acaf0b5f9f645a7dd6420420443de5a96", null ],
-    [ "Stop", "d6/d2c/a00072.html#a4b6145f590e94467a0048817f348ac75", null ],
-    [ "Reset", "d6/d2c/a00072.html#a45e66e4b53acb9c8f1edb7d5fda4f451", null ],
-    [ "IsRunning", "d6/d2c/a00072.html#a6afa0761326b35e675517b6a81ffef1f", null ],
-    [ "GetName", "d6/d2c/a00072.html#abcec896fa075fcb4b54b13e4bf1fd088", null ],
-    [ "Get", "d6/d2c/a00072.html#afe36cf7e76eb1de8cda4490fc5b41829", null ],
-    [ "ToString", "d6/d2c/a00072.html#a1a068a66f6b5db8cf68dabe5a8935f22", null ],
-    [ "m_accumulated", "d6/d2c/a00072.html#a765784978119de616443c956d98166c4", null ],
-    [ "m_last_start", "d6/d2c/a00072.html#ab9c7ba8e093b3c7d933ed5511d16cde4", null ],
-    [ "m_name", "d6/d2c/a00072.html#aa22d2b26b456a8895b2e5c8ce62fe071", null ],
-    [ "m_running", "d6/d2c/a00072.html#a20bfb79938c423d71cde68c8d2d42fbb", null ]
+    [ "BenchmarkRunner", "d6/d2c/a00072.html#a69130bb66af3d21a3d8c8e200eaffaec", null ],
+    [ "BenchmarkRunner", "d6/d2c/a00072.html#a1de69081f536efda31f40be33c1dd489", null ],
+    [ "~BenchmarkRunner", "d6/d2c/a00072.html#a938f799517ff1c35ed42ec4117cdf25c", null ],
+    [ "operator=", "d6/d2c/a00072.html#a2a4e6858acf2f619620df1c051bdc26a", null ],
+    [ "Instance", "d6/d2c/a00072.html#a0540c5f748e83674854f76e6090768fd", null ],
+    [ "GetTestDescriptors", "d6/d2c/a00072.html#aae222bfc0fbe506cf156dabba6f355bb", null ],
+    [ "RegisterTest", "d6/d2c/a00072.html#aaa4a2b4e7f2312c9543c9b93f8649403", null ],
+    [ "RunTests", "d6/d2c/a00072.html#a65fb971cdc8ff02a2c5a67f74c1c506c", null ],
+    [ "m_test_descriptors", "d6/d2c/a00072.html#aca55dd897bcf38452089cb6474f7776b", null ]
 ];

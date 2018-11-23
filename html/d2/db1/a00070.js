@@ -1,15 +1,10 @@
 var a00070 =
 [
-    [ "CleanConfigFile", "d2/db1/a00070.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
-    [ "Create", "d2/db1/a00070.html#ab4007f793a1924a65458824fef455208", null ],
-    [ "CreateNumThreads", "d2/db1/a00070.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
-    [ "FromString", "d2/db1/a00070.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
-    [ "ToString", "d2/db1/a00070.html#af968f949efaf2876f48a86da65faa5ca", null ],
-    [ "ToSha1", "d2/db1/a00070.html#a32ec1961852a81d4873a519f6bea1e36", null ],
-    [ "ToShortSha1", "d2/db1/a00070.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
-    [ "CreateBenchInfluenza", "d2/db1/a00070.html#a7014479a2c8efe57b292b9f61435ab61", null ],
-    [ "CreateBenchMeasles", "d2/db1/a00070.html#abf62ab97dafdce994e503296fe5d9394", null ],
-    [ "CreateDefault", "d2/db1/a00070.html#a93470c7c74cc217254876c704fa81a0f", null ],
-    [ "CreateTestsInfluenza", "d2/db1/a00070.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
-    [ "CreateTestsMeasles", "d2/db1/a00070.html#aa430eb71461536d855db5725ebc59cda", null ]
+    [ "BenchControlHelper", "d2/db1/a00070.html#afbc1060b2d21eca2a0ed325837f1a805", null ],
+    [ "GetIncludedNames", "d2/db1/a00070.html#a4de28233a06fe10c870348227e85c0a0", null ],
+    [ "IsIncluded", "d2/db1/a00070.html#ac2ac9f1d14772639a3bfff5e1ec5345f", null ],
+    [ "Shuffle", "d2/db1/a00070.html#a18e3d64ee063bdd2c0fd58a858d28a20", null ],
+    [ "m_descriptors", "d2/db1/a00070.html#a44e392ac92fc60ab184386d7d28b1987", null ],
+    [ "m_negative", "d2/db1/a00070.html#aed467e0bab01abbc254f4dc54b554085", null ],
+    [ "m_positive", "d2/db1/a00070.html#af9e9dc4626a1769e5dede074dccab070", null ]
 ];

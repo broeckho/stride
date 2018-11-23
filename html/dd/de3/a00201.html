@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: StanController.h File Reference</title>
+<title>Stride Reference Manual: CliController.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -108,31 +108,34 @@ $(document).ready(function(){initNavTree('dd/de3/a00201.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">StanController.h File Reference</div>  </div>
+<div class="title">CliController.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the St(ochastic)an(alysis)Controller.  
+<p>Header for the command line controller.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/dc8/a00122_source.html">sim/ControlHelper.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d40/a00236_source.html">sim/ControlHelper.h</a>&quot;</code><br />
 <code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for StanController.h:</div>
+Include dependency graph for CliController.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d0c/a00430.gif" border="0" usemap="#StanController_8h" alt=""/></div>
-<map name="StanController_8h" id="StanController_8h">
-<area shape="rect" id="node2" href="../../df/dc8/a00122.html" title="Header for the command line controller. " alt="" coords="538,87,686,114"/>
-<area shape="rect" id="node3" href="../../db/d53/a00202.html" title="Definition of Stopwatch. " alt="" coords="298,177,422,203"/>
-<area shape="rect" id="node4" href="../../d0/d24/a00222.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="262,259,378,285"/>
+<div class="center"><img src="../../da/def/a00513.gif" border="0" usemap="#CliController_8h" alt=""/></div>
+<map name="CliController_8h" id="CliController_8h">
+<area shape="rect" id="node2" href="../../d7/d40/a00236.html" title="Header for the command line controller. " alt="" coords="403,87,551,114"/>
+<area shape="rect" id="node3" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="354,177,454,203"/>
+<area shape="rect" id="node18" href="../../da/dee/a00383.html" title="Definition of Stopwatch. " alt="" coords="131,259,255,285"/>
+<area shape="rect" id="node4" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="736,259,787,285"/>
+<area shape="rect" id="node5" href="../../d5/d05/a00385.html" title="Miscellaneous string utilities. " alt="" coords="455,333,555,360"/>
+<area shape="rect" id="node19" href="../../d1/d98/a00407.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="111,333,227,360"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d70/a00431.gif" border="0" usemap="#StanController_8hdep" alt=""/></div>
-<map name="StanController_8hdep" id="StanController_8hdep">
-<area shape="rect" id="node2" href="../../db/ddf/a00164.html" title="Main program: command line handling. " alt="" coords="5,80,87,107"/>
-<area shape="rect" id="node3" href="../../d3/db1/a00200.html" title="Header for the command line controller. " alt="" coords="111,80,251,107"/>
+<div class="center"><img src="../../d6/d90/a00514.gif" border="0" usemap="#CliController_8hdep" alt=""/></div>
+<map name="CliController_8hdep" id="CliController_8hdep">
+<area shape="rect" id="node2" href="../../d2/d56/a00384.html" title="Main program: command line handling. " alt="" coords="5,80,91,107"/>
+<area shape="rect" id="node3" href="../../d3/db1/a00200.html" title="Header for the command line controller. " alt="" coords="115,80,240,107"/>
 </map>
 </div>
 </div>
@@ -140,27 +143,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">stride::StanController</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a simulation multiple times, with different random engine seeds.  <a href="../../d1/d84/a00052.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html">stride::CliController</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls a simulation run initiated with the command line interface (cli).  <a href="../../dc/d54/a00094.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
+<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the St(ochastic)an(alysis)Controller. </p>
+<div class="textblock"><p>Header for the command line controller. </p>
 
-<p>Definition in file <a class="el" href="../../dd/de3/a00201_source.html">StanController.h</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/de3/a00201_source.html">CliController.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">StanController.h</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dd/de3/a00201.html">CliController.h</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

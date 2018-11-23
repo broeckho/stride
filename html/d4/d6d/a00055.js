@@ -1,7 +1,6 @@
 var a00055 =
 [
-    [ "TransmissionProfile", "d4/d6d/a00055.html#a1645757a571f63d0583d54a6838ca1fb", null ],
-    [ "GetRate", "d4/d6d/a00055.html#a51ffe104253ffd5bcf12ab299fa6f2e2", null ],
-    [ "Initialize", "d4/d6d/a00055.html#a5e67e9eab813de18fff32722ee6f1437", null ],
-    [ "m_transmission_rate", "d4/d6d/a00055.html#afbb8227d4d8b61b291fa521f33dce3ce", null ]
+    [ "PrimaryCommunity", "d4/d6d/a00055.html#aa711bfaac9eb804db71d33cb8389f5fd", null ],
+    [ "GetType", "d4/d6d/a00055.html#ae5dd0a2af2978dc76fafc1d5c2756394", null ],
+    [ "Fill", "d4/d6d/a00055.html#acac73a4c6f3fa5b09699dce0a5e0e1c6", null ]
 ];

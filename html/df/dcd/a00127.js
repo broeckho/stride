@@ -1,0 +1,25 @@
+var a00127 =
+[
+    [ "Population", "df/dcd/a00127.html#a23ca2c3c5ef45fe26a11e0bc47cbe8ca", null ],
+    [ "Create", "df/dcd/a00127.html#a2e9a7a4c66f036eac67f12db01b89ef2", null ],
+    [ "Create", "df/dcd/a00127.html#a42734f09d995c65f3914f8ae92998022", null ],
+    [ "Create", "df/dcd/a00127.html#a7cfcedae698db0dc471770044de4834d", null ],
+    [ "GetAdoptedCount", "df/dcd/a00127.html#a0e53e57d363f53cf4777e932f625da3a", null ],
+    [ "GetInfectedCount", "df/dcd/a00127.html#a5ffab38c3407832dcc0f1ecbf4e11cbd", null ],
+    [ "GetContactLogger", "df/dcd/a00127.html#a314f886a6abeb0e08aac8fee085e76bd", null ],
+    [ "GetContactPoolSys", "df/dcd/a00127.html#a7ba18751ce5eb62217b105e716e61d63", null ],
+    [ "GetContactPoolSys", "df/dcd/a00127.html#a590df694a5ec7f41695a5bfec5fcd6e6", null ],
+    [ "CreatePerson", "df/dcd/a00127.html#a5680667e8da5d16b5f9b2c4d9a0207fa", null ],
+    [ "CreateContactPool", "df/dcd/a00127.html#a257f5572d92ba0104e8618a36d790cd9", null ],
+    [ "InitBeliefPolicy", "df/dcd/a00127.html#a452f55c55c494f5db179d36dd7e8161b", null ],
+    [ "SetBeliefPolicy", "df/dcd/a00127.html#a934a9192dbb0ade72b8c3e099c27a035", null ],
+    [ "DefaultPopBuilder", "df/dcd/a00127.html#aa79c86f4bdecaefcfc763c2b2f5bee37", null ],
+    [ "BeliefSeeder", "df/dcd/a00127.html#afae93b872e0c2fe1b06b220da218827b", null ],
+    [ "GenPopBuilder", "df/dcd/a00127.html#a60642d39b9cfebc58f3dd3f284962d33", null ],
+    [ "ImportPopBuilder", "df/dcd/a00127.html#a465c9716868863b14c1491b7cb7c3f49", null ],
+    [ "m_beliefs", "df/dcd/a00127.html#a7c20d8e769460e68cbcbe4078bd554a8", null ],
+    [ "m_pool_sys", "df/dcd/a00127.html#ac21ecf3db6ee91694eec6b13ffef5144", null ],
+    [ "m_contact_logger", "df/dcd/a00127.html#aa24a679c5885bb18710a77700bbaeeca", null ],
+    [ "m_currentContactPoolId", "df/dcd/a00127.html#a09969079a9d6833f1b7931529ec8b98c", null ],
+    [ "m_geoGrid", "df/dcd/a00127.html#a659571a2d7db98697082b77b6605c41d", null ]
+];

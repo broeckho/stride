@@ -1,5 +1,8 @@
 var a00077 =
 [
-    [ "PracticesSocialDistancing", "d1/d09/a00077.html#a8dcb01be7e194bb29d6a379322781a14", null ],
-    [ "PracticesVaccination", "d1/d09/a00077.html#a4db3031aaeba5b0de11bd821ece9adbe", null ]
+    [ "Test", "d1/d09/a00077.html#a41281dd5e867ec86414390fd3ab39d8b", null ],
+    [ "Run", "d1/d09/a00077.html#a5d7972d7a7af3154b465033e40fd1877", null ],
+    [ "m_body", "d1/d09/a00077.html#ae756a89b70b7fef74e4f29e79db30edb", null ],
+    [ "m_setup", "d1/d09/a00077.html#a62e47d46bbc27e42a54f61c23ebe3737", null ],
+    [ "m_teardown", "d1/d09/a00077.html#aa211e6f82e3e8a32017042e0a085c597", null ]
 ];

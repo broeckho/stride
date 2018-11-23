@@ -1,5 +1,11 @@
 var a00108 =
 [
-    [ "STRINGIFY", "d1/dd6/a00108.html#a6df1d22fb5f09eccc23b9f399670cfd7", null ],
-    [ "TOSTRING", "d1/dd6/a00108.html#a9063e80f8777300c93afde6e6f4c9cea", null ]
+    [ "HBM", "d1/dd6/a00108.html#a7585ba2adebbb683d257f4fabbd2f3b1", null ],
+    [ "m_num_contacts", "d1/dd6/a00108.html#a3a5d4864f02e70e780fb427763d50aa3", null ],
+    [ "m_num_contacts_infected", "d1/dd6/a00108.html#a3c3349b5d5d1003e875fb31016ee6578", null ],
+    [ "m_num_contacts_adopted", "d1/dd6/a00108.html#a9eea259a8ceafe84d5ee819c620107c7", null ],
+    [ "m_perceived_severity", "d1/dd6/a00108.html#a2acbb360276a70f7f774e3be6826a7f9", null ],
+    [ "m_perceived_susceptibility", "d1/dd6/a00108.html#a123b1b98d61ec00ee6052531d61a696c", null ],
+    [ "m_perceived_benefit", "d1/dd6/a00108.html#aca9896e5cfbd7c13086b35a45f571644", null ],
+    [ "m_perceived_barriers", "d1/dd6/a00108.html#a9b2585958b898ee28d539f6a97304ad6", null ]
 ];

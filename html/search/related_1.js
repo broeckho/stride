@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['infector',['Infector',['../db/db2/a00020.html#a346978e3da1a4b6079c313de8fde0e52',1,'stride::ContactPool']]]
+  ['beliefseeder',['BeliefSeeder',['../df/dcd/a00127.html#afae93b872e0c2fe1b06b220da218827b',1,'stride::Population']]]
 ];

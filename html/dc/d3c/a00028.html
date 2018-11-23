@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::DiseaseSeeder Class Reference</title>
+<title>Stride Reference Manual: gengeopop::geogrid_detail::KdTree2DPoint Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -107,75 +107,151 @@ $(document).ready(function(){initNavTree('dc/d3c/a00028.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d87/a00551.html">List of all members</a>  </div>
+<a href="../../de/d41/a01030.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::DiseaseSeeder Class Reference</div>  </div>
+<div class="title">gengeopop::geogrid_detail::KdTree2DPoint Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.  
+<p><a class="el" href="../../d5/de0/a00050.html">KdTree</a> for some more information on methods  
  <a href="../../dc/d3c/a00028.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/de8/a00133_source.html">DiseaseSeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::DiseaseSeeder:</div>
+Collaboration diagram for gengeopop::geogrid_detail::KdTree2DPoint:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/de9/a00552.gif" border="0" usemap="#stride_1_1DiseaseSeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1DiseaseSeeder_coll__map" id="stride_1_1DiseaseSeeder_coll__map">
-<area shape="rect" id="node3" href="../../da/d24/a00068.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="206,329,353,509"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="252,175,339,252"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="227,5,364,97"/>
+<div class="center"><img src="../../d6/dcf/a01031.gif" border="0" usemap="#gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map" id="gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/a00029.html">dimension_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec696ec6255d5068b34a911f9a45ffc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#aec696ec6255d5068b34a911f9a45ffc0">DiseaseSeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:aec696ec6255d5068b34a911f9a45ffc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../dc/d3c/a00028.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>.  <a href="#aec696ec6255d5068b34a911f9a45ffc0">More...</a><br /></td></tr>
-<tr class="separator:aec696ec6255d5068b34a911f9a45ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc5b1f152367382afe3dade9421357da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#adc5b1f152367382afe3dade9421357da">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:adc5b1f152367382afe3dade9421357da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator.  <a href="#adc5b1f152367382afe3dade9421357da">More...</a><br /></td></tr>
-<tr class="separator:adc5b1f152367382afe3dade9421357da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e1c63afde883bc410d4f58aeab2689"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#aa8e1c63afde883bc410d4f58aeab2689">KdTree2DPoint</a> (const std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">Location</a> &gt; &amp;location)</td></tr>
+<tr class="separator:aa8e1c63afde883bc410d4f58aeab2689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb7766ec32f7f080fa311e419e502e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#aafb7766ec32f7f080fa311e419e502e0">KdTree2DPoint</a> ()</td></tr>
+<tr class="separator:aafb7766ec32f7f080fa311e419e502e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de1575540bea6768d071c9a6ec0a69d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a2de1575540bea6768d071c9a6ec0a69d">KdTree2DPoint</a> (<a class="el" href="../../de/d87/a00456.html">double</a> longt, <a class="el" href="../../de/d87/a00456.html">double</a> lat)</td></tr>
+<tr class="separator:a2de1575540bea6768d071c9a6ec0a69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memTemplParams" colspan="2">template&lt;std::size_t D&gt; </td></tr>
+<tr class="memitem:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#af040c18b9147f2c83eaf777b5ea07cb9">Get</a> () const </td></tr>
+<tr class="separator:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d16f2f0689a5523df81be3c88f4441f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a3d16f2f0689a5523df81be3c88f4441f">InBox</a> (const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &gt; &amp;box) const </td></tr>
+<tr class="separator:a3d16f2f0689a5523df81be3c88f4441f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61ac968dfe63f74e4e9229dd196acdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ae61ac968dfe63f74e4e9229dd196acdf">InRadius</a> (const <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &amp;start, <a class="el" href="../../de/d87/a00456.html">double</a> radius) const </td></tr>
+<tr class="memdesc:ae61ac968dfe63f74e4e9229dd196acdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the point lie within <code>radius</code> km from <code>start</code>?  <a href="#ae61ac968dfe63f74e4e9229dd196acdf">More...</a><br /></td></tr>
+<tr class="separator:ae61ac968dfe63f74e4e9229dd196acdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c0684fe18640f925115acb43469328b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a0c0684fe18640f925115acb43469328b">GetLocation</a> () const </td></tr>
+<tr class="memdesc:a0c0684fe18640f925115acb43469328b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the actual location.  <a href="#a0c0684fe18640f925115acb43469328b">More...</a><br /></td></tr>
+<tr class="separator:a0c0684fe18640f925115acb43469328b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1122c92acd35a750235e1a8655eb94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/db6/a00427.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#afb1122c92acd35a750235e1a8655eb94">GetPoint</a> () const </td></tr>
+<tr class="memdesc:afb1122c92acd35a750235e1a8655eb94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the coordinate for this <a class="el" href="../../d2/d79/a00051.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>.  <a href="#afb1122c92acd35a750235e1a8655eb94">More...</a><br /></td></tr>
+<tr class="separator:afb1122c92acd35a750235e1a8655eb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae566d93445cee38c82b6f11cb2967b83"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ae566d93445cee38c82b6f11cb2967b83">dim</a> = 2</td></tr>
+<tr class="separator:ae566d93445cee38c82b6f11cb2967b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a48f13b3f9815374425e9618f152026d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a48f13b3f9815374425e9618f152026d8">Vaccinate</a> (const std::string &amp;immunityType, const std::string &amp;immunizationProfile, std::vector&lt; <a class="el" href="../../db/db2/a00020.html">ContactPool</a> &gt; &amp;immunityPools)</td></tr>
-<tr class="memdesc:a48f13b3f9815374425e9618f152026d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for vaccination/natural immunity.  <a href="#a48f13b3f9815374425e9618f152026d8">More...</a><br /></td></tr>
-<tr class="separator:a48f13b3f9815374425e9618f152026d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75fa16b3e4daa51fa633f420404cda4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#aa75fa16b3e4daa51fa633f420404cda4">Distance</a> (const <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &amp;other) const </td></tr>
+<tr class="memdesc:aa75fa16b3e4daa51fa633f420404cda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance in kilometers, following great circle distance on a speroid earth.  <a href="#aa75fa16b3e4daa51fa633f420404cda4">More...</a><br /></td></tr>
+<tr class="separator:aa75fa16b3e4daa51fa633f420404cda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a></td></tr>
-<tr class="memdesc:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a564d8b1346c1160f4e68f3ab8ad0bf8a">More...</a><br /></td></tr>
-<tr class="separator:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14564932092a52307a91d9c8e942c18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ae14564932092a52307a91d9c8e942c18">m_rn_manager</a></td></tr>
-<tr class="memdesc:ae14564932092a52307a91d9c8e942c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#ae14564932092a52307a91d9c8e942c18">More...</a><br /></td></tr>
-<tr class="separator:ae14564932092a52307a91d9c8e942c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae128784dde1bdeb2dd0c644e611bf689"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/db6/a00427.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ae128784dde1bdeb2dd0c644e611bf689">m_pt</a></td></tr>
+<tr class="memdesc:ae128784dde1bdeb2dd0c644e611bf689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for access without dereferencing.  <a href="#ae128784dde1bdeb2dd0c644e611bf689">More...</a><br /></td></tr>
+<tr class="separator:ae128784dde1bdeb2dd0c644e611bf689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ad0b7e4e7e4027435241e5d7df41eaa64">m_location</a></td></tr>
+<tr class="memdesc:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying location.  <a href="#ad0b7e4e7e4027435241e5d7df41eaa64">More...</a><br /></td></tr>
+<tr class="separator:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. </p>
+<div class="textblock"><p><a class="el" href="../../d5/de0/a00050.html">KdTree</a> for some more information on methods </p>
 
-<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00037">37</a> of file <a class="el" href="../../d0/de8/a00133_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00047">47</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aec696ec6255d5068b34a911f9a45ffc0"></a>
+<a class="anchor" id="aa8e1c63afde883bc410d4f58aeab2689"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::DiseaseSeeder::DiseaseSeeder </td>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">Location</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00050">50</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafb7766ec32f7f080fa311e419e502e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00055">55</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2de1575540bea6768d071c9a6ec0a69d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname"><em>longt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname"><em>lat</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -183,40 +259,50 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Initializing <a class="el" href="../../dc/d3c/a00028.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00041">41</a> of file <a class="el" href="../../d5/deb/a00132_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00057">57</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adc5b1f152367382afe3dade9421357da"></a>
+<a class="anchor" id="af040c18b9147f2c83eaf777b5ea07cb9"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::DiseaseSeeder::Seed </td>
+          <td class="memname"><a class="el" href="../../de/d87/a00456.html">double</a> gengeopop::geogrid_detail::KdTree2DPoint::Get </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Build the simulator. </p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00062">62</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00045">45</a> of file <a class="el" href="../../d5/deb/a00132_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>References <a class="el" href="../../d9/d8d/a00262_source.html#l00090">m_pt</a>.</p>
 
-<p>References <a class="el" href="../../de/d45/a00175_source.html#l00059">stride::Person::GetAge()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00074">stride::Person::GetHealth()</a>, <a class="el" href="../../de/d45/a00175_source.html#l00080">stride::Person::GetId()</a>, <a class="el" href="../../d4/ddd/a00138_source.html#l00076">stride::Health::IsSusceptible()</a>, <a class="el" href="../../d0/de8/a00133_source.html#l00052">m_config_pt</a>, <a class="el" href="../../d0/de8/a00133_source.html#l00053">m_rn_manager</a>, <a class="el" href="../../d2/df5/a00137_source.html#l00039">stride::Health::StartInfection()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00081">Vaccinate()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00044">stride::SimBuilder::Build()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d8d/a00262_source.html#l00147">gengeopop::GeoGrid::InBox()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a48f13b3f9815374425e9618f152026d8"></a>
+<a class="anchor" id="a3d16f2f0689a5523df81be3c88f4441f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -224,48 +310,166 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::DiseaseSeeder::Vaccinate </td>
+          <td class="memname">bool gengeopop::geogrid_detail::KdTree2DPoint::InBox </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>immunityType</em>, </td>
+          <td class="paramtype">const <a class="el" href="../../d7/dec/a00010.html">AABB</a>&lt; <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00068">68</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/db5/a00328_source.html#l00052">gengeopop::AABB&lt; P &gt;::lower</a>, <a class="el" href="../../d9/d8d/a00262_source.html#l00090">m_pt</a>, and <a class="el" href="../../d4/db5/a00328_source.html#l00054">gengeopop::AABB&lt; P &gt;::upper</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d8d/a00262_source.html#l00147">gengeopop::GeoGrid::InBox()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae61ac968dfe63f74e4e9229dd196acdf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::geogrid_detail::KdTree2DPoint::InRadius </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>immunizationProfile</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="../../db/db2/a00020.html">ContactPool</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>immunityPools</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Seed for vaccination/natural immunity. </p>
+<p>Does the point lie within <code>radius</code> km from <code>start</code>? </p>
 
-<p>Definition at line <a class="el" href="../../d5/deb/a00132_source.html#l00081">81</a> of file <a class="el" href="../../d5/deb/a00132_source.html">DiseaseSeeder.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00075">75</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 
-<p>References <a class="el" href="../../d0/d4a/a00147_source.html#l00096">stride::Immunizer::Cocoon()</a>, <a class="el" href="../../d0/de8/a00133_source.html#l00052">m_config_pt</a>, <a class="el" href="../../d0/de8/a00133_source.html#l00053">m_rn_manager</a>, <a class="el" href="../../d0/d4a/a00147_source.html#l00038">stride::Immunizer::Random()</a>, <a class="el" href="../../de/d76/a00134_source.html#l00198">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00134">stride::util::ToLower()</a>.</p>
+<p>References <a class="el" href="../../d9/d8d/a00262_source.html#l00094">Distance()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/deb/a00132_source.html#l00045">Seed()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00153">gengeopop::RadiusPolicy::Contains()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c0684fe18640f925115acb43469328b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d2/d79/a00051.html">Location</a>&gt; gengeopop::geogrid_detail::KdTree2DPoint::GetLocation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve the actual location. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00078">78</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/d8d/a00262_source.html#l00091">m_location</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00090">gengeopop::GeoAggregator&lt; Policy &gt;::operator()()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb1122c92acd35a750235e1a8655eb94"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/db6/a00427.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> gengeopop::geogrid_detail::KdTree2DPoint::GetPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the coordinate for this <a class="el" href="../../d2/d79/a00051.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00081">81</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/d8d/a00262_source.html#l00090">m_pt</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00198">gengeopop::PolygonPolicy::Contains()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa75fa16b3e4daa51fa633f420404cda4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d87/a00456.html">double</a> gengeopop::geogrid_detail::KdTree2DPoint::Distance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distance in kilometers, following great circle distance on a speroid earth. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00094">94</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../d9/d8d/a00262_source.html#l00090">m_pt</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/d8d/a00262_source.html#l00075">InRadius()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a564d8b1346c1160f4e68f3ab8ad0bf8a"></a>
+<a class="anchor" id="ae566d93445cee38c82b6f11cb2967b83"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -273,7 +477,29 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::DiseaseSeeder::m_config_pt</td>
+          <td class="memname">constexpr std::size_t gengeopop::geogrid_detail::KdTree2DPoint::dim = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00059">59</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae128784dde1bdeb2dd0c644e611bf689"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/db6/a00427.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> gengeopop::geogrid_detail::KdTree2DPoint::m_pt</td>
         </tr>
       </table>
   </td>
@@ -283,15 +509,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Run config. </p>
+<p>Shortcut for access without dereferencing. </p>
 
-<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00052">52</a> of file <a class="el" href="../../d0/de8/a00133_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00090">90</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/deb/a00132_source.html#l00045">Seed()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00081">Vaccinate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d8d/a00262_source.html#l00094">Distance()</a>, <a class="el" href="../../d9/d8d/a00262_source.html#l00062">Get()</a>, <a class="el" href="../../d9/d8d/a00262_source.html#l00081">GetPoint()</a>, and <a class="el" href="../../d9/d8d/a00262_source.html#l00068">InBox()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae14564932092a52307a91d9c8e942c18"></a>
+<a class="anchor" id="ad0b7e4e7e4027435241e5d7df41eaa64"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -299,7 +525,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::DiseaseSeeder::m_rn_manager</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d2/d79/a00051.html">Location</a>&gt; gengeopop::geogrid_detail::KdTree2DPoint::m_location</td>
         </tr>
       </table>
   </td>
@@ -309,25 +535,24 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Random number manager. </p>
+<p>The underlying location. </p>
 
-<p>Definition at line <a class="el" href="../../d0/de8/a00133_source.html#l00053">53</a> of file <a class="el" href="../../d0/de8/a00133_source.html">DiseaseSeeder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d8d/a00262_source.html#l00091">91</a> of file <a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/deb/a00132_source.html#l00045">Seed()</a>, and <a class="el" href="../../d5/deb/a00132_source.html#l00081">Vaccinate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/d8d/a00262_source.html#l00078">GetLocation()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d0/de8/a00133_source.html">DiseaseSeeder.h</a></li>
-<li><a class="el" href="../../d5/deb/a00132_source.html">DiseaseSeeder.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d9/d8d/a00262_source.html">GeoGrid.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">DiseaseSeeder</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d4/d53/a00429.html">geogrid_detail</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">KdTree2DPoint</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

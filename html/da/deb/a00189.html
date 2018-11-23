@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: RnMan.h File Reference</title>
+<title>Stride Reference Manual: Calendar.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -106,56 +106,24 @@ $(document).ready(function(){initNavTree('da/deb/a00189.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">RnMan.h File Reference</div>  </div>
+<div class="title">Calendar.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface of RnMan.  
+<p>Implementation file for the Calendar class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d15/a00188_source.html">Rn.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">Calendar.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d03/a00254_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RnMan.h:</div>
+Include dependency graph for Calendar.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d72/a00412.gif" border="0" usemap="#RnMan_8h" alt=""/></div>
-<map name="RnMan_8h" id="RnMan_8h">
-<area shape="rect" id="node2" href="../../da/d15/a00188.html" title="Interface of RnPcg. " alt="" coords="675,80,725,107"/>
-<area shape="rect" id="node3" href="../../de/d79/a00203.html" title="Miscellaneous string utilities. " alt="" coords="409,155,509,181"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d9c/a00413.gif" border="0" usemap="#RnMan_8hdep" alt=""/></div>
-<map name="RnMan_8hdep" id="RnMan_8hdep">
-<area shape="rect" id="node2" href="../../d9/d77/a00095.html" title="Header file for the HealthSeeder. " alt="" coords="115,80,230,107"/>
-<area shape="rect" id="node3" href="../../dc/d54/a00094.html" title="Implementation for BeliefSeeder class. " alt="" coords="5,155,135,181"/>
-<area shape="rect" id="node5" href="../../d3/d00/a00113.html" title="Header for the ContactHandler class. " alt="" coords="855,80,989,107"/>
-<area shape="rect" id="node10" href="../../de/d14/a00139.html" title="Implementation for HelthSeeder class. " alt="" coords="210,229,346,256"/>
-<area shape="rect" id="node11" href="../../dc/d57/a00194.html" title="Header for the Simulator class. " alt="" coords="1323,155,1382,181"/>
-<area shape="rect" id="node21" href="../../d0/de8/a00133.html" title="Header for the DiseaseSeeder class. " alt="" coords="2187,155,2318,181"/>
-<area shape="rect" id="node22" href="../../db/d48/a00148.html" title="Header for the Immunizer class. " alt="" coords="1390,80,1491,107"/>
-<area shape="rect" id="node23" href="../../d0/d4a/a00147.html" title="Implementation for the Immunizer class. " alt="" coords="1464,155,1580,181"/>
-<area shape="rect" id="node24" href="../../d8/d64/a00181.html" title="Initialize populations. " alt="" coords="1617,80,1718,107"/>
-<area shape="rect" id="node25" href="../../d0/d81/a00180.html" title="Initialize populations: implementation. " alt="" coords="1604,155,1720,181"/>
-<area shape="rect" id="node26" href="../../d7/d25/a00182.html" title="Core Population class. " alt="" coords="1744,155,1860,181"/>
-<area shape="rect" id="node27" href="../../dd/dc1/a00212.html" title="Header file for the SurveySeeder class. " alt="" coords="1926,80,2049,107"/>
-<area shape="rect" id="node28" href="../../dd/ded/a00211.html" title="Implementation for the SurveySeeder class. " alt="" coords="2025,155,2163,181"/>
-<area shape="rect" id="node4" href="../../d3/d2a/a00195.html" title="Implementation for the SimBuilder class. " alt="" coords="1229,304,1346,331"/>
-<area shape="rect" id="node6" href="../../d2/d34/a00156.html" title="Header for the Infector class. " alt="" coords="555,155,636,181"/>
-<area shape="rect" id="node9" href="../../d5/db1/a00140.html" title="Header file for the HealthSeeder. " alt="" coords="323,155,444,181"/>
-<area shape="rect" id="node7" href="../../d3/df8/a00155.html" title="Implementation of Infector algorithms. " alt="" coords="421,229,517,256"/>
-<area shape="rect" id="node8" href="../../d6/db8/a00158.html" title="Header for the InfectorMap. " alt="" coords="541,229,650,256"/>
-<area shape="rect" id="node12" href="../../d5/deb/a00132.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="2019,229,2164,256"/>
-<area shape="rect" id="node13" href="../../dd/df4/a00193.html" title="Implementation for the Simulator class. " alt="" coords="871,229,946,256"/>
-<area shape="rect" id="node14" href="../../de/db1/a00197.html" title="Implementation for SimRunner. " alt="" coords="970,229,1087,256"/>
-<area shape="rect" id="node15" href="../../da/d2a/a00086.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1112,229,1276,256"/>
-<area shape="rect" id="node16" href="../../d7/d70/a00106.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1300,229,1405,256"/>
-<area shape="rect" id="node17" href="../../dd/db2/a00151.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1429,229,1591,256"/>
-<area shape="rect" id="node18" href="../../da/d01/a00153.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1615,229,1757,256"/>
-<area shape="rect" id="node19" href="../../d9/d90/a00178.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1781,229,1943,256"/>
-<area shape="rect" id="node20" href="../../d3/de5/a00209.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="674,229,847,256"/>
+<div class="center"><img src="../../d3/dad/a00496.gif" border="0" usemap="#Calendar_8cpp" alt=""/></div>
+<map name="Calendar_8cpp" id="Calendar_8cpp">
+<area shape="rect" id="node2" href="../../d7/d6e/a00190.html" title="Header file for the Calendar class. " alt="" coords="285,87,376,114"/>
+<area shape="rect" id="node9" href="../../d7/d03/a00254.html" title="Interface for install directory queries. " alt="" coords="673,87,773,114"/>
 </map>
 </div>
 </div>
@@ -163,33 +131,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d1a/a00251"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d1a/a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
+<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a04e6abe0232303b6b6dc62b903197230"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html#a04e6abe0232303b6b6dc62b903197230">stride::util::RnPcg64</a> = Rn&lt; pcg64 &gt;</td></tr>
-<tr class="separator:a04e6abe0232303b6b6dc62b903197230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af89d802677a351908dd7528836c0c0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html#a2af89d802677a351908dd7528836c0c0">stride::util::RnLcg64</a> = Rn&lt; trng::lcg64 &gt;</td></tr>
-<tr class="separator:a2af89d802677a351908dd7528836c0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5af266718bee631b09a6b77d7d380c69"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> = RnPcg64</td></tr>
-<tr class="separator:a5af266718bee631b09a6b77d7d380c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a2259b1e0204b8bba8d1e08a0cf53e235"><td class="memItemLeft" align="right" valign="top">date::year_month_day&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html#a2259b1e0204b8bba8d1e08a0cf53e235">stride::ConvertFromString</a> (const std::string &amp;day)</td></tr>
+<tr class="separator:a2259b1e0204b8bba8d1e08a0cf53e235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface of RnMan. </p>
+<div class="textblock"><p>Implementation file for the Calendar class. </p>
 
-<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">RnMan.h</a>.</p>
+<p>Definition in file <a class="el" href="../../da/deb/a00189_source.html">Calendar.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">RnMan.h</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../da/deb/a00189.html">Calendar.cpp</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,7 +1,10 @@
 var a00053 =
 [
-    [ "SurveySeeder", "dc/dee/a00053.html#a797a748983822c0227fe2326d2a47c16", null ],
-    [ "Seed", "dc/dee/a00053.html#a81b191380f9a2c93768ff0efcec47f6b", null ],
-    [ "m_config_pt", "dc/dee/a00053.html#a8b56b25160ae00196ba33d418e2647a3", null ],
-    [ "m_rn_manager", "dc/dee/a00053.html#a9bc087f76a94ae634c80613f893233ed", null ]
+    [ "PartialPopulator", "dc/dee/a00053.html#adbc3fc5b84add8eac20a6db378827a7e", null ],
+    [ "~PartialPopulator", "dc/dee/a00053.html#a033d360f64872196bcb57ca0ce232d6f", null ],
+    [ "Apply", "dc/dee/a00053.html#aee01751cc775128b108e03118609091c", null ],
+    [ "GetContactPoolInIncreasingRadius", "dc/dee/a00053.html#a992a6f6b8761f481eabe22ffccc8f961", null ],
+    [ "MakeChoice", "dc/dee/a00053.html#ad18d65985647c2afb90627fa7048be6a", null ],
+    [ "m_rnManager", "dc/dee/a00053.html#a9984205ae3e758af34d41b55d38c7868", null ],
+    [ "m_logger", "dc/dee/a00053.html#a7c9b69f1083ed1016458ccaaa8e53964", null ]
 ];

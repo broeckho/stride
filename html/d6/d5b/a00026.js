@@ -1,7 +1,6 @@
 var a00026 =
 [
-    [ "DaysOffSchool", "d6/d5b/a00026.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
-    [ "IsWorkOff", "d6/d5b/a00026.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
-    [ "IsSchoolOff", "d6/d5b/a00026.html#a709acf6d0cec5722e20760a797ae35bb", null ],
-    [ "m_calendar", "d6/d5b/a00026.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
+    [ "GeoAggregator", "d6/d5b/a00026.html#afd0df798ea07bcf9bce0811af1099b36", null ],
+    [ "operator()", "d6/d5b/a00026.html#ae1ba7dfdc48aac139f4a2675995ed7e4", null ],
+    [ "m_functor", "d6/d5b/a00026.html#ac7ddbc3937f89c7031da2f3d0f59e3f1", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
+<title>Stride Reference Manual: myhayai::MyhayaiController Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -109,51 +109,81 @@ $(document).ready(function(){initNavTree('d9/da5/a00075.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d9/d41/a00666.html">List of all members</a>  </div>
+<a href="../../dd/d57/a01054.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
+<div class="title">myhayai::MyhayaiController Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides wall-clock time stamp using the time call.  
+<p>Controls the benchmark test execution based on command line arguments.  
  <a href="../../d9/da5/a00075.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::TimeStamp:</div>
+Collaboration diagram for myhayai::MyhayaiController:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d6e/a00667.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
+<div class="center"><img src="../../d2/d71/a01055.gif" border="0" usemap="#myhayai_1_1MyhayaiController_coll__map" alt="Collaboration graph"/></div>
+<map name="myhayai_1_1MyhayaiController_coll__map" id="myhayai_1_1MyhayaiController_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="203,160,289,237"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="177,5,315,97"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="5,160,132,237"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
-<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br /></td></tr>
-<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
-<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br /></td></tr>
-<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
-<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br /></td></tr>
-<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
-<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br /></td></tr>
-<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c68f097966f890415af86dcbc40abf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a5c68f097966f890415af86dcbc40abf8">MyhayaiController</a> ()</td></tr>
+<tr class="memdesc:a5c68f097966f890415af86dcbc40abf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaults.  <a href="#a5c68f097966f890415af86dcbc40abf8">More...</a><br /></td></tr>
+<tr class="separator:a5c68f097966f890415af86dcbc40abf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e3e01f8b16e1fd983661d7ad926241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a83e3e01f8b16e1fd983661d7ad926241">~MyhayaiController</a> ()=default</td></tr>
+<tr class="separator:a83e3e01f8b16e1fd983661d7ad926241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6739013058f69cd331dac4d049d18dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ad6739013058f69cd331dac4d049d18dc">ParseArgs</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:ad6739013058f69cd331dac4d049d18dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the command line arguments.  <a href="#ad6739013058f69cd331dac4d049d18dc">More...</a><br /></td></tr>
+<tr class="separator:ad6739013058f69cd331dac4d049d18dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eeae53398603681017c82075c9efc02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a4eeae53398603681017c82075c9efc02">Control</a> ()</td></tr>
+<tr class="memdesc:a4eeae53398603681017c82075c9efc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the selected (List/Run) function.  <a href="#a4eeae53398603681017c82075c9efc02">More...</a><br /></td></tr>
+<tr class="separator:a4eeae53398603681017c82075c9efc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a84b2766960f44825f917171d59c86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ae7a84b2766960f44825f917171d59c86">ListBenchmarks</a> () const </td></tr>
+<tr class="memdesc:ae7a84b2766960f44825f917171d59c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">List benchmarks.  <a href="#ae7a84b2766960f44825f917171d59c86">More...</a><br /></td></tr>
+<tr class="separator:ae7a84b2766960f44825f917171d59c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a342a1c94ee82fb9732fc49ec763a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ac6a342a1c94ee82fb9732fc49ec763a7">RunBenchmarks</a> ()</td></tr>
+<tr class="memdesc:ac6a342a1c94ee82fb9732fc49ec763a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run benchmarks.  <a href="#ac6a342a1c94ee82fb9732fc49ec763a7">More...</a><br /></td></tr>
+<tr class="separator:ac6a342a1c94ee82fb9732fc49ec763a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
-<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf987dc108d182287f742dae5644ca3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aabf987dc108d182287f742dae5644ca3">m_list_mode</a></td></tr>
+<tr class="memdesc:aabf987dc108d182287f742dae5644ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execution mode (list or run benchmarks).  <a href="#aabf987dc108d182287f742dae5644ca3">More...</a><br /></td></tr>
+<tr class="separator:aabf987dc108d182287f742dae5644ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae9ad476151bd633bf0412029842ef1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aaae9ad476151bd633bf0412029842ef1">m_no_color</a></td></tr>
+<tr class="memdesc:aaae9ad476151bd633bf0412029842ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do not use color on console output.  <a href="#aaae9ad476151bd633bf0412029842ef1">More...</a><br /></td></tr>
+<tr class="separator:aaae9ad476151bd633bf0412029842ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2adc1daae6c7654e849bb13963d5c37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#ad2adc1daae6c7654e849bb13963d5c37">m_shuffle</a></td></tr>
+<tr class="memdesc:ad2adc1daae6c7654e849bb13963d5c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffle benchmarks.  <a href="#ad2adc1daae6c7654e849bb13963d5c37">More...</a><br /></td></tr>
+<tr class="separator:ad2adc1daae6c7654e849bb13963d5c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733b10472b9e1142275ec2afa106993f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a733b10472b9e1142275ec2afa106993f">m_info_path</a></td></tr>
+<tr class="memdesc:a733b10472b9e1142275ec2afa106993f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If not empty, produce output in info format in file at path.  <a href="#a733b10472b9e1142275ec2afa106993f">More...</a><br /></td></tr>
+<tr class="separator:a733b10472b9e1142275ec2afa106993f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a291fb3601dcdb8601cffbe1429cb16d3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a291fb3601dcdb8601cffbe1429cb16d3">m_json_path</a></td></tr>
+<tr class="memdesc:a291fb3601dcdb8601cffbe1429cb16d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">If not empty, produce output in json format in file at path.  <a href="#a291fb3601dcdb8601cffbe1429cb16d3">More...</a><br /></td></tr>
+<tr class="separator:a291fb3601dcdb8601cffbe1429cb16d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9df7d12b96832b4bcf7ab63d5f6081dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a9df7d12b96832b4bcf7ab63d5f6081dd">m_xml_path</a></td></tr>
+<tr class="memdesc:a9df7d12b96832b4bcf7ab63d5f6081dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">If not empty, produce output in xml format in file at path.  <a href="#a9df7d12b96832b4bcf7ab63d5f6081dd">More...</a><br /></td></tr>
+<tr class="separator:a9df7d12b96832b4bcf7ab63d5f6081dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4099df38c24301dc29b8545bd01926"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#a8c4099df38c24301dc29b8545bd01926">m_negative</a></td></tr>
+<tr class="memdesc:a8c4099df38c24301dc29b8545bd01926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative for excluding tests.  <a href="#a8c4099df38c24301dc29b8545bd01926">More...</a><br /></td></tr>
+<tr class="separator:a8c4099df38c24301dc29b8545bd01926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa0d8a6e9bc760064c8c4bfe608a58fb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/da5/a00075.html#aaa0d8a6e9bc760064c8c4bfe608a58fb">m_positive</a></td></tr>
+<tr class="memdesc:aaa0d8a6e9bc760064c8c4bfe608a58fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive for including tests.  <a href="#aaa0d8a6e9bc760064c8c4bfe608a58fb">More...</a><br /></td></tr>
+<tr class="separator:aaa0d8a6e9bc760064c8c4bfe608a58fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
-<p>The time is that of the constructor call. </p>
+<div class="textblock"><p>Controls the benchmark test execution based on command line arguments. </p>
+<p>Its two functions are to list the benchmark that are registered or to execute them. </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00036">36</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00034">34</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
+<a class="anchor" id="a5c68f097966f890415af86dcbc40abf8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -161,7 +191,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
+          <td class="memname">myhayai::MyhayaiController::MyhayaiController </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,102 +204,149 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor marks the time for the time stamp. </p>
+<p>Defaults. </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00040">40</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00038">38</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+<p>References <a class="el" href="../../df/d91/a00335_source.html#l00048">Control()</a>, <a class="el" href="../../df/d91/a00335_source.html#l00057">ListBenchmarks()</a>, <a class="el" href="../../df/d91/a00335_source.html#l00101">ParseArgs()</a>, <a class="el" href="../../df/d91/a00335_source.html#l00158">RunBenchmarks()</a>, and <a class="el" href="../../d9/da5/a00075.html#a83e3e01f8b16e1fd983661d7ad926241">~MyhayaiController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83e3e01f8b16e1fd983661d7ad926241"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">myhayai::MyhayaiController::~MyhayaiController </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="../../dd/d1d/a00336_source.html#l00038">MyhayaiController()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
+<a class="anchor" id="ad6739013058f69cd331dac4d049d18dc"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
+          <td class="memname">void myhayai::MyhayaiController::ParseArgs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse the command line arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Argument count including the executable name. </td></tr>
+    <tr><td class="paramname">argv</td><td>Arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>do not want main.cpp to bother with specific exception classes. </p>
+
+<p>Definition at line <a class="el" href="../../df/d91/a00335_source.html#l00101">101</a> of file <a class="el" href="../../df/d91/a00335_source.html">MyhayaiController.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/d1d/a00336_source.html#l00038">MyhayaiController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4eeae53398603681017c82075c9efc02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myhayai::MyhayaiController::Control </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Execute the selected (List/Run) function. </p>
+
+<p>Definition at line <a class="el" href="../../df/d91/a00335_source.html#l00048">48</a> of file <a class="el" href="../../df/d91/a00335_source.html">MyhayaiController.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/d1d/a00336_source.html#l00038">MyhayaiController()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7a84b2766960f44825f917171d59c86"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void myhayai::MyhayaiController::ListBenchmarks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Returns string with the time stamp after eliminating newline. </p>
+<p>List benchmarks. </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00043">43</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d91/a00335_source.html#l00057">57</a> of file <a class="el" href="../../df/d91/a00335_source.html">MyhayaiController.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/d52/a00221_source.html#l00073">m_tp</a>.</p>
+<p>References <a class="el" href="../../d8/d64/a00181_source.html#l00034">myhayai::BenchmarkRunner::GetTestDescriptors()</a>, and <a class="el" href="../../d9/d90/a00178_source.html#l00057">myhayai::BenchControlHelper::IsIncluded()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/d52/a00221_source.html#l00079">stride::util::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/d1d/a00336_source.html#l00038">MyhayaiController()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
+<a class="anchor" id="ac6a342a1c94ee82fb9732fc49ec763a7"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
+          <td class="memname">void myhayai::MyhayaiController::RunBenchmarks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Returns string with the time stamp after eliminating newline. </p>
+<p>Run benchmarks. </p>
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00052">52</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d91/a00335_source.html#l00158">158</a> of file <a class="el" href="../../df/d91/a00335_source.html">MyhayaiController.cpp</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>References <a class="el" href="../../d9/d90/a00178_source.html#l00045">myhayai::BenchControlHelper::GetIncludedNames()</a>, <a class="el" href="../../d8/d64/a00181_source.html#l00034">myhayai::BenchmarkRunner::GetTestDescriptors()</a>, <a class="el" href="../../d9/dc1/a00388_source.html#l00047">stride::util::Subject&lt; E &gt;::Register()</a>, and <a class="el" href="../../d8/d64/a00181_source.html#l00050">myhayai::BenchmarkRunner::RunTests()</a>.</p>
 
-<p>Returns time stamp as a time_t. </p>
-
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00070">70</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
-
-<p>References <a class="el" href="../../dd/d52/a00221_source.html#l00073">m_tp</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/d1d/a00336_source.html#l00038">MyhayaiController()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
+<a class="anchor" id="aabf987dc108d182287f742dae5644ca3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -277,7 +354,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
+          <td class="memname">bool myhayai::MyhayaiController::m_list_mode</td>
         </tr>
       </table>
   </td>
@@ -287,22 +364,191 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d52/a00221_source.html#l00073">73</a> of file <a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a>.</p>
+<p>Execution mode (list or run benchmarks). </p>
 
-<p>Referenced by <a class="el" href="../../dd/d52/a00221_source.html#l00043">ToString()</a>, and <a class="el" href="../../dd/d52/a00221_source.html#l00070">ToTimeT()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00062">62</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dd/d52/a00221_source.html">TimeStamp.h</a></li>
+<a class="anchor" id="aaae9ad476151bd633bf0412029842ef1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool myhayai::MyhayaiController::m_no_color</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Do not use color on console output. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00063">63</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2adc1daae6c7654e849bb13963d5c37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool myhayai::MyhayaiController::m_shuffle</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shuffle benchmarks. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00064">64</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a733b10472b9e1142275ec2afa106993f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string myhayai::MyhayaiController::m_info_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If not empty, produce output in info format in file at path. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00066">66</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a291fb3601dcdb8601cffbe1429cb16d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string myhayai::MyhayaiController::m_json_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If not empty, produce output in json format in file at path. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00067">67</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9df7d12b96832b4bcf7ab63d5f6081dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string myhayai::MyhayaiController::m_xml_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If not empty, produce output in xml format in file at path. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00068">68</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c4099df38c24301dc29b8545bd01926"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; myhayai::MyhayaiController::m_negative</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Negative for excluding tests. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00070">70</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa0d8a6e9bc760064c8c4bfe608a58fb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; myhayai::MyhayaiController::m_positive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Positive for including tests. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00071">71</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../dd/d1d/a00336_source.html">MyhayaiController.h</a></li>
+<li><a class="el" href="../../df/d91/a00335_source.html">MyhayaiController.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d1a/a00251.html">util</a></li><li class="navelem"><a class="el" href="../../d9/da5/a00075.html">TimeStamp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d1/d7e/a00434.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d9/da5/a00075.html">MyhayaiController</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

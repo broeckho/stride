@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ConsoleViewer.h File Reference</title>
+<title>Stride Reference Manual: stride::Immunizer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,75 +107,217 @@ $(document).ready(function(){initNavTree('db/d57/a00112.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../de/d07/a01146.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ConsoleViewer.h File Reference</div>  </div>
+<div class="title">stride::Immunizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for ConsoleViewer.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d61/a00100_source.html">BenchmarkRunner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d81/a00110_source.html">Console.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d3f/a00173_source.html">Payload.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d24/a00217_source.html">TestDescriptors.h</a>&quot;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;ostream&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for ConsoleViewer.h:</div>
+<p>Deals with immunization strategies.  
+ <a href="../../db/d57/a00112.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stride::Immunizer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d50/a00301.gif" border="0" usemap="#ConsoleViewer_8h" alt=""/></div>
-<map name="ConsoleViewer_8h" id="ConsoleViewer_8h">
-<area shape="rect" id="node2" href="../../d0/d61/a00100.html" title="Header file for Benchmarker. " alt="" coords="490,80,641,107"/>
-<area shape="rect" id="node6" href="../../d7/d3f/a00173.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="749,304,832,331"/>
-<area shape="rect" id="node16" href="../../df/d24/a00217.html" title="Header file for TestDescriptors container. " alt="" coords="129,155,261,181"/>
-<area shape="rect" id="node30" href="../../d4/d81/a00110.html" title="Header file for Console. " alt="" coords="1171,80,1256,107"/>
-<area shape="rect" id="node3" href="../../de/db9/a00159.html" title="Header file for InfoFactory. " alt="" coords="405,304,507,331"/>
-<area shape="rect" id="node10" href="../../dd/df3/a00219.html" title="Header file for TestResult. " alt="" coords="906,468,1003,495"/>
-<area shape="rect" id="node18" href="../../dc/d9a/a00218.html" title="Header file for TestFactory. " alt="" coords="622,304,725,331"/>
-<area shape="rect" id="node28" href="../../d5/df1/a00206.html" title="Interface/Implementation of Subject. " alt="" coords="513,155,618,181"/>
-<area shape="rect" id="node7" href="../../d5/da7/a00144.html" title="Definition of myhayai::event::Id. " alt="" coords="723,386,784,413"/>
-<area shape="rect" id="node17" href="../../d3/dd5/a00215.html" title="Header file for TestDescriptor. " alt="" coords="133,229,257,256"/>
-<area shape="rect" id="node19" href="../../d3/dd1/a00214.html" title="Header file for Test. " alt="" coords="808,386,867,413"/>
-<area shape="rect" id="node20" href="../../db/d53/a00202.html" title="Definition of Stopwatch. " alt="" coords="706,468,830,495"/>
-<area shape="rect" id="node21" href="../../d0/d24/a00222.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="645,543,761,569"/>
+<div class="center"><img src="../../d8/ddb/a01147.gif" border="0" usemap="#stride_1_1Immunizer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Immunizer_coll__map" id="stride_1_1Immunizer_coll__map">
+<area shape="rect" id="node2" href="../../db/d48/a00148.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d61/a00302.gif" border="0" usemap="#ConsoleViewer_8hdep" alt=""/></div>
-<map name="ConsoleViewer_8hdep" id="ConsoleViewer_8hdep">
-<area shape="rect" id="node2" href="../../dd/d6d/a00111.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,80,147,107"/>
-<area shape="rect" id="node3" href="../../d9/d38/a00166.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="171,80,333,107"/>
-</map>
-</div>
-</div>
-<p><a href="../../db/d57/a00112_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html">myhayai::ConsoleViewer&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Console viewer outputs (on the console) info on the benchmarks as they run.  <a href="../../de/d21/a00006.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a9cf69f9df2b2b2e357fab3d3ed48b64a">Immunizer</a> (<a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
+<tr class="separator:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e768c089b957b8fa3301b829748585e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8e768c089b957b8fa3301b829748585e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a8e768c089b957b8fa3301b829748585e">Random</a> (T &amp;pools, std::vector&lt; <a class="el" href="../../de/d87/a00456.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../de/d87/a00456.html">double</a> immunityLinkProbability)</td></tr>
+<tr class="memdesc:a8e768c089b957b8fa3301b829748585e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random immunization.  <a href="#a8e768c089b957b8fa3301b829748585e">More...</a><br /></td></tr>
+<tr class="separator:a8e768c089b957b8fa3301b829748585e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687eaab4246581183bd9f31be6fc08a5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a687eaab4246581183bd9f31be6fc08a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a687eaab4246581183bd9f31be6fc08a5">Cocoon</a> (const T &amp;, std::vector&lt; <a class="el" href="../../de/d87/a00456.html">double</a> &gt; &amp;, <a class="el" href="../../de/d87/a00456.html">double</a>)</td></tr>
+<tr class="memdesc:a687eaab4246581183bd9f31be6fc08a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cocoon immunization.  <a href="#a687eaab4246581183bd9f31be6fc08a5">More...</a><br /></td></tr>
+<tr class="separator:a687eaab4246581183bd9f31be6fc08a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d4/d08/a00237"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d08/a00237.html">myhayai</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5231c62a7ca03433f4b72006f7351004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d57/a00112.html#a5231c62a7ca03433f4b72006f7351004">m_rn_manager</a></td></tr>
+<tr class="memdesc:a5231c62a7ca03433f4b72006f7351004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a5231c62a7ca03433f4b72006f7351004">More...</a><br /></td></tr>
+<tr class="separator:a5231c62a7ca03433f4b72006f7351004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for ConsoleViewer. </p>
+<div class="textblock"><p>Deals with immunization strategies. </p>
 
-<p>Definition in file <a class="el" href="../../db/d57/a00112_source.html">ConsoleViewer.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00035">35</a> of file <a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9cf69f9df2b2b2e357fab3d3ed48b64a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stride::Immunizer::Immunizer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d1/de3/a00306_source.html#l00036">36</a> of file <a class="el" href="../../d1/de3/a00306_source.html">Immunizer.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8e768c089b957b8fa3301b829748585e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Immunizer::Random </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>pools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../de/d87/a00456.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>immunityDistribution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Random immunization. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00043">43</a> of file <a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a>.</p>
+
+<p>References <a class="el" href="../../df/d03/a00348_source.html#l00059">stride::Person::GetAge()</a>, <a class="el" href="../../df/d03/a00348_source.html#l00074">stride::Person::GetHealth()</a>, <a class="el" href="../../df/d17/a00231_source.html#l00047">stride::ContactPool::GetMember()</a>, <a class="el" href="../../df/d17/a00231_source.html#l00053">stride::ContactPool::GetSize()</a>, <a class="el" href="../../d6/d7f/a00287_source.html#l00057">stride::Health::IsImmune()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00132">m_rn_manager</a>, and <a class="el" href="../../d5/d7b/a00286_source.html#l00037">stride::Health::SetSusceptible()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00248_source.html#l00082">stride::DiseaseSeeder::Vaccinate()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a687eaab4246581183bd9f31be6fc08a5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Immunizer::Cocoon </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../de/d87/a00456.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cocoon immunization. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00101">101</a> of file <a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00248_source.html#l00082">stride::DiseaseSeeder::Vaccinate()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a5231c62a7ca03433f4b72006f7351004"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::Immunizer::m_rn_manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Random number manager. </p>
+
+<p>Definition at line <a class="el" href="../../d0/da2/a00307_source.html#l00132">132</a> of file <a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00043">Random()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d0/da2/a00307_source.html">Immunizer.h</a></li>
+<li><a class="el" href="../../d1/de3/a00306_source.html">Immunizer.cpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">ConsoleViewer.h</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dea/a00444.html">stride</a></li><li class="navelem"><a class="el" href="../../db/d57/a00112.html">Immunizer</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

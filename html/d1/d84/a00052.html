@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::StanController Class Reference</title>
+<title>Stride Reference Manual: gengeopop::PartialGenerator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -108,122 +108,76 @@ $(document).ready(function(){initNavTree('d1/d84/a00052.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d8/dbd/a00597.html">List of all members</a>  </div>
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../df/d2f/a00991.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::StanController Class Reference</div>  </div>
+<div class="title">gengeopop::PartialGenerator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Runs a simulation multiple times, with different random engine seeds.  
+<p>An interface for generators that provide a partial solution.  
  <a href="../../d1/d84/a00052.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dd/de3/a00201_source.html">StanController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::StanController:</div>
+Inheritance diagram for gengeopop::PartialGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/dd2/a00598.gif" border="0" usemap="#stride_1_1StanController_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1StanController_inherit__map" id="stride_1_1StanController_inherit__map">
-<area shape="rect" id="node2" href="../../d7/de0/a00022.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="5,5,171,259"/>
+<div class="center"><img src="../../d7/d76/a00992.gif" border="0" usemap="#gengeopop_1_1PartialGenerator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1PartialGenerator_inherit__map" id="gengeopop_1_1PartialGenerator_inherit__map">
+<area shape="rect" id="node2" href="../../d7/d7a/a00016.html" title="Generate Colleges. " alt="" coords="5,189,220,267"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00019.html" title="Generate Communities. " alt="" coords="244,189,485,267"/>
+<area shape="rect" id="node4" href="../../d6/d42/a00043.html" title="Generate Households. " alt="" coords="510,189,745,267"/>
+<area shape="rect" id="node5" href="../../d6/d2d/a00047.html" title="Generate K12Schools. " alt="" coords="769,189,1003,267"/>
+<area shape="rect" id="node6" href="../../de/de1/a00065.html" title="Generate Workplaces. " alt="" coords="1028,189,1259,267"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for stride::StanController:</div>
+Collaboration diagram for gengeopop::PartialGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d8a/a00599.gif" border="0" usemap="#stride_1_1StanController_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1StanController_coll__map" id="stride_1_1StanController_coll__map">
-<area shape="rect" id="node2" href="../../d7/de0/a00022.html" title="Controls a simulation run initiated with the command line interface (cli). " alt="" coords="299,529,465,709"/>
-<area shape="rect" id="node7" href="../../d6/d2c/a00072.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="539,287,737,467"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="229,147,316,224"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="204,5,341,97"/>
+<div class="center"><img src="../../da/d0a/a00993.gif" border="0" usemap="#gengeopop_1_1PartialGenerator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1PartialGenerator_coll__map" id="gengeopop_1_1PartialGenerator_coll__map">
+<area shape="rect" id="node3" href="../../db/d48/a00148.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7d704047661116cb88893671bde0c78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#ae7d704047661116cb88893671bde0c78">StanController</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:ae7d704047661116cb88893671bde0c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#ae7d704047661116cb88893671bde0c78">More...</a><br /></td></tr>
-<tr class="separator:ae7d704047661116cb88893671bde0c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cc6905d4a31b469d89177de47007dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a5cc6905d4a31b469d89177de47007dbe">Control</a> ()</td></tr>
-<tr class="memdesc:a5cc6905d4a31b469d89177de47007dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual run of the simulator.  <a href="#a5cc6905d4a31b469d89177de47007dbe">More...</a><br /></td></tr>
-<tr class="separator:a5cc6905d4a31b469d89177de47007dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337eaafc7d92ad1e27f691659423287d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a337eaafc7d92ad1e27f691659423287d">PartialGenerator</a> (<a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:a337eaafc7d92ad1e27f691659423287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a RnMan and a logger.  <a href="#a337eaafc7d92ad1e27f691659423287d">More...</a><br /></td></tr>
+<tr class="separator:a337eaafc7d92ad1e27f691659423287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af967669815aebaaba24674d88c011730"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#af967669815aebaaba24674d88c011730">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:af967669815aebaaba24674d88c011730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this <a class="el" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters.  <a href="#af967669815aebaaba24674d88c011730">More...</a><br /></td></tr>
+<tr class="separator:af967669815aebaaba24674d88c011730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a4f03c6999db0bbee9ad1b9e861d16b50">~PartialGenerator</a> ()=default</td></tr>
+<tr class="memdesc:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a4f03c6999db0bbee9ad1b9e861d16b50">More...</a><br /></td></tr>
+<tr class="separator:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00022"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00022')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d7/de0/a00022.html">stride::ControlHelper</a></td></tr>
-<tr class="memitem:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#adf5c02b1632443f385cc0359dc76506b">ControlHelper</a> ()</td></tr>
-<tr class="memdesc:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty controller: used as target for delegation.  <a href="#adf5c02b1632443f385cc0359dc76506b">More...</a><br /></td></tr>
-<tr class="separator:adf5c02b1632443f385cc0359dc76506b inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9fd666ad523f15ba9f3b3249ba6b0a90">CheckEnv</a> ()</td></tr>
-<tr class="memdesc:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check install environment.  <a href="#a9fd666ad523f15ba9f3b3249ba6b0a90">More...</a><br /></td></tr>
-<tr class="separator:a9fd666ad523f15ba9f3b3249ba6b0a90 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a7015fce5931f444015baca6c73e67360">CheckOutputPrefix</a> ()</td></tr>
-<tr class="separator:a7015fce5931f444015baca6c73e67360 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a49b3d3980626e92e16758d63bd6240a7">InstallLogger</a> ()</td></tr>
-<tr class="memdesc:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the appropriate logger for cli environment and register as stride_logger.  <a href="#a49b3d3980626e92e16758d63bd6240a7">More...</a><br /></td></tr>
-<tr class="separator:a49b3d3980626e92e16758d63bd6240a7 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aa40b02ef62cb1b4a2db78eb847ffe964">LogShutdown</a> ()</td></tr>
-<tr class="memdesc:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#aa40b02ef62cb1b4a2db78eb847ffe964">More...</a><br /></td></tr>
-<tr class="separator:aa40b02ef62cb1b4a2db78eb847ffe964 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#adc021af008df0bf673682b81aa8d0010">LogStartup</a> ()</td></tr>
-<tr class="memdesc:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs info on setup for cli environment to stride_logger.  <a href="#adc021af008df0bf673682b81aa8d0010">More...</a><br /></td></tr>
-<tr class="separator:adc021af008df0bf673682b81aa8d0010 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#af0131365a6c658898bf3dd49eead3ed7">RegisterViewers</a> (std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">SimRunner</a> &gt; runner)</td></tr>
-<tr class="memdesc:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register the viewers of the <a class="el" href="../../d2/d79/a00051.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  <a href="#af0131365a6c658898bf3dd49eead3ed7">More...</a><br /></td></tr>
-<tr class="separator:af0131365a6c658898bf3dd49eead3ed7 inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a56dc1ac0f26ed36e457b45a1a3d421da">ControlHelper</a> (std::string name, const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Straight initialization.  <a href="#a56dc1ac0f26ed36e457b45a1a3d421da">More...</a><br /></td></tr>
-<tr class="separator:a56dc1ac0f26ed36e457b45a1a3d421da inherit pro_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00022"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00022')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/de0/a00022.html">stride::ControlHelper</a></td></tr>
-<tr class="memitem:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ae233d4c8a65307b49f65327093bdda59">m_config_pt</a></td></tr>
-<tr class="memdesc:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main configuration for run and sim.  <a href="#ae233d4c8a65307b49f65327093bdda59">More...</a><br /></td></tr>
-<tr class="separator:ae233d4c8a65307b49f65327093bdda59 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a84806de1e330126ab6c895924d1296f4">m_name</a></td></tr>
-<tr class="memdesc:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contoller's name.  <a href="#a84806de1e330126ab6c895924d1296f4">More...</a><br /></td></tr>
-<tr class="separator:a84806de1e330126ab6c895924d1296f4 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a3be4db55fc19e28be55d6f3de9cc4c08">m_output_prefix</a></td></tr>
-<tr class="memdesc:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix to output (name prefix or prefix dir)  <a href="#a3be4db55fc19e28be55d6f3de9cc4c08">More...</a><br /></td></tr>
-<tr class="separator:a3be4db55fc19e28be55d6f3de9cc4c08 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2c/a00072.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9586d0f5815c7d4c24c9fe2563b2e00e">m_run_clock</a></td></tr>
-<tr class="memdesc:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#a9586d0f5815c7d4c24c9fe2563b2e00e">More...</a><br /></td></tr>
-<tr class="separator:a9586d0f5815c7d4c24c9fe2563b2e00e inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ab8633301b0187b5a1077a2d583910cd0">m_stride_logger</a></td></tr>
-<tr class="memdesc:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">General logger.  <a href="#ab8633301b0187b5a1077a2d583910cd0">More...</a><br /></td></tr>
-<tr class="separator:ab8633301b0187b5a1077a2d583910cd0 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9a7386ab81543b81bbc888176c55d7e0">m_use_install_dirs</a></td></tr>
-<tr class="memdesc:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working dir or install dir mode.  <a href="#a9a7386ab81543b81bbc888176c55d7e0">More...</a><br /></td></tr>
-<tr class="separator:a9a7386ab81543b81bbc888176c55d7e0 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a28a70c98b4b5a47d3b3ca2913601815a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../de/d87/a00456.html">double</a> weight)</td></tr>
+<tr class="memdesc:a28a70c98b4b5a47d3b3ca2913601815a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#a28a70c98b4b5a47d3b3ca2913601815a">More...</a><br /></td></tr>
+<tr class="separator:a28a70c98b4b5a47d3b3ca2913601815a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a1dbbb98742088cd04ef74ab6cbbdaf12">m_rnManager</a></td></tr>
+<tr class="memdesc:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a1dbbb98742088cd04ef74ab6cbbdaf12">More...</a><br /></td></tr>
+<tr class="separator:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a3a63ae2cd38221875c5d4ee38c02e3ef">m_logger</a></td></tr>
+<tr class="memdesc:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a3a63ae2cd38221875c5d4ee38c02e3ef">More...</a><br /></td></tr>
+<tr class="separator:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Runs a simulation multiple times, with different random engine seeds. </p>
-<p>The infection count at each day is captured a a text file is produced with the infection counts over time and the associated boxplot data. The runs are in parallel (iff OpenMP available), individuals runs not.</p>
-<p><a class="el" href="../../d1/d2b/a00018.html" title="Controls a simulation run initiated with the command line interface (cli). ">CliController</a> setup functions include (</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/de0/a00022.html" title="Controls a simulation run initiated with the command line interface (cli). ">ControlHelper</a>): <ul>
-<li>checks the OpenMP environment </li>
-<li>checks the file system environment </li>
-<li>interprets and executes the ouput prefix </li>
-<li>intalls a <a class="el" href="../../d6/d22/a00245.html" title="Main namespace for the project. ">stride</a> logger</li>
-</ul>
-The <a class="el" href="../../d1/d2b/a00018.html" title="Controls a simulation run initiated with the command line interface (cli). ">CliController</a> execution: <ul>
-<li>produces a random seed for each run </li>
-<li>creates a population (</li>
-</ul>
-</dd>
-<dd>
-<a class="el" href="../../d4/dca/a00048.html" title="Container for persons in population. ">Population</a>) for each run <ul>
-<li>creates a simulation runner (</li>
-</ul>
-</dd>
-<dd>
-<a class="el" href="../../d2/d79/a00051.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>) for each run <ul>
-<li>registers the appropriate viewer for each runner </li>
-<li>runs the simulations </li>
-<li>produces the <a class="el" href="../../dd/dd7/a00248.html" title="Utilities for the output files. ">output</a>.</li>
-</ul>
-The procedure implies that the parameters "run.rng_seed" and also "run.num_threads" in the configuration are overriden for the individual runs.</dd></dl>
-<p>The output is textual and consists of multiple CSV blocks separated by blank lines. The first block has the time evolution of the infection count in rows, the second block has the boxplot data in columns. The format is amenable to the gnuplot plotting tool (so in each CSV block the header row with column labels starts with a '#'). </p>
+<div class="textblock"><p>An interface for generators that provide a partial solution. </p>
+<p>They generate some data and apply it onto the <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00058">58</a> of file <a class="el" href="../../dd/de3/a00201_source.html">StanController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00028">28</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae7d704047661116cb88893671bde0c78"></a>
+<a class="anchor" id="a337eaafc7d92ad1e27f691659423287d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -231,11 +185,21 @@ The procedure implies that the parameters "run.rng_seed" and also "run.num_threa
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::StanController::StanController </td>
+          <td class="memname">gengeopop::PartialGenerator::PartialGenerator </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rn_manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -245,47 +209,180 @@ The procedure implies that the parameters "run.rng_seed" and also "run.num_threa
 </table>
 </div><div class="memdoc">
 
-<p>Straight initialization. </p>
+<p>Constructor with a RnMan and a logger. </p>
 
-<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00045">45</a> of file <a class="el" href="../../d3/db1/a00200_source.html">StanController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d45/a00342_source.html#l00020">20</a> of file <a class="el" href="../../d2/d45/a00342_source.html">PartialGenerator.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5cc6905d4a31b469d89177de47007dbe"></a>
+<a class="anchor" id="a4f03c6999db0bbee9ad1b9e861d16b50"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::StanController::Control </td>
+          <td class="memname">virtual gengeopop::PartialGenerator::~PartialGenerator </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Actual run of the simulator. </p>
+<p>Virtual destructor for inheritance. </p>
 
-<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00047">47</a> of file <a class="el" href="../../d3/db1/a00200_source.html">StanController.cpp</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af967669815aebaaba24674d88c011730"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gengeopop::PartialGenerator::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>References <a class="el" href="../../de/d76/a00134_source.html#l00051">stride::util::FileSys::BuildPath()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00059">stride::ControlHelper::CheckEnv()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00069">stride::ControlHelper::CheckOutputPrefix()</a>, <a class="el" href="../../d7/d25/a00182_source.html#l00042">stride::Population::Create()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00081">stride::ControlHelper::InstallLogger()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00090">stride::ControlHelper::LogShutdown()</a>, <a class="el" href="../../d8/dfa/a00121_source.html#l00096">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../df/dc8/a00122_source.html#l00073">stride::ControlHelper::m_config_pt</a>, <a class="el" href="../../df/dc8/a00122_source.html#l00077">stride::ControlHelper::m_stride_logger</a>, and <a class="el" href="../../da/d01/a00153_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
+<p>Apply this <a class="el" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters. </p>
 
-<p>Referenced by <a class="el" href="../../db/ddf/a00164_source.html#l00041">main()</a>.</p>
+<p>Implemented in <a class="el" href="../../d7/d7a/a00016.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator</a>, <a class="el" href="../../dd/da2/a00019.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator</a>, <a class="el" href="../../d6/d42/a00043.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator</a>, <a class="el" href="../../d6/d2d/a00047.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator</a>, and <a class="el" href="../../de/de1/a00065.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a28a70c98b4b5a47d3b3ca2913601815a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::PartialGenerator::CheckWeight </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../de/d87/a00456.html">double</a>&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Make sure we're using a valid weight for random numbers. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00045">45</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/da7/a00250_source.html#l00023">ExcAssert()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/df1/a00206_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../da/d9c/a00413_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a1dbbb98742088cd04ef74ab6cbbdaf12"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::PartialGenerator::m_rnManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>RnManager used by generators. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00041">41</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/df1/a00206_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../da/d9c/a00413_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00026">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d4/d5b/a00294_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a63ae2cd38221875c5d4ee38c02e3ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::PartialGenerator::m_logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logger used by generators. </p>
+
+<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00042">42</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/de3/a00201_source.html">StanController.h</a></li>
-<li><a class="el" href="../../d3/db1/a00200_source.html">StanController.cpp</a></li>
+<li><a class="el" href="../../d0/dc5/a00343_source.html">PartialGenerator.h</a></li>
+<li><a class="el" href="../../d2/d45/a00342_source.html">PartialGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00052.html">StanController</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d1/d84/a00052.html">PartialGenerator</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

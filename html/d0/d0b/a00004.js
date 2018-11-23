@@ -1,8 +1,10 @@
 var a00004 =
 [
-    [ "Benchmark", "d0/d0b/a00004.html#ab7a707f913d835b3b11f6149d6c3df04", null ],
-    [ "Benchmark", "d0/d0b/a00004.html#aa735313fa26ebd81d6a1529aa82ab488", null ],
-    [ "Benchmark", "d0/d0b/a00004.html#a9ad5a8f5757ea433bda9eb215b226422", null ],
-    [ "operator bool", "d0/d0b/a00004.html#a5f4f6dd9578a759c1b9789ac5a3abcd5", null ],
-    [ "m_status", "d0/d0b/a00004.html#a41bde1d5c9abcac9f401919c0a9d0d12", null ]
+    [ "BoxplotData", "d0/d0b/a00004.html#ab64fd7e415603011e89bdd453015683b", null ],
+    [ "name", "d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc", null ],
+    [ "min_value", "d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160", null ],
+    [ "max_value", "d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf", null ],
+    [ "median", "d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165", null ],
+    [ "lower_quartile", "d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254", null ],
+    [ "upper_quartile", "d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9", null ]
 ];

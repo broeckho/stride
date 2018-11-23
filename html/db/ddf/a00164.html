@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: main.cpp File Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -105,95 +105,65 @@ $(document).ready(function(){initNavTree('db/ddf/a00164.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">main.cpp File Reference</div>  </div>
+<div class="title">AbstractPopBuilder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Main program: command line handling.  
+<p>Base Class for PopBuilders: Implementation.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d32/a00105_source.html">sim/CliController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/de3/a00201_source.html">sim/StanController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d5b/a00135_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/RunConfigManager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d52/a00221_source.html">util/TimeStamp.h</a>&quot;</code><br />
-<code>#include &lt;tclap/CmdLine.h&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;regex&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">AbstractPopBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dc3/a00354_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dad/a00394_source.html">pop/SurveySeeder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d03/a00254_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d3e/a00366_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d05/a00385_source.html">util/StringUtils.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for main.cpp:</div>
+Include dependency graph for AbstractPopBuilder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d08/a00381.gif" border="0" usemap="#main_8cpp" alt=""/></div>
-<map name="main_8cpp" id="main_8cpp">
-<area shape="rect" id="node2" href="../../d3/d32/a00105.html" title="Header for the command line controller. " alt="" coords="151,80,289,107"/>
-<area shape="rect" id="node16" href="../../dd/de3/a00201.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="313,80,465,107"/>
-<area shape="rect" id="node17" href="../../d5/d5b/a00135.html" title="Interface for install directory queries. " alt="" coords="865,162,965,189"/>
-<area shape="rect" id="node21" href="../../d9/dd0/a00191.html" title="Produce run config ptree. " alt="" coords="1111,162,1286,189"/>
-<area shape="rect" id="node23" href="../../de/d79/a00203.html" title="Miscellaneous string utilities. " alt="" coords="1173,333,1296,360"/>
-<area shape="rect" id="node28" href="../../dd/d52/a00221.html" title="TimeStamp class. " alt="" coords="963,333,1093,360"/>
-<area shape="rect" id="node3" href="../../df/dc8/a00122.html" title="Header for the command line controller. " alt="" coords="315,162,463,189"/>
-<area shape="rect" id="node4" href="../../db/d53/a00202.html" title="Definition of Stopwatch. " alt="" coords="43,251,167,278"/>
-<area shape="rect" id="node5" href="../../d0/d24/a00222.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="247,333,363,360"/>
-<area shape="rect" id="node22" href="../../dd/d42/a00109.html" title="Info on configuration. " alt="" coords="819,333,939,360"/>
+<div class="center"><img src="../../da/d65/a00458.gif" border="0" usemap="#AbstractPopBuilder_8cpp" alt=""/></div>
+<map name="AbstractPopBuilder_8cpp" id="AbstractPopBuilder_8cpp">
+<area shape="rect" id="node2" href="../../d0/d48/a00165.html" title="Base Class for PopBuilders. " alt="" coords="572,80,727,107"/>
+<area shape="rect" id="node6" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="658,162,758,189"/>
+<area shape="rect" id="node8" href="../../d5/d05/a00385.html" title="Miscellaneous string utilities. " alt="" coords="597,333,697,360"/>
+<area shape="rect" id="node21" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1149,80,1278,107"/>
+<area shape="rect" id="node48" href="../../d9/dad/a00394.html" title="Header file for the SurveySeeder class. " alt="" coords="802,80,953,107"/>
+<area shape="rect" id="node49" href="../../d7/d03/a00254.html" title="Interface for install directory queries. " alt="" coords="1161,162,1261,189"/>
+<area shape="rect" id="node7" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="375,251,425,278"/>
+<area shape="rect" id="node22" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1284,162,1449,189"/>
+<area shape="rect" id="node34" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1946,251,2118,278"/>
+<area shape="rect" id="node41" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1759,162,1865,189"/>
+<area shape="rect" id="node44" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1058,162,1137,189"/>
+<area shape="rect" id="node23" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1198,333,1341,360"/>
+<area shape="rect" id="node25" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1499,408,1669,435"/>
+<area shape="rect" id="node30" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1592,251,1760,278"/>
+<area shape="rect" id="node24" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="992,408,1187,435"/>
+<area shape="rect" id="node35" href="../../db/dbc/a00395.html" title="Interface/Implementation for SVIterator. " alt="" coords="2280,333,2379,360"/>
+<area shape="rect" id="node42" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="2142,251,2271,278"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/ddf/a00164_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00164.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
-<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main program of the stride simulator.  <a href="#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br /></td></tr>
-<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
+<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Main program: command line handling. </p>
+<div class="textblock"><p>Base Class for PopBuilders: Implementation. </p>
 
-<p>Definition in file <a class="el" href="../../db/ddf/a00164_source.html">main.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Main program of the stride simulator. </p>
-
-<p>Definition at line <a class="el" href="../../db/ddf/a00164_source.html#l00041">41</a> of file <a class="el" href="../../db/ddf/a00164_source.html">main.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc2/a00104_source.html#l00036">stride::CliController::Control()</a>, <a class="el" href="../../d3/db1/a00200_source.html#l00047">stride::StanController::Control()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00066">stride::util::Tokenize()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../db/ddf/a00164_source.html">AbstractPopBuilder.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00164.html">main.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00164.html">AbstractPopBuilder.cpp</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['primarycommunity',['PrimaryCommunity',['../d0/d1f/a00247.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6',1,'stride::ContactPoolType']]],
-  ['purple',['Purple',['../da/d2e/a00238.html#a196b4ed0c2880905970a7d5d38e2055fab9ba865fec061c9706d2fd7ce49c0cc7',1,'myhayai::console']]]
+  ['none',['None',['../dd/d47/a00445.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode']]]
 ];

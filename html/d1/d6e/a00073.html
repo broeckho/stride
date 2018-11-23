@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
+<title>Stride Reference Manual: myhayai::ConsoleViewer&lt; T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -107,190 +107,82 @@ $(document).ready(function(){initNavTree('d1/d6e/a00073.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d5/d4e/a00660.html">List of all members</a>  </div>
+<a href="../../d9/d8e/a01050.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
+<div class="title">myhayai::ConsoleViewer&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Template for Subject/Observer (or Publish/Subscribe).  
+<p>Console viewer outputs (on the console) info on the benchmarks as they run.  
  <a href="../../d1/d6e/a00073.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/df1/a00206_source.html">Subject.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
+Collaboration diagram for myhayai::ConsoleViewer&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d50/a00661.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
-<area shape="rect" id="node2" href="../../d1/d6e/a00073.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
-<area shape="rect" id="node4" href="../../d1/d6e/a00073.html" title="{stride::util::Subject\l\&lt; event::Payload \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="213,233,358,399"/>
-<area shape="rect" id="node3" href="../../d2/d79/a00051.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="27,448,162,657"/>
-<area shape="rect" id="node5" href="../../dd/dad/a00005.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b..." alt="" coords="186,463,387,643"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dc/df1/a00662.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
-<area shape="rect" id="node4" href="../../d1/d92/a00475.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="117,145,261,223"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="285,145,417,223"/>
-<area shape="rect" id="node7" href="../../d4/d4b/a00471.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
+<div class="center"><img src="../../dc/d99/a01053.gif" border="0" usemap="#myhayai_1_1ConsoleViewer_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="myhayai_1_1ConsoleViewer_3_01T_01_4_coll__map" id="myhayai_1_1ConsoleViewer_3_01T_01_4_coll__map">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Container for the test descriptors. " alt="" coords="5,413,188,491"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="10,272,173,364"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="213,413,317,491"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="197,272,341,364"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="185,132,353,209"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="215,5,322,83"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
-<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
-<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
-<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
-<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
-<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
-<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
-<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
-<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c27293848605139f3ee5215a5e07eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a16c27293848605139f3ee5215a5e07eb">ConsoleViewer</a> (std::ostream &amp;stream=std::cout, bool noColor=false)</td></tr>
+<tr class="memdesc:a16c27293848605139f3ee5215a5e07eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a16c27293848605139f3ee5215a5e07eb">More...</a><br /></td></tr>
+<tr class="separator:a16c27293848605139f3ee5215a5e07eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b52cce5ff9de14ef6af6b69bc9c6e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#af9b52cce5ff9de14ef6af6b69bc9c6e1">Update</a> (const <a class="el" href="../../db/db6/a00074.html">event::Payload</a> &amp;payload)</td></tr>
+<tr class="memdesc:af9b52cce5ff9de14ef6af6b69bc9c6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Observer method, registered with subject.  <a href="#af9b52cce5ff9de14ef6af6b69bc9c6e1">More...</a><br /></td></tr>
+<tr class="separator:af9b52cce5ff9de14ef6af6b69bc9c6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const void &gt;, <a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt; std::weak_ptr&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
-<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82aea22db88a50b951c6f5a10fd03a9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d51/a00079.html">TestDescriptors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#a82aea22db88a50b951c6f5a10fd03a9a">m_descriptors</a></td></tr>
+<tr class="separator:a82aea22db88a50b951c6f5a10fd03a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58660e72c483ef09007cf88a7a9779b"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6e/a00073.html#aa58660e72c483ef09007cf88a7a9779b">m_stream</a></td></tr>
+<tr class="separator:aa58660e72c483ef09007cf88a7a9779b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename E&gt;<br />
-class stride::util::Subject&lt; E &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class myhayai::ConsoleViewer&lt; T &gt;</h3>
 
-<p>Template for Subject/Observer (or Publish/Subscribe). </p>
-<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../d1/d6e/a00073.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
+<p>Console viewer outputs (on the console) info on the benchmarks as they run. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Time units used in reporting. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00035">35</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00037">37</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a16c27293848605139f3ee5215a5e07eb"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00038">38</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00039">39</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../d1/d6e/a00073.html">Subject</a> </td>
+          <td class="memname"><a class="el" href="../../d1/d6e/a00073.html">myhayai::ConsoleViewer</a>&lt; T &gt;::<a class="el" href="../../d1/d6e/a00073.html">ConsoleViewer</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00042">42</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../d1/d6e/a00073.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00044">44</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em>, </td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em> = <code>std::cout</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>noColor</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -300,116 +192,64 @@ template&lt;typename U &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00047">47</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
+<p>Initialize. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>Output stream. Must exist for the duration of the outputter's use. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Referenced by <a class="el" href="../../d9/d38/a00166_source.html#l00158">myhayai::MyhayaiController::RunBenchmarks()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00042">42</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/dc5/a00435.html#a196b4ed0c2880905970a7d5d38e2055fa3ba573840deb9fa16c0dbb2e8e5480ed">myhayai::console::DisableColor</a>, <a class="el" href="../../d0/dc5/a00435.html#a196b4ed0c2880905970a7d5d38e2055fa145c542a55e717b5bdc5f72f7136a4da">myhayai::console::EnableColor</a>, and <a class="el" href="../../dc/d28/a00223_source.html#l00036">myhayai::ConsoleViewer&lt; T &gt;::Update()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af9b52cce5ff9de14ef6af6b69bc9c6e1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
+          <td class="memname">void <a class="el" href="../../d1/d6e/a00073.html">myhayai::ConsoleViewer</a>&lt; T &gt;::Update </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../db/db6/a00074.html">event::Payload</a> &amp;&#160;</td>
+          <td class="paramname"><em>payload</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00053">53</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
+<p>Observer method, registered with subject. </p>
 
-</div>
-</div>
-<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="../../dc/d28/a00223_source.html#l00036">36</a> of file <a class="el" href="../../dc/d28/a00223_source.html">ConsoleViewer.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00058">58</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
+<p>References <a class="el" href="../../da/dee/a00383_source.html#l00083">stride::util::Stopwatch&lt; T &gt;::Get()</a>, <a class="el" href="../../d2/daf/a00346_source.html#l00045">myhayai::event::Payload::m_id</a>, <a class="el" href="../../d2/daf/a00346_source.html#l00049">myhayai::event::Payload::m_msg</a>, <a class="el" href="../../d1/d53/a00399_source.html#l00070">myhayai::TestDescriptor::m_num_runs</a>, <a class="el" href="../../d2/daf/a00346_source.html#l00050">myhayai::event::Payload::m_run_times</a>, <a class="el" href="../../d2/daf/a00346_source.html#l00048">myhayai::event::Payload::m_test_name</a>, <a class="el" href="../../da/dee/a00383_source.html#l00049">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../da/dee/a00383_source.html#l00059">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d5/df1/a00206_source.html#l00044">stride::util::Subject&lt; event::Payload &gt;::~Subject()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/d6e/a00073.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00060">60</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00042">myhayai::ConsoleViewer&lt; T &gt;::ConsoleViewer()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
+<a class="anchor" id="a82aea22db88a50b951c6f5a10fd03a9a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename E&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../d1/d6e/a00073.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../d1/d6e/a00073.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
+          <td class="memname"><a class="el" href="../../d1/d51/a00079.html">TestDescriptors</a> <a class="el" href="../../d1/d6e/a00073.html">myhayai::ConsoleViewer</a>&lt; T &gt;::m_descriptors</td>
         </tr>
       </table>
   </td>
@@ -419,22 +259,45 @@ template&lt;typename E&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00073">73</a> of file <a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/df1/a00206_source.html#l00060">stride::util::Subject&lt; event::Payload &gt;::Notify()</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00047">stride::util::Subject&lt; event::Payload &gt;::Register()</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00053">stride::util::Subject&lt; event::Payload &gt;::Unregister()</a>, and <a class="el" href="../../d5/df1/a00206_source.html#l00058">stride::util::Subject&lt; event::Payload &gt;::UnregisterAll()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00056">56</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/df1/a00206_source.html">util/Subject.h</a></li>
+<a class="anchor" id="aa58660e72c483ef09007cf88a7a9779b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; <a class="el" href="../../d1/d6e/a00073.html">myhayai::ConsoleViewer</a>&lt; T &gt;::m_stream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00057">57</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d5/ddf/a00224_source.html">ConsoleViewer.h</a></li>
+<li><a class="el" href="../../dc/d28/a00223_source.html">ConsoleViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d1a/a00251.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d6e/a00073.html">Subject</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d1/d7e/a00434.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d1/d6e/a00073.html">ConsoleViewer</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

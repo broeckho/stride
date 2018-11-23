@@ -14,7 +14,8 @@ var NAVTREE =
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -24,7 +25,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
@@ -43,10 +44,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/d8b/a00059.html#a6fe6dea09aa55361290b52ce2a03927f",
-"d5/df9/a00044.html",
-"d9/da5/a00075.html#aef8a6ec8cb71ef8ed01506fa614e398f",
-"de/d11/a00021.html#a09e9e0818406cc10eeacc3f992aef7cb"
+"d1/d88/a00128.html#a88a205a5cfbd78547c63e7643f19de5a",
+"d2/dee/a00049.html#a518b60a5ec3c409358fb97bde0d8e974",
+"d4/d81/a00110.html#a7b4785c0728c9f154aa1426034d6e1b5",
+"d6/d97/a00045.html#ab16da3ff1106f39edc59727239e9f702",
+"d8/d53/a00081.html#a894569fd4ed53ed226da26767b5196f3",
+"da/d01/a00153.html#aaa38f379243ec0d27b47b5bd110ebe75",
+"db/d53/a00202_source.html",
+"dd/d42/a00109.html#a9eab117bce0fe7009188aad7e534ca82",
+"df/d13/a00085.html#ac1c8a6f8a2b32e00e5717d727e39667f",
+"functions_vars_w.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

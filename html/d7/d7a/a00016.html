@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::BeliefSeeder Class Reference</title>
+<title>Stride Reference Manual: gengeopop::CollegeGenerator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -108,101 +108,70 @@ $(document).ready(function(){initNavTree('d7/d7a/a00016.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/def/a00521.html">List of all members</a>  </div>
+<a href="../../da/dd6/a00896.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::BeliefSeeder Class Reference</div>  </div>
+<div class="title">gengeopop::CollegeGenerator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds the population with <a class="el" href="../../d5/d79/a00030.html" title="Holds a person&#39;s health data. ">Health</a> data.  
+<p>Generate Colleges.  
  <a href="../../d7/d7a/a00016.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d77/a00095_source.html">BeliefSeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dd2/a00207_source.html">CollegeGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::BeliefSeeder:</div>
+Inheritance diagram for gengeopop::CollegeGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d14/a00522.gif" border="0" usemap="#stride_1_1BeliefSeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1BeliefSeeder_coll__map" id="stride_1_1BeliefSeeder_coll__map">
+<div class="center"><img src="../../de/d01/a00897.gif" border="0" usemap="#gengeopop_1_1CollegeGenerator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1CollegeGenerator_inherit__map" id="gengeopop_1_1CollegeGenerator_inherit__map">
+<area shape="rect" id="node2" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. " alt="" coords="9,5,216,141"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::CollegeGenerator:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/d79/a00898.gif" border="0" usemap="#gengeopop_1_1CollegeGenerator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1CollegeGenerator_coll__map" id="gengeopop_1_1CollegeGenerator_coll__map">
+<area shape="rect" id="node2" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. " alt="" coords="65,572,272,693"/>
+<area shape="rect" id="node4" href="../../db/d48/a00148.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8cfc7994359c988a3a678ee7af2b54ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a8cfc7994359c988a3a678ee7af2b54ec">BeliefSeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a8cfc7994359c988a3a678ee7af2b54ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor requires diease data and random number manager.  <a href="#a8cfc7994359c988a3a678ee7af2b54ec">More...</a><br /></td></tr>
-<tr class="separator:a8cfc7994359c988a3a678ee7af2b54ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a0f7876d2c8d1a4c2bc8057da26f82df5">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the population with <a class="el" href="../../d5/d79/a00030.html" title="Holds a person&#39;s health data. ">Health</a> data.  <a href="#a0f7876d2c8d1a4c2bc8057da26f82df5">More...</a><br /></td></tr>
-<tr class="separator:a0f7876d2c8d1a4c2bc8057da26f82df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea831d2b6fbbb1187086e4b985daf07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a3ea831d2b6fbbb1187086e4b985daf07">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;geoGridConfig) override</td></tr>
+<tr class="memdesc:a3ea831d2b6fbbb1187086e4b985daf07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this <a class="el" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters.  <a href="#a3ea831d2b6fbbb1187086e4b985daf07">More...</a><br /></td></tr>
+<tr class="separator:a3ea831d2b6fbbb1187086e4b985daf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00052"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00052')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d1/d84/a00052.html">gengeopop::PartialGenerator</a></td></tr>
+<tr class="memitem:a337eaafc7d92ad1e27f691659423287d inherit pub_methods_a00052"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a337eaafc7d92ad1e27f691659423287d">PartialGenerator</a> (<a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:a337eaafc7d92ad1e27f691659423287d inherit pub_methods_a00052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a RnMan and a logger.  <a href="#a337eaafc7d92ad1e27f691659423287d">More...</a><br /></td></tr>
+<tr class="separator:a337eaafc7d92ad1e27f691659423287d inherit pub_methods_a00052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f03c6999db0bbee9ad1b9e861d16b50 inherit pub_methods_a00052"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a4f03c6999db0bbee9ad1b9e861d16b50">~PartialGenerator</a> ()=default</td></tr>
+<tr class="memdesc:a4f03c6999db0bbee9ad1b9e861d16b50 inherit pub_methods_a00052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a4f03c6999db0bbee9ad1b9e861d16b50">More...</a><br /></td></tr>
+<tr class="separator:a4f03c6999db0bbee9ad1b9e861d16b50 inherit pub_methods_a00052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ab4d508461f5bd220425e75ee6e6c443c"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ab4d508461f5bd220425e75ee6e6c443c">m_config_pt</a></td></tr>
-<tr class="separator:ab4d508461f5bd220425e75ee6e6c443c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_a00052"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00052')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d1/d84/a00052.html">gengeopop::PartialGenerator</a></td></tr>
+<tr class="memitem:a28a70c98b4b5a47d3b3ca2913601815a inherit pro_methods_a00052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../de/d87/a00456.html">double</a> weight)</td></tr>
+<tr class="memdesc:a28a70c98b4b5a47d3b3ca2913601815a inherit pro_methods_a00052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#a28a70c98b4b5a47d3b3ca2913601815a">More...</a><br /></td></tr>
+<tr class="separator:a28a70c98b4b5a47d3b3ca2913601815a inherit pro_methods_a00052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00052"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00052')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/d84/a00052.html">gengeopop::PartialGenerator</a></td></tr>
+<tr class="memitem:a1dbbb98742088cd04ef74ab6cbbdaf12 inherit pro_attribs_a00052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/df4/a00450.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a1dbbb98742088cd04ef74ab6cbbdaf12">m_rnManager</a></td></tr>
+<tr class="memdesc:a1dbbb98742088cd04ef74ab6cbbdaf12 inherit pro_attribs_a00052"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a1dbbb98742088cd04ef74ab6cbbdaf12">More...</a><br /></td></tr>
+<tr class="separator:a1dbbb98742088cd04ef74ab6cbbdaf12 inherit pro_attribs_a00052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00052"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html#a3a63ae2cd38221875c5d4ee38c02e3ef">m_logger</a></td></tr>
+<tr class="memdesc:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a3a63ae2cd38221875c5d4ee38c02e3ef">More...</a><br /></td></tr>
+<tr class="separator:a3a63ae2cd38221875c5d4ee38c02e3ef inherit pro_attribs_a00052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds the population with <a class="el" href="../../d5/d79/a00030.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
+<div class="textblock"><p>Generate Colleges. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d77/a00095_source.html#l00037">37</a> of file <a class="el" href="../../d9/d77/a00095_source.html">BeliefSeeder.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8cfc7994359c988a3a678ee7af2b54ec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::BeliefSeeder::BeliefSeeder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d1a/a00251.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor requires diease data and random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d54/a00094_source.html#l00038">38</a> of file <a class="el" href="../../dc/d54/a00094_source.html">BeliefSeeder.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0f7876d2c8d1a4c2bc8057da26f82df5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::BeliefSeeder::Seed </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/dca/a00048.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Seeds the population with <a class="el" href="../../d5/d79/a00030.html" title="Holds a person&#39;s health data. ">Health</a> data. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d54/a00094_source.html#l00040">40</a> of file <a class="el" href="../../dc/d54/a00094_source.html">BeliefSeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00073">stride::Population::InitBeliefPolicy()</a>, and <a class="el" href="../../d9/d77/a00095_source.html#l00047">m_config_pt</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00044">stride::SimBuilder::Build()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab4d508461f5bd220425e75ee6e6c443c"></a>
+<p>Definition at line <a class="el" href="../../de/dd2/a00207_source.html#l00024">24</a> of file <a class="el" href="../../de/dd2/a00207_source.html">CollegeGenerator.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3ea831d2b6fbbb1187086e4b985daf07"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -210,33 +179,51 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::BeliefSeeder::m_config_pt</td>
+          <td class="memname">void gengeopop::CollegeGenerator::Apply </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d77/a00095_source.html#l00047">47</a> of file <a class="el" href="../../d9/d77/a00095_source.html">BeliefSeeder.h</a>.</p>
+<p>Apply this <a class="el" href="../../d1/d84/a00052.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters. </p>
 
-<p>Referenced by <a class="el" href="../../dc/d54/a00094_source.html#l00040">Seed()</a>.</p>
+<p>Implements <a class="el" href="../../d1/d84/a00052.html#af967669815aebaaba24674d88c011730">gengeopop::PartialGenerator</a>.</p>
+
+<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00027">27</a> of file <a class="el" href="../../d5/df1/a00206_source.html">CollegeGenerator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../da/d53/a00265_source.html#l00077">gengeopop::GeoGridConfig::_1826_years_and_student</a>, <a class="el" href="../../d5/d79/a00030.html#af9610682c3d25a6c5cf4dc0164988a54">gengeopop::GeoGridConfig::calculated</a>, <a class="el" href="../../d0/dc5/a00343_source.html#l00045">gengeopop::PartialGenerator::CheckWeight()</a>, <a class="el" href="../../d5/d79/a00030.html#a2ef783a0eb04a2a0dfc164b72f2c4503">gengeopop::GeoGridConfig::constants</a>, <a class="el" href="../../da/d53/a00265_source.html#l00097">gengeopop::GeoGridConfig::contactCenters</a>, <a class="el" href="../../d5/d79/a00030.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a>, <a class="el" href="../../d0/dc5/a00343_source.html#l00041">gengeopop::PartialGenerator::m_rnManager</a>, and <a class="el" href="../../da/d53/a00265_source.html#l00109">gengeopop::GeoGridConfig::meanCollegeSize</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d77/a00095_source.html">BeliefSeeder.h</a></li>
-<li><a class="el" href="../../dc/d54/a00094_source.html">BeliefSeeder.cpp</a></li>
+<li><a class="el" href="../../de/dd2/a00207_source.html">CollegeGenerator.h</a></li>
+<li><a class="el" href="../../d5/df1/a00206_source.html">CollegeGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d22/a00245.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">BeliefSeeder</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">CollegeGenerator</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

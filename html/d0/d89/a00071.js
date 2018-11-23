@@ -1,14 +1,8 @@
 var a00071 =
 [
-    [ "range_type", "d0/d89/a00071.html#aa697693cf36c60a25c469e21b26cb84f", null ],
-    [ "SliceIndexer", "d0/d89/a00071.html#af2bedaa13b9427b736bfc88bcb974741", null ],
-    [ "Get", "d0/d89/a00071.html#ac63541daeed03c7731fb820005e64f06", null ],
-    [ "Get", "d0/d89/a00071.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
-    [ "Get", "d0/d89/a00071.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
-    [ "Set", "d0/d89/a00071.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
-    [ "Set", "d0/d89/a00071.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
-    [ "check", "d0/d89/a00071.html#a194f218151d935420737a20c40c27a00", null ],
-    [ "m_map", "d0/d89/a00071.html#ad7137d9d5caad8581de354a750b70403", null ],
-    [ "m_slices", "d0/d89/a00071.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
-    [ "m_t", "d0/d89/a00071.html#a00a95be5edf914ec430a0890a3c82005", null ]
+    [ "Benchmark", "d0/d89/a00071.html#ab7a707f913d835b3b11f6149d6c3df04", null ],
+    [ "Benchmark", "d0/d89/a00071.html#aa735313fa26ebd81d6a1529aa82ab488", null ],
+    [ "Benchmark", "d0/d89/a00071.html#a9ad5a8f5757ea433bda9eb215b226422", null ],
+    [ "operator bool", "d0/d89/a00071.html#a5f4f6dd9578a759c1b9789ac5a3abcd5", null ],
+    [ "m_status", "d0/d89/a00071.html#a41bde1d5c9abcac9f401919c0a9d0d12", null ]
 ];

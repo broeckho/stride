@@ -1,11 +1,9 @@
 var a00057 =
 [
-    [ "BoxPlotData", "d1/d22/a00057.html#add3e678e6738fbd9b3f1949f8059388f", null ],
-    [ "Calculate", "d1/d22/a00057.html#a25162798845f45f11620427e4c7baf6b", null ],
-    [ "m_total", "d1/d22/a00057.html#a777b86b3f8efb046dc4de8830c720e45", null ],
-    [ "m_min", "d1/d22/a00057.html#a7087ab4e72c5c9a6606d76996bfac882", null ],
-    [ "m_max", "d1/d22/a00057.html#a41acae191d30af298e9bac71d430cc41", null ],
-    [ "m_median", "d1/d22/a00057.html#a9433b5584a47b7cba8c8090f081a2e5c", null ],
-    [ "m_quartile1", "d1/d22/a00057.html#a6a1a8baaa4280bc35b5e58b5185b8471", null ],
-    [ "m_quartile3", "d1/d22/a00057.html#a2ca894900d4879cf4841408c85deaf92", null ]
+    [ "Args", "d1/d22/a00057.html#ab7a8c340fbfb47b01ee3cb4cd56441c5", null ],
+    [ "RadiusPolicy", "d1/d22/a00057.html#a2e112e02719985a20d96193e03f89d2d", null ],
+    [ "GetBoundingBox", "d1/d22/a00057.html#a2be92bc66c0e5766612d5c850b86cddf", null ],
+    [ "Contains", "d1/d22/a00057.html#a4c4d73f9f48e35491d11dcb4947f1860", null ],
+    [ "m_center", "d1/d22/a00057.html#a6e9bfbf6bc52f1b42c32f52bf13b1e2f", null ],
+    [ "m_radius", "d1/d22/a00057.html#a6057ef8f12f388d187d313e5f94bb823", null ]
 ];

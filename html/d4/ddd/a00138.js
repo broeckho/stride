@@ -1,13 +1,24 @@
 var a00138 =
 [
-    [ "Health", "d5/d79/a00030.html", "d5/d79/a00030" ],
-    [ "HealthStatus", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070", [
-      [ "Susceptible", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311", null ],
-      [ "Exposed", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a", null ],
-      [ "Infectious", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215", null ],
-      [ "Symptomatic", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f", null ],
-      [ "InfectiousAndSymptomatic", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a", null ],
-      [ "Recovered", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca", null ],
-      [ "Immune", "d4/ddd/a00138.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb", null ]
-    ] ]
+    [ "CSV", "d4/ddd/a00138.html#a7e8326db4a78fcbf21837d61aa4eb201", null ],
+    [ "CSV", "d4/ddd/a00138.html#a46bba243855b4fc66c20bf3bc55fdc95", null ],
+    [ "CSV", "d4/ddd/a00138.html#a9eb2f114de1548f7447292ead90cf74f", null ],
+    [ "CSV", "d4/ddd/a00138.html#abc23be4e1354d6fa3f8717edfee37423", null ],
+    [ "CSV", "d4/ddd/a00138.html#a6d4944a529c10da58327ee8351688eca", null ],
+    [ "CSV", "d4/ddd/a00138.html#a6aadfb52b95c349f14469a203d21472b", null ],
+    [ "operator==", "d4/ddd/a00138.html#a2f700f0aa2b27d664adb69e27a6eb4b1", null ],
+    [ "AddRow", "d4/ddd/a00138.html#a1ae467f9599974c0f180c529f8a9f298", null ],
+    [ "AddRows", "d4/ddd/a00138.html#a95a803434a1562b71908b536095c532e", null ],
+    [ "AddRow", "d4/ddd/a00138.html#a29c1deab9054f5a70d16e3b5dcef4970", null ],
+    [ "AddRow", "d4/ddd/a00138.html#a6fb7f772aabba9465da13e8d2abb197a", null ],
+    [ "GetColumnCount", "d4/ddd/a00138.html#a63ffba1157ea6381bbce102c430e189b", null ],
+    [ "GetIndexForLabel", "d4/ddd/a00138.html#aed99cf47769a6284b45c2815b08d1bd0", null ],
+    [ "Write", "d4/ddd/a00138.html#a37f3333bbf84b5babbdd63811ed773c1", null ],
+    [ "GetLabels", "d4/ddd/a00138.html#ad153bb329555a2b114defc97e53793ad", null ],
+    [ "ReadFromStream", "d4/ddd/a00138.html#a2f3c33a76164f6cbc6e31aab6f8b560d", null ],
+    [ "WriteLabels", "d4/ddd/a00138.html#a38b31963922766d5da78dfc5b95e6668", null ],
+    [ "WriteRows", "d4/ddd/a00138.html#a8595802615346728b2e76121e1cbda4c", null ],
+    [ "operator<<", "d4/ddd/a00138.html#a28ea564a70fdefa611b990e8c8fedd5a", null ],
+    [ "m_labels", "d4/ddd/a00138.html#a893717de16de8022736a1ecc92dd694c", null ],
+    [ "m_column_count", "d4/ddd/a00138.html#a46f209713ecbcb6b2aeb52974b098b86", null ]
 ];

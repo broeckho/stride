@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none',['None',['../d4/d9a/a00246.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754',1,'stride::ContactLogMode']]]
+  ['low',['Low',['../d3/dea/a00444.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef',1,'stride']]]
 ];

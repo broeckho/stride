@@ -1,8 +1,16 @@
 var a00028 =
 [
-    [ "DiseaseSeeder", "dc/d3c/a00028.html#aec696ec6255d5068b34a911f9a45ffc0", null ],
-    [ "Seed", "dc/d3c/a00028.html#adc5b1f152367382afe3dade9421357da", null ],
-    [ "Vaccinate", "dc/d3c/a00028.html#a48f13b3f9815374425e9618f152026d8", null ],
-    [ "m_config_pt", "dc/d3c/a00028.html#a564d8b1346c1160f4e68f3ab8ad0bf8a", null ],
-    [ "m_rn_manager", "dc/d3c/a00028.html#ae14564932092a52307a91d9c8e942c18", null ]
+    [ "dimension_type", "d5/d16/a00029.html", "d5/d16/a00029" ],
+    [ "KdTree2DPoint", "dc/d3c/a00028.html#aa8e1c63afde883bc410d4f58aeab2689", null ],
+    [ "KdTree2DPoint", "dc/d3c/a00028.html#aafb7766ec32f7f080fa311e419e502e0", null ],
+    [ "KdTree2DPoint", "dc/d3c/a00028.html#a2de1575540bea6768d071c9a6ec0a69d", null ],
+    [ "Get", "dc/d3c/a00028.html#af040c18b9147f2c83eaf777b5ea07cb9", null ],
+    [ "InBox", "dc/d3c/a00028.html#a3d16f2f0689a5523df81be3c88f4441f", null ],
+    [ "InRadius", "dc/d3c/a00028.html#ae61ac968dfe63f74e4e9229dd196acdf", null ],
+    [ "GetLocation", "dc/d3c/a00028.html#a0c0684fe18640f925115acb43469328b", null ],
+    [ "GetPoint", "dc/d3c/a00028.html#afb1122c92acd35a750235e1a8655eb94", null ],
+    [ "Distance", "dc/d3c/a00028.html#aa75fa16b3e4daa51fa633f420404cda4", null ],
+    [ "dim", "dc/d3c/a00028.html#ae566d93445cee38c82b6f11cb2967b83", null ],
+    [ "m_pt", "dc/d3c/a00028.html#ae128784dde1bdeb2dd0c644e611bf689", null ],
+    [ "m_location", "dc/d3c/a00028.html#ad0b7e4e7e4027435241e5d7df41eaa64", null ]
 ];

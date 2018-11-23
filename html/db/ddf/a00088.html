@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Age.h File Reference</title>
+<title>Stride Reference Manual: stride::util::SegmentedVector&lt; T, N, Safe &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,73 +107,1486 @@ $(document).ready(function(){initNavTree('db/ddf/a00088.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
+<a href="../../d4/dd5/a01244.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Age.h File Reference</div>  </div>
+<div class="title">stride::util::SegmentedVector&lt; T, N, Safe &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Helpers for age.  
-<a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
+<p>Container that stores objects "almost contiguously" (in a chain of blocks) and guarantees that pointers/iterators are not invalidated when the container grows.  
+ <a href="../../db/ddf/a00088.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stride::util::SegmentedVector&lt; T, N, Safe &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d53/a00265.gif" border="0" usemap="#Age_8hdep" alt=""/></div>
-<map name="Age_8hdep" id="Age_8hdep">
-<area shape="rect" id="node2" href="../../d9/dec/a00090.html" title="Contact profile. " alt="" coords="851,80,999,107"/>
-<area shape="rect" id="node19" href="../../d4/d3e/a00116.html" title="Implementation for the core ContcatPool class. " alt="" coords="1023,80,1149,107"/>
-<area shape="rect" id="node20" href="../../d8/df1/a00174.html" title="Header file for the Person class. " alt="" coords="1174,80,1267,107"/>
-<area shape="rect" id="node3" href="../../db/dab/a00089.html" title="Contact profile. " alt="" coords="661,155,823,181"/>
-<area shape="rect" id="node4" href="../../da/d82/a00091.html" title="Contact profiles stored in simulator. " alt="" coords="847,155,1002,181"/>
-<area shape="rect" id="node16" href="../../d2/d34/a00156.html" title="Header for the Infector class. " alt="" coords="1248,155,1329,181"/>
-<area shape="rect" id="node5" href="../../dc/d57/a00194.html" title="Header for the Simulator class. " alt="" coords="785,229,843,256"/>
-<area shape="rect" id="node6" href="../../d5/deb/a00132.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,304,151,331"/>
-<area shape="rect" id="node7" href="../../dd/df4/a00193.html" title="Implementation for the Simulator class. " alt="" coords="175,304,250,331"/>
-<area shape="rect" id="node8" href="../../d3/d2a/a00195.html" title="Implementation for the SimBuilder class. " alt="" coords="1469,304,1586,331"/>
-<area shape="rect" id="node9" href="../../de/db1/a00197.html" title="Implementation for SimRunner. " alt="" coords="274,304,391,331"/>
-<area shape="rect" id="node10" href="../../da/d2a/a00086.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="416,304,580,331"/>
-<area shape="rect" id="node11" href="../../d7/d70/a00106.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="604,304,709,331"/>
-<area shape="rect" id="node12" href="../../dd/db2/a00151.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="733,304,895,331"/>
-<area shape="rect" id="node13" href="../../da/d01/a00153.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="919,304,1061,331"/>
-<area shape="rect" id="node14" href="../../d9/d90/a00178.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1085,304,1247,331"/>
-<area shape="rect" id="node15" href="../../d3/de5/a00209.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1271,304,1445,331"/>
-<area shape="rect" id="node17" href="../../d3/df8/a00155.html" title="Implementation of Infector algorithms. " alt="" coords="1241,229,1337,256"/>
-<area shape="rect" id="node18" href="../../d6/db8/a00158.html" title="Header for the InfectorMap. " alt="" coords="1417,229,1526,256"/>
+<div class="center"><img src="../../d1/d31/a01245.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_inherit__map">
+<area shape="rect" id="node2" href="../../db/ddf/a00088.html" title="{stride::util::SegmentedVector\l\&lt; stride::ContactPool \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="5,336,215,604"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00088.html" title="{stride::util::SegmentedVector\l\&lt; stride::Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="239,336,448,604"/>
+<area shape="rect" id="node4" href="../../db/ddf/a00088.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n|&#45; m_blocks\l&#45; m_size\l|+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="472,336,681,604"/>
+<area shape="rect" id="node5" href="../../df/dcd/a00127.html" title="Container for persons in population. " alt="" coords="484,653,669,965"/>
 </map>
 </div>
+<div class="dynheader">
+Collaboration diagram for stride::util::SegmentedVector&lt; T, N, Safe &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/d04/a01246.gif" border="0" usemap="#stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map" id="stride_1_1util_1_1SegmentedVector_3_01T_00_01N_00_01Safe_01_4_coll__map">
+<area shape="rect" id="node2" href="../../d6/d21/a00573.html" title="{size_t\n||}" alt="" coords="25,285,83,363"/>
+<area shape="rect" id="node4" href="../../dc/d22/a00843.html" title="{Chunk *\n||}" alt="" coords="99,145,172,223"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="196,145,323,223"/>
+</map>
 </div>
-<p><a href="../../db/ddf/a00088_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7882e74f6cb8dd40fe7f359daf0376c3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> = T</td></tr>
+<tr class="separator:a7882e74f6cb8dd40fe7f359daf0376c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4344636a6d7dea3aff481c178b5ff008"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> = std::size_t</td></tr>
+<tr class="separator:a4344636a6d7dea3aff481c178b5ff008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72e1f8f1437134e2ead160ca23c35bd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> = <a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a>&lt; T, N &gt;</td></tr>
+<tr class="separator:aa72e1f8f1437134e2ead160ca23c35bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac336ef543eb696055a43b39bbe70499f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> = <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt; T, N, Safe, T *, T &amp;, false &gt;</td></tr>
+<tr class="separator:ac336ef543eb696055a43b39bbe70499f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aba42e9e68bd96c3e7e07b089c648c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> = <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt; T, N, Safe &gt;</td></tr>
+<tr class="separator:a1aba42e9e68bd96c3e7e07b089c648c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ae2682ff4058ec78d0809d073dcdea2d1"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html#ae2682ff4058ec78d0809d073dcdea2d1">stride::MaximumAge</a> ()</td></tr>
-<tr class="memdesc:ae2682ff4058ec78d0809d073dcdea2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum age for Persons.  <a href="../../d6/d22/a00245.html#ae2682ff4058ec78d0809d073dcdea2d1">More...</a><br /></td></tr>
-<tr class="separator:ae2682ff4058ec78d0809d073dcdea2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b354a18a7f6986d363385ff46c9a473"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html#a2b354a18a7f6986d363385ff46c9a473">stride::MinAdultAge</a> ()</td></tr>
-<tr class="memdesc:a2b354a18a7f6986d363385ff46c9a473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum age for <a class="el" href="../../d3/dea/a00046.html" title="Store and handle person data. ">Person</a>'s.  <a href="../../d6/d22/a00245.html#a2b354a18a7f6986d363385ff46c9a473">More...</a><br /></td></tr>
-<tr class="separator:a2b354a18a7f6986d363385ff46c9a473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html#abe2f1ef509d97ae6c13bdcd187e495f2">stride::EffectiveAge</a> (unsigned int age)</td></tr>
-<tr class="memdesc:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effective age (topping of at maximum).  <a href="../../d6/d22/a00245.html#abe2f1ef509d97ae6c13bdcd187e495f2">More...</a><br /></td></tr>
-<tr class="separator:abe2f1ef509d97ae6c13bdcd187e495f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ada0935b74686a1ab1a513c310ffbe90c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ada0935b74686a1ab1a513c310ffbe90c">SegmentedVector</a> ()</td></tr>
+<tr class="memdesc:ada0935b74686a1ab1a513c310ffbe90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>.  <a href="#ada0935b74686a1ab1a513c310ffbe90c">More...</a><br /></td></tr>
+<tr class="separator:ada0935b74686a1ab1a513c310ffbe90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe518edf461ce52cc405357f1a074673"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#abe518edf461ce52cc405357f1a074673">SegmentedVector</a> (<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i)</td></tr>
+<tr class="memdesc:abe518edf461ce52cc405357f1a074673"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements but DO NOT INITIALIZE them.  <a href="#abe518edf461ce52cc405357f1a074673">More...</a><br /></td></tr>
+<tr class="separator:abe518edf461ce52cc405357f1a074673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ab9dc137bd2fc3f337a106e8bffcecf4a">SegmentedVector</a> (<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> i, const <a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
+<tr class="memdesc:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with given number of elements and INITIALIZE them with value.  <a href="#ab9dc137bd2fc3f337a106e8bffcecf4a">More...</a><br /></td></tr>
+<tr class="separator:ab9dc137bd2fc3f337a106e8bffcecf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f9b0a0e5d4dace47647217f084242c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ae4f9b0a0e5d4dace47647217f084242c">SegmentedVector</a> (const <a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
+<tr class="memdesc:ae4f9b0a0e5d4dace47647217f084242c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ae4f9b0a0e5d4dace47647217f084242c">More...</a><br /></td></tr>
+<tr class="separator:ae4f9b0a0e5d4dace47647217f084242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2307e98e036cab31da16a478b4227d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a7c2307e98e036cab31da16a478b4227d">SegmentedVector</a> (<a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a7c2307e98e036cab31da16a478b4227d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a7c2307e98e036cab31da16a478b4227d">More...</a><br /></td></tr>
+<tr class="separator:a7c2307e98e036cab31da16a478b4227d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492bbd496ed8cfb17473b0c0d384648a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a492bbd496ed8cfb17473b0c0d384648a">operator=</a> (const <a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;other)</td></tr>
+<tr class="memdesc:a492bbd496ed8cfb17473b0c0d384648a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment.  <a href="#a492bbd496ed8cfb17473b0c0d384648a">More...</a><br /></td></tr>
+<tr class="separator:a492bbd496ed8cfb17473b0c0d384648a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e3a92686eeec3498a14e797b05b3b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ad6e3a92686eeec3498a14e797b05b3b8">operator=</a> (<a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ad6e3a92686eeec3498a14e797b05b3b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment.  <a href="#ad6e3a92686eeec3498a14e797b05b3b8">More...</a><br /></td></tr>
+<tr class="separator:ad6e3a92686eeec3498a14e797b05b3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8631db1786767b0e083f002f2a284757"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a8631db1786767b0e083f002f2a284757">~SegmentedVector</a> ()</td></tr>
+<tr class="memdesc:a8631db1786767b0e083f002f2a284757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a8631db1786767b0e083f002f2a284757">More...</a><br /></td></tr>
+<tr class="separator:a8631db1786767b0e083f002f2a284757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c61443835e8d73449d0304bbe5b5bc"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a31c61443835e8d73449d0304bbe5b5bc">at</a> (std::size_t pos)</td></tr>
+<tr class="memdesc:a31c61443835e8d73449d0304bbe5b5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a31c61443835e8d73449d0304bbe5b5bc">More...</a><br /></td></tr>
+<tr class="separator:a31c61443835e8d73449d0304bbe5b5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d24e651eb0ed32e7103ed81d863ef06"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a0d24e651eb0ed32e7103ed81d863ef06">at</a> (std::size_t pos) const </td></tr>
+<tr class="memdesc:a0d24e651eb0ed32e7103ed81d863ef06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element with bounds checking.  <a href="#a0d24e651eb0ed32e7103ed81d863ef06">More...</a><br /></td></tr>
+<tr class="separator:a0d24e651eb0ed32e7103ed81d863ef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea25c3c1ac7a825c74601087fc91ee97"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aea25c3c1ac7a825c74601087fc91ee97">back</a> ()</td></tr>
+<tr class="memdesc:aea25c3c1ac7a825c74601087fc91ee97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aea25c3c1ac7a825c74601087fc91ee97">More...</a><br /></td></tr>
+<tr class="separator:aea25c3c1ac7a825c74601087fc91ee97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aa2bdeb712ab515db9dc7fbe900233eb4">back</a> () const </td></tr>
+<tr class="memdesc:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the last element.  <a href="#aa2bdeb712ab515db9dc7fbe900233eb4">More...</a><br /></td></tr>
+<tr class="separator:aa2bdeb712ab515db9dc7fbe900233eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#adfcd7fc57ae5801b4d29c97fe7cdc377">operator[]</a> (<a class="el" href="../../d6/d21/a00573.html">size_t</a> pos)</td></tr>
+<tr class="memdesc:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#adfcd7fc57ae5801b4d29c97fe7cdc377">More...</a><br /></td></tr>
+<tr class="separator:adfcd7fc57ae5801b4d29c97fe7cdc377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ac5feb7685e4ff8e46ec5b4ec2af93483">operator[]</a> (<a class="el" href="../../d6/d21/a00573.html">size_t</a> pos) const </td></tr>
+<tr class="memdesc:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access specified element (no bounds checking).  <a href="#ac5feb7685e4ff8e46ec5b4ec2af93483">More...</a><br /></td></tr>
+<tr class="separator:ac5feb7685e4ff8e46ec5b4ec2af93483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0178098bae26c74f6d0d48cf77d057f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a0178098bae26c74f6d0d48cf77d057f7">begin</a> ()</td></tr>
+<tr class="memdesc:a0178098bae26c74f6d0d48cf77d057f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the beginning of the container.  <a href="#a0178098bae26c74f6d0d48cf77d057f7">More...</a><br /></td></tr>
+<tr class="separator:a0178098bae26c74f6d0d48cf77d057f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a2342f7a0b6cea1bbc7a7fecf8a864fa0">begin</a> () const </td></tr>
+<tr class="memdesc:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#a2342f7a0b6cea1bbc7a7fecf8a864fa0">More...</a><br /></td></tr>
+<tr class="separator:a2342f7a0b6cea1bbc7a7fecf8a864fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace914c758677123e4a8d391cd711a5f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ace914c758677123e4a8d391cd711a5f8">cbegin</a> () const </td></tr>
+<tr class="memdesc:ace914c758677123e4a8d391cd711a5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the beginning of the container.  <a href="#ace914c758677123e4a8d391cd711a5f8">More...</a><br /></td></tr>
+<tr class="separator:ace914c758677123e4a8d391cd711a5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904ec0aae93c8dbd345607378f141898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a904ec0aae93c8dbd345607378f141898">end</a> ()</td></tr>
+<tr class="memdesc:a904ec0aae93c8dbd345607378f141898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the container.  <a href="#a904ec0aae93c8dbd345607378f141898">More...</a><br /></td></tr>
+<tr class="separator:a904ec0aae93c8dbd345607378f141898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabbc431baae7fff1f1aaa7489578519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aaabbc431baae7fff1f1aaa7489578519">end</a> () const </td></tr>
+<tr class="memdesc:aaabbc431baae7fff1f1aaa7489578519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end of the container.  <a href="#aaabbc431baae7fff1f1aaa7489578519">More...</a><br /></td></tr>
+<tr class="separator:aaabbc431baae7fff1f1aaa7489578519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661e877760bdf6cd246e4038b677434a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a661e877760bdf6cd246e4038b677434a">cend</a> () const </td></tr>
+<tr class="memdesc:a661e877760bdf6cd246e4038b677434a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const_iterator to the end.  <a href="#a661e877760bdf6cd246e4038b677434a">More...</a><br /></td></tr>
+<tr class="separator:a661e877760bdf6cd246e4038b677434a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e77c3d0e64d983ee26e44336291604"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ae6e77c3d0e64d983ee26e44336291604">capacity</a> () const </td></tr>
+<tr class="memdesc:ae6e77c3d0e64d983ee26e44336291604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements that can be stored without allocating additional blocks.  <a href="#ae6e77c3d0e64d983ee26e44336291604">More...</a><br /></td></tr>
+<tr class="separator:ae6e77c3d0e64d983ee26e44336291604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66676df2d3b52bf0eb5896f2d48837af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a66676df2d3b52bf0eb5896f2d48837af">empty</a> () const </td></tr>
+<tr class="memdesc:a66676df2d3b52bf0eb5896f2d48837af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether container is empty.  <a href="#a66676df2d3b52bf0eb5896f2d48837af">More...</a><br /></td></tr>
+<tr class="separator:a66676df2d3b52bf0eb5896f2d48837af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87837cab9ccde57c5179dc7f9245f9fc"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a87837cab9ccde57c5179dc7f9245f9fc">get_block_count</a> () const </td></tr>
+<tr class="memdesc:a87837cab9ccde57c5179dc7f9245f9fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of currently allocated blocks.  <a href="#a87837cab9ccde57c5179dc7f9245f9fc">More...</a><br /></td></tr>
+<tr class="separator:a87837cab9ccde57c5179dc7f9245f9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93e6b50e8a1f177829b52d8a41ce979"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aa93e6b50e8a1f177829b52d8a41ce979">get_elements_per_block</a> () const </td></tr>
+<tr class="memdesc:aa93e6b50e8a1f177829b52d8a41ce979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns number of elements block (template parameter 'N').  <a href="#aa93e6b50e8a1f177829b52d8a41ce979">More...</a><br /></td></tr>
+<tr class="separator:aa93e6b50e8a1f177829b52d8a41ce979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e279c31f261b01f7798355e27401bfe"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a0e279c31f261b01f7798355e27401bfe">size</a> () const </td></tr>
+<tr class="memdesc:a0e279c31f261b01f7798355e27401bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of elements.  <a href="#a0e279c31f261b01f7798355e27401bfe">More...</a><br /></td></tr>
+<tr class="separator:a0e279c31f261b01f7798355e27401bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aa9ed4e4bbfdbff03a55d378cdf7f5707">resize</a> (<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size)</td></tr>
+<tr class="memdesc:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (and DOES RUN those element's destructor).  <a href="#aa9ed4e4bbfdbff03a55d378cdf7f5707">More...</a><br /></td></tr>
+<tr class="separator:aa9ed4e4bbfdbff03a55d378cdf7f5707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b8157733abf6be32ed20fe0fc5e57b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a61b8157733abf6be32ed20fe0fc5e57b">resize</a> (<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> new_size, const <a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;value)</td></tr>
+<tr class="separator:a61b8157733abf6be32ed20fe0fc5e57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#ac3c204c505c4c4e2e0ef23dd7e29d5de">clear</a> ()</td></tr>
+<tr class="memdesc:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content.  <a href="#ac3c204c505c4c4e2e0ef23dd7e29d5de">More...</a><br /></td></tr>
+<tr class="separator:ac3c204c505c4c4e2e0ef23dd7e29d5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
+<tr class="memitem:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#aadda0fa9cba3c25598d83fc335dab5e4">emplace</a> (<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> pos, Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:aadda0fa9cba3c25598d83fc335dab5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at position pos.  <a href="#aadda0fa9cba3c25598d83fc335dab5e4">More...</a><br /></td></tr>
+<tr class="separator:aadda0fa9cba3c25598d83fc335dab5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd11f9b95b20b69378fc9268c380096"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
+<tr class="memitem:a2cd11f9b95b20b69378fc9268c380096"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a2cd11f9b95b20b69378fc9268c380096">emplace_back</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="memdesc:a2cd11f9b95b20b69378fc9268c380096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs element in-place at the end.  <a href="#a2cd11f9b95b20b69378fc9268c380096">More...</a><br /></td></tr>
+<tr class="separator:a2cd11f9b95b20b69378fc9268c380096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a4e0b15a5f6a72420feedc9a006d17fa7">pop_back</a> ()</td></tr>
+<tr class="memdesc:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last element.  <a href="#a4e0b15a5f6a72420feedc9a006d17fa7">More...</a><br /></td></tr>
+<tr class="separator:a4e0b15a5f6a72420feedc9a006d17fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74bf9839c2e38750216689f965a647de"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a74bf9839c2e38750216689f965a647de">push_back</a> (const T &amp;obj)</td></tr>
+<tr class="memdesc:a74bf9839c2e38750216689f965a647de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a74bf9839c2e38750216689f965a647de">More...</a><br /></td></tr>
+<tr class="separator:a74bf9839c2e38750216689f965a647de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a63f248bcd2fc8b5f6f9fb2f75266c81c">push_back</a> (T &amp;&amp;obj)</td></tr>
+<tr class="memdesc:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds element to end.  <a href="#a63f248bcd2fc8b5f6f9fb2f75266c81c">More...</a><br /></td></tr>
+<tr class="separator:a63f248bcd2fc8b5f6f9fb2f75266c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a211485e3a584153cee5a03212860e5f2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> = typename std::aligned_storage&lt; sizeof(T), std::alignment_of&lt; T &gt;::value &gt;::type</td></tr>
+<tr class="memdesc:a211485e3a584153cee5a03212860e5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">POD type with same alignment requirement as for T's.  <a href="#a211485e3a584153cee5a03212860e5f2">More...</a><br /></td></tr>
+<tr class="separator:a211485e3a584153cee5a03212860e5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a4f98e9e54da37bbf7c6ed0c2b40361d9">get_chunk</a> ()</td></tr>
+<tr class="memdesc:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get next available chunk for element construction with placement new.  <a href="#a4f98e9e54da37bbf7c6ed0c2b40361d9">More...</a><br /></td></tr>
+<tr class="separator:a4f98e9e54da37bbf7c6ed0c2b40361d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1511fa16b228094d921eff996c589a3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../db/ddf/a00088.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a1511fa16b228094d921eff996c589a3c">m_blocks</a></td></tr>
+<tr class="memdesc:a1511fa16b228094d921eff996c589a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector registers pointers to blocks of chunks.  <a href="#a1511fa16b228094d921eff996c589a3c">More...</a><br /></td></tr>
+<tr class="separator:a1511fa16b228094d921eff996c589a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c8760cd3a5b631432f37c55f5bc629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/d21/a00573.html">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#af2c8760cd3a5b631432f37c55f5bc629">m_size</a></td></tr>
+<tr class="memdesc:af2c8760cd3a5b631432f37c55f5bc629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of first free chunk when indexed contiguously.  <a href="#af2c8760cd3a5b631432f37c55f5bc629">More...</a><br /></td></tr>
+<tr class="separator:af2c8760cd3a5b631432f37c55f5bc629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a49fbb388cc38a72f5c5fd9bd40e0c4ea"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a49fbb388cc38a72f5c5fd9bd40e0c4ea">SVIterator&lt; T, N, Safe &gt;</a></td></tr>
+<tr class="separator:a49fbb388cc38a72f5c5fd9bd40e0c4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bb8459b976c100c07b95da44243486"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html#a00bb8459b976c100c07b95da44243486">SVIterator&lt; T, N, Safe, T *, T &amp;, false &gt;</a></td></tr>
+<tr class="separator:a00bb8459b976c100c07b95da44243486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Helpers for age. </p>
+<div class="textblock"><h3>template&lt;typename T, size_t N = 512, bool Safe = true&gt;<br />
+class stride::util::SegmentedVector&lt; T, N, Safe &gt;</h3>
 
-<p>Definition in file <a class="el" href="../../db/ddf/a00088_source.html">Age.h</a>.</p>
-</div></div><!-- contents -->
+<p>Container that stores objects "almost contiguously" (in a chain of blocks) and guarantees that pointers/iterators are not invalidated when the container grows. </p>
+<p>Elements are assigned to the container either sequentially through push_back and emplace_back or through direct adressing with emplace, at or the subscript operator. It supports most familiar operators except reserve (no need for advance reservation of capacity to avoid re-allocation that invalidates pointers as in std::vector) and insertion/deletion.</p>
+<p>Template parameters: T type of elements stored in the container N block size i.e. number of elements per block </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00052">52</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a7882e74f6cb8dd40fe7f359daf0376c3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> =  T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00058">58</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4344636a6d7dea3aff481c178b5ff008"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a> =  std::size_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00059">59</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa72e1f8f1437134e2ead160ca23c35bd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> =  <a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a>&lt;T, N&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00060">60</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac336ef543eb696055a43b39bbe70499f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> =  <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt;T, N, Safe, T*, T&amp;, false&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00061">61</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1aba42e9e68bd96c3e7e07b089c648c1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> =  <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt;T, N, Safe&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00062">62</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a211485e3a584153cee5a03212860e5f2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html#a211485e3a584153cee5a03212860e5f2">Chunk</a> =  typename std::aligned_storage&lt;sizeof(T), std::alignment_of&lt;T&gt;::value&gt;::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>POD type with same alignment requirement as for T's. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00334">334</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ada0935b74686a1ab1a513c310ffbe90c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct empty <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a>. </p>
+<p>CAVEAT: if you resize itbut do not subsequently initialize all elements, the <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00072">72</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe518edf461ce52cc405357f1a074673"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct with given number of elements but DO NOT INITIALIZE them. </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00078">78</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9dc137bd2fc3f337a106e8bffcecf4a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct with given number of elements and INITIALIZE them with value. </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00084">84</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4f9b0a0e5d4dace47647217f084242c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00087">87</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c2307e98e036cab31da16a478b4227d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00097">97</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8631db1786767b0e083f002f2a284757"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::~<a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00128">128</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a492bbd496ed8cfb17473b0c0d384648a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a>&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00103">103</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6e3a92686eeec3498a14e797b05b3b8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a>&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#aa72e1f8f1437134e2ead160ca23c35bd">self_type</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00117">117</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31c61443835e8d73449d0304bbe5b5bc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element with bounds checking. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00135">135</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00299">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d24e651eb0ed32e7103ed81d863ef06"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element with bounds checking. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00144">144</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aea25c3c1ac7a825c74601087fc91ee97"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access the last element. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00153">153</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d0a/a00292_source.html#l00019">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2bdeb712ab515db9dc7fbe900233eb4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access the last element. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00156">156</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfcd7fc57ae5801b4d29c97fe7cdc377"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d21/a00573.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element (no bounds checking). </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00162">162</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5feb7685e4ff8e46ec5b4ec2af93483"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T&amp; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/d21/a00573.html">size_t</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access specified element (no bounds checking). </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00165">165</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0178098bae26c74f6d0d48cf77d057f7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00175">175</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2342f7a0b6cea1bbc7a7fecf8a864fa0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00178">178</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace914c758677123e4a8d391cd711a5f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::cbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the beginning of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00181">181</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a904ec0aae93c8dbd345607378f141898"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#ac336ef543eb696055a43b39bbe70499f">iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns an iterator to the end of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00184">184</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00175">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00181">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaabbc431baae7fff1f1aaa7489578519"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the end of the container. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00187">187</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a661e877760bdf6cd246e4038b677434a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/ddf/a00088.html#a1aba42e9e68bd96c3e7e07b089c648c1">const_iterator</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::cend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a const_iterator to the end. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00190">190</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6e77c3d0e64d983ee26e44336291604"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of elements that can be stored without allocating additional blocks. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00197">197</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66676df2d3b52bf0eb5896f2d48837af"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether container is empty. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00200">200</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87837cab9ccde57c5179dc7f9245f9fc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_block_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of currently allocated blocks. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00203">203</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa93e6b50e8a1f177829b52d8a41ce979"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_elements_per_block </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns number of elements block (template parameter 'N'). </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00206">206</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e279c31f261b01f7798355e27401bfe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of elements. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00209">209</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00190">stride::util::SegmentedVector&lt; Person &gt;::cend()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00265">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00184">stride::util::SegmentedVector&lt; Person &gt;::end()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, <a class="el" href="../../da/dbf/a00393_source.html#l00037">stride::SurveySeeder::Seed()</a>, and <a class="el" href="../../d5/db5/a00374_source.html#l00073">stride::Sim::TimeStep()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9ed4e4bbfdbff03a55d378cdf7f5707"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Increases the number of elements (but DOES NOT INITIALIZE the additional elements) or pops elements (and DOES RUN those element's destructor). </p>
+<p>CAVEAT: if you resize (as you do here) but do not subsequently initialize all elements, the <a class="el" href="../../db/ddf/a00088.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe...">SegmentedVector</a> destructor or a call to clear will cause a segmentation fault because of the destructor call on unitilialezed elements. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00220">220</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00251">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00078">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61b8157733abf6be32ed20fe0fc5e57b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>new_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/ddf/a00088.html#a7882e74f6cb8dd40fe7f359daf0376c3">value_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00251">251</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3c204c505c4c4e2e0ef23dd7e29d5de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the content. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00265">265</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00103">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00128">stride::util::SegmentedVector&lt; Person &gt;::~SegmentedVector()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aadda0fa9cba3c25598d83fc335dab5e4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<div class="memtemplate">
+template&lt;class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::emplace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/ddf/a00088.html#a4344636a6d7dea3aff481c178b5ff008">size_type</a>&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs element in-place at position pos. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00283">283</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/dc3/a00354_source.html#l00101">stride::Population::SetBeliefPolicy()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cd11f9b95b20b69378fc9268c380096"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<div class="memtemplate">
+template&lt;class... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::emplace_back </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs element in-place at the end. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00292">292</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d0a/a00292_source.html#l00019">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e0b15a5f6a72420feedc9a006d17fa7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::pop_back </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the last element. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00299">299</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74bf9839c2e38750216689f965a647de"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds element to end. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00319">319</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d8/d0a/a00292_source.html#l00019">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00103">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00087">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63f248bcd2fc8b5f6f9fb2f75266c81c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds element to end. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00326">326</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f98e9e54da37bbf7c6ed0c2b40361d9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::get_chunk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get next available chunk for element construction with placement new. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00342">342</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00292">stride::util::SegmentedVector&lt; Person &gt;::emplace_back()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00319">stride::util::SegmentedVector&lt; Person &gt;::push_back()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a49fbb388cc38a72f5c5fd9bd40e0c4ea"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt; T, N, Safe &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00337">337</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00bb8459b976c100c07b95da44243486"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d3/d65/a00154.html">SVIterator</a>&lt; T, N, Safe, T *, T &amp;, false &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00338">338</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a1511fa16b228094d921eff996c589a3c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../db/ddf/a00088.html#a211485e3a584153cee5a03212860e5f2">Chunk</a>*&gt; <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::m_blocks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector registers pointers to blocks of chunks. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00356">356</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00135">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00153">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00197">stride::util::SegmentedVector&lt; Person &gt;::capacity()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00265">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00283">stride::util::SegmentedVector&lt; Person &gt;::emplace()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00203">stride::util::SegmentedVector&lt; Person &gt;::get_block_count()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00342">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00103">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00162">stride::util::SegmentedVector&lt; Person &gt;::operator[]()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00299">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00087">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af2c8760cd3a5b631432f37c55f5bc629"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t N = 512, bool Safe = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d21/a00573.html">size_t</a> <a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector</a>&lt; T, N, Safe &gt;::m_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Index of first free chunk when indexed contiguously. </p>
+
+<p>Definition at line <a class="el" href="../../dc/de3/a00373_source.html#l00357">357</a> of file <a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/de3/a00373_source.html#l00135">stride::util::SegmentedVector&lt; Person &gt;::at()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00153">stride::util::SegmentedVector&lt; Person &gt;::back()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00175">stride::util::SegmentedVector&lt; Person &gt;::begin()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00181">stride::util::SegmentedVector&lt; Person &gt;::cbegin()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00265">stride::util::SegmentedVector&lt; Person &gt;::clear()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00283">stride::util::SegmentedVector&lt; Person &gt;::emplace()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00200">stride::util::SegmentedVector&lt; Person &gt;::empty()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00342">stride::util::SegmentedVector&lt; Person &gt;::get_chunk()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00103">stride::util::SegmentedVector&lt; Person &gt;::operator=()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00299">stride::util::SegmentedVector&lt; Person &gt;::pop_back()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00220">stride::util::SegmentedVector&lt; Person &gt;::resize()</a>, <a class="el" href="../../dc/de3/a00373_source.html#l00087">stride::util::SegmentedVector&lt; Person &gt;::SegmentedVector()</a>, and <a class="el" href="../../dc/de3/a00373_source.html#l00209">stride::util::SegmentedVector&lt; Person &gt;::size()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dc/de3/a00373_source.html">SegmentedVector.h</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00088.html">Age.h</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dea/a00444.html">stride</a></li><li class="navelem"><a class="el" href="../../de/df4/a00450.html">util</a></li><li class="navelem"><a class="el" href="../../db/ddf/a00088.html">SegmentedVector</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

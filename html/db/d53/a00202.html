@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Stopwatch.h File Reference</title>
+<title>Stride Reference Manual: CliViewer.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 6f78630</span>
+   &#160;<span id="projectnumber">- generated for commit 1d1aafc</span>
    </div>
   </td>
  </tr>
@@ -105,107 +105,77 @@ $(document).ready(function(){initNavTree('db/d53/a00202.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Stopwatch.h File Reference</div>  </div>
+<div class="title">CliViewer.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definition of Stopwatch.  
+<p>Definition of Observer for SimEvents for commandline interface usage.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d24/a00222_source.html">TimeToString.h</a>&quot;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">CliViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d6e/a00190_source.html">calendar/Calendar.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dc3/a00354_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dcb/a00375_source.html">sim/Sim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d95/a00379_source.html">sim/SimRunner.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Stopwatch.h:</div>
+Include dependency graph for CliViewer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dd5/a00432.gif" border="0" usemap="#Stopwatch_8h" alt=""/></div>
-<map name="Stopwatch_8h" id="Stopwatch_8h">
-<area shape="rect" id="node2" href="../../d0/d24/a00222.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="211,80,327,107"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/d07/a00433.gif" border="0" usemap="#Stopwatch_8hdep" alt=""/></div>
-<map name="Stopwatch_8hdep" id="Stopwatch_8hdep">
-<area shape="rect" id="node2" href="../../d3/dd1/a00214.html" title="Header file for Test. " alt="" coords="984,80,1043,107"/>
-<area shape="rect" id="node13" href="../../dd/d6d/a00111.html" title="Implementation file for ConsoleViewer. " alt="" coords="815,528,956,555"/>
-<area shape="rect" id="node18" href="../../df/dc8/a00122.html" title="Header for the command line controller. " alt="" coords="1203,80,1325,107"/>
-<area shape="rect" id="node25" href="../../d7/da0/a00198.html" title="Header for the SimRunner class. " alt="" coords="2011,80,2114,107"/>
-<area shape="rect" id="node3" href="../../dc/d9a/a00218.html" title="Header file for TestFactory. " alt="" coords="810,155,913,181"/>
-<area shape="rect" id="node11" href="../../da/d74/a00099.html" title="Implementation file for Benchmarker. " alt="" coords="893,453,1059,480"/>
-<area shape="rect" id="node4" href="../../d3/dd5/a00215.html" title="Header file for TestDescriptor. " alt="" coords="638,229,762,256"/>
-<area shape="rect" id="node9" href="../../d0/d61/a00100.html" title="Header file for Benchmarker. " alt="" coords="451,379,602,405"/>
-<area shape="rect" id="node10" href="../../d1/d44/a00098.html" title="Header file for Benchmark. " alt="" coords="763,453,869,480"/>
-<area shape="rect" id="node5" href="../../df/d24/a00217.html" title="Header file for TestDescriptors container. " alt="" coords="574,304,706,331"/>
-<area shape="rect" id="node6" href="../../d1/d84/a00097.html" title="Header file for BenchControlHelper. " alt="" coords="138,379,299,405"/>
-<area shape="rect" id="node12" href="../../db/d57/a00112.html" title="Header file for ConsoleViewer. " alt="" coords="611,453,738,480"/>
-<area shape="rect" id="node15" href="../../d8/d00/a00186.html" title="Header file for PtreeViewer. " alt="" coords="256,453,365,480"/>
-<area shape="rect" id="node17" href="../../d6/d43/a00216.html" title="Implementation file for TestDescriptors container. " alt="" coords="677,379,824,405"/>
-<area shape="rect" id="node7" href="../../d9/df8/a00096.html" title="Implementation file for BenchControlHelper. " alt="" coords="5,453,181,480"/>
-<area shape="rect" id="node8" href="../../d9/d38/a00166.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="360,528,523,555"/>
-<area shape="rect" id="node14" href="../../dc/de6/a00167.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="440,453,587,480"/>
-<area shape="rect" id="node16" href="../../de/df3/a00185.html" title="Implementation file for PtreeViewer. " alt="" coords="211,528,335,555"/>
-<area shape="rect" id="node19" href="../../d3/d32/a00105.html" title="Header for the command line controller. " alt="" coords="1134,155,1245,181"/>
-<area shape="rect" id="node22" href="../../d8/dfa/a00121.html" title="Header for the command line controller. " alt="" coords="2105,229,2241,256"/>
-<area shape="rect" id="node23" href="../../dd/de3/a00201.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1269,155,1395,181"/>
-<area shape="rect" id="node20" href="../../db/ddf/a00164.html" title="Main program: command line handling. " alt="" coords="1151,229,1233,256"/>
-<area shape="rect" id="node21" href="../../d0/dc2/a00104.html" title="Header for the command line controller. " alt="" coords="1261,229,1387,256"/>
-<area shape="rect" id="node24" href="../../d3/db1/a00200.html" title="Header for the command line controller. " alt="" coords="1413,229,1553,256"/>
-<area shape="rect" id="node26" href="../../de/db1/a00197.html" title="Implementation for SimRunner. " alt="" coords="2789,155,2907,181"/>
-<area shape="rect" id="node27" href="../../d1/d1e/a00087.html" title="Observer for Adopted output. " alt="" coords="2616,155,2765,181"/>
-<area shape="rect" id="node28" href="../../da/d2a/a00086.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2853,229,3017,256"/>
-<area shape="rect" id="node29" href="../../df/d98/a00107.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1875,155,1965,181"/>
-<area shape="rect" id="node30" href="../../d7/d70/a00106.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1769,229,1874,256"/>
-<area shape="rect" id="node31" href="../../d7/d9a/a00152.html" title="Observer for Infected output. " alt="" coords="1989,155,2136,181"/>
-<area shape="rect" id="node32" href="../../dd/db2/a00151.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1913,229,2074,256"/>
-<area shape="rect" id="node33" href="../../d3/d65/a00154.html" title="Observer for infection count at each sim step. " alt="" coords="1521,155,1647,181"/>
-<area shape="rect" id="node34" href="../../da/d01/a00153.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1596,229,1737,256"/>
-<area shape="rect" id="node35" href="../../db/dd9/a00179.html" title="Observer for Persons output. " alt="" coords="2211,155,2357,181"/>
-<area shape="rect" id="node36" href="../../d9/d90/a00178.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2290,229,2451,256"/>
-<area shape="rect" id="node37" href="../../da/de7/a00210.html" title="Observer for Persons output. " alt="" coords="2433,155,2591,181"/>
-<area shape="rect" id="node38" href="../../d3/de5/a00209.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2595,229,2768,256"/>
+<div class="center"><img src="../../dc/d19/a00515.gif" border="0" usemap="#CliViewer_8cpp" alt=""/></div>
+<map name="CliViewer_8cpp" id="CliViewer_8cpp">
+<area shape="rect" id="node2" href="../../de/d79/a00203.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2200,87,2291,114"/>
+<area shape="rect" id="node3" href="../../d8/d95/a00379.html" title="Header for the SimRunner class. " alt="" coords="2181,177,2310,203"/>
+<area shape="rect" id="node20" href="../../d7/d6e/a00190.html" title="Header file for the Calendar class. " alt="" coords="2699,259,2848,285"/>
+<area shape="rect" id="node24" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1011,87,1141,114"/>
+<area shape="rect" id="node44" href="../../dd/dcb/a00375.html" title="Header for the Simulator class. " alt="" coords="1647,87,1734,114"/>
+<area shape="rect" id="node4" href="../../d0/d61/a00302.html" title="Definition of EventId. " alt="" coords="2192,341,2304,367"/>
+<area shape="rect" id="node7" href="../../db/db9/a00387.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2173,259,2323,285"/>
+<area shape="rect" id="node12" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="1315,259,1415,285"/>
+<area shape="rect" id="node17" href="../../da/dee/a00383.html" title="Definition of Stopwatch. " alt="" coords="2499,259,2623,285"/>
+<area shape="rect" id="node8" href="../../d9/dc1/a00388.html" title="Interface/Implementation of Subject. " alt="" coords="1942,341,2047,367"/>
+<area shape="rect" id="node13" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="1337,341,1388,367"/>
+<area shape="rect" id="node25" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="585,177,751,203"/>
+<area shape="rect" id="node33" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="265,341,437,367"/>
+<area shape="rect" id="node39" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="797,177,904,203"/>
+<area shape="rect" id="node41" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1839,341,1918,367"/>
+<area shape="rect" id="node26" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="766,341,909,367"/>
+<area shape="rect" id="node28" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="868,423,1039,449"/>
+<area shape="rect" id="node31" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="492,259,660,285"/>
+<area shape="rect" id="node27" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="1516,423,1711,449"/>
+<area shape="rect" id="node34" href="../../db/dbc/a00395.html" title="Interface/Implementation for SVIterator. " alt="" coords="33,423,132,449"/>
+<area shape="rect" id="node40" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="786,259,915,285"/>
+<area shape="rect" id="node45" href="../../d7/d3f/a00173.html" title="Contact profiles stored in simulator. " alt="" coords="1033,177,1239,203"/>
+<area shape="rect" id="node47" href="../../d9/d01/a00227.html" title="Header for the ContactHandler class. " alt="" coords="1417,177,1602,203"/>
+<area shape="rect" id="node48" href="../../d2/d41/a00318.html" title="Header for the InfectorExec class. " alt="" coords="1883,177,2047,203"/>
+<area shape="rect" id="node49" href="../../de/d3d/a00409.html" title="Header for the TransmissionProfile class. " alt="" coords="1542,259,1749,285"/>
+<area shape="rect" id="node46" href="../../d6/dfb/a00172.html" title="Contact profile. " alt="" coords="939,259,1139,285"/>
 </map>
 </div>
 </div>
 <p><a href="../../db/d53/a00202_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2c/a00072.html">stride::util::Stopwatch&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  <a href="../../d6/d2c/a00072.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d22/a00245"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d22/a00245.html">stride</a></td></tr>
-<tr class="memdesc:d6/d22/a00245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
+<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/d1a/a00251"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html">stride::util</a></td></tr>
-<tr class="memdesc:d3/d1a/a00251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:da/dc3/a00453"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc3/a00453.html">stride::viewers</a></td></tr>
+<tr class="memdesc:da/dc3/a00453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d6/db3/a00130.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/d1a/a00251.html#a1c487ec7202a72d7aa33bc6b5767b287">stride::util::operator&lt;&lt;</a> (std::ostream &amp;oss, Stopwatch&lt; T &gt; const &amp;stopwatch)</td></tr>
-<tr class="memdesc:a1c487ec7202a72d7aa33bc6b5767b287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert accumulated time into output stream without altering stopwatch state.  <a href="../../d3/d1a/a00251.html#a1c487ec7202a72d7aa33bc6b5767b287">More...</a><br /></td></tr>
-<tr class="separator:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Stopwatch. </p>
+<div class="textblock"><p>Definition of Observer for SimEvents for commandline interface usage. </p>
 
-<p>Definition in file <a class="el" href="../../db/d53/a00202_source.html">Stopwatch.h</a>.</p>
+<p>Definition in file <a class="el" href="../../db/d53/a00202_source.html">CliViewer.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../db/d53/a00202.html">Stopwatch.h</a></li>
-    <li class="footer">Generated on Wed Nov 14 2018 15:22:17 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../db/d53/a00202.html">CliViewer.cpp</a></li>
+    <li class="footer">Generated on Fri Nov 23 2018 11:01:05 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

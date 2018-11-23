@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['popbuilder',['PopBuilder',['../d4/dca/a00048.html#a43273f3b77748b0d253be3591d41bfd9',1,'stride::Population']]]
+  ['genpopbuilder',['GenPopBuilder',['../df/dcd/a00127.html#a60642d39b9cfebc58f3dd3f284962d33',1,'stride::Population']]]
 ];
