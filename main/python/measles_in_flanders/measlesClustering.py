@@ -1,16 +1,12 @@
 import argparse
 import csv
+import multiprocessing
 import os
 import time
 import xml.etree.ElementTree as ET
 
 from pystride.Event import Event, EventType
 from pystride.PyController import PyController
-
-# Global variable to keep track of the susceptibility rates
-# at the beginning of each simulation
-# Used to calculated immunity rates 'on the go' without having to read in files
-SUSCEPTIBILITY_RATES = []
 
 # Callback function to register person's age, household id
 # adn immunity status at the beginning of the simulation
@@ -37,8 +33,6 @@ def registerSusceptibles(simulator, event):
                 isSusceptible = 0
             hhId = person.GetHouseholdId()
             writer.writerow({"age": age, "susceptible": isSusceptible, "household": hhId})
-    global SUSCEPTIBILITY_RATES
-    SUSCEPTIBILITY_RATES.append(totalSusceptible / totalPopulation)
 
 # Callback function to track the cumulative cases
 # at each timestep
@@ -53,9 +47,45 @@ def trackCases(simulator, event):
             writer.writeheader()
         writer.writerow({"timestep": timestep, "cases": cases})
 
-def getAvgImmunityRate():
-    avgSusceptibilityRate = sum(SUSCEPTIBILITY_RATES) / len(SUSCEPTIBILITY_RATES)
-    return 1 - avgSusceptibilityRate
+def getRngSeeds(scenarioName):
+    seeds = []
+    seedsFile = scenarioName + "Seeds.csv"
+    with open(seedsFile) as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            for s in row:
+                seeds.append(int(s))
+    return seeds
+
+def getImmunityRate(scenarioName, seed, allImmunityRates):
+    totalPersons = 0
+    susceptiblePersons = 0
+    susceptiblesFile = os.path.join(scenarioName + "_" + str(seed), "susceptibles.csv")
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            totalPersons += 1
+            if int(row["susceptible"]):
+                susceptiblePersons += 1
+    immunityRate = 1 - (susceptiblePersons / totalPersons)
+    allImmunityRates.append(immunityRate)
+
+def getAvgImmunityRate(scenarioNames):
+    print("Calculating average immunity rate of previous simulations...")
+    manager = multiprocessing.Manager()
+    allImmunityRates = manager.list()
+    jobs = []
+    for scenario in scenarioNames:
+        seeds = getRngSeeds(scenario)
+        for s in seeds:
+            p = multiprocessing.Process(target=getImmunityRate, args=(scenario, s, allImmunityRates))
+            jobs.append(p)
+            p.start()
+
+    for j in jobs:
+        j.join()
+
+    return sum(allImmunityRates) / len(allImmunityRates)
 
 def createRandomImmunityDistributionFiles(immunityRate):
     randomChildImmunity = ET.Element('immunity')
@@ -86,54 +116,62 @@ def writeSeeds(scenarioName, seeds):
         writer = csv.writer(csvfile)
         writer.writerow(seeds)
 
-def runSimulations(scenarioName, numRuns, R0s, startDates, extraParams={}):
+def runSimulation(scenarioName, R0, startDate, seed, extraParams={}):
+    print("Running " + scenarioName + " with R0 " + str(R0) + " and start " + startDate)
     configFile = os.path.join("config", "measles" + scenarioName + ".xml")
-    for R0 in R0s:
-        for startDate in startDates:
-            seeds = generateRngSeeds(numRuns)
-            writeSeeds(scenarioName, seeds)
-            for s in seeds:
-                print("Running " + scenarioName + " with R0 " + str(R0) + " and start " + startDate)
-                control = PyController(data_dir="data")
-                control.loadRunConfig(configFile)
-                control.runConfig.setParameter("output_prefix", scenarioName + "_" + str(s))
-                control.runConfig.setParameter("rng_seed", s)
-                control.runConfig.setParameter("r0", R0)
-                control.runConfig.setParameter("start_date", startDate)
-                for paramName, paramValue in extraParams.items():
-                    control.runConfig.setParameter(paramName, paramValue)
-                control.registerCallback(registerSusceptibles, EventType.AtStart)
-                control.registerCallback(trackCases, EventType.Stepped)
-                control.control()
+    control = PyController(data_dir="data")
+    control.loadRunConfig(configFile)
+    control.runConfig.setParameter("output_prefix", scenarioName + "_" + str(seed))
+    control.runConfig.setParameter("rng_seed", seed)
+    control.runConfig.setParameter("r0", R0)
+    control.runConfig.setParameter("start_date", startDate)
+    for paramName, paramValue in extraParams.items():
+        control.runConfig.setParameter(paramName, paramValue)
+    control.registerCallback(registerSusceptibles, EventType.AtStart)
+    control.registerCallback(trackCases, EventType.Stepped)
+    control.control()
+    return
 
-def main(numRuns, immunityFileChildren, immunityFileAdults, R0s, startDates):
+def runSimulations(scenarioName, numRuns, R0, startDates, extraParams={}):
+    jobs = []
+    for startDate in startDates:
+        seeds = generateRngSeeds(numRuns)
+        writeSeeds(scenarioName, seeds)
+        for s in seeds:
+            p = multiprocessing.Process(target=runSimulation, args=(scenarioName, R0, startDate, s, extraParams, ))
+            jobs.append(p)
+            p.start()
+    for j in jobs:
+        j.join()
+
+def main(numRuns, immunityFileChildren, immunityFileAdults, R0, startDates):
     start = time.perf_counter()
     """
     Run scenarios with age-dependent immunity rates.
-    From this runs, a uniform immunity rate can then be calculated.
+    From these runs, a uniform immunity rate can then be calculated.
     """
     # Age-dependent immunity rates + no household-based clustering
-    runSimulations("Scenario2", numRuns, R0s, startDates,
+    runSimulations("Scenario2", numRuns, R0, startDates,
                     {"immunity_distribution_file": immunityFileAdults,
                     "vaccine_distribution_file": immunityFileChildren})
     # Age-dependent immunity rates + household-based clustering
-    runSimulations("Scenario4", numRuns, R0s, startDates,
+    runSimulations("Scenario4", numRuns, R0, startDates,
                     {"immunity_distribution_file": immunityFileAdults,
                     "vaccine_distribution_file": immunityFileChildren})
     """
     Calculate uniform immunity rate from previous runs, and
     create uniform age-immunity files.
     """
-    immunityRate = getAvgImmunityRate()
+    immunityRate = getAvgImmunityRate(["Scenario2", "Scenario4"])
     print(immunityRate)
     createRandomImmunityDistributionFiles(immunityRate)
     """
     Run scenarios with uniform immunity rates.
     """
     # Uniform immunity rates + no household-based clustering
-    runSimulations("Scenario1", numRuns, R0s, startDates, {"immunity_rate": immunityRate})
+    runSimulations("Scenario1", numRuns, R0, startDates, {"immunity_rate": immunityRate})
     # Uniform immunity rates + household-based clustering
-    runSimulations("Scenario3", numRuns, R0s, startDates,
+    runSimulations("Scenario3", numRuns, R0, startDates,
                     {"immunity_distribution_file": "data/measles_random_adult_immunity.xml",
                     "vaccine_distribution_file": "data/measles_random_child_immunity.xml"})
     end = time.perf_counter()
@@ -145,7 +183,7 @@ if __name__=="__main__":
     parser.add_argument("--numRuns", type=int, default=10, help="Number of simulation runs per scenario")
     parser.add_argument("--immunityFileChildren", type=str, default="data/measles_child_immunity.xml")
     parser.add_argument("--immunityFileAdults", type=str, default="data/measles_adult_immunity.xml")
-    parser.add_argument("--R0s", type=int, nargs="+", default=[12], help="Values for r0")
+    parser.add_argument("--R0", type=int, default=12, help="Value for r0")
     parser.add_argument("--startDates", type=str, nargs="+", default=["2017-01-01"], help="Values for start_date")
     args = parser.parse_args()
-    main(args.numRuns, args.immunityFileChildren, args.immunityFileAdults, args.R0s, args.startDates)
+    main(args.numRuns, args.immunityFileChildren, args.immunityFileAdults, args.R0, args.startDates)
