@@ -68,24 +68,37 @@ def getImmunityRate(scenarioName, seed, allImmunityRates):
             if int(row["susceptible"]):
                 susceptiblePersons += 1
     immunityRate = 1 - (susceptiblePersons / totalPersons)
-    allImmunityRates.append(immunityRate)
+    #allImmunityRates.append(immunityRate)
+    return immunityRate
 
 def getAvgImmunityRate(scenarioNames):
     print("Calculating average immunity rate of previous simulations...")
     manager = multiprocessing.Manager()
     allImmunityRates = manager.list()
-    jobs = []
+    #jobs = []
     for scenario in scenarioNames:
         seeds = getRngSeeds(scenario)
         for s in seeds:
-            p = multiprocessing.Process(target=getImmunityRate, args=(scenario, s, allImmunityRates))
-            jobs.append(p)
-            p.start()
+            #p = multiprocessing.Process(target=getImmunityRate, args=(scenario, s, allImmunityRates))
+            #jobs.append(p)
+            #p.start()
+            allImmunityRates.append(getImmunityRate(scenario, s, allImmunityRates))
 
-    for j in jobs:
-        j.join()
+    #for j in jobs:
+    #    j.join()
 
     return sum(allImmunityRates) / len(allImmunityRates)
+
+'''
+import multiprocessing
+def worker(procnum):
+    print 'I am number %d in process %d' % (procnum, getpid())
+    return getpid()
+
+if __name__ == '__main__':
+    pool = multiprocessing.Pool(processes = 3)
+    print pool.map(worker, range(5))
+'''
 
 def createRandomImmunityDistributionFiles(immunityRate):
     randomChildImmunity = ET.Element('immunity')
