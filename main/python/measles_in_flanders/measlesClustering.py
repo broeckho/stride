@@ -146,16 +146,16 @@ def runSimulation(scenarioName, R0, startDate, seed, extraParams={}):
     return
 
 def runSimulations(scenarioName, numRuns, R0, startDates, extraParams={}):
-    jobs = []
     for startDate in startDates:
         seeds = generateRngSeeds(numRuns)
         writeSeeds(scenarioName, seeds)
+        jobs = []
         for s in seeds:
             p = multiprocessing.Process(target=runSimulation, args=(scenarioName, R0, startDate, s, extraParams, ))
             jobs.append(p)
             p.start()
-    for j in jobs:
-        j.join()
+        for j in jobs:
+            j.join()
 
 def main(numRuns, immunityFileChildren, immunityFileAdults, R0, startDates):
     start = time.perf_counter()
