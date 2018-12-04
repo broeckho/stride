@@ -57,7 +57,7 @@ def getRngSeeds(scenarioName):
                 seeds.append(int(s))
     return seeds
 
-def getImmunityRate(scenarioName, seed, allImmunityRates):
+def getImmunityRate(scenarioName, seed):
     totalPersons = 0
     susceptiblePersons = 0
     susceptiblesFile = os.path.join(scenarioName + "_" + str(seed), "susceptibles.csv")
@@ -68,37 +68,17 @@ def getImmunityRate(scenarioName, seed, allImmunityRates):
             if int(row["susceptible"]):
                 susceptiblePersons += 1
     immunityRate = 1 - (susceptiblePersons / totalPersons)
-    #allImmunityRates.append(immunityRate)
     return immunityRate
 
 def getAvgImmunityRate(scenarioNames):
+    allImmunityRates = []
     print("Calculating average immunity rate of previous simulations...")
-    manager = multiprocessing.Manager()
-    allImmunityRates = manager.list()
-    #jobs = []
     for scenario in scenarioNames:
         seeds = getRngSeeds(scenario)
-        for s in seeds:
-            #p = multiprocessing.Process(target=getImmunityRate, args=(scenario, s, allImmunityRates))
-            #jobs.append(p)
-            #p.start()
-            allImmunityRates.append(getImmunityRate(scenario, s, allImmunityRates))
-
-    #for j in jobs:
-    #    j.join()
-
+        with multiprocessing.Pool(processes=8) as pool:
+            scenarioImmunityRates = pool.starmap(getImmunityRate, [(scenario, s) for s in seeds])
+        allImmunityRates += scenarioImmunityRates
     return sum(allImmunityRates) / len(allImmunityRates)
-
-'''
-import multiprocessing
-def worker(procnum):
-    print 'I am number %d in process %d' % (procnum, getpid())
-    return getpid()
-
-if __name__ == '__main__':
-    pool = multiprocessing.Pool(processes = 3)
-    print pool.map(worker, range(5))
-'''
 
 def createRandomImmunityDistributionFiles(immunityRate):
     randomChildImmunity = ET.Element('immunity')
@@ -146,16 +126,18 @@ def runSimulation(scenarioName, R0, startDate, seed, extraParams={}):
     return
 
 def runSimulations(scenarioName, numRuns, R0, startDates, extraParams={}):
-    for startDate in startDates:
-        seeds = generateRngSeeds(numRuns)
-        writeSeeds(scenarioName, seeds)
-        jobs = []
-        for s in seeds:
-            p = multiprocessing.Process(target=runSimulation, args=(scenarioName, R0, startDate, s, extraParams, ))
-            jobs.append(p)
-            p.start()
-        for j in jobs:
-            j.join()
+    totalRuns = numRuns * len(startDates)
+    seeds = generateRngSeeds(totalRuns)
+    writeSeeds(scenarioName, seeds)
+    jobs = []
+    for i in range(totalRuns):
+        startDate = startDates[i % len(startDates)]
+        print(startDate)
+        p = multiprocessing.Process(target=runSimulation, args=(scenarioName, R0, startDate, seeds[i], extraParams))
+        jobs.append(p)
+        p.start()
+    for j in jobs:
+        j.join()
 
 def main(numRuns, immunityFileChildren, immunityFileAdults, R0, startDates):
     start = time.perf_counter()
