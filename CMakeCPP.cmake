@@ -163,7 +163,12 @@ endif()
 #----------------------------------------------------------------------------
 # Qt : not a definitive list of components yet; these are placeholders
 #----------------------------------------------------------------------------
-find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
+if(NOT STRIDE_FORCE_NO_QT5)
+    find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
+else()
+    set(Qt5_FOUND FALSE)
+endif()
+
 if (Qt5_FOUND)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=true")
     set(QT_INCLUDES
@@ -197,31 +202,6 @@ if (Qt5_FOUND)
     endif()
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=false")
-endif()
-
-#----------------------------------------------------------------------------
-# HDF5 Library
-# Try to find the C variant of libhdf5, if found, USE_HDF5 is defined
-# and passed to the compilers to allow compilation of selective features
-# through preprocessor commands like #ifdef USE_HDF5 and friends.
-# Additional defs are required on Ubuntu where lib are installed
-# with hdf5 v1.6 as default behavior.
-#----------------------------------------------------------------------------
-if(STRIDE_FORCE_NO_HDF5)
-	message(STATUS "---> Skipping HDF5, STRIDE_FORCE_NO_HDF5 set.")
-else()
-	find_package(HDF5 COMPONENTS C HL)
-	if(HDF5_FOUND)
-		include_directories(SYSTEM ${HDF5_INCLUDE_DIRS})
-		set(LIBS   ${LIBS}   ${HDF5_LIBRARIES})
-		add_definitions(-DUSE_HDF5 -DH5_NO_DEPRECATED_SYMBOLS)
-		add_definitions(-DH5Dcreate_vers=2 -DH5Dopen_vers=2)
-		add_definitions(-DH5Acreate_vers=2 -DH5Gcreate_vers=2)
-		add_definitions(-DH5Gopen_vers=2 )
-	else()
-		# This is done to eliminate blank output of undefined CMake variables.
-		set(HDF5_FOUND FALSE)
-	endif()
 endif()
 
 #############################################################################

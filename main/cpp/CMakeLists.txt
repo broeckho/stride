@@ -18,8 +18,10 @@
 #============================================================================
 # Subdirectories.
 #============================================================================
+if(NOT STRIDE_FORCE_NO_QT5)
+	add_subdirectory(calibration)
+endif()
 add_subdirectory(gengeopop)
-add_subdirectory(calibration)
 add_subdirectory(execs)
 
 #============================================================================

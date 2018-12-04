@@ -57,8 +57,6 @@ set(STRIDE_FORCE_NO_QT5	FALSE
 	CACHE BOOL "Do NOT use Qt5 even if available.")
 set(STRIDE_FORCE_NO_PYTHON FALSE
 	CACHE BOOL "Force CMake to act as if Python or SWIG had not been found.")
-set(STRIDE_FORCE_NO_HDF5	FALSE
-	CACHE BOOL "Force CMake to act as if HDF5 had not been found.")
 set(STRIDE_FORCE_NO_BOOST FALSE
     CACHE BOOL "Do NOT use Boost even if available.")
 

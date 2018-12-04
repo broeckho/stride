@@ -8,75 +8,77 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Workspace}
 
-By default, Stride is installed in \texttt{./target/installed/} inside de project directory though this can be modified using the CMakeLocalConfig.txt file (example is given in \texttt{./src/main/resources/make}).
-Compilation and installation of the software will create the following files and directories:
+By default, \texttt{Stride} is installed in \texttt{./target/installed/} inside de project directory. This can be modified by setting the \texttt{CMAKE\_INSTALL\_PREFIX} on the CMake command line (see the \texttt{INSTALL.txt} file in the prject root directory) or by using the CMakeLocalConfig.txt file (example file can be found  in \texttt{./src/main/resources/make}).
 
+Compilation and installation of the software creates the following files and directories:
 \begin{compactitem}
-    \item Binaries
-    		in directory \texttt{<project\_dir>/bin}
-      	\begin{itemize}
-        		\item $stride$: executable.
-        		\item $gtester$: regression tests for the sequential code.
-                \item $gengeopop$: generates the population and geographical grid.
-                \item $calibration$: tool to run the simulator multiple times to generate statistical data. This can be used to calibrate test outcomes.
-        		\item $wrapper\_sim.py$: Python simulation wrapper
-        \end{itemize}
-    \item Configuration files (xml and json)
-      	in directory \texttt{<project\_dir>/config}
-      	\begin{itemize}
-		\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
-        \item $run\_generate\_default.xml$: default configuration file for Stride to first generate a population and geographical grid and then perform a Nassau Simulation.
-        \item $run\_import\_default.xml$: default configuration file for Stride to first import a population and geographical grid and then perform a Nassau Simulation.
-        \item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
-		\item $wrapper\_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
-        \item \ldots
-        \end{itemize}
-    \item Data files (csv)
-      	in directory \texttt{<project\_dir>/data}
-      	\begin{itemize}
-        \item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
-		\item $belgium\_population$: Relative Belgian population per city. Details are provided for all cities and for 13 major cities.
-        \item $flanders\_cities$: Cities and municipalities in Flanders with coordinates and population figures based on samples. These relative population figures are used for assigning residencies and domiciles based on a discrete probability distribution.
-        \item $flanders\_commuting$: Relative commuting information between cities and communities. Since this data is relative, the total number of commuters is a derived parameter, based on the fraction of the total population that is commuting.
-		\item $contact\_matrix\_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
-		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Community clusters have week rates.
-		\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
-		\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
-		\item $holidays\_xxx$: Holiday characteristics for xxx.
-		\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}.
-		\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
-		\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
-        \end{itemize}
-    \item Documentation files
-      	in directory \texttt{./target/installed/doc}
-      	\begin{itemize}
-        		\item Reference manual
-        		\item User manual
-        \end{itemize}
+%
+	\item Binaries in directory \texttt{<install\_dir>/bin}
+      		\begin{compactitem}
+        			\item $stride$: executable.
+        			\item $gtester$: regression tests for the sequential code.
+               	 \item $gengeopop$: generates the population and geographical grid.
+                	\item $calibration$: tool to run the simulator multiple times to generate statistical data. 
+        			\item $wrapper\_sim.py$: Python simulation wrapper
+        	\end{compactitem}
+%
+    \item Configuration files (xml and json) in directory \texttt{<install\_dir>/config}
+      	\begin{compactitem}
+			\item $run\_default.xml$: default configuration file for Stride to perform a Nassau simulation.
+        		\item $run\_generate\_default.xml$: default configuration file for Stride to first generate a population and geographical grid and then perform a Nassau Simulation.
+       		\item $run\_import\_default.xml$: default configuration file for Stride to first import a population and geographical grid and then perform a Nassau Simulation.
+        		\item $run\_miami\_weekend.xml$: configuration file for Stride to perform Miami simulations with uniform social contact rates in the community clusters.
+			\item $wrapper\_miami.json$: default configuration file for the wrapper\_sim binary to perform Miami simulations with different attack rates.
+        		\item \ldots
+        \end{compactitem}
+%        
+    \item Data files (csv) in directory \texttt{<project\_dir>/data}
+      	\begin{compactitem}
+        		\item $belgium\_commuting$: Belgian commuting data for the active populations. The fraction of residents from ``city\_depart'' that are employed in ``city\_arrival''. Details are provided for all cities and for 13 major cities.
+			\item $belgium\_population$: Relative Belgian population per city. Details are provided for all cities and for 13 major cities.
+        	\item $flanders\_cities$: Cities and municipalities in Flanders with coordinates and population figures based on samples. These relative population figures are used for assigning residencies and domiciles based on a discrete probability distribution.
+        	\item $flanders\_commuting$: Relative commuting information between cities and communities. Since this data is relative, the total number of commuters is a derived parameter, based on the fraction of the total population that is commuting.
+			\item $contact\_matrix\_average$: Social contact rates, given the cluster type. Community clusters have average (week/weekend) rates.
+			\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Community clusters have week rates.
+			\item $contact\_matrix\_week$: Social contact rates, given the cluster type. Primary Community cluster has weekend rates, Secondary Community has week rates.
+			\item $disease\_xxx$: Disease characteristics (incubation and infectious period) for xxx.
+			\item $holidays\_xxx$: Holiday characteristics for xxx.
+			\item $pop\_xxx$: Synthetic population data extracted from the 2010 U.S. Synthetic Population Database (Version 1) from RTI International for xxx \cite{wheaton2014a,wheaton2014b}.
+			\item $ref\_2011$: Reference data from EUROSTAT on the Belgian population of 2011. Population ages and household sizes.
+			\item $ref\_fl2010\_xxx$: Reference data on social contacts for Belgium, 2011.
+        \end{compactitem}
+%
+    \item Documentation files in directory \texttt{./target/installed/doc}
+      	\begin{compactitem}
+        			\item Reference manual
+        			\item User manual
+        \end{compactitem}
+%
 \end{compactitem}
 
-
+The install directory is also the workspace for \texttt{Stride}. The \texttt{Stride} executable allows you to use a different output directory for each new calculation (see the next section).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Run
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Run the simulator}
+\section{Running the simulator}
 
 
 From the workspace directory, the simulator can be started with default configuration using the command \mbox{``\texttt{./bin/stride}''}. Settings can be passed to the simulator using one or more command line arguments:
 
-\begin{compactitem}
-
-\item \texttt{-c} or \texttt{{-}-config}: The configuration file.
-
+\begin{compactitem}	
+	\item \texttt{-c} or \texttt{{-}-config}: The configuration file.
 \end{compactitem}
 
-\section{Generating a population and geographical grid}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% genpop
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Generating a population and geographical grid}
 
 From the workspace directory, the generation of a population and geographical grid (sometimes called GeoGrid) can be started with the default configuration using the command \mbox{``\texttt{./bin/gengeopop}''}. The following configuration options are available:
 
-\begin{description}
+\begin{compactdesc}
     \item[\texttt{--populationSize}] \ \\
         The size of the population to generate. By default a population of \texttt{6000000} is generated.
     \item[\texttt{--fracActive}] \ \\
@@ -101,7 +103,7 @@ From the workspace directory, the generation of a population and geographical gr
         The seed to be used for the random engine. The default is \texttt{"1,2,3,4"}.
     \item[\texttt{--loglevel}] \ \\
         The loglevel to use, by default this is \texttt{info}.
-\end{description}
+\end{compactdesc}
 
 \section{Using the Calibrator}
 \label{sec:calibrator}
@@ -111,7 +113,7 @@ It can also be used for running a simulation multiple times to gather statistica
 This data can then be written to a file or be used for generating boxplots.
 The following configuration options are available:
 
-\begin{description}
+\begin{compactdesc}
     \item[\texttt{--config}] \ \\
         Specifies the run configuration parameters to be used for the simulation.
         If this is provided multiple times, the calibration is performed on all given simulations.
@@ -134,7 +136,7 @@ The following configuration options are available:
         Display the boxplots for the last step.
     \item[\texttt{--displayStep}]\ \\
         Display the boxplots for a specified step.
-\end{description}
+\end{compactdesc}
 
 Examples:\\
 To find the exact values for the testcases and write these to a file:\\
@@ -152,7 +154,7 @@ To run the testcase \texttt{influenza\_a} 10 times, write the results to a file 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Sim Wrapper
+% Wrapper
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Python Wrapper}
 A Python wrapper is provided to perform multiple runs with the C++ executable.
