@@ -70,12 +70,12 @@ def getImmunityRate(scenarioName, seed):
     immunityRate = 1 - (susceptiblePersons / totalPersons)
     return immunityRate
 
-def getAvgImmunityRate(scenarioNames):
+def getAvgImmunityRate(scenarioNames, poolSize):
     allImmunityRates = []
     print("Calculating average immunity rate of previous simulations...")
     for scenario in scenarioNames:
         seeds = getRngSeeds(scenario)
-        with multiprocessing.Pool(processes=8) as pool:
+        with multiprocessing.Pool(processes=poolSize) as pool:
             scenarioImmunityRates = pool.starmap(getImmunityRate, [(scenario, s) for s in seeds])
         allImmunityRates += scenarioImmunityRates
     return sum(allImmunityRates) / len(allImmunityRates)
@@ -125,48 +125,42 @@ def runSimulation(scenarioName, R0, startDate, seed, extraParams={}):
     control.control()
     return
 
-def runSimulations(scenarioName, numRuns, R0, startDates, extraParams={}):
+def runSimulations(scenarioName, numRuns, R0, startDates, poolSize, extraParams={}):
     totalRuns = numRuns * len(startDates)
     seeds = generateRngSeeds(totalRuns)
     writeSeeds(scenarioName, seeds)
-    jobs = []
-    for i in range(totalRuns):
-        startDate = startDates[i % len(startDates)]
-        print(startDate)
-        p = multiprocessing.Process(target=runSimulation, args=(scenarioName, R0, startDate, seeds[i], extraParams))
-        jobs.append(p)
-        p.start()
-    for j in jobs:
-        j.join()
+    args = [(scenarioName, R0, startDates[i % len(startDates)], seeds[i], extraParams) for i in range(totalRuns)]
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        pool.starmap(runSimulation, args)
 
-def main(numRuns, immunityFileChildren, immunityFileAdults, R0, startDates):
+def main(numRuns, immunityFileChildren, immunityFileAdults, R0, startDates, poolSize):
     start = time.perf_counter()
     """
     Run scenarios with age-dependent immunity rates.
     From these runs, a uniform immunity rate can then be calculated.
     """
     # Age-dependent immunity rates + no household-based clustering
-    runSimulations("Scenario2", numRuns, R0, startDates,
+    runSimulations("Scenario2", numRuns, R0, startDates, poolSize,
                     {"immunity_distribution_file": immunityFileAdults,
                     "vaccine_distribution_file": immunityFileChildren})
     # Age-dependent immunity rates + household-based clustering
-    runSimulations("Scenario4", numRuns, R0, startDates,
+    runSimulations("Scenario4", numRuns, R0, startDates, poolSize,
                     {"immunity_distribution_file": immunityFileAdults,
                     "vaccine_distribution_file": immunityFileChildren})
     """
     Calculate uniform immunity rate from previous runs, and
     create uniform age-immunity files.
     """
-    immunityRate = getAvgImmunityRate(["Scenario2", "Scenario4"])
+    immunityRate = getAvgImmunityRate(["Scenario2", "Scenario4"], poolSize)
     print(immunityRate)
     createRandomImmunityDistributionFiles(immunityRate)
     """
     Run scenarios with uniform immunity rates.
     """
     # Uniform immunity rates + no household-based clustering
-    runSimulations("Scenario1", numRuns, R0, startDates, {"immunity_rate": immunityRate})
+    runSimulations("Scenario1", numRuns, R0, startDates, poolSize, {"immunity_rate": immunityRate})
     # Uniform immunity rates + household-based clustering
-    runSimulations("Scenario3", numRuns, R0, startDates,
+    runSimulations("Scenario3", numRuns, R0, startDates, poolSize,
                     {"immunity_distribution_file": "data/measles_random_adult_immunity.xml",
                     "vaccine_distribution_file": "data/measles_random_child_immunity.xml"})
     end = time.perf_counter()
@@ -180,5 +174,6 @@ if __name__=="__main__":
     parser.add_argument("--immunityFileAdults", type=str, default="data/measles_adult_immunity.xml")
     parser.add_argument("--R0", type=int, default=12, help="Value for r0")
     parser.add_argument("--startDates", type=str, nargs="+", default=["2017-01-01"], help="Values for start_date")
+    parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
-    main(args.numRuns, args.immunityFileChildren, args.immunityFileAdults, args.R0, args.startDates)
+    main(args.numRuns, args.immunityFileChildren, args.immunityFileAdults, args.R0, args.startDates, args.poolSize)
