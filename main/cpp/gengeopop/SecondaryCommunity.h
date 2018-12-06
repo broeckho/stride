@@ -19,13 +19,21 @@
 
 namespace gengeopop {
 
-/// A model of a Secondary Community (as a ContactCenter)
+/**
+ * A model of a Secondary Community (as a ContactCenter)
+ */
+
 class SecondaryCommunity : public Community
 {
 public:
-        explicit SecondaryCommunity(unsigned int id);
-        std::string GetType() const override;
-        void        Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        /// Construct community with assigned ID.
+        explicit SecondaryCommunity(unsigned int id) : Community(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetType.
+        std::string GetType() const override { return "Secondary Community"; }
 };
 
-} // namespace gengeopop
+} // namespace

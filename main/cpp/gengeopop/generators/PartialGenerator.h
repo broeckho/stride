@@ -15,11 +15,12 @@
 
 #pragma once
 
-#include "../../util/RnMan.h"
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/GeoGridConfig.h>
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "util/ExcAssert.h"
+#include "util/RnMan.h"
+
 #include <spdlog/logger.h>
-#include <util/ExcAssert.h>
 
 namespace gengeopop {
 /**

@@ -195,7 +195,7 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.fraction_active_commutingPeople      = 0;
         config.input.fraction_active_commutingPeople      = 1;
         config.input.fraction_student_commutingPeople     = 0;
-        config.calculated._1865_and_years_active          = 1;
+        config.calculated.popcount_1865_and_years_active          = 1;
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
@@ -274,7 +274,7 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_active_commutingPeople      = 0;
         config.input.fraction_active_commutingPeople      = 1;
         config.input.fraction_student_commutingPeople     = 0;
-        config.calculated._1865_and_years_active          = 1;
+        config.calculated.popcount_1865_and_years_active          = 1;
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 

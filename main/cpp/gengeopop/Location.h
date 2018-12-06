@@ -15,6 +15,9 @@
 
 #pragma once
 
+#include <boost/geometry/core/cs.hpp>
+#include <boost/geometry/geometries/point.hpp>
+
 #include <iostream>
 #include <memory>
 #include <set>
@@ -23,9 +26,6 @@
 #include <typeinfo>
 #include <unordered_map>
 #include <vector>
-
-#include <boost/geometry/core/cs.hpp>
-#include <boost/geometry/geometries/point.hpp>
 
 namespace gengeopop {
 
@@ -38,13 +38,15 @@ class ContactCenter;
 class Location
 {
 public:
-        using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
-
+        ///
         Location(unsigned int id, unsigned int province, Coordinate coordinate = Coordinate(0.0, 0.0),
                  std::string name = "");
 
         Location(unsigned int id, unsigned int province, unsigned int population,
                  Coordinate coordinate = Coordinate(0.0, 0.0), std::string name = "");
+
+        /// Perform a full compare of the given locations.
+        bool operator==(const Location& other) const;
 
         /// Add a ContactCenter
         template <typename T>
@@ -95,19 +97,15 @@ public:
         /// Gets a vector with the outgoing cities which people are commuting to + the proportion
         const std::vector<std::pair<Location*, double>>& GetIncomingCommuningCities() const;
 
-        /**
-         * Adds a Location and a proportion to the incoming commutng vector
-         * I.e. \p proportion of the commuting population in \p location are commuting to \p this
-         */
+        /// Adds a Location and a proportion to the incoming commutng vector
+        /// I.e. \p proportion of the commuting population in \p location are commuting to \p this
         void AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
         /// @return a vector with the outgoing cities which people are commuting to + the proportion
         const std::vector<std::pair<Location*, double>>& GetOutgoingCommuningCities() const;
 
-        /**
-         * Adds a Location and a proportion to the incoming commuting vector
-         * I.e. \p proportion of the commuting population in \p this are commuting to \p location
-         */
+        /// Adds a Location and a proportion to the incoming commuting vector
+        // I.e. \p proportion of the commuting population in \p this are commuting to \p location
         void AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion);
 
         /// Gets the absolute amount of poeple leaving from this location
@@ -120,17 +118,18 @@ public:
         const Coordinate& GetCoordinate() const;
         void              SetCoordinate(const Coordinate& coordinate);
 
-        /// Gets iterator to the first location
-        iterator begin();
-
-        // Gets iterator to the end of the locations
-        iterator end();
 
         /// Gets all contact centers at this location
         const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const;
 
-        /// Perform a full compare of the given locations.
-        bool operator==(const Location& other) const;
+public:
+        using iterator = std::vector<std::shared_ptr<ContactCenter>>::iterator;
+
+        /// Gets iterator to the first location
+        iterator begin();
+
+        /// Gets iterator to the end of the locations
+        iterator end();
 
 private:
         unsigned int m_id = 0;             ///< Id

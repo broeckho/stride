@@ -14,9 +14,11 @@
  */
 
 #include "GeoGridGenerator.h"
+
 #include <iostream>
 #include <memory>
 #include <utility>
+
 namespace gengeopop {
 
 GeoGridGenerator::GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)

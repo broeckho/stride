@@ -14,19 +14,33 @@
  */
 
 #pragma once
+
 #include "ContactCenter.h"
-#include "GeoGrid.h"
 
 namespace gengeopop {
 
-/// Models a Workplace as ContactCenter
+class GeoGrid;
+
+/**
+ * Models a Workplace as ContactCenter.
+ */
 class Workplace : public ContactCenter
 {
 public:
-        explicit Workplace(unsigned int id);
-        unsigned int GetPoolSize() const override;
-        unsigned int GetMaxPools() const override;
-        std::string  GetType() const override;
-        void         Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        /// Construct community with assigned ID.
+        explicit Workplace(unsigned int id) : ContactCenter(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetMaxPools.
+        unsigned int GetMaxPools() const override { return 1; }
+
+        /// See ContactCenter::GetPoolSize.
+        unsigned int GetPoolSize() const override { return 20; }
+
+        /// See ContactCenter::GetType.
+        std::string  GetType() const override { return "Workplace"; }
 };
-} // namespace gengeopop
+
+} // namespace

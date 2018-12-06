@@ -36,8 +36,7 @@ inline double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
 
 namespace gengeopop {
 
-/// A functor that aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the
-/// Collector
+/// Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the Collector
 template <typename InsertIter, typename T>
 class Collector
 {
@@ -59,7 +58,7 @@ Collector<InsertIter, T> MakeCollector(const InsertIter& ins)
 }
 
 /**
- * A GeoAggregator can either be instanciated with a functor, or be called with one every time
+ * A GeoAggregator can either be instantiated with a functor, or be called with one every time
  *
  * A policy should have the following:
  *  - an embedded type Args: the type of argument it should receive at construction

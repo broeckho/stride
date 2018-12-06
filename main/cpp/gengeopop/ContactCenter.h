@@ -14,53 +14,59 @@
  */
 
 #pragma once
+
 #include "GeoGrid.h"
 
 namespace gengeopop {
 
 class GeoGridConfig;
 
-/// A ContactCenter contains multiple ContactPools
+/**
+ * A ContactCenter contains multiple ContactPools
+ */
+
 class ContactCenter
 {
 public:
-        /// Allow range-based iteration
-        using iterator = std::vector<stride::ContactPool*>::iterator;
+        /// Construct ContactCenter with assigned ID.
+        explicit ContactCenter(unsigned int id) : m_pools(), m_id(id) {}
 
-        /// Constructor
-        explicit ContactCenter(unsigned int id);
+        /// Add a ContactPool.
+        void AddPool(stride::ContactPool* pool) { m_pools.emplace_back(pool); }
+
+        /// Apply this ContactCenter to the GeoGrid.
+        virtual void Fill(const std::shared_ptr<GeoGrid>& geoGrid) = 0;
+
+        /// Return the ID.
+        unsigned int GetId() const { return m_id; }
+
+        /// Get the maximum number of pools for this contact center.
+        virtual unsigned int GetMaxPools() const = 0;
+
+        /// Get the pools container.
+        const std::vector<stride::ContactPool*>& GetPools() const { return m_pools; }
+
+        /// Get the size (on average) of a pool for this type of contact center.
+        virtual unsigned int GetPoolSize() const = 0;
+
+        /// Get a count of total population (first) and total number of infections (second).
+        std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
 
         /// Get the name of the type of contact center (e.g. College)
         virtual std::string GetType() const = 0;
 
-        /// Get the size of a pool
-        virtual unsigned int GetPoolSize() const = 0;
-
-        /// Get the maximal number of pools for this center
-        virtual unsigned int GetMaxPools() const = 0;
-
-        /// Apply this ContactCenter to the GeoGrid
-        virtual void Fill(const std::shared_ptr<GeoGrid>& geoGrid) = 0;
-
-        /// Get the ID back
-        unsigned int GetId() const;
-
-        /// Get a count of total population (first) and total number of infections (second)
-        std::pair<unsigned int, unsigned int> GetPopulationAndInfectedCount() const;
-
-        /// Add a ContactPool
-        void AddPool(stride::ContactPool* pool);
-
-        /// Get the pools
-        const std::vector<stride::ContactPool*>& GetPools() const;
-
-        /// Allow range-based iteration
-        iterator begin();
-        /// Allow range-based iteration
-        iterator end();
-
         /// Default destructor, but virtual
         virtual ~ContactCenter() = default;
+
+public:
+        /// Allow range-based iteration over pools in contact center.
+        using iterator = std::vector<stride::ContactPool*>::iterator;
+
+        /// Allow range-based iteration over pools in contact center.
+        iterator begin() { return m_pools.begin(); }
+
+        /// Allow range-based iteration over pools in contact center.
+        iterator end() { return m_pools.end(); }
 
 protected:
         std::vector<stride::ContactPool*> m_pools; ///< Our pools

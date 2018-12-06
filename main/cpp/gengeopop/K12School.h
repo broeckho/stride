@@ -24,10 +24,21 @@ namespace gengeopop {
 class K12School : public ContactCenter
 {
 public:
-        explicit K12School(unsigned int id);
-        std::string  GetType() const override;
-        unsigned int GetMaxPools() const override;
-        unsigned int GetPoolSize() const override;
-        void         Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        ///
+        explicit K12School(unsigned int id): ContactCenter(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetMaxPools.
+        unsigned int GetMaxPools() const override { return 25; }
+
+        /// See ContactCenter::GetPoolSize.
+        unsigned int GetPoolSize() const override { return 20; }
+
+        /// See ContactCenter::GetType.
+        std::string  GetType() const override { return "K12School"; }
+
+
 };
 } // namespace gengeopop

@@ -19,16 +19,28 @@
 
 namespace gengeopop {
 
-/// Models a Household as ContactCenter
+/**
+ * Models a Household as ContactCenter
+ */
 class Household : public ContactCenter
 {
 public:
-        explicit Household(unsigned int id);
-        Household();
-        std::string  GetType() const override;
-        unsigned int GetMaxPools() const override;
-        unsigned int GetPoolSize() const override;
-        void         Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        /// Construct with assigned ID.
+        explicit Household(unsigned int id = 0U) : ContactCenter(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetMaxPools
+        unsigned int GetMaxPools() const override { return 1; }
+
+        /// See ContactCenter::GetPoolSize.
+        unsigned int GetPoolSize() const override { return 15; }
+
+        /// See ContactCenter::GetType.
+        std::string  GetType() const override { return "Household"; }
+
+
 };
 
 } // namespace gengeopop

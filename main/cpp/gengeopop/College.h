@@ -18,15 +18,30 @@
 #include "ContactCenter.h"
 #include "GeoGrid.h"
 
+#include <string>
+
 namespace gengeopop {
-/// Models a College as ContactCenter
+
+/***
+ * Models a College (institution of higher education).
+ */
 class College : public ContactCenter
 {
 public:
-        explicit College(unsigned int id);
-        std::string  GetType() const override;
-        unsigned int GetPoolSize() const override;
-        unsigned int GetMaxPools() const override;
-        void         Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        /// Instatiate college with an assing Idfor its ContactCenter.
+        explicit College(unsigned int id) : ContactCenter(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetMaxPools.
+        unsigned int GetMaxPools() const override { return 20; };
+
+        /// See ContactCenter::GetPoolSize.
+        unsigned int GetPoolSize() const override { return 150; };
+
+        /// See ContactCenter::GetType.
+        std::string GetType() const override { return "College"; }
 };
+
 } // namespace gengeopop

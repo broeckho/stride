@@ -15,6 +15,10 @@
 
 #include "GeoGridConfig.h"
 
+#include "io/HouseholdReader.h"
+#include "gengeopop/io/CitiesReader.h"
+#include "util/StringUtils.h"
+
 namespace gengeopop {
 
 using stride::util::intToDottedString;
@@ -25,15 +29,15 @@ void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<
 {
         calculated.compulsoryPupils = static_cast<unsigned int>(
             std::floor(householdReader->GetFractionCompulsoryPupils() * input.populationSize));
-        calculated._1865_years =
+        calculated.popcount_1865_years =
             static_cast<unsigned int>(std::floor(householdReader->GetFraction1865Years() * input.populationSize));
-        calculated._1826_years =
+        calculated.popcount_1826_years =
             static_cast<unsigned int>(std::floor(householdReader->GetFraction1826Years() * input.populationSize));
-        calculated._1826_years_and_student =
-            static_cast<unsigned int>(std::floor(input.fraction_1826_years_WhichAreStudents * calculated._1826_years));
+        calculated.popcount_1826_years_and_student =
+            static_cast<unsigned int>(std::floor(input.fraction_1826_years_WhichAreStudents * calculated.popcount_1826_years));
 
-        calculated._1865_and_years_active = static_cast<unsigned int>(std::floor(
-            input.fraction_1865_years_active * (calculated._1865_years - calculated._1826_years_and_student)));
+        calculated.popcount_1865_and_years_active = static_cast<unsigned int>(std::floor(
+            input.fraction_1865_years_active * (calculated.popcount_1865_years - calculated.popcount_1826_years_and_student)));
 
         calculated.households = static_cast<unsigned int>(
             std::floor(static_cast<double>(input.populationSize) / householdReader->AverageHouseholdSize()));
@@ -63,14 +67,14 @@ std::ostream& operator<<(std::ostream& out, const GeoGridConfig& config)
         out << std::left << "Calculated:" << std::endl;
         out << std::left << std::setw(width) << "Compulsory pupils"
             << intToDottedString(config.calculated.compulsoryPupils) << std::endl;
-        out << std::left << std::setw(width) << "18-26 years" << intToDottedString(config.calculated._1826_years)
+        out << std::left << std::setw(width) << "18-26 years" << intToDottedString(config.calculated.popcount_1826_years)
             << std::endl;
         out << std::left << std::setw(width) << "18-26 years which are student"
-            << intToDottedString(config.calculated._1826_years_and_student) << std::endl;
-        out << std::left << std::setw(width) << "18-65 years" << intToDottedString(config.calculated._1865_years)
+            << intToDottedString(config.calculated.popcount_1826_years_and_student) << std::endl;
+        out << std::left << std::setw(width) << "18-65 years" << intToDottedString(config.calculated.popcount_1865_years)
             << std::endl;
         out << std::left << std::setw(width) << "18-65 years which are active"
-            << intToDottedString(config.calculated._1865_and_years_active) << std::endl;
+            << intToDottedString(config.calculated.popcount_1865_and_years_active) << std::endl;
         out << std::endl;
         return out;
 }

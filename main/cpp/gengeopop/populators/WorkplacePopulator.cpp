@@ -94,10 +94,10 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 void WorkplacePopulator::CalculateFractionCommutingStudents()
 {
         if (m_geoGridConfig.input.fraction_active_commutingPeople &&
-            m_geoGridConfig.calculated._1865_and_years_active) {
-                m_fractionCommutingStudents = (m_geoGridConfig.calculated._1826_years_and_student *
+            m_geoGridConfig.calculated.popcount_1865_and_years_active) {
+                m_fractionCommutingStudents = (m_geoGridConfig.calculated.popcount_1826_years_and_student *
                                                m_geoGridConfig.input.fraction_student_commutingPeople) /
-                                              (m_geoGridConfig.calculated._1865_and_years_active *
+                                              (m_geoGridConfig.calculated.popcount_1865_and_years_active *
                                                m_geoGridConfig.input.fraction_active_commutingPeople);
         } else {
                 m_fractionCommutingStudents = 0;

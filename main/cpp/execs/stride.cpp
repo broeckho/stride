@@ -48,33 +48,32 @@ int main(int argc, char** argv)
                 // -----------------------------------------------------------------------------------------
                 CmdLine cmd("stride", ' ', "1.0");
 
-                string sa = "Stochastic Analysis (stan) will run <COUNT> simulations, each with "
-                            "a different seed for the random engine."
-                            "This option only applies in case of -e sim. It effects overrides to the "
-                            "configuration. See the manual for more info.";
+                string sa = "Stochastic Analysis (stan) will run <COUNT> simulations, each with a "
+                            "different seed for the random engine. Only applies in case of -e sim. ";
                 ValueArg<unsigned int> stanArg("", "stan", sa, false, 0, "COUNT", cmd);
 
-                string si = "Look for configuration file specified by the -c file=<file> or -c <file> in the "
-                            "stride install directories";
+                string si = "Look for configuration file specified by the -c file=<file> "
+                            " or -c <file> in the stride install directories";
                 SwitchArg installedArg("i", "installed", si, cmd, true);
 
-                string           so = "Override parameters in the configuration specified with --config.";
+                string           so = "Override configuration file parameters with values provided here.";
                 MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
 
-                string sc = "Specifies the run configuration parameters. The format may be either "
-                            "-c file=<file> or -c name=<name>. The first is most commonly used and may be "
-                            "shortened to -c <file>. The second format "
-                            "refers to built-in configurations specified by their name.";
+                string sc = "Specifies the run configuration parameters. The format may be "
+                            "either -c file=<file> or -c name=<name>. The first is most "
+                            "used and may be shortened to -c <file>. The second refers to "
+                            "built-in configurations specified by their name."
+                            "\nDefaults to -c file=run_default.xml";
                 ValueArg<string> configArg("c", "config", sc, false, "run_default.xml", "CONFIGURATION", cmd);
 
-                vector<string>           execs{"clean", "dump", "sim", "simgui", "geopop"};
+                vector<string>           execs{"clean", "dump", "sim", "geopop"};
                 ValuesConstraint<string> vc(execs);
-                string                   se = "Execute the function selected.\n"
-                            "  clean:  cleans the configuration file and writes it to a new file.\n"
-                            "  dump:   takes the built-in configuration writes it to a file.\n"
-                            "  sim:    runs the simulator and is the default.\n"
-                            "  simgui: runs the simulator with a graphical interface.\n"
-                            "  geopop: runs the geospatial synthetic population generator\n";
+                string                   se = "Execute the corresponding function:"
+                            "  \n\t clean:  cleans configuration and writes it to a new file."
+                            "  \n\t dump:   takes built-in configuration writes it to a file."
+                            "  \n\t sim:    runs the simulator and is the default."
+                            "  \n\t geopop: runs the geospatial synthetic population generator"
+                            "Defaults to --exec sim.";
                 ValueArg<string> execArg("e", "exec", se, false, "sim", &vc, cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));

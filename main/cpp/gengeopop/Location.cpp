@@ -15,8 +15,10 @@
 
 #include "Location.h"
 #include "ContactCenter.h"
+#include "util/Exception.h"
+
 #include <cmath>
-#include <util/Exception.h>
+
 
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)

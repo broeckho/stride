@@ -164,3 +164,11 @@ set_target_properties(libprotobuf_insrc PROPERTIES COMPILE_FLAGS "-Wno-all -Wno-
 set_property(TARGET libprotobuf_insrc PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(libprotobuf_insrc ${CMAKE_THREAD_LIBS_INIT})
 target_include_directories(libprotobuf_insrc PUBLIC .)
+
+# To avoid tho "has no symbol warnings for empty .o's in static libs
+if(CMAKE_HOST_APPLE)
+  SET(CMAKE_C_ARCHIVE_CREATE   "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
+  SET(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
+  SET(CMAKE_C_ARCHIVE_FINISH   "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
+  SET(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
+endif()

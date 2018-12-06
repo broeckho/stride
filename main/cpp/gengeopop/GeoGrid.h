@@ -15,24 +15,23 @@
 
 #pragma once
 
-#include <cmath>
-#include <iostream>
-#include <map>
-#include <pop/Population.h>
-#include <set>
-#include <unordered_map>
-#include <vector>
-
-#include "../pool/ContactPool.h"
-#include "KdTree.h"
 #include "Location.h"
+#include "KdTree.h"
+#include "pool/ContactPool.h"
+#include "pop/Population.h"
 
-// Trying to include specific headers to lower compilation times
 #include <boost/geometry/algorithms/distance.hpp>
 #include <boost/geometry/algorithms/within.hpp>
 #include <boost/geometry/geometries/box.hpp>
 #include <boost/geometry/geometries/point.hpp>
 #include <boost/geometry/strategies/geographic/distance.hpp>
+
+#include <cmath>
+#include <iostream>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <vector>
 
 namespace gengeopop {
 template <typename Policy, typename... F>
@@ -101,15 +100,15 @@ private:
 
 } // namespace geogrid_detail
 
-/// A Geographic information grid for a single region
+/**
+ * A Geographic information grid for a single region.
+ */
+
 class GeoGrid
 {
 public:
-        using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
-        using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
-
         /// Construct with information about population
-        GeoGrid(stride::Population* population);
+        explicit GeoGrid(stride::Population* population);
 
         /// No copy constructor
         GeoGrid(const GeoGrid&) = delete;
@@ -152,17 +151,6 @@ public:
                              get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
         }
 
-        /// Iterator to first Location
-        iterator begin();
-
-        /// Iterator to the end of the Location storage
-        iterator end();
-
-        /// Const Iterator to first Location
-        const_iterator cbegin() const;
-
-        /// Const iterator to the end of the Location storage
-        const_iterator cend() const;
 
         /// Gets amount of Location
         size_t size() const;
@@ -200,11 +188,27 @@ public:
         /// Build a GeoAggregator that gets its functor when calling, with given args for the Policy
         template <typename Policy>
         GeoAggregator<Policy> BuildAggregator(typename Policy::Args&& args) const;
+public:
+        using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
+        using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
+
+        /// Iterator to first Location
+        iterator begin()  { return m_locations.begin(); }
+
+        /// Iterator to the end of the Location storage
+        iterator end() { return m_locations.end(); }
+
+        /// Const Iterator to first Location
+        const_iterator cbegin() const { return m_locations.cbegin(); }
+
+        /// Const iterator to the end of the Location storage
+        const_iterator cend() const { return m_locations.cend(); }
 
 private:
         void CheckFinalized(const std::string& functionName)
             const; ///< Checks whether the GeoGrid is finalized and thus certain operations can(not) be used
 
+private:
         std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid
         std::unordered_map<unsigned int, std::shared_ptr<Location>>
                             m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id

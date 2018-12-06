@@ -14,10 +14,11 @@
  */
 
 #include "GeoGrid.h"
+#include "util/Exception.h"
+
 #include <cmath>
 #include <iostream>
 #include <queue>
-#include <util/Exception.h>
 #include <utility>
 
 namespace gengeopop {
@@ -27,10 +28,6 @@ GeoGrid::GeoGrid(stride::Population* population)
 
 {
 }
-
-GeoGrid::iterator GeoGrid::begin() { return m_locations.begin(); }
-
-GeoGrid::iterator GeoGrid::end() { return m_locations.end(); }
 
 void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 {
@@ -43,6 +40,7 @@ void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 }
 
 std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
+
 std::shared_ptr<Location>          GeoGrid::Get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
@@ -71,10 +69,6 @@ std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 
         return topLocations;
 }
-
-GeoGrid::const_iterator GeoGrid::cbegin() const { return m_locations.cbegin(); }
-
-GeoGrid::const_iterator GeoGrid::cend() const { return m_locations.cend(); }
 
 size_t GeoGrid::size() const { return m_locations.size(); }
 

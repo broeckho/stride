@@ -13,39 +13,43 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <tclap/CmdLine.h>
-#include <gengeopop/Community.h>
-#include <gengeopop/GenGeoPopController.h>
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/generators/CollegeGenerator.h>
-#include <gengeopop/generators/CommunityGenerator.h>
-#include <gengeopop/generators/GeoGridGenerator.h>
-#include <gengeopop/generators/HouseholdGenerator.h>
-#include <gengeopop/generators/K12SchoolGenerator.h>
-#include <gengeopop/generators/WorkplaceGenerator.h>
-#include <gengeopop/io/GeoGridProtoWriter.h>
-#include <gengeopop/io/GeoGridWriterFactory.h>
-#include <gengeopop/io/ReaderFactory.h>
-#include <gengeopop/populators/CollegePopulator.h>
-#include <gengeopop/populators/GeoGridPopulator.h>
-#include <gengeopop/populators/HouseholdPopulator.h>
-#include <gengeopop/populators/K12SchoolPopulator.h>
-#include <gengeopop/populators/PrimaryCommunityPopulator.h>
-#include <gengeopop/populators/SecondaryCommunityPopulator.h>
-#include <gengeopop/populators/WorkplacePopulator.h>
+
+#include "gengeopop/Community.h"
+#include "gengeopop/GenGeoPopController.h"
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/generators/CollegeGenerator.h"
+#include "gengeopop/generators/CommunityGenerator.h"
+#include "gengeopop/generators/GeoGridGenerator.h"
+#include "gengeopop/generators/HouseholdGenerator.h"
+#include "gengeopop/generators/K12SchoolGenerator.h"
+#include "gengeopop/generators/WorkplaceGenerator.h"
+#include "gengeopop/io/GeoGridProtoWriter.h"
+#include "gengeopop/io/GeoGridWriterFactory.h"
+#include "gengeopop/io/ReaderFactory.h"
+#include "gengeopop/populators/CollegePopulator.h"
+#include "gengeopop/populators/GeoGridPopulator.h"
+#include "gengeopop/populators/HouseholdPopulator.h"
+#include "gengeopop/populators/K12SchoolPopulator.h"
+#include "gengeopop/populators/PrimaryCommunityPopulator.h"
+#include "gengeopop/populators/SecondaryCommunityPopulator.h"
+#include "gengeopop/populators/WorkplacePopulator.h"
+#include "util/LogUtils.h"
 
 #include <boost/lexical_cast.hpp>
+#include <spdlog/common.h>
+#include <spdlog/fmt/ostr.h>
+#include <tclap/CmdLine.h>
 #include <fstream>
 #include <iostream>
 #include <omp.h>
-#include <spdlog/common.h>
-#include <spdlog/fmt/ostr.h>
-#include <util/LogUtils.h>
+#include <string>
 #include <utility>
 
 using namespace gengeopop;
 using namespace TCLAP;
+using namespace std;
+using namespace stride::util;
 
 int main(int argc, char* argv[])
 {
@@ -57,16 +61,26 @@ int main(int argc, char* argv[])
                 // Parse parameters.
                 // --------------------------------------------------------------
                 CmdLine               cmd("gengeopop", ' ', "1.0");
-                ValueArg<std::string> citiesFile("c", "cities", "Cities File", false, "flanders_cities.csv",
-                                                 "CITIES FILE", cmd);
-                ValueArg<std::string> commutingFile("m", "commuting", "Commuting File", false, "flanders_commuting.csv",
-                                                    "COMMUTING FILE", cmd);
-                ValueArg<std::string> outputFile("o", "output", "Output File", false, "gengeopop.proto", "OUTPUT FILE",
-                                                 cmd);
-                ValueArg<std::string> houseHoldFile("u", "household", "Household File", false,
-                                                    "households_flanders.csv", "OUTPUT FILE", cmd);
 
-                ValueArg<std::string> logLevel("l", "loglevel", "Loglevel", false, "info", "LOGLEVEL", cmd);
+                string sci = "Input file with data on cities in csv format."
+                             "Defaults to flanders_cities.csv.";
+                ValueArg<string> citiesFile("", "cities", sci, false, "flanders_cities.csv", "CITIES FILE", cmd);
+
+                string sco = "Input file with data on commuting in csv format."
+                             "Defaults to flanders_commuting.csv.";
+                ValueArg<string> commutingFile("", "commuting", sco, false, "flanders_commuting.csv",
+                                                "COMMUTING FILE", cmd);
+
+                string sho = "Input file with reference set of households in csv format."
+                             "Defaults to households_flanders.csv.";
+                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv",
+                        "OUTPUT FILE", cmd);
+
+                string sou = "Output file with synthetic population in protobuf format."
+                             "Defaults to gengeopop.proto.";
+                ValueArg<string> outputFile("o", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
+
+                ValueArg<string> logLevel("l", "loglevel", "Loglevel", false, "info", "LOGLEVEL", cmd);
 
                 ValueArg<double> fraction1826Students("s", "frac1826students",
                                                       "Fraction of 1826 years which are students", false, 0.50,
@@ -86,20 +100,15 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
                                                       "POPULATION SIZE", cmd);
 
-                ValueArg<std::string> rng_seed("", "seed", "The seed to be used for the random engine", false,
+                ValueArg<string> rng_seed("", "seed", "The seed to be used for the random engine", false,
                                                "1,2,3,4", "SEED", cmd);
 
-                ValueArg<std::string> rng_state(
-                    "", "state",
-                    "The state to be used for initializing the random engine.",
-                    false, "", "RNG TYPE", cmd);
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
                 // --------------------------------------------------------------
                 // Create logger.
                 // --------------------------------------------------------------
-                std::shared_ptr<spdlog::logger> logger =
-                    stride::util::LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
+                shared_ptr<spdlog::logger> logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::from_str(logLevel.getValue()));
                 logger->flush_on(spdlog::level::err);
 
@@ -113,12 +122,8 @@ int main(int argc, char* argv[])
                 geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
-                std::string state = "";
-                if (rng_state.isSet()) {
-                        state = rng_state.getValue();
-                }
-                stride::util::RnMan::Info info(rng_seed.getValue(), state, omp_get_num_threads());
-                stride::util::RnMan       rnManager(info);
+                RnMan::Info info(rng_seed.getValue(), "", static_cast<unsigned int>(omp_get_num_threads()));
+                RnMan       rnManager(info);
 
                 GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
                                                         commutingFile.getValue(), houseHoldFile.getValue());
@@ -128,50 +133,42 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 genGeoPopController.ReadDataFiles();
                 logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
-                logger->info("The random engine is initialized with the following values:");
-                if (rng_state.isSet()) {
-                        logger->info("Seed:\t{}", info.m_state);
-                } else {
-                        logger->info("Seed:\t{}", info.m_seed_seq_init);
-                }
-                logger->info("Number of threads:\t{}", info.m_stream_count);
+                logger->info("Random engine initialized with seed: {}", info.m_seed_seq_init);
+                logger->info("Number of threads: {}", info.m_stream_count);
 
                 // --------------------------------------------------------------
                 // Generate Geo
                 // --------------------------------------------------------------
-                logger->info("Starting Gen-Geo");
+                logger->info("Start generation geographic grid.");
                 genGeoPopController.GenGeo();
-                logger->info("ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
-                logger->info("ContactPools generated: {}", geoGridConfig.generated.contactPools);
-                logger->info("Finished Gen-Geo");
+                logger->info("Number of ContactCenters generated: {}", geoGridConfig.generated.contactCenters);
+                logger->info("Number of ContactPools generated: {}", geoGridConfig.generated.contactPools);
+                logger->info("Done generation geographic grid.");
 
                 // --------------------------------------------------------------
                 // Generate Pop
                 // --------------------------------------------------------------
-                logger->info("Starting Gen-Pop");
+                logger->info("Start generating of synthetic population.");
                 genGeoPopController.GenPop();
-                logger->info("Finished Gen-Pop");
+                logger->info("Done generating synthetic population.");
 
                 // --------------------------------------------------------------
                 // Write to file.
                 // --------------------------------------------------------------
-                logger->info("Writing to file...");
+                logger->info("Writing to population file.");
                 GeoGridWriterFactory geoGridWriterFactory;
-
-                std::shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
-                std::ofstream                  outputFileStream(outputFile.getValue());
+                shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
+                ofstream                  outputFileStream(outputFile.getValue());
                 geoGridWriter->Write(genGeoPopController.GetGeoGrid(), outputFileStream);
                 outputFileStream.close();
+                logger->info("Done writing to population file.");
 
-                logger->info("Done writing to file...");
-                info = rnManager.GetInfo();
-                logger->info("The current state of the random engine: {}", info.m_state);
-        } catch (std::exception& e) {
+        } catch (exception& e) {
                 exit_status = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: " << e.what() << std::endl;
+                cerr << "\nEXCEPION THROWN: " << e.what() << endl;
         } catch (...) {
                 exit_status = EXIT_FAILURE;
-                std::cerr << "\nEXCEPION THROWN: Unknown exception." << std::endl;
+                cerr << "\nEXCEPION THROWN: Unknown exception." << endl;
         }
         return exit_status;
 }

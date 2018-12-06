@@ -15,10 +15,11 @@
 
 #include "K12SchoolGenerator.h"
 #include "gengeopop/K12School.h"
+#include "gengeopop/GeoGridConfig.h"
+
 #include <trng/discrete_dist.hpp>
 #include <trng/lcg64.hpp>
 #include <cmath>
-#include <gengeopop/GeoGridConfig.h>
 #include <iostream>
 
 namespace gengeopop {
@@ -26,9 +27,11 @@ namespace gengeopop {
 void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
-         * 1. calculate amount of schools, each school has average 500 pupils, taking in account the amount of pupils
-         * 2. assign schools to a location by using a discrete distribution which reflects the relative amount of pupils
-         * for that location the relative amount of pupils is equal to the relative amount of population
+         * 1. given the number of person of school age, calculate number of schools; each school
+         *    has 500 pupils on average
+         * 2. assign schools to a location by using a discrete distribution which reflects the
+         *    relative number of pupils for that location; the relative number of pupils is set
+         *    to the relative population w.r.t the total population.
          */
 
         int  amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;

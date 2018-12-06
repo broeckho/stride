@@ -3,6 +3,7 @@
 #============================================================================
 add_executable(stride stride.cpp)
 target_link_libraries(stride ${LIBS} libstride libgengeopop)
+
 install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================

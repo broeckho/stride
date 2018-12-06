@@ -19,16 +19,16 @@
 #
 #############################################################################
 cmake_minimum_required(VERSION 3.5)
-include(CMakeConfig.cmake)
-include(CMakeLocal.cmake OPTIONAL)
 if(CMAKE_VERSION VERSION_LESS 3.8)
     set(STRIDE_FORCE_NO_PYTHON ON)
 endif()
+include(CMakeConfig.cmake)
 
 #============================================================================
 # Configuration for CMake, for build & install.
 #============================================================================
 project(STRIDE)
+include(CMakeLocal.cmake OPTIONAL)
 
 #============================================================================
 # INSTALL LOCATION for bin, doc etc.

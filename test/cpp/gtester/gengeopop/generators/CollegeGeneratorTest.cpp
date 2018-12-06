@@ -34,7 +34,7 @@ TEST(CollegeGeneratorTest, OneLocationTest)
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};
         config.input.populationSize               = 45000;
-        config.calculated._1826_years_and_student = 9000;
+        config.calculated.popcount_1826_years_and_student = 9000;
 
         auto pop     = stride::Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -57,7 +57,7 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};
         config.input.populationSize               = 10000;
-        config.calculated._1826_years_and_student = 2000;
+        config.calculated.popcount_1826_years_and_student = 2000;
 
         auto pop     = stride::Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -75,7 +75,7 @@ TEST(CollegeGeneratorTest, FiveLocationsTest)
         CollegeGenerator collegeGenerator(rnManager, CreateLogger());
         GeoGridConfig    config{};
         config.input.populationSize               = 399992;
-        config.calculated._1826_years_and_student = 79998;
+        config.calculated.popcount_1826_years_and_student = 79998;
 
         auto             pop     = stride::Population::Create();
         auto             geoGrid = std::make_shared<GeoGrid>(pop.get());

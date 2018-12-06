@@ -282,7 +282,7 @@ private:
 };
 
 /***************************************
- *  Implementation kd start here  *
+ *  Implementation of kd starts here   *
  ***************************************/
 namespace kd {
 

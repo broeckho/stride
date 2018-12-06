@@ -35,7 +35,7 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
          * 5. assign each workplace to a location
          */
 
-        auto amountOfEmployees = geoGridConfig.calculated._1865_and_years_active;
+        auto amountOfEmployees = geoGridConfig.calculated.popcount_1865_and_years_active;
         auto amountOfWorkplaces =
             static_cast<int>(std::ceil(amountOfEmployees / geoGridConfig.constants.meanWorkplaceSchoolSize));
 

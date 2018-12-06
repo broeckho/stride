@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -13,22 +14,25 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#pragma once
-#include "io/HouseholdReader.h"
+#include "gengeopop/Household.h"
+
 #include <cmath>
-#include <gengeopop/io/CitiesReader.h>
 #include <iomanip>
 #include <iostream>
-#include <util/StringUtils.h>
 
 namespace gengeopop {
 
-using stride::util::intToDottedString;
+class GeoGrid;
+class HouseholdReader;
 
-/// Configuration data when generating a GeoGrid
+/**
+ * Configuration data for generating a GeoGrid.
+ */
+
 class GeoGridConfig
 {
 public:
+        /// Default constructor needed.
         GeoGridConfig();
 
         /// Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid and
@@ -64,20 +68,20 @@ public:
         // -----------------------------------------------------------------------------------------
         struct
         {
-                /// Absolute amount of population which are compulsory to go to school (i.e. 6-18 years old).
+                /// Numbers of persons for which school is compulsory (i.e. 6-18 years old).
                 unsigned int compulsoryPupils;
 
                 /// Absolute amount of population which are [18, 65) years old.
-                unsigned int _1865_years;
+                unsigned int popcount_1865_years;
 
                 /// Absolute amount of population which are [18, 26) years old.
-                unsigned int _1826_years;
+                unsigned int popcount_1826_years;
 
                 /// Absolute amount of population which are [18, 26) years old and are a student.
-                unsigned int _1826_years_and_student;
+                unsigned int popcount_1826_years_and_student;
 
                 /// Absolute amount of population which are [18, 65] years old and active.
-                unsigned int _1865_and_years_active;
+                unsigned int popcount_1865_and_years_active;
 
                 /// The number of households needed with this population size and these types of households.
                 unsigned int households;
@@ -101,7 +105,7 @@ public:
         } generated;
 
         // -----------------------------------------------------------------------------------------
-        // CONSTANTS
+        // CONSTANTS (for now at least)
         // -----------------------------------------------------------------------------------------
         struct
         {

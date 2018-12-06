@@ -1,3 +1,4 @@
+#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -13,14 +14,15 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#pragma once
-
 #include "GeoGridConfig.h"
-#include <gengeopop/io/CommutesReader.h>
+#include "util/RnMan.h"
+
 #include <spdlog/logger.h>
-#include <util/RnMan.h>
 
 namespace gengeopop {
+
+class CitiesReader;
+class CommutesReader;
 
 /**
  * Controls the complete generation and population of a GeoGrid.

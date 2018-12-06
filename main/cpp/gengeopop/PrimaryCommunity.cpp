@@ -14,13 +14,11 @@
  */
 
 #include "PrimaryCommunity.h"
-
-using namespace stride::ContactPoolType;
+#include "GeoGrid.h"
 
 namespace gengeopop {
 
-PrimaryCommunity::PrimaryCommunity(unsigned int id) : Community(id) {}
-std::string PrimaryCommunity::GetType() const { return "Primary Community"; }
+using namespace stride::ContactPoolType;
 
 void PrimaryCommunity::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
 {

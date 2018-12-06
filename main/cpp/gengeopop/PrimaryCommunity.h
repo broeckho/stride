@@ -16,17 +16,25 @@
 #pragma once
 
 #include "Community.h"
-#include "Household.h"
 
 namespace gengeopop {
 
-/// A model of a Primary Community (as a ContactCenter)
+class GeoGrid;
+
+/**
+ * A model of a Primary Community (as a ContactCenter)
+ */
 class PrimaryCommunity : public Community
 {
 public:
-        explicit PrimaryCommunity(unsigned int id);
-        std::string GetType() const override;
-        void        Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        /// Construct community with assigned ID.
+        explicit PrimaryCommunity(unsigned int id) : Community(id) {}
+
+        /// See ContactCenter::Fill.
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+
+        /// See ContactCenter::GetType.
+        std::string GetType() const override { return "Primary Community"; }
 };
 
-} // namespace gengeopop
+} // namespace
