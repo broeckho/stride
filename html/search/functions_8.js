@@ -23,7 +23,7 @@ var searchData=
   ['health',['Health',['../dd/d42/a00109.html#a29ca39e47180884b3c7681636d1c550d',1,'stride::Health']]],
   ['healthseeder',['HealthSeeder',['../d4/d81/a00110.html#a7b4785c0728c9f154aa1426034d6e1b5',1,'stride::HealthSeeder']]],
   ['height',['Height',['../d5/de0/a00050.html#a6509dc9a5dd05d41e833a0e1acfed77e',1,'gengeopop::KdTree']]],
-  ['household',['Household',['../dd/d32/a00041.html#a73f0b8ee89440829f987745c5234dbb4',1,'gengeopop::Household::Household(unsigned int id)'],['../dd/d32/a00041.html#a6cb7e57ef075ae9a017b78e7fd2550e3',1,'gengeopop::Household::Household()']]],
+  ['household',['Household',['../dd/d32/a00041.html#ad3c34c2af09ea1e88dfd412ffae3989e',1,'gengeopop::Household']]],
   ['householdcsvreader',['HouseholdCSVReader',['../d5/db6/a00042.html#a977c1f083a3ac0f06f5fa22ef9937e77',1,'gengeopop::HouseholdCSVReader']]],
   ['householdreader',['HouseholdReader',['../d6/d97/a00045.html#a17cbd8636b5149fcada7cbe211d8426d',1,'gengeopop::HouseholdReader']]]
 ];

@@ -1,13 +1,11 @@
 var NAVTREEINDEX10 =
 {
-"functions_vars_w.html":[2,3,2,18],
-"functions_w.html":[2,3,0,23],
 "globals.html":[3,1,0],
 "globals_defs.html":[3,1,2],
 "globals_func.html":[3,1,1],
 "hierarchy.html":[2,2],
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "index.html#Contributors":[0,2],
 "index.html#Documentation":[0,1],
 "index.html#License":[0,3],
