@@ -24,6 +24,7 @@ add_subdirectory(examples)
 # Scripts for 'Measles in Flanders' study
 #============================================================================
 add_subdirectory(measles_in_flanders)
+add_subdirectory(age_immunity_shift)
 
 #============================================================================
 # Build & install the Swig files for python environment.
