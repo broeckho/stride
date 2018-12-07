@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 78b6529</span>
+   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
    </div>
   </td>
  </tr>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('db/df3/a00034.html','../../');});
 </div><!--header-->
 <div class="contents">
 
-<p>Add population to a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (analog to <a class="el" href="../../df/d61/a00031.html" title="Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator) ">GeoGridGenerator</a>)  
+<p>Add population to a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../df/d61/a00031.html" title="Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator) ">GeoGridGenerator</a>).  
  <a href="../../db/df3/a00034.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>&gt;</code></p>
@@ -136,9 +136,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a config and a target <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a33b4ff3e2a26fac5dc4189580ad4ff94">More...</a><br /></td></tr>
 <tr class="separator:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e37467896ed3bc3cddf201282585ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a68e37467896ed3bc3cddf201282585ad">AddPartialPopulator</a> (std::shared_ptr&lt; <a class="el" href="../../dc/dee/a00053.html">PartialPopulator</a> &gt; gen)</td></tr>
-<tr class="memdesc:a68e37467896ed3bc3cddf201282585ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="../../dc/dee/a00053.html" title="An interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating.  <a href="#a68e37467896ed3bc3cddf201282585ad">More...</a><br /></td></tr>
+<tr class="memdesc:a68e37467896ed3bc3cddf201282585ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="../../dc/dee/a00053.html" title="Interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating.  <a href="#a68e37467896ed3bc3cddf201282585ad">More...</a><br /></td></tr>
 <tr class="separator:a68e37467896ed3bc3cddf201282585ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fa2934bb8d3335c17883c56887da917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a1fa2934bb8d3335c17883c56887da917">PopulateGeoGrid</a> ()</td></tr>
+<tr class="memdesc:a1fa2934bb8d3335c17883c56887da917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply all partial populators onto an empty <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object.  <a href="#a1fa2934bb8d3335c17883c56887da917">More...</a><br /></td></tr>
 <tr class="separator:a1fa2934bb8d3335c17883c56887da917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab201324110f6509318c17bff95f513c5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ab201324110f6509318c17bff95f513c5">GetGeoGrid</a> ()</td></tr>
 <tr class="memdesc:ab201324110f6509318c17bff95f513c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the target <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ab201324110f6509318c17bff95f513c5">More...</a><br /></td></tr>
@@ -147,7 +148,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ace21dd729826b385b0b54006a672b9e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dc/dee/a00053.html">PartialPopulator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#ace21dd729826b385b0b54006a672b9e9">m_partialPopulators</a></td></tr>
-<tr class="memdesc:ace21dd729826b385b0b54006a672b9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Our PartialPopulators.  <a href="#ace21dd729826b385b0b54006a672b9e9">More...</a><br /></td></tr>
+<tr class="memdesc:ace21dd729826b385b0b54006a672b9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">PartialPopulators.  <a href="#ace21dd729826b385b0b54006a672b9e9">More...</a><br /></td></tr>
 <tr class="separator:ace21dd729826b385b0b54006a672b9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa23397da0a882e1320b22c43e82526"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html#a9aa23397da0a882e1320b22c43e82526">m_geoGrid</a></td></tr>
 <tr class="memdesc:a9aa23397da0a882e1320b22c43e82526"><td class="mdescLeft">&#160;</td><td class="mdescRight">The target.  <a href="#a9aa23397da0a882e1320b22c43e82526">More...</a><br /></td></tr>
@@ -157,9 +158,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Add population to a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (analog to <a class="el" href="../../df/d61/a00031.html" title="Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator) ">GeoGridGenerator</a>) </p>
+<div class="textblock"><p>Add population to a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../df/d61/a00031.html" title="Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator) ">GeoGridGenerator</a>). </p>
 
-<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00023">23</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00025">25</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a33b4ff3e2a26fac5dc4189580ad4ff94"></a>
 <div class="memitem">
@@ -187,7 +188,7 @@ Private Attributes</h2></td></tr>
 
 <p>Construct with a config and a target <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00022">22</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00023">23</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,11 +207,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add a <a class="el" href="../../dc/dee/a00053.html" title="An interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating. </p>
+<p>Add a <a class="el" href="../../dc/dee/a00053.html" title="Interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating. </p>
 
-<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00036">36</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00037">37</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00042">m_partialPopulators</a>.</p>
+<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00041">m_partialPopulators</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d0/def/a00256_source.html#l00096">gengeopop::GenGeoPopController::GenPop()</a>.</p>
 
@@ -228,17 +229,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>Filename with the config of the wanted geogrid. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> that was generated by applying all partial populators onto an empty <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00027">27</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Apply all partial populators onto an empty <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object. </p>
 
-<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00043">m_geoGrid</a>, <a class="el" href="../../d0/d19/a00273_source.html#l00044">m_geoGridConfig</a>, and <a class="el" href="../../d0/d19/a00273_source.html#l00042">m_partialPopulators</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00028">28</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00042">m_geoGrid</a>, <a class="el" href="../../d0/d19/a00273_source.html#l00043">m_geoGridConfig</a>, and <a class="el" href="../../d0/d19/a00273_source.html#l00041">m_partialPopulators</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d0/def/a00256_source.html#l00096">gengeopop::GenGeoPopController::GenPop()</a>.</p>
 
@@ -259,9 +255,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get the target <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00034">34</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00035">35</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">GeoGridPopulator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00043">m_geoGrid</a>.</p>
+<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00042">m_geoGrid</a>.</p>
 
 </div>
 </div>
@@ -284,11 +280,11 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Our PartialPopulators. </p>
+<p>PartialPopulators. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00042">42</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00041">41</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00036">AddPartialPopulator()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00027">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00037">AddPartialPopulator()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00028">PopulateGeoGrid()</a>.</p>
 
 </div>
 </div>
@@ -312,9 +308,9 @@ Private Attributes</h2></td></tr>
 
 <p>The target. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00043">43</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00042">42</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00034">GetGeoGrid()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00027">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00035">GetGeoGrid()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00028">PopulateGeoGrid()</a>.</p>
 
 </div>
 </div>
@@ -338,9 +334,9 @@ Private Attributes</h2></td></tr>
 
 <p>The config. </p>
 
-<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00044">44</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00043">43</a> of file <a class="el" href="../../d0/d19/a00273_source.html">GeoGridPopulator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00027">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00028">PopulateGeoGrid()</a>.</p>
 
 </div>
 </div>
@@ -354,7 +350,7 @@ Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../db/df3/a00034.html">GeoGridPopulator</a></li>
-    <li class="footer">Generated on Thu Dec 6 2018 16:29:22 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

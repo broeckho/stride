@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 78b6529</span>
+   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
    </div>
   </td>
  </tr>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('dc/dee/a00053.html','../../');});
 </div><!--header-->
 <div class="contents">
 
-<p>An interface for populators that provide a partial solution.  
+<p>Interface for populators that provide a partial solution.  
  <a href="../../dc/dee/a00053.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>&gt;</code></p>
@@ -161,7 +161,7 @@ Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d9/df8/a00096.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#a992a6f6b8761f481eabe22ffccc8f961">GetContactPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d2/d79/a00051.html">Location</a> &gt; &amp;start, <a class="el" href="../../de/d87/a00456.html">double</a> startRadius=10) const </td></tr>
-<tr class="memdesc:a992a6f6b8761f481eabe22ffccc8f961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in <code>geoGrid</code> in an exponentially increasing radius, starting at <code>startRadius</code>, around <code>start</code> As soon as at least one pool is found, all pools within the current radius are returned May return an empty vector when there are no pools to be found.  <a href="#a992a6f6b8761f481eabe22ffccc8f961">More...</a><br /></td></tr>
+<tr class="memdesc:a992a6f6b8761f481eabe22ffccc8f961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in <code>geoGrid</code> in an exponentially increasing radius.  <a href="#a992a6f6b8761f481eabe22ffccc8f961">More...</a><br /></td></tr>
 <tr class="separator:a992a6f6b8761f481eabe22ffccc8f961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18d65985647c2afb90627fa7048be6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dee/a00053.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a> (<a class="el" href="../../de/d87/a00456.html">double</a> fraction)</td></tr>
 <tr class="memdesc:ad18d65985647c2afb90627fa7048be6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper around m_rnManager.  <a href="#ad18d65985647c2afb90627fa7048be6a">More...</a><br /></td></tr>
@@ -177,10 +177,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a7c9b69f1083ed1016458ccaaa8e53964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface for populators that provide a partial solution. </p>
-<p>They generate some data and apply it onto the <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<div class="textblock"><p>Interface for populators that provide a partial solution. </p>
+<p>They generate some data and apply it to the <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00028">28</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00030">30</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adbc3fc5b84add8eac20a6db378827a7e"></a>
 <div class="memitem">
@@ -316,9 +316,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Find contactpools in <code>geoGrid</code> in an exponentially increasing radius, starting at <code>startRadius</code>, around <code>start</code> As soon as at least one pool is found, all pools within the current radius are returned May return an empty vector when there are no pools to be found. </p>
+<p>Find contactpools in <code>geoGrid</code> in an exponentially increasing radius. </p>
+<p>Start at <code>startRadius</code>, around <code>start</code>; as soon as at least one pool is found, all pools within the current radius are returne. May return an empty vector when there are no pools to be found. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00048">48</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00051">51</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
 
 <p>References <a class="el" href="../../d8/d8e/a00344_source.html#l00024">MakeChoice()</a>.</p>
 
@@ -350,9 +351,9 @@ template&lt;typename T &gt; </div>
 
 <p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00024">24</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">PartialPopulator.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d9/d48/a00345_source.html#l00041">m_rnManager</a>.</p>
+<p>References <a class="el" href="../../d9/d48/a00345_source.html#l00043">m_rnManager</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00039">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00124">gengeopop::WorkplacePopulator::AssignActive()</a>, and <a class="el" href="../../d9/d48/a00345_source.html#l00048">GetContactPoolInIncreasingRadius()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/dd6/a00415_source.html#l00037">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, and <a class="el" href="../../d9/d48/a00345_source.html#l00051">GetContactPoolInIncreasingRadius()</a>.</p>
 
 </div>
 </div>
@@ -377,9 +378,9 @@ template&lt;typename T &gt; </div>
 
 <p>RnManager used by populators. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00041">41</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00043">43</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00027">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../df/df1/a00357_source.html#l00028">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d8/d23/a00326_source.html#l00029">gengeopop::K12SchoolPopulator::Apply()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00146">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00171">gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00107">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>, and <a class="el" href="../../d8/d8e/a00344_source.html#l00024">MakeChoice()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/df1/a00357_source.html#l00027">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00144">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00169">gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces()</a>, <a class="el" href="../../d0/dd6/a00415_source.html#l00105">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>, and <a class="el" href="../../d8/d8e/a00344_source.html#l00024">MakeChoice()</a>.</p>
 
 </div>
 </div>
@@ -403,9 +404,9 @@ template&lt;typename T &gt; </div>
 
 <p>Logger used by populators. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00042">42</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00044">44</a> of file <a class="el" href="../../d9/d48/a00345_source.html">PartialPopulator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00027">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00028">gengeopop::SecondaryCommunityPopulator::Apply()</a>, <a class="el" href="../../df/df1/a00357_source.html#l00028">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d8/d23/a00326_source.html#l00029">gengeopop::K12SchoolPopulator::Apply()</a>, and <a class="el" href="../../d0/dd6/a00415_source.html#l00039">gengeopop::WorkplacePopulator::Apply()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/df1/a00357_source.html#l00027">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d6/d80/a00371_source.html#l00024">gengeopop::SecondaryCommunityPopulator::Apply()</a>, and <a class="el" href="../../d0/dd6/a00415_source.html#l00037">gengeopop::WorkplacePopulator::Apply()</a>.</p>
 
 </div>
 </div>
@@ -419,7 +420,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/dee/a00053.html">PartialPopulator</a></li>
-    <li class="footer">Generated on Thu Dec 6 2018 16:29:22 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Dec 7 2018 16:26:47 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

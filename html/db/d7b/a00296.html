@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 78b6529</span>
+   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
    </div>
   </td>
  </tr>
@@ -111,38 +111,35 @@ $(document).ready(function(){initNavTree('db/d7b/a00296.html','../../');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d4a/a00297_source.html">HouseholdPopulator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d53/a00265_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/dd4/a00291_source.html">gengeopop/Household.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/d55/a00323_source.html">gengeopop/K12School.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
-<code>#include &lt;trng/lcg64.hpp&gt;</code><br />
 <code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../da/dd4/a00291_source.html">gengeopop/Household.h</a>&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for HouseholdPopulator.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/dc3/a00657.gif" border="0" usemap="#HouseholdPopulator_8cpp" alt=""/></div>
 <map name="HouseholdPopulator_8cpp" id="HouseholdPopulator_8cpp">
-<area shape="rect" id="node2" href="../../d3/d4a/a00297.html" title="HouseholdPopulator.h" alt="" coords="1875,80,2038,107"/>
-<area shape="rect" id="node4" href="../../da/dd4/a00291.html" title="gengeopop/Household.h" alt="" coords="1481,304,1659,331"/>
-<area shape="rect" id="node49" href="../../de/d55/a00323.html" title="gengeopop/K12School.h" alt="" coords="1279,304,1456,331"/>
-<area shape="rect" id="node3" href="../../da/d53/a00265.html" title="../GeoGridConfig.h" alt="" coords="1734,229,1873,256"/>
-<area shape="rect" id="node46" href="../../d9/d48/a00345.html" title="PartialPopulator.h" alt="" coords="1890,155,2023,181"/>
-<area shape="rect" id="node5" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="1405,379,1532,405"/>
-<area shape="rect" id="node6" href="../../d9/d8d/a00262.html" title="GeoGrid.h" alt="" coords="1329,453,1416,480"/>
-<area shape="rect" id="node7" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="1582,625,1670,651"/>
-<area shape="rect" id="node18" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="911,714,987,741"/>
-<area shape="rect" id="node24" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="149,714,292,741"/>
-<area shape="rect" id="node28" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="743,535,872,562"/>
-<area shape="rect" id="node44" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="1023,535,1154,562"/>
-<area shape="rect" id="node25" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="175,796,370,823"/>
-<area shape="rect" id="node26" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="445,796,615,823"/>
-<area shape="rect" id="node29" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="202,625,367,651"/>
-<area shape="rect" id="node30" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="368,714,540,741"/>
-<area shape="rect" id="node31" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="754,625,861,651"/>
-<area shape="rect" id="node32" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1183,714,1261,741"/>
-<area shape="rect" id="node34" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="1365,625,1465,651"/>
-<area shape="rect" id="node35" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="1337,714,1387,741"/>
+<area shape="rect" id="node2" href="../../d3/d4a/a00297.html" title="HouseholdPopulator.h" alt="" coords="683,80,845,107"/>
+<area shape="rect" id="node43" href="../../da/d53/a00265.html" title="gengeopop/GeoGridConfig.h" alt="" coords="263,229,465,256"/>
+<area shape="rect" id="node44" href="../../da/dd4/a00291.html" title="gengeopop/Household.h" alt="" coords="667,304,845,331"/>
+<area shape="rect" id="node49" href="../../de/d55/a00323.html" title="gengeopop/K12School.h" alt="" coords="465,304,642,331"/>
+<area shape="rect" id="node3" href="../../d9/d48/a00345.html" title="PartialPopulator.h" alt="" coords="697,155,831,181"/>
+<area shape="rect" id="node4" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGrid.h" alt="" coords="737,453,900,480"/>
+<area shape="rect" id="node32" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="2114,625,2214,651"/>
+<area shape="rect" id="node5" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="391,625,479,651"/>
+<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="1753,714,1829,741"/>
+<area shape="rect" id="node22" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1027,714,1170,741"/>
+<area shape="rect" id="node26" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1242,535,1371,562"/>
+<area shape="rect" id="node42" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="524,535,655,562"/>
+<area shape="rect" id="node23" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="712,796,907,823"/>
+<area shape="rect" id="node24" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1023,796,1193,823"/>
+<area shape="rect" id="node27" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1159,625,1324,651"/>
+<area shape="rect" id="node28" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1445,714,1617,741"/>
+<area shape="rect" id="node29" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="881,625,988,651"/>
+<area shape="rect" id="node30" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1871,714,1950,741"/>
+<area shape="rect" id="node33" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="2132,714,2183,741"/>
+<area shape="rect" id="node45" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="693,379,819,405"/>
 </map>
 </div>
 </div>
@@ -159,7 +156,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../db/d7b/a00296.html">HouseholdPopulator.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 6 2018 16:29:22 for Stride Reference Manual by
+    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
