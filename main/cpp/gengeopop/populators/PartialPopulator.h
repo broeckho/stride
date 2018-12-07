@@ -15,15 +15,17 @@
 
 #pragma once
 
-#include "../../util/RnMan.h"
-#include <trng/discrete_dist.hpp>
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/GeoGridConfig.h>
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "util/RnMan.h"
+
 #include <spdlog/logger.h>
+#include <trng/discrete_dist.hpp>
 
 namespace gengeopop {
+
 /**
- * An interface for populators that provide a partial solution. They generate some data and apply it onto the GeoGrid.
+ * Interface for populators that provide a partial solution. They generate some data and apply it to the GeoGrid.
  */
 class PartialPopulator
 {
@@ -41,9 +43,10 @@ protected:
         stride::util::RnMan&            m_rnManager; ///< RnManager used by populators
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 
-        /// Find contactpools in `geoGrid` in an exponentially increasing radius, starting at `startRadius`, around
-        /// `start` As soon as at least one pool is found, all pools within the current radius are returned May return
-        /// an empty vector when there are no pools to be found
+        /// Find contactpools in `geoGrid` in an exponentially increasing radius.
+        /// Start at `startRadius`, around `start`; as soon as at least one pool is found,
+        /// all pools within the current radius are returne.
+        /// May return an empty vector when there are no pools to be found.
         template <typename T>
         std::vector<stride::ContactPool*> GetContactPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
                                                                            const std::shared_ptr<Location>& start,

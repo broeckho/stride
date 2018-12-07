@@ -14,17 +14,15 @@
  */
 
 #include "WorkplacePopulator.h"
-#include "../../pool/ContactPool.h"
-#include "../Workplace.h"
-#include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
+
+#include "gengeopop/Workplace.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/Workplace.h"
+#include "pool/ContactPool.h"
+#include "pop/Person.h"
+#include "util/ExcAssert.h"
+
 #include <trng/uniform_int_dist.hpp>
-#include <cmath>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/Workplace.h>
-#include <iostream>
-#include <pop/Person.h>
-#include <util/ExcAssert.h>
 #include <utility>
 
 namespace gengeopop {
@@ -68,18 +66,18 @@ void WorkplacePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 // 2. for every worker assign a class
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         stride::ContactPool* contactPool = household->GetPools()[0];
-                        for (stride::Person* person : *contactPool) {
-                                if (person->IsWorkableCandidate()) {
+                        for (stride::Person* p : *contactPool) {
+                                if (p->IsWorkableCandidate()) {
                                         bool isStudent =
                                             MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents);
                                         bool isActiveWorker =
                                             MakeChoice(geoGridConfig.input.fraction_1865_years_active);
 
-                                        if ((person->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
-                                                AssignActive(person);
+                                        if ((p->IsCollegeStudentCandidate() && !isStudent) || isActiveWorker) {
+                                                AssignActive(p);
                                         } else {
                                                 // this person isn't an active employee
-                                                person->SetWorkId(0);
+                                                p->SetWorkId(0);
                                                 m_assignedTo0++;
                                         }
                                 }
@@ -138,7 +136,7 @@ void WorkplacePopulator::AssignActive(stride::Person* person)
         } else {
                 auto id = m_distNonCommuting();
                 m_nearByWorkplaces[id]->AddMember(person);
-                person->SetWorkId(m_nearByWorkplaces[id]->GetId());
+                person->SetWorkId(static_cast<unsigned int>(m_nearByWorkplaces[id]->GetId()));
                 m_assignedNotCommuting++;
         }
 }
@@ -175,4 +173,4 @@ void WorkplacePopulator::CalculateNearbyWorkspaces()
             trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
 }
 
-} // namespace gengeopop
+} // namespace

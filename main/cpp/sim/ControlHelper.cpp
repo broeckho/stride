@@ -72,10 +72,7 @@ void ControlHelper::CheckEnv()
 void ControlHelper::CheckOutputPrefix()
 {
         if (FileSys::IsDirectoryString(m_output_prefix)) {
-                if (!FileSys::CreateDirectory(m_output_prefix)) {
-                        throw std::runtime_error("ControlHelper::Setup> Exception creating directory:  " +
-                                                 m_output_prefix);
-                }
+                FileSys::CreateDirectory(m_output_prefix);
         }
 }
 

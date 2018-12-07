@@ -14,6 +14,7 @@
  */
 
 #include "GeoGridPopulator.h"
+
 #include <iostream>
 #include <memory>
 
@@ -38,4 +39,4 @@ void GeoGridPopulator::AddPartialPopulator(std::shared_ptr<PartialPopulator> gen
         m_partialPopulators.push_back(gen);
 }
 
-} // namespace gengeopop
+} // namespace

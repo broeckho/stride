@@ -14,14 +14,13 @@
  */
 
 #include "PrimaryCommunityPopulator.h"
+
 #include "gengeopop/K12School.h"
-#include <trng/discrete_dist.hpp>
+#include "gengeopop/PrimaryCommunity.h"
+#include "pop/Person.h"
+
 #include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <cmath>
-#include <gengeopop/PrimaryCommunity.h>
-#include <iostream>
-#include <pop/Person.h>
 
 namespace gengeopop {
 
@@ -37,19 +36,19 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& community_pools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
+                const auto& pools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
                 const auto dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                    0, static_cast<trng::uniform_int_dist::result_type>(community_pools.size())));
+                    0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         stride::ContactPool* contactPool = household->GetPools()[0];
-                        for (stride::Person* person : *contactPool) {
+                        for (stride::Person* p : *contactPool) {
                                 const auto pool = dist();
-                                found.insert(community_pools[pool]);
-                                community_pools[pool]->AddMember(person);
-                                person->SetPrimaryCommunityId(community_pools[pool]->GetId());
+                                found.insert(pools[pool]);
+                                pools[pool]->AddMember(p);
+                                p->SetPrimaryCommunityId(static_cast<unsigned int>(pools[pool]->GetId()));
                         }
                 }
         }

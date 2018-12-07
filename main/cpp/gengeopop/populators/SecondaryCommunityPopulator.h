@@ -15,12 +15,13 @@
 
 #pragma once
 
-#include "../GeoGridConfig.h"
 #include "PartialPopulator.h"
 
 namespace gengeopop {
 
-/// Populate secondary Communities
+/**
+ * Populate secondary Communities.
+ */
 class SecondaryCommunityPopulator : public PartialPopulator
 {
 public:
@@ -28,4 +29,5 @@ public:
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
-} // namespace gengeopop
+
+} // namespace

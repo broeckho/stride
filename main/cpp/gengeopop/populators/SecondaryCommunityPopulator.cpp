@@ -14,14 +14,10 @@
  */
 
 #include "SecondaryCommunityPopulator.h"
+
 #include "gengeopop/K12School.h"
-#include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
-#include <trng/uniform_int_dist.hpp>
-#include <cmath>
-#include <gengeopop/SecondaryCommunity.h>
-#include <iostream>
-#include <pop/Person.h>
+#include "gengeopop/SecondaryCommunity.h"
+#include "pop/Person.h"
 
 namespace gengeopop {
 
@@ -36,13 +32,13 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& community_pools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
+                const auto& pools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
 
                 // 2. find all households in this location
                 const auto& households = loc->GetContactCentersOfType<Household>();
 
-                unsigned int households_per_community        = households.size() / community_pools.size();
-                unsigned int remainder                       = households.size() % community_pools.size();
+                unsigned int households_per_community        = households.size() / pools.size();
+                unsigned int remainder                       = households.size() % pools.size();
                 unsigned int current_community               = 0;
                 unsigned int current_households_in_community = 0;
                 for (unsigned int i = 0; i < households.size(); i++) {
@@ -55,11 +51,11 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                                 current_households_in_community = 0;
                         }
                         current_households_in_community++;
-                        stride::ContactPool* communityPool = community_pools[current_community];
-                        for (stride::Person* person : *housePool) {
-                                found.insert(communityPool);
-                                communityPool->AddMember(person);
-                                person->SetSecondaryCommunityId(communityPool->GetId());
+                        stride::ContactPool* pool = pools[current_community];
+                        for (stride::Person* p : *housePool) {
+                                found.insert(pool);
+                                pool->AddMember(p);
+                                p->SetSecondaryCommunityId(static_cast<unsigned int>(pool->GetId()));
                         }
                 }
         }

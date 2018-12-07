@@ -15,9 +15,7 @@
 
 #pragma once
 
-#include "../GeoGridConfig.h"
 #include "PartialPopulator.h"
-#include <trng/uniform_int_dist.hpp>
 
 namespace gengeopop {
 
@@ -36,9 +34,25 @@ public:
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 
 private:
-        unsigned int m_assignedTo0       = 0; ///< Amount of persons assigned to no workplace
-        unsigned int m_assignedCommuting = 0; ///< Amount of persons assigned to a workplace outside the home location
-        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to a workplace in the home location
+        /// Fills the m_workplacesInCity map
+        void CalculateWorkplacesInCity();
+
+        /// Calculates m_fractionCommutingStudents
+        void CalculateFractionCommutingStudents();
+
+        /// Calculates the workplaces which are nearby to m_currentLoc
+        void CalculateNearbyWorkspaces();
+
+        /// Calculates the workplaces to which persons from m_currentLoc may commute to
+        void CalculateCommutingLocations();
+
+        /// Assign a workplace to an active person
+        void AssignActive(stride::Person* person);
+
+private:
+        unsigned int m_assignedTo0          = 0; ///< Number of persons assigned to no workplace
+        unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location
+        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location
 
         std::shared_ptr<Location> m_currentLoc; ///< The location for which the workers currently are being assigned
 
@@ -48,27 +62,14 @@ private:
         std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
             m_workplacesInCity; ///< For each location store the workplaces and a distribution to choose a random one
 
-        /// Fills the m_workplacesInCity map
-        void CalculateWorkplacesInCity();
-
-        /// Fraction of the commuting people who are a student
-        double m_fractionCommutingStudents;
-        /// Calculates m_fractionCommutingStudents
-        void CalculateFractionCommutingStudents();
+        double m_fractionCommutingStudents;  ///< Fraction of the commuting people who are a student
 
         std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc
         discreteDist                      m_distNonCommuting; ///< distribution to choose from m_nearByWorkPlaces;
 
-        /// Calculates the workplaces which are nearby to m_currentLoc
-        void CalculateNearbyWorkspaces();
-
         std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to
         discreteDist           m_disCommuting;       ///< distribution to choose from m_commutingLocations
 
-        /// Calculates the workplaces to which persons from m_currentLoc may commute to
-        void CalculateCommutingLocations();
-
-        /// Assign a workplace to an active person
-        void AssignActive(stride::Person* person);
 };
-} // namespace gengeopop
+
+} // namespace

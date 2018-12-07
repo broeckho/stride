@@ -14,34 +14,37 @@
  */
 
 #include "CollegePopulator.h"
+
 #include "gengeopop/College.h"
-#include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
+#include "pop/Person.h"
+#include "util/ExcAssert.h"
+
+//#include <trng/discrete_dist.hpp>
+//#include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
-#include <cmath>
-#include <gengeopop/College.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <iostream>
-#include <pop/Person.h>
-#include <util/ExcAssert.h>
+//#include <cmath>
+//#include <iostream>
+
 
 namespace gengeopop {
 
-void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+using namespace std;
+
+void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         m_logger->info("Starting to populate Colleges");
 
-        std::set<stride::ContactPool*> found;
+        set<stride::ContactPool*> found;
         unsigned int                   students  = 0;
         unsigned int                   commuting = 0;
 
         // for every location
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        for (const shared_ptr<Location>& loc : *geoGrid) {
                 if (loc->GetPopulation() == 0) {
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const std::vector<stride::ContactPool*>& nearByHighSchools =
+                const vector<stride::ContactPool*>& nearByHighSchools =
                     GetContactPoolInIncreasingRadius<College>(geoGrid, loc);
 
                 ExcAssert(!nearByHighSchools.empty(),
@@ -51,9 +54,9 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                     0, static_cast<trng::uniform_int_dist::result_type>(nearByHighSchools.size())));
 
                 // 2. find all highschools were students from this location commute to
-                std::vector<Location*> commutingHighSchools;
-                std::vector<double>    commutingWeights;
-                for (const std::pair<Location*, double>& commute : loc->GetOutgoingCommuningCities()) {
+                vector<Location*> commutingHighSchools;
+                vector<double>    commutingWeights;
+                for (const pair<Location*, double>& commute : loc->GetOutgoingCommuningCities()) {
                         const auto& highSchools = commute.first->GetContactCentersOfType<College>();
                         if (!highSchools.empty()) {
                                 commutingHighSchools.push_back(commute.first);
@@ -61,7 +64,7 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                         }
                 }
 
-                std::function<trng::discrete_dist::result_type()> disCommuting;
+                function<trng::discrete_dist::result_type()> disCommuting;
 
                 if (!commutingWeights.empty()) {
                         disCommuting = m_rnManager[0].variate_generator(
@@ -69,11 +72,11 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                 }
 
                 // 2. for every student assign a class
-                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
+                for (const shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         stride::ContactPool* contactPool = household->GetPools()[0];
                         found.insert(contactPool);
-                        for (stride::Person* person : *contactPool) {
-                                if (person->IsCollegeStudentCandidate() &&
+                        for (stride::Person* p : *contactPool) {
+                                if (p->IsCollegeStudentCandidate() &&
                                     MakeChoice(geoGridConfig.input.fraction_1826_years_WhichAreStudents)) {
                                         students++;
                                         // this person is a student
@@ -84,12 +87,11 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
 
                                                 // id of the location this person is commuting to
                                                 auto locationId = disCommuting();
-                                                // create a list of ContactPools (i.e. classes) for each of highschool
-                                                // of this location
+                                                // create list of classes for each highschool at this location
                                                 const auto& highSchools = commutingHighSchools[locationId]
                                                                               ->GetContactCentersOfType<College>();
 
-                                                std::vector<stride::ContactPool*> contactPools;
+                                                vector<stride::ContactPool*> contactPools;
                                                 for (const auto& highSchool : highSchools) {
                                                         contactPools.insert(contactPools.end(), highSchool->begin(),
                                                                             highSchool->end());
@@ -100,21 +102,21 @@ void CollegePopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
                                                            contactPools.size())));
 
                                                 auto id = disPools();
-                                                contactPools[id]->AddMember(person);
-                                                person->SetCollegeId(contactPools[id]->GetId());
+                                                contactPools[id]->AddMember(p);
+                                                p->SetCollegeId(contactPools[id]->GetId());
                                         } else {
                                                 auto id = distNonCommuting();
-                                                nearByHighSchools[id]->AddMember(person);
-                                                person->SetCollegeId(nearByHighSchools[id]->GetId());
+                                                nearByHighSchools[id]->AddMember(p);
+                                                p->SetCollegeId(
+                                                        static_cast<unsigned int>(nearByHighSchools[id]->GetId()));
                                         }
                                 }
                         }
                 }
         }
-        m_logger->info("Finished populating Colleges");
-        m_logger->info("Used {} different classes", found.size());
-        m_logger->info("Placed {} students in Colleges, {} of whom are commuting to a different location", students,
-                       commuting);
+        m_logger->info("Number of students in Colleges: {}", students);
+        m_logger->info("Number of classes:  {}", found.size());
+        m_logger->info("Number students that commute: ", commuting);
 }
 
-} // namespace gengeopop
+} // namespace
