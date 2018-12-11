@@ -21,16 +21,6 @@
 set(SRC
 #
     BenchControlHelper.cpp
-    Benchmark.h
-    Console.h
-    Test.h
-    InfoFactory.h
-    Payload.h
-    Test.h
-    TestDescriptor.h
-    TestFactory.h
-    TestResult.h
-#
     BenchmarkRunner.cpp
     ConsoleViewer.cpp
     Id.cpp

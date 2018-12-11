@@ -115,5 +115,5 @@ inline T CSVRow::GetValue(const std::string& label) const
         return safe_cast<T>(GetValue<std::string>(label));
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

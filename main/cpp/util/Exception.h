@@ -27,9 +27,8 @@ namespace util {
 class Exception : public std::runtime_error
 {
 public:
-        explicit Exception(const std::string& msg): runtime_error(msg) {}
+        explicit Exception(const std::string& msg) : runtime_error(msg) {}
 };
 
-} // namespace
-} // namespace
-
+} // namespace util
+} // namespace stride

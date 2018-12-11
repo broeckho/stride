@@ -30,5 +30,5 @@ using RnLcg64 = Rn<trng::lcg64>;
 
 using RnMan = RnPcg64;
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

@@ -256,5 +256,5 @@ SVIterator<T, N, Safe, P, R, is_const_iterator> operator-(std::ptrdiff_t        
         return p.operator-(i);
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

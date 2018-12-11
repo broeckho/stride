@@ -127,5 +127,5 @@ std::ostream& operator<<(std::ostream& oss, Stopwatch<T> const& stopwatch)
         return (oss << stopwatch.ToString());
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

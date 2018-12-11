@@ -120,5 +120,5 @@ private:
         static Dirs& Get();
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Container for the contact pools of various type (household, work, ...)..
  */
+
+#pragma once
 
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
@@ -192,5 +193,5 @@ public:
         }
 };
 
-} // namespace ContactPoolType
-} // namespace stride
+} // namespace
+} // namespace

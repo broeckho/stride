@@ -120,4 +120,4 @@ ptree SimBuilder::ReadDiseasePtree()
         return FileSys::ReadPtreeFile(fp);
 }
 
-} // namespace stride
+} // namespace

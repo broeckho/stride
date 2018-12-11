@@ -109,4 +109,4 @@ void DiseaseSeeder::Vaccinate(const std::string& immunityType, const std::string
         }
 }
 
-} // namespace stride
+} // namespace

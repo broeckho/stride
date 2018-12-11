@@ -19,7 +19,6 @@
 
 #include <cmath>
 
-
 namespace gengeopop {
 Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
     : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),

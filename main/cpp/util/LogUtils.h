@@ -52,5 +52,5 @@ public:
                                                                     const std::string& file_name);
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

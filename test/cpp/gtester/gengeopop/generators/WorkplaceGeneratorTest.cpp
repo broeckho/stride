@@ -32,7 +32,7 @@ TEST(WorkplaceGeneratorTest, ZeroLocationTest)
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
-        config.input.populationSize               = 10000;
+        config.input.populationSize                       = 10000;
         config.calculated.popcount_1826_years_and_student = 20000;
 
         auto pop     = stride::Population::Create();
@@ -50,10 +50,10 @@ TEST(WorkplaceGeneratorTest, NoCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
-        config.input.populationSize                  = 5 * 1000 * 1000;
-        config.calculated.popcount_1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.input.fraction_1865_years_active      = 0.20;
-        config.input.fraction_active_commutingPeople = 0;
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated.popcount_1865_and_years_active = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active          = 0.20;
+        config.input.fraction_active_commutingPeople     = 0;
 
         auto pop     = stride::Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -88,10 +88,10 @@ TEST(WorkplaceGeneratorTest, AbsNullCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
-        config.input.populationSize                  = 5 * 1000 * 1000;
-        config.calculated.popcount_1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.input.fraction_1865_years_active      = 0.20;
-        config.input.fraction_active_commutingPeople = 0.10;
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated.popcount_1865_and_years_active = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active          = 0.20;
+        config.input.fraction_active_commutingPeople     = 0.10;
 
         auto pop     = stride::Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
@@ -140,10 +140,10 @@ TEST(WorkplaceGeneratorTest, TenCommuting)
 
         WorkplaceGenerator workplaceGenerator(rnManager, CreateLogger());
         GeoGridConfig      config{};
-        config.input.populationSize                  = 5 * 1000 * 1000;
-        config.calculated.popcount_1865_and_years_active     = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
-        config.input.fraction_1865_years_active      = 0.20;
-        config.input.fraction_active_commutingPeople = 0.10;
+        config.input.populationSize                      = 5 * 1000 * 1000;
+        config.calculated.popcount_1865_and_years_active = static_cast<unsigned int>(0.20 * 5 * 1000 * 1000);
+        config.input.fraction_1865_years_active          = 0.20;
+        config.input.fraction_active_commutingPeople     = 0.10;
 
         auto pop     = stride::Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());

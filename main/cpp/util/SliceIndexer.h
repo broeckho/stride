@@ -99,5 +99,5 @@ SliceIndexer<T> make_slice_indexer(T& t)
         return SliceIndexer<T>(t);
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

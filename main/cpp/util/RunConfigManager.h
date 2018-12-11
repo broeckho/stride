@@ -75,5 +75,5 @@ private:
         static std::string CreateTestsMeasles();
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

@@ -17,8 +17,8 @@
 
 #include "gengeopop/GeoGrid.h"
 
-#include <memory>
 #include <istream>
+#include <memory>
 
 namespace gengeopop {
 
@@ -42,4 +42,4 @@ protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream containing the file content
 };
 
-} // namespace
+} // namespace gengeopop

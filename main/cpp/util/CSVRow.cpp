@@ -84,5 +84,5 @@ std::ostream& operator<<(std::ostream& os, const CSVRow& row)
         return os;
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

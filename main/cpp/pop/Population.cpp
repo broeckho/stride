@@ -124,4 +124,5 @@ ContactPool* Population::CreateContactPool(ContactPoolType::Id typeId)
 {
         return m_pool_sys[typeId].emplace_back(m_currentContactPoolId++, typeId);
 }
+
 } // namespace

@@ -190,5 +190,5 @@ inline std::string intToDottedString(const T& value)
         return res;
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

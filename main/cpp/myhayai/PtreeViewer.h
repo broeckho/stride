@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -17,6 +16,8 @@
  * @file
  * Header file for PtreeViewer.
  */
+
+#pragma once
 
 #include "BenchmarkRunner.h"
 #include "Payload.h"
@@ -57,4 +58,4 @@ extern template class PtreeViewer<std::chrono::microseconds>;
 extern template class PtreeViewer<std::chrono::milliseconds>;
 extern template class PtreeViewer<std::chrono::seconds>;
 
-} // namespace myhayai
+} // namespace

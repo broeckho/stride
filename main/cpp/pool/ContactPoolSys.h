@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Container for the contact pools of various type (household, work, ...)..
  */
 
+#pragma once
+
 #include "pool/ContactPool.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
@@ -32,4 +33,4 @@ namespace stride {
 /// with the enum class of the pool types.
 using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
 
-} // namespace stride
+} // namespace

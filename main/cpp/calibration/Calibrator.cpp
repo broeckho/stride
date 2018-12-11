@@ -26,8 +26,8 @@
 #include <numeric>
 #include <omp.h>
 #include <random>
-#include <utility>
 #include <set>
+#include <utility>
 
 namespace calibration {
 

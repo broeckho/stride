@@ -25,7 +25,6 @@
 //#include <cmath>
 //#include <iostream>
 
-
 namespace gengeopop {
 
 using namespace std;
@@ -35,8 +34,8 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
         m_logger->info("Starting to populate Colleges");
 
         set<stride::ContactPool*> found;
-        unsigned int                   students  = 0;
-        unsigned int                   commuting = 0;
+        unsigned int              students  = 0;
+        unsigned int              commuting = 0;
 
         // for every location
         for (const shared_ptr<Location>& loc : *geoGrid) {
@@ -108,7 +107,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
                                                 auto id = distNonCommuting();
                                                 nearByHighSchools[id]->AddMember(p);
                                                 p->SetCollegeId(
-                                                        static_cast<unsigned int>(nearByHighSchools[id]->GetId()));
+                                                    static_cast<unsigned int>(nearByHighSchools[id]->GetId()));
                                         }
                                 }
                         }
@@ -119,4 +118,4 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
         m_logger->info("Number students that commute: ", commuting);
 }
 
-} // namespace
+} // namespace gengeopop

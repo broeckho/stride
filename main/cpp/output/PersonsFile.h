@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the PersonFile class.
  */
+
+#pragma once
 
 #include <fstream>
 #include <memory>
@@ -52,5 +53,5 @@ private:
         std::ofstream m_fstream;
 };
 
-} // namespace output
-} // namespace stride
+} // namespace
+} // namespace

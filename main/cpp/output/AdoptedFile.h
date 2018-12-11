@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the AdoptedFile class.
  */
+
+#pragma once
 
 #include <fstream>
 #include <string>
@@ -49,5 +50,5 @@ private:
         std::ofstream m_fstream; ///< The file stream.
 };
 
-} // namespace output
-} // namespace stride
+} // namespace
+} // namespace

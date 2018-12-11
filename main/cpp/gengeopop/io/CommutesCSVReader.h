@@ -43,4 +43,4 @@ private:
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 
-} // namespace
+} // namespace gengeopop

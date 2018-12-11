@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -38,7 +37,7 @@ public:
         /// Initializing constructor.
         ContactPool(std::size_t pool_id, ContactPoolType::Id type);
 
-        ~ContactPool() {}
+        ~ContactPool() = default;
 
         /// Add the given Person.
         void AddMember(Person* p);
@@ -84,4 +83,4 @@ private:
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };
 
-} // namespace stride
+} // namespace

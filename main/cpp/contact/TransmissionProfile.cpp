@@ -50,4 +50,4 @@ void TransmissionProfile::Initialize(const ptree& configPt, const ptree& disease
         }
 }
 
-} // namespace stride
+} // namespace

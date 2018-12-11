@@ -27,4 +27,4 @@ void College::Fill(const std::shared_ptr<GeoGrid>& geoGrid)
         }
 }
 
-} // namespace
+} // namespace gengeopop

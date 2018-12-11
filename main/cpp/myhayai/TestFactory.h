@@ -1,5 +1,4 @@
-#pragma once
-/*
+=/*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -18,6 +17,8 @@
  * Header file for TestFactory.
  */
 
+#pragma once
+
 #include "Test.h"
 
 #include <functional>
@@ -27,4 +28,4 @@ namespace myhayai {
 /// Produces a test instance via its call operator.
 using TestFactory = std::function<Test()>;
 
-} // namespace myhayai
+} // namespace

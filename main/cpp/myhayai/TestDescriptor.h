@@ -1,5 +1,4 @@
-#pragma once
-/*
+=/*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -17,6 +16,8 @@
  * @file
  * Header file for TestDescriptor.
  */
+
+#pragma once
 
 #include "InfoFactory.h"
 #include "TestFactory.h"
@@ -73,4 +74,4 @@ struct TestDescriptor
         bool        m_is_disabled;  ///< Disabled (or not).
 };
 
-} // namespace myhayai
+} // namespace

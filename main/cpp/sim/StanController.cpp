@@ -106,4 +106,4 @@ void StanController::Control()
         spdlog::drop_all();
 }
 
-} // namespace stride
+} // namespace

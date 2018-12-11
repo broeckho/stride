@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header file for the Calendar class.
  */
+
+#pragma once
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -62,17 +63,17 @@ public:
         /// Current year in the simulated calendar.
         std::size_t GetYear() const;
 
-        /// Check if it's a holiday
+        /// Check if it's a holiday.
         bool IsHoliday() const { return (std::find(m_holidays.begin(), m_holidays.end(), m_date) != m_holidays.end()); }
 
-        /// Check if it's a school holiday
+        /// Check if it's a school holiday.
         bool IsSchoolHoliday() const
         {
                 return (std::find(m_school_holidays.begin(), m_school_holidays.end(), m_date) !=
                         m_school_holidays.end());
         }
 
-        /// Check if it's the weekend
+        /// Check if it's the weekend.
         bool IsWeekend() const { return (GetDayOfTheWeek() == 6 || GetDayOfTheWeek() == 0); }
 
 private:

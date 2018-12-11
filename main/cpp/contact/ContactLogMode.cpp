@@ -45,5 +45,5 @@ Id ToMode(const string& s)
         return modes.at(t);
 }
 
-} // namespace ContactLogMode
-} // namespace stride
+} // namespace
+} // namespace

@@ -31,7 +31,7 @@ public:
         explicit Community(unsigned int id) : ContactCenter(id) {}
 
         ///
-        //void         AddHouseHold(std::shared_ptr<Household> household);
+        // void         AddHouseHold(std::shared_ptr<Household> household);
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 1; }
@@ -40,7 +40,7 @@ public:
         unsigned int GetPoolSize() const override { return 2000; }
 
         /// See ContactCenter::GetType.
-        std::string  GetType() const override { return "Community"; }
+        std::string GetType() const override { return "Community"; }
 };
 
 } // namespace gengeopop

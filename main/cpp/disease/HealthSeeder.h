@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header file for the HealthSeeder.
  */
+
+#pragma once
 
 #include "Health.h"
 #include "contact/ContactHandler.h"

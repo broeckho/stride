@@ -75,4 +75,4 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         }
 }
 
-} // namespace
+} // namespace gengeopop

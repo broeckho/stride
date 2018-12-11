@@ -118,7 +118,6 @@ public:
         const Coordinate& GetCoordinate() const;
         void              SetCoordinate(const Coordinate& coordinate);
 
-
         /// Gets all contact centers at this location
         const std::vector<std::shared_ptr<ContactCenter>>& GetContactCenters() const;
 

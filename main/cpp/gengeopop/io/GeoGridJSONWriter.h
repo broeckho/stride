@@ -53,7 +53,7 @@ private:
         boost::property_tree::ptree WritePerson(stride::Person* person);
 
 private:
-        std::set<stride::Person*>  m_persons_found; ///< The persons found when looping over the ContactPools.
+        std::set<stride::Person*> m_persons_found; ///< The persons found when looping over the ContactPools.
 };
 
-} // namespace 
+} // namespace gengeopop

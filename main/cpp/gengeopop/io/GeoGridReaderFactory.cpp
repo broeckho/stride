@@ -44,9 +44,9 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         } else if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoReader>(std::make_unique<std::ifstream>(path.string()), pop);
         } else {
-                throw stride::util::Exception("GeoGridReaderFactory::CreateReader> Unsupported file extension: "
-                + path.extension().string());
+                throw stride::util::Exception("GeoGridReaderFactory::CreateReader> Unsupported file extension: " +
+                                              path.extension().string());
         }
 }
 
-} // namespace
+} // namespace gengeopop

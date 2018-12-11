@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the Infector class.
  */
+
+#pragma once
 
 #include "ContactLogMode.h"
 #include "TransmissionProfile.h"
@@ -109,4 +110,4 @@ extern template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDis
 extern template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
 extern template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
 
-} // namespace stride
+} // namespace

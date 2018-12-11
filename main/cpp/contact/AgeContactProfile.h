@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Contact profile.
  */
+
+#pragma once
 
 #include "pool/ContactPoolType.h"
 #include "pop/Age.h"
@@ -40,4 +41,4 @@ public:
         AgeContactProfile(ContactPoolType::Id poolType, const boost::property_tree::ptree& contactPt);
 };
 
-} // namespace stride
+} // namespace

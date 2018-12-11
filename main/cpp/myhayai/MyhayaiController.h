@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header file for myhayai::MyhayaiController.
  */
+
+#pragma once
 
 #include "BenchmarkRunner.h"
 #include <regex>
@@ -71,4 +72,4 @@ private:
         std::vector<std::string> m_positive; ///< Positive for including tests.
 };
 
-} // namespace myhayai
+} // namespace

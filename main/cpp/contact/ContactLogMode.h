@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the ContactLogMode class.
  */
+
+#pragma once
 
 #include <string>
 
@@ -47,5 +48,5 @@ bool IsMode(const std::string& s);
 /// Converts a string with name to LogMode value.
 ContactLogMode::Id ToMode(const std::string& s);
 
-} // namespace ContactLogMode
-} // namespace stride
+} // namespace
+} // namespace

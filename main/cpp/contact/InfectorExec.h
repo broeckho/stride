@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Header for the InfectorExec class.
  */
 
+#pragma once
+
 #include <spdlog/spdlog.h>
 
 namespace stride {
@@ -33,4 +34,4 @@ typedef void(InfectorExec)(ContactPool& pool, const AgeContactProfile& profile,
                            const TransmissionProfile& trans_profile, ContactHandler& c_handler,
                            unsigned short int sim_day, std::shared_ptr<spdlog::logger> c_logger);
 
-} // namespace stride
+} // namespace

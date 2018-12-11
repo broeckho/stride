@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Header for the Immunizer class.
  */
 
+#pragma once
+
 #include "pool/ContactPool.h"
 #include "pop/Person.h"
 #include "util/RnMan.h"
@@ -36,7 +37,7 @@ class Immunizer
 {
 public:
         ///
-        explicit Immunizer(util::RnMan& rnManager);
+        explicit Immunizer(util::RnMan& rnManager) : m_rn_manager(rnManager) {}
 
         /// Random immunization.
         template <typename T>
@@ -67,7 +68,7 @@ public:
                 unsigned int numSusceptible = 0;
                 for (unsigned int age = 0; age < 100; age++) {
                         populationBrackets[age] = floor(populationBrackets[age] * (1 - immunityDistribution[age]));
-                        numSusceptible += populationBrackets[age];
+                        numSusceptible += static_cast<unsigned int>(populationBrackets[age]);
                 }
 
                 // Sample susceptible individuals, until all age-dependent quota are reached.
@@ -132,4 +133,4 @@ private:
         util::RnMan& m_rn_manager; ///< Random number manager.
 };
 
-} // namespace stride
+} // namespace

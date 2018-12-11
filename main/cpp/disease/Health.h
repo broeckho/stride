@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the Health class.
  */
+
+#pragma once
 
 namespace stride {
 
@@ -116,4 +117,4 @@ private:
         unsigned short int m_end_symptomatic;      ///< Days after infection to end symptomatic state.
 };
 
-} // namespace stride
+} // namespace

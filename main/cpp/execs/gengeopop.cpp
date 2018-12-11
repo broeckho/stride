@@ -13,7 +13,6 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-
 #include "gengeopop/Community.h"
 #include "gengeopop/GenGeoPopController.h"
 #include "gengeopop/GeoGrid.h"
@@ -37,12 +36,12 @@
 #include "util/LogUtils.h"
 
 #include <boost/lexical_cast.hpp>
-#include <spdlog/common.h>
-#include <spdlog/fmt/ostr.h>
 #include <tclap/CmdLine.h>
 #include <fstream>
 #include <iostream>
 #include <omp.h>
+#include <spdlog/common.h>
+#include <spdlog/fmt/ostr.h>
 #include <string>
 #include <utility>
 
@@ -60,7 +59,7 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 // Parse parameters.
                 // --------------------------------------------------------------
-                CmdLine               cmd("gengeopop", ' ', "1.0");
+                CmdLine cmd("gengeopop", ' ', "1.0");
 
                 string sci = "Input file with data on cities in csv format."
                              "Defaults to flanders_cities.csv.";
@@ -68,13 +67,13 @@ int main(int argc, char* argv[])
 
                 string sco = "Input file with data on commuting in csv format."
                              "Defaults to flanders_commuting.csv.";
-                ValueArg<string> commutingFile("", "commuting", sco, false, "flanders_commuting.csv",
-                                                "COMMUTING FILE", cmd);
+                ValueArg<string> commutingFile("", "commuting", sco, false, "flanders_commuting.csv", "COMMUTING FILE",
+                                               cmd);
 
                 string sho = "Input file with reference set of households in csv format."
                              "Defaults to households_flanders.csv.";
-                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv",
-                        "OUTPUT FILE", cmd);
+                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv", "OUTPUT FILE",
+                                               cmd);
 
                 string sou = "Output file with synthetic population in protobuf format."
                              "Defaults to gengeopop.proto.";
@@ -100,8 +99,8 @@ int main(int argc, char* argv[])
                 ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
                                                       "POPULATION SIZE", cmd);
 
-                ValueArg<string> rng_seed("", "seed", "The seed to be used for the random engine", false,
-                                               "1,2,3,4", "SEED", cmd);
+                ValueArg<string> rng_seed("", "seed", "The seed to be used for the random engine", false, "1,2,3,4",
+                                          "SEED", cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -156,7 +155,7 @@ int main(int argc, char* argv[])
                 // Write to file.
                 // --------------------------------------------------------------
                 logger->info("Writing to population file.");
-                GeoGridWriterFactory geoGridWriterFactory;
+                GeoGridWriterFactory      geoGridWriterFactory;
                 shared_ptr<GeoGridWriter> geoGridWriter = geoGridWriterFactory.CreateWriter(outputFile.getValue());
                 ofstream                  outputFileStream(outputFile.getValue());
                 geoGridWriter->Write(genGeoPopController.GetGeoGrid(), outputFileStream);

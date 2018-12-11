@@ -19,8 +19,8 @@
 #include "gengeopop/GeoGridConfig.h"
 #include "util/RnMan.h"
 
-#include <spdlog/logger.h>
 #include <trng/discrete_dist.hpp>
+#include <spdlog/logger.h>
 
 namespace gengeopop {
 

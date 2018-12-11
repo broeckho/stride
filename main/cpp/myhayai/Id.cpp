@@ -57,5 +57,5 @@ Id ToType(const string& s)
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("myhayai::event::Id::ToString> Not available:" + t);
 }
 
-} // namespace event
-} // namespace myhayai
+} // namespace
+} // namespace

@@ -22,7 +22,6 @@
 #include <iostream>
 #include <omp.h>
 
-
 namespace gengeopop {
 
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}

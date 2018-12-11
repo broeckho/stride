@@ -37,4 +37,4 @@ public:
         std::string GetType() const override { return "Primary Community"; }
 };
 
-} // namespace
+} // namespace gengeopop

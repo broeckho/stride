@@ -15,7 +15,6 @@
 
 #include "WorkplacePopulator.h"
 
-#include "gengeopop/Workplace.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/Workplace.h"
 #include "pool/ContactPool.h"
@@ -173,4 +172,4 @@ void WorkplacePopulator::CalculateNearbyWorkspaces()
             trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
 }
 
-} // namespace
+} // namespace gengeopop

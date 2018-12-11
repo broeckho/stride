@@ -29,4 +29,4 @@ size_t TestDescriptors::CountDisabled()
             count_if(this->begin(), this->end(), [](const auto& item) { return item.second.m_is_disabled; }));
 }
 
-} // namespace myhayai
+} // namespace

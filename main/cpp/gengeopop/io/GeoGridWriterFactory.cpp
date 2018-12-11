@@ -20,7 +20,6 @@
 
 #include <iostream>
 
-
 #ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
@@ -41,8 +40,8 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string fi
         } else if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoWriter>();
         } else {
-                throw stride::util::Exception("GeoGridWriterFactory::CreateWriter> Unsupported file extension: "
-                + path.extension().string());
+                throw stride::util::Exception("GeoGridWriterFactory::CreateWriter> Unsupported file extension: " +
+                                              path.extension().string());
         }
 }
 

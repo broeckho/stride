@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the ContactHandler class.
  */
+
+#pragma once
 
 #include "util/RnMan.h"
 
@@ -60,4 +61,4 @@ private:
         std::function<double()> m_uniform01_generator; ///< Random number generator: double in [0.0, 1.0)
 };
 
-} // namespace stride
+} // namespace

@@ -29,8 +29,7 @@ namespace {
 /// @param root root of the path.
 /// @return the full path to the file if it exists
 /// @throws runtime error if file doesn't exist
-const filesys::path check(const filesys::path& filename,
-                             const filesys::path& root = filesys::current_path())
+const filesys::path check(const filesys::path& filename, const filesys::path& root = filesys::current_path())
 {
         const filesys::path file_path = canonical(absolute(root / filename));
         if (!is_regular_file(file_path)) {
@@ -44,12 +43,11 @@ const filesys::path check(const filesys::path& filename,
 namespace stride {
 namespace util {
 
-CSV::CSV(const filesys::path& path, std::initializer_list<std::string> optLabels)
-    : m_labels(), m_column_count(0)
+CSV::CSV(const filesys::path& path, std::initializer_list<std::string> optLabels) : m_labels(), m_column_count(0)
 {
         try {
                 filesys::path full_path = check(path);
-                std::ifstream         file;
+                std::ifstream file;
                 file.open(full_path.string());
                 if (!file.is_open()) {
                         throw runtime_error("Error opening csv file: " + full_path.string());

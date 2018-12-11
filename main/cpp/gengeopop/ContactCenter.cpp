@@ -30,4 +30,4 @@ std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCou
         return {population, infected};
 }
 
-} // namespace
+} // namespace gengeopop

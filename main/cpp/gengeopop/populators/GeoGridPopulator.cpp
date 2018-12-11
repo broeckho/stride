@@ -39,4 +39,4 @@ void GeoGridPopulator::AddPartialPopulator(std::shared_ptr<PartialPopulator> gen
         m_partialPopulators.push_back(gen);
 }
 
-} // namespace
+} // namespace gengeopop

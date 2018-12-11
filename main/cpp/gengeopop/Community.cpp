@@ -36,4 +36,4 @@ void Community::AddHouseHold(std::shared_ptr<Household> household)
         }
 }
 */
-} // namespace
+} // namespace gengeopop

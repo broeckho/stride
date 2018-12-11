@@ -75,5 +75,5 @@ private:
         std::map<std::weak_ptr<const void>, CallbackType, std::owner_less<std::weak_ptr<const void>>> m_observers;
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

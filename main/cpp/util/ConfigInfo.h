@@ -57,5 +57,5 @@ public:
         static constexpr unsigned int ProcessorCount() { return PROCCOUNT; }
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

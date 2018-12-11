@@ -23,4 +23,5 @@
 namespace stride {
 
 template class stride::util::Subject<sim_event::Id>;
+
 }

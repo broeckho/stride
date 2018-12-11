@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Contact profiles stored in simulator.
  */
 
+#pragma once
+
 #include "contact/AgeContactProfile.h"
 #include "pool/ContactPoolType.h"
 #include "pool/IdSubscriptArray.h"
@@ -27,4 +28,4 @@ namespace stride {
 
 using AgeContactProfiles = ContactPoolType::IdSubscriptArray<AgeContactProfile>;
 
-} // namespace stride
+} // namespace

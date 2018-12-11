@@ -39,8 +39,8 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 const auto& pools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
-                const auto dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                    0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
+                const auto dist = m_rnManager[0].variate_generator(
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
 
                 for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
                         stride::ContactPool* contactPool = household->GetPools()[0];

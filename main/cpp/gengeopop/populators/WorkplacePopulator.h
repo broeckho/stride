@@ -62,14 +62,13 @@ private:
         std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
             m_workplacesInCity; ///< For each location store the workplaces and a distribution to choose a random one
 
-        double m_fractionCommutingStudents;  ///< Fraction of the commuting people who are a student
+        double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student
 
         std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc
         discreteDist                      m_distNonCommuting; ///< distribution to choose from m_nearByWorkPlaces;
 
         std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to
         discreteDist           m_disCommuting;       ///< distribution to choose from m_commutingLocations
-
 };
 
-} // namespace
+} // namespace gengeopop

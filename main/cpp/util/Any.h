@@ -94,5 +94,5 @@ private:
 #endif
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

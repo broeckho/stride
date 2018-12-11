@@ -287,4 +287,4 @@ template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDiscussion
 template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
 template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
 
-} // namespace stride
+} // namespace

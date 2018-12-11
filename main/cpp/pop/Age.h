@@ -31,4 +31,4 @@ inline constexpr unsigned int MinAdultAge() { return 18U; }
 /// Effective age (topping of at maximum).
 inline unsigned int EffectiveAge(unsigned int age) { return (age <= MaximumAge()) ? age : MaximumAge(); }
 
-} // namespace stride
+} // namespace

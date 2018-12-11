@@ -48,4 +48,4 @@ double HouseholdReader::GetFraction1865Years() const
         return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
 }
 
-} // namespace
+} // namespace gengeopop

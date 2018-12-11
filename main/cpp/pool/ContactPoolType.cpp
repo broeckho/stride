@@ -73,5 +73,5 @@ Id ToType(const string& s)
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("ContactPoolType::ToString> not available:" + t);
 }
 
-} // namespace ContactPoolType
-} // namespace stride
+} // namespace
+} // namespace

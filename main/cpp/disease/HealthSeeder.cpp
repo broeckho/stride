@@ -90,4 +90,4 @@ void HealthSeeder::Seed(const std::shared_ptr<stride::Population>& pop, vector<C
         }
 }
 
-} // namespace stride
+} // namespace

@@ -119,4 +119,4 @@ template class PtreeViewer<std::chrono::microseconds>;
 template class PtreeViewer<std::chrono::milliseconds>;
 template class PtreeViewer<std::chrono::seconds>;
 
-} // namespace myhayai
+} // namespace

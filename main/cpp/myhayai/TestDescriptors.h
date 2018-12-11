@@ -1,5 +1,4 @@
-#pragma once
-/*
+-/*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -17,6 +16,8 @@
  * @file
  * Header file for TestDescriptors container.
  */
+
+#pragma once
 
 #include "TestDescriptor.h"
 
@@ -38,4 +39,4 @@ public:
         std::size_t CountDisabled();
 };
 
-} // namespace myhayai
+} // namespace

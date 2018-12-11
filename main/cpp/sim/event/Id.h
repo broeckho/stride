@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Definition of EventId.
  */
+
+#pragma once
 
 #include <cstddef>
 #include <string>
@@ -50,5 +51,5 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
-} // namespace sim_event
-} // namespace stride
+} // namespace
+} // namespace

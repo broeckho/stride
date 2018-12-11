@@ -19,7 +19,6 @@
 
 #include <string>
 
-
 #ifdef NDEBUG
 inline void ExcAssert(bool, const std::string&) {}
 #else

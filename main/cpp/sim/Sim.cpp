@@ -115,4 +115,4 @@ void Sim::TimeStep()
         m_calendar->AdvanceDay();
 }
 
-} // namespace stride
+} // namespace

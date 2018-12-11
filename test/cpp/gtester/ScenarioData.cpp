@@ -72,8 +72,8 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                           {"r0_4_gengeopop", 919.14878556194594},
                                                           {"r0_8_gengeopop", 233.54134537593123}};
 
-        unsigned int                  target;
-        double                        sigma;
+        unsigned int target;
+        double       sigma;
         if (gengeopop) {
                 target = targets_gengeopop[tag];
                 sigma  = sigmas_gengeopop[tag];

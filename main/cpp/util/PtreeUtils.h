@@ -87,5 +87,5 @@ Ptree Merge(const Ptree& pt1, const Ptree& pt2)
         return result;
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

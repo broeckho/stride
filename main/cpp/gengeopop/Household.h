@@ -38,9 +38,7 @@ public:
         unsigned int GetPoolSize() const override { return 15; }
 
         /// See ContactCenter::GetType.
-        std::string  GetType() const override { return "Household"; }
-
-
+        std::string GetType() const override { return "Household"; }
 };
 
 } // namespace gengeopop

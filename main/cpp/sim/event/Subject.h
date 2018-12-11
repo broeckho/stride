@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Definition of Subject/Observer for SimEvents.
  */
 
+#pragma once
+
 #include "Id.h"
 #include "util/Subject.h"
 
@@ -27,4 +28,4 @@ namespace stride {
 // Cannot declare this in sim_event as it has to be declared in enclosing namespace.
 extern template class stride::util::Subject<sim_event::Id>;
 
-} // namespace stride
+} // namespace

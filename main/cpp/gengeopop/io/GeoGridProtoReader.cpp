@@ -16,7 +16,6 @@
 #include "GeoGridProtoReader.h"
 
 #include "ThreadException.h"
-#include "proto/geogrid.pb.h"
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
 #include "gengeopop/Household.h"
@@ -24,6 +23,7 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
+#include "proto/geogrid.pb.h"
 #include "util/Exception.h"
 
 #include <iostream>
@@ -67,7 +67,7 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 #pragma omp single
         {
                 for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
-                        shared_ptr<Location>      loc;
+                        shared_ptr<Location>           loc;
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
 #pragma omp task firstprivate(protoLocation, loc)
                         {
@@ -84,15 +84,15 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         m_people.clear();
         m_commutes.clear();
         return m_geoGrid;
-} 
+}
 
 shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
 {
-        auto               id         = protoLocation.id();
-        const string&      name       = protoLocation.name();
-        auto               province   = protoLocation.province();
-        auto               population = protoLocation.population();
-        const Coordinate&  coordinate = ParseCoordinate(protoLocation.coordinate());
+        auto              id         = protoLocation.id();
+        const string&     name       = protoLocation.name();
+        auto              province   = protoLocation.province();
+        auto              population = protoLocation.population();
+        const Coordinate& coordinate = ParseCoordinate(protoLocation.coordinate());
 
         auto result = make_shared<Location>(id, province, population, coordinate, name);
 
@@ -101,7 +101,7 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
 #pragma omp single
         {
                 for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                        shared_ptr<ContactCenter>               center;
+                        shared_ptr<ContactCenter>                    center;
                         const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
 #pragma omp task firstprivate(protoCenter, center)
                         {
@@ -122,7 +122,7 @@ shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Loca
         }
 
         return result;
-} 
+}
 
 Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {
@@ -133,7 +133,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         proto::GeoGrid_Location_ContactCenter_Type type = protoContactCenter.type();
-        shared_ptr<ContactCenter>             result;
+        shared_ptr<ContactCenter>                  result;
         auto                                       id = protoContactCenter.id();
         stride::ContactPoolType::Id                typeId;
 
@@ -188,7 +188,7 @@ shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp taskwait
         }
         e->Rethrow();
-        
+
         return result;
 }
 
@@ -221,4 +221,4 @@ stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& pro
         return m_geoGrid->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
-} // namespace 
+} // namespace gengeopop

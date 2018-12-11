@@ -15,8 +15,8 @@
 
 #pragma once
 
-#include "Location.h"
 #include "KdTree.h"
+#include "Location.h"
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
 
@@ -151,7 +151,6 @@ public:
                              get<0>(loc2->GetCoordinate()), get<1>(loc2->GetCoordinate()));
         }
 
-
         /// Gets amount of Location
         size_t size() const;
 
@@ -188,12 +187,13 @@ public:
         /// Build a GeoAggregator that gets its functor when calling, with given args for the Policy
         template <typename Policy>
         GeoAggregator<Policy> BuildAggregator(typename Policy::Args&& args) const;
+
 public:
         using iterator       = std::vector<std::shared_ptr<Location>>::iterator;
         using const_iterator = std::vector<std::shared_ptr<Location>>::const_iterator;
 
         /// Iterator to first Location
-        iterator begin()  { return m_locations.begin(); }
+        iterator begin() { return m_locations.begin(); }
 
         /// Iterator to the end of the Location storage
         iterator end() { return m_locations.end(); }

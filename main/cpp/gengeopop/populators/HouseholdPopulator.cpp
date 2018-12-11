@@ -34,8 +34,7 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
-                const vector<shared_ptr<ContactCenter>>& households =
-                    loc->GetContactCentersOfType<Household>();
+                const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
                         stride::ContactPool* contactPool     = household->GetPools()[0];
                         auto                 householdTypeId = static_cast<unsigned int>(household_dist());
@@ -51,4 +50,4 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         m_logger->info("Number of persons in households: {}", current_person_id);
 }
 
-} // namespace
+} // namespace gengeopop

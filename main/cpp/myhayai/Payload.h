@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Payload for Subject/Observer for myhayaia::events.
  */
+
+#pragma once
 
 #include "Id.hpp"
 #include "TestResult.h"
@@ -50,5 +51,5 @@ struct Payload
         myhayai::TestResult m_run_times;
 };
 
-} // namespace event
-} // namespace myhayai
+} // namespace
+} // namespace

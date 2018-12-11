@@ -40,7 +40,7 @@ public:
         unsigned int GetPoolSize() const override { return 20; }
 
         /// See ContactCenter::GetType.
-        std::string  GetType() const override { return "Workplace"; }
+        std::string GetType() const override { return "Workplace"; }
 };
 
-} // namespace
+} // namespace gengeopop

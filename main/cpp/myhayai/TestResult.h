@@ -1,5 +1,4 @@
-#pragma once
-/*
+=/*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -18,6 +17,8 @@
  * Header file for TestResult.
  */
 
+#pragma once
+
 #include <chrono>
 #include <cstdint>
 #include <iterator>
@@ -29,4 +30,4 @@ namespace myhayai {
 /// Test result descriptor. All durations are expressed in nanoseconds.
 using TestResult = std::vector<std::chrono::steady_clock::duration>;
 
-} // namespace myhayai
+} // namespace

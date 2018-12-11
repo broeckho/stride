@@ -90,4 +90,4 @@ void Health::Update()
         }
 }
 
-} /* namespace stride */
+} // namespace stride

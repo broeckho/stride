@@ -68,7 +68,7 @@ void GeoGridJSONWriter::Write(shared_ptr<gengeopop::GeoGrid> geoGrid, ostream& s
 
         m_persons_found.clear();
         boost::property_tree::write_json(stream, root);
-} 
+}
 
 boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location> location)
 {
@@ -172,4 +172,4 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* perso
         return person_root;
 }
 
-} // namespace 
+} // namespace gengeopop

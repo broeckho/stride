@@ -41,7 +41,7 @@ void GeoGrid::AddLocation(std::shared_ptr<Location> location)
 
 std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
 
-std::shared_ptr<Location>          GeoGrid::Get(size_t index) { return (*this)[index]; }
+std::shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
 
 std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {

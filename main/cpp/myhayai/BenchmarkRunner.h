@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -17,6 +16,8 @@
  * @file
  * Header file for Benchmarker.
  */
+
+#pragma once
 
 #include "InfoFactory.h"
 #include "Payload.h"

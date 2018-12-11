@@ -28,7 +28,6 @@
 #include <memory>
 #include <spdlog/logger.h>
 
-
 namespace stride {
 
 class Population;
@@ -43,7 +42,9 @@ public:
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
         AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager)
-                : m_config_pt(configPt), m_rn_manager(rnManager) {}
+            : m_config_pt(configPt), m_rn_manager(rnManager)
+        {
+        }
 
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;

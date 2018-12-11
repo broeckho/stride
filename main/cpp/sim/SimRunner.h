@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the SimRunner class.
  */
+
+#pragma once
 
 #include "sim/event/Id.h"
 #include "sim/event/Subject.h"

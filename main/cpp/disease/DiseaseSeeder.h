@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the DiseaseSeeder class.
  */
+
+#pragma once
 
 #include "pool/ContactPool.h"
 #include "pop/Population.h"
@@ -53,4 +54,4 @@ private:
         util::RnMan&                       m_rn_manager; ///< Random number manager.
 };
 
-} // namespace stride
+} // namespace

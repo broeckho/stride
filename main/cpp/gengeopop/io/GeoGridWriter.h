@@ -36,4 +36,4 @@ public:
         virtual void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) = 0;
 };
 
-} // namespace
+} // namespace gengeopop

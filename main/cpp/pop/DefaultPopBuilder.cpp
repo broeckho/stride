@@ -32,7 +32,6 @@
 #include <boost/property_tree/ptree.hpp>
 #include <fstream>
 
-
 namespace stride {
 
 using namespace ContactPoolType;
@@ -50,15 +49,13 @@ shared_ptr<Population> DefaultPopBuilder::MakePersons(shared_ptr<Population> pop
         const auto use_install_dirs = m_config_pt.get<bool>("run.use_install_dirs");
         const auto file_path = (use_install_dirs) ? FileSys::GetDataDir() /= file_name : filesys::path(file_name);
         if (!is_regular_file(file_path)) {
-                throw runtime_error(string(__func__) + "> Population file " + file_path.string() +
-                                         " not present.");
+                throw runtime_error(string(__func__) + "> Population file " + file_path.string() + " not present.");
         }
 
         ifstream pop_file;
         pop_file.open(file_path.string());
         if (!pop_file.is_open()) {
-                throw runtime_error(string(__func__) + "> Error opening population file " +
-                                         file_path.string());
+                throw runtime_error(string(__func__) + "> Error opening population file " + file_path.string());
         }
 
         string line;
@@ -136,4 +133,4 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace stride
+} // namespace

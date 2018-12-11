@@ -50,5 +50,5 @@ struct is_iterator<T, ii_detail::void_t<typename std::iterator_traits<T>::iterat
 {
 };
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

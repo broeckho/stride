@@ -23,7 +23,6 @@
 #include "gengeopop/GenGeoPopController.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "pop/Population.h"
-#include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
 #include "util/LogUtils.h"

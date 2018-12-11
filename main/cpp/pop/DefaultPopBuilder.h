@@ -51,4 +51,4 @@ private:
         std::shared_ptr<Population> MakePersons(std::shared_ptr<Population> pop);
 };
 
-} // namespace stride
+} // namespace

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header for the command line controller.
  */
+
+#pragma once
 
 #include "util/RnMan.h"
 #include "util/Stopwatch.h"
@@ -80,4 +81,4 @@ protected:
         util::RnMan                     m_rn_manager;       ///< The manager for random numbers
 };
 
-} // namespace stride
+} // namespace

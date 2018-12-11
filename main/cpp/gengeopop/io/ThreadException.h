@@ -84,4 +84,4 @@ struct ThreadException::RunType<void>
         using type = void;
 };
 
-} // namespace
+} // namespace gengeopop

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -17,6 +16,8 @@
  * @file
  * Header file for Test.
  */
+
+#pragma once
 
 #include "TestResult.h"
 #include "util/Stopwatch.h"
@@ -60,4 +61,4 @@ struct Test
         std::function<void()> m_teardown;
 };
 
-} // namespace myhayai
+} // namespace

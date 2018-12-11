@@ -44,7 +44,7 @@ ConfigFileCalibrationRunner::ConfigFileCalibrationRunner(std::vector<std::string
                 } else {
                         config = regex_replace(config, std::regex(std::string("^file=")), std::string(""));
                         const filesys::path configPath = stride::util::FileSys::GetConfigDir() / config;
-                        configPt                          = stride::util::FileSys::ReadPtreeFile(configPath);
+                        configPt                       = stride::util::FileSys::ReadPtreeFile(configPath);
                 }
                 configs.emplace_back(configPt, config);
         }

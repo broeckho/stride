@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,9 @@
  * @file
  * Header file for BenchControlHelper.
  */
+
+#pragma once
+
 #include "TestDescriptors.h"
 
 #include <regex>
@@ -34,9 +36,9 @@ class BenchControlHelper
 {
 public:
         /// Defaults.
-        explicit BenchControlHelper(const TestDescriptors& td,
-                           const std::vector<std::string>& positive = std::vector<std::string>(),
-                           const std::vector<std::string>& negative = std::vector<std::string>());
+        explicit BenchControlHelper(const TestDescriptors&          td,
+                                    const std::vector<std::string>& positive = std::vector<std::string>(),
+                                    const std::vector<std::string>& negative = std::vector<std::string>());
 
         /// Return the canonical names obtained after applying
         /// the positive and negative regex filters.
@@ -56,4 +58,4 @@ private:
         std::vector<std::regex> m_positive;    ///< Positive regexes for including tests.
 };
 
-} // namespace myhayai
+} // namespace

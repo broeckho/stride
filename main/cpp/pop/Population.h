@@ -117,4 +117,4 @@ private:
         std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;    ///< Associated geoGrid may be nullptr
 };
 
-} // namespace stride
+} // namespace

@@ -138,5 +138,5 @@ inline std::ofstream& operator<<(std::ofstream& ofs, const CSV& csv)
         return ofs;
 }
 
-} // namespace
-} // namespace
+} // namespace util
+} // namespace stride

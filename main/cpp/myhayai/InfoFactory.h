@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * Header file for InfoFactory.
  */
 
+#pragma once
+
 #include <boost/property_tree/ptree.hpp>
 #include <functional>
 
@@ -25,4 +26,5 @@ namespace myhayai {
 
 /// Produces info (int property tree format) on the test (for use by viewers).
 using InfoFactory = std::function<boost::property_tree::ptree()>;
-} // namespace myhayai
+
+} // namespace
