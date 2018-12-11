@@ -327,5 +327,5 @@ std::string RunConfigManager::ToShortSha1(const boost::property_tree::ptree& pt,
         return ToSha1(pt).substr(0, n);
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

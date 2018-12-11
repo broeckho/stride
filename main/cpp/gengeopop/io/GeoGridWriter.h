@@ -15,7 +15,8 @@
 
 #pragma once
 
-#include "../GeoGrid.h"
+#include "gengeopop/GeoGrid.h"
+
 #include <memory>
 #include <ostream>
 
@@ -28,11 +29,11 @@ namespace gengeopop {
 class GeoGridWriter
 {
 public:
-        /// Construct the Writer
-        virtual ~GeoGridWriter() {}
+        /// Construct the Writer.
+        virtual ~GeoGridWriter() = default;
 
-        /// Write the provided geoGrid to the provided ostream
+        /// Write the provided geoGrid to ostream.
         virtual void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) = 0;
 };
 
-} // namespace gengeopop
+} // namespace

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Interface of RnMan.
  */
 
+#pragma once
+
 #include "Rn.h"
 
 namespace stride {
@@ -29,5 +30,5 @@ using RnLcg64 = Rn<trng::lcg64>;
 
 using RnMan = RnPcg64;
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

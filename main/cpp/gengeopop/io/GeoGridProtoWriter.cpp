@@ -14,11 +14,14 @@
  */
 
 #include "GeoGridProtoWriter.h"
-#include "proto/geogrid.pb.h"
-#include <gengeopop/ContactCenter.h>
+
+#include "gengeopop/ContactCenter.h"
+#include "gengeopop/io/proto/geogrid.pb.h"
+#include "util/Exception.h"
+
 #include <iostream>
 #include <omp.h>
-#include <util/Exception.h>
+
 
 namespace gengeopop {
 

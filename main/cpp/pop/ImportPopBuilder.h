@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,14 +18,11 @@
  * Initialize populations.
  */
 
+#pragma once
+
 #include "AbstractPopBuilder.h"
-#include <boost/property_tree/ptree_fwd.hpp>
-#include <memory>
-#include <pool/ContactPoolType.h>
 
 namespace stride {
-
-class Population;
 
 /**
  * Initializes Population objects.
@@ -34,10 +30,11 @@ class Population;
 class ImportPopBuilder : public AbstractPopBuilder
 {
 public:
+        /// Use constructor of base.
         using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Creates a population by importing it
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
 };
 
-} // namespace stride
+} // namespace

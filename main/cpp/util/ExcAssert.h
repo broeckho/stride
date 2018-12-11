@@ -14,8 +14,11 @@
  */
 
 #pragma once
+
+#include "util/Exception.h"
+
 #include <string>
-#include <util/Exception.h>
+
 
 #ifdef NDEBUG
 inline void ExcAssert(bool, const std::string&) {}

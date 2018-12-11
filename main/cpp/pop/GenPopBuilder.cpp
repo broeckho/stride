@@ -20,7 +20,9 @@
 
 #include "GenPopBuilder.h"
 
-#include "Population.h"
+#include "gengeopop/GenGeoPopController.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "pop/Population.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
 #include "util/FileSys.h"
@@ -29,8 +31,6 @@
 #include "util/StringUtils.h"
 
 #include <boost/property_tree/ptree.hpp>
-#include <gengeopop/GenGeoPopController.h>
-#include <gengeopop/GeoGridConfig.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
 
@@ -101,4 +101,4 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace stride
+} // namespace

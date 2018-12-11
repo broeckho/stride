@@ -13,23 +13,23 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#ifndef STRIDE_EXCEPTION_H
-#define STRIDE_EXCEPTION_H
+#pragma once
 
 #include <stdexcept>
 
 namespace stride {
 namespace util {
 
-/// Basic exception class. Needed to prevent clang-tidy warning: "thrown exception type is not nothrow copy
-/// constructible"
+/**
+ * Basic exception class: needed to prevent clang-tidy warning
+ * "thrown exception type is not nothrow copy constructible".
+ */
 class Exception : public std::runtime_error
 {
 public:
-        explicit Exception(const std::string& msg);
+        explicit Exception(const std::string& msg): runtime_error(msg) {}
 };
-} // namespace util
 
-} // namespace stride
+} // namespace
+} // namespace
 
-#endif // STRIDE_EXCEPTION_H

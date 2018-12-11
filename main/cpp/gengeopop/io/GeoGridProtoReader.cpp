@@ -14,34 +14,38 @@
  */
 
 #include "GeoGridProtoReader.h"
+
 #include "ThreadException.h"
 #include "proto/geogrid.pb.h"
-#include <gengeopop/College.h>
-#include <gengeopop/Community.h>
-#include <gengeopop/Household.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/SecondaryCommunity.h>
-#include <gengeopop/Workplace.h>
+#include "gengeopop/College.h"
+#include "gengeopop/Community.h"
+#include "gengeopop/Household.h"
+#include "gengeopop/K12School.h"
+#include "gengeopop/PrimaryCommunity.h"
+#include "gengeopop/SecondaryCommunity.h"
+#include "gengeopop/Workplace.h"
+#include "util/Exception.h"
+
 #include <iostream>
 #include <omp.h>
 #include <stdexcept>
-#include <util/Exception.h>
 
 namespace gengeopop {
 
-GeoGridProtoReader::GeoGridProtoReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop)
-    : GeoGridReader(std::move(inputStream), pop), m_geoGrid()
+using namespace std;
+
+GeoGridProtoReader::GeoGridProtoReader(unique_ptr<istream> inputStream, stride::Population* pop)
+    : GeoGridReader(move(inputStream), pop), m_geoGrid()
 {
 }
 
-std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
+shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 {
         proto::GeoGrid protoGrid;
         if (!protoGrid.ParseFromIstream(m_inputStream.get())) {
                 throw stride::util::Exception("Failed to parse Proto file");
         }
-        m_geoGrid = std::make_shared<GeoGrid>(m_population);
+        m_geoGrid = make_shared<GeoGrid>(m_population);
 #pragma omp parallel
 #pragma omp single
         {
@@ -58,19 +62,19 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
                 }
 #pragma omp taskwait
         }
-        auto e = std::make_shared<ThreadException>();
+        auto e = make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
                 for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
-                        std::shared_ptr<Location>      loc;
+                        shared_ptr<Location>      loc;
                         const proto::GeoGrid_Location& protoLocation = protoGrid.locations(idx);
 #pragma omp task firstprivate(protoLocation, loc)
                         {
                                 e->Run([&loc, this, &protoLocation] { loc = ParseLocation(protoLocation); });
                                 if (!e->HasError())
 #pragma omp critical
-                                        m_geoGrid->AddLocation(std::move(loc));
+                                        m_geoGrid->AddLocation(move(loc));
                         }
                 }
 #pragma omp taskwait
@@ -80,24 +84,24 @@ std::shared_ptr<GeoGrid> GeoGridProtoReader::Read()
         m_people.clear();
         m_commutes.clear();
         return m_geoGrid;
-} // namespace gengeopop
+} 
 
-std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
+shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
 {
         auto               id         = protoLocation.id();
-        const std::string& name       = protoLocation.name();
+        const string&      name       = protoLocation.name();
         auto               province   = protoLocation.province();
         auto               population = protoLocation.population();
         const Coordinate&  coordinate = ParseCoordinate(protoLocation.coordinate());
 
-        auto result = std::make_shared<Location>(id, province, population, coordinate, name);
+        auto result = make_shared<Location>(id, province, population, coordinate, name);
 
-        auto e = std::make_shared<ThreadException>();
+        auto e = make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
                 for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
-                        std::shared_ptr<ContactCenter>               center;
+                        shared_ptr<ContactCenter>               center;
                         const proto::GeoGrid_Location_ContactCenter& protoCenter = protoLocation.contactcenters(idx);
 #pragma omp task firstprivate(protoCenter, center)
                         {
@@ -114,57 +118,55 @@ std::shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const proto::GeoGrid_Location_Commute& commute = protoLocation.commutes(idx);
 #pragma omp critical
-                m_commutes.emplace_back(std::make_tuple(id, commute.to(), commute.proportion()));
+                m_commutes.emplace_back(make_tuple(id, commute.to(), commute.proportion()));
         }
 
         return result;
-} // namespace gengeopop
+} 
 
 Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate)
 {
-        const double longitude = protoCoordinate.longitude();
-        const double latitude  = protoCoordinate.latitude();
-        return {longitude, latitude};
+        return {protoCoordinate.longitude(), protoCoordinate.latitude()};
 }
 
-std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
+shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         proto::GeoGrid_Location_ContactCenter_Type type = protoContactCenter.type();
-        std::shared_ptr<ContactCenter>             result;
+        shared_ptr<ContactCenter>             result;
         auto                                       id = protoContactCenter.id();
         stride::ContactPoolType::Id                typeId;
 
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
-                result = std::make_shared<K12School>(id);
+                result = make_shared<K12School>(id);
                 typeId = stride::ContactPoolType::Id::K12School;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity:
-                result = std::make_shared<PrimaryCommunity>(id);
+                result = make_shared<PrimaryCommunity>(id);
                 typeId = stride::ContactPoolType::Id::PrimaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_SecondaryCommunity:
-                result = std::make_shared<SecondaryCommunity>(id);
+                result = make_shared<SecondaryCommunity>(id);
                 typeId = stride::ContactPoolType::Id::SecondaryCommunity;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_College:
-                result = std::make_shared<College>(id);
+                result = make_shared<College>(id);
                 typeId = stride::ContactPoolType::Id::College;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Household:
-                result = std::make_shared<Household>(id);
+                result = make_shared<Household>(id);
                 typeId = stride::ContactPoolType::Id::Household;
                 break;
         case proto::GeoGrid_Location_ContactCenter_Type_Workplace:
-                result = std::make_shared<Workplace>(id);
+                result = make_shared<Workplace>(id);
                 typeId = stride::ContactPoolType::Id::Work;
                 break;
                 break;
         default: throw stride::util::Exception("No such ContactCenter type");
         }
 
-        auto e = std::make_shared<ThreadException>();
+        auto e = make_shared<ThreadException>();
 #pragma omp parallel
 #pragma omp single
         {
@@ -186,6 +188,7 @@ std::shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
 #pragma omp taskwait
         }
         e->Rethrow();
+        
         return result;
 }
 
@@ -206,7 +209,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
                 {
                         result->AddMember(person);
                         // Update original pool id with new pool id used in the population
-                        person->SetPoolId(type, result->GetId());
+                        person->SetPoolId(type, static_cast<unsigned int>(result->GetId()));
                 }
         }
 
@@ -215,10 +218,7 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
 
 stride::Person* GeoGridProtoReader::ParsePerson(const proto::GeoGrid_Person& protoPerson)
 {
-        auto id  = protoPerson.id();
-        auto age = protoPerson.age();
-
-        return m_geoGrid->CreatePerson(id, age, 0, 0, 0, 0, 0, 0);
+        return m_geoGrid->CreatePerson(protoPerson.id(), protoPerson.age(), 0, 0, 0, 0, 0, 0);
 }
 
-} // namespace gengeopop
+} // namespace 

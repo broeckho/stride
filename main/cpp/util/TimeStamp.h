@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * TimeStamp class.
  */
+
+#pragma once
 
 #include <algorithm>
 #include <chrono>
@@ -78,5 +79,5 @@ private:
  */
 inline std::ostream& operator<<(std::ostream& os, TimeStamp t) { return (os << t.ToString()); }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

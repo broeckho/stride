@@ -16,10 +16,11 @@
 #pragma once
 
 #include "CommutesReader.h"
-#include <gengeopop/Location.h>
+#include "gengeopop/Location.h"
+#include "util/CSV.h"
+
 #include <map>
 #include <string>
-#include <util/CSV.h>
 
 namespace gengeopop {
 
@@ -41,4 +42,5 @@ private:
 
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
-} // namespace gengeopop
+
+} // namespace

@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Interface and implementation for SegmentedVector class
  */
+
+#pragma once
 
 #include "SVIterator.h"
 
@@ -357,5 +358,5 @@ private:
         size_t              m_size;   ///< Index of first free chunk when indexed contiguously.
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

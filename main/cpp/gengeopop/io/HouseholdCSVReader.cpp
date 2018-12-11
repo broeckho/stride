@@ -14,7 +14,8 @@
  */
 
 #include "HouseholdCSVReader.h"
-#include <util/CSV.h>
+
+#include "util/CSV.h"
 
 gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> inputStream)
     : m_persons(), m_contactPools()

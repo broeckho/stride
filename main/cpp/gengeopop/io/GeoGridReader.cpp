@@ -13,13 +13,12 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include <gengeopop/io/GeoGridReader.h>
+#include "GeoGridReader.h"
 
 namespace gengeopop {
 
 GeoGridReader::GeoGridReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop)
-    : m_people(), m_commutes(), m_inputStream(std::move(inputStream)),
-      m_population(pop)
+    : m_people(), m_commutes(), m_inputStream(std::move(inputStream)), m_population(pop)
 {
 }
 void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)

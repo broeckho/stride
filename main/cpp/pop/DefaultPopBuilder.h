@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -20,8 +19,10 @@
  * Initialize populations.
  */
 
+#pragma once
+
 #include "AbstractPopBuilder.h"
-#include "util/RnMan.h"
+
 #include <memory>
 
 namespace stride {
@@ -34,6 +35,7 @@ class Population;
 class DefaultPopBuilder : public AbstractPopBuilder
 {
 public:
+        /// Use constructor of base.
         using AbstractPopBuilder::AbstractPopBuilder;
 
         /// Build Population and return it afterwards.

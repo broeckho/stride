@@ -15,46 +15,47 @@
 
 #pragma once
 
-#include "../GeoGrid.h"
+#include "gengeopop/GeoGrid.h"
+
 #include <memory>
 #include <ostream>
 
 namespace gengeopop {
 
 /**
- * An abstract base class for creating a GeoGrid that was read from a file, can be implemented using multiple file types
- * (proto and json are currently implemented)
+ * An abstract base class for creating a GeoGrid that was read from a file, can be implemented
+ * using multiple file types (proto and json are currently implemented)
  */
 class GeoGridReader
 {
 public:
-        /// Construct the GeoGridReader with the istream containing the contents of the file and the Population used to
-        /// create the Persons
+        /// Parametrized constructor.
         GeoGridReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop);
 
-        /// No copy constructor
+        /// No copy constructor.
         GeoGridReader(const GeoGridReader&) = delete;
 
         /// No copy assignment
         GeoGridReader& operator=(const GeoGridReader&) = delete;
 
-        /// Default destructor
+        /// Default destructor.
         virtual ~GeoGridReader() = default;
 
         /// Perform the actual read and return the created GeoGrid
         virtual std::shared_ptr<GeoGrid> Read() = 0;
 
 protected:
-        /// Add the commutes that were found to their respective Locations symmetrically
+        /// Add the commutes that were found to their respective Locations symmetrically.
         void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
-        std::map<unsigned int, stride::Person*>
-                                                                    m_people; ///< Store the persons (id->person) that were found while loping over the ContactPools
-        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes; ///< from, to, amount
+        ///< Store the persons (id->person) that were found while loping over the ContactPools.
+        std::map<unsigned int, stride::Person*> m_people;
 
-        std::unique_ptr<std::istream> m_inputStream; ///< file to read
+        ///< Commutes from, to, number.
+        std::vector<std::tuple<unsigned int, unsigned int, double>> m_commutes;
 
-        stride::Population* m_population; ///< population to use in the GeoGrid may be nullptr
+        std::unique_ptr<std::istream> m_inputStream; ///< file to read.
+        stride::Population* m_population; ///< population to use in the GeoGrid may be nullptr.
 };
 
-} // namespace gengeopop
+} // namespace

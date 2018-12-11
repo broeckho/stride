@@ -33,5 +33,5 @@ namespace util {
 template class Rn<pcg64>;
 template class Rn<trng::lcg64>;
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

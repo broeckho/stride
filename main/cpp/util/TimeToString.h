@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Utilities to tag clocks and reformat clock readout to string.
  */
+
+#pragma once
 
 #include <chrono>
 #include <cmath>
@@ -121,5 +122,5 @@ struct TimeToString
         }
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

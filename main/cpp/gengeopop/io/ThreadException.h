@@ -28,24 +28,24 @@ class ThreadException
 {
 public:
         /// Create the ThreadException
-        ThreadException() : ptr(nullptr), Lock() {}
+        ThreadException() : m_ptr(nullptr), m_lock() {}
 
         /// Destructor
-        ~ThreadException() {}
+        ~ThreadException() = default;
 
         /// Re-throw the exception if one was caught
         void Rethrow()
         {
-                if (this->ptr != nullptr) {
-                        std::rethrow_exception(this->ptr);
+                if (this->m_ptr != nullptr) {
+                        std::rethrow_exception(this->m_ptr);
                 }
         }
 
         /// Capture the current exception and save it
         void CaptureException()
         {
-                std::unique_lock<std::mutex> guard(this->Lock);
-                this->ptr = std::current_exception();
+                std::unique_lock<std::mutex> guard(this->m_lock);
+                this->m_ptr = std::current_exception();
         }
 
         /// The used for executing a function with a return type
@@ -71,11 +71,11 @@ public:
         }
 
         /// Returns if an exception was caught
-        bool HasError() const { return ptr != nullptr; }
+        bool HasError() const { return m_ptr != nullptr; }
 
 private:
-        std::exception_ptr ptr;  ///< The caught exception (if none was caught, contains a nullptr)
-        std::mutex         Lock; ///< A lock used to prevent two exceptions being caught at the same time
+        std::exception_ptr m_ptr;  ///< The caught exception (if none was caught, contains a nullptr)
+        std::mutex         m_lock; ///< A lock used to prevent two exceptions being caught at the same time
 };
 
 template <>
@@ -84,4 +84,4 @@ struct ThreadException::RunType<void>
         using type = void;
 };
 
-} // namespace gengeopop
+} // namespace

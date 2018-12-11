@@ -20,36 +20,33 @@
 
 #include "ImportPopBuilder.h"
 
-#include "Population.h"
-#include "pop/Population.h"
-#include "pop/SurveySeeder.h"
-#include "util/FileSys.h"
+//#include "util/FileSys.h"
 #include "util/LogUtils.h"
-#include "util/RnMan.h"
-#include "util/StringUtils.h"
+//#include "util/RnMan.h"
+//#include "util/StringUtils.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <gengeopop/GenGeoPopController.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/io/GeoGridReaderFactory.h>
+//#include <boost/property_tree/ptree.hpp>
+//#include <gengeopop/GenGeoPopController.h>
+//#include <gengeopop/GeoGridConfig.h>
+#include "gengeopop/io/GeoGridReaderFactory.h"
+
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
 
 namespace stride {
 
 using namespace std;
-using namespace util;
 using namespace boost::property_tree;
 using namespace gengeopop;
 
-shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop)
+shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
 {
         auto stride_logger = spdlog::get("stride_logger");
 
-        std::string importFile = m_config_pt.get<std::string>("run.geopop_import_file");
+        const auto importFile = m_config_pt.get<string>("run.geopop_import_file");
 
         GeoGridReaderFactory                  geoGridReaderFactory;
-        const std::shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
+        const shared_ptr<GeoGridReader>& reader = geoGridReaderFactory.CreateReader(importFile, pop.get());
 
         stride_logger->debug("Importing population from " + importFile);
 
@@ -59,4 +56,4 @@ shared_ptr<Population> ImportPopBuilder::Build(std::shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace stride
+} // namespace

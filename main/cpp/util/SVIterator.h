@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Interface/Implementation for SVIterator.
  */
+
+#pragma once
 
 #include <cassert>
 #include <cmath>
@@ -255,5 +256,5 @@ SVIterator<T, N, Safe, P, R, is_const_iterator> operator-(std::ptrdiff_t        
         return p.operator-(i);
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

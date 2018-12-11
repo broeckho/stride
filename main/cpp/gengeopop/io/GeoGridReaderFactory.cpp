@@ -16,10 +16,10 @@
 #include "GeoGridReaderFactory.h"
 #include "GeoGridJSONReader.h"
 #include "GeoGridProtoReader.h"
+#include "util/Exception.h"
 
 #include <fstream>
 #include <iostream>
-#include <util/Exception.h>
 
 #ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
@@ -36,7 +36,7 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
 {
         filesys::path path(filename);
         if (!filesys::exists(path)) {
-                throw stride::util::Exception("File not found: " + path.string());
+                throw stride::util::Exception("GeoGridReaderFactory::CreateReader> File not found: " + path.string());
         }
 
         if (path.extension().string() == ".json") {
@@ -44,8 +44,9 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         } else if (path.extension().string() == ".proto") {
                 return std::make_shared<GeoGridProtoReader>(std::make_unique<std::ifstream>(path.string()), pop);
         } else {
-                throw stride::util::Exception("Unsupported file extension: " + path.extension().string());
+                throw stride::util::Exception("GeoGridReaderFactory::CreateReader> Unsupported file extension: "
+                + path.extension().string());
         }
 }
 
-} // namespace gengeopop
+} // namespace

@@ -15,10 +15,10 @@
 
 #pragma once
 
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/Location.h>
-#include <map>
-#include <string>
+#include "gengeopop/GeoGrid.h"
+
+#include <memory>
+#include <istream>
 
 namespace gengeopop {
 
@@ -30,7 +30,7 @@ class CommutesReader
 {
 public:
         /// Construct the CommutesReader with an istream containing the file content
-        explicit CommutesReader(std::unique_ptr<std::istream> inputStream);
+        explicit CommutesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
 
         /// Add the found Commutes to the provided GeoGrid
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
@@ -41,4 +41,5 @@ public:
 protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream containing the file content
 };
-} // namespace gengeopop
+
+} // namespace

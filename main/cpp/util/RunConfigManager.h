@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Produce run config ptree.
  */
+
+#pragma once
 
 #include "util/ConfigInfo.h"
 
@@ -74,5 +75,5 @@ private:
         static std::string CreateTestsMeasles();
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

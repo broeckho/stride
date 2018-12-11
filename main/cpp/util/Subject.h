@@ -1,4 +1,4 @@
-#pragma once
+
 /*
  * Copyright 2011-2016 Universiteit Antwerpen
  *
@@ -17,6 +17,8 @@
  * @file
  * Interface/Implementation of Subject.
  */
+
+#pragma once
 
 #include <functional>
 #include <map>
@@ -73,5 +75,5 @@ private:
         std::map<std::weak_ptr<const void>, CallbackType, std::owner_less<std::weak_ptr<const void>>> m_observers;
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

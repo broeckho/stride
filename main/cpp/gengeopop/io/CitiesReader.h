@@ -15,9 +15,11 @@
 
 #pragma once
 
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/Location.h>
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/Location.h"
+
 #include <map>
+#include <memory>
 #include <string>
 
 namespace gengeopop {
@@ -30,7 +32,7 @@ class CitiesReader
 {
 public:
         /// Construct the CitiesReader with an istream containing the file content
-        explicit CitiesReader(std::unique_ptr<std::istream> inputStream);
+        explicit CitiesReader(std::unique_ptr<std::istream> inputStream) : m_inputStream(std::move(inputStream)) {}
 
         /// Add the found Locations to the provided GeoGrid
         virtual void FillGeoGrid(std::shared_ptr<GeoGrid>) const = 0;
@@ -41,4 +43,5 @@ public:
 protected:
         std::unique_ptr<std::istream> m_inputStream; ///< The istream containing the file content
 };
-} // namespace gengeopop
+
+} // namespace

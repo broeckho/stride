@@ -25,36 +25,17 @@ add_subdirectory(gengeopop)
 add_subdirectory(execs)
 
 #============================================================================
-# Sources. Includes headers to enable code insight by CLion.
+# Sources.
 #============================================================================
 set(LIB_SRC
 #---
 	behaviour/BeliefSeeder.cpp
-	behaviour/behaviour_policies/NoBehaviour.h
-	behaviour/behaviour_policies/Vaccination.h
-	behaviour/belief_policies/Belief.h
-	behaviour/belief_policies/HBM.h
-	behaviour/belief_policies/Imitation.h
-	behaviour/belief_policies/NoBelief.h
-	behaviour/belief_policies/Threshold.h
-	behaviour/information_policies/LocalDiscussion.h
-	behaviour/information_policies/NoGlobalInformation.h
-	behaviour/information_policies/NoLocalInformation.h
 #---
     calendar/Calendar.cpp
-    calendar/DaysOffAll.h
-    calendar/DaysOffInterface.h
-    calendar/DaysOffNone.h
-    calendar/DaysOffSchool.h
-    calendar/DaysOffStandard.h
 #---
 	contact/AgeContactProfile.cpp
-	contact/AgeContactProfiles.h
-	contact/ContactHandler.h
 	contact/ContactLogMode.cpp
 	contact/Infector.cpp
-	contact/InfectorExec.h
-	contact/InfectorMap.h
     contact/TransmissionProfile.cpp
 #---
     disease/DiseaseSeeder.cpp
@@ -68,17 +49,13 @@ set(LIB_SRC
 	output/SummaryFile.cpp
 #---
 	pool/ContactPool.cpp
-	pool/ContactPoolSys.h
 	pool/ContactPoolType.cpp
-    pool/IdSubscriptArray.h
 #---
-    pop/Age.h
     pop/Person.cpp
     pop/Population.cpp
     pop/DefaultPopBuilder.cpp
     pop/GenPopBuilder.cpp
     pop/ImportPopBuilder.cpp
-    pop/AbstractPopBuilder.cpp
     pop/SurveySeeder.cpp
 #---
     sim/CliController.cpp
@@ -90,27 +67,13 @@ set(LIB_SRC
     sim/event/Id.cpp
 	sim/event/Subject.cpp
 #---
-	util/BoxPlotData.h
 	util/CSVRow.cpp
 	util/LogUtils.cpp
-	util/PtreeUtils.h
 	util/Rn.cpp
-	util/RnMan.h
-	util/is_iterator.h
-    util/Any.h
     util/CSV.cpp
     util/ConfigInfo.cpp
-    util/Exception.cpp
     util/FileSys.cpp
     util/RunConfigManager.cpp
-    util/SVIterator.h
-    util/SegmentedVector.h
-    util/SliceIndexer.h
-    util/Stopwatch.h
-    util/StringUtils.h
-    util/Subject.h
-    util/TimeStamp.h
-    util/TimeToString.h
 #---
     viewers/AdoptedFileViewer.cpp
     viewers/InfectedFileViewer.cpp

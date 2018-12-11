@@ -14,8 +14,9 @@
  */
 
 #include "CitiesCSVReader.h"
-#include "../../util/CSV.h"
-#include "../../util/CSVRow.h"
+
+#include "util/CSV.h"
+#include "util/CSVRow.h"
 
 namespace gengeopop {
 
@@ -26,12 +27,10 @@ CitiesCSVReader::CitiesCSVReader(std::unique_ptr<std::istream> inputStream)
 
 void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
-        // cols: id 	province 	population 	x_coord 	y_coord 	latitude 	longitude
-        // name
+        // cols: id   province  population  x_coord  y_coord  latitude  longitude  name
         std::vector<std::pair<std::shared_ptr<Location>, int>> addedLocations;
 
         unsigned int totalPopulation = 0;
-
         for (const stride::util::CSVRow& row : m_reader) {
                 auto id       = row.GetValue<int>(0);
                 auto location = std::make_shared<Location>(id,                   // id
@@ -52,4 +51,5 @@ void CitiesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
                                                  static_cast<double>(totalPopulation));
         }
 }
-} // namespace gengeopop
+
+} // namespace

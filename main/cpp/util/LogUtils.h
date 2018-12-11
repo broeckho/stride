@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Logging (spdlog) utilities.
  */
+
+#pragma once
 
 #include <memory>
 #include <spdlog/spdlog.h>
@@ -51,5 +52,5 @@ public:
                                                                     const std::string& file_name);
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

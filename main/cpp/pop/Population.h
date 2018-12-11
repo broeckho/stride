@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header file for the core Population class
  */
+
+#pragma once
 
 #include "pool/ContactPoolSys.h"
 #include "pop/Person.h"
@@ -112,7 +113,7 @@ private:
         util::Any                       m_beliefs;        ///< Container holds belief data for the persons.
         ContactPoolSys                  m_pool_sys;       ///< Holds vector of ContactPools of different types.
         std::shared_ptr<spdlog::logger> m_contact_logger; ///< Logger for contact/transmission.
-        std::size_t m_currentContactPoolId = 1;           ///< The current contact pool id, assigns in increasing order
+        std::size_t m_currentContactPoolId = 1;           ///< The current contact pool id, assigns in increasing order.
         std::shared_ptr<gengeopop::GeoGrid> m_geoGrid;    ///< Associated geoGrid may be nullptr
 };
 

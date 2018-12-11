@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Interface for install directory queries.
  */
+
+#pragma once
 
 #include <boost/property_tree/ptree.hpp>
 #include <functional>
@@ -119,5 +120,5 @@ private:
         static Dirs& Get();
 };
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

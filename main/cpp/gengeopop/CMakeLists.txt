@@ -22,6 +22,7 @@ set(GENGEOPOP_LIB
         PrimaryCommunity.cpp
         SecondaryCommunity.cpp
         ContactCenter.cpp
+        GenGeoPopController.cpp
         GeoGrid.cpp
         College.cpp
         Household.cpp
@@ -29,6 +30,7 @@ set(GENGEOPOP_LIB
         K12School.cpp
         Workplace.cpp
         GeoGridConfig.cpp
+#
         generators/GeoGridGenerator.cpp
         generators/K12SchoolGenerator.cpp
         generators/PartialGenerator.cpp
@@ -36,6 +38,7 @@ set(GENGEOPOP_LIB
         generators/HouseholdGenerator.cpp
         generators/WorkplaceGenerator.cpp
         generators/CommunityGenerator.cpp
+#
         populators/PrimaryCommunityPopulator.cpp
         populators/SecondaryCommunityPopulator.cpp
         populators/GeoGridPopulator.cpp
@@ -44,9 +47,8 @@ set(GENGEOPOP_LIB
         populators/K12SchoolPopulator.cpp
         populators/CollegePopulator.cpp
         populators/WorkplacePopulator.cpp
+#
         io/CitiesCSVReader.cpp
-        io/CitiesReader.cpp
-        io/CommutesReader.cpp
         io/CommutesCSVReader.cpp
         io/HouseholdCSVReader.cpp
         io/HouseholdReader.cpp
@@ -58,7 +60,7 @@ set(GENGEOPOP_LIB
         io/GeoGridWriterFactory.cpp
         io/GeoGridReaderFactory.cpp
         io/GeoGridReader.cpp
-        GenGeoPopController.cpp)
+)
 
 #============================================================================
 # Protocol Buffers.

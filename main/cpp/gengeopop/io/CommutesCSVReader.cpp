@@ -14,9 +14,10 @@
  */
 
 #include "CommutesCSVReader.h"
+#include "util/CSV.h"
+#include "util/Exception.h"
+
 #include <iostream>
-#include <util/CSV.h>
-#include <util/Exception.h>
 
 namespace gengeopop {
 
@@ -43,10 +44,8 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 
         std::map<unsigned int, unsigned int> sizes; // indexed by header/row id
 
-        /*
-         * Since columns represent the "from city" and the proportion is calculated using the from city,
-         * the total population of a city is calculated using the values found in the columns.
-         */
+        // Since columns represent the "from city" and the proportion is calculated using the from city,
+        // the total population of a city is calculated using the values found in the columns.
         for (const stride::util::CSVRow& row : m_reader) {
                 for (size_t columnIndex = 0; columnIndex < columnCount; columnIndex++) {
                         sizes[columnIndex] += row.GetValue<int>(columnIndex);
@@ -76,4 +75,4 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         }
 }
 
-} // namespace gengeopop
+} // namespace

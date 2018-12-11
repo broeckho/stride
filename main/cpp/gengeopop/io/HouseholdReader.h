@@ -15,8 +15,9 @@
 
 #pragma once
 
-#include <gengeopop/Household.h>
-#include <gengeopop/Location.h>
+#include "gengeopop/Household.h"
+#include "gengeopop/Location.h"
+
 #include <memory>
 #include <string>
 #include <vector>
@@ -56,10 +57,11 @@ public:
 
 protected:
         std::vector<std::shared_ptr<Household>> m_households;          ///< The households which are (being) found
-        unsigned int                            m_totalCompulsory = 0; ///< The total amount of compulsory pupils
-        unsigned int m_total1826Years = 0; ///< The total amount of people between 18 and 26 years of age
-        unsigned int m_total1865Years = 0; ///< The total amount of people between 18 and 65 years of age
 
         unsigned int m_total = 0; ///< The total population
+        unsigned int m_total1826Years = 0; ///< The total number of people between 18 and 26 years of age
+        unsigned int m_total1865Years = 0; ///< The total number of people between 18 and 65 years of age
+        unsigned int                            m_totalCompulsory = 0; ///< The total number of compulsory pupils
 };
-} // namespace gengeopop
+
+} // namespace

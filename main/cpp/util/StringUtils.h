@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file.
  * Miscellaneous string utilities.
  */
+
+#pragma once
 
 #include <boost/algorithm/string.hpp>
 #include <algorithm>
@@ -189,5 +190,5 @@ inline std::string intToDottedString(const T& value)
         return res;
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

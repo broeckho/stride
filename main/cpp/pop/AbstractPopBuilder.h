@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -20,19 +19,22 @@
  * Base Class for PopBuilders
  */
 
-#include <boost/property_tree/ptree_fwd.hpp>
+#pragma once
+
+#include "pop/Population.h"
+#include "util/RnMan.h"
+
+#include <boost/property_tree/ptree.hpp>
 #include <memory>
 #include <spdlog/logger.h>
-#include <util/RnMan.h>
+
 
 namespace stride {
 
 class Population;
-namespace util {
-}
 
 /**
- * Base Class for PopBuilders
+ * Base Class for PopBuilders.
  */
 class AbstractPopBuilder
 {
@@ -40,7 +42,8 @@ public:
         /// Initializing constructor.
         /// \param configPt    Property_tree with general configuration settings.
         /// \param rnManager   Random number manager for pop build process.
-        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager);
+        AbstractPopBuilder(const boost::property_tree::ptree& configPt, util::RnMan& rnManager)
+                : m_config_pt(configPt), m_rn_manager(rnManager) {}
 
         /// Build Population and return it afterwards.
         virtual std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) = 0;
@@ -52,4 +55,4 @@ protected:
         util::RnMan&                       m_rn_manager; ///< Random number generation management.
 };
 
-} // namespace stride
+} // namespace

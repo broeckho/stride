@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,7 +18,10 @@
  * Initialize populations.
  */
 
+#pragma once
+
 #include "AbstractPopBuilder.h"
+
 #include <boost/property_tree/ptree_fwd.hpp>
 #include <memory>
 
@@ -33,10 +35,11 @@ class Population;
 class GenPopBuilder : public AbstractPopBuilder
 {
 public:
+        /// Use constructor of base.
         using AbstractPopBuilder::AbstractPopBuilder;
 
-        /// Creates a population by generating it
+        /// Creates a synthetic population by generating it.
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
 };
 
-} // namespace stride
+} // namespace

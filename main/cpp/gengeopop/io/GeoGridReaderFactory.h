@@ -14,8 +14,9 @@
  */
 
 #pragma once
-#include <gengeopop/io/GeoGridReader.h>
-#include <string>
+
+#include "gengeopop/io/GeoGridReader.h"
+#include "string"
 
 namespace gengeopop {
 
@@ -28,4 +29,5 @@ public:
         /// Create a GeoGridReader based on the provided extension in the filename
         std::shared_ptr<GeoGridReader> CreateReader(std::string filename, stride::Population* pop) const;
 };
-} // namespace gengeopop
+
+} // namespace

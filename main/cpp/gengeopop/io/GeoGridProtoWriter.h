@@ -14,10 +14,11 @@
  */
 
 #pragma once
-#include <set>
 
 #include "GeoGridWriter.h"
 #include "proto/geogrid.pb.h"
+
+#include <set>
 
 namespace gengeopop {
 
@@ -52,8 +53,7 @@ private:
         /// Create a ProtoBuf Person containing all the information needed to reconstruct a Person
         void WritePerson(stride::Person* person, proto::GeoGrid_Person* protoPerson);
 
-        std::set<stride::Person*>
-            m_persons_found; ///< The persons found when looping over the ContactPools.
-                             ///< These are needed since they are stored in a separate list inside the JSON file.
+        std::set<stride::Person*> m_persons_found; ///< The persons found when looping over the ContactPools.
 };
-} // namespace gengeopop
+
+} // namespace

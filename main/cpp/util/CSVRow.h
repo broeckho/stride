@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Header file of base class for config that needs to be read from a file.
  */
+
+#pragma once
 
 #include "util/StringUtils.h"
 
@@ -114,5 +115,5 @@ inline T CSVRow::GetValue(const std::string& label) const
         return safe_cast<T>(GetValue<std::string>(label));
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

@@ -14,51 +14,53 @@
  */
 
 #pragma once
-#include <set>
 
 #include "GeoGridReader.h"
 #include "proto/geogrid.pb.h"
 
+#include <set>
+
 namespace gengeopop {
 
 /**
- * An implementation of the GeoGridReader using Protocol Buffers
- * This class is used to read a GeoGrid from a Proto file
+ * An implementation of the GeoGridReader using Protocol Buffers.
+ * This class is used to read a GeoGrid from a Proto file.
  */
-
 class GeoGridProtoReader : public GeoGridReader
 {
 public:
-        /// Construct the GeoGridJSONReader with the istream which contains the Protobuf information
+        /// Construct the GeoGridJSONReader with the istream which contains the Protobuf info.
         GeoGridProtoReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop);
 
-        /// Actually perform the read and return the GeoGrid
+        /// Actually perform the read and return the GeoGrid.
         std::shared_ptr<GeoGrid> Read() override;
 
-        /// No copy constructor
+        /// No copy constructor.
         GeoGridProtoReader(const GeoGridProtoReader&) = delete;
 
-        /// No copy assignement
+        /// No copy assignement.
         GeoGridProtoReader operator=(const GeoGridProtoReader&) = delete;
 
 private:
-        /// Create a Location based on the provided protobuf Location
+        /// Create a Location based on  protobuf Location info.
         std::shared_ptr<Location> ParseLocation(const proto::GeoGrid_Location& protoLocation);
 
-        /// Create a Coordinate based on the provided protobuf Coordinate
+        /// Create a Coordinate based on the provided protobuf Coordinate.
         Coordinate ParseCoordinate(const proto::GeoGrid_Location_Coordinate& protoCoordinate);
 
-        /// Create a ContactCenter based on the provided protobuf ContactCenter
+        /// Create a ContactCenter based on protobuf ContactCenter info.
         std::shared_ptr<ContactCenter> ParseContactCenter(
             const proto::GeoGrid_Location_ContactCenter& protoContactCenter);
 
-        /// Create a ContactPool based on the provided protobuf ContactPool
+        /// Create a ContactPool based on the provided protobuf ContactPool.
         stride::ContactPool* ParseContactPool(const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool,
                                               stride::ContactPoolType::Id                              typeId);
 
-        /// Create a Person based on the provided protobuf Person
+        /// Create a Person based on protobuf Person info.
         stride::Person* ParsePerson(const proto::GeoGrid_Person& person);
 
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< The GeoGrid which is being built
+private:
+        std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built
 };
-} // namespace gengeopop
+
+} // namespace

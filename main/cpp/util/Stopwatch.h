@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -18,6 +17,8 @@
  * @file
  * Definition of Stopwatch.
  */
+
+#pragma once
 
 #include "TimeToString.h"
 #include <chrono>
@@ -126,5 +127,5 @@ std::ostream& operator<<(std::ostream& oss, Stopwatch<T> const& stopwatch)
         return (oss << stopwatch.ToString());
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

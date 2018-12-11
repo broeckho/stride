@@ -1,4 +1,3 @@
-#pragma once
 /*
  *  This is free software: you can redistribute it and/or modify it
  *  under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
  * Header file of base class for config that needs to be read from a file.
  */
 
+#pragma once
+
 #include "CSVRow.h"
 
 #include "util/StringUtils.h"
@@ -27,7 +28,6 @@
 #include <fstream>
 #include <type_traits>
 #include <vector>
-
 
 #ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
@@ -46,8 +46,7 @@ namespace util {
 class CSV : protected std::vector<CSVRow>
 {
 public:
-        /// Initialize from file. If optLabels not specifed, the file is required. Otherwise initialize like second
-        /// constructor.
+        /// Initialize from file. If optLabels not specifed, the file is required.
         explicit CSV(const filesys::path& path, std::initializer_list<std::string> optLabels = {});
 
         /// Initialize from inputstream.
@@ -139,5 +138,5 @@ inline std::ofstream& operator<<(std::ofstream& ofs, const CSV& csv)
         return ofs;
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace

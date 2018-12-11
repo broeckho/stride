@@ -241,5 +241,5 @@ void FileSys::WritePtreeFile(const string& f_n, const boost::property_tree::ptre
         WritePtreeFile(filesys::absolute(f_n), pt);
 }
 
-} // namespace util
-} // namespace stride
+} // namespace
+} // namespace
