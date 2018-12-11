@@ -11,6 +11,5 @@ var searchData=
   ['populationsize',['populationSize',['../d5/d79/a00030.html#ae5b9fde4c7f1f62339043b23f91850f5',1,'gengeopop::GeoGridConfig']]],
   ['primarycommunity',['PrimaryCommunity',['../d2/d1f/a00083.html#a6eb5f5b492dcee2e72db4cf85a1fddcf',1,'proto::GeoGrid_Location_ContactCenter']]],
   ['proportion_5f',['proportion_',['../d4/d63/a00082.html#aeae15310a0d29fd31e8c9496206301cb',1,'proto::GeoGrid_Location_Commute']]],
-  ['province_5f',['province_',['../d8/d53/a00081.html#a3270c34b911a8e64c45fbb3f40f0a205',1,'proto::GeoGrid_Location']]],
-  ['ptr',['ptr',['../d4/de8/a00061.html#a5363ae4cbb435e3b4789971c994210a8',1,'gengeopop::ThreadException']]]
+  ['province_5f',['province_',['../d8/d53/a00081.html#a3270c34b911a8e64c45fbb3f40f0a205',1,'proto::GeoGrid_Location']]]
 ];

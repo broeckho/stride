@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdReader.h File Reference</title>
+<title>Stride Reference Manual: Id.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -105,79 +105,108 @@ $(document).ready(function(){initNavTree('df/d95/a00299.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdReader.h File Reference</div>  </div>
+<div class="title">Id.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="../../da/dd4/a00291_source.html">gengeopop/Household.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../d8/df7/a00331_source.html">gengeopop/Location.h</a>&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+
+<p>Definition of EventId.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdReader.h:</div>
+Include dependency graph for Id.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d50/a00661.gif" border="0" usemap="#HouseholdReader_8h" alt=""/></div>
-<map name="HouseholdReader_8h" id="HouseholdReader_8h">
-<area shape="rect" id="node2" href="../../da/dd4/a00291.html" title="gengeopop/Household.h" alt="" coords="2383,80,2561,107"/>
-<area shape="rect" id="node5" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="2616,401,2704,427"/>
-<area shape="rect" id="node3" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="2227,155,2354,181"/>
-<area shape="rect" id="node4" href="../../d9/d8d/a00262.html" title="GeoGrid.h" alt="" coords="1818,229,1905,256"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="1482,401,1558,427"/>
-<area shape="rect" id="node22" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="765,572,907,599"/>
-<area shape="rect" id="node27" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="831,311,961,338"/>
-<area shape="rect" id="node48" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="2099,311,2229,338"/>
-<area shape="rect" id="node23" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="207,647,401,673"/>
-<area shape="rect" id="node24" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="864,647,1035,673"/>
-<area shape="rect" id="node28" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1093,401,1259,427"/>
-<area shape="rect" id="node31" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1167,490,1339,517"/>
-<area shape="rect" id="node34" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="349,401,456,427"/>
-<area shape="rect" id="node37" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="531,401,610,427"/>
-<area shape="rect" id="node39" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="159,401,259,427"/>
-<area shape="rect" id="node29" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="873,490,1041,517"/>
-<area shape="rect" id="node32" href="../../db/dbc/a00395.html" title="Interface/Implementation for SVIterator. " alt="" coords="1341,572,1440,599"/>
-<area shape="rect" id="node35" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="169,490,298,517"/>
-<area shape="rect" id="node40" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="93,490,144,517"/>
+<div class="center"><img src="../../dc/d91/a00659.gif" border="0" usemap="#Id_8h" alt=""/></div>
+<map name="Id_8h" id="Id_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/df1/a00662.gif" border="0" usemap="#HouseholdReader_8hdep" alt=""/></div>
-<map name="HouseholdReader_8hdep" id="HouseholdReader_8hdep">
-<area shape="rect" id="node2" href="../../d3/dcc/a00264.html" title="GeoGridConfig.cpp" alt="" coords="5,80,147,107"/>
-<area shape="rect" id="node3" href="../../d6/d82/a00293.html" title="HouseholdCSVReader.h" alt="" coords="171,80,343,107"/>
-<area shape="rect" id="node6" href="../../d9/d0d/a00298.html" title="HouseholdReader.cpp" alt="" coords="368,80,528,107"/>
-<area shape="rect" id="node7" href="../../d9/d9b/a00363.html" title="ReaderFactory.h" alt="" coords="552,80,675,107"/>
-<area shape="rect" id="node4" href="../../d8/d0a/a00292.html" title="HouseholdCSVReader.cpp" alt="" coords="164,155,351,181"/>
-<area shape="rect" id="node5" href="../../de/dd7/a00362.html" title="ReaderFactory.cpp" alt="" coords="383,155,521,181"/>
-<area shape="rect" id="node8" href="../../d4/d04/a00255.html" title="gengeopop.cpp" alt="" coords="549,155,670,181"/>
-<area shape="rect" id="node9" href="../../d0/def/a00256.html" title="GenGeoPopController.cpp" alt="" coords="695,155,881,181"/>
+<div class="center"><img src="../../d5/d4e/a00660.gif" border="0" usemap="#Id_8hdep" alt=""/></div>
+<map name="Id_8hdep" id="Id_8hdep">
+<area shape="rect" id="node2" href="../../d9/d0d/a00298.html" title="Implementation of EventId. " alt="" coords="535,80,595,107"/>
+<area shape="rect" id="node3" href="../../d2/d56/a00384.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="813,80,895,107"/>
+<area shape="rect" id="node5" href="../../d6/db8/a00376.html" title="Header for the SimRunner class. " alt="" coords="843,155,945,181"/>
+<area shape="rect" id="node11" href="../../dd/da7/a00168.html" title="Observer for Adopted output. " alt="" coords="1419,229,1569,256"/>
+<area shape="rect" id="node13" href="../../dd/de3/a00201.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="419,229,510,256"/>
+<area shape="rect" id="node15" href="../../d1/d67/a00310.html" title="Observer for Infected output. " alt="" coords="1027,229,1174,256"/>
+<area shape="rect" id="node17" href="../../d7/df2/a00312.html" title="Observer for infection count at each sim step. " alt="" coords="167,229,293,256"/>
+<area shape="rect" id="node19" href="../../d7/dfc/a00349.html" title="Observer for Persons output. " alt="" coords="1249,229,1395,256"/>
+<area shape="rect" id="node21" href="../../dc/dc9/a00389.html" title="Observer for Persons output. " alt="" coords="1593,229,1752,256"/>
+<area shape="rect" id="node4" href="../../da/dee/a00383.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="721,155,819,181"/>
+<area shape="rect" id="node6" href="../../dd/df4/a00193.html" title="Calibrator.cpp" alt="" coords="336,304,447,331"/>
+<area shape="rect" id="node7" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="686,229,811,256"/>
+<area shape="rect" id="node8" href="../../d0/d53/a00232.html" title="Header for the command line controller. " alt="" coords="1211,304,1347,331"/>
+<area shape="rect" id="node9" href="../../dd/dcb/a00375.html" title="Implementation for SimRunner. " alt="" coords="835,229,953,256"/>
+<area shape="rect" id="node10" href="../../d7/d08/a00378.html" title="Header for the command line controller. " alt="" coords="5,304,145,331"/>
+<area shape="rect" id="node12" href="../../dc/de6/a00167.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1017,304,1181,331"/>
+<area shape="rect" id="node14" href="../../d3/db1/a00200.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="479,304,584,331"/>
+<area shape="rect" id="node16" href="../../d2/d71/a00309.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="615,304,776,331"/>
+<area shape="rect" id="node18" href="../../d1/d5d/a00311.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="170,304,311,331"/>
+<area shape="rect" id="node20" href="../../df/d03/a00348.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="821,304,983,331"/>
+<area shape="rect" id="node22" href="../../d9/dc1/a00388.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1645,304,1818,331"/>
 </map>
 </div>
 </div>
 <p><a href="../../df/d95/a00299_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html">gengeopop::HouseholdReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader that retrieves the different <a class="el" href="../../dd/d32/a00041.html" title="Models a Household as ContactCenter. ">Household</a> profiles from a given file This can be implemented using different input file types.  <a href="../../d6/d97/a00045.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d3/def/a00446"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html">stride::sim_event</a></td></tr>
+<tr class="memdesc:d3/def/a00446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage events signalled by the <a class="el" href="../../d6/db3/a00130.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab046b05654e26ef19fd5e4e46c16e836"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a> { <br />
+&#160;&#160;<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">stride::sim_event::Id::AtStart</a>, 
+<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">stride::sim_event::Id::Stepped</a>, 
+<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">stride::sim_event::Id::Finished</a>, 
+<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">stride::sim_event::Id::SetupBegin</a>, 
+<br />
+&#160;&#160;<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">stride::sim_event::Id::SetupEnd</a>
+<br />
+ }<tr class="memdesc:ab046b05654e26ef19fd5e4e46c16e836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the event.  <a href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ab046b05654e26ef19fd5e4e46c16e836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:afd464f4ca1769b7880cb27383a3cafd2"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#afd464f4ca1769b7880cb27383a3cafd2">stride::sim_event::NumOfTypes</a> ()</td></tr>
+<tr class="memdesc:afd464f4ca1769b7880cb27383a3cafd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="../../d3/def/a00446.html#afd464f4ca1769b7880cb27383a3cafd2">More...</a><br /></td></tr>
+<tr class="separator:afd464f4ca1769b7880cb27383a3cafd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#a43c0310b3eef6024b540ffaa5c4c39b2">stride::sim_event::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d3/def/a00446.html#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br /></td></tr>
+<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdde1acea1c3f4536af74bb4b126a739"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#acdde1acea1c3f4536af74bb4b126a739">stride::sim_event::ToSizeT</a> (Id id)</td></tr>
+<tr class="memdesc:acdde1acea1c3f4536af74bb4b126a739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="../../d3/def/a00446.html#acdde1acea1c3f4536af74bb4b126a739">More...</a><br /></td></tr>
+<tr class="separator:acdde1acea1c3f4536af74bb4b126a739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#aaa54357f0c5b3af4e7905ed503167ede">stride::sim_event::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../d3/def/a00446.html#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br /></td></tr>
+<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/def/a00446.html#ac81b85da174b73232cac26f53bd6d3a0">stride::sim_event::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d3/def/a00446.html#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br /></td></tr>
+<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definition of EventId. </p>
+
+<p>Definition in file <a class="el" href="../../df/d95/a00299_source.html">Id.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../df/d95/a00299.html">HouseholdReader.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../df/d95/a00299.html">Id.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

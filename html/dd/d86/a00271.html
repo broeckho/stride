@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridJSONWriter.h File Reference</title>
+<title>Stride Reference Manual: GeoGridProtoReader.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -105,62 +105,56 @@ $(document).ready(function(){initNavTree('dd/d86/a00271.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridJSONWriter.h File Reference</div>  </div>
+<div class="title">GeoGridProtoReader.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/dc9/a00282_source.html">GeoGridWriter.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">GeoGridProtoReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d00/a00401_source.html">ThreadException.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd7/a00260_source.html">proto/geogrid.pb.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">gengeopop/College.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/de5/a00209_source.html">gengeopop/Community.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/ddc/a00288_source.html">gengeopop/Household.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">gengeopop/K12School.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ddc/a00353_source.html">gengeopop/PrimaryCommunity.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/dc2/a00367_source.html">gengeopop/SecondaryCommunity.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d3d/a00409_source.html">gengeopop/Workplace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/dbc/a00249_source.html">util/Exception.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridJSONWriter.h:</div>
+Include dependency graph for GeoGridProtoReader.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d4d/a00620.gif" border="0" usemap="#GeoGridJSONWriter_8h" alt=""/></div>
-<map name="GeoGridJSONWriter_8h" id="GeoGridJSONWriter_8h">
-<area shape="rect" id="node5" href="../../dc/dc9/a00282.html" title="GeoGridWriter.h" alt="" coords="582,87,703,114"/>
-<area shape="rect" id="node6" href="../../d9/d8d/a00262.html" title="../GeoGrid.h" alt="" coords="1517,169,1616,196"/>
-<area shape="rect" id="node7" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="2321,341,2409,367"/>
-<area shape="rect" id="node17" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="1341,341,1417,367"/>
-<area shape="rect" id="node23" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="909,512,1051,539"/>
-<area shape="rect" id="node28" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="841,251,970,278"/>
-<area shape="rect" id="node47" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="1977,251,2108,278"/>
-<area shape="rect" id="node24" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="872,587,1067,613"/>
-<area shape="rect" id="node25" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1141,587,1312,613"/>
-<area shape="rect" id="node29" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1151,341,1316,367"/>
-<area shape="rect" id="node31" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1679,430,1851,457"/>
-<area shape="rect" id="node34" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="460,341,567,367"/>
-<area shape="rect" id="node36" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="255,341,334,367"/>
-<area shape="rect" id="node38" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="131,341,231,367"/>
-<area shape="rect" id="node30" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1039,430,1207,457"/>
-<area shape="rect" id="node32" href="../../db/dbc/a00395.html" title="Interface/Implementation for SVIterator. " alt="" coords="1595,512,1693,539"/>
-<area shape="rect" id="node35" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="530,430,659,457"/>
-<area shape="rect" id="node39" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="181,430,232,457"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dc/db1/a00621.gif" border="0" usemap="#GeoGridJSONWriter_8hdep" alt=""/></div>
-<map name="GeoGridJSONWriter_8hdep" id="GeoGridJSONWriter_8hdep">
-<area shape="rect" id="node2" href="../../d9/d2a/a00270.html" title="GeoGridJSONWriter.cpp" alt="" coords="5,80,173,107"/>
-<area shape="rect" id="node3" href="../../dd/dfe/a00283.html" title="GeoGridWriterFactory.cpp" alt="" coords="197,80,379,107"/>
+<div class="center"><img src="../../d6/d6a/a00619.gif" border="0" usemap="#GeoGridProtoReader_8cpp" alt=""/></div>
+<map name="GeoGridProtoReader_8cpp" id="GeoGridProtoReader_8cpp">
+<area shape="rect" id="node2" href="../../d9/dd6/a00272.html" title="GeoGridProtoReader.h" alt="" coords="2908,155,3071,181"/>
+<area shape="rect" id="node24" href="../../dd/dd7/a00260.html" title="proto/geogrid.pb.h" alt="" coords="1353,229,1493,256"/>
+<area shape="rect" id="node38" href="../../d7/d00/a00401.html" title="ThreadException.h" alt="" coords="4581,80,4721,107"/>
+<area shape="rect" id="node40" href="../../de/d79/a00203.html" title="gengeopop/College.h" alt="" coords="3522,155,3679,181"/>
+<area shape="rect" id="node42" href="../../d3/de5/a00209.html" title="gengeopop/Community.h" alt="" coords="3906,155,4089,181"/>
+<area shape="rect" id="node43" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="3703,155,3882,181"/>
+<area shape="rect" id="node44" href="../../dd/de2/a00320.html" title="gengeopop/K12School.h" alt="" coords="4165,155,4342,181"/>
+<area shape="rect" id="node45" href="../../db/ddc/a00353.html" title="gengeopop/PrimaryCommunity.h" alt="" coords="3689,80,3920,107"/>
+<area shape="rect" id="node46" href="../../df/dc2/a00367.html" title="gengeopop/SecondaryCommunity.h" alt="" coords="3944,80,4195,107"/>
+<area shape="rect" id="node47" href="../../de/d3d/a00409.html" title="gengeopop/Workplace.h" alt="" coords="4270,80,4445,107"/>
+<area shape="rect" id="node48" href="../../de/dbc/a00249.html" title="util/Exception.h" alt="" coords="4797,80,4916,107"/>
+<area shape="rect" id="node3" href="../../dc/d28/a00276.html" title="GeoGridReader.h" alt="" coords="3729,229,3858,256"/>
+<area shape="rect" id="node4" href="../../d0/d2f/a00259.html" title="gengeopop/GeoGrid.h" alt="" coords="3856,311,4019,338"/>
+<area shape="rect" id="node5" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="3987,401,4075,427"/>
+<area shape="rect" id="node13" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="4368,401,4444,427"/>
+<area shape="rect" id="node14" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="4201,401,4344,427"/>
+<area shape="rect" id="node15" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="4570,401,4700,427"/>
+<area shape="rect" id="node41" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="3934,229,4061,256"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/d86/a00271_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html">gengeopop::GeoGridJSONWriter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An implementation of the <a class="el" href="../../d3/de7/a00039.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> using JSON This class is used to write a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> to a JSON file.  <a href="../../d0/dc0/a00033.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -168,8 +162,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../dd/d86/a00271.html">GeoGridJSONWriter.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../dd/d86/a00271.html">GeoGridProtoReader.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

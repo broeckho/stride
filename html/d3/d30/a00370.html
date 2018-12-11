@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SecondaryCommunity.h File Reference</title>
+<title>Stride Reference Manual: SegmentedVector.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -108,46 +108,84 @@ $(document).ready(function(){initNavTree('d3/d30/a00370.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SecondaryCommunity.h File Reference</div>  </div>
+<div class="title">SegmentedVector.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/ded/a00211_source.html">Community.h</a>&quot;</code><br />
+
+<p>Interface and implementation for SegmentedVector class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d27/a00392_source.html">SVIterator.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SecondaryCommunity.h:</div>
+Include dependency graph for SegmentedVector.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/de2/a00765.gif" border="0" usemap="#SecondaryCommunity_8h" alt=""/></div>
-<map name="SecondaryCommunity_8h" id="SecondaryCommunity_8h">
-<area shape="rect" id="node2" href="../../dd/ded/a00211.html" title="Community.h" alt="" coords="1105,80,1212,107"/>
-<area shape="rect" id="node3" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="1095,155,1222,181"/>
-<area shape="rect" id="node4" href="../../d9/d8d/a00262.html" title="GeoGrid.h" alt="" coords="1115,229,1202,256"/>
-<area shape="rect" id="node5" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="756,401,844,427"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="43,490,119,517"/>
-<area shape="rect" id="node22" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1637,572,1779,599"/>
-<area shape="rect" id="node27" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1547,311,1677,338"/>
-<area shape="rect" id="node48" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="680,311,811,338"/>
-<area shape="rect" id="node23" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="1367,647,1561,673"/>
-<area shape="rect" id="node24" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1687,647,1857,673"/>
-<area shape="rect" id="node28" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2061,401,2227,427"/>
-<area shape="rect" id="node31" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2227,490,2399,517"/>
-<area shape="rect" id="node34" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1880,401,1987,427"/>
-<area shape="rect" id="node37" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1226,490,1305,517"/>
-<area shape="rect" id="node39" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="1349,401,1449,427"/>
-<area shape="rect" id="node29" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1933,490,2101,517"/>
-<area shape="rect" id="node32" href="../../db/dbc/a00395.html" title="Interface/Implementation for SVIterator. " alt="" coords="2401,572,2500,599"/>
-<area shape="rect" id="node35" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="1678,490,1807,517"/>
-<area shape="rect" id="node40" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="1329,490,1380,517"/>
+<div class="center"><img src="../../d3/d2c/a00764.gif" border="0" usemap="#SegmentedVector_8h" alt=""/></div>
+<map name="SegmentedVector_8h" id="SegmentedVector_8h">
+<area shape="rect" id="node2" href="../../d4/d27/a00392.html" title="Interface/Implementation for SVIterator. " alt="" coords="85,80,184,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d13/a00766.gif" border="0" usemap="#SecondaryCommunity_8hdep" alt=""/></div>
-<map name="SecondaryCommunity_8hdep" id="SecondaryCommunity_8hdep">
-<area shape="rect" id="node2" href="../../dd/dc1/a00212.html" title="CommunityGenerator.cpp" alt="" coords="5,80,192,107"/>
-<area shape="rect" id="node3" href="../../db/d12/a00268.html" title="GeoGridJSONReader.cpp" alt="" coords="216,80,392,107"/>
-<area shape="rect" id="node4" href="../../dd/d56/a00274.html" title="GeoGridProtoReader.cpp" alt="" coords="416,80,595,107"/>
-<area shape="rect" id="node5" href="../../d6/d80/a00371.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="619,80,869,107"/>
-<area shape="rect" id="node6" href="../../df/dee/a00369.html" title="SecondaryCommunity.cpp" alt="" coords="893,80,1083,107"/>
+<div class="center"><img src="../../dc/de2/a00765.gif" border="0" usemap="#SegmentedVector_8hdep" alt=""/></div>
+<map name="SegmentedVector_8hdep" id="SegmentedVector_8hdep">
+<area shape="rect" id="node2" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2581,80,2716,107"/>
+<area shape="rect" id="node4" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="2650,155,2751,181"/>
+<area shape="rect" id="node36" href="../../db/d10/a00350.html" title="Core Population class. " alt="" coords="3937,379,4053,405"/>
+<area shape="rect" id="node3" href="../../d6/d22/a00245.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="5,304,151,331"/>
+<area shape="rect" id="node5" href="../../de/d45/a00175.html" title="Implementation for BeliefSeeder class. " alt="" coords="4052,229,4181,256"/>
+<area shape="rect" id="node6" href="../../dd/df4/a00193.html" title="Calibrator.cpp" alt="" coords="4205,229,4316,256"/>
+<area shape="rect" id="node7" href="../../d4/d9a/a00246.html" title="Header for the DiseaseSeeder class. " alt="" coords="169,229,299,256"/>
+<area shape="rect" id="node9" href="../../d3/d58/a00285.html" title="Implementation for HelthSeeder class. " alt="" coords="1190,229,1326,256"/>
+<area shape="rect" id="node10" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1351,229,1437,256"/>
+<area shape="rect" id="node30" href="../../de/d25/a00290.html" title="HouseholdCSVReader.h" alt="" coords="1935,229,2107,256"/>
+<area shape="rect" id="node33" href="../../d2/daf/a00346.html" title="Implementation of the CasesFile class. " alt="" coords="1739,229,1859,256"/>
+<area shape="rect" id="node34" href="../../db/ddf/a00164.html" title="Base Class for PopBuilders. " alt="" coords="3874,229,4029,256"/>
+<area shape="rect" id="node38" href="../../d4/d04/a00255.html" title="Initialize populations: implementation. " alt="" coords="4184,379,4327,405"/>
+<area shape="rect" id="node40" href="../../d9/d0a/a00390.html" title="Implementation for the SurveySeeder class. " alt="" coords="2131,229,2270,256"/>
+<area shape="rect" id="node41" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="2294,229,2419,256"/>
+<area shape="rect" id="node42" href="../../d0/d53/a00232.html" title="Header for the command line controller. " alt="" coords="2443,229,2579,256"/>
+<area shape="rect" id="node43" href="../../d6/d80/a00371.html" title="Implementation for the Simulator class. " alt="" coords="2603,229,2678,256"/>
+<area shape="rect" id="node44" href="../../dd/dcb/a00375.html" title="Implementation for SimRunner. " alt="" coords="2702,229,2819,256"/>
+<area shape="rect" id="node45" href="../../d7/d08/a00378.html" title="Header for the command line controller. " alt="" coords="2844,229,2984,256"/>
+<area shape="rect" id="node46" href="../../dc/de6/a00167.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="3008,229,3172,256"/>
+<area shape="rect" id="node47" href="../../d3/db1/a00200.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="3196,229,3301,256"/>
+<area shape="rect" id="node48" href="../../d2/d71/a00309.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="3325,229,3487,256"/>
+<area shape="rect" id="node49" href="../../d1/d5d/a00311.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="3511,229,3653,256"/>
+<area shape="rect" id="node50" href="../../d9/dc1/a00388.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="3677,229,3850,256"/>
+<area shape="rect" id="node8" href="../../dc/de3/a00373.html" title="Implementation for the SimBuilder class. " alt="" coords="175,304,293,331"/>
+<area shape="rect" id="node11" href="../../dc/ded/a00252.html" title="gengeopop.cpp" alt="" coords="668,453,789,480"/>
+<area shape="rect" id="node12" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="1641,304,1768,331"/>
+<area shape="rect" id="node13" href="../../de/d79/a00203.html" title="College.h" alt="" coords="947,379,1028,405"/>
+<area shape="rect" id="node19" href="../../dd/de2/a00320.html" title="K12School.h" alt="" coords="1966,379,2067,405"/>
+<area shape="rect" id="node20" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1843,304,1974,331"/>
+<area shape="rect" id="node21" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="1999,304,2136,331"/>
+<area shape="rect" id="node22" href="../../d7/d2f/a00258.html" title="GeoGrid.cpp" alt="" coords="367,304,469,331"/>
+<area shape="rect" id="node23" href="../../de/db1/a00197.html" title="CitiesReader.h" alt="" coords="493,304,605,331"/>
+<area shape="rect" id="node24" href="../../d3/dd1/a00214.html" title="CommutesReader.h" alt="" coords="628,304,776,331"/>
+<area shape="rect" id="node25" href="../../dc/d28/a00276.html" title="GeoGridReader.h" alt="" coords="800,304,929,331"/>
+<area shape="rect" id="node26" href="../../d2/d82/a00279.html" title="GeoGridWriter.h" alt="" coords="1005,304,1127,331"/>
+<area shape="rect" id="node27" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="1151,304,1285,331"/>
+<area shape="rect" id="node28" href="../../d6/d9c/a00352.html" title="PrimaryCommunity.cpp" alt="" coords="1309,304,1479,331"/>
+<area shape="rect" id="node29" href="../../dd/dea/a00408.html" title="Workplace.cpp" alt="" coords="1504,304,1617,331"/>
+<area shape="rect" id="node14" href="../../d3/de5/a00209.html" title="Community.h" alt="" coords="1074,379,1181,405"/>
+<area shape="rect" id="node15" href="../../da/ddc/a00288.html" title="Household.h" alt="" coords="1287,379,1389,405"/>
+<area shape="rect" id="node16" href="../../d0/d24/a00222.html" title="ContactCenter.cpp" alt="" coords="1414,379,1555,405"/>
+<area shape="rect" id="node17" href="../../d1/dd4/a00267.html" title="GeoGridJSONWriter.cpp" alt="" coords="1579,379,1747,405"/>
+<area shape="rect" id="node18" href="../../d0/d19/a00273.html" title="GeoGridProtoWriter.cpp" alt="" coords="1771,379,1942,405"/>
+<area shape="rect" id="node31" href="../../d4/d66/a00289.html" title="HouseholdCSVReader.cpp" alt="" coords="2211,304,2398,331"/>
+<area shape="rect" id="node32" href="../../d4/def/a00359.html" title="ReaderFactory.cpp" alt="" coords="2423,304,2560,331"/>
+<area shape="rect" id="node35" href="../../d6/d08/a00244.html" title="Initialize populations. " alt="" coords="3922,304,4069,331"/>
+<area shape="rect" id="node37" href="../../d0/def/a00256.html" title="Initialize populations. " alt="" coords="4093,304,4220,331"/>
+<area shape="rect" id="node39" href="../../d1/de3/a00306.html" title="Initialize populations. " alt="" coords="3755,304,3897,331"/>
 </map>
 </div>
 </div>
@@ -155,22 +193,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8b/a00059.html">gengeopop::SecondaryCommunity</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A model of a Secondary <a class="el" href="../../d1/d2b/a00018.html" title="Models a Community as ContactCenter. ">Community</a> (as a <a class="el" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>)  <a href="../../d3/d8b/a00059.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html">stride::util::SegmentedVector&lt; T, N, Safe &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container that stores objects "almost contiguously" (in a chain of blocks) and guarantees that pointers/iterators are not invalidated when the container grows.  <a href="../../db/ddf/a00088.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/d84/a00447"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html">stride::util</a></td></tr>
+<tr class="memdesc:de/d84/a00447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface and implementation for SegmentedVector class. </p>
+
+<p>Definition in file <a class="el" href="../../d3/d30/a00370_source.html">SegmentedVector.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">SecondaryCommunity.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d30/a00370.html">SegmentedVector.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

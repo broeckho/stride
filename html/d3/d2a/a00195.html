@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Calibrator.h File Reference</title>
+<title>Stride Reference Manual: CitiesCSVReader.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -105,55 +105,44 @@ $(document).ready(function(){initNavTree('d3/d2a/a00195.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Calibrator.h File Reference</div>  </div>
+<div class="title">CitiesCSVReader.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../d2/d0a/a00333_source.html">util/LogUtils.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../d2/d3e/a00366_source.html">util/RnMan.h</a>&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d7/ded/a00196_source.html">CitiesCSVReader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d42/a00235_source.html">util/CSV.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d08/a00237_source.html">util/CSVRow.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Calibrator.h:</div>
+Include dependency graph for CitiesCSVReader.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d1c/a00504.gif" border="0" usemap="#Calibrator_8h" alt=""/></div>
-<map name="Calibrator_8h" id="Calibrator_8h">
-<area shape="rect" id="node4" href="../../d2/d0a/a00333.html" title="Logging (spdlog) utilities. " alt="" coords="254,87,362,114"/>
-<area shape="rect" id="node8" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="642,87,742,114"/>
-<area shape="rect" id="node9" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="923,169,973,196"/>
-<area shape="rect" id="node10" href="../../d5/d05/a00385.html" title="Miscellaneous string utilities. " alt="" coords="986,244,1086,271"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d7/d37/a00505.gif" border="0" usemap="#Calibrator_8hdep" alt=""/></div>
-<map name="Calibrator_8hdep" id="Calibrator_8hdep">
-<area shape="rect" id="node2" href="../../dd/df4/a00193.html" title="CalibrationRunner.h" alt="" coords="266,80,412,107"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="CalibrationRunner.cpp" alt="" coords="23,155,183,181"/>
-<area shape="rect" id="node4" href="../../dd/df3/a00219.html" title="ConfigFileCalibrationRunner.h" alt="" coords="207,155,412,181"/>
-<area shape="rect" id="node5" href="../../dc/d9a/a00218.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="12,229,232,256"/>
-<area shape="rect" id="node6" href="../../d9/dd0/a00191.html" title="calibration.cpp" alt="" coords="392,229,507,256"/>
-<area shape="rect" id="node7" href="../../d9/dd1/a00398.html" title="TestCalibrationRunner.h" alt="" coords="487,155,658,181"/>
-<area shape="rect" id="node8" href="../../d7/d93/a00397.html" title="TestCalibrationRunner.cpp" alt="" coords="566,229,752,256"/>
-<area shape="rect" id="node9" href="../../dc/d57/a00194.html" title="Calibrator.cpp" alt="" coords="733,80,844,107"/>
+<div class="center"><img src="../../d0/da2/a00502.gif" border="0" usemap="#CitiesCSVReader_8cpp" alt=""/></div>
+<map name="CitiesCSVReader_8cpp" id="CitiesCSVReader_8cpp">
+<area shape="rect" id="node2" href="../../d7/ded/a00196.html" title="CitiesCSVReader.h" alt="" coords="2395,80,2533,107"/>
+<area shape="rect" id="node38" href="../../d3/d42/a00235.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2323,401,2405,427"/>
+<area shape="rect" id="node39" href="../../d4/d08/a00237.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2481,490,2565,517"/>
+<area shape="rect" id="node3" href="../../de/db1/a00197.html" title="CitiesReader.h" alt="" coords="1105,155,1217,181"/>
+<area shape="rect" id="node4" href="../../d0/d2f/a00259.html" title="gengeopop/GeoGrid.h" alt="" coords="1399,229,1561,256"/>
+<area shape="rect" id="node5" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="667,401,755,427"/>
+<area shape="rect" id="node16" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="1785,401,1861,427"/>
+<area shape="rect" id="node22" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1278,490,1421,517"/>
+<area shape="rect" id="node27" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1211,311,1341,338"/>
+<area shape="rect" id="node37" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1543,311,1673,338"/>
+<area shape="rect" id="node23" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="995,572,1189,599"/>
+<area shape="rect" id="node24" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1264,572,1435,599"/>
+<area shape="rect" id="node28" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1267,401,1432,427"/>
+<area shape="rect" id="node29" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1032,401,1139,427"/>
+<area shape="rect" id="node30" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="1163,401,1242,427"/>
+<area shape="rect" id="node40" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="2609,572,2709,599"/>
+<area shape="rect" id="node47" href="../../d2/d41/a00318.html" title="Interface/Implementation of is_iterator. " alt="" coords="1976,490,2096,517"/>
 </map>
 </div>
 </div>
 <p><a href="../../d3/d2a/a00195_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html">calibration::Calibrator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A calibration tool used to calibrate the Stride scenario tests.  <a href="../../de/d5e/a00007.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/db9/a00426"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db9/a00426.html">calibration</a></td></tr>
+<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -161,8 +150,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d3/d2a/a00195.html">Calibrator.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d3/d2a/a00195.html">CitiesCSVReader.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

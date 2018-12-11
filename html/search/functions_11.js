@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['radiantodegree',['RadianToDegree',['../df/d70/a00431.html#a938f08fc654e93c04d874a884bbd6862',1,'geoaggregator_detail']]],
+  ['radiantodegree',['RadianToDegree',['../d4/dd3/a00428.html#a938f08fc654e93c04d874a884bbd6862',1,'geoaggregator_detail']]],
   ['radiuspolicy',['RadiusPolicy',['../d1/d22/a00057.html#a2e112e02719985a20d96193e03f89d2d',1,'gengeopop::RadiusPolicy']]],
   ['random',['Random',['../db/d57/a00112.html#a8e768c089b957b8fa3301b829748585e',1,'stride::Immunizer']]],
   ['ratetoprobability',['RateToProbability',['../d9/d77/a00095.html#a51fd44b433163a1bd2a9fb424a003344',1,'stride::ContactHandler']]],
-  ['read',['Read',['../dc/d87/a00032.html#a34a17d9a7742cc392ec09fa6dbddd402',1,'gengeopop::GeoGridJSONReader::Read()'],['../d4/d8c/a00035.html#ad9d1285450862c08629d6f8456976413',1,'gengeopop::GeoGridProtoReader::Read()'],['../d1/dc6/a00037.html#a75a53634f7886fdd97d544027663ec9c',1,'gengeopop::GeoGridReader::Read()']]],
+  ['read',['Read',['../dc/d87/a00032.html#a9e332a60c7d16588a866a1ca83f6653f',1,'gengeopop::GeoGridJSONReader::Read()'],['../d4/d8c/a00035.html#a551020787ddca406bd25104d8d6f7026',1,'gengeopop::GeoGridProtoReader::Read()'],['../d1/dc6/a00037.html#a75a53634f7886fdd97d544027663ec9c',1,'gengeopop::GeoGridReader::Read()']]],
   ['readagecontactptree',['ReadAgeContactPtree',['../d9/d47/a00129.html#ad551b02c507948570f07af10d85d29ce',1,'stride::SimBuilder']]],
   ['readdatafiles',['ReadDataFiles',['../d3/d52/a00023.html#a5d80eb0492fba3112f7fb0571d386e30',1,'gengeopop::GenGeoPopController']]],
   ['readdiseaseptree',['ReadDiseasePtree',['../d9/d47/a00129.html#adffa42c6b8b171616fcdfb4805260c92',1,'stride::SimBuilder']]],

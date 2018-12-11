@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: LogUtils.cpp File Reference</title>
+<title>Stride Reference Manual: MyhayaiController.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -107,21 +107,52 @@ $(document).ready(function(){initNavTree('dc/d50/a00332.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">LogUtils.cpp File Reference</div>  </div>
+<div class="title">MyhayaiController.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of file utils.  
+<p>Implementation file for myhayai::CliContoller.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d0a/a00333_source.html">LogUtils.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d0a/a00333_source.html">MyhayaiController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d90/a00178_source.html">BenchControlHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d64/a00181_source.html">BenchmarkRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/df3/a00219_source.html">Console.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/d52/a00221_source.html">ConsoleViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/d73/a00358_source.html">PtreeViewer.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/info_parser.hpp&gt;</code><br />
+<code>#include &lt;boost/property_tree/ini_parser.hpp&gt;</code><br />
+<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
+<code>#include &lt;tclap/CmdLine.h&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/sinks/null_sink.h&gt;</code><br />
+<code>#include &lt;locale&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for LogUtils.cpp:</div>
+Include dependency graph for MyhayaiController.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/d96/a00714.gif" border="0" usemap="#LogUtils_8cpp" alt=""/></div>
-<map name="LogUtils_8cpp" id="LogUtils_8cpp">
-<area shape="rect" id="node2" href="../../d2/d0a/a00333.html" title="Logging (spdlog) utilities. " alt="" coords="125,80,210,107"/>
+<div class="center"><img src="../../de/d4c/a00711.gif" border="0" usemap="#MyhayaiController_8cpp" alt=""/></div>
+<map name="MyhayaiController_8cpp" id="MyhayaiController_8cpp">
+<area shape="rect" id="node2" href="../../d2/d0a/a00333.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="1027,87,1173,114"/>
+<area shape="rect" id="node3" href="../../d8/d64/a00181.html" title="Header file for Benchmarker. " alt="" coords="499,169,650,196"/>
+<area shape="rect" id="node32" href="../../d9/d90/a00178.html" title="Header file for BenchControlHelper. " alt="" coords="1249,87,1410,114"/>
+<area shape="rect" id="node33" href="../../dd/df3/a00219.html" title="Header file for Console. " alt="" coords="1416,169,1501,196"/>
+<area shape="rect" id="node36" href="../../dd/d52/a00221.html" title="Header file for ConsoleViewer. " alt="" coords="875,87,1002,114"/>
+<area shape="rect" id="node38" href="../../df/d73/a00358.html" title="Header file for PtreeViewer. " alt="" coords="475,87,584,114"/>
+<area shape="rect" id="node4" href="../../da/de0/a00317.html" title="Header file for InfoFactory. " alt="" coords="193,393,295,420"/>
+<area shape="rect" id="node7" href="../../d0/dc5/a00343.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="573,319,656,345"/>
+<area shape="rect" id="node11" href="../../d9/d95/a00400.html" title="Header file for TestResult. " alt="" coords="329,557,426,584"/>
+<area shape="rect" id="node17" href="../../d9/dd1/a00398.html" title="Header file for TestDescriptors container. " alt="" coords="878,244,1010,271"/>
+<area shape="rect" id="node19" href="../../d1/d53/a00399.html" title="Header file for TestFactory. " alt="" coords="374,393,477,420"/>
+<area shape="rect" id="node29" href="../../d5/d05/a00385.html" title="Interface/Implementation of Subject. " alt="" coords="342,244,447,271"/>
+<area shape="rect" id="node8" href="../../db/da2/a00300.html" title="Definition of myhayai::event::Id. " alt="" coords="655,475,716,502"/>
+<area shape="rect" id="node18" href="../../d9/da1/a00396.html" title="Header file for TestDescriptor. " alt="" coords="857,319,981,345"/>
+<area shape="rect" id="node20" href="../../da/dbf/a00393.html" title="Header file for Test. " alt="" coords="419,475,477,502"/>
+<area shape="rect" id="node21" href="../../d8/ddd/a00380.html" title="Definition of Stopwatch. " alt="" coords="502,557,626,584"/>
+<area shape="rect" id="node22" href="../../d9/de6/a00404.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="566,632,682,659"/>
 </map>
 </div>
 </div>
@@ -129,24 +160,20 @@ Include dependency graph for LogUtils.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
-<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/df4/a00450"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df4/a00450.html">stride::util</a></td></tr>
-<tr class="memdesc:de/df4/a00450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:df/d70/a00431"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d70/a00431.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of file utils. </p>
+<div class="textblock"><p>Implementation file for myhayai::CliContoller. </p>
 
-<p>Definition in file <a class="el" href="../../dc/d50/a00332_source.html">LogUtils.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dc/d50/a00332_source.html">MyhayaiController.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dc/d50/a00332.html">LogUtils.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../dc/d50/a00332.html">MyhayaiController.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

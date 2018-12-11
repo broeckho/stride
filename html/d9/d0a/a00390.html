@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SummaryFile.h File Reference</title>
+<title>Stride Reference Manual: SurveySeeder.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -105,65 +105,60 @@ $(document).ready(function(){initNavTree('d9/d0a/a00390.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SummaryFile.h File Reference</div>  </div>
+<div class="title">SurveySeeder.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the SummaryFile class.  
+<p>Implementation for the SurveySeeder class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d95/a00391_source.html">SurveySeeder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d48/a00351_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d9b/a00363_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SummaryFile.h:</div>
+Include dependency graph for SurveySeeder.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/da2/a00796.gif" border="0" usemap="#SummaryFile_8h" alt=""/></div>
-<map name="SummaryFile_8h" id="SummaryFile_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/db8/a00797.gif" border="0" usemap="#SummaryFile_8hdep" alt=""/></div>
-<map name="SummaryFile_8hdep" id="SummaryFile_8hdep">
-<area shape="rect" id="node2" href="../../dc/dc9/a00389.html" title="Implementation of the SummaryFile class. " alt="" coords="5,80,137,107"/>
-<area shape="rect" id="node3" href="../../d4/d27/a00392.html" title="Observer for Persons output. " alt="" coords="161,80,320,107"/>
-<area shape="rect" id="node4" href="../../d3/d42/a00235.html" title="Header for the command line controller. " alt="" coords="83,155,219,181"/>
-<area shape="rect" id="node5" href="../../db/d95/a00391.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="243,155,417,181"/>
+<div class="center"><img src="../../dd/d7a/a00795.gif" border="0" usemap="#SurveySeeder_8cpp" alt=""/></div>
+<map name="SurveySeeder_8cpp" id="SurveySeeder_8cpp">
+<area shape="rect" id="node2" href="../../db/d95/a00391.html" title="Header file for the SurveySeeder class. " alt="" coords="723,80,846,107"/>
+<area shape="rect" id="node3" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="560,162,660,189"/>
+<area shape="rect" id="node20" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="956,80,1085,107"/>
+<area shape="rect" id="node4" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="547,333,598,360"/>
+<area shape="rect" id="node5" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="245,408,345,435"/>
+<area shape="rect" id="node21" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1223,162,1389,189"/>
+<area shape="rect" id="node33" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1840,333,2012,360"/>
+<area shape="rect" id="node40" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1546,162,1653,189"/>
+<area shape="rect" id="node43" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="1107,162,1185,189"/>
+<area shape="rect" id="node22" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1125,333,1268,360"/>
+<area shape="rect" id="node24" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1461,408,1631,435"/>
+<area shape="rect" id="node29" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1394,251,1562,278"/>
+<area shape="rect" id="node23" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="1002,408,1197,435"/>
+<area shape="rect" id="node34" href="../../d4/d27/a00392.html" title="Interface/Implementation for SVIterator. " alt="" coords="2149,408,2247,435"/>
+<area shape="rect" id="node41" href="../../db/dc3/a00284.html" title="Header for the Health class. " alt="" coords="1688,251,1817,278"/>
 </map>
 </div>
 </div>
 <p><a href="../../d9/d0a/a00390_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dfe/a00125.html">stride::output::SummaryFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produces a file with simulation summary output.  <a href="../../dc/dfe/a00125.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
-<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/d84/a00447"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html">stride::output</a></td></tr>
-<tr class="memdesc:de/d84/a00447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the SummaryFile class. </p>
+<div class="textblock"><p>Implementation for the SurveySeeder class. </p>
 
-<p>Definition in file <a class="el" href="../../d9/d0a/a00390_source.html">SummaryFile.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d9/d0a/a00390_source.html">SurveySeeder.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../d9/d0a/a00390.html">SummaryFile.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d9/d0a/a00390.html">SurveySeeder.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

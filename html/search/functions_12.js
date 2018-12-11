@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['safe_5fcast',['safe_cast',['../de/df4/a00450.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
+  ['safe_5fcast',['safe_cast',['../de/d84/a00447.html#ab6efe1a2dbf4a57479e8c7faa00e3359',1,'stride::util']]],
   ['sample',['Sample',['../d4/d81/a00110.html#a562b022d2c7f2836b4400e7d19e1b040',1,'stride::HealthSeeder']]],
   ['secondarycommunity',['SecondaryCommunity',['../d3/d8b/a00059.html#ae76835c6bb81ef67d25dc81b55ffa29d',1,'gengeopop::SecondaryCommunity']]],
   ['seed',['Seed',['../d1/dc1/a00092.html#a0f7876d2c8d1a4c2bc8057da26f82df5',1,'stride::BeliefSeeder::Seed()'],['../d7/d70/a00106.html#adc5b1f152367382afe3dade9421357da',1,'stride::DiseaseSeeder::Seed()'],['../d4/d81/a00110.html#ad6a9061857cee5335745fe5501bcb73d',1,'stride::HealthSeeder::Seed()'],['../d5/deb/a00132.html#a81b191380f9a2c93768ff0efcec47f6b',1,'stride::SurveySeeder::Seed()'],['../db/d48/a00148.html#aa7422a9b6a29d401930324bea4d5a0de',1,'stride::util::Rn::Seed(randutils::seed_seq_fe128 &amp;seseq)'],['../db/d48/a00148.html#a2a6bba1c68c0b6ab97c760897b539b51',1,'stride::util::Rn::Seed(randutils::seed_seq_fe128 &amp;seseq)']]],
@@ -59,7 +59,7 @@ var searchData=
   ['size',['size',['../d0/d33/a00027.html#ac9ad4de211352b09dfa99ebee6fe86cd',1,'gengeopop::GeoGrid::size()'],['../db/ddf/a00088.html#a0e279c31f261b01f7798355e27401bfe',1,'stride::util::SegmentedVector::size()'],['../d5/de0/a00050.html#a6dbf9612b7ee27fd4ea2ba216bbbe5fe',1,'gengeopop::KdTree::Size()']]],
   ['sliceindexer',['SliceIndexer',['../dd/db2/a00151.html#af2bedaa13b9427b736bfc88bcb974741',1,'stride::util::SliceIndexer']]],
   ['sortmembers',['SortMembers',['../d9/df8/a00096.html#a6c90e9734ee7c6566bdf1f4416e99fd8',1,'stride::ContactPool']]],
-  ['split',['Split',['../de/df4/a00450.html#aadef750132d5d399e7ed8a96eab53c4c',1,'stride::util']]],
+  ['split',['Split',['../de/d84/a00447.html#aadef750132d5d399e7ed8a96eab53c4c',1,'stride::util']]],
   ['stancontroller',['StanController',['../d7/d06/a00131.html#ae7d704047661116cb88893671bde0c78',1,'stride::StanController']]],
   ['start',['Start',['../d7/d9a/a00152.html#acaf0b5f9f645a7dd6420420443de5a96',1,'stride::util::Stopwatch']]],
   ['startinfection',['StartInfection',['../dd/d42/a00109.html#a5d85541b8e22aeaa75b364a454f59088',1,'stride::Health']]],

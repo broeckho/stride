@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactPool.h File Reference</title>
+<title>Stride Reference Manual: ContactPoolType.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -106,81 +106,84 @@ $(document).ready(function(){initNavTree('df/d17/a00231.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">ContactPool.h File Reference</div>  </div>
+<div class="title">ContactPoolType.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the core ContactPool class.  
+<p>Definition of ContactPoolType.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d2d/a00229_source.html">contact/ContactLogMode.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d31/a00234_source.html">pool/ContactPoolType.h</a>&quot;</code><br />
-<code>#include &lt;tuple&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactPool.h:</div>
+Include dependency graph for ContactPoolType.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d50/a00559.gif" border="0" usemap="#ContactPool_8h" alt=""/></div>
-<map name="ContactPool_8h" id="ContactPool_8h">
-<area shape="rect" id="node2" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="5,80,200,107"/>
-<area shape="rect" id="node4" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="224,80,395,107"/>
+<div class="center"><img src="../../dc/dea/a00558.gif" border="0" usemap="#ContactPoolType_8h" alt=""/></div>
+<map name="ContactPoolType_8h" id="ContactPoolType_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d19/a00560.gif" border="0" usemap="#ContactPool_8hdep" alt=""/></div>
-<map name="ContactPool_8hdep" id="ContactPool_8hdep">
-<area shape="rect" id="node2" href="../../d3/db8/a00316.html" title="Implementation of Infector algorithms. " alt="" coords="2915,229,3011,256"/>
-<area shape="rect" id="node3" href="../../de/dbc/a00249.html" title="Header for the DiseaseSeeder class. " alt="" coords="2881,304,3011,331"/>
-<area shape="rect" id="node6" href="../../d0/da2/a00307.html" title="Header for the Immunizer class. " alt="" coords="3515,229,3617,256"/>
-<area shape="rect" id="node8" href="../../d9/d8d/a00262.html" title="GeoGrid.h" alt="" coords="1767,304,1853,331"/>
-<area shape="rect" id="node25" href="../../d0/dd6/a00415.html" title="WorkplacePopulator.cpp" alt="" coords="2777,528,2950,555"/>
-<area shape="rect" id="node44" href="../../d1/da8/a00230.html" title="Implementation for the core ContcatPool class. " alt="" coords="3263,229,3389,256"/>
-<area shape="rect" id="node45" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="3001,155,3136,181"/>
-<area shape="rect" id="node48" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="3263,80,3400,107"/>
-<area shape="rect" id="node4" href="../../dd/dd7/a00248.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="3029,379,3175,405"/>
-<area shape="rect" id="node5" href="../../d6/db8/a00376.html" title="Implementation for the SimBuilder class. " alt="" coords="2887,379,3005,405"/>
-<area shape="rect" id="node7" href="../../d1/de3/a00306.html" title="Implementation for the Immunizer class. " alt="" coords="3449,304,3565,331"/>
-<area shape="rect" id="node9" href="../../d4/d04/a00255.html" title="gengeopop.cpp" alt="" coords="853,528,975,555"/>
-<area shape="rect" id="node10" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="2560,379,2687,405"/>
-<area shape="rect" id="node11" href="../../d5/d13/a00205.html" title="College.h" alt="" coords="1689,453,1771,480"/>
-<area shape="rect" id="node22" href="../../de/d55/a00323.html" title="K12School.h" alt="" coords="2725,453,2826,480"/>
-<area shape="rect" id="node26" href="../../d2/db6/a00411.html" title="Workplace.cpp" alt="" coords="1544,528,1657,555"/>
-<area shape="rect" id="node27" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="1269,379,1399,405"/>
-<area shape="rect" id="node28" href="../../d0/dc5/a00343.html" title="PartialGenerator.h" alt="" coords="659,379,796,405"/>
-<area shape="rect" id="node36" href="../../dc/d6a/a00261.html" title="GeoGrid.cpp" alt="" coords="1559,379,1661,405"/>
-<area shape="rect" id="node37" href="../../d8/d72/a00199.html" title="CitiesReader.h" alt="" coords="1423,379,1535,405"/>
-<area shape="rect" id="node39" href="../../df/d24/a00217.html" title="CommutesReader.h" alt="" coords="1736,379,1884,405"/>
-<area shape="rect" id="node40" href="../../d2/d82/a00279.html" title="GeoGridReader.h" alt="" coords="1908,379,2037,405"/>
-<area shape="rect" id="node41" href="../../dc/dc9/a00282.html" title="GeoGridWriter.h" alt="" coords="2061,379,2183,405"/>
-<area shape="rect" id="node42" href="../../d9/d48/a00345.html" title="PartialPopulator.h" alt="" coords="2207,379,2341,405"/>
-<area shape="rect" id="node43" href="../../d3/dc9/a00355.html" title="PrimaryCommunity.cpp" alt="" coords="2365,379,2535,405"/>
-<area shape="rect" id="node17" href="../../dd/ded/a00211.html" title="Community.h" alt="" coords="1558,453,1665,480"/>
-<area shape="rect" id="node18" href="../../da/dd4/a00291.html" title="Household.h" alt="" coords="1795,453,1897,480"/>
-<area shape="rect" id="node19" href="../../dc/d98/a00225.html" title="ContactCenter.cpp" alt="" coords="2045,453,2186,480"/>
-<area shape="rect" id="node20" href="../../d9/d2a/a00270.html" title="GeoGridJSONWriter.cpp" alt="" coords="2210,453,2378,480"/>
-<area shape="rect" id="node21" href="../../dc/d28/a00276.html" title="GeoGridProtoWriter.cpp" alt="" coords="2402,453,2573,480"/>
-<area shape="rect" id="node23" href="../../dd/dbb/a00330.html" title="Location.cpp" alt="" coords="2597,453,2700,480"/>
-<area shape="rect" id="node24" href="../../d9/d72/a00412.html" title="Workplace.h" alt="" coords="1922,453,2021,480"/>
-<area shape="rect" id="node12" href="../../d1/d72/a00204.html" title="College.cpp" alt="" coords="1423,528,1519,555"/>
-<area shape="rect" id="node13" href="../../d5/df1/a00206.html" title="CollegeGenerator.cpp" alt="" coords="1202,528,1362,555"/>
-<area shape="rect" id="node14" href="../../db/d12/a00268.html" title="GeoGridJSONReader.cpp" alt="" coords="1682,528,1858,555"/>
-<area shape="rect" id="node15" href="../../dd/d56/a00274.html" title="GeoGridProtoReader.cpp" alt="" coords="1882,528,2061,555"/>
-<area shape="rect" id="node16" href="../../dc/d31/a00208.html" title="CollegePopulator.cpp" alt="" coords="2341,528,2497,555"/>
-<area shape="rect" id="node29" href="../../de/dd2/a00207.html" title="CollegeGenerator.h" alt="" coords="1172,453,1317,480"/>
-<area shape="rect" id="node30" href="../../d1/de1/a00213.html" title="CommunityGenerator.h" alt="" coords="924,453,1096,480"/>
-<area shape="rect" id="node31" href="../../d1/dd4/a00267.html" title="GeoGridGenerator.h" alt="" coords="5,453,156,480"/>
-<area shape="rect" id="node32" href="../../d9/d5e/a00295.html" title="HouseholdGenerator.h" alt="" coords="180,453,347,480"/>
-<area shape="rect" id="node33" href="../../de/dc8/a00325.html" title="K12SchoolGenerator.h" alt="" coords="371,453,537,480"/>
-<area shape="rect" id="node34" href="../../d2/d45/a00342.html" title="PartialGenerator.cpp" alt="" coords="561,453,713,480"/>
-<area shape="rect" id="node35" href="../../d4/dbc/a00414.html" title="WorkplaceGenerator.h" alt="" coords="737,453,899,480"/>
-<area shape="rect" id="node38" href="../../d3/dcc/a00264.html" title="GeoGridConfig.cpp" alt="" coords="1393,453,1534,480"/>
-<area shape="rect" id="node46" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="3086,229,3187,256"/>
-<area shape="rect" id="node47" href="../../d4/d9a/a00246.html" title="Initialize populations: implementation. " alt="" coords="3142,304,3305,331"/>
-<area shape="rect" id="node49" href="../../d7/d3f/a00173.html" title="Contact profiles stored in simulator. " alt="" coords="3262,155,3417,181"/>
-<area shape="rect" id="node50" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="3441,155,3520,181"/>
+<div class="center"><img src="../../d2/d50/a00559.gif" border="0" usemap="#ContactPoolType_8hdep" alt=""/></div>
+<map name="ContactPoolType_8hdep" id="ContactPoolType_8hdep">
+<area shape="rect" id="node2" href="../../d1/d0d/a00171.html" title="Contact profile. " alt="" coords="1246,155,1394,181"/>
+<area shape="rect" id="node4" href="../../d6/dfb/a00172.html" title="Contact profiles stored in simulator. " alt="" coords="1337,229,1492,256"/>
+<area shape="rect" id="node8" href="../../d6/d80/a00371.html" title="Implementation for the Simulator class. " alt="" coords="381,379,456,405"/>
+<area shape="rect" id="node9" href="../../dc/de3/a00373.html" title="Implementation for the SimBuilder class. " alt="" coords="23,453,140,480"/>
+<area shape="rect" id="node20" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1810,80,1921,107"/>
+<area shape="rect" id="node43" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1719,229,1854,256"/>
+<area shape="rect" id="node45" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2031,155,2169,181"/>
+<area shape="rect" id="node46" href="../../d6/d82/a00243.html" title="Initialize populations: implementation. " alt="" coords="2241,229,2404,256"/>
+<area shape="rect" id="node47" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="2138,229,2217,256"/>
+<area shape="rect" id="node49" href="../../d8/d8e/a00344.html" title="Header file for the Person class. " alt="" coords="2652,304,2745,331"/>
+<area shape="rect" id="node50" href="../../d1/da8/a00230.html" title="Implementation of ContactPoolType. " alt="" coords="2479,80,2633,107"/>
+<area shape="rect" id="node3" href="../../d5/dcb/a00170.html" title="Contact profile. " alt="" coords="1044,229,1207,256"/>
+<area shape="rect" id="node17" href="../../d0/d39/a00314.html" title="Header for the Infector class. " alt="" coords="1231,229,1313,256"/>
+<area shape="rect" id="node5" href="../../db/d7e/a00372.html" title="Header for the Simulator class. " alt="" coords="797,304,856,331"/>
+<area shape="rect" id="node6" href="../../dd/df4/a00193.html" title="Calibrator.cpp" alt="" coords="1299,379,1410,405"/>
+<area shape="rect" id="node7" href="../../d6/d22/a00245.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="645,453,790,480"/>
+<area shape="rect" id="node10" href="../../dd/dcb/a00375.html" title="Implementation for SimRunner. " alt="" coords="1157,379,1275,405"/>
+<area shape="rect" id="node11" href="../../dc/de6/a00167.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1434,379,1598,405"/>
+<area shape="rect" id="node12" href="../../d3/db1/a00200.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1029,379,1134,405"/>
+<area shape="rect" id="node13" href="../../d2/d71/a00309.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="479,379,641,405"/>
+<area shape="rect" id="node14" href="../../d1/d5d/a00311.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="665,379,807,405"/>
+<area shape="rect" id="node15" href="../../df/d03/a00348.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="145,379,306,405"/>
+<area shape="rect" id="node16" href="../../d9/dc1/a00388.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="831,379,1004,405"/>
+<area shape="rect" id="node18" href="../../dd/db3/a00313.html" title="Implementation of Infector algorithms. " alt="" coords="1380,304,1476,331"/>
+<area shape="rect" id="node19" href="../../d3/db8/a00316.html" title="Header for the InfectorMap. " alt="" coords="373,304,483,331"/>
+<area shape="rect" id="node21" href="../../d4/d9a/a00246.html" title="Header for the DiseaseSeeder class. " alt="" coords="1623,379,1753,405"/>
+<area shape="rect" id="node22" href="../../d8/d17/a00304.html" title="Header for the Immunizer class. " alt="" coords="2127,304,2228,331"/>
+<area shape="rect" id="node24" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1930,379,2017,405"/>
+<area shape="rect" id="node41" href="../../d9/d72/a00412.html" title="WorkplacePopulator.cpp" alt="" coords="1929,304,2103,331"/>
+<area shape="rect" id="node42" href="../../d9/d01/a00227.html" title="Implementation for the core ContcatPool class. " alt="" coords="1551,304,1678,331"/>
+<area shape="rect" id="node23" href="../../dc/d0f/a00303.html" title="Implementation for the Immunizer class. " alt="" coords="2403,379,2519,405"/>
+<area shape="rect" id="node25" href="../../dc/ded/a00252.html" title="gengeopop.cpp" alt="" coords="1630,453,1751,480"/>
+<area shape="rect" id="node26" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="2219,453,2346,480"/>
+<area shape="rect" id="node27" href="../../de/d79/a00203.html" title="College.h" alt="" coords="2315,528,2397,555"/>
+<area shape="rect" id="node29" href="../../dd/de2/a00320.html" title="K12School.h" alt="" coords="2189,528,2291,555"/>
+<area shape="rect" id="node33" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1776,453,1907,480"/>
+<area shape="rect" id="node34" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="1931,453,2069,480"/>
+<area shape="rect" id="node35" href="../../d7/d2f/a00258.html" title="GeoGrid.cpp" alt="" coords="2093,453,2195,480"/>
+<area shape="rect" id="node36" href="../../de/db1/a00197.html" title="CitiesReader.h" alt="" coords="815,453,927,480"/>
+<area shape="rect" id="node37" href="../../d3/dd1/a00214.html" title="CommutesReader.h" alt="" coords="950,453,1098,480"/>
+<area shape="rect" id="node38" href="../../dc/d28/a00276.html" title="GeoGridReader.h" alt="" coords="1122,453,1251,480"/>
+<area shape="rect" id="node39" href="../../d2/d82/a00279.html" title="GeoGridWriter.h" alt="" coords="1275,453,1397,480"/>
+<area shape="rect" id="node40" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="1421,453,1555,480"/>
+<area shape="rect" id="node28" href="../../d5/df1/a00206.html" title="CollegePopulator.cpp" alt="" coords="2634,603,2790,629"/>
+<area shape="rect" id="node30" href="../../de/d55/a00323.html" title="K12SchoolPopulator.cpp" alt="" coords="2433,603,2609,629"/>
+<area shape="rect" id="node31" href="../../d0/dc3/a00354.html" title="PrimaryCommunityPopulator.cpp" alt="" coords="1903,603,2135,629"/>
+<area shape="rect" id="node32" href="../../d8/d21/a00368.html" title="SecondaryCommunityPopulator.cpp" alt="" coords="2159,603,2409,629"/>
+<area shape="rect" id="node44" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1703,304,1804,331"/>
+<area shape="rect" id="node48" href="../../dc/d31/a00208.html" title="Community.cpp" alt="" coords="2354,304,2475,331"/>
 </map>
 </div>
 </div>
@@ -188,27 +191,78 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html">stride::ContactPool</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a group of Persons that potentially have contacts.  <a href="../../d9/df8/a00096.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00097.html">stride::ContactPoolType::IDPack&lt; ids &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps all available Ids in a template pack and exposes it as a std::initialize_list Useful when initializing a <a class="el" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> with a type that is not default constructible.  <a href="../../d1/d84/a00097.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride</a></td></tr>
-<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d0/dc4/a00443"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html">stride::ContactPoolType</a></td></tr>
+<tr class="memdesc:d0/dc4/a00443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace to manage types of <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a8732bc1530832775b6c6738c5331312e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#a8732bc1530832775b6c6738c5331312e">stride::ContactPoolType::IdPack_t</a> = IDPack&lt; Id::Household, Id::K12School, Id::College, Id::Work, Id::PrimaryCommunity, Id::SecondaryCommunity &gt;</td></tr>
+<tr class="memdesc:a8732bc1530832775b6c6738c5331312e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Placed separately to please swig and avoid syntax errors there.  <a href="../../d0/dc4/a00443.html#a8732bc1530832775b6c6738c5331312e">More...</a><br /></td></tr>
+<tr class="separator:a8732bc1530832775b6c6738c5331312e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aaa214aee675050e781497b0dd15449ab"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">stride::ContactPoolType::Id</a> : std::size_t { <br />
+&#160;&#160;<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Id::Household</a>, 
+<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e">stride::ContactPoolType::Id::K12School</a>, 
+<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449aba2806259c227f694c678ec9444aec2042">stride::ContactPoolType::Id::College</a>, 
+<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Id::Work</a>, 
+<br />
+&#160;&#160;<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::Id::PrimaryCommunity</a>, 
+<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::Id::SecondaryCommunity</a>
+<br />
+ }<tr class="memdesc:aaa214aee675050e781497b0dd15449ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the ContactPool types.  <a href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:aaa214aee675050e781497b0dd15449ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af724b7d598645a8c1054b66306dee629"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">stride::ContactPoolType::NumOfTypes</a> ()</td></tr>
+<tr class="memdesc:af724b7d598645a8c1054b66306dee629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">More...</a><br /></td></tr>
+<tr class="separator:af724b7d598645a8c1054b66306dee629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1269217f56908f0da981dbe4e43bb73d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#a1269217f56908f0da981dbe4e43bb73d">stride::ContactPoolType::IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a1269217f56908f0da981dbe4e43bb73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="../../d0/dc4/a00443.html#a1269217f56908f0da981dbe4e43bb73d">More...</a><br /></td></tr>
+<tr class="separator:a1269217f56908f0da981dbe4e43bb73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#ac36d342acc9d969f5de3aa55e95b9fe6">stride::ContactPoolType::ToSizeT</a> (Id id)</td></tr>
+<tr class="memdesc:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="../../d0/dc4/a00443.html#ac36d342acc9d969f5de3aa55e95b9fe6">More...</a><br /></td></tr>
+<tr class="separator:ac36d342acc9d969f5de3aa55e95b9fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#a0cf9d3425b406cd76acdc02ef9c0286d">stride::ContactPoolType::ToString</a> (Id w)</td></tr>
+<tr class="memdesc:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="../../d0/dc4/a00443.html#a0cf9d3425b406cd76acdc02ef9c0286d">More...</a><br /></td></tr>
+<tr class="separator:a0cf9d3425b406cd76acdc02ef9c0286d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af529300a78547c29c95b81ad8ac62afe"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#af529300a78547c29c95b81ad8ac62afe">stride::ContactPoolType::ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:af529300a78547c29c95b81ad8ac62afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="../../d0/dc4/a00443.html#af529300a78547c29c95b81ad8ac62afe">More...</a><br /></td></tr>
+<tr class="separator:af529300a78547c29c95b81ad8ac62afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4b2d704534b7ccf7b508131d3f1e766d"><td class="memItemLeft" align="right" valign="top">constexpr IdPack_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#a4b2d704534b7ccf7b508131d3f1e766d">stride::ContactPoolType::IdPack</a></td></tr>
+<tr class="memdesc:a4b2d704534b7ccf7b508131d3f1e766d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constexpr global variable that gives access to the available Ids.  <a href="../../d0/dc4/a00443.html#a4b2d704534b7ccf7b508131d3f1e766d">More...</a><br /></td></tr>
+<tr class="separator:a4b2d704534b7ccf7b508131d3f1e766d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memItemLeft" align="right" valign="top">constexpr std::initializer_list&lt; Id &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc4/a00443.html#a19ba4d58aafc6ea7ff765e3a7cd54332">stride::ContactPoolType::IdList</a> = IdPack_t::AsInitializerList</td></tr>
+<tr class="memdesc:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow iteration over the type ids.  <a href="../../d0/dc4/a00443.html#a19ba4d58aafc6ea7ff765e3a7cd54332">More...</a><br /></td></tr>
+<tr class="separator:a19ba4d58aafc6ea7ff765e3a7cd54332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the core ContactPool class. </p>
+<div class="textblock"><p>Definition of ContactPoolType. </p>
 
-<p>Definition in file <a class="el" href="../../df/d17/a00231_source.html">ContactPool.h</a>.</p>
+<p>Definition in file <a class="el" href="../../df/d17/a00231_source.html">ContactPoolType.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">ContactPool.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_308570b072fca4c8ae418282e0c0e92b.html">pool</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">ContactPoolType.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -9,8 +9,8 @@ var a00045 =
     [ "GetTotalPersonsInHouseholds", "d6/d97/a00045.html#a161db2d7207f8290e4713cdeb765f5e1", null ],
     [ "AverageHouseholdSize", "d6/d97/a00045.html#a36694a79fc20fd388f880436226b57a7", null ],
     [ "m_households", "d6/d97/a00045.html#ab16da3ff1106f39edc59727239e9f702", null ],
-    [ "m_totalCompulsory", "d6/d97/a00045.html#a9c24be8765eb962d1e0d3735f0187f5d", null ],
+    [ "m_total", "d6/d97/a00045.html#aecfe2659d2826af0a8329955d430d820", null ],
     [ "m_total1826Years", "d6/d97/a00045.html#afb5c2dc8db97ae641b34ea3d5223ff5d", null ],
     [ "m_total1865Years", "d6/d97/a00045.html#a331adedaab261aad7c89f273e9037a1d", null ],
-    [ "m_total", "d6/d97/a00045.html#aecfe2659d2826af0a8329955d430d820", null ]
+    [ "m_totalCompulsory", "d6/d97/a00045.html#a9c24be8765eb962d1e0d3735f0187f5d", null ]
 ];

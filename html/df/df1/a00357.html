@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PrimaryCommunityPopulator.cpp File Reference</title>
+<title>Stride Reference Manual: PtreeViewer.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -107,40 +107,40 @@ $(document).ready(function(){initNavTree('df/df1/a00357.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PrimaryCommunityPopulator.cpp File Reference</div>  </div>
+<div class="title">PtreeViewer.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d73/a00358_source.html">PrimaryCommunityPopulator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d55/a00323_source.html">gengeopop/K12School.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/de1/a00356_source.html">gengeopop/PrimaryCommunity.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../df/d03/a00348_source.html">pop/Person.h</a>&quot;</code><br />
-<code>#include &lt;trng/lcg64.hpp&gt;</code><br />
-<code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br />
+
+<p>Implementation file for PtreeViewer.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d73/a00358_source.html">PtreeViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d94/a00184_source.html">util/BoxPlotData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d9a/a00218_source.html">util/ConfigInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da0/a00403_source.html">util/TimeStamp.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/de6/a00404_source.html">util/TimeToString.h</a>&quot;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PrimaryCommunityPopulator.cpp:</div>
+Include dependency graph for PtreeViewer.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/dfa/a00746.gif" border="0" usemap="#PrimaryCommunityPopulator_8cpp" alt=""/></div>
-<map name="PrimaryCommunityPopulator_8cpp" id="PrimaryCommunityPopulator_8cpp">
-<area shape="rect" id="node2" href="../../df/d73/a00358.html" title="PrimaryCommunityPopulator.h" alt="" coords="2191,80,2409,107"/>
-<area shape="rect" id="node23" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1777,625,1884,651"/>
-<area shape="rect" id="node47" href="../../de/d55/a00323.html" title="gengeopop/K12School.h" alt="" coords="1529,304,1706,331"/>
-<area shape="rect" id="node48" href="../../d6/de1/a00356.html" title="gengeopop/PrimaryCommunity.h" alt="" coords="1819,80,2050,107"/>
-<area shape="rect" id="node3" href="../../d9/d48/a00345.html" title="PartialPopulator.h" alt="" coords="2212,155,2345,181"/>
-<area shape="rect" id="node4" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGrid.h" alt="" coords="1241,453,1404,480"/>
-<area shape="rect" id="node31" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="2110,625,2210,651"/>
-<area shape="rect" id="node41" href="../../da/d53/a00265.html" title="gengeopop/GeoGridConfig.h" alt="" coords="1913,229,2116,256"/>
-<area shape="rect" id="node5" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="983,625,1071,651"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="277,625,353,651"/>
-<area shape="rect" id="node19" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1607,796,1750,823"/>
-<area shape="rect" id="node22" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1847,535,1977,562"/>
-<area shape="rect" id="node40" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="859,535,989,562"/>
-<area shape="rect" id="node20" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1145,871,1316,897"/>
-<area shape="rect" id="node24" href="../../d6/d7f/a00287.html" title="Header for the Health class. " alt="" coords="1847,714,1977,741"/>
-<area shape="rect" id="node25" href="../../d8/d17/a00304.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1432,714,1600,741"/>
-<area shape="rect" id="node32" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="2135,714,2185,741"/>
-<area shape="rect" id="node42" href="../../da/dd4/a00291.html" title="gengeopop/Household.h" alt="" coords="1781,304,1960,331"/>
-<area shape="rect" id="node43" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="1618,379,1745,405"/>
-<area shape="rect" id="node49" href="../../dd/ded/a00211.html" title="Community.h" alt="" coords="1759,155,1865,181"/>
+<div class="center"><img src="../../d5/db3/a00744.gif" border="0" usemap="#PtreeViewer_8cpp" alt=""/></div>
+<map name="PtreeViewer_8cpp" id="PtreeViewer_8cpp">
+<area shape="rect" id="node2" href="../../df/d73/a00358.html" title="Header file for PtreeViewer. " alt="" coords="921,80,1031,107"/>
+<area shape="rect" id="node22" href="../../d9/de6/a00404.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1154,617,1270,644"/>
+<area shape="rect" id="node31" href="../../d2/d94/a00184.html" title="Header file for BoxPlotData. " alt="" coords="1551,543,1687,569"/>
+<area shape="rect" id="node35" href="../../dc/d9a/a00218.html" title="Info on configuration. " alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node36" href="../../d0/da0/a00403.html" title="TimeStamp class. " alt="" coords="1345,617,1476,644"/>
+<area shape="rect" id="node3" href="../../d8/d64/a00181.html" title="Header file for Benchmarker. " alt="" coords="411,155,562,181"/>
+<area shape="rect" id="node7" href="../../d0/dc5/a00343.html" title="Payload for Subject/Observer for myhayaia::events. " alt="" coords="193,379,276,405"/>
+<area shape="rect" id="node17" href="../../d9/dd1/a00398.html" title="Header file for TestDescriptors container. " alt="" coords="845,229,977,256"/>
+<area shape="rect" id="node4" href="../../da/de0/a00317.html" title="Header file for InfoFactory. " alt="" coords="684,379,785,405"/>
+<area shape="rect" id="node11" href="../../d9/d95/a00400.html" title="Header file for TestResult. " alt="" coords="417,543,514,569"/>
+<area shape="rect" id="node19" href="../../d1/d53/a00399.html" title="Header file for TestFactory. " alt="" coords="494,379,597,405"/>
+<area shape="rect" id="node29" href="../../d5/d05/a00385.html" title="Interface/Implementation of Subject. " alt="" coords="555,229,661,256"/>
+<area shape="rect" id="node8" href="../../db/da2/a00300.html" title="Definition of myhayai::event::Id. " alt="" coords="204,461,265,487"/>
+<area shape="rect" id="node18" href="../../d9/da1/a00396.html" title="Header file for TestDescriptor. " alt="" coords="853,304,977,331"/>
+<area shape="rect" id="node20" href="../../da/dbf/a00393.html" title="Header file for Test. " alt="" coords="492,461,551,487"/>
+<area shape="rect" id="node21" href="../../d8/ddd/a00380.html" title="Definition of Stopwatch. " alt="" coords="853,543,977,569"/>
 </map>
 </div>
 </div>
@@ -148,16 +148,20 @@ Include dependency graph for PrimaryCommunityPopulator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:df/d70/a00431"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d70/a00431.html">myhayai</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation file for PtreeViewer. </p>
+
+<p>Definition in file <a class="el" href="../../df/df1/a00357_source.html">PtreeViewer.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../df/df1/a00357.html">PrimaryCommunityPopulator.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../df/df1/a00357.html">PtreeViewer.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

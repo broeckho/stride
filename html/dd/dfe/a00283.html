@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridWriterFactory.cpp File Reference</title>
+<title>Stride Reference Manual: Health.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -107,32 +107,20 @@ $(document).ready(function(){initNavTree('dd/dfe/a00283.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridWriterFactory.cpp File Reference</div>  </div>
+<div class="title">Health.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">GeoGridWriterFactory.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/d86/a00271_source.html">GeoGridJSONWriter.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d4b/a00277_source.html">GeoGridProtoWriter.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../dc/ded/a00252_source.html">util/Exception.h</a>&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
+
+<p>Implementation for the Health class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/dc3/a00284_source.html">Health.h</a>&quot;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridWriterFactory.cpp:</div>
+Include dependency graph for Health.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/db6/a00639.gif" border="0" usemap="#GeoGridWriterFactory_8cpp" alt=""/></div>
-<map name="GeoGridWriterFactory_8cpp" id="GeoGridWriterFactory_8cpp">
-<area shape="rect" id="node2" href="../../db/dc3/a00284.html" title="GeoGridWriterFactory.h" alt="" coords="1554,80,1721,107"/>
-<area shape="rect" id="node30" href="../../dd/d86/a00271.html" title="GeoGridJSONWriter.h" alt="" coords="1373,80,1526,107"/>
-<area shape="rect" id="node33" href="../../d6/d4b/a00277.html" title="GeoGridProtoWriter.h" alt="" coords="1745,80,1900,107"/>
-<area shape="rect" id="node48" href="../../dc/ded/a00252.html" title="util/Exception.h" alt="" coords="1923,80,2042,107"/>
-<area shape="rect" id="node3" href="../../dc/dc9/a00282.html" title="gengeopop/io/GeoGridWriter.h" alt="" coords="1343,162,1555,189"/>
-<area shape="rect" id="node4" href="../../d9/d8d/a00262.html" title="../GeoGrid.h" alt="" coords="965,251,1064,278"/>
-<area shape="rect" id="node5" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="1319,430,1407,457"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="311,430,387,457"/>
-<area shape="rect" id="node20" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="145,430,287,457"/>
-<area shape="rect" id="node21" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="479,430,609,457"/>
-<area shape="rect" id="node28" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="1221,341,1352,367"/>
-<area shape="rect" id="node34" href="../../df/da9/a00263.html" title="proto/geogrid.pb.h" alt="" coords="2826,162,2966,189"/>
+<div class="center"><img src="../../de/dbb/a00637.gif" border="0" usemap="#Health_8cpp" alt=""/></div>
+<map name="Health_8cpp" id="Health_8cpp">
+<area shape="rect" id="node2" href="../../db/dc3/a00284.html" title="Header for the Health class. " alt="" coords="5,80,81,107"/>
 </map>
 </div>
 </div>
@@ -140,16 +128,21 @@ Include dependency graph for GeoGridWriterFactory.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation for the Health class. </p>
+
+<p>Definition in file <a class="el" href="../../dd/dfe/a00283_source.html">Health.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../dd/dfe/a00283.html">GeoGridWriterFactory.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_64952374cc5fce1bffc8f3e140afcfae.html">disease</a></li><li class="navelem"><a class="el" href="../../dd/dfe/a00283.html">Health.cpp</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

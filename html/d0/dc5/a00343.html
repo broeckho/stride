@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PartialGenerator.h File Reference</title>
+<title>Stride Reference Manual: Payload.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -108,60 +108,38 @@ $(document).ready(function(){initNavTree('d0/dc5/a00343.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PartialGenerator.h File Reference</div>  </div>
+<div class="title">Payload.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d8d/a00262_source.html">gengeopop/GeoGrid.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d53/a00265_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/da7/a00250_source.html">util/ExcAssert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d3e/a00366_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;spdlog/logger.h&gt;</code><br />
+
+<p>Payload for Subject/Observer for myhayaia::events.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../db/da2/a00300_source.html">Id.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d95/a00400_source.html">TestResult.h</a>&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PartialGenerator.h:</div>
+Include dependency graph for Payload.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d72/a00724.gif" border="0" usemap="#PartialGenerator_8h" alt=""/></div>
-<map name="PartialGenerator_8h" id="PartialGenerator_8h">
-<area shape="rect" id="node2" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGrid.h" alt="" coords="1012,304,1175,331"/>
-<area shape="rect" id="node31" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="2591,475,2691,502"/>
-<area shape="rect" id="node44" href="../../da/d53/a00265.html" title="gengeopop/GeoGridConfig.h" alt="" coords="324,80,527,107"/>
-<area shape="rect" id="node48" href="../../d0/da7/a00250.html" title="util/ExcAssert.h" alt="" coords="2716,475,2836,502"/>
-<area shape="rect" id="node3" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="1173,475,1261,502"/>
-<area shape="rect" id="node14" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="530,565,606,591"/>
-<area shape="rect" id="node20" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="2165,565,2307,591"/>
-<area shape="rect" id="node24" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1929,386,2058,413"/>
-<area shape="rect" id="node41" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="519,386,649,413"/>
-<area shape="rect" id="node21" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="2356,647,2551,673"/>
-<area shape="rect" id="node22" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1719,647,1889,673"/>
-<area shape="rect" id="node25" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1841,475,2007,502"/>
-<area shape="rect" id="node26" href="../../dc/de3/a00373.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1661,565,1833,591"/>
-<area shape="rect" id="node28" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1711,475,1817,502"/>
-<area shape="rect" id="node29" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1959,565,2038,591"/>
-<area shape="rect" id="node32" href="../../dd/db5/a00365.html" title="Interface of RnPcg. " alt="" coords="2544,565,2595,591"/>
-<area shape="rect" id="node45" href="../../da/dd4/a00291.html" title="gengeopop/Household.h" alt="" coords="336,155,515,181"/>
-<area shape="rect" id="node46" href="../../dc/d55/a00226.html" title="ContactCenter.h" alt="" coords="585,229,711,256"/>
-<area shape="rect" id="node49" href="../../dc/ded/a00252.html" title="util/Exception.h" alt="" coords="2619,565,2738,591"/>
+<div class="center"><img src="../../de/de6/a00723.gif" border="0" usemap="#Payload_8h" alt=""/></div>
+<map name="Payload_8h" id="Payload_8h">
+<area shape="rect" id="node2" href="../../db/da2/a00300.html" title="Definition of myhayai::event::Id. " alt="" coords="63,80,124,107"/>
+<area shape="rect" id="node5" href="../../d9/d95/a00400.html" title="Header file for TestResult. " alt="" coords="302,80,399,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/db9/a00725.gif" border="0" usemap="#PartialGenerator_8hdep" alt=""/></div>
-<map name="PartialGenerator_8hdep" id="PartialGenerator_8hdep">
-<area shape="rect" id="node2" href="../../de/dd2/a00207.html" title="CollegeGenerator.h" alt="" coords="1150,80,1295,107"/>
-<area shape="rect" id="node6" href="../../d1/de1/a00213.html" title="CommunityGenerator.h" alt="" coords="954,80,1126,107"/>
-<area shape="rect" id="node8" href="../../d1/dd4/a00267.html" title="GeoGridGenerator.h" alt="" coords="402,80,553,107"/>
-<area shape="rect" id="node10" href="../../d9/d5e/a00295.html" title="HouseholdGenerator.h" alt="" coords="211,80,378,107"/>
-<area shape="rect" id="node12" href="../../de/dc8/a00325.html" title="K12SchoolGenerator.h" alt="" coords="577,80,743,107"/>
-<area shape="rect" id="node14" href="../../d2/d45/a00342.html" title="PartialGenerator.cpp" alt="" coords="1320,80,1472,107"/>
-<area shape="rect" id="node15" href="../../d4/dbc/a00414.html" title="WorkplaceGenerator.h" alt="" coords="767,80,929,107"/>
-<area shape="rect" id="node3" href="../../d4/d04/a00255.html" title="gengeopop.cpp" alt="" coords="605,155,726,181"/>
-<area shape="rect" id="node4" href="../../d5/df1/a00206.html" title="CollegeGenerator.cpp" alt="" coords="1375,155,1535,181"/>
-<area shape="rect" id="node5" href="../../d0/def/a00256.html" title="GenGeoPopController.cpp" alt="" coords="751,155,937,181"/>
-<area shape="rect" id="node7" href="../../dd/dc1/a00212.html" title="CommunityGenerator.cpp" alt="" coords="1164,155,1351,181"/>
-<area shape="rect" id="node9" href="../../d5/d35/a00266.html" title="GeoGridGenerator.cpp" alt="" coords="211,155,376,181"/>
-<area shape="rect" id="node11" href="../../d4/d5b/a00294.html" title="HouseholdGenerator.cpp" alt="" coords="5,155,187,181"/>
-<area shape="rect" id="node13" href="../../d4/d8f/a00324.html" title="K12SchoolGenerator.cpp" alt="" coords="401,155,581,181"/>
-<area shape="rect" id="node16" href="../../da/d9c/a00413.html" title="WorkplaceGenerator.cpp" alt="" coords="962,155,1139,181"/>
+<div class="center"><img src="../../d0/d72/a00724.gif" border="0" usemap="#Payload_8hdep" alt=""/></div>
+<map name="Payload_8hdep" id="Payload_8hdep">
+<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="Header file for Benchmarker. " alt="" coords="362,80,513,107"/>
+<area shape="rect" id="node5" href="../../dd/d52/a00221.html" title="Header file for ConsoleViewer. " alt="" coords="13,155,139,181"/>
+<area shape="rect" id="node9" href="../../df/d73/a00358.html" title="Header file for PtreeViewer. " alt="" coords="705,155,815,181"/>
+<area shape="rect" id="node3" href="../../db/dd9/a00179.html" title="Header file for Benchmark. " alt="" coords="164,155,271,181"/>
+<area shape="rect" id="node4" href="../../d0/d81/a00180.html" title="Implementation file for Benchmarker. " alt="" coords="295,155,460,181"/>
+<area shape="rect" id="node7" href="../../dc/d50/a00332.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="463,229,625,256"/>
+<area shape="rect" id="node8" href="../../d2/d0a/a00333.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="535,155,681,181"/>
+<area shape="rect" id="node6" href="../../d5/d0b/a00220.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,229,147,256"/>
+<area shape="rect" id="node10" href="../../df/df1/a00357.html" title="Implementation file for PtreeViewer. " alt="" coords="698,229,822,256"/>
 </map>
 </div>
 </div>
@@ -169,22 +147,28 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">gengeopop::PartialGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for generators that provide a partial solution.  <a href="../../d1/d84/a00052.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html">myhayai::event::Payload</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The payload of the event notification used by the <a class="el" href="../../d6/d2c/a00072.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...">BenchmarkRunner</a> and accepted in the Update by the event Observers.  <a href="../../db/db6/a00074.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:df/d70/a00431"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d70/a00431.html">myhayai</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dd/d07/a00433"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d07/a00433.html">myhayai::event</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Payload for Subject/Observer for myhayaia::events. </p>
+
+<p>Definition in file <a class="el" href="../../d0/dc5/a00343_source.html">Payload.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">PartialGenerator.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">Payload.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:41 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

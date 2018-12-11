@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Boxplot.h File Reference</title>
+<title>Stride Reference Manual: BoxPlotData.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -108,32 +108,32 @@ $(document).ready(function(){initNavTree('d2/d94/a00184.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Boxplot.h File Reference</div>  </div>
+<div class="title">BoxPlotData.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;map&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../d2/d0a/a00333_source.html">util/LogUtils.h</a>&gt;</code><br />
+
+<p>Header file for BoxPlotData.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d00/a00186_source.html">BoxplotData.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Boxplot.h:</div>
+Include dependency graph for BoxPlotData.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d9c/a00487.gif" border="0" usemap="#Boxplot_8h" alt=""/></div>
-<map name="Boxplot_8h" id="Boxplot_8h">
-<area shape="rect" id="node4" href="../../d2/d0a/a00333.html" title="Logging (spdlog) utilities. " alt="" coords="355,80,463,107"/>
-<area shape="rect" id="node8" href="../../d8/d00/a00186.html" title="BoxplotData.h" alt="" coords="131,80,245,107"/>
+<div class="center"><img src="../../d6/d1a/a00485.gif" border="0" usemap="#BoxPlotData_8h" alt=""/></div>
+<map name="BoxPlotData_8h" id="BoxPlotData_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/ddf/a00488.gif" border="0" usemap="#Boxplot_8hdep" alt=""/></div>
-<map name="Boxplot_8hdep" id="Boxplot_8hdep">
-<area shape="rect" id="node2" href="../../dc/d52/a00183.html" title="Boxplot.cpp" alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="CalibrationRunner.cpp" alt="" coords="127,80,287,107"/>
-<area shape="rect" id="node4" href="../../dc/d9a/a00218.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="312,80,532,107"/>
-<area shape="rect" id="node5" href="../../d7/d93/a00397.html" title="TestCalibrationRunner.cpp" alt="" coords="556,80,741,107"/>
+<div class="center"><img src="../../db/df1/a00486.gif" border="0" usemap="#BoxPlotData_8hdep" alt=""/></div>
+<map name="BoxPlotData_8hdep" id="BoxPlotData_8hdep">
+<area shape="rect" id="node2" href="../../d5/d0b/a00220.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,80,147,107"/>
+<area shape="rect" id="node3" href="../../df/df1/a00357.html" title="Implementation file for PtreeViewer. " alt="" coords="170,80,294,107"/>
+<area shape="rect" id="node4" href="../../d7/d08/a00378.html" title="Header for the command line controller. " alt="" coords="318,80,458,107"/>
 </map>
 </div>
 </div>
@@ -141,22 +141,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html">calibration::Boxplot</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class used to compute the necessary information to generate boxplots.  <a href="../../d1/d7c/a00003.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d5e/a00136.html">stride::util::BoxPlotData&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d5e/a00136.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  <a href="../../d0/d5e/a00136.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d7/db9/a00426"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db9/a00426.html">calibration</a></td></tr>
+<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
+<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/d84/a00447"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html">stride::util</a></td></tr>
+<tr class="memdesc:de/d84/a00447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for BoxPlotData. </p>
+
+<p>Definition in file <a class="el" href="../../d2/d94/a00184_source.html">BoxPlotData.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d2/d94/a00184.html">Boxplot.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d2/d94/a00184.html">BoxPlotData.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

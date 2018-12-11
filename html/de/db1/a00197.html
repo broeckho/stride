@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CitiesCSVReader.h File Reference</title>
+<title>Stride Reference Manual: CitiesReader.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -108,42 +108,50 @@ $(document).ready(function(){initNavTree('de/db1/a00197.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CitiesCSVReader.h File Reference</div>  </div>
+<div class="title">CitiesReader.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d72/a00199_source.html">CitiesReader.h</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="../../da/d2e/a00238_source.html">util/CSV.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d2f/a00259_source.html">gengeopop/GeoGrid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/db5/a00328_source.html">gengeopop/Location.h</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CitiesCSVReader.h:</div>
+Include dependency graph for CitiesReader.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d69/a00507.gif" border="0" usemap="#CitiesCSVReader_8h" alt=""/></div>
-<map name="CitiesCSVReader_8h" id="CitiesCSVReader_8h">
-<area shape="rect" id="node2" href="../../d8/d72/a00199.html" title="CitiesReader.h" alt="" coords="1048,80,1160,107"/>
-<area shape="rect" id="node38" href="../../da/d2e/a00238.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2335,326,2418,353"/>
-<area shape="rect" id="node3" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGrid.h" alt="" coords="1023,155,1186,181"/>
-<area shape="rect" id="node4" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="572,326,660,353"/>
-<area shape="rect" id="node15" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="1245,326,1321,353"/>
-<area shape="rect" id="node21" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1397,415,1540,442"/>
-<area shape="rect" id="node26" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1665,237,1794,263"/>
-<area shape="rect" id="node37" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="1039,237,1170,263"/>
-<area shape="rect" id="node22" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="1359,497,1554,524"/>
-<area shape="rect" id="node23" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1578,497,1748,524"/>
-<area shape="rect" id="node27" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1447,326,1612,353"/>
-<area shape="rect" id="node28" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1915,326,2022,353"/>
-<area shape="rect" id="node29" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1812,326,1890,353"/>
-<area shape="rect" id="node31" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="1636,326,1736,353"/>
-<area shape="rect" id="node39" href="../../d9/d21/a00240.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2510,415,2594,442"/>
-<area shape="rect" id="node40" href="../../d5/d05/a00385.html" title="Miscellaneous string utilities. " alt="" coords="2706,497,2806,524"/>
-<area shape="rect" id="node47" href="../../db/d53/a00321.html" title="Interface/Implementation of is_iterator. " alt="" coords="2366,415,2486,442"/>
+<div class="center"><img src="../../d7/d37/a00505.gif" border="0" usemap="#CitiesReader_8h" alt=""/></div>
+<map name="CitiesReader_8h" id="CitiesReader_8h">
+<area shape="rect" id="node2" href="../../d0/d2f/a00259.html" title="gengeopop/GeoGrid.h" alt="" coords="1402,80,1565,107"/>
+<area shape="rect" id="node3" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="2467,251,2555,278"/>
+<area shape="rect" id="node14" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="1436,251,1512,278"/>
+<area shape="rect" id="node20" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1015,423,1157,449"/>
+<area shape="rect" id="node25" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1061,162,1191,189"/>
+<area shape="rect" id="node48" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1866,162,1997,189"/>
+<area shape="rect" id="node21" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="1170,497,1365,524"/>
+<area shape="rect" id="node22" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="874,497,1045,524"/>
+<area shape="rect" id="node26" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="559,251,725,278"/>
+<area shape="rect" id="node29" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="29,341,201,367"/>
+<area shape="rect" id="node34" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="327,251,434,278"/>
+<area shape="rect" id="node37" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="1333,251,1412,278"/>
+<area shape="rect" id="node39" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="1157,251,1257,278"/>
+<area shape="rect" id="node27" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="654,341,822,367"/>
+<area shape="rect" id="node30" href="../../d4/d27/a00392.html" title="Interface/Implementation for SVIterator. " alt="" coords="210,423,309,449"/>
+<area shape="rect" id="node35" href="../../db/dc3/a00284.html" title="Header for the Health class. " alt="" coords="500,341,629,367"/>
+<area shape="rect" id="node40" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="1334,341,1385,367"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d30/a00508.gif" border="0" usemap="#CitiesCSVReader_8hdep" alt=""/></div>
-<map name="CitiesCSVReader_8hdep" id="CitiesCSVReader_8hdep">
-<area shape="rect" id="node2" href="../../d7/ded/a00196.html" title="CitiesCSVReader.cpp" alt="" coords="5,80,160,107"/>
-<area shape="rect" id="node3" href="../../de/dd7/a00362.html" title="ReaderFactory.cpp" alt="" coords="185,80,322,107"/>
+<div class="center"><img src="../../d4/d1f/a00506.gif" border="0" usemap="#CitiesReader_8hdep" alt=""/></div>
+<map name="CitiesReader_8hdep" id="CitiesReader_8hdep">
+<area shape="rect" id="node2" href="../../dc/d6a/a00261.html" title="GeoGridConfig.cpp" alt="" coords="17,80,159,107"/>
+<area shape="rect" id="node3" href="../../d7/ded/a00196.html" title="CitiesCSVReader.h" alt="" coords="183,80,321,107"/>
+<area shape="rect" id="node6" href="../../d0/d65/a00360.html" title="ReaderFactory.h" alt="" coords="345,80,468,107"/>
+<area shape="rect" id="node4" href="../../d3/d2a/a00195.html" title="CitiesCSVReader.cpp" alt="" coords="5,155,160,181"/>
+<area shape="rect" id="node5" href="../../d4/def/a00359.html" title="ReaderFactory.cpp" alt="" coords="185,155,322,181"/>
+<area shape="rect" id="node7" href="../../dc/ded/a00252.html" title="gengeopop.cpp" alt="" coords="346,155,467,181"/>
+<area shape="rect" id="node8" href="../../d0/d3e/a00253.html" title="GenGeoPopController.cpp" alt="" coords="492,155,679,181"/>
 </map>
 </div>
 </div>
@@ -151,13 +159,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d86/a00012.html">gengeopop::CitiesCSVReader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Reader which fills a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> with the Cities found in a given CSV file.  <a href="../../df/d86/a00012.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dd4/a00013.html">gengeopop::CitiesReader</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an abstract Reader which fills a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> with the Cities found in a given file.  <a href="../../d7/dd4/a00013.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -165,8 +173,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">CitiesCSVReader.h</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../de/db1/a00197.html">CitiesReader.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CommutesReader.cpp File Reference</title>
+<title>Stride Reference Manual: ConfigFileCalibrationRunner.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 1c05d60</span>
+   &#160;<span id="projectnumber">- generated for commit bc48bd7</span>
    </div>
   </td>
  </tr>
@@ -105,44 +105,51 @@ $(document).ready(function(){initNavTree('d6/d43/a00216.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CommutesReader.cpp File Reference</div>  </div>
+<div class="title">ConfigFileCalibrationRunner.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../df/d24/a00217_source.html">CommutesReader.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../da/d2e/a00238_source.html">util/CSV.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da2/a00192_source.html">CalibrationRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d57/a00194_source.html">Calibrator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CommutesReader.cpp:</div>
+Include dependency graph for ConfigFileCalibrationRunner.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d33/a00536.gif" border="0" usemap="#CommutesReader_8cpp" alt=""/></div>
-<map name="CommutesReader_8cpp" id="CommutesReader_8cpp">
-<area shape="rect" id="node2" href="../../df/d24/a00217.html" title="CommutesReader.h" alt="" coords="535,80,683,107"/>
-<area shape="rect" id="node38" href="../../da/d2e/a00238.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2425,326,2508,353"/>
-<area shape="rect" id="node3" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGrid.h" alt="" coords="981,155,1144,181"/>
-<area shape="rect" id="node4" href="../../d8/df7/a00331.html" title="Location.h" alt="" coords="635,326,723,353"/>
-<area shape="rect" id="node15" href="../../d4/db5/a00328.html" title="KdTree.h" alt="" coords="1526,326,1602,353"/>
-<area shape="rect" id="node21" href="../../df/d17/a00231.html" title="Header for the core ContactPool class. " alt="" coords="1125,415,1267,442"/>
-<area shape="rect" id="node26" href="../../d0/dc3/a00354.html" title="Header file for the core Population class. " alt="" coords="1921,237,2050,263"/>
-<area shape="rect" id="node37" href="../../dd/dd7/a00260.html" title="GeoAggregator.h" alt="" coords="768,237,899,263"/>
-<area shape="rect" id="node22" href="../../dd/d2d/a00229.html" title="Header for the ContactLogMode class. " alt="" coords="989,497,1184,524"/>
-<area shape="rect" id="node23" href="../../da/d31/a00234.html" title="Definition of ContactPoolType. " alt="" coords="1309,497,1480,524"/>
-<area shape="rect" id="node27" href="../../d0/d53/a00232.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1223,326,1388,353"/>
-<area shape="rect" id="node28" href="../../df/d03/a00348.html" title="Header file for the Person class. " alt="" coords="1664,326,1771,353"/>
-<area shape="rect" id="node29" href="../../d8/df1/a00174.html" title="Interface/Implementation of Any. " alt="" coords="1971,326,2050,353"/>
-<area shape="rect" id="node31" href="../../d2/d3e/a00366.html" title="Interface of RnMan. " alt="" coords="1795,326,1895,353"/>
-<area shape="rect" id="node39" href="../../d9/d21/a00240.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="2362,415,2446,442"/>
-<area shape="rect" id="node40" href="../../d5/d05/a00385.html" title="Miscellaneous string utilities. " alt="" coords="2534,497,2634,524"/>
-<area shape="rect" id="node47" href="../../db/d53/a00321.html" title="Interface/Implementation of is_iterator. " alt="" coords="2471,415,2591,442"/>
+<div class="center"><img src="../../dc/d20/a00534.gif" border="0" usemap="#ConfigFileCalibrationRunner_8h" alt=""/></div>
+<map name="ConfigFileCalibrationRunner_8h" id="ConfigFileCalibrationRunner_8h">
+<area shape="rect" id="node5" href="../../dd/da2/a00192.html" title="CalibrationRunner.h" alt="" coords="339,80,485,107"/>
+<area shape="rect" id="node6" href="../../dc/d57/a00194.html" title="Calibrator.h" alt="" coords="499,155,594,181"/>
+<area shape="rect" id="node8" href="../../dd/dbb/a00330.html" title="Logging (spdlog) utilities. " alt="" coords="621,237,729,263"/>
+<area shape="rect" id="node11" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="497,237,597,263"/>
+<area shape="rect" id="node12" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="527,319,577,345"/>
+<area shape="rect" id="node13" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="246,393,346,420"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d7/d84/a00535.gif" border="0" usemap="#ConfigFileCalibrationRunner_8hdep" alt=""/></div>
+<map name="ConfigFileCalibrationRunner_8hdep" id="ConfigFileCalibrationRunner_8hdep">
+<area shape="rect" id="node2" href="../../d3/dd5/a00215.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="5,80,225,107"/>
+<area shape="rect" id="node3" href="../../d7/d6e/a00190.html" title="calibration.cpp" alt="" coords="250,80,365,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d6/d43/a00216_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/dee/a00008.html">calibration::ConfigFileCalibrationRunner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A runner for the Calibration.  <a href="../../d4/dee/a00008.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:da/db6/a00427"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db6/a00427.html">gengeopop</a></td></tr>
+<tr class="memitem:d1/d05/a00423"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d05/a00423.html">calibration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -150,8 +157,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d6/d43/a00216.html">CommutesReader.cpp</a></li>
-    <li class="footer">Generated on Fri Dec 7 2018 16:26:46 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d6/d43/a00216.html">ConfigFileCalibrationRunner.h</a></li>
+    <li class="footer">Generated on Tue Dec 11 2018 14:41:40 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
