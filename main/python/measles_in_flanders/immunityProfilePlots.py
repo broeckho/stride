@@ -17,32 +17,32 @@ def getRngSeeds(outputDir, scenarioName):
     return seeds
 
 def getTargetSusceptibilityRates(outputDir):
-    targetRatesChildTree = ET.parse(os.path.join(outputDir, 'data', 'measles_child_immunity.xml'))
-    targetRatesChild = []
-    for r in targetRatesChildTree.iter():
+    targetRatesTree = ET.parse(os.path.join(outputDir, 'data', 'immunity_measles_belgium_paper18.xml'))
+    targetRates = []
+    for r in targetRatesTree.iter():
         if r.tag not in ['immunity', 'data_source', 'data_manipulation']:
-            targetRatesChild.append(float(r.text))
-    targetRatesAdultTree = ET.parse(os.path.join(outputDir, 'data', 'measles_adult_immunity.xml'))
-    targetRatesAdult = []
-    for r in targetRatesAdultTree.iter():
-        if r.tag not in ['immunity', 'data_source', 'data_manipulation']:
-            targetRatesAdult.append(float(r.text))
+            targetRates.append(float(r.text))
     # 1 - immunityRate = susceptibilityRate
-    return [1 - (x + y) for x, y in zip(targetRatesChild, targetRatesAdult)]
+    return [1 - x for x in targetRates]
 
 def getActualSusceptibilityRates(outputDir, scenarioName, seed):
+    print("Get rates for " + scenarioName + " with seed " + str(seed))
     susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), 'susceptibles.csv')
     maxAge = 99
+    totalPersons = 0
+    totalSusceptibles = 0
     totalsByAge = [0] * (maxAge + 1)
     susceptiblesByAge = [0] * (maxAge + 1)
     with open(susceptiblesFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+            totalPersons += 1
             age = int(float(row['age']))
             isSusceptible = int(row['susceptible'])
             totalsByAge[age] += 1
             if isSusceptible:
                 susceptiblesByAge[age] += 1
+                totalSusceptibles += 1
     return [x / y for x, y in zip(susceptiblesByAge, totalsByAge)]
 
 '''
@@ -73,10 +73,10 @@ def createHouseholdConstitutionPlots(outputDir, scenarioNames):
 def getActualAvgSusceptibilityRates(outputDir, scenarioName):
     seeds = getRngSeeds(outputDir, scenarioName)
     totalRates = [0] * (MAX_AGE + 1)
-    for s in seeds:
+    for s in seeds[:2]:
         actualRates = getActualSusceptibilityRates(outputDir, scenarioName, s)
         totalRates = [x + y for x,y in zip(totalRates, actualRates)]
-    totalRates = [x / len(seeds) for x in totalRates]
+    totalRates = [x / len(seeds[:2]) for x in totalRates]
     return totalRates
 
 def ageImmunityPlot(outputDir, scenarioNames, scenarioDisplayNames):
@@ -93,12 +93,7 @@ def ageImmunityPlot(outputDir, scenarioNames, scenarioDisplayNames):
     plt.savefig(os.path.join(outputDir, "AgeImmunityPlot.png"))
     plt.clf()
 
-def main(outputDir):
-    scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
-    scenarioDisplayNames = ["Uniform immunity rates +\nno household-based clustering",
-                            "Age-dependent immunity rates +\nno household-based clustering",
-                            "Uniform immunity rates +\nhousehold-based clustering",
-                            "Age-dependent immunity rates +\nhousehold-based clustering"]
+def main(outputDir, scenarioNames, scenarioDisplayNames):
     # Plot age-dependent immunity rates for each scenario
     ageImmunityPlot(outputDir, scenarioNames, ["Data"] + scenarioDisplayNames)
     # TODO plot household constitutions
@@ -106,5 +101,12 @@ def main(outputDir):
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("outputDir", type=str, help="Directory containing simulation output files.")
+    parser.add_argument("--scenarioNames", type=str, nargs="+",
+                        default=["Scenario1", "Scenario2", "Scenario3", "Scenario4"])
+    parser.add_argument("--scenarioDisplayNames", type=str, nargs="+",
+                        default=["Uniform immunity rates +\nno household-based clustering",
+                                "Age-dependent immunity rates +\nno household-based clustering",
+                                "Uniform immunity rates +\nhousehold-based clustering",
+                                "Age-dependent immunity rates +\nhousehold-based clustering"])
     args = parser.parse_args()
-    main(args.outputDir)
+    main(args.outputDir, args.scenarioNames, args.scenarioDisplayNames)

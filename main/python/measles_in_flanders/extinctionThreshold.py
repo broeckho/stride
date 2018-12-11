@@ -36,12 +36,7 @@ def plotOutbreakSizeFrequencies(outputDir, scenarioNames, scenarioDisplayNames, 
         plotHistogram(scenarioFinalSizes, 20, os.path.join(outputDir, scenario + "_FinalSizeFrequencies.png"))
     plotHistogram(allFinalSizes, 20, os.path.join(outputDir, "All_FinalSizeFrequencies.png"))
 
-def main(outputDir, numDays):
-    scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
-    scenarioDisplayNames = ["Uniform immunity rates +\nno household-based clustering",
-                            "Age-dependent immunity rates +\nno household-based clustering",
-                            "Uniform immunity rates +\nhousehold-based clustering",
-                            "Age-dependent immunity rates +\nhousehold-based clustering"]
+def main(outputDir, numDays, scenarioNames, scenarioDisplayNames):
     # Final size frequencies -> threshold for extinction
     plotOutbreakSizeFrequencies(outputDir, scenarioNames, scenarioDisplayNames, numDays)
 
@@ -49,5 +44,12 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("outputDir", type=str, help="Directory containing simulation output files.")
     parser.add_argument("--numDays", type=int, default=365, help="Number of simulation days for which to make plots.")
+    parser.add_argument("--scenarioNames", type=str, nargs="+",
+                        default=["Scenario1", "Scenario2", "Scenario3", "Scenario4"])
+    parser.add_argument("--scenarioDisplayNames", type=str, nargs="+",
+                        default=["Uniform immunity rates +\nno household-based clustering",
+                                "Age-dependent immunity rates +\nno household-based clustering",
+                                "Uniform immunity rates +\nhousehold-based clustering",
+                                "Age-dependent immunity rates +\nhousehold-based clustering"])
     args = parser.parse_args()
-    main(args.outputDir, args.numDays)
+    main(args.outputDir, args.numDays, args.scenarioNames, args.scenarioDisplayNames)
