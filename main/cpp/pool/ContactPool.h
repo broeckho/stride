@@ -18,6 +18,8 @@
  * Header for the core ContactPool class.
  */
 
+#pragma once
+
 #include "contact/ContactLogMode.h"
 #include "pool/ContactPoolType.h"
 
