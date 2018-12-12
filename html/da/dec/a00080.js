@@ -55,6 +55,6 @@ var a00080 =
     [ "_internal_metadata_", "da/dec/a00080.html#a3acf2fe46f539d2cae99f8a1fac9c574", null ],
     [ "_has_bits_", "da/dec/a00080.html#a68c59da0f1dbb1d5d230da48ce276dcd", null ],
     [ "_cached_size_", "da/dec/a00080.html#a390a6cc2de6a6e8eda96c0166357acba", null ],
-    [ "locations_", "da/dec/a00080.html#aef45db26c3ceb9df2afcc1195be76b9f", null ],
-    [ "persons_", "da/dec/a00080.html#a3b59a92801fa6e3205c99df850f08dd1", null ]
+    [ "locations_", "da/dec/a00080.html#a768389a4509580563b241a0d4a190519", null ],
+    [ "persons_", "da/dec/a00080.html#af47a62eb0558a24c27b8b94571e55b0f", null ]
 ];

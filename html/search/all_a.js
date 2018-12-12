@@ -73,7 +73,7 @@ var searchData=
   ['is_5fiterator',['is_iterator',['../da/ddb/a00145.html',1,'stride::util']]],
   ['is_5fiterator_2eh',['is_iterator.h',['../d2/d41/a00318.html',1,'']]],
   ['is_5fiterator_3c_20t_2c_20ii_5fdetail_3a_3avoid_5ft_3c_20typename_20std_3a_3aiterator_5ftraits_3c_20t_20_3e_3a_3aiterator_5fcategory_20_3e_20_3e',['is_iterator&lt; T, ii_detail::void_t&lt; typename std::iterator_traits&lt; T &gt;::iterator_category &gt; &gt;',['../d9/db6/a00146.html',1,'stride::util']]],
-  ['is_5fproto_5fenum_3c_20_3a_3aproto_3a_3ageogrid_5flocation_5fcontactcenter_5ftype_20_3e',['is_proto_enum&lt; ::proto::GeoGrid_Location_ContactCenter_Type &gt;',['../dc/ddf/a00067.html',1,'google::protobuf']]],
+  ['is_5fproto_5fenum_3c_3a_3aproto_3a_3ageogrid_5flocation_5fcontactcenter_5ftype_20_3e',['is_proto_enum&lt;::proto::GeoGrid_Location_ContactCenter_Type &gt;',['../dc/ddf/a00067.html',1,'google::protobuf']]],
   ['iscollegestudentcandidate',['IsCollegeStudentCandidate',['../d7/d12/a00126.html#acd035ba375a685a16d2e5c22f0d10da8',1,'stride::Person']]],
   ['isdirectorystring',['IsDirectoryString',['../d2/d82/a00142.html#a33c582aaa9397e6ba22efc14b1a44189',1,'stride::util::FileSys']]],
   ['isholiday',['IsHoliday',['../d4/d7d/a00093.html#a9d4a023834f98c6ab8af55bbae7bc6df',1,'stride::Calendar']]],

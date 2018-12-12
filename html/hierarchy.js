@@ -130,7 +130,7 @@ var hierarchy =
       [ "stride::InfectorMap", "d4/d3e/a00116.html", null ]
     ] ],
     [ "true_type", null, [
-      [ "google::protobuf::is_proto_enum< ::proto::GeoGrid_Location_ContactCenter_Type >", "dc/ddf/a00067.html", null ],
+      [ "google::protobuf::is_proto_enum<::proto::GeoGrid_Location_ContactCenter_Type >", "dc/ddf/a00067.html", null ],
       [ "stride::util::is_iterator< T, ii_detail::void_t< typename std::iterator_traits< T >::iterator_category > >", "d9/db6/a00146.html", null ]
     ] ],
     [ "unary_function", null, [
