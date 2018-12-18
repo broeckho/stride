@@ -44,6 +44,7 @@
 #include <spdlog/fmt/ostr.h>
 #include <string>
 #include <utility>
+#include <vector>
 
 using namespace gengeopop;
 using namespace TCLAP;
@@ -61,46 +62,54 @@ int main(int argc, char* argv[])
                 // --------------------------------------------------------------
                 CmdLine cmd("gengeopop", ' ', "1.0");
 
-                string sci = "Input file with data on cities in csv format."
-                             "Defaults to flanders_cities.csv.";
+                string sci = "Input file with data on cities in csv format.                               "
+                             "Defaults to --cities flanders_cities.csv.";
                 ValueArg<string> citiesFile("", "cities", sci, false, "flanders_cities.csv", "CITIES FILE", cmd);
 
-                string sco = "Input file with data on commuting in csv format."
-                             "Defaults to flanders_commuting.csv.";
+                string sco = "Input file with data on commuting in csv format.                            "
+                             "Defaults to --commuting flanders_commuting.csv.";
                 ValueArg<string> commutingFile("", "commuting", sco, false, "flanders_commuting.csv", "COMMUTING FILE",
                                                cmd);
 
-                string sho = "Input file with reference set of households in csv format."
-                             "Defaults to households_flanders.csv.";
-                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv", "OUTPUT FILE",
-                                               cmd);
+                string sho = "Input file with reference set of households in csv format.                  "
+                             "Defaults to --household households_flanders.csv.";
+                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv",
+                                               "HOUSEHOLDS FILE", cmd);
 
-                string sou = "Output file with synthetic population in protobuf format."
-                             "Defaults to gengeopop.proto.";
-                ValueArg<string> outputFile("o", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
-
-                ValueArg<string> logLevel("l", "loglevel", "Loglevel", false, "info", "LOGLEVEL", cmd);
-
-                ValueArg<double> fraction1826Students("s", "frac1826students",
-                                                      "Fraction of 1826 years which are students", false, 0.50,
-                                                      "FRACTION STUDENTS (1826)", cmd);
-
-                ValueArg<double> fractionActiveCommutingPeople("t", "fracActiveCommuting",
-                                                               "Fraction of active people commuting", false, 0.50,
+                string sfrac2 = "Fraction of active persons that commute.                                 "
+                                "Defaults to --fracActiveCommuting 0.5.";
+                ValueArg<double> fractionActiveCommuting("", "fracActiveCommuting", sfrac2, false, 0.50,
                                                                "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
 
-                ValueArg<double> fractionStudentCommutingPeople("w", "fracStudentCommuting",
-                                                                "Fraction of students commuting", false, 0.50,
+                string sfrac3 = "Fraction of students that commute.                                       "
+                                "Defaults to --fracStudentCommuting 0.5.";
+                ValueArg<double> fractionStudentCommuting("", "fracStudentCommuting", sfrac3, false, 0.50,
                                                                 "FRACTION OF STUDENTS COMMUTING", cmd);
 
-                ValueArg<double> fractionActivePeople("a", "fracActive", "Fraction of people active", false, 0.75,
+                string sfrac1 = "Fraction of 18-26 year old persons that are students.                    "
+                                "Defaults to --frac1826students 0.5.";
+                ValueArg<double> fraction1826Students("", "frac1826students", sfrac1, false, 0.50,
+                                                      "FRACTION 18-26 STUDENTS", cmd);
+
+                string sfrac0 = "Fraction of people that are active. "
+                                "Defaults to --fracActive 0.75.";
+                ValueArg<double> fractionActivePeople("", "fracActive", sfrac0, false, 0.75,
                                                       "FRACTION OF PEOPLE ACTIVE", cmd);
 
-                ValueArg<unsigned int> populationSize("p", "populationSize", "Population size", false, 6000000,
-                                                      "POPULATION SIZE", cmd);
+                string spop = "Populations size. Defaults to --populationSize 600000.";
+                ValueArg<unsigned int> popSize("", "populationSize", spop, false, 6000000, "POPULATION SIZE", cmd);
 
-                ValueArg<string> rng_seed("", "seed", "The seed to be used for the random engine", false, "1,2,3,4",
-                                          "SEED", cmd);
+                string sseed = "The seed sequence for the random engine. Defaults to {1,2,3,4}.";
+                ValueArg<string> rng_seed("", "seed", sseed, false, "1,2,3,4", "SEED", cmd);
+
+                string sou = "Output file with synthetic population in protobuf format.                    "
+                             "Defaults to --output gengeopop.proto.";
+                ValueArg<string> outputFile("", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
+
+                vector<string>           levels {"trace", "debug", "info", "warn", "error", "critical", "off"};
+                ValuesConstraint<string> vc_levels(levels);
+                string                   slog = "Log level. Defaults to --loglevel info.";
+                ValueArg<string>         logLevel("", "loglevel", slog, false, "info", &vc_levels, cmd);
 
                 cmd.parse(argc, static_cast<const char* const*>(argv));
 
@@ -115,10 +124,10 @@ int main(int argc, char* argv[])
                 // Configure.
                 // --------------------------------------------------------------
                 GeoGridConfig geoGridConfig{};
-                geoGridConfig.input.populationSize                       = populationSize.getValue();
+                geoGridConfig.input.populationSize                       = popSize.getValue();
                 geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input.fraction_active_commutingPeople      = fractionActiveCommutingPeople.getValue();
-                geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommutingPeople.getValue();
+                geoGridConfig.input.fraction_active_commutingPeople      = fractionActiveCommuting.getValue();
+                geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommuting.getValue();
                 geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
 
                 RnMan::Info info(rng_seed.getValue(), "", static_cast<unsigned int>(omp_get_num_threads()));

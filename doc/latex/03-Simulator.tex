@@ -114,34 +114,69 @@ Where:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generating a population and geographical grid}
 
-From the workspace directory, the generation of a population and geographical grid (sometimes called GeoGrid) can be started with the default configuration using the command \mbox{``\texttt{./bin/gengeopop}''}. The following configuration options are available:
-
-\begin{compactdesc}
-    \item[\texttt{--populationSize}] \ \\
-        The size of the population to generate. By default a population of \texttt{6000000} is generated.
-    \item[\texttt{--fracActive}] \ \\
-        The fraction of people who are active, i.e. who are employed or students. By default \texttt{0.75} is used.
-    \item[\texttt{--fracStudentCommuting}] \ \\
-        The fraction of students commuting. By default \texttt{0.5} is used.
-    \item[\texttt{--fracActiveCommuting}] \ \\
-        The fraction of active people who commutes. By default \texttt{0.5} is used.
-    \item[\texttt{--frac1826Students}] \ \\
-        The fraction of 1826 years which are students. By default \texttt{0.5} is used.
-    \item[\texttt{--household}] \ \\
-        The file to read the household profiles from.
-    \item[\texttt{--commuting}] \ \\
-        The file to read the commuting information from.
-    \item[\texttt{--cities}] \ \\
-        The file to read the cities from.
-    \item[\texttt{--output}] \ \\
-        The file to write the GeoGrid to. By default this is \texttt{gengeopop.proto}
-    \item[\texttt{--state}] \ \\
-        The state to be used for initializing the random engine. 
-    \item[\texttt{--seed}] \ \\
-        The seed to be used for the random engine. The default is \texttt{"1,2,3,4"}.
-    \item[\texttt{--loglevel}] \ \\
-        The loglevel to use, by default this is \texttt{info}.
-\end{compactdesc}
+ The generation of a population and geographical grid (sometimes called GeoGrid) can be started from the workspace directory, with the command \mbox{``\texttt{./bin/gengeopop}''}. The following options are available:
+\begin{verbatim}
+bin/gengeopop  [--loglevel <trace|debug|info|warn|error|critical|off>]
+                  [--output <OUTPUT FILE>] [--seed <SEED>]
+                  [--populationSize <POPULATION SIZE>] [--fracActive
+                  <FRACTION OF PEOPLE ACTIVE>] [--frac1826students
+                  <FRACTION 18-26 STUDENTS>] [--fracStudentCommuting
+                  <FRACTION OF STUDENTS COMMUTING>] [--fracActiveCommuting
+                  <FRACTION OF ACTIVE PEOPLE COMMUTING>] [--household
+                  <HOUSEHOLDS FILE>] [--commuting <COMMUTING FILE>]
+                  [--cities <CITIES FILE>] [--] [--version] [-h]
+ 
+Where: 
+ 
+   --loglevel <trace|debug|info|warn|error|critical|off>
+     Log level. Defaults to --loglevel info.
+ 
+   --output <OUTPUT FILE>
+     Output file with synthetic population in protobuf format.             
+     Defaults to --output gengeopop.proto.
+ 
+   --seed <SEED>
+     The seed sequence for the random engine. Defaults to {1,2,3,4}.
+ 
+   --populationSize <POPULATION SIZE>
+     Populations size. Defaults to --populationSize 600000.
+ 
+   --fracActive <FRACTION OF PEOPLE ACTIVE>
+     Fraction of people that are active. Defaults to --fracActive 0.75.
+ 
+   --frac1826students <FRACTION 18-26 STUDENTS>
+     Fraction of 18-26 year old persons that are students.                 
+     Defaults to --frac1826students 0.5.
+ 
+   --fracStudentCommuting <FRACTION OF STUDENTS COMMUTING>
+     Fraction of students that commute.                                    
+     Defaults to --fracStudentCommuting 0.5.
+ 
+   --fracActiveCommuting <FRACTION OF ACTIVE PEOPLE COMMUTING>
+     Fraction of active persons that commute.                              
+     Defaults to --fracActiveCommuting 0.5.
+ 
+   --household <HOUSEHOLDS FILE>
+     Input file with reference set of households in csv format.            
+     Defaults to --household households_flanders.csv.
+ 
+   --commuting <COMMUTING FILE>
+     Input file with data on commuting in csv format.                      
+     Defaults to --commuting flanders_commuting.csv.
+ 
+   --cities <CITIES FILE>
+     Input file with data on cities in csv format.                         
+     Defaults to --cities flanders_cities.csv.
+ 
+   --,  --ignore_rest
+     Ignores the rest of the labeled arguments following this flag.
+ 
+   --version
+     Displays version information and exits.
+ 
+   -h,  --help
+     Displays usage information and exits.
+\end{verbatim}
 
 \section{Using the Calibrator}
 \label{sec:calibrator}

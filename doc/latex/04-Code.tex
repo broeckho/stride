@@ -1,5 +1,5 @@
 %%!TEX root = ./UserManual.tex
-\chapter{Code}
+\chapter{Concepts and Algorithms}
 \label{chap:code}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,83 +16,113 @@ To explain the algorithms used for generating the geography of the countries and
 
 \begin{description}
     \item[ContactPool]:
-        A pool of persons that potentially come in contact with each other.
-        If they actually do and if a transmission of an infection occurs depends on the algorithms in the simulator.
-        We distinguish different types of ContactPools associated with work, school, community and households.
-        Note that there is a difference between the size of a school (for example 500 students) and the size of the ContactPools inside the school (20 students).
+        A pool of persons that potentially come contacts with each other that potentially lead to disease transmission.
+        We distinguish different types of ContactPools associated with the workplace, school, community and households.
+        Note that there is a difference between the size of a school (for example 500 students) and the size of the ContactPools inside the school (20 students taking their classes together all the time).
     \item[ContactCenter]:
         A group of one or more ContactPools of the same type.
-        This allows for a single College to contain multiple classes for example.
-        It is also used to contain a single ContactPool, for example in the case of a Household.
-    \item[K-12 student]: Part of the population from 3 until 18 years of age that are obligated (at least in Belgium) to attend a school. Students that skip or repeat years are not accounted for.
+        This allows for a school or College to contain multiple classes (ContactCenter).
+        A ContactCenter may contain a single ContactPool, for example for a Household.
+    \item[K-12 student]: 
+    		Persons from 3 until 18 years of age that are required (at least in Belgium) to attend school. 
+    		Students that skip or repeat years are not accounted for.
     \item[College student]:
-        Persons older than 18 and younger than 26 years of age that attend a higher education. For simplicity we will group all forms of higher eduction into the same type of ContactCenter, a College. A fraction of college students will attend a college ``close to home'' and the others will attend a college ``far from home''.
-        Most higher educations don't last for 8 years, but using this number we compensate for changes in the field of study, doctoral studies, advanced masters and repeating a failed year of study.
+        Persons older than 18 and younger than 26 years of age that attend an institution of higher education. 
+        For simplicity we group all forms of higher eduction into the same type of ContactCenter, a College. 
+        A fraction of college students will attend a college ``close to home'' and the others will attend a 
+        college ``far from home''. Most higher educations don't last 8 years, but this way we compensate 
+        for changes in the field of study, doctoral studies, advanced masters and repeating a failed year of study.
     \item[Employable]:
-        We consider people of ages 18 to 65 to be employable. A fraction of people between 18 and 26 will attend a college, and the complementary fraction will be employable.
+        We consider people of ages 18 to 65 to be potentially employable. A fraction of people between 18 and 26 
+        will attend a college, and the complementary fraction will be employable.
     \item[Active population]:
-        The fraction of the employable part of the population that is actually working. A fraction of these workers will work ``close to home'' and the complementary fraction will commute to a workplace further away.
+        The fraction of the employable population that is actually working. A fraction of these workers will 
+        work ``close to home'' and the complementary fraction will commute to a workplace ``far from home''.
     \item[Household profile]:
-        The composition of households in terms of the number of members and their age is an important factor in the simulation. In this case the profile is not defined by the age of its members or fractions, but through a set of reference households. This set contains a sample of households which are representative of the whole population in their composition.
+        The composition of households in terms of the number of members and their age is an important 
+        factor in the simulation. In this case the profile is not defined by the age of its members or fractions, 
+        but through a set of reference households. This set contains a sample of households which is 
+        representative of the whole population in their composition.
     \item[GeoGrid locations]:
-        Our data only allows for a very limited geographical resolution. We have the longitude and latitude of cities and municipalities (a distinction we will not make), which we shall use to create GeoGrid locations for the domicile of the households.
-        All households in the same location are mapped to the coordinates of the location's center. These locations with corresponding coordinates will form a grid that will contain the complete simulation area.
+        Our data only allows for a limited geographical resolution. We have the longitude and latitude of cities and municipalities (a distinction we will not make), which we shall use to create GeoGrid locations for the domicile of the households. All households in the same location are mapped to the coordinates of the location's center. These locations with corresponding coordinates will form a grid that covers the simulation area.
 \end{description}
 
 \subsection{Generating the geography}
 \label{subsection:gengeo}
 We start by generating the geographical component, a GeoGrid.
-This contains locations with an id, name, province, coordinates and nominative population figures.
-These locations contain multiple ContactCenters, like Schools and Households, which in turn contain ContactPools.
-This structure is internally generated by several ``Generators" and will afterwards be used by ``Populators" to fill the ContactPools.
-The different types of ContactCenters are created by a different partial generator for each type and added separately to the GeoGrid.
-We construct the following types of ContactCenters:
+It contains locations with an id, name, province, coordinates and a reference population count.
+
+The latter requires some comment. When we build a synthetic population, we start by generating households. That household is the assigned a location by drawing from a discrete distribution of locations with weights proportional to the  relative population count of the location. As a consequence, each location will have a population count that differs stochastically from the reference count, but will be close to it. When many synthetic populations are generated, the average of a location 's population count will tend to its reference count.
+
+Locations contain multiple ContactCenters, like Schools and Households, which in turn contain ContactPools.
+This structure is internally generated by several ``Generators" and will afterwards be used by ``Populators" to fill the ContactPools. The different types of ContactCenters are created by a different partial generator for each type and added separately to the GeoGrid. We construct the following types of ContactCenters:
 
 \begin{description}
     \item[Households]:
-        The number of households is determined by the average size of a household in the reference profile and the total population size.
-        These generated households are then assigned to a location by a draw from a discrete distribution based on the relative population size in each location.
+        The number of households is determined by the average size of a household in the reference 
+        profile and the total population count.
+        The generated households are then assigned to a location by a draw from a discrete distribution of 
+        locations with weights proportional to the  relative population count of the location.
     \item[K-12 Schools]:
-        These schools contain on average 500 students, with an average of 20 students per class, which corresponds to 25 ContactPools.
-        The total amount of schools in the region is determined by the size of the population and the fraction of those people who attend a K-12 school.
-        The assignment of the schools to the locations is analogous to that of households.
+        Schools a reference count of 500 students, with a refernce count of 20 students per class,
+         corresponding to 25 ContactPools per school. 
+         The total number of schools in the region is determined by the population count, the fraction 
+         of people in the K-12 school age bracket and of course the reference school size.
+        The algorithm for assignment of schools to locations is similar to that of households.
     \item[Colleges]:
-        These contain an average of 3000 students and 150 students per ContactPool.
-        They are exclusively assigned to the 10 biggest locations in terms of population size.
-        Within those 10 locations we again use a discrete distribution based on the relative population of the city compared to the total population in these top 10 cities.
+        Colleges have a reference count of 3000 students with 150 students per ContactPool.
+        Colleges are exclusively assigned to the 10 locations with highest reference population count (cities).
+        For these 10 locations we use a discrete distribution with weights proportional to the population count 
+        of the city relative to the total population of the 10 cities.
     \item[Workplaces]:
-        The assignment of workplaces is analogous to that of households, but now we account for commuting information to determine the actual number of workers in a location.
-        We find this amount by the working people who live there plus the people that commute to this location minus the ones that live there but commute away.
-        A workplace contains on average 20 people.
+        The algorithm for assignment of workplaces to locations is analogous to that of households, 
+        but here we factor in commuting information to determine the actual number of workers at a location.
+        That is, the reference count of active persons (i.e. persons assigned to a workplace) is 
+        the number of active persons living at a location (i.e. their household is located there)
+        plus the active persons commuting out of that location minus the number of active persons
+        commuting into that location. 
+        The reference count for persons at a workplace is 20.
     \item[Communities]:
-        We create both primary and secondary communities, each containing 2000 persons from all ages and occupations.
-        The assignment is again analogous to that of households.
+        We create both primary and secondary communities. Each has a  reference count of 2000 persons. 
+        Communities consist of persons from all ages. 
+        The assignment to locations is again similar to that of households.
 \end{description}
 
 \subsection{Generating the population}
 \label{subsection:genpop}
-After creating the structures that will allow people to come in contact with each other and spread possible infections, we have create the population itself and determine the different ContactPools they will be in.
-The persons are created based on the Household profiles in the HouseholdPopulator.
-Analogous to the creation of the ContactCenters, we have a partial populator that will populate its own type of ContactPool:
+After creating the structures that will allow people to come in contact with each other, we have create the population itself and determine the different ContactPools they will be in. The persons are created based on the Household profiles in the HouseholdPopulator. Similar to the approach the ContactCenters, we have a partial populators that 
+each populates ia type of ContactPool:
 
 \begin{description}
     \item[Households]:
-        To create the actual persons, we draw a random household from the list of sample households and use that as a template for the number of members and their ages.
-        We simply do this for each household in the GeoGrid, since we already determined the locations and amount of households while generating the geography.
+        To create the actual persons, we randomly draw a household from the list of reference households 
+        and use that as a template for the number of household members and their ages.
+        We simply do this for each household in the GeoGrid, since we already determined 
+        the locations and number of households while generating the geography.
     \item[K-12 Schools]:
-        We start by finding all schools within a 10km radius of the household location. If this list is empty, we double this searching radius until it's no longer empty.
-        We then choose a random ContactPool from the combined list of ContactPools in the found schools, even if this ContactPool now has more students than average (20).
+        We start by listing all schools within a 10km radius of the household location. 
+        If this list is empty, we double the search radius until it's no longer empty.
+        We then randomly select a ContactPool from those in the schools of the list,
+       even if this ContactPool now has more students than average.
     \item[Colleges]:
-        The students who study ``close to home" are assigned to a college in a way analogous to the assignment to K-12 schools.
-        For the ones that study further from home we first determine the list of locations where people from this locations commute to and choose one of these locations by use of a discrete distribution based on the relative commuting information.
-        After we have chosen a location, we randomly choose a ContactPool at a college in this location and assign it to the commuting student.
+        Students who study ``close to home" are assigned to a college with an algorithm
+        similar to the assignment to K-12 schools.
+        Students that study ``far from home" we first determine the list of locations 
+        where people from this locations commute to. We randomly select one of these locations 
+        using a discrete distribution based on the relative commuting information.
+        We then randomly choose a ContactPool at a college in this location and assign it to 
+        the commuting student.
     \item[Workplaces]:
-        We first decide if the person actually has a job based on the unemployment parameter.
-        We assign a workplace to an active worker that works ``close to home" in an analogous way as the assignment of K-12 schools to students.
-        For the commuting workers we use a technique analogous to that of the commuting college students.
+        We first decide whether the person is active (correct age, fraction of the age bracket that is a student,
+        fraction of the age bracket that is active).
+        We assign a workplace to an active person that works ``close to home" in an 
+        analogous way as the assignment of K-12 schools to students.
+        For the commuting workers we use an algorithm analogous to that of the commuting college students.
     \item[Communities]:
-        The communities we can choose from at a location is determined in an analogous way to the K-12 schools.
-        In primary communities we simply choose a random ContactPool from the list of Communities for each person in a household.
-        In secondary communities however, we assign complete households to the ContactPools instead of each person in the household separately to a ContactPool.
-
+        The communities we can choose from at a location is determined in an analogous 
+        way to the K-12 schools.
+        For primary communities we randomly select, for each person in a household, a ContactPool 
+        from the list of Communities within a 10km radius. If the list empty, \ldots see the K-12 algoritm.
+        In secondary communities however, we assign complete households to the 
+        ContactPools instead of each person in the household separately.
 \end{description}
