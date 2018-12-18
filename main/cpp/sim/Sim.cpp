@@ -20,8 +20,6 @@
 
 #include "Sim.h"
 
-#include "behaviour/information_policies/LocalDiscussion.h"
-#include "behaviour/information_policies/NoLocalInformation.h"
 #include "calendar/DaysOffStandard.h"
 #include "pool/ContactPoolType.h"
 #include "pop/Population.h"
@@ -29,6 +27,7 @@
 #include "util/RunConfigManager.h"
 
 #include <omp.h>
+#include <utility>
 
 namespace stride {
 
@@ -38,9 +37,9 @@ using namespace util;
 using namespace ContactLogMode;
 
 Sim::Sim(util::RnMan& rnMan)
-    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_local_info_policy(),
-      m_calendar(nullptr), m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(rnMan),
-      m_transmission_profile()
+    : m_config_pt(), m_contact_log_mode(Id::None), m_num_threads(1U), m_track_index_case(false), m_calendar(nullptr),
+    m_contact_profiles(), m_handlers(), m_infector(), m_population(nullptr), m_rn_manager(rnMan),
+    m_transmission_profile()
 {
 }
 
@@ -63,7 +62,7 @@ std::shared_ptr<Sim> Sim::Create(const boost::property_tree::ptree& configPt, sh
 {
         struct make_shared_enabler : public Sim
         {
-                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(rnManager) {}
+                explicit make_shared_enabler(std::shared_ptr<util::RnMan> rnManager) : Sim(std::move(rnManager)) {}
         };
         shared_ptr<Sim> sim = make_shared<make_shared_enabler>(rnManager);
         SimBuilder(configPt).Build(sim, std::move(pop));

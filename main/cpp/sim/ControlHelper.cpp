@@ -26,7 +26,6 @@
 #include "util/FileSys.h"
 #include "util/LogUtils.h"
 #include "util/TimeStamp.h"
-#include "viewers/AdoptedFileViewer.h"
 #include "viewers/CliViewer.h"
 #include "viewers/InfectedFileViewer.h"
 #include "viewers/PersonsFileViewer.h"
@@ -120,13 +119,6 @@ void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
         m_stride_logger->info("Registering CliViewer");
         const auto cli_v = make_shared<viewers::CliViewer>(runner, m_stride_logger);
         runner->Register(cli_v, bind(&viewers::CliViewer::Update, cli_v, placeholders::_1));
-
-        // Adopted viewer
-        if (m_config_pt.get<bool>("run.output_adopted", false)) {
-                m_stride_logger->info("Registering AdoptedFileViewer,");
-                const auto v = make_shared<viewers::AdoptedFileViewer>(runner, m_output_prefix);
-                runner->Register(v, bind(&viewers::AdoptedFileViewer::Update, v, placeholders::_1));
-        }
 
         // Infection counts viewer
         if (m_config_pt.get<bool>("run.output_cases", false)) {

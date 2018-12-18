@@ -29,8 +29,6 @@ add_subdirectory(execs)
 #============================================================================
 set(LIB_SRC
 #---
-	behaviour/BeliefSeeder.cpp
-#---
     calendar/Calendar.cpp
 #---
 	contact/AgeContactProfile.cpp
@@ -74,7 +72,6 @@ set(LIB_SRC
     util/FileSys.cpp
     util/RunConfigManager.cpp
 #---
-    viewers/AdoptedFileViewer.cpp
     viewers/InfectedFileViewer.cpp
     viewers/InfectedViewer.cpp
     viewers/CliViewer.cpp

@@ -20,8 +20,6 @@
 
 #include "Population.h"
 
-#include "behaviour/belief_policies/Imitation.h"
-#include "behaviour/belief_policies/NoBelief.h"
 #include "disease/Health.h"
 #include "pop/DefaultPopBuilder.h"
 #include "pop/GenPopBuilder.h"
@@ -89,17 +87,6 @@ std::shared_ptr<Population> Population::Create()
         };
         auto r = make_shared<make_shared_enabler>();
         return r;
-}
-
-unsigned int Population::GetAdoptedCount() const
-{
-        unsigned int total{0U};
-        for (const auto& p : *this) {
-                if (p.GetBelief()->HasAdopted()) {
-                        total++;
-                }
-        }
-        return total;
 }
 
 unsigned int Population::GetInfectedCount() const

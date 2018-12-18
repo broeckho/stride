@@ -75,7 +75,7 @@ private:
         std::tuple<bool, size_t> SortMembers();
 
         /// Infector calculates contacts and transmissions.
-        template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
+        template <ContactLogMode::Id LL, bool TIC, bool TO>
         friend class Infector;
 
 private:

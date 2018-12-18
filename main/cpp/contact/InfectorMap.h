@@ -37,31 +37,31 @@ class Population;
  * Simulator can time step and reveal some of the key data.
  * The Subject base class used for the interaction with the python environment only.
  */
-class InfectorMap : public std::map<std::tuple<stride::ContactLogMode::Id, bool, std::string>, InfectorExec*>
+class InfectorMap : public std::map<std::tuple<stride::ContactLogMode::Id, bool>, InfectorExec*>
 {
 public:
         /// Fully initialized.
         InfectorMap()
         {
-                Add<NoLocalInformation, true>("NoLocalInformation");
-                Add<NoLocalInformation, false>("NoLocalInformation");
-                Add<LocalDiscussion, true>("LocalDiscussion");
-                Add<LocalDiscussion, false>("LocalDiscussion");
+                Add<true>();
+                Add<false>();
         }
 
 private:
         /// Filling up the InfectorMap.
-        template <typename T, bool B>
-        void Add(const std::string& name)
+        template <bool B>
+        void Add()
         {
                 using namespace ContactLogMode;
-                const auto Suscep = Id::Susceptibles;
-                const auto Transm = Id::Transmissions;
 
-                this->emplace(make_pair(make_tuple(Suscep, B, name), &Infector<Suscep, B, T>::Exec));
-                this->emplace(make_pair(make_tuple(Transm, B, name), &Infector<Transm, B, T>::Exec));
-                this->emplace(make_pair(make_tuple(Id::All, B, name), &Infector<Id::All, B, T>::Exec));
-                this->emplace(make_pair(make_tuple(Id::None, B, name), &Infector<Id::None, B, T>::Exec));
+                this->emplace(std::make_pair(
+                        std::make_tuple(Id::Susceptibles, B), &Infector<Id::Susceptibles, B>::Exec));
+                this->emplace(std::make_pair(
+                        std::make_tuple(Id::Transmissions, B), &Infector<Id::Transmissions, B>::Exec));
+                this->emplace(std::make_pair(
+                        std::make_tuple(Id::All, B), &Infector<Id::All, B>::Exec));
+                this->emplace(std::make_pair(
+                        std::make_tuple(Id::None, B), &Infector<Id::None, B>::Exec));
         }
 };
 

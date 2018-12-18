@@ -91,7 +91,6 @@ private:
         ContactLogMode::Id          m_contact_log_mode;  ///< Specifies contact/transmission logging mode.
         unsigned int                m_num_threads;       ///< The number of (OpenMP) threads.
         bool                        m_track_index_case;  ///< General simulation or tracking index case.
-        std::string                 m_local_info_policy; ///< Local information policy name.
 
         std::shared_ptr<Calendar>    m_calendar;         ///< Management of calendar.
         AgeContactProfiles           m_contact_profiles; ///< Contact profiles w.r.t age.

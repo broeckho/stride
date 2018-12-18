@@ -139,12 +139,11 @@ namespace stride {
 //-------------------------------------------------------------------------------------------------
 // Definition for primary template covers the situation for ContactLogMode::None &
 // ContactLogMode::Transmissions, both with track_index_case false and true.
-// And every local information policy except NoLocalInformation
 //-------------------------------------------------------------------------------------------------
-template <ContactLogMode::Id LL, bool TIC, typename LIP, bool TO>
-void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                      const TransmissionProfile& transProfile, ContactHandler& cHandler,
-                                      unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
+template <ContactLogMode::Id LL, bool TIC, bool TO>
+void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& profile,
+                                 const TransmissionProfile& transProfile, ContactHandler& cHandler,
+                                 unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
@@ -173,9 +172,6 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
                                                         LP::Contact(cLogger, p1, p2, pType, simDay);
                                                         // log contact if person 2 is participating in survey
                                                         LP::Contact(cLogger, p2, p1, pType, simDay);
-
-                                                        // exchange info about health state & beliefs
-                                                        LIP::Update(p1, p2);
 
                                                         // transmission & infection.
                                                         if (cHandler.HasTransmission(tRate)) {
@@ -208,7 +204,7 @@ void Infector<LL, TIC, LIP, TO>::Exec(ContactPool& pool, const AgeContactProfile
 // combination with None || Transmission logging.
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
-void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
+void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
                                                        const TransmissionProfile& transProfile,
                                                        ContactHandler& cHandler, unsigned short int simDay,
                                                        shared_ptr<spdlog::logger> cLogger)
@@ -267,24 +263,13 @@ void Infector<LL, TIC, NoLocalInformation, true>::Exec(ContactPool& pool, const 
 //--------------------------------------------------------------------------
 // All explicit instantiations.
 //--------------------------------------------------------------------------
-template class Infector<ContactLogMode::Id::None, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::None, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::None, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::None, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::Transmissions, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Transmissions, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::Transmissions, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Transmissions, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::All, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::All, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::All, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::All, true, LocalDiscussion>;
-
-template class Infector<ContactLogMode::Id::Susceptibles, false, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Susceptibles, false, LocalDiscussion>;
-template class Infector<ContactLogMode::Id::Susceptibles, true, NoLocalInformation>;
-template class Infector<ContactLogMode::Id::Susceptibles, true, LocalDiscussion>;
+template class Infector<ContactLogMode::Id::None, false>;
+template class Infector<ContactLogMode::Id::None, true>;
+template class Infector<ContactLogMode::Id::Transmissions, false>;
+template class Infector<ContactLogMode::Id::Transmissions, true>;
+template class Infector<ContactLogMode::Id::All, false>;
+template class Infector<ContactLogMode::Id::All, true>;
+template class Infector<ContactLogMode::Id::Susceptibles, false>;
+template class Infector<ContactLogMode::Id::Susceptibles, true>;
 
 } // namespace
