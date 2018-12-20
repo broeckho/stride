@@ -19,6 +19,7 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+      ageImmunityPostProcessing.py
   		ageImmunityShift.py
       createImmunityDistributionFiles.py
 	DESTINATION ${BIN_INSTALL_LOCATION}

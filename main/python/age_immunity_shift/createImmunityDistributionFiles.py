@@ -59,11 +59,10 @@ def main(dataDir, targetDir, years):
     for year in years:
         if year == 2013:
             ageImmunity = createFromSummary(os.path.join(dataDir, "Susceptibility_Belgium_2013.txt"), maxAge)
-            toFile(year, ageImmunity, targetDir, maxAge)
         else:
             ageImmunity = createFromMultipleFiles(dataDir, year, numMunicipalities, maxAge)
-            toFile(year, ageImmunity, targetDir, maxAge)
         allRates.append(ageImmunity)
+        toFile(year, [(1 - x) for x in ageImmunity], targetDir, maxAge)
     plotTargetRates(allRates, years)
 
 if __name__=="__main__":
