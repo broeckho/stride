@@ -19,7 +19,7 @@ var searchData=
   ['defaultpopbuilder',['DefaultPopBuilder',['../da/d2a/a00086.html',1,'stride']]],
   ['defaultpopbuilder_2ecpp',['DefaultPopBuilder.cpp',['../d6/daa/a00187.html',1,'']]],
   ['defaultpopbuilder_2eh',['DefaultPopBuilder.h',['../da/d15/a00188.html',1,'']]],
-  ['degreetoradian',['DegreeToRadian',['../d9/d48/a00345.html#a4bc5cba95de279162ab3741d610bb6dc',1,'geoaggregator_detail']]],
+  ['degreetoradian',['DegreeToRadian',['../d8/d8e/a00344.html#a4bc5cba95de279162ab3741d610bb6dc',1,'geoaggregator_detail']]],
   ['descriptor',['descriptor',['../da/d24/a00068.html#ade88045367aa436965f2067b19e6fc00',1,'proto::GeoGrid_Location_Coordinate::descriptor()'],['../dc/ddf/a00067.html#a4d5ef41455d9c6403443b5738a834510',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::descriptor()'],['../d9/db3/a00066.html#a5f421c2007309ef9491ebff5ad098a06',1,'proto::GeoGrid_Location_ContactCenter::descriptor()'],['../de/de1/a00065.html#a8bbf5f1553e06a50fda0eb2f05120d60',1,'proto::GeoGrid_Location_Commute::descriptor()'],['../df/d5f/a00064.html#a9142882adec24247d36610ee120d95f5',1,'proto::GeoGrid_Location::descriptor()'],['../d4/d31/a00069.html#a626c18e0d4a739ae7da52ba5086ba305',1,'proto::GeoGrid_Person::descriptor()'],['../d1/d6f/a00063.html#a91917f97a836a3cd49870ff3eb8f18d5',1,'proto::GeoGrid::descriptor()']]],
   ['dim',['dim',['../de/d11/a00021.html#ae566d93445cee38c82b6f11cb2967b83',1,'gengeopop::geogrid_detail::KdTree2DPoint']]],
   ['dimension_5ftype',['dimension_type',['../d7/de0/a00022.html',1,'gengeopop::geogrid_detail::KdTree2DPoint']]],

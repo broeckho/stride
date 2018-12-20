@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectiveage',['EffectiveAge',['../d3/dc9/a00355.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
+  ['effectiveage',['EffectiveAge',['../d0/dc3/a00354.html#abe2f1ef509d97ae6c13bdcd187e495f2',1,'stride']]],
   ['emplace',['emplace',['../d0/d89/a00071.html#aadda0fa9cba3c25598d83fc335dab5e4',1,'stride::util::SegmentedVector']]],
   ['emplace_5fback',['emplace_back',['../d0/d89/a00071.html#a2cd11f9b95b20b69378fc9268c380096',1,'stride::util::SegmentedVector']]],
   ['empty',['Empty',['../d6/d42/a00043.html#afad11c4405af9e2000dd75f751f4996d',1,'gengeopop::KdTree::Empty()'],['../d0/d89/a00071.html#a66676df2d3b52bf0eb5896f2d48837af',1,'stride::util::SegmentedVector::empty()']]],
@@ -15,5 +15,5 @@ var searchData=
   ['exception_2ecpp',['Exception.cpp',['../dd/da2/a00192.html',1,'']]],
   ['exception_2eh',['Exception.h',['../dd/df4/a00193.html',1,'']]],
   ['exec',['Exec',['../d4/d7d/a00093.html#a7a04fe600bfbb5b09330163fd2d49409',1,'stride::Infector::Exec()'],['../dc/d54/a00094.html#aa27dad30b434e742e80300d88854b36d',1,'stride::Infector&lt; LL, TIC, true &gt;::Exec()']]],
-  ['exposed',['Exposed',['../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
+  ['exposed',['Exposed',['../d0/dc3/a00354.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a',1,'stride']]]
 ];
