@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SliceIndexer.h File Reference</title>
+<title>Stride Reference Manual: TransmissionProfile.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -105,61 +105,44 @@ $(document).ready(function(){initNavTree('de/dc8/a00325.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">SliceIndexer.h File Reference</div>  </div>
+<div class="title">TransmissionProfile.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface/Implementation for RangeIndexer.  
+<p>Omplemenatation for the TransmissionProfile class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/range.hpp&gt;</code><br />
-<code>#include &lt;boost/range/adaptors.hpp&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for SliceIndexer.h:</div>
+Include dependency graph for TransmissionProfile.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d97/a00670.gif" border="0" usemap="#SliceIndexer_8h" alt=""/></div>
-<map name="SliceIndexer_8h" id="SliceIndexer_8h">
+<div class="center"><img src="../../d0/d50/a00661.gif" border="0" usemap="#TransmissionProfile_8cpp" alt=""/></div>
+<map name="TransmissionProfile_8cpp" id="TransmissionProfile_8cpp">
+<area shape="rect" id="node2" href="../../d8/d23/a00326.html" title="Header for the TransmissionProfile class. " alt="" coords="5,80,160,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../de/dc8/a00325_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer&lt; T, Key &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Datastructure to index a container (supporting RandomAccessIterators) with slices.  <a href="../../d6/db3/a00130.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
-<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memTemplItemLeft" align="right" valign="top">SliceIndexer&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html#adc11e43e4e7ef5743ad66f7b2e884782">stride::util::make_slice_indexer</a> (T &amp;t)</td></tr>
-<tr class="separator:adc11e43e4e7ef5743ad66f7b2e884782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface/Implementation for RangeIndexer. </p>
+<div class="textblock"><p>Omplemenatation for the TransmissionProfile class. </p>
 
-<p>Definition in file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+<p>Definition in file <a class="el" href="../../de/dc8/a00325_source.html">TransmissionProfile.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../de/dc8/a00325.html">SliceIndexer.h</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../de/dc8/a00325.html">TransmissionProfile.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

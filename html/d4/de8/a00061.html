@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::ThreadException Class Reference</title>
+<title>Stride Reference Manual: Message Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -106,348 +106,41 @@ $(document).ready(function(){initNavTree('d4/de8/a00061.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/de2/a00892.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::ThreadException Class Reference</div>  </div>
+<div class="title">Message Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exception can then later be re-thrown in the main thread.  
- <a href="../../d4/de8/a00061.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::ThreadException:</div>
+Inheritance diagram for Message:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d2c/a00893.gif" border="0" usemap="#gengeopop_1_1ThreadException_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1ThreadException_coll__map" id="gengeopop_1_1ThreadException_coll__map">
+<div class="center"><img src="../../d4/d4f/a00673.gif" border="0" usemap="#Message_inherit__map" alt="Inheritance graph"/></div>
+<map name="Message_inherit__map" id="Message_inherit__map">
+<area shape="rect" id="node2" href="../../d1/d6f/a00063.html" title="{proto::GeoGrid\n|+ kIndexInFileMessages\l+ kLocationsFieldNumber\l+ kPersonsFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; locations_\l&#45; persons_\l|+ GeoGrid()\l+ ~GeoGrid()\l+ GeoGrid()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 25 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l}" alt="" coords="5,314,212,787"/>
+<area shape="rect" id="node3" href="../../df/d5f/a00064.html" title="{proto::GeoGrid_Location\n|+ kIndexInFileMessages\l+ kContactCentersFieldNumber\l+ kCommutesFieldNumber\l+ kNameFieldNumber\l+ kCoordinateFieldNumber\l+ kIdFieldNumber\l+ kProvinceFieldNumber\l+ kPopulationFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; contactcenters_\l&#45; commutes_\l&#45; name_\l&#45; coordinate_\l&#45; id_\l&#45; province_\l&#45; population_\l|+ GeoGrid_Location()\l+ ~GeoGrid_Location()\l+ GeoGrid_Location()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 52 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; _internal_coordinate()\l&#45; set_has_id()\l&#45; clear_has_id()\l&#45; set_has_name()\land 8 more...\l}" alt="" coords="237,204,461,897"/>
+<area shape="rect" id="node4" href="../../de/de1/a00065.html" title="{proto::GeoGrid_Location\l_Commute\n|+ kIndexInFileMessages\l+ kToFieldNumber\l+ kProportionFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; to_\l&#45; proportion_\l|+ GeoGrid_Location_Commute()\l+ ~GeoGrid_Location_Commute()\l+ GeoGrid_Location_Commute()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 19 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; set_has_to()\l&#45; clear_has_to()\l&#45; set_has_proportion()\l&#45; clear_has_proportion()\l&#45; RequiredFieldsByteSizeFallback()\l}" alt="" coords="485,270,727,831"/>
+<area shape="rect" id="node5" href="../../d9/db3/a00066.html" title="{proto::GeoGrid_Location\l_ContactCenter\n|+ kIndexInFileMessages\l+ K12School\l+ Community\l+ PrimaryCommunity\l+ SecondaryCommunity\l+ College\l+ Household\l+ Workplace\l+ Type_MIN\l+ Type_MAX\l+ Type_ARRAYSIZE\l+ kPoolsFieldNumber\l+ kIdFieldNumber\l+ kTypeFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; pools_\l&#45; id_\l&#45; type_\l|+ GeoGrid_Location_Contact\lCenter()\l+ ~GeoGrid_Location_Contact\lCenter()\l+ GeoGrid_Location_Contact\lCenter()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 26 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l+ Type_IsValid()\l+ Type_descriptor()\l+ Type_Name()\l+ Type_Parse()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; set_has_id()\l&#45; clear_has_id()\l&#45; set_has_type()\l&#45; clear_has_type()\l&#45; RequiredFieldsByteSizeFallback()\l}" alt="" coords="751,131,989,971"/>
+<area shape="rect" id="node6" href="../../dc/ddf/a00067.html" title="{proto::GeoGrid_Location\l_ContactCenter_ContactPool\n|+ kIndexInFileMessages\l+ kPeopleFieldNumber\l+ kIdFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; people_\l&#45; id_\l|+ GeoGrid_Location_Contact\lCenter_ContactPool()\l+ ~GeoGrid_Location_Contact\lCenter_ContactPool()\l+ GeoGrid_Location_Contact\lCenter_ContactPool()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 22 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; set_has_id()\l&#45; clear_has_id()\l}" alt="" coords="1013,270,1231,831"/>
+<area shape="rect" id="node7" href="../../da/d24/a00068.html" title="{proto::GeoGrid_Location\l_Coordinate\n|+ kIndexInFileMessages\l+ kLongitudeFieldNumber\l+ kLatitudeFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; longitude_\l&#45; latitude_\l|+ GeoGrid_Location_Coordinate()\l+ ~GeoGrid_Location_Coordinate()\l+ GeoGrid_Location_Coordinate()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 19 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; set_has_longitude()\l&#45; clear_has_longitude()\l&#45; set_has_latitude()\l&#45; clear_has_latitude()\l&#45; RequiredFieldsByteSizeFallback()\l}" alt="" coords="1255,270,1503,831"/>
+<area shape="rect" id="node8" href="../../d4/d31/a00069.html" title="{proto::GeoGrid_Person\n|+ kIndexInFileMessages\l+ kGenderFieldNumber\l+ kIdFieldNumber\l+ kAgeFieldNumber\l&#45; _internal_metadata_\l&#45; _has_bits_\l&#45; _cached_size_\l&#45; gender_\l&#45; id_\l&#45; age_\l|+ GeoGrid_Person()\l+ ~GeoGrid_Person()\l+ GeoGrid_Person()\l+ operator=()\l+ unknown_fields()\l+ mutable_unknown_fields()\l+ Swap()\l+ New()\l+ New()\l+ CopyFrom()\land 28 more...\l+ descriptor()\l+ default_instance()\l+ InitAsDefaultInstance()\l+ internal_default_instance()\l&#45; SharedCtor()\l&#45; SharedDtor()\l&#45; SetCachedSize()\l&#45; InternalSwap()\l&#45; GetArenaNoVirtual()\l&#45; MaybeArenaPtr()\l&#45; set_has_id()\l&#45; clear_has_id()\l&#45; set_has_age()\l&#45; clear_has_age()\l&#45; set_has_gender()\l&#45; clear_has_gender()\l&#45; RequiredFieldsByteSizeFallback()\l}" alt="" coords="1527,248,1765,853"/>
 </map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html">RunType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../df/d03/a00062.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6f/a00063.html">RunType&lt; void &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#af366ae4c7b0d7f6d5679b68f6600a118">RunType_t</a> = typename <a class="el" href="../../df/d03/a00062.html">RunType</a>&lt; T &gt;::type</td></tr>
-<tr class="separator:af366ae4c7b0d7f6d5679b68f6600a118"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a1fbb9574d760116efc926e54df349e59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a1fbb9574d760116efc926e54df349e59">ThreadException</a> ()</td></tr>
-<tr class="memdesc:a1fbb9574d760116efc926e54df349e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="../../d4/de8/a00061.html" title="Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exce...">ThreadException</a>.  <a href="#a1fbb9574d760116efc926e54df349e59">More...</a><br /></td></tr>
-<tr class="separator:a1fbb9574d760116efc926e54df349e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d64bdb630352c3f88e0be223f70f41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#af2d64bdb630352c3f88e0be223f70f41">~ThreadException</a> ()=default</td></tr>
-<tr class="memdesc:af2d64bdb630352c3f88e0be223f70f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#af2d64bdb630352c3f88e0be223f70f41">More...</a><br /></td></tr>
-<tr class="separator:af2d64bdb630352c3f88e0be223f70f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98cfb6ecb19db16cb150321d60574603"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a98cfb6ecb19db16cb150321d60574603">Rethrow</a> ()</td></tr>
-<tr class="memdesc:a98cfb6ecb19db16cb150321d60574603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-throw the exception if one was caught.  <a href="#a98cfb6ecb19db16cb150321d60574603">More...</a><br /></td></tr>
-<tr class="separator:a98cfb6ecb19db16cb150321d60574603"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#ac1132fb1b2f34a8ac2ae91eb0ba64732">CaptureException</a> ()</td></tr>
-<tr class="memdesc:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture the current exception and save it.  <a href="#ac1132fb1b2f34a8ac2ae91eb0ba64732">More...</a><br /></td></tr>
-<tr class="separator:ac1132fb1b2f34a8ac2ae91eb0ba64732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc16f492441b304129ff2e0b4ccd9131"><td class="memTemplParams" colspan="2">template&lt;typename Function , typename... Parameters&gt; </td></tr>
-<tr class="memitem:abc16f492441b304129ff2e0b4ccd9131"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#abc16f492441b304129ff2e0b4ccd9131">Run</a> (Function f, Parameters...params)</td></tr>
-<tr class="memdesc:abc16f492441b304129ff2e0b4ccd9131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the given function and capture any exception that may be thrown.  <a href="#abc16f492441b304129ff2e0b4ccd9131">More...</a><br /></td></tr>
-<tr class="separator:abc16f492441b304129ff2e0b4ccd9131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e463acad6e2cf32ec2ac3106e35e739"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a4e463acad6e2cf32ec2ac3106e35e739">HasError</a> () const </td></tr>
-<tr class="memdesc:a4e463acad6e2cf32ec2ac3106e35e739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if an exception was caught.  <a href="#a4e463acad6e2cf32ec2ac3106e35e739">More...</a><br /></td></tr>
-<tr class="separator:a4e463acad6e2cf32ec2ac3106e35e739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a60bf85de25d4a37e5222048ec0d7de5d"><td class="memItemLeft" align="right" valign="top">std::exception_ptr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a60bf85de25d4a37e5222048ec0d7de5d">m_ptr</a></td></tr>
-<tr class="memdesc:a60bf85de25d4a37e5222048ec0d7de5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The caught exception (if none was caught, contains a nullptr)  <a href="#a60bf85de25d4a37e5222048ec0d7de5d">More...</a><br /></td></tr>
-<tr class="separator:a60bf85de25d4a37e5222048ec0d7de5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d45697cc0f8b7d0ecf4cfb7243b2af3"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html#a9d45697cc0f8b7d0ecf4cfb7243b2af3">m_lock</a></td></tr>
-<tr class="memdesc:a9d45697cc0f8b7d0ecf4cfb7243b2af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lock used to prevent two exceptions being caught at the same time.  <a href="#a9d45697cc0f8b7d0ecf4cfb7243b2af3">More...</a><br /></td></tr>
-<tr class="separator:a9d45697cc0f8b7d0ecf4cfb7243b2af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exception can then later be re-thrown in the main thread. </p>
-<p>Based on <a href="https://stackoverflow.com/a/13978507/1393103">https://stackoverflow.com/a/13978507/1393103</a> </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00027">27</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="af366ae4c7b0d7f6d5679b68f6600a118"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d4/de8/a00061.html#af366ae4c7b0d7f6d5679b68f6600a118">gengeopop::ThreadException::RunType_t</a> =  typename <a class="el" href="../../df/d03/a00062.html">RunType</a>&lt;T&gt;::type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00059">59</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1fbb9574d760116efc926e54df349e59"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">gengeopop::ThreadException::ThreadException </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create the <a class="el" href="../../d4/de8/a00061.html" title="Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exce...">ThreadException</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00031">31</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>References <a class="el" href="../../d4/de8/a00061.html#af2d64bdb630352c3f88e0be223f70f41">~ThreadException()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af2d64bdb630352c3f88e0be223f70f41"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">gengeopop::ThreadException::~ThreadException </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
-
-<p>Referenced by <a class="el" href="../../d0/dc5/a00343_source.html#l00031">ThreadException()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a98cfb6ecb19db16cb150321d60574603"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gengeopop::ThreadException::Rethrow </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Re-throw the exception if one was caught. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00037">37</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc5/a00343_source.html#l00077">m_ptr</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac1132fb1b2f34a8ac2ae91eb0ba64732"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gengeopop::ThreadException::CaptureException </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Capture the current exception and save it. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00045">45</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc5/a00343_source.html#l00078">m_lock</a>, and <a class="el" href="../../d0/dc5/a00343_source.html#l00077">m_ptr</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc5/a00343_source.html#l00063">Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abc16f492441b304129ff2e0b4ccd9131"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Function , typename... Parameters&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto gengeopop::ThreadException::Run </td>
-          <td>(</td>
-          <td class="paramtype">Function&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Parameters...&#160;</td>
-          <td class="paramname"><em>params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Run the given function and capture any exception that may be thrown. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00063">63</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc5/a00343_source.html#l00045">CaptureException()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4e463acad6e2cf32ec2ac3106e35e739"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool gengeopop::ThreadException::HasError </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns if an exception was caught. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00074">74</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>References <a class="el" href="../../d0/dc5/a00343_source.html#l00077">m_ptr</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a60bf85de25d4a37e5222048ec0d7de5d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::exception_ptr gengeopop::ThreadException::m_ptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The caught exception (if none was caught, contains a nullptr) </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00077">77</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc5/a00343_source.html#l00045">CaptureException()</a>, <a class="el" href="../../d0/dc5/a00343_source.html#l00074">HasError()</a>, and <a class="el" href="../../d0/dc5/a00343_source.html#l00037">Rethrow()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9d45697cc0f8b7d0ecf4cfb7243b2af3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::mutex gengeopop::ThreadException::m_lock</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>A lock used to prevent two exceptions being caught at the same time. </p>
-
-<p>Definition at line <a class="el" href="../../d0/dc5/a00343_source.html#l00078">78</a> of file <a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dc5/a00343_source.html#l00045">CaptureException()</a>.</p>
-
-</div>
+<div class="dynheader">
+Collaboration diagram for Message:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/d73/a00674.gif" border="0" usemap="#Message_coll__map" alt="Collaboration graph"/></div>
+<map name="Message_coll__map" id="Message_coll__map">
+</map>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d0/dc5/a00343_source.html">ThreadException.h</a></li>
+<li><a class="el" href="../../d1/d72/a00204_source.html">geogrid.pb.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d4/de8/a00061.html">ThreadException</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/de8/a00061.html">Message</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

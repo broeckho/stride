@@ -4,7 +4,7 @@ var NAVTREE =
     [ "Stride: Simulation of TRansmission of Infectious DisEases.", "index.html", [
       [ "Links", "index.html#Links", null ],
       [ "Documentation", "index.html#Documentation", null ],
-      [ "Contributors", "index.html#Contributors", null ],
+      [ "contributors", "index.html#Main", null ],
       [ "License", "index.html#License", null ]
     ] ],
     [ "Namespaces", null, [
@@ -44,15 +44,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/d1e/a00087.html",
-"d2/d79/a00051.html#a701e2eaf56a32d083019a7b4913b6733",
-"d4/d6d/a00055.html#ae5dd0a2af2978dc76fafc1d5c2756394",
-"d6/d82/a00293_source.html",
-"d9/d4b/a00117.html#a2f3c33a76164f6cbc6e31aab6f8b560d",
-"da/deb/a00189.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754",
-"dc/d57/a00194.html",
-"de/d8c/a00036.html#a0551c1ce7927fc90a5dcc38df8980176",
-"namespaces.html"
+"d1/d6f/a00063.html#a4b13413d35bd5562b0eaf4ab1b517616",
+"d3/d8b/a00059.html#a5ad89eccae3e00345e123b1e65ec7ebe",
+"d5/d42/a00269.html",
+"d7/d7a/a00016.html#a0b4efd0f96e70883d3aeeb09dbd56c34",
+"d9/dcc/a00102.html#a07c55a625ad780341af4eef33ad3d5cf",
+"db/db2/a00020.html#aec4448ba227ffb1288de386b7e3172de",
+"dd/df3/a00219.html",
+"df/d5f/a00064.html#ab5e51726be8ca0872d455a9075ae08e1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

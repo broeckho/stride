@@ -1,8 +1,10 @@
 var a00046 =
 [
-    [ "K12School", "d3/dea/a00046.html#a5deacd923a5dbde43feb7b481937cb43", null ],
-    [ "Fill", "d3/dea/a00046.html#a686dd2fdbffef436c37f14bc23786c51", null ],
-    [ "GetMaxPools", "d3/dea/a00046.html#add262995f20f78d16c8dffc8c8ba0b3c", null ],
-    [ "GetPoolSize", "d3/dea/a00046.html#a5ef2351ea77265383b0f9e66659d692e", null ],
-    [ "GetType", "d3/dea/a00046.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48", null ]
+    [ "PartialPopulator", "d3/dea/a00046.html#adbc3fc5b84add8eac20a6db378827a7e", null ],
+    [ "~PartialPopulator", "d3/dea/a00046.html#a033d360f64872196bcb57ca0ce232d6f", null ],
+    [ "Apply", "d3/dea/a00046.html#aee01751cc775128b108e03118609091c", null ],
+    [ "GetContactPoolInIncreasingRadius", "d3/dea/a00046.html#a992a6f6b8761f481eabe22ffccc8f961", null ],
+    [ "MakeChoice", "d3/dea/a00046.html#ad18d65985647c2afb90627fa7048be6a", null ],
+    [ "m_rnManager", "d3/dea/a00046.html#a9984205ae3e758af34d41b55d38c7868", null ],
+    [ "m_logger", "d3/dea/a00046.html#a7c9b69f1083ed1016458ccaaa8e53964", null ]
 ];

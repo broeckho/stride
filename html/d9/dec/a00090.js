@@ -1,6 +1,11 @@
 var a00090 =
 [
-    [ "DaysOffNone", "d9/dec/a00090.html#afa7a609a793bf8aa77b5ee94fdb94fda", null ],
-    [ "IsWorkOff", "d9/dec/a00090.html#a6287fa68ca109373fc9be31f3941079d", null ],
-    [ "IsSchoolOff", "d9/dec/a00090.html#a939df1a48d594f56ec3099d1edcfdca7", null ]
+    [ "HealthSeeder", "d9/dec/a00090.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
+    [ "Seed", "d9/dec/a00090.html#ad6a9061857cee5335745fe5501bcb73d", null ],
+    [ "GetDistribution", "d9/dec/a00090.html#a7b240a326b204767217481b3fcc46237", null ],
+    [ "Sample", "d9/dec/a00090.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
+    [ "m_distrib_start_infectiousness", "d9/dec/a00090.html#a2933ce9d9b3e17d11edb4d50bc005a1a", null ],
+    [ "m_distrib_start_symptomatic", "d9/dec/a00090.html#a09f22ca66e79edf806a249517ec6ac35", null ],
+    [ "m_distrib_time_infectious", "d9/dec/a00090.html#a520743c093005b7ccda658475107f0c2", null ],
+    [ "m_distrib_time_symptomatic", "d9/dec/a00090.html#a6d190e53a3a83864d7a40cb78b2188e4", null ]
 ];

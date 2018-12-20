@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: TimeToString.h File Reference</title>
+<title>Stride Reference Manual: geoaggregator_detail Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -47,9 +47,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,85 +105,83 @@ $(document).ready(function(){initNavTree('d9/d48/a00345.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">TimeToString.h File Reference</div>  </div>
+<div class="title">geoaggregator_detail Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Utilities to tag clocks and reformat clock readout to string.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for TimeToString.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dd/d85/a00702.gif" border="0" usemap="#TimeToString_8h" alt=""/></div>
-<map name="TimeToString_8h" id="TimeToString_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d86/a00703.gif" border="0" usemap="#TimeToString_8hdep" alt=""/></div>
-<map name="TimeToString_8hdep" id="TimeToString_8hdep">
-<area shape="rect" id="node2" href="../../d4/db5/a00328.html" title="Definition of Stopwatch. " alt="" coords="629,80,730,107"/>
-<area shape="rect" id="node3" href="../../d7/ded/a00196.html" title="Header for the command line controller. " alt="" coords="192,155,313,181"/>
-<area shape="rect" id="node10" href="../../d4/d8f/a00324.html" title="Header for the SimRunner class. " alt="" coords="1005,155,1108,181"/>
-<area shape="rect" id="node4" href="../../d0/d48/a00165.html" title="Header for the command line controller. " alt="" coords="5,229,116,256"/>
-<area shape="rect" id="node7" href="../../d3/d2a/a00195.html" title="Header for the command line controller. " alt="" coords="569,304,705,331"/>
-<area shape="rect" id="node8" href="../../d8/dfc/a00327.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="141,229,266,256"/>
-<area shape="rect" id="node5" href="../../dd/d4e/a00329.html" title="Main program: command line handling. " alt="" coords="30,304,115,331"/>
-<area shape="rect" id="node6" href="../../db/ddf/a00164.html" title="Header for the command line controller. " alt="" coords="162,304,287,331"/>
-<area shape="rect" id="node9" href="../../d8/d23/a00326.html" title="Header for the command line controller. " alt="" coords="1369,304,1509,331"/>
-<area shape="rect" id="node11" href="../../de/db9/a00159.html" title="Calibrator.cpp" alt="" coords="1533,304,1644,331"/>
-<area shape="rect" id="node12" href="../../de/d55/a00323.html" title="Implementation for SimRunner. " alt="" coords="1119,229,1237,256"/>
-<area shape="rect" id="node13" href="../../dc/de6/a00167.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1261,229,1351,256"/>
-<area shape="rect" id="node14" href="../../d9/d38/a00166.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1240,304,1345,331"/>
-<area shape="rect" id="node15" href="../../d5/d42/a00269.html" title="Observer for Infected output. " alt="" coords="442,229,589,256"/>
-<area shape="rect" id="node16" href="../../db/d12/a00268.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="348,304,509,331"/>
-<area shape="rect" id="node17" href="../../dd/d86/a00271.html" title="Observer for infection count at each sim step. " alt="" coords="1477,229,1604,256"/>
-<area shape="rect" id="node18" href="../../d9/d2a/a00270.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1669,304,1810,331"/>
-<area shape="rect" id="node19" href="../../df/d95/a00299.html" title="Observer for Persons output. " alt="" coords="663,229,810,256"/>
-<area shape="rect" id="node20" href="../../d9/d0d/a00298.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="752,304,913,331"/>
-<area shape="rect" id="node21" href="../../d4/dce/a00337.html" title="Observer for Persons output. " alt="" coords="835,229,993,256"/>
-<area shape="rect" id="node22" href="../../dd/d1d/a00336.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="983,304,1157,331"/>
-</map>
-</div>
-</div>
-<p><a href="../../d9/d48/a00345_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html">stride::util::TimeToString</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities to tag clocks and to reformat number of ticks to a string.  <a href="../../d5/d5b/a00135.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
-<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a938f08fc654e93c04d874a884bbd6862"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html#a938f08fc654e93c04d874a884bbd6862">RadianToDegree</a> (<a class="el" href="../../df/dc2/a00367.html">double</a> rad)</td></tr>
+<tr class="separator:a938f08fc654e93c04d874a884bbd6862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc5cba95de279162ab3741d610bb6dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d48/a00345.html#a4bc5cba95de279162ab3741d610bb6dc">DegreeToRadian</a> (<a class="el" href="../../df/dc2/a00367.html">double</a> deg)</td></tr>
+<tr class="separator:a4bc5cba95de279162ab3741d610bb6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities to tag clocks and reformat clock readout to string. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a938f08fc654e93c04d874a884bbd6862"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> geoaggregator_detail::RadianToDegree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Definition in file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
-</div></div><!-- contents -->
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00031">31</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00131">gengeopop::RadiusPolicy::GetBoundingBox()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bc5cba95de279162ab3741d610bb6dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> geoaggregator_detail::DegreeToRadian </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>deg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00033">33</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00131">gengeopop::RadiusPolicy::GetBoundingBox()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d48/a00345.html">TimeToString.h</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d9/d48/a00345.html">geoaggregator_detail</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

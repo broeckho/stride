@@ -1,16 +1,7 @@
 var a00129 =
 [
-    [ "CleanConfigFile", "d9/d47/a00129.html#ac2f08ab87856eaeb81a229c6553e9cc8", null ],
-    [ "Create", "d9/d47/a00129.html#ab4007f793a1924a65458824fef455208", null ],
-    [ "CreateNumThreads", "d9/d47/a00129.html#ae981d7a6d9a41f62815541ba874e59a0", null ],
-    [ "FromString", "d9/d47/a00129.html#aff61de3ee9dfe5b0aac9b0b1fb950ebb", null ],
-    [ "ToString", "d9/d47/a00129.html#af968f949efaf2876f48a86da65faa5ca", null ],
-    [ "ToSha1", "d9/d47/a00129.html#a32ec1961852a81d4873a519f6bea1e36", null ],
-    [ "ToShortSha1", "d9/d47/a00129.html#ad91f6d29e307567fdb3b0a2e7c7772c0", null ],
-    [ "ConvertToGenGeoPop", "d9/d47/a00129.html#ab32cb016640e360141a18c60cbda20e3", null ],
-    [ "CreateBenchInfluenza", "d9/d47/a00129.html#a7014479a2c8efe57b292b9f61435ab61", null ],
-    [ "CreateBenchMeasles", "d9/d47/a00129.html#abf62ab97dafdce994e503296fe5d9394", null ],
-    [ "CreateDefault", "d9/d47/a00129.html#a93470c7c74cc217254876c704fa81a0f", null ],
-    [ "CreateTestsInfluenza", "d9/d47/a00129.html#a61a9ce9ce2d50ffbafa78b2a7f757598", null ],
-    [ "CreateTestsMeasles", "d9/d47/a00129.html#aa430eb71461536d855db5725ebc59cda", null ]
+    [ "CliViewer", "d9/d47/a00129.html#a4ddb15ac567fd751c2be3a9d973d1666", null ],
+    [ "Update", "d9/d47/a00129.html#a9f3a2f9efda499fa6a80f3871c7298d7", null ],
+    [ "m_logger", "d9/d47/a00129.html#acc77dad91899a0d4183493023e082e9f", null ],
+    [ "m_runner", "d9/d47/a00129.html#af789850b449fdadcc8572def4a0eb4af", null ]
 ];

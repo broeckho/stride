@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::CommutesReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::geogrid_detail::KdTree2DPoint Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,64 +107,83 @@ $(document).ready(function(){initNavTree('de/d11/a00021.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../df/d0c/a00788.html">List of all members</a>  </div>
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d4/d60/a00847.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::CommutesReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::geogrid_detail::KdTree2DPoint Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create an abstract Reader which fills a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> with the Commutes found in a given file.  
+<p><a class="el" href="../../d6/d42/a00043.html">KdTree</a> for some more information on methods  
  <a href="../../de/d11/a00021.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d81/a00180_source.html">CommutesReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::CommutesReader:</div>
+Collaboration diagram for gengeopop::geogrid_detail::KdTree2DPoint:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d7d/a00789.gif" border="0" usemap="#gengeopop_1_1CommutesReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1CommutesReader_inherit__map" id="gengeopop_1_1CommutesReader_inherit__map">
-<area shape="rect" id="node2" href="../../db/db2/a00020.html" title="Create a Reader which fills a GeoGrid with the Commutes found in a given CSV file. " alt="" coords="5,160,249,267"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for gengeopop::CommutesReader:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/daf/a00790.gif" border="0" usemap="#gengeopop_1_1CommutesReader_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1CommutesReader_coll__map" id="gengeopop_1_1CommutesReader_coll__map">
-<area shape="rect" id="node3" title="STL class. " alt="" coords="40,413,139,491"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="20,259,159,351"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="5,132,173,209"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="36,5,143,83"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="163,413,317,491"/>
+<div class="center"><img src="../../d9/d30/a00848.gif" border="0" usemap="#gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map" id="gengeopop_1_1geogrid__detail_1_1KdTree2DPoint_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html">dimension_type</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a51b15bad7efe54c1e35a21271b5c6dda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a51b15bad7efe54c1e35a21271b5c6dda">CommutesReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream)</td></tr>
-<tr class="memdesc:a51b15bad7efe54c1e35a21271b5c6dda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../de/d11/a00021.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a> with an istream containing the file content.  <a href="#a51b15bad7efe54c1e35a21271b5c6dda">More...</a><br /></td></tr>
-<tr class="separator:a51b15bad7efe54c1e35a21271b5c6dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ad60a7f16bdd36bffc1f1ee859a0f2920">FillGeoGrid</a> (std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;) const =0</td></tr>
-<tr class="memdesc:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the found Commutes to the provided <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ad60a7f16bdd36bffc1f1ee859a0f2920">More...</a><br /></td></tr>
-<tr class="separator:ad60a7f16bdd36bffc1f1ee859a0f2920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a205f22dd3728b0732139155437410faf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a205f22dd3728b0732139155437410faf">~CommutesReader</a> ()=default</td></tr>
-<tr class="memdesc:a205f22dd3728b0732139155437410faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a205f22dd3728b0732139155437410faf">More...</a><br /></td></tr>
-<tr class="separator:a205f22dd3728b0732139155437410faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e1c63afde883bc410d4f58aeab2689"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#aa8e1c63afde883bc410d4f58aeab2689">KdTree2DPoint</a> (const std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt; &amp;location)</td></tr>
+<tr class="separator:aa8e1c63afde883bc410d4f58aeab2689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb7766ec32f7f080fa311e419e502e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#aafb7766ec32f7f080fa311e419e502e0">KdTree2DPoint</a> ()</td></tr>
+<tr class="separator:aafb7766ec32f7f080fa311e419e502e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de1575540bea6768d071c9a6ec0a69d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a2de1575540bea6768d071c9a6ec0a69d">KdTree2DPoint</a> (<a class="el" href="../../df/dc2/a00367.html">double</a> longt, <a class="el" href="../../df/dc2/a00367.html">double</a> lat)</td></tr>
+<tr class="separator:a2de1575540bea6768d071c9a6ec0a69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memTemplParams" colspan="2">template&lt;std::size_t D&gt; </td></tr>
+<tr class="memitem:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#af040c18b9147f2c83eaf777b5ea07cb9">Get</a> () const </td></tr>
+<tr class="separator:af040c18b9147f2c83eaf777b5ea07cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d16f2f0689a5523df81be3c88f4441f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a3d16f2f0689a5523df81be3c88f4441f">InBox</a> (const <a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt; <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &gt; &amp;box) const </td></tr>
+<tr class="separator:a3d16f2f0689a5523df81be3c88f4441f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61ac968dfe63f74e4e9229dd196acdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ae61ac968dfe63f74e4e9229dd196acdf">InRadius</a> (const <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &amp;start, <a class="el" href="../../df/dc2/a00367.html">double</a> radius) const </td></tr>
+<tr class="memdesc:ae61ac968dfe63f74e4e9229dd196acdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the point lie within <code>radius</code> km from <code>start</code>?  <a href="#ae61ac968dfe63f74e4e9229dd196acdf">More...</a><br /></td></tr>
+<tr class="separator:ae61ac968dfe63f74e4e9229dd196acdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c0684fe18640f925115acb43469328b"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#a0c0684fe18640f925115acb43469328b">GetLocation</a> () const </td></tr>
+<tr class="memdesc:a0c0684fe18640f925115acb43469328b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the actual location.  <a href="#a0c0684fe18640f925115acb43469328b">More...</a><br /></td></tr>
+<tr class="separator:a0c0684fe18640f925115acb43469328b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb1122c92acd35a750235e1a8655eb94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d93/a00341.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#afb1122c92acd35a750235e1a8655eb94">GetPoint</a> () const </td></tr>
+<tr class="memdesc:afb1122c92acd35a750235e1a8655eb94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the coordinate for this <a class="el" href="../../d5/df9/a00044.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>.  <a href="#afb1122c92acd35a750235e1a8655eb94">More...</a><br /></td></tr>
+<tr class="separator:afb1122c92acd35a750235e1a8655eb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ad400fd1d400ef2d1e014b97328a2ddf5">m_inputStream</a></td></tr>
-<tr class="memdesc:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The istream containing the file content.  <a href="#ad400fd1d400ef2d1e014b97328a2ddf5">More...</a><br /></td></tr>
-<tr class="separator:ad400fd1d400ef2d1e014b97328a2ddf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae566d93445cee38c82b6f11cb2967b83"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ae566d93445cee38c82b6f11cb2967b83">dim</a> = 2</td></tr>
+<tr class="separator:ae566d93445cee38c82b6f11cb2967b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa75fa16b3e4daa51fa633f420404cda4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#aa75fa16b3e4daa51fa633f420404cda4">Distance</a> (const <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &amp;other) const </td></tr>
+<tr class="memdesc:aa75fa16b3e4daa51fa633f420404cda4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance in kilometers, following great circle distance on a speroid earth.  <a href="#aa75fa16b3e4daa51fa633f420404cda4">More...</a><br /></td></tr>
+<tr class="separator:aa75fa16b3e4daa51fa633f420404cda4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae128784dde1bdeb2dd0c644e611bf689"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d93/a00341.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ae128784dde1bdeb2dd0c644e611bf689">m_pt</a></td></tr>
+<tr class="memdesc:ae128784dde1bdeb2dd0c644e611bf689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for access without dereferencing.  <a href="#ae128784dde1bdeb2dd0c644e611bf689">More...</a><br /></td></tr>
+<tr class="separator:ae128784dde1bdeb2dd0c644e611bf689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d11/a00021.html#ad0b7e4e7e4027435241e5d7df41eaa64">m_location</a></td></tr>
+<tr class="memdesc:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying location.  <a href="#ad0b7e4e7e4027435241e5d7df41eaa64">More...</a><br /></td></tr>
+<tr class="separator:ad0b7e4e7e4027435241e5d7df41eaa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create an abstract Reader which fills a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> with the Commutes found in a given file. </p>
-<p>This can be implemented using different input file types. Currently CSV is implemented. </p>
+<div class="textblock"><p><a class="el" href="../../d6/d42/a00043.html">KdTree</a> for some more information on methods </p>
 
-<p>Definition at line <a class="el" href="../../d0/d81/a00180_source.html#l00029">29</a> of file <a class="el" href="../../d0/d81/a00180_source.html">CommutesReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00046">46</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a51b15bad7efe54c1e35a21271b5c6dda"></a>
+<a class="anchor" id="aa8e1c63afde883bc410d4f58aeab2689"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -172,10 +191,10 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::CommutesReader::CommutesReader </td>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,15 +205,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct the <a class="el" href="../../de/d11/a00021.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a> with an istream containing the file content. </p>
-
-<p>Definition at line <a class="el" href="../../d0/d81/a00180_source.html#l00033">33</a> of file <a class="el" href="../../d0/d81/a00180_source.html">CommutesReader.h</a>.</p>
-
-<p>References <a class="el" href="../../de/d11/a00021.html#ad60a7f16bdd36bffc1f1ee859a0f2920">FillGeoGrid()</a>, and <a class="el" href="../../de/d11/a00021.html#a205f22dd3728b0732139155437410faf">~CommutesReader()</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00049">49</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a205f22dd3728b0732139155437410faf"></a>
+<a class="anchor" id="aafb7766ec32f7f080fa311e419e502e0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -202,7 +217,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::CommutesReader::~CommutesReader </td>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -210,19 +225,16 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default destructor. </p>
-
-<p>Referenced by <a class="el" href="../../d0/d81/a00180_source.html#l00033">CommutesReader()</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00054">54</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad60a7f16bdd36bffc1f1ee859a0f2920"></a>
+<a class="anchor" id="a2de1575540bea6768d071c9a6ec0a69d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -230,30 +242,67 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void gengeopop::CommutesReader::FillGeoGrid </td>
+          <td class="memname">gengeopop::geogrid_detail::KdTree2DPoint::KdTree2DPoint </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>longt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>lat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00056">56</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af040c18b9147f2c83eaf777b5ea07cb9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t D&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> gengeopop::geogrid_detail::KdTree2DPoint::Get </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Add the found Commutes to the provided <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00061">61</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
 
-<p>Implemented in <a class="el" href="../../db/db2/a00020.html#a50eaa47a39752b6388d031767f81d40b">gengeopop::CommutesCSVReader</a>.</p>
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00089">m_pt</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d81/a00180_source.html#l00033">CommutesReader()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00146">gengeopop::GeoGrid::InBox()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad400fd1d400ef2d1e014b97328a2ddf5"></a>
+<a class="anchor" id="a3d16f2f0689a5523df81be3c88f4441f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -261,32 +310,249 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::CommutesReader::m_inputStream</td>
+          <td class="memname">bool gengeopop::geogrid_detail::KdTree2DPoint::InBox </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt; <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The istream containing the file content. </p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00067">67</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d0/d81/a00180_source.html#l00042">42</a> of file <a class="el" href="../../d0/d81/a00180_source.html">CommutesReader.h</a>.</p>
+<p>References <a class="el" href="../../d3/dcc/a00264_source.html#l00052">gengeopop::AABB&lt; P &gt;::lower</a>, <a class="el" href="../../de/d79/a00203_source.html#l00089">m_pt</a>, and <a class="el" href="../../d3/dcc/a00264_source.html#l00054">gengeopop::AABB&lt; P &gt;::upper</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00146">gengeopop::GeoGrid::InBox()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae61ac968dfe63f74e4e9229dd196acdf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::geogrid_detail::KdTree2DPoint::InRadius </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does the point lie within <code>radius</code> km from <code>start</code>? </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00074">74</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00093">Distance()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00152">gengeopop::RadiusPolicy::Contains()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c0684fe18640f925115acb43469328b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/df9/a00044.html">Location</a>&gt; gengeopop::geogrid_detail::KdTree2DPoint::GetLocation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve the actual location. </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00077">77</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00090">m_location</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00089">gengeopop::GeoAggregator&lt; Policy &gt;::operator()()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb1122c92acd35a750235e1a8655eb94"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d93/a00341.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> gengeopop::geogrid_detail::KdTree2DPoint::GetPoint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the coordinate for this <a class="el" href="../../d5/df9/a00044.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>. </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00080">80</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00089">m_pt</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00197">gengeopop::PolygonPolicy::Contains()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa75fa16b3e4daa51fa633f420404cda4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> gengeopop::geogrid_detail::KdTree2DPoint::Distance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distance in kilometers, following great circle distance on a speroid earth. </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00093">93</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>References <a class="el" href="../../de/d79/a00203_source.html#l00089">m_pt</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00074">InRadius()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ae566d93445cee38c82b6f11cb2967b83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t gengeopop::geogrid_detail::KdTree2DPoint::dim = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00058">58</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae128784dde1bdeb2dd0c644e611bf689"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d93/a00341.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> gengeopop::geogrid_detail::KdTree2DPoint::m_pt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shortcut for access without dereferencing. </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00089">89</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00093">Distance()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00061">Get()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00080">GetPoint()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00067">InBox()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0b7e4e7e4027435241e5d7df41eaa64"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d5/df9/a00044.html">Location</a>&gt; gengeopop::geogrid_detail::KdTree2DPoint::m_location</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The underlying location. </p>
+
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00090">90</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00077">GetLocation()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d0/d81/a00180_source.html">CommutesReader.h</a></li>
+<li><a class="el" href="../../de/d79/a00203_source.html">GeoGrid.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../de/d11/a00021.html">CommutesReader</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">geogrid_detail</a></li><li class="navelem"><a class="el" href="../../de/d11/a00021.html">KdTree2DPoint</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

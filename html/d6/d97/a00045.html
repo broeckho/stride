@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::HouseholdReader Class Reference</title>
+<title>Stride Reference Manual: gengeopop::PartialGenerator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,105 +108,76 @@ $(document).ready(function(){initNavTree('d6/d97/a00045.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../df/d4c/a00851.html">List of all members</a>  </div>
+<a href="../../d7/dc8/a00808.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::HouseholdReader Class Reference</div>  </div>
+<div class="title">gengeopop::PartialGenerator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Create a Reader that retrieves the different <a class="el" href="../../dd/d32/a00041.html" title="Models a Household as ContactCenter. ">Household</a> profiles from a given file This can be implemented using different input file types.  
+<p>An interface for generators that provide a partial solution.  
  <a href="../../d6/d97/a00045.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::HouseholdReader:</div>
+Inheritance diagram for gengeopop::PartialGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/dbb/a00852.gif" border="0" usemap="#gengeopop_1_1HouseholdReader_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1HouseholdReader_inherit__map" id="gengeopop_1_1HouseholdReader_inherit__map">
-<area shape="rect" id="node2" href="../../d5/db6/a00042.html" title="Creates a Reader that retrieves the different Household profiles from a given CSV file..." alt="" coords="5,292,247,384"/>
+<div class="center"><img src="../../dd/d7e/a00809.gif" border="0" usemap="#gengeopop_1_1PartialGenerator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1PartialGenerator_inherit__map" id="gengeopop_1_1PartialGenerator_inherit__map">
+<area shape="rect" id="node2" href="../../da/da0/a00009.html" title="Generate Colleges. " alt="" coords="5,189,220,267"/>
+<area shape="rect" id="node3" href="../../df/d86/a00012.html" title="Generate Communities. " alt="" coords="244,189,485,267"/>
+<area shape="rect" id="node4" href="../../de/d8c/a00036.html" title="Generate Households. " alt="" coords="510,189,745,267"/>
+<area shape="rect" id="node5" href="../../db/d3a/a00040.html" title="Generate K12Schools. " alt="" coords="769,189,1003,267"/>
+<area shape="rect" id="node6" href="../../d7/df7/a00058.html" title="Generate Workplaces. " alt="" coords="1028,189,1259,267"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for gengeopop::HouseholdReader:</div>
+Collaboration diagram for gengeopop::PartialGenerator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/deb/a00853.gif" border="0" usemap="#gengeopop_1_1HouseholdReader_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1HouseholdReader_coll__map" id="gengeopop_1_1HouseholdReader_coll__map">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="209,153,335,230"/>
+<div class="center"><img src="../../d4/dfd/a00810.gif" border="0" usemap="#gengeopop_1_1PartialGenerator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1PartialGenerator_coll__map" id="gengeopop_1_1PartialGenerator_coll__map">
+<area shape="rect" id="node3" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a17cbd8636b5149fcada7cbe211d8426d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a17cbd8636b5149fcada7cbe211d8426d">HouseholdReader</a> ()</td></tr>
-<tr class="memdesc:a17cbd8636b5149fcada7cbe211d8426d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d6/d97/a00045.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>.  <a href="#a17cbd8636b5149fcada7cbe211d8426d">More...</a><br /></td></tr>
-<tr class="separator:a17cbd8636b5149fcada7cbe211d8426d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa302816610f03f3a13a9d852df00d5da"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Household</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#aa302816610f03f3a13a9d852df00d5da">GetHouseHolds</a> () const </td></tr>
-<tr class="memdesc:aa302816610f03f3a13a9d852df00d5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Households found in the inputfile.  <a href="#aa302816610f03f3a13a9d852df00d5da">More...</a><br /></td></tr>
-<tr class="separator:aa302816610f03f3a13a9d852df00d5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc5667ac72b37e9be4dfc727c20889b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#aabc5667ac72b37e9be4dfc727c20889b">GetFractionCompulsoryPupils</a> () const </td></tr>
-<tr class="memdesc:aabc5667ac72b37e9be4dfc727c20889b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are still of an age where they attend school.  <a href="#aabc5667ac72b37e9be4dfc727c20889b">More...</a><br /></td></tr>
-<tr class="separator:aabc5667ac72b37e9be4dfc727c20889b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9daac5241b155fe7f18c2e926f63f408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a9daac5241b155fe7f18c2e926f63f408">GetFraction1826Years</a> () const </td></tr>
-<tr class="memdesc:a9daac5241b155fe7f18c2e926f63f408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are between 18 and 26 years of age.  <a href="#a9daac5241b155fe7f18c2e926f63f408">More...</a><br /></td></tr>
-<tr class="separator:a9daac5241b155fe7f18c2e926f63f408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c68d034fb29714ef0fbe932296b6188"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a8c68d034fb29714ef0fbe932296b6188">GetFraction1865Years</a> () const </td></tr>
-<tr class="memdesc:a8c68d034fb29714ef0fbe932296b6188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fraction of the population which are between 18 and 65 years of age.  <a href="#a8c68d034fb29714ef0fbe932296b6188">More...</a><br /></td></tr>
-<tr class="separator:a8c68d034fb29714ef0fbe932296b6188"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161db2d7207f8290e4713cdeb765f5e1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a161db2d7207f8290e4713cdeb765f5e1">GetTotalPersonsInHouseholds</a> () const </td></tr>
-<tr class="memdesc:a161db2d7207f8290e4713cdeb765f5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total amount of people in the found Households.  <a href="#a161db2d7207f8290e4713cdeb765f5e1">More...</a><br /></td></tr>
-<tr class="separator:a161db2d7207f8290e4713cdeb765f5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36694a79fc20fd388f880436226b57a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a36694a79fc20fd388f880436226b57a7">AverageHouseholdSize</a> () const </td></tr>
-<tr class="memdesc:a36694a79fc20fd388f880436226b57a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average size of a <a class="el" href="../../dd/d32/a00041.html" title="Models a Household as ContactCenter. ">Household</a>.  <a href="#a36694a79fc20fd388f880436226b57a7">More...</a><br /></td></tr>
-<tr class="separator:a36694a79fc20fd388f880436226b57a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a691a91ca1633b445da4d64421f2f75c9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a691a91ca1633b445da4d64421f2f75c9">~HouseholdReader</a> ()=default</td></tr>
-<tr class="memdesc:a691a91ca1633b445da4d64421f2f75c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a691a91ca1633b445da4d64421f2f75c9">More...</a><br /></td></tr>
-<tr class="separator:a691a91ca1633b445da4d64421f2f75c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a337eaafc7d92ad1e27f691659423287d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a337eaafc7d92ad1e27f691659423287d">PartialGenerator</a> (<a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:a337eaafc7d92ad1e27f691659423287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a RnMan and a logger.  <a href="#a337eaafc7d92ad1e27f691659423287d">More...</a><br /></td></tr>
+<tr class="separator:a337eaafc7d92ad1e27f691659423287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af967669815aebaaba24674d88c011730"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#af967669815aebaaba24674d88c011730">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:af967669815aebaaba24674d88c011730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this <a class="el" href="../../d6/d97/a00045.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters.  <a href="#af967669815aebaaba24674d88c011730">More...</a><br /></td></tr>
+<tr class="separator:af967669815aebaaba24674d88c011730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a4f03c6999db0bbee9ad1b9e861d16b50">~PartialGenerator</a> ()=default</td></tr>
+<tr class="memdesc:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a4f03c6999db0bbee9ad1b9e861d16b50">More...</a><br /></td></tr>
+<tr class="separator:a4f03c6999db0bbee9ad1b9e861d16b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a28a70c98b4b5a47d3b3ca2913601815a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a28a70c98b4b5a47d3b3ca2913601815a">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../df/dc2/a00367.html">double</a> weight)</td></tr>
+<tr class="memdesc:a28a70c98b4b5a47d3b3ca2913601815a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#a28a70c98b4b5a47d3b3ca2913601815a">More...</a><br /></td></tr>
+<tr class="separator:a28a70c98b4b5a47d3b3ca2913601815a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab16da3ff1106f39edc59727239e9f702"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Household</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#ab16da3ff1106f39edc59727239e9f702">m_households</a></td></tr>
-<tr class="memdesc:ab16da3ff1106f39edc59727239e9f702"><td class="mdescLeft">&#160;</td><td class="mdescRight">The households which are (being) found.  <a href="#ab16da3ff1106f39edc59727239e9f702">More...</a><br /></td></tr>
-<tr class="separator:ab16da3ff1106f39edc59727239e9f702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecfe2659d2826af0a8329955d430d820"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#aecfe2659d2826af0a8329955d430d820">m_total</a> = 0</td></tr>
-<tr class="memdesc:aecfe2659d2826af0a8329955d430d820"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total population.  <a href="#aecfe2659d2826af0a8329955d430d820">More...</a><br /></td></tr>
-<tr class="separator:aecfe2659d2826af0a8329955d430d820"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5c2dc8db97ae641b34ea3d5223ff5d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#afb5c2dc8db97ae641b34ea3d5223ff5d">m_total1826Years</a> = 0</td></tr>
-<tr class="memdesc:afb5c2dc8db97ae641b34ea3d5223ff5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of people between 18 and 26 years of age.  <a href="#afb5c2dc8db97ae641b34ea3d5223ff5d">More...</a><br /></td></tr>
-<tr class="separator:afb5c2dc8db97ae641b34ea3d5223ff5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a331adedaab261aad7c89f273e9037a1d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a331adedaab261aad7c89f273e9037a1d">m_total1865Years</a> = 0</td></tr>
-<tr class="memdesc:a331adedaab261aad7c89f273e9037a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of people between 18 and 65 years of age.  <a href="#a331adedaab261aad7c89f273e9037a1d">More...</a><br /></td></tr>
-<tr class="separator:a331adedaab261aad7c89f273e9037a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c24be8765eb962d1e0d3735f0187f5d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a9c24be8765eb962d1e0d3735f0187f5d">m_totalCompulsory</a> = 0</td></tr>
-<tr class="memdesc:a9c24be8765eb962d1e0d3735f0187f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total number of compulsory pupils.  <a href="#a9c24be8765eb962d1e0d3735f0187f5d">More...</a><br /></td></tr>
-<tr class="separator:a9c24be8765eb962d1e0d3735f0187f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a1dbbb98742088cd04ef74ab6cbbdaf12">m_rnManager</a></td></tr>
+<tr class="memdesc:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a1dbbb98742088cd04ef74ab6cbbdaf12">More...</a><br /></td></tr>
+<tr class="separator:a1dbbb98742088cd04ef74ab6cbbdaf12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d97/a00045.html#a3a63ae2cd38221875c5d4ee38c02e3ef">m_logger</a></td></tr>
+<tr class="memdesc:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a3a63ae2cd38221875c5d4ee38c02e3ef">More...</a><br /></td></tr>
+<tr class="separator:a3a63ae2cd38221875c5d4ee38c02e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Create a Reader that retrieves the different <a class="el" href="../../dd/d32/a00041.html" title="Models a Household as ContactCenter. ">Household</a> profiles from a given file This can be implemented using different input file types. </p>
-<p>Currently CSV is implemented. </p>
+<div class="textblock"><p>An interface for generators that provide a partial solution. </p>
+<p>They generate some data and apply it onto the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00031">31</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00029">29</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a17cbd8636b5149fcada7cbe211d8426d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gengeopop::HouseholdReader::HouseholdReader </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct the <a class="el" href="../../d6/d97/a00045.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00022">22</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a691a91ca1633b445da4d64421f2f75c9"></a>
+<a class="anchor" id="a337eaafc7d92ad1e27f691659423287d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -214,7 +185,45 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::HouseholdReader::~HouseholdReader </td>
+          <td class="memname">gengeopop::PartialGenerator::PartialGenerator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rn_manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor with a RnMan and a logger. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d86/a00271_source.html#l00020">20</a> of file <a class="el" href="../../dd/d86/a00271_source.html">PartialGenerator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f03c6999db0bbee9ad1b9e861d16b50"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual gengeopop::PartialGenerator::~PartialGenerator </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -227,139 +236,93 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default destructor. </p>
+<p>Virtual destructor for inheritance. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa302816610f03f3a13a9d852df00d5da"></a>
+<a class="anchor" id="af967669815aebaaba24674d88c011730"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Household</a> &gt; &gt; &amp; gengeopop::HouseholdReader::GetHouseHolds </td>
+          <td class="memname">virtual void gengeopop::PartialGenerator::Apply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Return the Households found in the inputfile. </p>
+<p>Apply this <a class="el" href="../../d6/d97/a00045.html" title="An interface for generators that provide a partial solution. ">PartialGenerator</a> to the given geogrid, generating ContactCenters. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00024">24</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00059">m_households</a>.</p>
+<p>Implemented in <a class="el" href="../../da/da0/a00009.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator</a>, <a class="el" href="../../df/d86/a00012.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator</a>, <a class="el" href="../../de/d8c/a00036.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator</a>, <a class="el" href="../../db/d3a/a00040.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator</a>, and <a class="el" href="../../d7/df7/a00058.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aabc5667ac72b37e9be4dfc727c20889b"></a>
+<a class="anchor" id="a28a70c98b4b5a47d3b3ca2913601815a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::HouseholdReader::GetFractionCompulsoryPupils </td>
+          <td class="memname">void gengeopop::PartialGenerator::CheckWeight </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the fraction of the population which are still of an age where they attend school. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00041">41</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00061">m_total</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00064">m_totalCompulsory</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9daac5241b155fe7f18c2e926f63f408"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::HouseholdReader::GetFraction1826Years </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the fraction of the population which are between 18 and 26 years of age. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00036">36</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00061">m_total</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00062">m_total1826Years</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8c68d034fb29714ef0fbe932296b6188"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::HouseholdReader::GetFraction1865Years </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Returns the fraction of the population which are between 18 and 65 years of age. </p>
+<p>Make sure we're using a valid weight for random numbers. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00046">46</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00046">46</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a>.</p>
 
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00061">m_total</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00063">m_total1865Years</a>.</p>
+<p>References <a class="el" href="../../d9/dd0/a00191_source.html#l00025">ExcAssert()</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a161db2d7207f8290e4713cdeb765f5e1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::HouseholdReader::GetTotalPersonsInHouseholds </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the total amount of people in the found Households. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00029">29</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00061">m_total</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36694a79fc20fd388f880436226b57a7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::HouseholdReader::AverageHouseholdSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the average size of a <a class="el" href="../../dd/d32/a00041.html" title="Models a Household as ContactCenter. ">Household</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00031">31</a> of file <a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/d2f/a00258_source.html#l00059">m_households</a>, and <a class="el" href="../../d7/d2f/a00258_source.html#l00061">m_total</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dd/d4e/a00329_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab16da3ff1106f39edc59727239e9f702"></a>
+<a class="anchor" id="a1dbbb98742088cd04ef74ab6cbbdaf12"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -367,7 +330,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d32/a00041.html">Household</a>&gt; &gt; gengeopop::HouseholdReader::m_households</td>
+          <td class="memname"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::PartialGenerator::m_rnManager</td>
         </tr>
       </table>
   </td>
@@ -377,15 +340,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The households which are (being) found. </p>
+<p>RnManager used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00059">59</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00042">42</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00031">AverageHouseholdSize()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00024">GetHouseHolds()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dd/d4e/a00329_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/dd7/a00260_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../da/d31/a00234_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aecfe2659d2826af0a8329955d430d820"></a>
+<a class="anchor" id="a3a63ae2cd38221875c5d4ee38c02e3ef"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -393,7 +356,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int gengeopop::HouseholdReader::m_total = 0</td>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::PartialGenerator::m_logger</td>
         </tr>
       </table>
   </td>
@@ -403,103 +366,23 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The total population. </p>
+<p>Logger used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00061">61</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00031">AverageHouseholdSize()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00036">GetFraction1826Years()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetFraction1865Years()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00041">GetFractionCompulsoryPupils()</a>, <a class="el" href="../../d9/d39/a00257_source.html#l00029">GetTotalPersonsInHouseholds()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afb5c2dc8db97ae641b34ea3d5223ff5d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::HouseholdReader::m_total1826Years = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The total number of people between 18 and 26 years of age. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00062">62</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00036">GetFraction1826Years()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a331adedaab261aad7c89f273e9037a1d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::HouseholdReader::m_total1865Years = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The total number of people between 18 and 65 years of age. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00063">63</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00046">GetFraction1865Years()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9c24be8765eb962d1e0d3735f0187f5d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::HouseholdReader::m_totalCompulsory = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The total number of compulsory pupils. </p>
-
-<p>Definition at line <a class="el" href="../../d7/d2f/a00258_source.html#l00064">64</a> of file <a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d39/a00257_source.html#l00041">GetFractionCompulsoryPupils()</a>, and <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00043">43</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/d2f/a00258_source.html">HouseholdReader.h</a></li>
-<li><a class="el" href="../../d9/d39/a00257_source.html">HouseholdReader.cpp</a></li>
+<li><a class="el" href="../../d9/dd6/a00272_source.html">PartialGenerator.h</a></li>
+<li><a class="el" href="../../dd/d86/a00271_source.html">PartialGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d97/a00045.html">HouseholdReader</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d6/d97/a00045.html">PartialGenerator</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

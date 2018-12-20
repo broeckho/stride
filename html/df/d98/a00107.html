@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Person Class Reference</title>
+<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -109,168 +109,48 @@ $(document).ready(function(){initNavTree('df/d98/a00107.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/de2/a00999.html">List of all members</a>  </div>
+<a href="../../d1/df7/a00957.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Person Class Reference</div>  </div>
+<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Store and handle person data.  
+<p>Transmission rates from disease data.  
  <a href="../../df/d98/a00107.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Person:</div>
+Collaboration diagram for stride::TransmissionProfile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/df2/a01000.gif" border="0" usemap="#stride_1_1Person_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Person_coll__map" id="stride_1_1Person_coll__map">
-<area shape="rect" id="node2" href="../../dc/dc9/a00389.html" title="{double\n||}" alt="" coords="5,774,71,851"/>
-<area shape="rect" id="node3" href="../../d4/d31/a00069.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="95,715,338,910"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="76,247,232,339"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="191,145,405,223"/>
-<area shape="rect" id="node6" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="208,363,380,557"/>
-<area shape="rect" id="node9" href="../../da/d2a/a00086.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="437,730,629,895"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="431,421,634,499"/>
-<area shape="rect" id="node14" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. " alt="" coords="982,679,1190,947"/>
+<div class="center"><img src="../../df/d9c/a00958.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
+<area shape="rect" id="node2" href="../../df/dc2/a00367.html" title="{double\n||}" alt="" coords="66,5,131,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a991cf4f69af6c6c75bf8a628dcccf986"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a991cf4f69af6c6c75bf8a628dcccf986">Person</a> ()</td></tr>
-<tr class="memdesc:a991cf4f69af6c6c75bf8a628dcccf986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default construction (for population vector).  <a href="#a991cf4f69af6c6c75bf8a628dcccf986">More...</a><br /></td></tr>
-<tr class="separator:a991cf4f69af6c6c75bf8a628dcccf986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ecbb52e6cc2825f0a1397123478b26d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a4ecbb52e6cc2825f0a1397123478b26d">Person</a> (unsigned int id, <a class="el" href="../../dc/dc9/a00389.html">double</a> age, unsigned int householdId, unsigned int k12SchoolId, unsigned int collegeId, unsigned int workId, unsigned int primaryCommunityId, unsigned int secondaryCommunityId)</td></tr>
-<tr class="memdesc:a4ecbb52e6cc2825f0a1397123478b26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor: set the person data.  <a href="#a4ecbb52e6cc2825f0a1397123478b26d">More...</a><br /></td></tr>
-<tr class="separator:a4ecbb52e6cc2825f0a1397123478b26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab96580cd0eb920e25c0b68aef7984d70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ab96580cd0eb920e25c0b68aef7984d70">operator!=</a> (const <a class="el" href="../../df/d98/a00107.html">Person</a> &amp;p) const </td></tr>
-<tr class="memdesc:ab96580cd0eb920e25c0b68aef7984d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person not equal to the given person?  <a href="#ab96580cd0eb920e25c0b68aef7984d70">More...</a><br /></td></tr>
-<tr class="separator:ab96580cd0eb920e25c0b68aef7984d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad85ecf5500764ae2c025f7e2aab8003c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ad85ecf5500764ae2c025f7e2aab8003c">GetAge</a> () const </td></tr>
-<tr class="memdesc:ad85ecf5500764ae2c025f7e2aab8003c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the age.  <a href="#ad85ecf5500764ae2c025f7e2aab8003c">More...</a><br /></td></tr>
-<tr class="separator:ad85ecf5500764ae2c025f7e2aab8003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b98f1f23a3c4ebabe949e69e0d7e979"><td class="memItemLeft" align="right" valign="top">Belief *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a4b98f1f23a3c4ebabe949e69e0d7e979">GetBelief</a> ()</td></tr>
-<tr class="memdesc:a4b98f1f23a3c4ebabe949e69e0d7e979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return belief info.  <a href="#a4b98f1f23a3c4ebabe949e69e0d7e979">More...</a><br /></td></tr>
-<tr class="separator:a4b98f1f23a3c4ebabe949e69e0d7e979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac31cb2e01da0e2348bb6e7aef0630d4a"><td class="memItemLeft" align="right" valign="top">const Belief *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ac31cb2e01da0e2348bb6e7aef0630d4a">GetBelief</a> () const </td></tr>
-<tr class="memdesc:ac31cb2e01da0e2348bb6e7aef0630d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return belief info.  <a href="#ac31cb2e01da0e2348bb6e7aef0630d4a">More...</a><br /></td></tr>
-<tr class="separator:ac31cb2e01da0e2348bb6e7aef0630d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace277043dfb3a2052adf508dd0179567"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ace277043dfb3a2052adf508dd0179567">GetPoolId</a> (const <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> &amp;poolType) const </td></tr>
-<tr class="memdesc:ace277043dfb3a2052adf508dd0179567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get ID of contactpool_type.  <a href="#ace277043dfb3a2052adf508dd0179567">More...</a><br /></td></tr>
-<tr class="separator:ace277043dfb3a2052adf508dd0179567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada6071b93ce9d5b5611a2151e14d0740"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ada6071b93ce9d5b5611a2151e14d0740">GetGender</a> () const </td></tr>
-<tr class="memdesc:ada6071b93ce9d5b5611a2151e14d0740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's gender.  <a href="#ada6071b93ce9d5b5611a2151e14d0740">More...</a><br /></td></tr>
-<tr class="separator:ada6071b93ce9d5b5611a2151e14d0740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53081dbb062c019153b8be62083d59a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Health</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a53081dbb062c019153b8be62083d59a2">GetHealth</a> ()</td></tr>
-<tr class="memdesc:a53081dbb062c019153b8be62083d59a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's health status.  <a href="#a53081dbb062c019153b8be62083d59a2">More...</a><br /></td></tr>
-<tr class="separator:a53081dbb062c019153b8be62083d59a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22421b0318583235939e935361b77c90"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d9/df8/a00096.html">Health</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a22421b0318583235939e935361b77c90">GetHealth</a> () const </td></tr>
-<tr class="memdesc:a22421b0318583235939e935361b77c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return person's health status.  <a href="#a22421b0318583235939e935361b77c90">More...</a><br /></td></tr>
-<tr class="separator:a22421b0318583235939e935361b77c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afab3ab2a1a33004f9e25d4873c3c1921"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#afab3ab2a1a33004f9e25d4873c3c1921">GetId</a> () const </td></tr>
-<tr class="memdesc:afab3ab2a1a33004f9e25d4873c3c1921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the id.  <a href="#afab3ab2a1a33004f9e25d4873c3c1921">More...</a><br /></td></tr>
-<tr class="separator:afab3ab2a1a33004f9e25d4873c3c1921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ac5a9312fa75fbf91e949f3aecbbeb129">SetId</a> (unsigned int id)</td></tr>
-<tr class="memdesc:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the id.  <a href="#ac5a9312fa75fbf91e949f3aecbbeb129">More...</a><br /></td></tr>
-<tr class="separator:ac5a9312fa75fbf91e949f3aecbbeb129"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc03f26895f6fc1054fa78e480900ebb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#acc03f26895f6fc1054fa78e480900ebb">IsInPool</a> (const <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> &amp;poolType) const </td></tr>
-<tr class="memdesc:acc03f26895f6fc1054fa78e480900ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a person is present today in a given contactpool.  <a href="#acc03f26895f6fc1054fa78e480900ebb">More...</a><br /></td></tr>
-<tr class="separator:acc03f26895f6fc1054fa78e480900ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a5942b9a4f5226e8810dc8b63fb250f3e">IsSurveyParticipant</a> () const </td></tr>
-<tr class="memdesc:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does this person participates in the social contact study?  <a href="#a5942b9a4f5226e8810dc8b63fb250f3e">More...</a><br /></td></tr>
-<tr class="separator:a5942b9a4f5226e8810dc8b63fb250f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6c27c93e351ca63aa6e3a055cd9110b2">ParticipateInSurvey</a> ()</td></tr>
-<tr class="memdesc:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Participate in social contact study and log person details.  <a href="#a6c27c93e351ca63aa6e3a055cd9110b2">More...</a><br /></td></tr>
-<tr class="separator:a6c27c93e351ca63aa6e3a055cd9110b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6154cfa75159d1dd882448eb21522010"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6154cfa75159d1dd882448eb21522010">SetBelief</a> (Belief *belief)</td></tr>
-<tr class="memdesc:a6154cfa75159d1dd882448eb21522010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the beliefs. Pointer into <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a>'s beliefcontainer.  <a href="#a6154cfa75159d1dd882448eb21522010">More...</a><br /></td></tr>
-<tr class="separator:a6154cfa75159d1dd882448eb21522010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad807fffd2d9a8c6302a25d959b2b9b4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ad807fffd2d9a8c6302a25d959b2b9b4d">Update</a> (bool isWorkOff, bool isSchoolOff)</td></tr>
-<tr class="memdesc:ad807fffd2d9a8c6302a25d959b2b9b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the health status and presence in contactpools.  <a href="#ad807fffd2d9a8c6302a25d959b2b9b4d">More...</a><br /></td></tr>
-<tr class="separator:ad807fffd2d9a8c6302a25d959b2b9b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7817141d9072654dae557adccaa62991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a7817141d9072654dae557adccaa62991">Update</a> (<a class="el" href="../../df/d98/a00107.html">Person</a> *p)</td></tr>
-<tr class="separator:a7817141d9072654dae557adccaa62991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3629c9dae12f241933ae2649205767af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a3629c9dae12f241933ae2649205767af">SetAge</a> (unsigned int newAge)</td></tr>
-<tr class="memdesc:a3629c9dae12f241933ae2649205767af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the age of the person.  <a href="#a3629c9dae12f241933ae2649205767af">More...</a><br /></td></tr>
-<tr class="separator:a3629c9dae12f241933ae2649205767af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd8a6126416c2ba2542014e63d99b887"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#abd8a6126416c2ba2542014e63d99b887">GetHouseholdId</a> ()</td></tr>
-<tr class="separator:abd8a6126416c2ba2542014e63d99b887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6681529e309d84e7c42fe82562f1fdb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6681529e309d84e7c42fe82562f1fdb4">SetHouseholdId</a> (unsigned int household_id)</td></tr>
-<tr class="separator:a6681529e309d84e7c42fe82562f1fdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a137c47d3d0e8bc1221bc2123477941a1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a137c47d3d0e8bc1221bc2123477941a1">GetK12SchoolId</a> () const </td></tr>
-<tr class="memdesc:a137c47d3d0e8bc1221bc2123477941a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the K12School CP.  <a href="#a137c47d3d0e8bc1221bc2123477941a1">More...</a><br /></td></tr>
-<tr class="separator:a137c47d3d0e8bc1221bc2123477941a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6abf487d6d0c95b8bb760c3deb506b62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6abf487d6d0c95b8bb760c3deb506b62">SetK12SchoolId</a> (unsigned int k12school_id)</td></tr>
-<tr class="memdesc:a6abf487d6d0c95b8bb760c3deb506b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the K12School CP.  <a href="#a6abf487d6d0c95b8bb760c3deb506b62">More...</a><br /></td></tr>
-<tr class="separator:a6abf487d6d0c95b8bb760c3deb506b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a805778c8c80ec8523a60cae01947b02a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a805778c8c80ec8523a60cae01947b02a">GetCollegeId</a> () const </td></tr>
-<tr class="memdesc:a805778c8c80ec8523a60cae01947b02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the College CP.  <a href="#a805778c8c80ec8523a60cae01947b02a">More...</a><br /></td></tr>
-<tr class="separator:a805778c8c80ec8523a60cae01947b02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6522ed455ea5da06d506db88020b2e5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6522ed455ea5da06d506db88020b2e5b">SetCollegeId</a> (unsigned int college_id)</td></tr>
-<tr class="memdesc:a6522ed455ea5da06d506db88020b2e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the College CP.  <a href="#a6522ed455ea5da06d506db88020b2e5b">More...</a><br /></td></tr>
-<tr class="separator:a6522ed455ea5da06d506db88020b2e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d484ccde416208ee213b9d9763c4367"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a8d484ccde416208ee213b9d9763c4367">GetWorkId</a> () const </td></tr>
-<tr class="memdesc:a8d484ccde416208ee213b9d9763c4367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the Work CP.  <a href="#a8d484ccde416208ee213b9d9763c4367">More...</a><br /></td></tr>
-<tr class="separator:a8d484ccde416208ee213b9d9763c4367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af901d3a2d62ad342a5067252e7da4608"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#af901d3a2d62ad342a5067252e7da4608">SetWorkId</a> (unsigned int work_id)</td></tr>
-<tr class="memdesc:af901d3a2d62ad342a5067252e7da4608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the Work CP.  <a href="#af901d3a2d62ad342a5067252e7da4608">More...</a><br /></td></tr>
-<tr class="separator:af901d3a2d62ad342a5067252e7da4608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab66a63b8c275eb20a5f33147d9eee77f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#ab66a63b8c275eb20a5f33147d9eee77f">GetPrimaryCommunityId</a> () const </td></tr>
-<tr class="memdesc:ab66a63b8c275eb20a5f33147d9eee77f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the PrimaryCommunity CP.  <a href="#ab66a63b8c275eb20a5f33147d9eee77f">More...</a><br /></td></tr>
-<tr class="separator:ab66a63b8c275eb20a5f33147d9eee77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a1adcd3372fc02c20c2b93f741dd732"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6a1adcd3372fc02c20c2b93f741dd732">SetPrimaryCommunityId</a> (unsigned int primary_community_id)</td></tr>
-<tr class="memdesc:a6a1adcd3372fc02c20c2b93f741dd732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the PrimaryCommunity CP.  <a href="#a6a1adcd3372fc02c20c2b93f741dd732">More...</a><br /></td></tr>
-<tr class="separator:a6a1adcd3372fc02c20c2b93f741dd732"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43a13b12121574fe063e6f8b8dbe0c4a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a43a13b12121574fe063e6f8b8dbe0c4a">GetSecondaryCommunityId</a> () const </td></tr>
-<tr class="memdesc:a43a13b12121574fe063e6f8b8dbe0c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the id of the SecondaryCommunity CP.  <a href="#a43a13b12121574fe063e6f8b8dbe0c4a">More...</a><br /></td></tr>
-<tr class="separator:a43a13b12121574fe063e6f8b8dbe0c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e09e3947655fde28c4d29c1e32b35c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a4e09e3947655fde28c4d29c1e32b35c7">SetSecondaryCommunityId</a> (unsigned int secondary_community_id)</td></tr>
-<tr class="memdesc:a4e09e3947655fde28c4d29c1e32b35c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the SecondaryCommunity CP.  <a href="#a4e09e3947655fde28c4d29c1e32b35c7">More...</a><br /></td></tr>
-<tr class="separator:a4e09e3947655fde28c4d29c1e32b35c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8e447907935f01c1e67164725728df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a7a8e447907935f01c1e67164725728df">SetPoolId</a> (<a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type, unsigned int poolId)</td></tr>
-<tr class="memdesc:a7a8e447907935f01c1e67164725728df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the <code>type</code> CP.  <a href="#a7a8e447907935f01c1e67164725728df">More...</a><br /></td></tr>
-<tr class="separator:a7a8e447907935f01c1e67164725728df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf65922ebd7329a4718fb73a92447b9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#aaf65922ebd7329a4718fb73a92447b9d">IsStudentCandidate</a> () const </td></tr>
-<tr class="memdesc:aaf65922ebd7329a4718fb73a92447b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this person may be a K12School student.  <a href="#aaf65922ebd7329a4718fb73a92447b9d">More...</a><br /></td></tr>
-<tr class="separator:aaf65922ebd7329a4718fb73a92447b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd035ba375a685a16d2e5c22f0d10da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#acd035ba375a685a16d2e5c22f0d10da8">IsCollegeStudentCandidate</a> () const </td></tr>
-<tr class="memdesc:acd035ba375a685a16d2e5c22f0d10da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this person may be a college student.  <a href="#acd035ba375a685a16d2e5c22f0d10da8">More...</a><br /></td></tr>
-<tr class="separator:acd035ba375a685a16d2e5c22f0d10da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa879495b3c4222f3eaf67ff368054267"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#aa879495b3c4222f3eaf67ff368054267">IsWorkableCandidate</a> () const </td></tr>
-<tr class="memdesc:aa879495b3c4222f3eaf67ff368054267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this person may be a college worker.  <a href="#aa879495b3c4222f3eaf67ff368054267">More...</a><br /></td></tr>
-<tr class="separator:aa879495b3c4222f3eaf67ff368054267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
+<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br /></td></tr>
+<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
+<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br /></td></tr>
+<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br /></td></tr>
+<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8194d951f869239adb99d54196479498"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a8194d951f869239adb99d54196479498">m_age</a></td></tr>
-<tr class="memdesc:a8194d951f869239adb99d54196479498"><td class="mdescLeft">&#160;</td><td class="mdescRight">The age.  <a href="#a8194d951f869239adb99d54196479498">More...</a><br /></td></tr>
-<tr class="separator:a8194d951f869239adb99d54196479498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b36564df125f63a8bae24b9916d2a6e"><td class="memItemLeft" align="right" valign="top">Belief *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a4b36564df125f63a8bae24b9916d2a6e">m_belief</a></td></tr>
-<tr class="memdesc:a4b36564df125f63a8bae24b9916d2a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. ">Health</a> beliefs related data (raw pointer intentional).  <a href="#a4b36564df125f63a8bae24b9916d2a6e">More...</a><br /></td></tr>
-<tr class="separator:a4b36564df125f63a8bae24b9916d2a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ae24ea868bb1ee0c03e38c0f971c99"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a69ae24ea868bb1ee0c03e38c0f971c99">m_gender</a></td></tr>
-<tr class="separator:a69ae24ea868bb1ee0c03e38c0f971c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff19daed7351416a80ae97721bbe017c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html">Health</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#aff19daed7351416a80ae97721bbe017c">m_health</a></td></tr>
-<tr class="memdesc:aff19daed7351416a80ae97721bbe017c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. ">Health</a> info for this person.  <a href="#aff19daed7351416a80ae97721bbe017c">More...</a><br /></td></tr>
-<tr class="separator:aff19daed7351416a80ae97721bbe017c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6768d69e262dbdb71dfd9a5e7dcadb70">m_id</a></td></tr>
-<tr class="memdesc:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id.  <a href="#a6768d69e262dbdb71dfd9a5e7dcadb70">More...</a><br /></td></tr>
-<tr class="separator:a6768d69e262dbdb71dfd9a5e7dcadb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6361ea8763683122ca6df55f71169bb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a6361ea8763683122ca6df55f71169bb9">m_is_participant</a></td></tr>
-<tr class="memdesc:a6361ea8763683122ca6df55f71169bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is participating in the social contact study.  <a href="#a6361ea8763683122ca6df55f71169bb9">More...</a><br /></td></tr>
-<tr class="separator:a6361ea8763683122ca6df55f71169bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee1f73a76e3b302361842e13fe969dcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">ContactPoolType::IdSubscriptArray</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#aee1f73a76e3b302361842e13fe969dcd">m_pool_ids</a></td></tr>
-<tr class="memdesc:aee1f73a76e3b302361842e13fe969dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is person present/absent in pools of each of the types (school, work, etc)?  <a href="#aee1f73a76e3b302361842e13fe969dcd">More...</a><br /></td></tr>
-<tr class="separator:aee1f73a76e3b302361842e13fe969dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2577841b0f0c6ed0cfefcce199632b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d31/a00069.html">ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#a0a2577841b0f0c6ed0cfefcce199632b">m_in_pools</a></td></tr>
-<tr class="separator:a0a2577841b0f0c6ed0cfefcce199632b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d98/a00107.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
+<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Store and handle person data. </p>
+<div class="textblock"><p>Transmission rates from disease data. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00036">36</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d23/a00326_source.html#l00030">30</a> of file <a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a991cf4f69af6c6c75bf8a628dcccf986"></a>
+<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -278,7 +158,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Person::Person </td>
+          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -291,90 +171,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default construction (for population vector). </p>
+<p>Initialize. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00040">40</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4ecbb52e6cc2825f0a1397123478b26d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::Person::Person </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td>
-          <td class="paramname"><em>age</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>householdId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>k12SchoolId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>collegeId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>workId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>primaryCommunityId</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>secondaryCommunityId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor: set the person data. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00047">47</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00176">m_in_pools</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d23/a00326_source.html#l00034">34</a> of file <a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab96580cd0eb920e25c0b68aef7984d70"></a>
+<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -382,37 +186,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::Person::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d98/a00107.html">Person</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Is this person not equal to the given person? </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00057">57</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00168">m_id</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad85ecf5500764ae2c025f7e2aab8003c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> stride::Person::GetAge </td>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> stride::TransmissionProfile::GetRate </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -425,397 +199,31 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the age. </p>
+<p>Return transmission rate. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00060">60</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d23/a00326_source.html#l00037">37</a> of file <a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>.</p>
 
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00164">m_age</a>.</p>
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00030">Initialize()</a>, and <a class="el" href="../../d8/d23/a00326_source.html#l00043">m_transmission_rate</a>.</p>
 
-<p>Referenced by <a class="el" href="../../df/da9/a00263_source.html#l00044">stride::Immunizer::Random()</a>, <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../d7/d40/a00236_source.html#l00108">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4b98f1f23a3c4ebabe949e69e0d7e979"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Belief* stride::Person::GetBelief </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return belief info. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00063">63</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00165">m_belief</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d3e/a00253_source.html#l00144">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00207">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../da/d50/a00301_source.html#l00077">stride::Sim::GetTransmissionRate()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac31cb2e01da0e2348bb6e7aef0630d4a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Belief* stride::Person::GetBelief </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return belief info. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00066">66</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00165">m_belief</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ace277043dfb3a2052adf508dd0179567"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetPoolId </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> &amp;&#160;</td>
-          <td class="paramname"><em>poolType</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get ID of contactpool_type. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00069">69</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00173">m_pool_ids</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00118">GetCollegeId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00107">GetHouseholdId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00112">GetK12SchoolId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00130">GetPrimaryCommunityId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00139">GetSecondaryCommunityId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00124">GetWorkId()</a>, and <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ada6071b93ce9d5b5611a2151e14d0740"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char stride::Person::GetGender </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return person's gender. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00072">72</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00166">m_gender</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../d7/d40/a00236_source.html#l00108">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a53081dbb062c019153b8be62083d59a2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/df8/a00096.html">Health</a>&amp; stride::Person::GetHealth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return person's health status. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00075">75</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00167">m_health</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00144">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00207">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, <a class="el" href="../../df/da9/a00263_source.html#l00044">stride::Immunizer::Random()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, and <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22421b0318583235939e935361b77c90"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../d9/df8/a00096.html">Health</a>&amp; stride::Person::GetHealth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return person's health status. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00078">78</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00167">m_health</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afab3ab2a1a33004f9e25d4873c3c1921"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the id. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00081">81</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00168">m_id</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dc2/a00228_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, <a class="el" href="../../da/d31/a00234_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>, <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>, and <a class="el" href="../../d7/d40/a00236_source.html#l00108">gengeopop::GeoGridProtoWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac5a9312fa75fbf91e949f3aecbbeb129"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the id. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00084">84</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00168">m_id</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acc03f26895f6fc1054fa78e480900ebb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::IsInPool </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> &amp;&#160;</td>
-          <td class="paramname"><em>poolType</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if a person is present today in a given contactpool. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00087">87</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00176">m_in_pools</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00144">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00207">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5942b9a4f5226e8810dc8b63fb250f3e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::IsSurveyParticipant </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Does this person participates in the social contact study? </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00090">90</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00169">m_is_participant</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6c27c93e351ca63aa6e3a055cd9110b2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::ParticipateInSurvey </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Participate in social contact study and log person details. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00093">93</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00169">m_is_participant</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6154cfa75159d1dd882448eb21522010"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetBelief </td>
-          <td>(</td>
-          <td class="paramtype">Belief *&#160;</td>
-          <td class="paramname"><em>belief</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the beliefs. Pointer into <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a>'s beliefcontainer. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00096">96</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00165">m_belief</a>, and <a class="el" href="../../d4/d5b/a00294_source.html#l00031">Update()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad807fffd2d9a8c6302a25d959b2b9b4d"></a>
+<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::Person::Update </td>
+          <td class="memname">void stride::TransmissionProfile::Initialize </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isWorkOff</em>, </td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isSchoolOff</em>&#160;</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -825,559 +233,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update the health status and presence in contactpools. </p>
+<p>Initialize. </p>
 
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00031">31</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Person.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00030">30</a> of file <a class="el" href="../../de/dc8/a00325_source.html">TransmissionProfile.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d5/da7/a00144_source.html#l00029">stride::MinAdultAge()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00096">SetBelief()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7817141d9072654dae557adccaa62991"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/d98/a00107.html">Person</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d4/d5b/a00294_source.html#l00057">57</a> of file <a class="el" href="../../d4/d5b/a00294_source.html">Person.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3629c9dae12f241933ae2649205767af"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetAge </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>newAge</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the age of the person. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00105">105</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00164">m_age</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d1a/a00251_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abd8a6126416c2ba2542014e63d99b887"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetHouseholdId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00107">107</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Household</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6681529e309d84e7c42fe82562f1fdb4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetHouseholdId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>household_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00109">109</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b">stride::ContactPoolType::Household</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a137c47d3d0e8bc1221bc2123477941a1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetK12SchoolId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the id of the K12School CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00112">112</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e">stride::ContactPoolType::K12School</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6abf487d6d0c95b8bb760c3deb506b62"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetK12SchoolId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>k12school_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the K12School CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00115">115</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e">stride::ContactPoolType::K12School</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a805778c8c80ec8523a60cae01947b02a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetCollegeId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the id of the College CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00118">118</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba2806259c227f694c678ec9444aec2042">stride::ContactPoolType::College</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6522ed455ea5da06d506db88020b2e5b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetCollegeId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>college_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the College CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00121">121</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba2806259c227f694c678ec9444aec2042">stride::ContactPoolType::College</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8d484ccde416208ee213b9d9763c4367"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetWorkId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the id of the Work CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00124">124</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Work</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af901d3a2d62ad342a5067252e7da4608"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetWorkId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>work_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the Work CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00127">127</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba0f9263536b9fc61ada745644735bfd8f">stride::ContactPoolType::Work</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d9c/a00352_source.html#l00121">gengeopop::WorkplacePopulator::AssignActive()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab66a63b8c275eb20a5f33147d9eee77f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetPrimaryCommunityId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the id of the PrimaryCommunity CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00130">130</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::PrimaryCommunity</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6a1adcd3372fc02c20c2b93f741dd732"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetPrimaryCommunityId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>primary_community_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the PrimaryCommunity CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00133">133</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449aba96ebabb1132dcba9eed74dd06579a2a6">stride::ContactPoolType::PrimaryCommunity</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a43a13b12121574fe063e6f8b8dbe0c4a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::GetSecondaryCommunityId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the id of the SecondaryCommunity CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00139">139</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::SecondaryCommunity</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/da8/a00230_source.html#l00160">gengeopop::GeoGridJSONWriter::WritePerson()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4e09e3947655fde28c4d29c1e32b35c7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetSecondaryCommunityId </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>secondary_community_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the SecondaryCommunity CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00142">142</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abad2006cfdd93c83f8b174ad02e71eb1d9">stride::ContactPoolType::SecondaryCommunity</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7a8e447907935f01c1e67164725728df"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Person::SetPoolId </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>poolId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the id of the <code>type</code> CP. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00148">148</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00176">m_in_pools</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00173">m_pool_ids</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00121">SetCollegeId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00109">SetHouseholdId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00115">SetK12SchoolId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00133">SetPrimaryCommunityId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00142">SetSecondaryCommunityId()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00127">SetWorkId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaf65922ebd7329a4718fb73a92447b9d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::IsStudentCandidate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns whether this person may be a K12School student. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00155">155</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acd035ba375a685a16d2e5c22f0d10da8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::IsCollegeStudentCandidate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns whether this person may be a college student. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00158">158</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00164">m_age</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa879495b3c4222f3eaf67ff368054267"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::IsWorkableCandidate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns whether this person may be a college worker. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00161">161</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00164">m_age</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d23/a00326_source.html#l00037">GetRate()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a8194d951f869239adb99d54196479498"></a>
+<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1385,7 +250,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> stride::Person::m_age</td>
+          <td class="memname"><a class="el" href="../../df/dc2/a00367.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
         </tr>
       </table>
   </td>
@@ -1395,204 +260,23 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The age. </p>
+<p>Definition at line <a class="el" href="../../d8/d23/a00326_source.html#l00043">43</a> of file <a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00164">164</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00060">GetAge()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00158">IsCollegeStudentCandidate()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00161">IsWorkableCandidate()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00105">SetAge()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4b36564df125f63a8bae24b9916d2a6e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Belief* stride::Person::m_belief</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. ">Health</a> beliefs related data (raw pointer intentional). </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00165">165</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00063">GetBelief()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00096">SetBelief()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a69ae24ea868bb1ee0c03e38c0f971c99"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char stride::Person::m_gender</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00166">166</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00072">GetGender()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aff19daed7351416a80ae97721bbe017c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/df8/a00096.html">Health</a> stride::Person::m_health</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. ">Health</a> info for this person. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00167">167</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00075">GetHealth()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6768d69e262dbdb71dfd9a5e7dcadb70"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::Person::m_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The id. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00168">168</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00081">GetId()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00057">operator!=()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00084">SetId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6361ea8763683122ca6df55f71169bb9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Person::m_is_participant</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Is participating in the social contact study. </p>
-<p>Ids (school, work, etc) of pools you belong to Id value 0 means you do not belong to any pool of that type (e.g. school and work are mutually exclusive. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00169">169</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00090">IsSurveyParticipant()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00093">ParticipateInSurvey()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aee1f73a76e3b302361842e13fe969dcd"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">ContactPoolType::IdSubscriptArray</a>&lt;unsigned int&gt; stride::Person::m_pool_ids</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Is person present/absent in pools of each of the types (school, work, etc)? </p>
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00173">173</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00069">GetPoolId()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0a2577841b0f0c6ed0cfefcce199632b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">ContactPoolType::IdSubscriptArray</a>&lt;bool&gt; stride::Person::m_in_pools</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d9/d5e/a00295_source.html#l00176">176</a> of file <a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d9/d5e/a00295_source.html#l00087">IsInPool()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00047">Person()</a>, and <a class="el" href="../../d9/d5e/a00295_source.html#l00148">SetPoolId()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d23/a00326_source.html#l00037">GetRate()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d5e/a00295_source.html">Person.h</a></li>
-<li><a class="el" href="../../d4/d5b/a00294_source.html">Person.cpp</a></li>
+<li><a class="el" href="../../d8/d23/a00326_source.html">TransmissionProfile.h</a></li>
+<li><a class="el" href="../../de/dc8/a00325_source.html">TransmissionProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">Person</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">stride</a></li><li class="navelem"><a class="el" href="../../df/d98/a00107.html">TransmissionProfile</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

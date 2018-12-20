@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::K12School Class Reference</title>
+<title>Stride Reference Manual: gengeopop::PartialPopulator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,106 +108,111 @@ $(document).ready(function(){initNavTree('d3/dea/a00046.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d6/d2f/a00854.html">List of all members</a>  </div>
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../dd/d07/a00811.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::K12School Class Reference</div>  </div>
+<div class="title">gengeopop::PartialPopulator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Models a <a class="el" href="../../d3/dea/a00046.html" title="Models a K12School as ContactCenter. ">K12School</a> as <a class="el" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  
+<p>Interface for populators that provide a partial solution.  
  <a href="../../d3/dea/a00046.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::K12School:</div>
+Inheritance diagram for gengeopop::PartialPopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/de6/a00855.gif" border="0" usemap="#gengeopop_1_1K12School_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1K12School_inherit__map" id="gengeopop_1_1K12School_inherit__map">
-<area shape="rect" id="node2" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="5,5,208,273"/>
+<div class="center"><img src="../../d8/db7/a00812.gif" border="0" usemap="#gengeopop_1_1PartialPopulator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1PartialPopulator_inherit__map" id="gengeopop_1_1PartialPopulator_inherit__map">
+<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="Populate Colleges. " alt="" coords="5,351,216,428"/>
+<area shape="rect" id="node3" href="../../d1/dc6/a00037.html" title="Populate Households. " alt="" coords="241,351,471,428"/>
+<area shape="rect" id="node4" href="../../dd/d32/a00041.html" title="Populate K12Schools. " alt="" coords="495,351,726,428"/>
+<area shape="rect" id="node5" href="../../d2/dee/a00049.html" title="Populate primary Communities. " alt="" coords="750,343,975,435"/>
+<area shape="rect" id="node6" href="../../dc/dee/a00053.html" title="Populate secondary Communities. " alt="" coords="999,343,1243,435"/>
+<area shape="rect" id="node7" href="../../d3/d8b/a00059.html" title="Populate Workplaces. " alt="" coords="1267,219,1503,560"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for gengeopop::K12School:</div>
+Collaboration diagram for gengeopop::PartialPopulator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/de3/a00856.gif" border="0" usemap="#gengeopop_1_1K12School_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1K12School_coll__map" id="gengeopop_1_1K12School_coll__map">
-<area shape="rect" id="node2" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. " alt="" coords="983,1921,1186,2175"/>
-<area shape="rect" id="node4" href="../../df/d5d/a00084.html" title="Represents a group of Persons that potentially have contacts. " alt="" coords="651,1465,809,1704"/>
-<area shape="rect" id="node6" href="../../df/d98/a00107.html" title="Store and handle person data. " alt="" coords="509,1009,628,1233"/>
-<area shape="rect" id="node7" href="../../dc/dc9/a00389.html" title="{double\n||}" alt="" coords="5,774,71,851"/>
-<area shape="rect" id="node8" href="../../d4/d31/a00069.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="402,715,645,910"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="588,247,744,339"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="416,145,631,223"/>
-<area shape="rect" id="node22" title="STL class. " alt="" coords="896,1083,1023,1160"/>
-<area shape="rect" id="node11" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="437,363,609,557"/>
-<area shape="rect" id="node14" href="../../da/d2a/a00086.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="762,730,954,895"/>
-<area shape="rect" id="node15" title="STL class. " alt="" coords="757,421,959,499"/>
-<area shape="rect" id="node19" href="../../d9/df8/a00096.html" title="Holds a person&#39;s health data. " alt="" coords="95,679,303,947"/>
+<div class="center"><img src="../../de/d9d/a00813.gif" border="0" usemap="#gengeopop_1_1PartialPopulator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1PartialPopulator_coll__map" id="gengeopop_1_1PartialPopulator_coll__map">
+<area shape="rect" id="node3" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5deacd923a5dbde43feb7b481937cb43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a5deacd923a5dbde43feb7b481937cb43">K12School</a> (unsigned int id)</td></tr>
-<tr class="separator:a5deacd923a5dbde43feb7b481937cb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686dd2fdbffef436c37f14bc23786c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a686dd2fdbffef436c37f14bc23786c51">Fill</a> (const std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; &amp;geoGrid) override</td></tr>
-<tr class="memdesc:a686dd2fdbffef436c37f14bc23786c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d7/de0/a00022.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff" title="Apply this ContactCenter to the GeoGrid. ">ContactCenter::Fill</a>.  <a href="#a686dd2fdbffef436c37f14bc23786c51">More...</a><br /></td></tr>
-<tr class="separator:a686dd2fdbffef436c37f14bc23786c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add262995f20f78d16c8dffc8c8ba0b3c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#add262995f20f78d16c8dffc8c8ba0b3c">GetMaxPools</a> () const override</td></tr>
-<tr class="memdesc:add262995f20f78d16c8dffc8c8ba0b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d7/de0/a00022.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5" title="Get the maximum number of pools for this contact center. ">ContactCenter::GetMaxPools</a>.  <a href="#add262995f20f78d16c8dffc8c8ba0b3c">More...</a><br /></td></tr>
-<tr class="separator:add262995f20f78d16c8dffc8c8ba0b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ef2351ea77265383b0f9e66659d692e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a5ef2351ea77265383b0f9e66659d692e">GetPoolSize</a> () const override</td></tr>
-<tr class="memdesc:a5ef2351ea77265383b0f9e66659d692e"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d7/de0/a00022.html#a29071ba50d10e1c2bad9d4ab52cbd561" title="Get the size (on average) of a pool for this type of contact center. ">ContactCenter::GetPoolSize</a>.  <a href="#a5ef2351ea77265383b0f9e66659d692e">More...</a><br /></td></tr>
-<tr class="separator:a5ef2351ea77265383b0f9e66659d692e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebbfbc1fb0df68b4f8e79bfb69d8ab48"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48">GetType</a> () const override</td></tr>
-<tr class="memdesc:aebbfbc1fb0df68b4f8e79bfb69d8ab48"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="../../d7/de0/a00022.html#a6accccf2036e95ef292fa475e75fa6fc" title="Get the name of the type of contact center (e.g. College) ">ContactCenter::GetType</a>.  <a href="#aebbfbc1fb0df68b4f8e79bfb69d8ab48">More...</a><br /></td></tr>
-<tr class="separator:aebbfbc1fb0df68b4f8e79bfb69d8ab48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00022"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00022')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d7/de0/a00022.html">gengeopop::ContactCenter</a></td></tr>
-<tr class="memitem:a9aaa45f62fcb16bcd4b6f382a94e5526 inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a9aaa45f62fcb16bcd4b6f382a94e5526">ContactCenter</a> (unsigned int id)</td></tr>
-<tr class="memdesc:a9aaa45f62fcb16bcd4b6f382a94e5526 inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a> with assigned ID.  <a href="#a9aaa45f62fcb16bcd4b6f382a94e5526">More...</a><br /></td></tr>
-<tr class="separator:a9aaa45f62fcb16bcd4b6f382a94e5526 inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e2ac775c782a156ad867059f3b5e57 inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a05e2ac775c782a156ad867059f3b5e57">AddPool</a> (<a class="el" href="../../df/d5d/a00084.html">stride::ContactPool</a> *pool)</td></tr>
-<tr class="memdesc:a05e2ac775c782a156ad867059f3b5e57 inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a ContactPool.  <a href="#a05e2ac775c782a156ad867059f3b5e57">More...</a><br /></td></tr>
-<tr class="separator:a05e2ac775c782a156ad867059f3b5e57 inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41db67c04a80efb125efdbfa4a39b4ad inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a41db67c04a80efb125efdbfa4a39b4ad">GetId</a> () const </td></tr>
-<tr class="memdesc:a41db67c04a80efb125efdbfa4a39b4ad inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ID.  <a href="#a41db67c04a80efb125efdbfa4a39b4ad">More...</a><br /></td></tr>
-<tr class="separator:a41db67c04a80efb125efdbfa4a39b4ad inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad67010237fe5d85ab860a1312e846efc inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../df/d5d/a00084.html">stride::ContactPool</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ad67010237fe5d85ab860a1312e846efc">GetPools</a> () const </td></tr>
-<tr class="memdesc:ad67010237fe5d85ab860a1312e846efc inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pools container.  <a href="#ad67010237fe5d85ab860a1312e846efc">More...</a><br /></td></tr>
-<tr class="separator:ad67010237fe5d85ab860a1312e846efc inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b55f34ee88976dc4e4cd124f508ffa inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">std::pair&lt; unsigned int, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#af8b55f34ee88976dc4e4cd124f508ffa">GetPopulationAndInfectedCount</a> () const </td></tr>
-<tr class="memdesc:af8b55f34ee88976dc4e4cd124f508ffa inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a count of total population (first) and total number of infections (second).  <a href="#af8b55f34ee88976dc4e4cd124f508ffa">More...</a><br /></td></tr>
-<tr class="separator:af8b55f34ee88976dc4e4cd124f508ffa inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac520d66f2268d03298cb36a47103aa74 inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ac520d66f2268d03298cb36a47103aa74">~ContactCenter</a> ()=default</td></tr>
-<tr class="memdesc:ac520d66f2268d03298cb36a47103aa74 inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor, but virtual.  <a href="#ac520d66f2268d03298cb36a47103aa74">More...</a><br /></td></tr>
-<tr class="separator:ac520d66f2268d03298cb36a47103aa74 inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88dac97cec790bd1e55bc8e89323de7c inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de0/a00022.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a88dac97cec790bd1e55bc8e89323de7c">begin</a> ()</td></tr>
-<tr class="memdesc:a88dac97cec790bd1e55bc8e89323de7c inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#a88dac97cec790bd1e55bc8e89323de7c">More...</a><br /></td></tr>
-<tr class="separator:a88dac97cec790bd1e55bc8e89323de7c inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea7b447b01f46a59deed95162c3a0128 inherit pub_methods_a00022"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/de0/a00022.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#aea7b447b01f46a59deed95162c3a0128">end</a> ()</td></tr>
-<tr class="memdesc:aea7b447b01f46a59deed95162c3a0128 inherit pub_methods_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#aea7b447b01f46a59deed95162c3a0128">More...</a><br /></td></tr>
-<tr class="separator:aea7b447b01f46a59deed95162c3a0128 inherit pub_methods_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbc3fc5b84add8eac20a6db378827a7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#adbc3fc5b84add8eac20a6db378827a7e">PartialPopulator</a> (<a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:adbc3fc5b84add8eac20a6db378827a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a RnMan and a logger.  <a href="#adbc3fc5b84add8eac20a6db378827a7e">More...</a><br /></td></tr>
+<tr class="separator:adbc3fc5b84add8eac20a6db378827a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee01751cc775128b108e03118609091c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#aee01751cc775128b108e03118609091c">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:aee01751cc775128b108e03118609091c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the given geogrid.  <a href="#aee01751cc775128b108e03118609091c">More...</a><br /></td></tr>
+<tr class="separator:aee01751cc775128b108e03118609091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a033d360f64872196bcb57ca0ce232d6f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a033d360f64872196bcb57ca0ce232d6f">~PartialPopulator</a> ()=default</td></tr>
+<tr class="memdesc:a033d360f64872196bcb57ca0ce232d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a033d360f64872196bcb57ca0ce232d6f">More...</a><br /></td></tr>
+<tr class="separator:a033d360f64872196bcb57ca0ce232d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00022"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00022')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../d7/de0/a00022.html">gengeopop::ContactCenter</a></td></tr>
-<tr class="memitem:a7ffc40d11c7c2f8c2a6b012104e38179 inherit pub_types_a00022"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a> = std::vector&lt; <a class="el" href="../../df/d5d/a00084.html">stride::ContactPool</a> * &gt;::<a class="el" href="../../d7/de0/a00022.html#a7ffc40d11c7c2f8c2a6b012104e38179">iterator</a></td></tr>
-<tr class="memdesc:a7ffc40d11c7c2f8c2a6b012104e38179 inherit pub_types_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow range-based iteration over pools in contact center.  <a href="#a7ffc40d11c7c2f8c2a6b012104e38179">More...</a><br /></td></tr>
-<tr class="separator:a7ffc40d11c7c2f8c2a6b012104e38179 inherit pub_types_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00022"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00022')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d7/de0/a00022.html">gengeopop::ContactCenter</a></td></tr>
-<tr class="memitem:ac0b05f8789a5272fa8ec5e1113c5b731 inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../df/d5d/a00084.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#ac0b05f8789a5272fa8ec5e1113c5b731">m_pools</a></td></tr>
-<tr class="memdesc:ac0b05f8789a5272fa8ec5e1113c5b731 inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Our pools.  <a href="#ac0b05f8789a5272fa8ec5e1113c5b731">More...</a><br /></td></tr>
-<tr class="separator:ac0b05f8789a5272fa8ec5e1113c5b731 inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a785264e08f004b2e1f51e2fb158c0fdf inherit pro_attribs_a00022"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de0/a00022.html#a785264e08f004b2e1f51e2fb158c0fdf">m_id</a></td></tr>
-<tr class="memdesc:a785264e08f004b2e1f51e2fb158c0fdf inherit pro_attribs_a00022"><td class="mdescLeft">&#160;</td><td class="mdescRight">The id of this <a class="el" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a785264e08f004b2e1f51e2fb158c0fdf">More...</a><br /></td></tr>
-<tr class="separator:a785264e08f004b2e1f51e2fb158c0fdf inherit pro_attribs_a00022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a992a6f6b8761f481eabe22ffccc8f961"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a992a6f6b8761f481eabe22ffccc8f961">GetContactPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt; &amp;start, <a class="el" href="../../df/dc2/a00367.html">double</a> startRadius=10) const </td></tr>
+<tr class="memdesc:a992a6f6b8761f481eabe22ffccc8f961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in <code>geoGrid</code> in an exponentially increasing radius.  <a href="#a992a6f6b8761f481eabe22ffccc8f961">More...</a><br /></td></tr>
+<tr class="separator:a992a6f6b8761f481eabe22ffccc8f961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18d65985647c2afb90627fa7048be6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a> (<a class="el" href="../../df/dc2/a00367.html">double</a> fraction)</td></tr>
+<tr class="memdesc:ad18d65985647c2afb90627fa7048be6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper around m_rnManager.  <a href="#ad18d65985647c2afb90627fa7048be6a">More...</a><br /></td></tr>
+<tr class="separator:ad18d65985647c2afb90627fa7048be6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a9984205ae3e758af34d41b55d38c7868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a9984205ae3e758af34d41b55d38c7868">m_rnManager</a></td></tr>
+<tr class="memdesc:a9984205ae3e758af34d41b55d38c7868"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#a9984205ae3e758af34d41b55d38c7868">More...</a><br /></td></tr>
+<tr class="separator:a9984205ae3e758af34d41b55d38c7868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9b69f1083ed1016458ccaaa8e53964"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a></td></tr>
+<tr class="memdesc:a7c9b69f1083ed1016458ccaaa8e53964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#a7c9b69f1083ed1016458ccaaa8e53964">More...</a><br /></td></tr>
+<tr class="separator:a7c9b69f1083ed1016458ccaaa8e53964"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Models a <a class="el" href="../../d3/dea/a00046.html" title="Models a K12School as ContactCenter. ">K12School</a> as <a class="el" href="../../d7/de0/a00022.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>. </p>
+<div class="textblock"><p>Interface for populators that provide a partial solution. </p>
+<p>They generate some data and apply it to the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00024">24</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00030">30</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5deacd923a5dbde43feb7b481937cb43"></a>
+<a class="anchor" id="adbc3fc5b84add8eac20a6db378827a7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::PartialPopulator::PartialPopulator </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rn_manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct with a RnMan and a logger. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00019">19</a> of file <a class="el" href="../../d0/d19/a00273_source.html">PartialPopulator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a033d360f64872196bcb57ca0ce232d6f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,28 +220,25 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::K12School::K12School </td>
+          <td class="memname">virtual gengeopop::PartialPopulator::~PartialPopulator </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00028">28</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/d4b/a00277_source.html#l00023">Fill()</a>.</p>
+<p>Virtual destructor for inheritance. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a686dd2fdbffef436c37f14bc23786c51"></a>
+<a class="anchor" id="aee01751cc775128b108e03118609091c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -244,33 +246,119 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::K12School::Fill </td>
+          <td class="memname">virtual void gengeopop::PartialPopulator::Apply </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Populate the given geogrid. </p>
+
+<p>Implemented in <a class="el" href="../../d3/d8b/a00059.html#ace51c5ac0d05c5fca400d8f93a26ec87">gengeopop::WorkplacePopulator</a>, <a class="el" href="../../d7/dec/a00010.html#abc6ecf1b07270c3a1e2152f3be6ffeae">gengeopop::CollegePopulator</a>, <a class="el" href="../../d1/dc6/a00037.html#a47168ca7f0ce73610734befed56f0ae7">gengeopop::HouseholdPopulator</a>, <a class="el" href="../../dd/d32/a00041.html#a88753abc8ea1c837507c22c8b305cde2">gengeopop::K12SchoolPopulator</a>, <a class="el" href="../../d2/dee/a00049.html#a20e841fc232bb6cd3a5b4ddf166187eb">gengeopop::PrimaryCommunityPopulator</a>, and <a class="el" href="../../dc/dee/a00053.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">gengeopop::SecondaryCommunityPopulator</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a992a6f6b8761f481eabe22ffccc8f961"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a>*&gt; gengeopop::PartialPopulator::GetContactPoolInIncreasingRadius </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d5/df9/a00044.html">Location</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>startRadius</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find contactpools in <code>geoGrid</code> in an exponentially increasing radius. </p>
+<p>Start at <code>startRadius</code>, around <code>start</code>; as soon as at least one pool is found, all pools within the current radius are returne. May return an empty vector when there are no pools to be found. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00051">51</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/d19/a00273_source.html#l00024">MakeChoice()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad18d65985647c2afb90627fa7048be6a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::PartialPopulator::MakeChoice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dc2/a00367.html">double</a>&#160;</td>
+          <td class="paramname"><em>fraction</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d7/de0/a00022.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff" title="Apply this ContactCenter to the GeoGrid. ">ContactCenter::Fill</a>. </p>
+<p>Convenience wrapper around m_rnManager. </p>
 
-<p>Implements <a class="el" href="../../d7/de0/a00022.html#a4c1b74ce73ad2ae64a4c6bc48238d1ff">gengeopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00024">24</a> of file <a class="el" href="../../d0/d19/a00273_source.html">PartialPopulator.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d6/d4b/a00277_source.html#l00023">23</a> of file <a class="el" href="../../d6/d4b/a00277_source.html">K12School.cpp</a>.</p>
+<p>References <a class="el" href="../../dd/d56/a00274_source.html#l00043">m_rnManager</a>.</p>
 
-<p>References <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abab055a361403830ea4fa7bd1c8519b38e">stride::ContactPoolType::K12School</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d5d/a00278_source.html#l00028">K12School()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/df7/a00331_source.html#l00036">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d8/df7/a00331_source.html#l00121">gengeopop::WorkplacePopulator::AssignActive()</a>, and <a class="el" href="../../dd/d56/a00274_source.html#l00051">GetContactPoolInIncreasingRadius()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="add262995f20f78d16c8dffc8c8ba0b3c"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a9984205ae3e758af34d41b55d38c7868"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -278,28 +366,25 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int gengeopop::K12School::GetMaxPools </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname"><a class="el" href="../../d7/ddb/a00361.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::PartialPopulator::m_rnManager</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d7/de0/a00022.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5" title="Get the maximum number of pools for this contact center. ">ContactCenter::GetMaxPools</a>. </p>
+<p>RnManager used by populators. </p>
 
-<p>Implements <a class="el" href="../../d7/de0/a00022.html#ae39a8e8f20bebc8c0e2a548dc5a72ce5">gengeopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00043">43</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00034">34</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/d58/a00285_source.html#l00027">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d8/df7/a00331_source.html#l00143">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../d8/df7/a00331_source.html#l00168">gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces()</a>, <a class="el" href="../../d8/df7/a00331_source.html#l00104">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>, and <a class="el" href="../../d0/d19/a00273_source.html#l00024">MakeChoice()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5ef2351ea77265383b0f9e66659d692e"></a>
+<a class="anchor" id="a7c9b69f1083ed1016458ccaaa8e53964"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -307,67 +392,35 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int gengeopop::K12School::GetPoolSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::PartialPopulator::m_logger</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>See <a class="el" href="../../d7/de0/a00022.html#a29071ba50d10e1c2bad9d4ab52cbd561" title="Get the size (on average) of a pool for this type of contact center. ">ContactCenter::GetPoolSize</a>. </p>
+<p>Logger used by populators. </p>
 
-<p>Implements <a class="el" href="../../d7/de0/a00022.html#a29071ba50d10e1c2bad9d4ab52cbd561">gengeopop::ContactCenter</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/d56/a00274_source.html#l00044">44</a> of file <a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00037">37</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aebbfbc1fb0df68b4f8e79bfb69d8ab48"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string gengeopop::K12School::GetType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>See <a class="el" href="../../d7/de0/a00022.html#a6accccf2036e95ef292fa475e75fa6fc" title="Get the name of the type of contact center (e.g. College) ">ContactCenter::GetType</a>. </p>
-
-<p>Implements <a class="el" href="../../d7/de0/a00022.html#a6accccf2036e95ef292fa475e75fa6fc">gengeopop::ContactCenter</a>.</p>
-
-<p>Definition at line <a class="el" href="../../dc/d5d/a00278_source.html#l00040">40</a> of file <a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/d58/a00285_source.html#l00027">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d3/d4a/a00297_source.html#l00024">gengeopop::SecondaryCommunityPopulator::Apply()</a>, and <a class="el" href="../../d8/df7/a00331_source.html#l00036">gengeopop::WorkplacePopulator::Apply()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d5d/a00278_source.html">K12School.h</a></li>
-<li><a class="el" href="../../d6/d4b/a00277_source.html">K12School.cpp</a></li>
+<li><a class="el" href="../../dd/d56/a00274_source.html">PartialPopulator.h</a></li>
+<li><a class="el" href="../../d0/d19/a00273_source.html">PartialPopulator.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00046.html">K12School</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GeoGridConfig Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeoGridReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,154 +108,114 @@ $(document).ready(function(){initNavTree('d5/d79/a00030.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d0/dad/a00806.html">List of all members</a>  </div>
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="../../dd/d51/a00769.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeoGridConfig Class Reference</div>  </div>
+<div class="title">gengeopop::GeoGridReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Configuration data for generating a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  
+<p>An abstract base class for creating a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> that was read from a file, can be implemented using multiple file types (proto and json are currently implemented)  
  <a href="../../d5/d79/a00030.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GeoGridConfig:</div>
+Inheritance diagram for gengeopop::GeoGridReader:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/dc7/a00807.gif" border="0" usemap="#gengeopop_1_1GeoGridConfig_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GeoGridConfig_coll__map" id="gengeopop_1_1GeoGridConfig_coll__map">
-<area shape="rect" id="node2" href="../../dc/dc9/a00389.html" title="{double\n||}" alt="" coords="5,322,71,399"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="492,153,619,230"/>
+<div class="center"><img src="../../d0/d7e/a00770.gif" border="0" usemap="#gengeopop_1_1GeoGridReader_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1GeoGridReader_inherit__map" id="gengeopop_1_1GeoGridReader_inherit__map">
+<area shape="rect" id="node2" href="../../d3/dfe/a00025.html" title="An implementation of the GeoGridReader using JSON This class is used to read a GeoGrid from a JSON fi..." alt="" coords="5,248,236,443"/>
+<area shape="rect" id="node3" href="../../dc/d3c/a00028.html" title="An implementation of the GeoGridReader using Protocol Buffers. " alt="" coords="261,248,493,443"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::GeoGridReader:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/de5/a00771.gif" border="0" usemap="#gengeopop_1_1GeoGridReader_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1GeoGridReader_coll__map" id="gengeopop_1_1GeoGridReader_coll__map">
+<area shape="rect" id="node3" title="STL class. " alt="" coords="67,1112,165,1189"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="23,781,161,873"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,436,173,513"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="36,153,143,230"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="439,269,593,346"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="1091,153,1218,230"/>
+<area shape="rect" id="node25" title="STL class. " alt="" coords="1730,261,1886,353"/>
+<area shape="rect" id="node27" title="STL class. " alt="" coords="1555,153,1770,230"/>
+<area shape="rect" id="node37" title="STL class. " alt="" coords="2233,153,2365,230"/>
+<area shape="rect" id="node9" href="../../d4/d3a/a00101.html" title="Container for persons in population. " alt="" coords="649,1340,820,1549"/>
+<area shape="rect" id="node10" href="../../d0/d89/a00071.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="729,1024,938,1277"/>
+<area shape="rect" id="node11" href="../../db/d34/a00442.html" title="{size_t\n||}" alt="" coords="685,436,744,513"/>
+<area shape="rect" id="node15" href="../../d0/d89/a00071.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="794,701,1003,954"/>
+<area shape="rect" id="node13" href="../../dc/de4/a00677.html" title="{Chunk *\n||}" alt="" coords="895,153,969,230"/>
+<area shape="rect" id="node22" href="../../d0/d61/a00100.html" title="Store and handle person data. " alt="" coords="1765,1039,1883,1263"/>
+<area shape="rect" id="node23" href="../../df/dc2/a00367.html" title="{double\n||}" alt="" coords="1821,789,1886,866"/>
+<area shape="rect" id="node24" href="../../df/d03/a00062.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="1553,730,1796,925"/>
+<area shape="rect" id="node26" href="../../df/d03/a00062.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="1594,377,1766,572"/>
+<area shape="rect" id="node29" href="../../d1/d51/a00079.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="2157,745,2349,910"/>
+<area shape="rect" id="node30" title="STL class. " alt="" coords="2152,436,2355,513"/>
+<area shape="rect" id="node34" href="../../db/dab/a00089.html" title="Holds a person&#39;s health data. " alt="" coords="1321,693,1529,961"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a402df7e9798ac2206d7e10e0eb158177"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a402df7e9798ac2206d7e10e0eb158177">GeoGridConfig</a> ()</td></tr>
-<tr class="memdesc:a402df7e9798ac2206d7e10e0eb158177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor needed.  <a href="#a402df7e9798ac2206d7e10e0eb158177">More...</a><br /></td></tr>
-<tr class="separator:a402df7e9798ac2206d7e10e0eb158177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae840dd7732fd6c16ab759adacdd7c35a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#ae840dd7732fd6c16ab759adacdd7c35a">Calculate</a> (std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt; geoGrid, std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">HouseholdReader</a> &gt; householdReader)</td></tr>
-<tr class="memdesc:ae840dd7732fd6c16ab759adacdd7c35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the input and calculated parts of the <a class="el" href="../../d5/d79/a00030.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d6/d97/a00045.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>.  <a href="#ae840dd7732fd6c16ab759adacdd7c35a">More...</a><br /></td></tr>
-<tr class="separator:ae840dd7732fd6c16ab759adacdd7c35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7274a8aba64a533998887ec46fee72bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a7274a8aba64a533998887ec46fee72bd">GeoGridReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *pop)</td></tr>
+<tr class="memdesc:a7274a8aba64a533998887ec46fee72bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parametrized constructor.  <a href="#a7274a8aba64a533998887ec46fee72bd">More...</a><br /></td></tr>
+<tr class="separator:a7274a8aba64a533998887ec46fee72bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b9b4cd41490fa218056043090dca06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a05b9b4cd41490fa218056043090dca06">GeoGridReader</a> (const <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a05b9b4cd41490fa218056043090dca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#a05b9b4cd41490fa218056043090dca06">More...</a><br /></td></tr>
+<tr class="separator:a05b9b4cd41490fa218056043090dca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed6028b0ac4ee06a820208188ffdb68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a2ed6028b0ac4ee06a820208188ffdb68">operator=</a> (const <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a2ed6028b0ac4ee06a820208188ffdb68"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#a2ed6028b0ac4ee06a820208188ffdb68">More...</a><br /></td></tr>
+<tr class="separator:a2ed6028b0ac4ee06a820208188ffdb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6013cfc52c2643a6a967b781ce25a334"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a6013cfc52c2643a6a967b781ce25a334">~GeoGridReader</a> ()=default</td></tr>
+<tr class="memdesc:a6013cfc52c2643a6a967b781ce25a334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a6013cfc52c2643a6a967b781ce25a334">More...</a><br /></td></tr>
+<tr class="separator:a6013cfc52c2643a6a967b781ce25a334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a53634f7886fdd97d544027663ec9c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a75a53634f7886fdd97d544027663ec9c">Read</a> ()=0</td></tr>
+<tr class="memdesc:a75a53634f7886fdd97d544027663ec9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the actual read and return the created <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a75a53634f7886fdd97d544027663ec9c">More...</a><br /></td></tr>
+<tr class="separator:a75a53634f7886fdd97d544027663ec9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a932e91e15c65933abb7934ecace53f35"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:af6e0c9e6d08f0cfa95944fe746186149"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a9a3f4f357cef24a66d3c9dcdc58f7b5b">fraction_1826_years_WhichAreStudents</a></td></tr>
-<tr class="memdesc:af6e0c9e6d08f0cfa95944fe746186149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of calc_fraction_1826 which are students.  <a href="#af6e0c9e6d08f0cfa95944fe746186149">More...</a><br /></td></tr>
-<tr class="separator:af6e0c9e6d08f0cfa95944fe746186149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64cd09c70e5bb0ad5737cce0289ce133"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#abc57c86996194cd95c586896e8918a20">fraction_active_commutingPeople</a></td></tr>
-<tr class="memdesc:a64cd09c70e5bb0ad5737cce0289ce133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of calc_1865_and_active which commute.  <a href="#a64cd09c70e5bb0ad5737cce0289ce133">More...</a><br /></td></tr>
-<tr class="separator:a64cd09c70e5bb0ad5737cce0289ce133"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf3fcdf768a3cc3a0396698240efea29"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a78e9f4c58c365259d7d080dabc329f96">fraction_student_commutingPeople</a></td></tr>
-<tr class="memdesc:adf3fcdf768a3cc3a0396698240efea29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of fraction_1826_years_WhichAreStudents which commute.  <a href="#adf3fcdf768a3cc3a0396698240efea29">More...</a><br /></td></tr>
-<tr class="separator:adf3fcdf768a3cc3a0396698240efea29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88e4fc28e5f4c54e13722cccca19c0e8"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a34a5fe86ba4e60ef668c1bc60222634d">fraction_1865_years_active</a></td></tr>
-<tr class="memdesc:a88e4fc28e5f4c54e13722cccca19c0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active.  <a href="#a88e4fc28e5f4c54e13722cccca19c0e8">More...</a><br /></td></tr>
-<tr class="separator:a88e4fc28e5f4c54e13722cccca19c0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af181e061dafa579185d656fd0df895c5"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#ae5b9fde4c7f1f62339043b23f91850f5">populationSize</a></td></tr>
-<tr class="memdesc:af181e061dafa579185d656fd0df895c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute size of the population.  <a href="#af181e061dafa579185d656fd0df895c5">More...</a><br /></td></tr>
-<tr class="separator:af181e061dafa579185d656fd0df895c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a932e91e15c65933abb7934ecace53f35"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a932e91e15c65933abb7934ecace53f35">input</a></td></tr>
-<tr class="separator:a932e91e15c65933abb7934ecace53f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9610682c3d25a6c5cf4dc0164988a54"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a26b0fe938aafdfc1ec9ffc8bda17ef4c"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a6f6aa2c75003ae4952a3ad7ce5afe880">compulsoryPupils</a></td></tr>
-<tr class="memdesc:a26b0fe938aafdfc1ec9ffc8bda17ef4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numbers of persons for which school is compulsory (i.e. 6-18 years old).  <a href="#a26b0fe938aafdfc1ec9ffc8bda17ef4c">More...</a><br /></td></tr>
-<tr class="separator:a26b0fe938aafdfc1ec9ffc8bda17ef4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af099babb78c89ac14415aeb1e019285d"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a2deb75fb25072ae95d500f56f5bf3254">popcount_1865_years</a></td></tr>
-<tr class="memdesc:af099babb78c89ac14415aeb1e019285d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute amount of population which are [18, 65) years old.  <a href="#af099babb78c89ac14415aeb1e019285d">More...</a><br /></td></tr>
-<tr class="separator:af099babb78c89ac14415aeb1e019285d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53f4731594453f72a6ec4046f5ab193b"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#afd0c5db56314f0efa26ce9dfd84b98c5">popcount_1826_years</a></td></tr>
-<tr class="memdesc:a53f4731594453f72a6ec4046f5ab193b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute amount of population which are [18, 26) years old.  <a href="#a53f4731594453f72a6ec4046f5ab193b">More...</a><br /></td></tr>
-<tr class="separator:a53f4731594453f72a6ec4046f5ab193b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef2cb4b2be4cbcf63fe051340787a5eb"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a126c9bbb820118ce7454c2a31d0d8177">popcount_1826_years_and_student</a></td></tr>
-<tr class="memdesc:aef2cb4b2be4cbcf63fe051340787a5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute amount of population which are [18, 26) years old and are a student.  <a href="#aef2cb4b2be4cbcf63fe051340787a5eb">More...</a><br /></td></tr>
-<tr class="separator:aef2cb4b2be4cbcf63fe051340787a5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3d5068c9a3d5a747f221b5b454d4db"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a91402a31104f1c57aad3f6804d18401a">popcount_1865_and_years_active</a></td></tr>
-<tr class="memdesc:abe3d5068c9a3d5a747f221b5b454d4db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute amount of population which are [18, 65] years old and active.  <a href="#abe3d5068c9a3d5a747f221b5b454d4db">More...</a><br /></td></tr>
-<tr class="separator:abe3d5068c9a3d5a747f221b5b454d4db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39bf81d203143ceb61fa1472e34fe746"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a6c12e7a934465249adfaf5b476d62eaf">households</a></td></tr>
-<tr class="memdesc:a39bf81d203143ceb61fa1472e34fe746"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of households needed with this population size and these types of households.  <a href="#a39bf81d203143ceb61fa1472e34fe746">More...</a><br /></td></tr>
-<tr class="separator:a39bf81d203143ceb61fa1472e34fe746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9610682c3d25a6c5cf4dc0164988a54"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a></td></tr>
-<tr class="separator:af9610682c3d25a6c5cf4dc0164988a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981511c45d99012d50aefe53d08fef7c"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a4a5ff61121057a278db036df6f3b9290"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a90f5ed4ddabd82da2713fe68f6c1bd6c">contactPools</a> = 1</td></tr>
-<tr class="memdesc:a4a5ff61121057a278db036df6f3b9290"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current amount of ContactPools, used to obtain an Id for a new contactPool.  <a href="#a4a5ff61121057a278db036df6f3b9290">More...</a><br /></td></tr>
-<tr class="separator:a4a5ff61121057a278db036df6f3b9290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84111372ca6318a7237a454c070c9aa8"><td class="memItemLeft" >&#160;&#160;&#160;unsigned int&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a737d7b1ed78c73a8628b1a938a47475f">contactCenters</a> = 1</td></tr>
-<tr class="memdesc:a84111372ca6318a7237a454c070c9aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current amount of ContactCenters, used to obtain an Id for a new contactCenter.  <a href="#a84111372ca6318a7237a454c070c9aa8">More...</a><br /></td></tr>
-<tr class="separator:a84111372ca6318a7237a454c070c9aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12de42c0c4a46907ace4cf4bf04a258f"><td class="memItemLeft" >&#160;&#160;&#160;std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../dd/d32/a00041.html">Household</a> &gt; &gt;&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a56c54e65b247d0b49962a00f382e8912">household_types</a> {}</td></tr>
-<tr class="memdesc:a12de42c0c4a46907ace4cf4bf04a258f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of possible households.  <a href="#a12de42c0c4a46907ace4cf4bf04a258f">More...</a><br /></td></tr>
-<tr class="separator:a12de42c0c4a46907ace4cf4bf04a258f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981511c45d99012d50aefe53d08fef7c"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a981511c45d99012d50aefe53d08fef7c">generated</a></td></tr>
-<tr class="separator:a981511c45d99012d50aefe53d08fef7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef783a0eb04a2a0dfc164b72f2c4503"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:a48c5ac546bc140d958877f66b3385ace"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a1811a952ecb5b6e9043e845cff9f2234">meanCollegeSize</a> = 3000.0</td></tr>
-<tr class="memdesc:a48c5ac546bc140d958877f66b3385ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size used to calculate the amount of Colleges (double to prevent extra cast)  <a href="#a48c5ac546bc140d958877f66b3385ace">More...</a><br /></td></tr>
-<tr class="separator:a48c5ac546bc140d958877f66b3385ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40942c09fb30c5345b7b415ae5672e7a"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#aa71b5402529c5ae2dc2acc30f186fd47">meanCommunitySize</a> = 2000.0</td></tr>
-<tr class="memdesc:a40942c09fb30c5345b7b415ae5672e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size used to calculate the amount of Communities (double to prevent extra cast)  <a href="#a40942c09fb30c5345b7b415ae5672e7a">More...</a><br /></td></tr>
-<tr class="separator:a40942c09fb30c5345b7b415ae5672e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f62989657f9e8b49cbb42c2ef2cf0de"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a379e3f07ea36ff40b12a69fb05822a11">meanK12SchoolSize</a> = 500.0</td></tr>
-<tr class="memdesc:a2f62989657f9e8b49cbb42c2ef2cf0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size used to calculate the amount of K12Schools (double to prevent extra cast)  <a href="#a2f62989657f9e8b49cbb42c2ef2cf0de">More...</a><br /></td></tr>
-<tr class="separator:a2f62989657f9e8b49cbb42c2ef2cf0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80bf1db236e79b4f7b19d272b257c09a"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;&#160;&#160;<a class="el" href="../../d5/d79/a00030.html#a7a8aa6cce07959cac4b85e80b487af5d">meanWorkplaceSchoolSize</a> = 20.0</td></tr>
-<tr class="memdesc:a80bf1db236e79b4f7b19d272b257c09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size used to calculate the amount of Workplaces (double to prevent extra cast)  <a href="#a80bf1db236e79b4f7b19d272b257c09a">More...</a><br /></td></tr>
-<tr class="separator:a80bf1db236e79b4f7b19d272b257c09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef783a0eb04a2a0dfc164b72f2c4503"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a2ef783a0eb04a2a0dfc164b72f2c4503">constants</a></td></tr>
-<tr class="separator:a2ef783a0eb04a2a0dfc164b72f2c4503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af173ec28b1fb8313b64c8a14308b9710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#af173ec28b1fb8313b64c8a14308b9710">AddCommutes</a> (std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; geoGrid)</td></tr>
+<tr class="memdesc:af173ec28b1fb8313b64c8a14308b9710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the commutes that were found to their respective Locations symmetrically.  <a href="#af173ec28b1fb8313b64c8a14308b9710">More...</a><br /></td></tr>
+<tr class="separator:af173ec28b1fb8313b64c8a14308b9710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a9f960d6e61af9bf7cc9230f772834b96"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a9f960d6e61af9bf7cc9230f772834b96">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;config)</td></tr>
-<tr class="memdesc:a9f960d6e61af9bf7cc9230f772834b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the GeoGridconfig.  <a href="#a9f960d6e61af9bf7cc9230f772834b96">More...</a><br /></td></tr>
-<tr class="separator:a9f960d6e61af9bf7cc9230f772834b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a25c66335a8ce2710593123c80ebea5e3"><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, <a class="el" href="../../d0/d61/a00100.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a25c66335a8ce2710593123c80ebea5e3">m_people</a></td></tr>
+<tr class="memdesc:a25c66335a8ce2710593123c80ebea5e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commutes from, to, number.  <a href="#a25c66335a8ce2710593123c80ebea5e3">More...</a><br /></td></tr>
+<tr class="separator:a25c66335a8ce2710593123c80ebea5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad638e9563c6270f35e5a6c03b40572f6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, <a class="el" href="../../df/dc2/a00367.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#ad638e9563c6270f35e5a6c03b40572f6">m_commutes</a></td></tr>
+<tr class="separator:ad638e9563c6270f35e5a6c03b40572f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b57af40336cf2ad466154e97b68701"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a55b57af40336cf2ad466154e97b68701">m_inputStream</a></td></tr>
+<tr class="memdesc:a55b57af40336cf2ad466154e97b68701"><td class="mdescLeft">&#160;</td><td class="mdescRight">file to read.  <a href="#a55b57af40336cf2ad466154e97b68701">More...</a><br /></td></tr>
+<tr class="separator:a55b57af40336cf2ad466154e97b68701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d79/a00030.html#a09f66d214c32d99edff6ddf0ea2b5cbd">m_population</a></td></tr>
+<tr class="memdesc:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">population to use in the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> may be nullptr.  <a href="#a09f66d214c32d99edff6ddf0ea2b5cbd">More...</a><br /></td></tr>
+<tr class="separator:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Configuration data for generating a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<div class="textblock"><p>An abstract base class for creating a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> that was read from a file, can be implemented using multiple file types (proto and json are currently implemented) </p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00032">32</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00029">29</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a402df7e9798ac2206d7e10e0eb158177"></a>
+<a class="anchor" id="a7274a8aba64a533998887ec46fee72bd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::GeoGridConfig::GeoGridConfig </td>
+          <td class="memname">gengeopop::GeoGridReader::GeoGridReader </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Default constructor needed. </p>
-
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00026">26</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">GeoGridConfig.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d79/a00030.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>, <a class="el" href="../../d5/d79/a00030.html#a2ef783a0eb04a2a0dfc164b72f2c4503">constants</a>, and <a class="el" href="../../d5/d79/a00030.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae840dd7732fd6c16ab759adacdd7c35a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gengeopop::GeoGridConfig::Calculate </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d0/d33/a00027.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
+          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
+          <td class="paramname"><em>inputStream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">HouseholdReader</a> &gt;&#160;</td>
-          <td class="paramname"><em>householdReader</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *&#160;</td>
+          <td class="paramname"><em>pop</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -265,18 +225,13 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fill the input and calculated parts of the <a class="el" href="../../d5/d79/a00030.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d6/d97/a00045.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>. </p>
+<p>Parametrized constructor. </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00028">28</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">GeoGridConfig.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d79/a00030.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>, <a class="el" href="../../d5/d79/a00030.html#a981511c45d99012d50aefe53d08fef7c">generated</a>, and <a class="el" href="../../d5/d79/a00030.html#a932e91e15c65933abb7934ecace53f35">input</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d43/a00216_source.html#l00049">gengeopop::GenGeoPopController::ReadDataFiles()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00020">20</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a9f960d6e61af9bf7cc9230f772834b96"></a>
+<a class="anchor" id="a05b9b4cd41490fa218056043090dca06"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -284,428 +239,250 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td class="memname">gengeopop::GeoGridReader::GeoGridReader </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prints the GeoGridconfig. </p>
+<p>No copy constructor. </p>
 
-<p>Definition at line <a class="el" href="../../d5/ddf/a00224_source.html#l00053">53</a> of file <a class="el" href="../../d5/ddf/a00224_source.html">GeoGridConfig.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a6013cfc52c2643a6a967b781ce25a334"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual gengeopop::GeoGridReader::~GeoGridReader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2ed6028b0ac4ee06a820208188ffdb68"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a>&amp; gengeopop::GeoGridReader::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>No copy assignment. </p>
+
+</div>
+</div>
+<a class="anchor" id="a75a53634f7886fdd97d544027663ec9c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../db/db2/a00020.html">GeoGrid</a>&gt; gengeopop::GeoGridReader::Read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perform the actual read and return the created <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+
+<p>Implemented in <a class="el" href="../../dc/d3c/a00028.html#a551020787ddca406bd25104d8d6f7026">gengeopop::GeoGridProtoReader</a>, and <a class="el" href="../../d3/dfe/a00025.html#a9e332a60c7d16588a866a1ca83f6653f">gengeopop::GeoGridJSONReader</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af173ec28b1fb8313b64c8a14308b9710"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::GeoGridReader::AddCommutes </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add the commutes that were found to their respective Locations symmetrically. </p>
+<p>Store the persons (id-&gt;person) that were found while loping over the ContactPools. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00024">24</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d5/d0b/a00220_source.html#l00055">m_commutes</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a9a3f4f357cef24a66d3c9dcdc58f7b5b"></a>
+<a class="anchor" id="a25c66335a8ce2710593123c80ebea5e3"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::fraction_1826_years_WhichAreStudents</td>
+          <td class="memname">std::map&lt;unsigned int, <a class="el" href="../../d0/d61/a00100.html">stride::Person</a>*&gt; gengeopop::GeoGridReader::m_people</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Fraction of calc_fraction_1826 which are students. </p>
+<p>Commutes from, to, number. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00051">51</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00052">52</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/dfb/a00172_source.html#l00032">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00036">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00193">gengeopop::GeoGridJSONReader::ParseContactPool()</a>, <a class="el" href="../../d3/dd5/a00215_source.html#l00195">gengeopop::GeoGridProtoReader::ParseContactPool()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abc57c86996194cd95c586896e8918a20"></a>
+<a class="anchor" id="ad638e9563c6270f35e5a6c03b40572f6"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::fraction_active_commutingPeople</td>
+          <td class="memname">std::vector&lt;std::tuple&lt;unsigned int, unsigned int, <a class="el" href="../../df/dc2/a00367.html">double</a>&gt; &gt; gengeopop::GeoGridReader::m_commutes</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Fraction of calc_1865_and_active which commute. </p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00055">55</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00054">54</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00121">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/df3/a00219_source.html#l00024">AddCommutes()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00091">gengeopop::GeoGridJSONReader::ParseLocation()</a>, <a class="el" href="../../d3/dd5/a00215_source.html#l00089">gengeopop::GeoGridProtoReader::ParseLocation()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a78e9f4c58c365259d7d080dabc329f96"></a>
+<a class="anchor" id="a55b57af40336cf2ad466154e97b68701"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::fraction_student_commutingPeople</td>
+          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::GeoGridReader::m_inputStream</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Fraction of fraction_1826_years_WhichAreStudents which commute. </p>
+<p>file to read. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00057">57</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00057">57</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/dfb/a00172_source.html#l00032">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a34a5fe86ba4e60ef668c1bc60222634d"></a>
+<a class="anchor" id="a09f66d214c32d99edff6ddf0ea2b5cbd"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::fraction_1865_years_active</td>
+          <td class="memname"><a class="el" href="../../d4/d3a/a00101.html">stride::Population</a>* gengeopop::GeoGridReader::m_population</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active. </p>
+<p>population to use in the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> may be nullptr. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00060">60</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00058">58</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00036">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae5b9fde4c7f1f62339043b23f91850f5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::populationSize</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Absolute size of the population. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00063">63</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00043">stride::GenPopBuilder::Build()</a>, <a class="el" href="../../d3/dd5/a00215_source.html#l00054">main()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a932e91e15c65933abb7934ecace53f35"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   gengeopop::GeoGridConfig::input</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00032">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00036">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00121">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00043">stride::GenPopBuilder::Build()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00028">Calculate()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../d3/dd5/a00215_source.html#l00054">main()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6f6aa2c75003ae4952a3ad7ce5afe880"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::compulsoryPupils</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Numbers of persons for which school is compulsory (i.e. 6-18 years old). </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00072">72</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2deb75fb25072ae95d500f56f5bf3254"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::popcount_1865_years</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Absolute amount of population which are [18, 65) years old. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00075">75</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afd0c5db56314f0efa26ce9dfd84b98c5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::popcount_1826_years</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Absolute amount of population which are [18, 26) years old. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00078">78</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a126c9bbb820118ce7454c2a31d0d8177"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::popcount_1826_years_and_student</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Absolute amount of population which are [18, 26) years old and are a student. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00081">81</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a91402a31104f1c57aad3f6804d18401a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::popcount_1865_and_years_active</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Absolute amount of population which are [18, 65] years old and active. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00084">84</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6c12e7a934465249adfaf5b476d62eaf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::households</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The number of households needed with this population size and these types of households. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00087">87</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/d3e/a00253_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af9610682c3d25a6c5cf4dc0164988a54"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   gengeopop::GeoGridConfig::calculated</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00028">Calculate()</a>, <a class="el" href="../../d6/d9c/a00352_source.html#l00091">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00026">GeoGridConfig()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a90f5ed4ddabd82da2713fe68f6c1bd6c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::contactPools = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The current amount of ContactPools, used to obtain an Id for a new contactPool. </p>
-<p>! 0 has special meaning (not assigned)! </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00097">97</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a737d7b1ed78c73a8628b1a938a47475f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int gengeopop::GeoGridConfig::contactCenters = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </p>
-<p>! 0 has special meaning (not assigned)! </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00101">101</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>, and <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a56c54e65b247d0b49962a00f382e8912"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../dd/d32/a00041.html">Household</a>&gt; &gt; gengeopop::GeoGridConfig::household_types {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A list of possible households. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00104">104</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d04/a00255_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a981511c45d99012d50aefe53d08fef7c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   gengeopop::GeoGridConfig::generated</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d0/d3e/a00253_source.html#l00025">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d4/d04/a00255_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d5/ddf/a00224_source.html#l00028">Calculate()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00026">GeoGridConfig()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1811a952ecb5b6e9043e845cff9f2234"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::meanCollegeSize = 3000.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Size used to calculate the amount of Colleges (double to prevent extra cast) </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00113">113</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa71b5402529c5ae2dc2acc30f186fd47"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::meanCommunitySize = 2000.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Size used to calculate the amount of Communities (double to prevent extra cast) </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00116">116</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a379e3f07ea36ff40b12a69fb05822a11"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::meanK12SchoolSize = 500.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Size used to calculate the amount of K12Schools (double to prevent extra cast) </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00119">119</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7a8aa6cce07959cac4b85e80b487af5d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> gengeopop::GeoGridConfig::meanWorkplaceSchoolSize = 20.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Size used to calculate the amount of Workplaces (double to prevent extra cast) </p>
-
-<p>Definition at line <a class="el" href="../../dc/d98/a00225_source.html#l00122">122</a> of file <a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2ef783a0eb04a2a0dfc164b72f2c4503"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }   gengeopop::GeoGridConfig::constants</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="../../d5/dcb/a00170_source.html#l00027">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../db/d10/a00350_source.html#l00027">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d2/d82/a00279_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d5/de9/a00176_source.html#l00027">gengeopop::CommunityGenerator::Apply()</a>, and <a class="el" href="../../d5/ddf/a00224_source.html#l00026">GeoGridConfig()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/de5/a00209_source.html#l00041">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd5/a00215_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d98/a00225_source.html">GeoGridConfig.h</a></li>
-<li><a class="el" href="../../d5/ddf/a00224_source.html">GeoGridConfig.cpp</a></li>
+<li><a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReader.h</a></li>
+<li><a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">GeoGridConfig</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

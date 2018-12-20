@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::FileSys Class Reference</title>
+<title>Stride Reference Manual: stride::util::Rn&lt; E &gt;::Info Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,173 +107,80 @@ $(document).ready(function(){initNavTree('d8/dfa/a00121.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
-<a href="../../d9/dce/a01052.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d7/d06/a01005.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::FileSys Class Reference</div>  </div>
+<div class="title">stride::util::Rn&lt; E &gt;::Info Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for interaction with filesystem.  
+<p>POD representation of the RNManager's state.  
  <a href="../../d8/dfa/a00121.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::FileSys:</div>
+Collaboration diagram for stride::util::Rn&lt; E &gt;::Info:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d99/a01053.gif" border="0" usemap="#stride_1_1util_1_1FileSys_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1FileSys_coll__map" id="stride_1_1util_1_1FileSys_coll__map">
+<div class="center"><img src="../../dc/d81/a01006.gif" border="0" usemap="#stride_1_1util_1_1Rn_3_01E_01_4_1_1Info_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1Rn_3_01E_01_4_1_1Info_coll__map" id="stride_1_1util_1_1Rn_3_01E_01_4_1_1Info_coll__map">
+<area shape="rect" id="node2" title="STL class. " alt="" coords="31,147,117,224"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,5,143,97"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dc8/a00122.html">Dirs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Using this to avoid global variables &amp; their initialization.  <a href="../../df/dc8/a00122.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a88cf7dab5c5c75a98cb84f106fef8b5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a88cf7dab5c5c75a98cb84f106fef8b5d">Info</a> (std::string seed_seq_init=&quot;1,2,3,4&quot;, std::string state=&quot;&quot;, unsigned int stream_count=1U)</td></tr>
+<tr class="separator:a88cf7dab5c5c75a98cb84f106fef8b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a33c582aaa9397e6ba22efc14b1a44189"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a33c582aaa9397e6ba22efc14b1a44189">IsDirectoryString</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a33c582aaa9397e6ba22efc14b1a44189"><td class="mdescLeft">&#160;</td><td class="mdescRight">String represents a directory path (relative or absolute) iff it contains at least one / (may be a trailing one).  <a href="#a33c582aaa9397e6ba22efc14b1a44189">More...</a><br /></td></tr>
-<tr class="separator:a33c582aaa9397e6ba22efc14b1a44189"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1710fc9d900dba634d24c76f4bea072c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a1710fc9d900dba634d24c76f4bea072c">CreateDirectory</a> (std::string s)</td></tr>
-<tr class="memdesc:a1710fc9d900dba634d24c76f4bea072c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a directory relative to the current directory with the given path, returns if it was succesful.  <a href="#a1710fc9d900dba634d24c76f4bea072c">More...</a><br /></td></tr>
-<tr class="separator:a1710fc9d900dba634d24c76f4bea072c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#aa9230a86f4c23a2ea906ebaaafb18e37">BuildPath</a> (const std::string &amp;output_prefix, const std::string &amp;filename)</td></tr>
-<tr class="memdesc:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpret prefix (directory or filename prefix) and return appropriate path.  <a href="#aa9230a86f4c23a2ea906ebaaafb18e37">More...</a><br /></td></tr>
-<tr class="separator:aa9230a86f4c23a2ea906ebaaafb18e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d54b4b545adf557c65c238ad2fb7801"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a5d54b4b545adf557c65c238ad2fb7801">ReadPtreeFile</a> (const filesys::path &amp;f_p)</td></tr>
-<tr class="memdesc:a5d54b4b545adf557c65c238ad2fb7801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read ptree from file at path.  <a href="#a5d54b4b545adf557c65c238ad2fb7801">More...</a><br /></td></tr>
-<tr class="separator:a5d54b4b545adf557c65c238ad2fb7801"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="memItemLeft" align="right" valign="top">static boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#ad397ab1440ed0fb182ed9afc7ea6fa10">ReadPtreeFile</a> (const std::string &amp;f_n)</td></tr>
-<tr class="memdesc:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read ptree from file specifified by name string.  <a href="#ad397ab1440ed0fb182ed9afc7ea6fa10">More...</a><br /></td></tr>
-<tr class="separator:ad397ab1440ed0fb182ed9afc7ea6fa10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ab591daff5792d906df8d113de9b81"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a04ab591daff5792d906df8d113de9b81">WritePtreeFile</a> (const filesys::path &amp;f_p, const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="memdesc:a04ab591daff5792d906df8d113de9b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write ptree to file at path.  <a href="#a04ab591daff5792d906df8d113de9b81">More...</a><br /></td></tr>
-<tr class="separator:a04ab591daff5792d906df8d113de9b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a30bfccbc01dda2a7a09fda4560cb13ea">WritePtreeFile</a> (const std::string &amp;f_n, const boost::property_tree::ptree &amp;pt)</td></tr>
-<tr class="memdesc:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write ptree to file specifified by name string.  <a href="#a30bfccbc01dda2a7a09fda4560cb13ea">More...</a><br /></td></tr>
-<tr class="separator:a30bfccbc01dda2a7a09fda4560cb13ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a2ed578f28e57ef8a7e0c2653c30c10e6">GetCurrentDir</a> ()</td></tr>
-<tr class="memdesc:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get path to the current directory.  <a href="#a2ed578f28e57ef8a7e0c2653c30c10e6">More...</a><br /></td></tr>
-<tr class="separator:a2ed578f28e57ef8a7e0c2653c30c10e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a86435813fb1eb87fcf9023ddbf27fe4a">GetExecPath</a> ()</td></tr>
-<tr class="memdesc:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get path of the executable.  <a href="#a86435813fb1eb87fcf9023ddbf27fe4a">More...</a><br /></td></tr>
-<tr class="separator:a86435813fb1eb87fcf9023ddbf27fe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a9dde9db2fbf4a2f6fa9e3116b5fe2949">CheckInstallEnv</a> (std::function&lt; void(const std::string &amp;)&gt; logger=std::function&lt; void(const std::string &amp;)&gt;())</td></tr>
-<tr class="memdesc:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that current dir is root dir and all install dirs are present.  <a href="#a9dde9db2fbf4a2f6fa9e3116b5fe2949">More...</a><br /></td></tr>
-<tr class="separator:a9dde9db2fbf4a2f6fa9e3116b5fe2949"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a308fbee71fc0e0e43f3c4d1de1b61808">GetBinDir</a> ()</td></tr>
-<tr class="memdesc:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return bin dir (only relevant when use_install_dirs mode is active)  <a href="#a308fbee71fc0e0e43f3c4d1de1b61808">More...</a><br /></td></tr>
-<tr class="separator:a308fbee71fc0e0e43f3c4d1de1b61808"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74338206b2b8392ff8e727b0be31d123"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a74338206b2b8392ff8e727b0be31d123">GetConfigDir</a> ()</td></tr>
-<tr class="memdesc:a74338206b2b8392ff8e727b0be31d123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return config dir (only relevant when use_install_dirs mode is active)  <a href="#a74338206b2b8392ff8e727b0be31d123">More...</a><br /></td></tr>
-<tr class="separator:a74338206b2b8392ff8e727b0be31d123"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#adf7673eaecc73f8e0b1ac635c23a8d3f">GetDataDir</a> ()</td></tr>
-<tr class="memdesc:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">/// Return data dir (only relevant when use_install_dirs mode is active)  <a href="#adf7673eaecc73f8e0b1ac635c23a8d3f">More...</a><br /></td></tr>
-<tr class="separator:adf7673eaecc73f8e0b1ac635c23a8d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a08ac8bd3a86a0db3901aa2d422bd6d13">GetRootDir</a> ()</td></tr>
-<tr class="memdesc:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return install root dir (only relevant when use_install_dirs mode is active)  <a href="#a08ac8bd3a86a0db3901aa2d422bd6d13">More...</a><br /></td></tr>
-<tr class="separator:a08ac8bd3a86a0db3901aa2d422bd6d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf429c79cfcd82e0f363d6b977bedeb1"><td class="memItemLeft" align="right" valign="top">static filesys::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#abf429c79cfcd82e0f363d6b977bedeb1">GetTestsDir</a> ()</td></tr>
-<tr class="memdesc:abf429c79cfcd82e0f363d6b977bedeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return tests dir (only relevant when use_install_dirs mode is active)  <a href="#abf429c79cfcd82e0f363d6b977bedeb1">More...</a><br /></td></tr>
-<tr class="separator:abf429c79cfcd82e0f363d6b977bedeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a6f86062b82181245b6b483926eea62f1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dc8/a00122.html">Dirs</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a6f86062b82181245b6b483926eea62f1">Initialize</a> ()</td></tr>
-<tr class="memdesc:a6f86062b82181245b6b483926eea62f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all paths.  <a href="#a6f86062b82181245b6b483926eea62f1">More...</a><br /></td></tr>
-<tr class="separator:a6f86062b82181245b6b483926eea62f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a811a1d113f57785952045d9541c95db5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/dc8/a00122.html">Dirs</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a811a1d113f57785952045d9541c95db5">Get</a> ()</td></tr>
-<tr class="memdesc:a811a1d113f57785952045d9541c95db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return paths.  <a href="#a811a1d113f57785952045d9541c95db5">More...</a><br /></td></tr>
-<tr class="separator:a811a1d113f57785952045d9541c95db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a4067dec485ede8eff56975b1c18e2a0b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a4067dec485ede8eff56975b1c18e2a0b">m_seed_seq_init</a></td></tr>
+<tr class="memdesc:a4067dec485ede8eff56975b1c18e2a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for the engine.  <a href="#a4067dec485ede8eff56975b1c18e2a0b">More...</a><br /></td></tr>
+<tr class="separator:a4067dec485ede8eff56975b1c18e2a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490ea3a4ab4d9ed306da0e001e862d22"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a490ea3a4ab4d9ed306da0e001e862d22">m_state</a></td></tr>
+<tr class="memdesc:a490ea3a4ab4d9ed306da0e001e862d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long string representing current state.  <a href="#a490ea3a4ab4d9ed306da0e001e862d22">More...</a><br /></td></tr>
+<tr class="separator:a490ea3a4ab4d9ed306da0e001e862d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c7ee86d933d5098e8a517152e99e235"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/dfa/a00121.html#a9c7ee86d933d5098e8a517152e99e235">m_stream_count</a></td></tr>
+<tr class="memdesc:a9c7ee86d933d5098e8a517152e99e235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of streams set up with the engine.  <a href="#a9c7ee86d933d5098e8a517152e99e235">More...</a><br /></td></tr>
+<tr class="separator:a9c7ee86d933d5098e8a517152e99e235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for interaction with filesystem. </p>
+<div class="textblock"><h3>template&lt;typename E&gt;<br />
+struct stride::util::Rn&lt; E &gt;::Info</h3>
 
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00042">42</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a33c582aaa9397e6ba22efc14b1a44189"></a>
+<p>POD representation of the RNManager's state. </p>
+<p>If no state is available, i.e. state is an empty string, the initial state corresponding to the seed sequence is implied. If a state is available, the seed sequence is disregarded. </p>
+
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00053">53</a> of file <a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a88cf7dab5c5c75a98cb84f106fef8b5d"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::util::FileSys::IsDirectoryString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>String represents a directory path (relative or absolute) iff it contains at least one / (may be a trailing one). </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00192">192</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/de1/a00213_source.html#l00051">BuildPath()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00071">stride::ControlHelper::CheckOutputPrefix()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1710fc9d900dba634d24c76f4bea072c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::util::FileSys::CreateDirectory </td>
+          <td class="memname"><a class="el" href="../../d4/d98/a00120.html">stride::util::Rn</a>&lt; E &gt;::Info::Info </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create a directory relative to the current directory with the given path, returns if it was succesful. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00198">198</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00071">stride::ControlHelper::CheckOutputPrefix()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa9230a86f4c23a2ea906ebaaafb18e37"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">filesys::path stride::util::FileSys::BuildPath </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em>, </td>
+          <td class="paramname"><em>seed_seq_init</em> = <code>&quot;1,2,3,4&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>state</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>stream_count</em> = <code>1U</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -283,477 +190,86 @@ Static Private Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Interpret prefix (directory or filename prefix) and return appropriate path. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00051">51</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00192">IsDirectoryString()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d23/a00326_source.html#l00047">stride::StanController::Control()</a>, <a class="el" href="../../d5/d35/a00266_source.html#l00030">stride::output::InfectedFile::InfectedFile()</a>, <a class="el" href="../../d2/d82/a00142_source.html#l00037">stride::output::AdoptedFile::Initialize()</a>, <a class="el" href="../../da/d75/a00334_source.html#l00037">stride::output::SummaryFile::Initialize()</a>, <a class="el" href="../../db/d7b/a00296_source.html#l00036">stride::output::PersonsFile::Initialize()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00078">stride::ControlHelper::InstallLogger()</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00055">55</a> of file <a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5d54b4b545adf557c65c238ad2fb7801"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a4067dec485ede8eff56975b1c18e2a0b"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::FileSys::ReadPtreeFile </td>
-          <td>(</td>
-          <td class="paramtype">const filesys::path &amp;&#160;</td>
-          <td class="paramname"><em>f_p</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::string <a class="el" href="../../d4/d98/a00120.html">stride::util::Rn</a>&lt; E &gt;::Info::m_seed_seq_init</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Read ptree from file at path. </p>
+<p>Seed for the engine. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00207">207</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00058">58</a> of file <a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/d64/a00181_source.html#l00036">calibration::ConfigFileCalibrationRunner::ConfigFileCalibrationRunner()</a>, <a class="el" href="../../db/d53/a00321_source.html#l00102">stride::SimBuilder::ReadAgeContactPtree()</a>, <a class="el" href="../../db/d53/a00321_source.html#l00109">stride::SimBuilder::ReadDiseasePtree()</a>, and <a class="el" href="../../dc/d31/a00208_source.html#l00082">stride::DiseaseSeeder::Vaccinate()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/dd4/a00291_source.html#l00097">stride::util::Rn&lt; E &gt;::GetInfo()</a>, <a class="el" href="../../da/dd4/a00291_source.html#l00111">stride::util::Rn&lt; E &gt;::Initialize()</a>, and <a class="el" href="../../d7/da0/a00198_source.html#l00054">main()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad397ab1440ed0fb182ed9afc7ea6fa10"></a>
+<a class="anchor" id="a490ea3a4ab4d9ed306da0e001e862d22"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">ptree stride::util::FileSys::ReadPtreeFile </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>f_n</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::string <a class="el" href="../../d4/d98/a00120.html">stride::util::Rn</a>&lt; E &gt;::Info::m_state</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Read ptree from file specifified by name string. </p>
+<p>Long string representing current state. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00226">226</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00061">61</a> of file <a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/dd4/a00291_source.html#l00097">stride::util::Rn&lt; E &gt;::GetInfo()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a04ab591daff5792d906df8d113de9b81"></a>
+<a class="anchor" id="a9c7ee86d933d5098e8a517152e99e235"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void stride::util::FileSys::WritePtreeFile </td>
-          <td>(</td>
-          <td class="paramtype">const filesys::path &amp;&#160;</td>
-          <td class="paramname"><em>f_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">unsigned int <a class="el" href="../../d4/d98/a00120.html">stride::util::Rn</a>&lt; E &gt;::Info::m_stream_count</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Write ptree to file at path. </p>
+<p>Number of streams set up with the engine. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00228">228</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/dd4/a00291_source.html#l00062">62</a> of file <a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a30bfccbc01dda2a7a09fda4560cb13ea"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::FileSys::WritePtreeFile </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>f_n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>pt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write ptree to file specifified by name string. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00239">239</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
+<p>Referenced by <a class="el" href="../../da/dd4/a00291_source.html#l00097">stride::util::Rn&lt; E &gt;::GetInfo()</a>, <a class="el" href="../../da/dd4/a00291_source.html#l00111">stride::util::Rn&lt; E &gt;::Initialize()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00054">main()</a>, <a class="el" href="../../da/dd4/a00291_source.html#l00085">stride::util::Rn&lt; E &gt;::operator==()</a>, and <a class="el" href="../../da/dd4/a00291_source.html#l00141">stride::util::Rn&lt; E &gt;::Seed()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2ed578f28e57ef8a7e0c2653c30c10e6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetCurrentDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get path to the current directory. </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00069">69</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00102">stride::util::FileSys::Dirs::m_current_dir</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a86435813fb1eb87fcf9023ddbf27fe4a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetExecPath </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get path of the executable. </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00072">72</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00064">CheckInstallEnv()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00105">stride::util::FileSys::Dirs::m_exec_path</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9dde9db2fbf4a2f6fa9e3116b5fe2949"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::util::FileSys::CheckInstallEnv </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>logger</em> = <code>std::function&lt;void(const&#160;std::string&amp;)&gt;()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Verify that current dir is root dir and all install dirs are present. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logger</td><td>logger verification finds failures; defaults to no-op. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>staus true iff everything verifies ok. </dd></dl>
-<p>There has to be a config dir in the install root dir.</p>
-<p>There has to be a data dir in the install root dir.</p>
-<p>There has to be a data dir in the install root dir. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00064">64</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00061">stride::ControlHelper::CheckEnv()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00072">GetExecPath()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a308fbee71fc0e0e43f3c4d1de1b61808"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetBinDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return bin dir (only relevant when use_install_dirs mode is active) </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00082">82</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00108">stride::util::FileSys::Dirs::m_bin_dir</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a74338206b2b8392ff8e727b0be31d123"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetConfigDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return config dir (only relevant when use_install_dirs mode is active) </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00085">85</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00109">stride::util::FileSys::Dirs::m_config_dir</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d64/a00181_source.html#l00036">calibration::ConfigFileCalibrationRunner::ConfigFileCalibrationRunner()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adf7673eaecc73f8e0b1ac635c23a8d3f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetDataDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>/// Return data dir (only relevant when use_install_dirs mode is active) </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00088">88</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00110">stride::util::FileSys::Dirs::m_data_dir</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/da2/a00307_source.html#l00030">gengeopop::ReaderFactory::CreateCitiesReader()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00040">gengeopop::ReaderFactory::CreateCommutesReader()</a>, <a class="el" href="../../d0/da2/a00307_source.html#l00050">gengeopop::ReaderFactory::CreateHouseholdReader()</a>, <a class="el" href="../../d3/d65/a00154_source.html#l00122">stride::Calendar::InitializeHolidays()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>, <a class="el" href="../../d5/df1/a00206_source.html#l00043">stride::DefaultPopBuilder::MakePersons()</a>, <a class="el" href="../../db/d53/a00321_source.html#l00102">stride::SimBuilder::ReadAgeContactPtree()</a>, and <a class="el" href="../../db/d53/a00321_source.html#l00109">stride::SimBuilder::ReadDiseasePtree()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a08ac8bd3a86a0db3901aa2d422bd6d13"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetRootDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return install root dir (only relevant when use_install_dirs mode is active) </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00091">91</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00111">stride::util::FileSys::Dirs::m_root_dir</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abf429c79cfcd82e0f363d6b977bedeb1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static filesys::path stride::util::FileSys::GetTestsDir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return tests dir (only relevant when use_install_dirs mode is active) </p>
-
-<p>Definition at line <a class="el" href="../../d3/dd1/a00214_source.html#l00094">94</a> of file <a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a>.</p>
-
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00095">Get()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00112">stride::util::FileSys::Dirs::m_tests_dir</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6f86062b82181245b6b483926eea62f1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dc8/a00122.html">FileSys::Dirs</a> stride::util::FileSys::Initialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initialize all paths. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00101">101</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d3/dd1/a00214_source.html#l00108">stride::util::FileSys::Dirs::m_bin_dir</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00109">stride::util::FileSys::Dirs::m_config_dir</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00102">stride::util::FileSys::Dirs::m_current_dir</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00110">stride::util::FileSys::Dirs::m_data_dir</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00105">stride::util::FileSys::Dirs::m_exec_path</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00111">stride::util::FileSys::Dirs::m_root_dir</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00112">stride::util::FileSys::Dirs::m_tests_dir</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00135">stride::util::ToLower()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a811a1d113f57785952045d9541c95db5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dc8/a00122.html">FileSys::Dirs</a> &amp; stride::util::FileSys::Get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return paths. </p>
-
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00095">95</a> of file <a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/dd1/a00214_source.html#l00082">GetBinDir()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00085">GetConfigDir()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00069">GetCurrentDir()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00088">GetDataDir()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00072">GetExecPath()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00091">GetRootDir()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00094">GetTestsDir()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/dd1/a00214_source.html">FileSys.h</a></li>
-<li><a class="el" href="../../d1/de1/a00213_source.html">FileSys.cpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../da/dd4/a00291_source.html">Rn.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../da/dee/a00383.html">util</a></li><li class="navelem"><a class="el" href="../../d8/dfa/a00121.html">FileSys</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ddb/a00361.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d98/a00120.html">Rn</a></li><li class="navelem"><a class="el" href="../../d8/dfa/a00121.html">Info</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

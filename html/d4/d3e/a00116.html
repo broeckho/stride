@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::ConfigInfo Class Reference</title>
+<title>Stride Reference Manual: stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,236 +107,60 @@ $(document).ready(function(){initNavTree('d4/d3e/a00116.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../db/d14/a01040.html">List of all members</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="../../d0/daa/a01029.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::ConfigInfo Class Reference</div>  </div>
+<div class="title">stride::util::ii_detail::make_void&lt; Ts &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Config information.  
- <a href="../../d4/d3e/a00116.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d39/a00257_source.html">is_iterator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::ConfigInfo:</div>
+Collaboration diagram for stride::util::ii_detail::make_void&lt; Ts &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d83/a01041.gif" border="0" usemap="#stride_1_1util_1_1ConfigInfo_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1ConfigInfo_coll__map" id="stride_1_1util_1_1ConfigInfo_coll__map">
+<div class="center"><img src="../../de/d41/a01030.gif" border="0" usemap="#stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map" id="stride_1_1util_1_1ii__detail_1_1make__void_3_01Ts_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a> ()</td></tr>
-<tr class="memdesc:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if OpenMP in executable, false otherwise.  <a href="#ad6fc5f3f3e32a15f059c64b74dfea905">More...</a><br /></td></tr>
-<tr class="separator:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#a9842e76d67b4e02e5c31a3071ec286d0">HaveQt5</a> ()</td></tr>
-<tr class="memdesc:a9842e76d67b4e02e5c31a3071ec286d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if Qt5 in executable, false otherwise.  <a href="#a9842e76d67b4e02e5c31a3071ec286d0">More...</a><br /></td></tr>
-<tr class="separator:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a> ()</td></tr>
-<tr class="memdesc:aea2c9d397f10f54b7ae47f4b0f181799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return git revision string.  <a href="#aea2c9d397f10f54b7ae47f4b0f181799">More...</a><br /></td></tr>
-<tr class="separator:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502bd4410a3e77792ea575f77f470d41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a> ()</td></tr>
-<tr class="memdesc:a502bd4410a3e77792ea575f77f470d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current hostname.  <a href="#a502bd4410a3e77792ea575f77f470d41">More...</a><br /></td></tr>
-<tr class="separator:a502bd4410a3e77792ea575f77f470d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4240ce29160e778c69f9e246e1747d"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a> ()</td></tr>
-<tr class="memdesc:a6b4240ce29160e778c69f9e246e1747d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of threads (in case of OpenMP).  <a href="#a6b4240ce29160e778c69f9e246e1747d">More...</a><br /></td></tr>
-<tr class="separator:a6b4240ce29160e778c69f9e246e1747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada59da077e51cbd44e829a88c5cc62e3"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#ada59da077e51cbd44e829a88c5cc62e3">ProcessorCount</a> ()</td></tr>
-<tr class="memdesc:ada59da077e51cbd44e829a88c5cc62e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return processor count for system.  <a href="#ada59da077e51cbd44e829a88c5cc62e3">More...</a><br /></td></tr>
-<tr class="separator:ada59da077e51cbd44e829a88c5cc62e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4183f045c6086dabede526dea8e6cedb"><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3e/a00116.html#a4183f045c6086dabede526dea8e6cedb">type</a></td></tr>
+<tr class="separator:a4183f045c6086dabede526dea8e6cedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Config information. </p>
+<div class="textblock"><h3>template&lt;typename... Ts&gt;<br />
+struct stride::util::ii_detail::make_void&lt; Ts &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00031">31</a> of file <a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6fc5f3f3e32a15f059c64b74dfea905"></a>
+
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00033">33</a> of file <a class="el" href="../../d9/d39/a00257_source.html">is_iterator.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a4183f045c6086dabede526dea8e6cedb"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename... Ts&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveOpenMP </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef void <a class="el" href="../../d4/d3e/a00116.html">stride::util::ii_detail::make_void</a>&lt; Ts &gt;::<a class="el" href="../../d4/d3e/a00116.html#a4183f045c6086dabede526dea8e6cedb">type</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>True if OpenMP in executable, false otherwise. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00035">35</a> of file <a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d39/a00257_source.html#l00035">35</a> of file <a class="el" href="../../d9/d39/a00257_source.html">is_iterator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9842e76d67b4e02e5c31a3071ec286d0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveQt5 </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>True if Qt5 in executable, false otherwise. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00045">45</a> of file <a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00035">GetHostname()</a>, <a class="el" href="../../dc/d52/a00183_source.html#l00033">GitRevision()</a>, and <a class="el" href="../../dc/d52/a00183_source.html#l00042">NumberAvailableThreads()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aea2c9d397f10f54b7ae47f4b0f181799"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GitRevision </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return git revision string. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00033">33</a> of file <a class="el" href="../../dc/d52/a00183_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dc/d52/a00183_source.html#l00028">TOSTRING</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d94/a00184_source.html#l00045">HaveQt5()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a502bd4410a3e77792ea575f77f470d41"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GetHostname </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return current hostname. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00035">35</a> of file <a class="el" href="../../dc/d52/a00183_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d94/a00184_source.html#l00045">HaveQt5()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6b4240ce29160e778c69f9e246e1747d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::NumberAvailableThreads </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return number of threads (in case of OpenMP). </p>
-
-<p>Definition at line <a class="el" href="../../dc/d52/a00183_source.html#l00042">42</a> of file <a class="el" href="../../dc/d52/a00183_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d2/d94/a00184_source.html#l00045">HaveQt5()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00094">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ada59da077e51cbd44e829a88c5cc62e3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr unsigned int stride::util::ConfigInfo::ProcessorCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return processor count for system. </p>
-
-<p>Definition at line <a class="el" href="../../d2/d94/a00184_source.html#l00057">57</a> of file <a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d2/d94/a00184_source.html">ConfigInfo.h</a></li>
-<li><a class="el" href="../../dc/d52/a00183_source.html">ConfigInfo.cpp</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d9/d39/a00257_source.html">is_iterator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../da/dee/a00383.html">util</a></li><li class="navelem"><a class="el" href="../../d4/d3e/a00116.html">ConfigInfo</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">stride</a></li><li class="navelem"><a class="el" href="../../d7/ddb/a00361.html">util</a></li><li class="navelem"><a class="el" href="../../d9/d9b/a00363.html">ii_detail</a></li><li class="navelem"><a class="el" href="../../d4/d3e/a00116.html">make_void</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

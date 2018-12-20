@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Subject.cpp File Reference</title>
+<title>Stride Reference Manual: WorkplacePopulator.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,21 +107,43 @@ $(document).ready(function(){initNavTree('d8/df7/a00331.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Subject.cpp File Reference</div>  </div>
+<div class="title">WorkplacePopulator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Definition of Subject/Observer for SimEvents.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d50/a00332_source.html">Subject.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dc/d50/a00332_source.html">WorkplacePopulator.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/df1/a00206_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/db5/a00328_source.html">gengeopop/Workplace.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/dfb/a00172_source.html">pool/ContactPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d28/a00276_source.html">pop/Person.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/dd0/a00191_source.html">util/ExcAssert.h</a>&quot;</code><br />
+<code>#include &lt;trng/uniform_int_dist.hpp&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Subject.cpp:</div>
+Include dependency graph for WorkplacePopulator.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d85/a00679.gif" border="0" usemap="#Subject_8cpp" alt=""/></div>
-<map name="Subject_8cpp" id="Subject_8cpp">
-<area shape="rect" id="node2" href="../../dc/d50/a00332.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="159,80,241,107"/>
-<area shape="rect" id="node3" href="../../dd/dd7/a00260.html" title="Definition of EventId. " alt="" coords="105,155,151,181"/>
-<area shape="rect" id="node6" href="../../d2/d0a/a00333.html" title="Interface/Implementation of Subject. " alt="" coords="219,155,325,181"/>
+<div class="center"><img src="../../d1/d97/a00670.gif" border="0" usemap="#WorkplacePopulator_8cpp" alt=""/></div>
+<map name="WorkplacePopulator_8cpp" id="WorkplacePopulator_8cpp">
+<area shape="rect" id="node2" href="../../dc/d50/a00332.html" title="WorkplacePopulator.h" alt="" coords="1410,80,1569,107"/>
+<area shape="rect" id="node18" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1381,796,1523,823"/>
+<area shape="rect" id="node24" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="1780,625,1887,651"/>
+<area shape="rect" id="node41" href="../../d5/df1/a00206.html" title="gengeopop/GeoGridConfig.h" alt="" coords="485,229,688,256"/>
+<area shape="rect" id="node47" href="../../d4/db5/a00328.html" title="gengeopop/Workplace.h" alt="" coords="975,155,1150,181"/>
+<area shape="rect" id="node48" href="../../d9/dd0/a00191.html" title="util/ExcAssert.h" alt="" coords="1924,625,2044,651"/>
+<area shape="rect" id="node3" href="../../dd/d56/a00274.html" title="PartialPopulator.h" alt="" coords="1337,155,1471,181"/>
+<area shape="rect" id="node4" href="../../de/d79/a00203.html" title="gengeopop/GeoGrid.h" alt="" coords="521,453,684,480"/>
+<area shape="rect" id="node32" href="../../d8/d0a/a00292.html" title="Interface of RnMan. " alt="" coords="1489,625,1589,651"/>
+<area shape="rect" id="node5" href="../../d3/dcc/a00264.html" title="KdTree.h" alt="" coords="943,625,1019,651"/>
+<area shape="rect" id="node13" href="../../d5/d35/a00266.html" title="Location.h" alt="" coords="509,625,597,651"/>
+<area shape="rect" id="node23" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1474,535,1603,562"/>
+<area shape="rect" id="node40" href="../../dd/de3/a00201.html" title="GeoAggregator.h" alt="" coords="435,535,565,562"/>
+<area shape="rect" id="node19" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="1496,871,1691,897"/>
+<area shape="rect" id="node20" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="1251,871,1421,897"/>
+<area shape="rect" id="node25" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="1771,714,1901,741"/>
+<area shape="rect" id="node26" href="../../d2/dc8/a00242.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2068,714,2236,741"/>
+<area shape="rect" id="node33" href="../../da/dd4/a00291.html" title="Interface of RnPcg. " alt="" coords="1357,714,1408,741"/>
+<area shape="rect" id="node42" href="../../df/d17/a00231.html" title="gengeopop/Household.h" alt="" coords="539,304,717,331"/>
+<area shape="rect" id="node43" href="../../dc/de6/a00167.html" title="ContactCenter.h" alt="" coords="565,379,691,405"/>
+<area shape="rect" id="node49" href="../../dd/df4/a00193.html" title="util/Exception.h" alt="" coords="1925,714,2043,741"/>
 </map>
 </div>
 </div>
@@ -129,21 +151,16 @@ Include dependency graph for Subject.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/d93/a00341"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definition of Subject/Observer for SimEvents. </p>
-
-<p>Definition in file <a class="el" href="../../d8/df7/a00331_source.html">Subject.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d8/df7/a00331.html">Subject.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d8/df7/a00331.html">WorkplacePopulator.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

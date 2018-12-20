@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CSVRow.h File Reference</title>
+<title>Stride Reference Manual: GenPopBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -106,42 +106,45 @@ $(document).ready(function(){initNavTree('d3/db1/a00200.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CSVRow.h File Reference</div>  </div>
+<div class="title">GenPopBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header file of base class for config that needs to be read from a file.  
+<p>Initialize populations.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dbb/a00330_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &lt;boost/lexical_cast.hpp&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;ostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d76/a00134_source.html">AbstractPopBuilder.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree_fwd.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CSVRow.h:</div>
+Include dependency graph for GenPopBuilder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/da0/a00483.gif" border="0" usemap="#CSVRow_8h" alt=""/></div>
-<map name="CSVRow_8h" id="CSVRow_8h">
-<area shape="rect" id="node2" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="391,80,514,107"/>
+<div class="center"><img src="../../d0/d29/a00470.gif" border="0" usemap="#GenPopBuilder_8h" alt=""/></div>
+<map name="GenPopBuilder_8h" id="GenPopBuilder_8h">
+<area shape="rect" id="node2" href="../../de/d76/a00134.html" title="Base Class for PopBuilders. " alt="" coords="1743,80,1897,107"/>
+<area shape="rect" id="node3" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1681,155,1810,181"/>
+<area shape="rect" id="node29" href="../../d8/d0a/a00292.html" title="Interface of RnMan. " alt="" coords="1233,237,1333,263"/>
+<area shape="rect" id="node4" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1555,237,1720,263"/>
+<area shape="rect" id="node19" href="../../df/d95/a00299.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1946,408,2118,435"/>
+<area shape="rect" id="node26" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="1744,237,1851,263"/>
+<area shape="rect" id="node5" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="1255,408,1398,435"/>
+<area shape="rect" id="node8" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="1591,483,1761,509"/>
+<area shape="rect" id="node14" href="../../d2/dc8/a00242.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1573,326,1741,353"/>
+<area shape="rect" id="node6" href="../../d5/dcb/a00170.html" title="Header for the ContactLogMode class. " alt="" coords="1132,483,1327,509"/>
+<area shape="rect" id="node20" href="../../db/d53/a00321.html" title="Interface/Implementation for SVIterator. " alt="" coords="2068,483,2167,509"/>
+<area shape="rect" id="node27" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="1867,326,1997,353"/>
+<area shape="rect" id="node30" href="../../da/dd4/a00291.html" title="Interface of RnPcg. " alt="" coords="619,408,669,435"/>
+<area shape="rect" id="node31" href="../../d1/d5d/a00311.html" title="Miscellaneous string utilities. " alt="" coords="237,483,337,509"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d89/a00484.gif" border="0" usemap="#CSVRow_8hdep" alt=""/></div>
-<map name="CSVRow_8hdep" id="CSVRow_8hdep">
-<area shape="rect" id="node2" href="../../d6/d7d/a00161.html" title="CitiesCSVReader.cpp" alt="" coords="5,229,160,256"/>
-<area shape="rect" id="node3" href="../../d7/da0/a00198.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="532,80,591,107"/>
-<area shape="rect" id="node11" href="../../d8/d72/a00199.html" title="Source file of CSVRow. " alt="" coords="1008,155,1107,181"/>
-<area shape="rect" id="node4" href="../../db/d44/a00162.html" title="CitiesCSVReader.h" alt="" coords="120,155,259,181"/>
-<area shape="rect" id="node6" href="../../db/dd9/a00179.html" title="CommutesCSVReader.h" alt="" coords="283,155,458,181"/>
-<area shape="rect" id="node7" href="../../d9/d90/a00178.html" title="CommutesCSVReader.cpp" alt="" coords="386,229,577,256"/>
-<area shape="rect" id="node8" href="../../d3/d1a/a00251.html" title="HouseholdCSVReader.cpp" alt="" coords="533,155,720,181"/>
-<area shape="rect" id="node9" href="../../d8/d23/a00326.html" title="Header for the command line controller. " alt="" coords="745,155,885,181"/>
-<area shape="rect" id="node10" href="../../de/db1/a00197.html" title="Source file of csv. " alt="" coords="909,155,984,181"/>
-<area shape="rect" id="node5" href="../../d0/da2/a00307.html" title="ReaderFactory.cpp" alt="" coords="211,229,349,256"/>
+<div class="center"><img src="../../d4/d4b/a00471.gif" border="0" usemap="#GenPopBuilder_8hdep" alt=""/></div>
+<map name="GenPopBuilder_8hdep" id="GenPopBuilder_8hdep">
+<area shape="rect" id="node2" href="../../d8/d72/a00199.html" title="Initialize populations: implementation. " alt="" coords="5,80,148,107"/>
+<area shape="rect" id="node3" href="../../d2/d04/a00281.html" title="Core Population class. " alt="" coords="172,80,288,107"/>
 </map>
 </div>
 </div>
@@ -149,45 +152,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d87/a00118.html">stride::util::CSVRow</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Row in <a class="el" href="../../d9/d4b/a00117.html" title="A collection of CSVRow elements. ">CSV</a> file.  <a href="../../d8/d87/a00118.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/ddf/a00088.html">stride::GenPopBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="../../d4/d3a/a00101.html" title="Container for persons in population. ">Population</a> objects.  <a href="../../db/ddf/a00088.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
-<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memTemplParams" colspan="2">template&lt;typename T , std::enable_if_t&lt; std::is_arithmetic&lt; T &gt;::value, int &gt;  = 0&gt; </td></tr>
-<tr class="memitem:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html#ab6efe1a2dbf4a57479e8c7faa00e3359">stride::util::safe_cast</a> (const std::string &amp;val)</td></tr>
-<tr class="memdesc:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to an arithmetic type, in a safe manner.  <a href="../../da/dee/a00383.html#ab6efe1a2dbf4a57479e8c7faa00e3359">More...</a><br /></td></tr>
-<tr class="separator:ab6efe1a2dbf4a57479e8c7faa00e3359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dce01f32b092253d815beac1cd52010"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a9dce01f32b092253d815beac1cd52010"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html#a9dce01f32b092253d815beac1cd52010">stride::util::CSVRow::GetValue&lt; std::string &gt;</a> (<a class="el" href="../../db/d8e/a00482.html">size_t</a> index) const </td></tr>
-<tr class="memdesc:a9dce01f32b092253d815beac1cd52010"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for string  <a href="../../da/dee/a00383.html#a9dce01f32b092253d815beac1cd52010">More...</a><br /></td></tr>
-<tr class="separator:a9dce01f32b092253d815beac1cd52010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c45b2cf6c75aee55004e27edb10e745"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a7c45b2cf6c75aee55004e27edb10e745"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html#a7c45b2cf6c75aee55004e27edb10e745">stride::util::CSVRow::GetValue&lt; std::string &gt;</a> (const std::string &amp;label) const </td></tr>
-<tr class="memdesc:a7c45b2cf6c75aee55004e27edb10e745"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for string  <a href="../../da/dee/a00383.html#a7c45b2cf6c75aee55004e27edb10e745">More...</a><br /></td></tr>
-<tr class="separator:a7c45b2cf6c75aee55004e27edb10e745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file of base class for config that needs to be read from a file. </p>
+<div class="textblock"><p>Initialize populations. </p>
 
-<p>Definition in file <a class="el" href="../../d3/db1/a00200_source.html">CSVRow.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d3/db1/a00200_source.html">GenPopBuilder.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">CSVRow.h</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d3/db1/a00200.html">GenPopBuilder.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

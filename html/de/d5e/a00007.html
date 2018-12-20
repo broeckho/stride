@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: calibration::Calibrator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::Collector&lt; InsertIter, T &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,465 +108,120 @@ $(document).ready(function(){initNavTree('de/d5e/a00007.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d0/d0a/a00743.html">List of all members</a>  </div>
+<a href="../../d7/df1/a00705.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">calibration::Calibrator Class Reference</div>  </div>
+<div class="title">gengeopop::Collector&lt; InsertIter, T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A calibration tool used to calibrate the Stride scenario tests.  
+<p>Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the <a class="el" href="../../de/d5e/a00007.html" title="Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the ...">Collector</a>.  
  <a href="../../de/d5e/a00007.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for calibration::Calibrator:</div>
+Collaboration diagram for gengeopop::Collector&lt; InsertIter, T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/db3/a00744.gif" border="0" usemap="#calibration_1_1Calibrator_coll__map" alt="Collaboration graph"/></div>
-<map name="calibration_1_1Calibrator_coll__map" id="calibration_1_1Calibrator_coll__map">
+<div class="center"><img src="../../d8/dcb/a00706.gif" border="0" usemap="#gengeopop_1_1Collector_3_01InsertIter_00_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1Collector_3_01InsertIter_00_01T_01_4_coll__map" id="gengeopop_1_1Collector_3_01InsertIter_00_01T_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af054625deb216f50191b155cfe1be657"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#af054625deb216f50191b155cfe1be657">Calibrator</a> ()</td></tr>
-<tr class="memdesc:af054625deb216f50191b155cfe1be657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the <a class="el" href="../../de/d5e/a00007.html" title="A calibration tool used to calibrate the Stride scenario tests. ">Calibrator</a>.  <a href="#af054625deb216f50191b155cfe1be657">More...</a><br /></td></tr>
-<tr class="separator:af054625deb216f50191b155cfe1be657"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83f2d479f8ff86e01a3d1f2c2aeadb39"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; unsigned int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a83f2d479f8ff86e01a3d1f2c2aeadb39">RunSingle</a> (const std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt;&gt; &amp;configs) const </td></tr>
-<tr class="memdesc:a83f2d479f8ff86e01a3d1f2c2aeadb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run one simulation for each config and return the infected counts after each timestep.  <a href="#a83f2d479f8ff86e01a3d1f2c2aeadb39">More...</a><br /></td></tr>
-<tr class="separator:a83f2d479f8ff86e01a3d1f2c2aeadb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26ee572195c295b6735b370ca3dab8b0"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a26ee572195c295b6735b370ca3dab8b0">RunMultiple</a> (unsigned int count, const std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt;&gt; &amp;configs) const </td></tr>
-<tr class="memdesc:a26ee572195c295b6735b370ca3dab8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run count simulations for each config by varying the seed and return the infected counts after each timestep.  <a href="#a26ee572195c295b6735b370ca3dab8b0">More...</a><br /></td></tr>
-<tr class="separator:a26ee572195c295b6735b370ca3dab8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11877c75ed07f1576fd185ec33027d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ad11877c75ed07f1576fd185ec33027d6">PrintMultipleResultsAtStep</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;results, unsigned int step) const </td></tr>
-<tr class="memdesc:ad11877c75ed07f1576fd185ec33027d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the mean and standard deviation for each step in the results obtained by RunMultiple to the Logger.  <a href="#ad11877c75ed07f1576fd185ec33027d6">More...</a><br /></td></tr>
-<tr class="separator:ad11877c75ed07f1576fd185ec33027d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a411d0e7a89bbfa60244f9c09e4d5f24d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a411d0e7a89bbfa60244f9c09e4d5f24d">PrintMultipleResults</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;results) const </td></tr>
-<tr class="memdesc:a411d0e7a89bbfa60244f9c09e4d5f24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the mean and standard deviation for the last step in the results obtained by RunMultiple to the Logger.  <a href="#a411d0e7a89bbfa60244f9c09e4d5f24d">More...</a><br /></td></tr>
-<tr class="separator:a411d0e7a89bbfa60244f9c09e4d5f24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a649a8ed98f8125b93b43510a05d91c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a8a649a8ed98f8125b93b43510a05d91c">PrintSingleResultsAtStep</a> (const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;results, unsigned int step) const </td></tr>
-<tr class="memdesc:a8a649a8ed98f8125b93b43510a05d91c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the exact results obtained at step 'step' by RunSingle to the Logger.  <a href="#a8a649a8ed98f8125b93b43510a05d91c">More...</a><br /></td></tr>
-<tr class="separator:a8a649a8ed98f8125b93b43510a05d91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b412664cfb379fde0037473c6eddd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a59b412664cfb379fde0037473c6eddd8">PrintSingleResults</a> (const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;results) const </td></tr>
-<tr class="memdesc:a59b412664cfb379fde0037473c6eddd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the exact results obtained at the last step by RunSingle to the Logger.  <a href="#a59b412664cfb379fde0037473c6eddd8">More...</a><br /></td></tr>
-<tr class="separator:a59b412664cfb379fde0037473c6eddd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b178d65d86a347c098be6cc9f031cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#af8b178d65d86a347c098be6cc9f031cc">WriteMultipleResults</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;results, std::string filename) const </td></tr>
-<tr class="memdesc:af8b178d65d86a347c098be6cc9f031cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the mean and standard deviation for each step in the results obtained by RunMultiple to a file.  <a href="#af8b178d65d86a347c098be6cc9f031cc">More...</a><br /></td></tr>
-<tr class="separator:af8b178d65d86a347c098be6cc9f031cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a046ac3c5adc99f520480f49480ef0d86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a046ac3c5adc99f520480f49480ef0d86">WriteSingleResults</a> (const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;results, std::string filename) const </td></tr>
-<tr class="memdesc:a046ac3c5adc99f520480f49480ef0d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the exact results obtained by RunSingle to a file.  <a href="#a046ac3c5adc99f520480f49480ef0d86">More...</a><br /></td></tr>
-<tr class="separator:a046ac3c5adc99f520480f49480ef0d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab944c0ca970d0cbe6f0edb885fd47aa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ab944c0ca970d0cbe6f0edb885fd47aa0">WriteResults</a> (const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;single, const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;multiple, std::string filename) const </td></tr>
-<tr class="memdesc:ab944c0ca970d0cbe6f0edb885fd47aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combines the content of the two other write functions.  <a href="#ab944c0ca970d0cbe6f0edb885fd47aa0">More...</a><br /></td></tr>
-<tr class="separator:ab944c0ca970d0cbe6f0edb885fd47aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a6051757f0d88bc0b388bff42f5c25869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a6051757f0d88bc0b388bff42f5c25869">PrintStep</a> (const std::vector&lt; unsigned int &gt; &amp;results, std::string name, unsigned int step) const </td></tr>
-<tr class="memdesc:a6051757f0d88bc0b388bff42f5c25869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the mean and standard deviation of the given numbers, name and step.  <a href="#a6051757f0d88bc0b388bff42f5c25869">More...</a><br /></td></tr>
-<tr class="separator:a6051757f0d88bc0b388bff42f5c25869"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acffd4064a0ca1fe9e249167bb0acbcec"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a>, <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#acffd4064a0ca1fe9e249167bb0acbcec">FindMeanStdev</a> (std::vector&lt; unsigned int &gt; results) const </td></tr>
-<tr class="memdesc:acffd4064a0ca1fe9e249167bb0acbcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean and standard deviation of the given numbers and return (mean, stdev).  <a href="#acffd4064a0ca1fe9e249167bb0acbcec">More...</a><br /></td></tr>
-<tr class="separator:acffd4064a0ca1fe9e249167bb0acbcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade1a346a6e6324ad1bbc872e93ba4717"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ade1a346a6e6324ad1bbc872e93ba4717">Collector</a> (const InsertIter &amp;ins)</td></tr>
+<tr class="separator:ade1a346a6e6324ad1bbc872e93ba4717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d0993c1c8f1c9ff517ede6f66dd8d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#ad0d0993c1c8f1c9ff517ede6f66dd8d7">operator()</a> (T elem)</td></tr>
+<tr class="memdesc:ad0d0993c1c8f1c9ff517ede6f66dd8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect a new element.  <a href="#ad0d0993c1c8f1c9ff517ede6f66dd8d7">More...</a><br /></td></tr>
+<tr class="separator:ad0d0993c1c8f1c9ff517ede6f66dd8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a10eb923175189462d0fec155c1b8574f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#a10eb923175189462d0fec155c1b8574f">logger</a></td></tr>
-<tr class="memdesc:a10eb923175189462d0fec155c1b8574f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger to use for this class.  <a href="#a10eb923175189462d0fec155c1b8574f">More...</a><br /></td></tr>
-<tr class="separator:a10eb923175189462d0fec155c1b8574f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa5ec032b107f7865299dad0aa0fb4d"><td class="memItemLeft" align="right" valign="top">InsertIter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d5e/a00007.html#aeaa5ec032b107f7865299dad0aa0fb4d">m_ins</a></td></tr>
+<tr class="memdesc:aeaa5ec032b107f7865299dad0aa0fb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The (back_)insert_iterator that receives new elements.  <a href="#aeaa5ec032b107f7865299dad0aa0fb4d">More...</a><br /></td></tr>
+<tr class="separator:aeaa5ec032b107f7865299dad0aa0fb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A calibration tool used to calibrate the Stride scenario tests. </p>
+<div class="textblock"><h3>template&lt;typename InsertIter, typename T&gt;<br />
+class gengeopop::Collector&lt; InsertIter, T &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../de/d38/a00160_source.html#l00028">28</a> of file <a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>.</p>
+<p>Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the <a class="el" href="../../de/d5e/a00007.html" title="Aggregates into a vector, if a vector is passed it should remain alive for the usage duration of the ...">Collector</a>. </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00041">41</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af054625deb216f50191b155cfe1be657"></a>
+<a class="anchor" id="ade1a346a6e6324ad1bbc872e93ba4717"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename InsertIter, typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">calibration::Calibrator::Calibrator </td>
+          <td class="memname"><a class="el" href="../../de/d5e/a00007.html">gengeopop::Collector</a>&lt; InsertIter, T &gt;::<a class="el" href="../../de/d5e/a00007.html">Collector</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const InsertIter &amp;&#160;</td>
+          <td class="paramname"><em>ins</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Setup the <a class="el" href="../../de/d5e/a00007.html" title="A calibration tool used to calibrate the Stride scenario tests. ">Calibrator</a>. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00034">34</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00044">44</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a83f2d479f8ff86e01a3d1f2c2aeadb39"></a>
+<a class="anchor" id="ad0d0993c1c8f1c9ff517ede6f66dd8d7"></a>
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt; std::string, std::vector&lt; unsigned int &gt; &gt; calibration::Calibrator::RunSingle </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>configs</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Run one simulation for each config and return the infected counts after each timestep. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00036">36</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/da2/a00300_source.html#l00080">stride::Population::Create()</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00111">stride::util::Rn&lt; E &gt;::Initialize()</a>, <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">calibration::CalibrationRunner::Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a26ee572195c295b6735b370ca3dab8b0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &gt; calibration::Calibrator::RunMultiple </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>count</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; std::pair&lt; boost::property_tree::ptree, std::string &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>configs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Run count simulations for each config by varying the seed and return the infected counts after each timestep. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00062">62</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/da2/a00300_source.html#l00080">stride::Population::Create()</a>, <a class="el" href="../../d1/d67/a00310_source.html#l00111">stride::util::Rn&lt; E &gt;::Initialize()</a>, <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00033">stride::viewers::InfectedViewer::Update()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">calibration::CalibrationRunner::Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad11877c75ed07f1576fd185ec33027d6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::PrintMultipleResultsAtStep </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>step</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the mean and standard deviation for each step in the results obtained by RunMultiple to the Logger. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00128">128</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00108">PrintStep()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a411d0e7a89bbfa60244f9c09e4d5f24d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::PrintMultipleResults </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the mean and standard deviation for the last step in the results obtained by RunMultiple to the Logger. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00160">160</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00108">PrintStep()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">calibration::CalibrationRunner::Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8a649a8ed98f8125b93b43510a05d91c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::PrintSingleResultsAtStep </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>step</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the exact results obtained at step 'step' by RunSingle to the Logger. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00151">151</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a59b412664cfb379fde0037473c6eddd8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::PrintSingleResults </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the exact results obtained at the last step by RunSingle to the Logger. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00144">144</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00030">calibration::CalibrationRunner::Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af8b178d65d86a347c098be6cc9f031cc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::WriteMultipleResults </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write the mean and standard deviation for each step in the results obtained by RunMultiple to a file. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00230">230</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00175">WriteResults()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00044">calibration::CalibrationRunner::WriteResults()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a046ac3c5adc99f520480f49480ef0d86"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::WriteSingleResults </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write the exact results obtained by RunSingle to a file. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00236">236</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00175">WriteResults()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00044">calibration::CalibrationRunner::WriteResults()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab944c0ca970d0cbe6f0edb885fd47aa0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calibration::Calibrator::WriteResults </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; unsigned int &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>single</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>multiple</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Combines the content of the two other write functions. </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00175">175</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00115">FindMeanStdev()</a>, and <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00230">WriteMultipleResults()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00044">calibration::CalibrationRunner::WriteResults()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00236">WriteSingleResults()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6051757f0d88bc0b388bff42f5c25869"></a>
-<div class="memitem">
-<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InsertIter, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void calibration::Calibrator::PrintStep </td>
+          <td class="memname">void <a class="el" href="../../de/d5e/a00007.html">gengeopop::Collector</a>&lt; InsertIter, T &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>elem</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>step</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Print the mean and standard deviation of the given numbers, name and step. </p>
+<p>Collect a new element. </p>
 
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00108">108</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00047">47</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 
-<p>References <a class="el" href="../../de/db9/a00159_source.html#l00115">FindMeanStdev()</a>, and <a class="el" href="../../de/d38/a00160_source.html#l00075">logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00160">PrintMultipleResults()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00128">PrintMultipleResultsAtStep()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acffd4064a0ca1fe9e249167bb0acbcec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::pair&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a>, <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt; calibration::Calibrator::FindMeanStdev </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
-          <td class="paramname"><em>results</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute the mean and standard deviation of the given numbers and return (mean, stdev). </p>
-
-<p>Definition at line <a class="el" href="../../de/db9/a00159_source.html#l00115">115</a> of file <a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00108">PrintStep()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00175">WriteResults()</a>.</p>
+<p>References <a class="el" href="../../dd/de3/a00201_source.html#l00050">gengeopop::Collector&lt; InsertIter, T &gt;::m_ins</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a10eb923175189462d0fec155c1b8574f"></a>
+<a class="anchor" id="aeaa5ec032b107f7865299dad0aa0fb4d"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename InsertIter, typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; calibration::Calibrator::logger</td>
+          <td class="memname">InsertIter <a class="el" href="../../de/d5e/a00007.html">gengeopop::Collector</a>&lt; InsertIter, T &gt;::m_ins</td>
         </tr>
       </table>
   </td>
@@ -576,25 +231,24 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Logger to use for this class. </p>
+<p>The (back_)insert_iterator that receives new elements. </p>
 
-<p>Definition at line <a class="el" href="../../de/d38/a00160_source.html#l00075">75</a> of file <a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00050">50</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/db9/a00159_source.html#l00128">PrintMultipleResultsAtStep()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00144">PrintSingleResults()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00151">PrintSingleResultsAtStep()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00108">PrintStep()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00062">RunMultiple()</a>, <a class="el" href="../../de/db9/a00159_source.html#l00036">RunSingle()</a>, and <a class="el" href="../../de/db9/a00159_source.html#l00175">WriteResults()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00047">gengeopop::Collector&lt; InsertIter, T &gt;::operator()()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a></li>
-<li><a class="el" href="../../de/db9/a00159_source.html">Calibrator.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/dd7/a00362.html">calibration</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Calibrator</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Collector</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

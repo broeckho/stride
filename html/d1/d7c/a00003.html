@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: calibration::Boxplot Class Reference</title>
+<title>Stride Reference Manual: gengeopop::AABB&lt; P &gt; Struct Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,277 +108,166 @@ $(document).ready(function(){initNavTree('d1/d7c/a00003.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d2/db1/a00730.html">List of all members</a>  </div>
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../df/d1b/a00687.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">calibration::Boxplot Class Reference</div>  </div>
+<div class="title">gengeopop::AABB&lt; P &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A class used to compute the necessary information to generate boxplots.  
+<p>Axis Aligned Bounding Box.  
  <a href="../../d1/d7c/a00003.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d1e/a00149_source.html">Boxplot.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for calibration::Boxplot:</div>
+Collaboration diagram for gengeopop::AABB&lt; P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../df/df7/a00731.gif" border="0" usemap="#calibration_1_1Boxplot_coll__map" alt="Collaboration graph"/></div>
-<map name="calibration_1_1Boxplot_coll__map" id="calibration_1_1Boxplot_coll__map">
+<div class="center"><img src="../../d6/dd3/a00688.gif" border="0" usemap="#gengeopop_1_1AABB_3_01P_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1AABB_3_01P_01_4_coll__map" id="gengeopop_1_1AABB_3_01P_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9a45d30a93277aaa13c42ff5d381f09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#ad9a45d30a93277aaa13c42ff5d381f09">Boxplot</a> ()</td></tr>
-<tr class="memdesc:ad9a45d30a93277aaa13c42ff5d381f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup.  <a href="#ad9a45d30a93277aaa13c42ff5d381f09">More...</a><br /></td></tr>
-<tr class="separator:ad9a45d30a93277aaa13c42ff5d381f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82c8f0821323b55645f69efc0db8325"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#ab82c8f0821323b55645f69efc0db8325">Calculate</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;data) const </td></tr>
-<tr class="memdesc:ab82c8f0821323b55645f69efc0db8325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the information for each step in a list of testcase results.  <a href="#ab82c8f0821323b55645f69efc0db8325">More...</a><br /></td></tr>
-<tr class="separator:ab82c8f0821323b55645f69efc0db8325"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c73d82ee83ebb4a58329afd59e7ca90"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a9c73d82ee83ebb4a58329afd59e7ca90">Calculate</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;data, unsigned int step) const </td></tr>
-<tr class="memdesc:a9c73d82ee83ebb4a58329afd59e7ca90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the information for a specific step in a list of testcase results.  <a href="#a9c73d82ee83ebb4a58329afd59e7ca90">More...</a><br /></td></tr>
-<tr class="separator:a9c73d82ee83ebb4a58329afd59e7ca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07b21a6e037c8324b63e2ec67d566968"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a07b21a6e037c8324b63e2ec67d566968">CalculateLastStep</a> (const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;data) const </td></tr>
-<tr class="memdesc:a07b21a6e037c8324b63e2ec67d566968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the information for the last step in a list of testcase results.  <a href="#a07b21a6e037c8324b63e2ec67d566968">More...</a><br /></td></tr>
-<tr class="separator:a07b21a6e037c8324b63e2ec67d566968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9994fd4bb5859c027cbfc29c566ae4c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a9994fd4bb5859c027cbfc29c566ae4c0">Calculate</a> (std::vector&lt; unsigned int &gt; data, std::string name) const </td></tr>
-<tr class="memdesc:a9994fd4bb5859c027cbfc29c566ae4c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the information for a single set of data.  <a href="#a9994fd4bb5859c027cbfc29c566ae4c0">More...</a><br /></td></tr>
-<tr class="separator:a9994fd4bb5859c027cbfc29c566ae4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e634d53e74b3bd81ff09e886083b230"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a8e634d53e74b3bd81ff09e886083b230">AABB</a> ()</td></tr>
+<tr class="separator:a8e634d53e74b3bd81ff09e886083b230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b98d15aee9ba87a39c0e8639a30ed37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a8b98d15aee9ba87a39c0e8639a30ed37">AABB</a> (P l, P u)</td></tr>
+<tr class="separator:a8b98d15aee9ba87a39c0e8639a30ed37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ab64b57c32b24ae75db939c865794ff49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#ab64b57c32b24ae75db939c865794ff49">FindMedian</a> (unsigned long begin, unsigned long end, std::vector&lt; unsigned int &gt; &amp;results) const </td></tr>
-<tr class="memdesc:ab64b57c32b24ae75db939c865794ff49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the median of values between begin and end in the results. This vector needs to be sorted.  <a href="#ab64b57c32b24ae75db939c865794ff49">More...</a><br /></td></tr>
-<tr class="separator:ab64b57c32b24ae75db939c865794ff49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a583193d5b2376fb8f40715fdd3b6db4f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#a583193d5b2376fb8f40715fdd3b6db4f">m_logger</a></td></tr>
-<tr class="memdesc:a583193d5b2376fb8f40715fdd3b6db4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger to use for this class.  <a href="#a583193d5b2376fb8f40715fdd3b6db4f">More...</a><br /></td></tr>
-<tr class="separator:a583193d5b2376fb8f40715fdd3b6db4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acc6fb9ccb5a28eda8c781314d9c4bfe0"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#acc6fb9ccb5a28eda8c781314d9c4bfe0">lower</a></td></tr>
+<tr class="memdesc:acc6fb9ccb5a28eda8c781314d9c4bfe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The lower bound for every dimension.  <a href="#acc6fb9ccb5a28eda8c781314d9c4bfe0">More...</a><br /></td></tr>
+<tr class="separator:acc6fb9ccb5a28eda8c781314d9c4bfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3eccaec5b5d42ead4b5d7078b05691b"><td class="memItemLeft" align="right" valign="top">P&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7c/a00003.html#af3eccaec5b5d42ead4b5d7078b05691b">upper</a></td></tr>
+<tr class="memdesc:af3eccaec5b5d42ead4b5d7078b05691b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The upper bound for every dimension.  <a href="#af3eccaec5b5d42ead4b5d7078b05691b">More...</a><br /></td></tr>
+<tr class="separator:af3eccaec5b5d42ead4b5d7078b05691b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class used to compute the necessary information to generate boxplots. </p>
+<div class="textblock"><h3>template&lt;typename P&gt;<br />
+struct gengeopop::AABB&lt; P &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00029">29</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Boxplot.h</a>.</p>
+<p>Axis Aligned Bounding Box. </p>
+<p>A hyper rectangle defined by 2 points: the lower bound for every dimension and the upper bound </p>
+
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00049">49</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad9a45d30a93277aaa13c42ff5d381f09"></a>
+<a class="anchor" id="a8e634d53e74b3bd81ff09e886083b230"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">calibration::Boxplot::Boxplot </td>
+          <td class="memname"><a class="el" href="../../d1/d7c/a00003.html">gengeopop::AABB</a>&lt; P &gt;::<a class="el" href="../../d1/d7c/a00003.html">AABB</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Setup. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00026">26</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00051">51</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab82c8f0821323b55645f69efc0db8325"></a>
+<a class="anchor" id="a8b98d15aee9ba87a39c0e8639a30ed37"></a>
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt; calibration::Boxplot::Calculate </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the information for each step in a list of testcase results. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00070">70</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/d1e/a00149_source.html#l00054">m_logger</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00039">Calculate()</a>, <a class="el" href="../../db/d48/a00148_source.html#l00056">CalculateLastStep()</a>, <a class="el" href="../../d1/db7/a00157_source.html#l00063">calibration::CalibrationRunner::DisplayBoxplots()</a>, and <a class="el" href="../../d1/db7/a00157_source.html#l00055">calibration::CalibrationRunner::WriteBoxplots()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9c73d82ee83ebb4a58329afd59e7ca90"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt; calibration::Boxplot::Calculate </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>step</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the information for a specific step in a list of testcase results. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00039">39</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00070">Calculate()</a>, and <a class="el" href="../../da/d1e/a00149_source.html#l00054">m_logger</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a07b21a6e037c8324b63e2ec67d566968"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> &gt; calibration::Boxplot::CalculateLastStep </td>
-          <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; std::vector&lt; unsigned int &gt;&gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the information for the last step in a list of testcase results. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00056">56</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00070">Calculate()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/db7/a00157_source.html#l00071">calibration::CalibrationRunner::DisplayBoxplots()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9994fd4bb5859c027cbfc29c566ae4c0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a> calibration::Boxplot::Calculate </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; unsigned int &gt;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the information for a single set of data. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00093">93</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
-
-<p>References <a class="el" href="../../db/d48/a00148_source.html#l00028">FindMedian()</a>, <a class="el" href="../../dd/db2/a00151_source.html#l00030">calibration::BoxplotData::lower_quartile</a>, <a class="el" href="../../da/d1e/a00149_source.html#l00054">m_logger</a>, <a class="el" href="../../dd/db2/a00151_source.html#l00028">calibration::BoxplotData::max_value</a>, <a class="el" href="../../dd/db2/a00151_source.html#l00029">calibration::BoxplotData::median</a>, <a class="el" href="../../dd/db2/a00151_source.html#l00027">calibration::BoxplotData::min_value</a>, <a class="el" href="../../dd/db2/a00151_source.html#l00026">calibration::BoxplotData::name</a>, and <a class="el" href="../../dd/db2/a00151_source.html#l00031">calibration::BoxplotData::upper_quartile</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab64b57c32b24ae75db939c865794ff49"></a>
-<div class="memitem">
-<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::Boxplot::FindMedian </td>
+          <td class="memname"><a class="el" href="../../d1/d7c/a00003.html">gengeopop::AABB</a>&lt; P &gt;::<a class="el" href="../../d1/d7c/a00003.html">AABB</a> </td>
           <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>begin</em>, </td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>end</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; unsigned int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>results</em>&#160;</td>
+          <td class="paramtype">P&#160;</td>
+          <td class="paramname"><em>u</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Find the median of values between begin and end in the results. This vector needs to be sorted. </p>
-
-<p>Definition at line <a class="el" href="../../db/d48/a00148_source.html#l00028">28</a> of file <a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">Calculate()</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00052">52</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a583193d5b2376fb8f40715fdd3b6db4f"></a>
+<a class="anchor" id="acc6fb9ccb5a28eda8c781314d9c4bfe0"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; calibration::Boxplot::m_logger</td>
+          <td class="memname">P <a class="el" href="../../d1/d7c/a00003.html">gengeopop::AABB</a>&lt; P &gt;::lower</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Logger to use for this class. </p>
+<p>The lower bound for every dimension. </p>
 
-<p>Definition at line <a class="el" href="../../da/d1e/a00149_source.html#l00054">54</a> of file <a class="el" href="../../da/d1e/a00149_source.html">Boxplot.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00052">52</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00039">Calculate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d3/dcc/a00264_source.html#l00194">gengeopop::KdTree&lt; geogrid_detail::KdTree2DPoint &gt;::Apply()</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00187">gengeopop::PolygonPolicy::GetBoundingBox()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00067">gengeopop::geogrid_detail::KdTree2DPoint::InBox()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../da/d1e/a00149_source.html">Boxplot.h</a></li>
-<li><a class="el" href="../../db/d48/a00148_source.html">Boxplot.cpp</a></li>
+<a class="anchor" id="af3eccaec5b5d42ead4b5d7078b05691b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename P&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">P <a class="el" href="../../d1/d7c/a00003.html">gengeopop::AABB</a>&lt; P &gt;::upper</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The upper bound for every dimension. </p>
+
+<p>Definition at line <a class="el" href="../../d3/dcc/a00264_source.html#l00054">54</a> of file <a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/dcc/a00264_source.html#l00194">gengeopop::KdTree&lt; geogrid_detail::KdTree2DPoint &gt;::Apply()</a>, <a class="el" href="../../dd/de3/a00201_source.html#l00187">gengeopop::PolygonPolicy::GetBoundingBox()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00067">gengeopop::geogrid_detail::KdTree2DPoint::InBox()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d3/dcc/a00264_source.html">KdTree.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/dd7/a00362.html">calibration</a></li><li class="navelem"><a class="el" href="../../d1/d7c/a00003.html">Boxplot</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d1/d7c/a00003.html">AABB</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::DaysOffInterface Class Reference</title>
+<title>Stride Reference Manual: stride::Health Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,53 +108,107 @@ $(document).ready(function(){initNavTree('db/dab/a00089.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../de/dad/a00963.html">List of all members</a>  </div>
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../df/de9/a00923.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::DaysOffInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::Health Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface definition.  
+<p>Holds a person's health data.  
  <a href="../../db/dab/a00089.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../db/d53/a00202_source.html">DaysOffInterface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::DaysOffInterface:</div>
+Collaboration diagram for stride::Health:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d17/a00964.gif" border="0" usemap="#stride_1_1DaysOffInterface_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1DaysOffInterface_inherit__map" id="stride_1_1DaysOffInterface_inherit__map">
-<area shape="rect" id="node2" href="../../db/ddf/a00088.html" title="No days off work or school. " alt="" coords="5,160,136,267"/>
-<area shape="rect" id="node3" href="../../d9/dec/a00090.html" title="No days off work or school. " alt="" coords="161,160,311,267"/>
-<area shape="rect" id="node4" href="../../da/d82/a00091.html" title="Schools closed. " alt="" coords="335,160,494,267"/>
-<area shape="rect" id="node5" href="../../d1/dc1/a00092.html" title="Standard situation for days off from work and school. " alt="" coords="518,160,693,267"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::DaysOffInterface:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dcd/a00965.gif" border="0" usemap="#stride_1_1DaysOffInterface_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1DaysOffInterface_coll__map" id="stride_1_1DaysOffInterface_coll__map">
+<div class="center"><img src="../../de/d62/a00924.gif" border="0" usemap="#stride_1_1Health_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Health_coll__map" id="stride_1_1Health_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2ae431c15cddca106e2a0753fde99f83"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a2ae431c15cddca106e2a0753fde99f83">IsWorkOff</a> ()=0</td></tr>
-<tr class="memdesc:a2ae431c15cddca106e2a0753fde99f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is a work day.  <a href="#a2ae431c15cddca106e2a0753fde99f83">More...</a><br /></td></tr>
-<tr class="separator:a2ae431c15cddca106e2a0753fde99f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a747d7b072b24545437aa9326ba024185"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a747d7b072b24545437aa9326ba024185">IsSchoolOff</a> ()=0</td></tr>
-<tr class="memdesc:a747d7b072b24545437aa9326ba024185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is school day.  <a href="#a747d7b072b24545437aa9326ba024185">More...</a><br /></td></tr>
-<tr class="separator:a747d7b072b24545437aa9326ba024185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec638f8fcc3e653e389f47bd30d63e1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a> ()=default</td></tr>
-<tr class="memdesc:afec638f8fcc3e653e389f47bd30d63e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#afec638f8fcc3e653e389f47bd30d63e1">More...</a><br /></td></tr>
-<tr class="separator:afec638f8fcc3e653e389f47bd30d63e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ca39e47180884b3c7681636d1c550d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a29ca39e47180884b3c7681636d1c550d">Health</a> (unsigned short int start_infectiousness=0U, unsigned int short start_symptomatic=0U, unsigned short int time_infectious=0U, unsigned short int time_symptomatic=0U)</td></tr>
+<tr class="separator:a29ca39e47180884b3c7681636d1c550d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8b3c6fe823b70820f868bb597ade73"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a8e8b3c6fe823b70820f868bb597ade73">GetEndInfectiousness</a> () const </td></tr>
+<tr class="separator:a8e8b3c6fe823b70820f868bb597ade73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2a22ae31603c4dbaea3f440974d0d5"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#aac2a22ae31603c4dbaea3f440974d0d5">GetEndSymptomatic</a> () const </td></tr>
+<tr class="separator:aac2a22ae31603c4dbaea3f440974d0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eab117bce0fe7009188aad7e534ca82"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a9eab117bce0fe7009188aad7e534ca82">GetStartInfectiousness</a> () const </td></tr>
+<tr class="separator:a9eab117bce0fe7009188aad7e534ca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2c4f06cd9ad0dac95c5a2ffdd39489"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#adf2c4f06cd9ad0dac95c5a2ffdd39489">GetStartSymptomatic</a> () const </td></tr>
+<tr class="separator:adf2c4f06cd9ad0dac95c5a2ffdd39489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9caae07db1dd15732f726cec514dc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a7c9caae07db1dd15732f726cec514dc2">IsImmune</a> () const </td></tr>
+<tr class="separator:a7c9caae07db1dd15732f726cec514dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54f0be8ce25462aaf62847ded75a29d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#aa54f0be8ce25462aaf62847ded75a29d">IsInfected</a> () const </td></tr>
+<tr class="separator:aa54f0be8ce25462aaf62847ded75a29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c0cb686c22ec8504942b84105eaed2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a84c0cb686c22ec8504942b84105eaed2">IsInfectious</a> () const </td></tr>
+<tr class="separator:a84c0cb686c22ec8504942b84105eaed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dae2bfe69375adb5dd89819f6798090"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a4dae2bfe69375adb5dd89819f6798090">IsRecovered</a> () const </td></tr>
+<tr class="separator:a4dae2bfe69375adb5dd89819f6798090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a3b14e79e08a261ca7122afba9b95c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#ae2a3b14e79e08a261ca7122afba9b95c">IsSusceptible</a> () const </td></tr>
+<tr class="memdesc:ae2a3b14e79e08a261ca7122afba9b95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person susceptible?  <a href="#ae2a3b14e79e08a261ca7122afba9b95c">More...</a><br /></td></tr>
+<tr class="separator:ae2a3b14e79e08a261ca7122afba9b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#aaf92d0eeeee7fac8c98854f4ae5a38ac">IsSymptomatic</a> () const </td></tr>
+<tr class="memdesc:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person symptomatic?  <a href="#aaf92d0eeeee7fac8c98854f4ae5a38ac">More...</a><br /></td></tr>
+<tr class="separator:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed35c613838b7cc9fab87fb494f87a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a2ed35c613838b7cc9fab87fb494f87a1">SetImmune</a> ()</td></tr>
+<tr class="memdesc:a2ed35c613838b7cc9fab87fb494f87a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set health state to immune.  <a href="#a2ed35c613838b7cc9fab87fb494f87a1">More...</a><br /></td></tr>
+<tr class="separator:a2ed35c613838b7cc9fab87fb494f87a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8edeec79c050faabe2c09a1bc4860261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a8edeec79c050faabe2c09a1bc4860261">SetSusceptible</a> ()</td></tr>
+<tr class="memdesc:a8edeec79c050faabe2c09a1bc4860261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set health state to susceptible.  <a href="#a8edeec79c050faabe2c09a1bc4860261">More...</a><br /></td></tr>
+<tr class="separator:a8edeec79c050faabe2c09a1bc4860261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d85541b8e22aeaa75b364a454f59088"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a5d85541b8e22aeaa75b364a454f59088">StartInfection</a> ()</td></tr>
+<tr class="memdesc:a5d85541b8e22aeaa75b364a454f59088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the infection.  <a href="#a5d85541b8e22aeaa75b364a454f59088">More...</a><br /></td></tr>
+<tr class="separator:a5d85541b8e22aeaa75b364a454f59088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a2ca202696ba2f39744a5381918922"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#af6a2ca202696ba2f39744a5381918922">StopInfection</a> ()</td></tr>
+<tr class="memdesc:af6a2ca202696ba2f39744a5381918922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the infection.  <a href="#af6a2ca202696ba2f39744a5381918922">More...</a><br /></td></tr>
+<tr class="separator:af6a2ca202696ba2f39744a5381918922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b7fd4e8c9107413d09592734bae3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a26b7fd4e8c9107413d09592734bae3ce">Update</a> ()</td></tr>
+<tr class="memdesc:a26b7fd4e8c9107413d09592734bae3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update progress of the disease.  <a href="#a26b7fd4e8c9107413d09592734bae3ce">More...</a><br /></td></tr>
+<tr class="separator:a26b7fd4e8c9107413d09592734bae3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a0c07c78dcaca9cade5b5a762faa36dd6">GetDiseaseCounter</a> () const </td></tr>
+<tr class="memdesc:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease counter.  <a href="#a0c07c78dcaca9cade5b5a762faa36dd6">More...</a><br /></td></tr>
+<tr class="separator:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af86e0e738953615c5d63613d2054d9e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#af86e0e738953615c5d63613d2054d9e8">IncrementDiseaseCounter</a> ()</td></tr>
+<tr class="memdesc:af86e0e738953615c5d63613d2054d9e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment disease counter.  <a href="#af86e0e738953615c5d63613d2054d9e8">More...</a><br /></td></tr>
+<tr class="separator:af86e0e738953615c5d63613d2054d9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468c554771acc883799456c14373e9db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a468c554771acc883799456c14373e9db">ResetDiseaseCounter</a> ()</td></tr>
+<tr class="memdesc:a468c554771acc883799456c14373e9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the disease counter.  <a href="#a468c554771acc883799456c14373e9db">More...</a><br /></td></tr>
+<tr class="separator:a468c554771acc883799456c14373e9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a75bc9a662485465d4de779b5cbaf979a"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a75bc9a662485465d4de779b5cbaf979a">m_disease_counter</a></td></tr>
+<tr class="memdesc:a75bc9a662485465d4de779b5cbaf979a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The disease counter.  <a href="#a75bc9a662485465d4de779b5cbaf979a">More...</a><br /></td></tr>
+<tr class="separator:a75bc9a662485465d4de779b5cbaf979a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8026c3ff228a052fb849251910bde83b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070">HealthStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a8026c3ff228a052fb849251910bde83b">m_status</a></td></tr>
+<tr class="memdesc:a8026c3ff228a052fb849251910bde83b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current status of the person w.r.t. the disease.  <a href="#a8026c3ff228a052fb849251910bde83b">More...</a><br /></td></tr>
+<tr class="separator:a8026c3ff228a052fb849251910bde83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad925abd929c25a1c404adc3c73639815"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#ad925abd929c25a1c404adc3c73639815">m_start_infectiousness</a></td></tr>
+<tr class="memdesc:ad925abd929c25a1c404adc3c73639815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to become infectious.  <a href="#ad925abd929c25a1c404adc3c73639815">More...</a><br /></td></tr>
+<tr class="separator:ad925abd929c25a1c404adc3c73639815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be1828a7863a4f1e89a3181770fd759"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a7be1828a7863a4f1e89a3181770fd759">m_start_symptomatic</a></td></tr>
+<tr class="memdesc:a7be1828a7863a4f1e89a3181770fd759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to become symptomatic.  <a href="#a7be1828a7863a4f1e89a3181770fd759">More...</a><br /></td></tr>
+<tr class="separator:a7be1828a7863a4f1e89a3181770fd759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af68b0d0713728f5981e4830eb9f0ad4a"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#af68b0d0713728f5981e4830eb9f0ad4a">m_end_infectiousness</a></td></tr>
+<tr class="memdesc:af68b0d0713728f5981e4830eb9f0ad4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to end infectious state.  <a href="#af68b0d0713728f5981e4830eb9f0ad4a">More...</a><br /></td></tr>
+<tr class="separator:af68b0d0713728f5981e4830eb9f0ad4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dab/a00089.html#a61cba0b10ed32b10e72a334ce7f9a34d">m_end_symptomatic</a></td></tr>
+<tr class="memdesc:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to end symptomatic state.  <a href="#a61cba0b10ed32b10e72a334ce7f9a34d">More...</a><br /></td></tr>
+<tr class="separator:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface definition. </p>
+<div class="textblock"><p>Holds a person's health data. </p>
 
-<p>Definition at line <a class="el" href="../../db/d53/a00202_source.html#l00028">28</a> of file <a class="el" href="../../db/d53/a00202_source.html">DaysOffInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00038">38</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afec638f8fcc3e653e389f47bd30d63e1"></a>
+<a class="anchor" id="a29ca39e47180884b3c7681636d1c550d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -162,25 +216,50 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::DaysOffInterface::~DaysOffInterface </td>
+          <td class="memname">stride::Health::Health </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>start_infectiousness</em> = <code>0U</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned int short&#160;</td>
+          <td class="paramname"><em>start_symptomatic</em> = <code>0U</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>time_infectious</em> = <code>0U</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>time_symptomatic</em> = <code>0U</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor. </p>
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00027">27</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2ae431c15cddca106e2a0753fde99f83"></a>
+<a class="anchor" id="a8e8b3c6fe823b70820f868bb597ade73"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -188,26 +267,24 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsWorkOff </td>
+          <td class="memname">unsigned short int stride::Health::GetEndInfectiousness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether today is a work day. </p>
-
-<p>Implemented in <a class="el" href="../../db/ddf/a00088.html#a61f87cc93335185f90d9d772f168b1bb">stride::DaysOffAll</a>, <a class="el" href="../../d1/dc1/a00092.html#a5f55ab77243cf483c5c47e8f81bf3b2a">stride::DaysOffStandard</a>, <a class="el" href="../../d9/dec/a00090.html#a6287fa68ca109373fc9be31f3941079d">stride::DaysOffNone</a>, and <a class="el" href="../../da/d82/a00091.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00046">46</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a747d7b072b24545437aa9326ba024185"></a>
+<a class="anchor" id="aac2a22ae31603c4dbaea3f440974d0d5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,7 +292,398 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsSchoolOff </td>
+          <td class="memname">unsigned short int stride::Health::GetEndSymptomatic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00049">49</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9eab117bce0fe7009188aad7e534ca82"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::GetStartInfectiousness </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00052">52</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf2c4f06cd9ad0dac95c5a2ffdd39489"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::GetStartSymptomatic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00055">55</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c9caae07db1dd15732f726cec514dc2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsImmune </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00058">58</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb">stride::Immune</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d08/a00244_source.html#l00044">stride::Immunizer::Random()</a>, and <a class="el" href="../../de/dab/a00319_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa54f0be8ce25462aaf62847ded75a29d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsInfected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00061">61</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a84c0cb686c22ec8504942b84105eaed2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsInfectious </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00068">68</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dae2bfe69375adb5dd89819f6798090"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsRecovered </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00074">74</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca">stride::Recovered</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2a3b14e79e08a261ca7122afba9b95c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsSusceptible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this person susceptible? </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00077">77</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/deb/a00189_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, and <a class="el" href="../../de/dab/a00319_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf92d0eeeee7fac8c98854f4ae5a38ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsSymptomatic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this person symptomatic? </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00080">80</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ed35c613838b7cc9fab87fb494f87a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::SetImmune </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set health state to immune. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00035">35</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb">stride::Immune</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00112">m_status</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8edeec79c050faabe2c09a1bc4860261"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::SetSusceptible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set health state to susceptible. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00037">37</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/d01/a00227_source.html#l00112">m_status</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d08/a00244_source.html#l00044">stride::Immunizer::Random()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d85541b8e22aeaa75b364a454f59088"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::StartInfection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start the infection. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00039">39</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00112">m_status</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00108">ResetDiseaseCounter()</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d0/d3e/a00253_source.html#l00207">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00045">stride::DiseaseSeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6a2ca202696ba2f39744a5381918922"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::StopInfection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop the infection. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00047">47</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00112">m_status</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca">stride::Recovered</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26b7fd4e8c9107413d09592734bae3ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update progress of the disease. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d55/a00226_source.html#l00055">55</a> of file <a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00102">GetDiseaseCounter()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00105">IncrementDiseaseCounter()</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00116">m_end_infectiousness</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00117">m_end_symptomatic</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00114">m_start_infectiousness</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00115">m_start_symptomatic</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00112">m_status</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00047">StopInfection()</a>, and <a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c07c78dcaca9cade5b5a762faa36dd6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::GetDiseaseCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the disease counter. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00102">102</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af86e0e738953615c5d63613d2054d9e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::IncrementDiseaseCounter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -223,27 +691,214 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether today is school day. </p>
+<p>Increment disease counter. </p>
 
-<p>Implemented in <a class="el" href="../../db/ddf/a00088.html#a12a699d750a9b0a640db4ea47df0b11c">stride::DaysOffAll</a>, <a class="el" href="../../d1/dc1/a00092.html#ad27b8f2efdbb153c71d1a5dbdce42537">stride::DaysOffStandard</a>, <a class="el" href="../../d9/dec/a00090.html#a939df1a48d594f56ec3099d1edcfdca7">stride::DaysOffNone</a>, and <a class="el" href="../../da/d82/a00091.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00105">105</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../db/d53/a00202_source.html">DaysOffInterface.h</a></li>
+<a class="anchor" id="a468c554771acc883799456c14373e9db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::ResetDiseaseCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset the disease counter. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00108">108</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00039">StartInfection()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a75bc9a662485465d4de779b5cbaf979a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_disease_counter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The disease counter. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00111">111</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8026c3ff228a052fb849251910bde83b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dc9/a00355.html#a738f5251821f53315d2aebf214fbd070">HealthStatus</a> stride::Health::m_status</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The current status of the person w.r.t. the disease. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00112">112</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00035">SetImmune()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00037">SetSusceptible()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00039">StartInfection()</a>, <a class="el" href="../../dc/d55/a00226_source.html#l00047">StopInfection()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad925abd929c25a1c404adc3c73639815"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_start_infectiousness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to become infectious. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00114">114</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7be1828a7863a4f1e89a3181770fd759"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_start_symptomatic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to become symptomatic. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00115">115</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af68b0d0713728f5981e4830eb9f0ad4a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_end_infectiousness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to end infectious state. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00116">116</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61cba0b10ed32b10e72a334ce7f9a34d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_end_symptomatic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to end symptomatic state. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00117">117</a> of file <a class="el" href="../../d9/d01/a00227_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d55/a00226_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d9/d01/a00227_source.html">Health.h</a></li>
+<li><a class="el" href="../../dc/d55/a00226_source.html">Health.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">DaysOffInterface</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">stride</a></li><li class="navelem"><a class="el" href="../../db/dab/a00089.html">Health</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: RunConfigManager.cpp File Reference</title>
+<title>Stride Reference Manual: Subject.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,29 +107,21 @@ $(document).ready(function(){initNavTree('d7/df2/a00312.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">RunConfigManager.cpp File Reference</div>  </div>
+<div class="title">Subject.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of ptree utils.  
+<p>Definition of Subject/Observer for SimEvents.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/db3/a00313_source.html">RunConfigManager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d94/a00184_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/dd1/a00214_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
-<code>#include &lt;initializer_list&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;sha1.h&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/db3/a00313_source.html">Subject.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for RunConfigManager.cpp:</div>
+Include dependency graph for Subject.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d36/a00650.gif" border="0" usemap="#RunConfigManager_8cpp" alt=""/></div>
-<map name="RunConfigManager_8cpp" id="RunConfigManager_8cpp">
-<area shape="rect" id="node2" href="../../dd/db3/a00313.html" title="Produce run config ptree. " alt="" coords="175,87,327,114"/>
-<area shape="rect" id="node3" href="../../d2/d94/a00184.html" title="Info on configuration. " alt="" coords="5,177,125,203"/>
-<area shape="rect" id="node6" href="../../d3/dd1/a00214.html" title="Interface for install directory queries. " alt="" coords="417,87,517,114"/>
+<div class="center"><img src="../../dd/db6/a00639.gif" border="0" usemap="#Subject_8cpp" alt=""/></div>
+<map name="Subject_8cpp" id="Subject_8cpp">
+<area shape="rect" id="node2" href="../../dd/db3/a00313.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="159,80,241,107"/>
+<area shape="rect" id="node3" href="../../d6/db6/a00241.html" title="Definition of EventId. " alt="" coords="105,155,151,181"/>
+<area shape="rect" id="node6" href="../../d0/d39/a00314.html" title="Interface/Implementation of Subject. " alt="" coords="219,155,325,181"/>
 </map>
 </div>
 </div>
@@ -137,24 +129,21 @@ Include dependency graph for RunConfigManager.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
-<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of ptree utils. </p>
+<div class="textblock"><p>Definition of Subject/Observer for SimEvents. </p>
 
-<p>Definition in file <a class="el" href="../../d7/df2/a00312_source.html">RunConfigManager.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d7/df2/a00312_source.html">Subject.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d7/df2/a00312.html">RunConfigManager.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d7/df2/a00312.html">Subject.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

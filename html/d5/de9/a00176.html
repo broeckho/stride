@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CommunityGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: ControlHelper.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,45 +107,57 @@ $(document).ready(function(){initNavTree('d5/de9/a00176.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CommunityGenerator.cpp File Reference</div>  </div>
+<div class="title">ControlHelper.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d4c/a00177_source.html">CommunityGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/d0f/a00303_source.html">../PrimaryCommunity.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d4/d6f/a00315_source.html">../SecondaryCommunity.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
-<code>#include &lt;trng/lcg64.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;<a class="el" href="../../dc/d98/a00225_source.html">gengeopop/GeoGridConfig.h</a>&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+
+<p>Header for the command line controller.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d4c/a00177_source.html">sim/ControlHelper.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/dc9/a00282_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d07/a00305_source.html">sim/SimRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">util/ConfigInfo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d12/a00268_source.html">util/LogUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d55/a00323_source.html">util/TimeStamp.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d7d/a00150_source.html">viewers/CliViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/da7/a00250_source.html">viewers/InfectedFileViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">viewers/PersonsFileViewer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d2/d41/a00318_source.html">viewers/SummaryFileViewer.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/xml_parser.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CommunityGenerator.cpp:</div>
+Include dependency graph for ControlHelper.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d47/a00445.gif" border="0" usemap="#CommunityGenerator_8cpp" alt=""/></div>
-<map name="CommunityGenerator_8cpp" id="CommunityGenerator_8cpp">
-<area shape="rect" id="node2" href="../../dd/d4c/a00177.html" title="CommunityGenerator.h" alt="" coords="2198,80,2370,107"/>
-<area shape="rect" id="node3" href="../../dc/d98/a00225.html" title="../GeoGridConfig.h" alt="" coords="2283,229,2421,256"/>
-<area shape="rect" id="node47" href="../../dc/d0f/a00303.html" title="../PrimaryCommunity.h" alt="" coords="1795,80,1962,107"/>
-<area shape="rect" id="node49" href="../../d4/d6f/a00315.html" title="../SecondaryCommunity.h" alt="" coords="1987,80,2173,107"/>
-<area shape="rect" id="node43" href="../../da/dd4/a00291.html" title="PartialGenerator.h" alt="" coords="2109,155,2246,181"/>
-<area shape="rect" id="node4" href="../../d0/da7/a00250.html" title="gengeopop/Household.h" alt="" coords="1965,304,2144,331"/>
-<area shape="rect" id="node5" href="../../d8/d00/a00186.html" title="ContactCenter.h" alt="" coords="1966,379,2093,405"/>
-<area shape="rect" id="node6" href="../../d0/d24/a00222.html" title="GeoGrid.h" alt="" coords="1254,453,1341,480"/>
-<area shape="rect" id="node7" href="../../dd/dfe/a00283.html" title="KdTree.h" alt="" coords="1801,714,1877,741"/>
-<area shape="rect" id="node16" href="../../d3/d58/a00285.html" title="Location.h" alt="" coords="529,625,617,651"/>
-<area shape="rect" id="node24" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="1177,714,1319,741"/>
-<area shape="rect" id="node28" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="1233,535,1362,562"/>
-<area shape="rect" id="node41" href="../../d5/d0b/a00220.html" title="GeoAggregator.h" alt="" coords="740,535,871,562"/>
-<area shape="rect" id="node25" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="952,796,1147,823"/>
-<area shape="rect" id="node26" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1323,796,1493,823"/>
-<area shape="rect" id="node29" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1325,625,1491,651"/>
-<area shape="rect" id="node30" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1497,714,1669,741"/>
-<area shape="rect" id="node31" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1515,625,1621,651"/>
-<area shape="rect" id="node32" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="2131,625,2231,651"/>
-<area shape="rect" id="node33" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="2156,714,2207,741"/>
-<area shape="rect" id="node44" href="../../da/de7/a00210.html" title="util/ExcAssert.h" alt="" coords="1771,229,1891,256"/>
-<area shape="rect" id="node45" href="../../dd/dc1/a00212.html" title="util/Exception.h" alt="" coords="1771,304,1890,331"/>
-<area shape="rect" id="node48" href="../../de/d45/a00175.html" title="Community.h" alt="" coords="1825,155,1932,181"/>
+<div class="center"><img src="../../d0/dc5/a00435.gif" border="0" usemap="#ControlHelper_8cpp" alt=""/></div>
+<map name="ControlHelper_8cpp" id="ControlHelper_8cpp">
+<area shape="rect" id="node2" href="../../dd/d4c/a00177.html" title="Header for the command line controller. " alt="" coords="1493,87,1641,114"/>
+<area shape="rect" id="node17" href="../../dc/dc9/a00282.html" title="Header file for the core Population class. " alt="" coords="1230,87,1359,114"/>
+<area shape="rect" id="node33" href="../../d3/d07/a00305.html" title="Header for the SimRunner class. " alt="" coords="2317,169,2446,196"/>
+<area shape="rect" id="node36" href="../../d0/d48/a00165.html" title="Info on configuration. " alt="" coords="2825,169,2945,196"/>
+<area shape="rect" id="node37" href="../../d3/d2a/a00195.html" title="Interface for install directory queries. " alt="" coords="1085,169,1185,196"/>
+<area shape="rect" id="node39" href="../../db/d12/a00268.html" title="Logging (spdlog) utilities. " alt="" coords="1735,87,1843,114"/>
+<area shape="rect" id="node40" href="../../de/d55/a00323.html" title="TimeStamp class. " alt="" coords="2659,333,2789,360"/>
+<area shape="rect" id="node43" href="../../d9/d7d/a00150.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2324,87,2465,114"/>
+<area shape="rect" id="node44" href="../../d0/da7/a00250.html" title="Observer for Infected output. " alt="" coords="2540,87,2737,114"/>
+<area shape="rect" id="node46" href="../../d0/dcd/a00280.html" title="Observer for Persons output. " alt="" coords="1868,87,2065,114"/>
+<area shape="rect" id="node48" href="../../d2/d41/a00318.html" title="Observer for Persons output. " alt="" coords="2090,87,2299,114"/>
+<area shape="rect" id="node3" href="../../d8/d0a/a00292.html" title="Interface of RnMan. " alt="" coords="1518,251,1618,278"/>
+<area shape="rect" id="node9" href="../../d2/d71/a00309.html" title="Definition of Stopwatch. " alt="" coords="1947,251,2071,278"/>
+<area shape="rect" id="node4" href="../../da/dd4/a00291.html" title="Interface of RnPcg. " alt="" coords="1543,333,1593,360"/>
+<area shape="rect" id="node10" href="../../d4/d8f/a00324.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1850,333,1966,360"/>
+<area shape="rect" id="node18" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="391,169,556,196"/>
+<area shape="rect" id="node24" href="../../df/d95/a00299.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="186,333,358,360"/>
+<area shape="rect" id="node30" href="../../dc/d28/a00276.html" title="Header file for the Person class. " alt="" coords="765,169,872,196"/>
+<area shape="rect" id="node19" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="485,333,627,360"/>
+<area shape="rect" id="node20" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="559,408,729,435"/>
+<area shape="rect" id="node22" href="../../d2/dc8/a00242.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="511,251,679,278"/>
+<area shape="rect" id="node25" href="../../db/d53/a00321.html" title="Interface/Implementation for SVIterator. " alt="" coords="44,408,143,435"/>
+<area shape="rect" id="node31" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="754,251,883,278"/>
+<area shape="rect" id="node34" href="../../d6/db6/a00241.html" title="Definition of EventId. " alt="" coords="2347,333,2459,360"/>
+<area shape="rect" id="node35" href="../../dd/db3/a00313.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2248,251,2397,278"/>
+<area shape="rect" id="node45" href="../../dd/dd7/a00248.html" title="Header for the InfectedFile class. " alt="" coords="2483,333,2634,360"/>
+<area shape="rect" id="node47" href="../../dc/d5d/a00278.html" title="Header for the PersonFile class. " alt="" coords="1655,169,1806,196"/>
+<area shape="rect" id="node49" href="../../d3/db8/a00316.html" title="Header for the SummaryFile class. " alt="" coords="2079,169,2241,196"/>
 </map>
 </div>
 </div>
@@ -153,16 +165,21 @@ Include dependency graph for CommunityGenerator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header for the command line controller. </p>
+
+<p>Definition in file <a class="el" href="../../d5/de9/a00176_source.html">ControlHelper.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d5/de9/a00176.html">CommunityGenerator.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d5/de9/a00176.html">ControlHelper.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

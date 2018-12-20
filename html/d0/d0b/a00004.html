@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: calibration::BoxplotData Struct Reference</title>
+<title>Stride Reference Manual: gengeopop::BoxPolicy Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,55 +107,70 @@ $(document).ready(function(){initNavTree('d0/d0b/a00004.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../d4/db8/a00732.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d1/d87/a00689.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">calibration::BoxplotData Struct Reference</div>  </div>
+<div class="title">gengeopop::BoxPolicy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The data that describes a boxplot.  
+<p>A <a class="el" href="../../d4/d51/a00017.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over an axis aligned bounding box.  
  <a href="../../d0/d0b/a00004.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for calibration::BoxplotData:</div>
+Collaboration diagram for gengeopop::BoxPolicy:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/dab/a00735.gif" border="0" usemap="#calibration_1_1BoxplotData_coll__map" alt="Collaboration graph"/></div>
-<map name="calibration_1_1BoxplotData_coll__map" id="calibration_1_1BoxplotData_coll__map">
-<area shape="rect" id="node2" href="../../dc/dc9/a00389.html" title="{double\n||}" alt="" coords="5,147,71,224"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="129,147,216,224"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="104,5,241,97"/>
+<div class="center"><img src="../../da/dd4/a00690.gif" border="0" usemap="#gengeopop_1_1BoxPolicy_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1BoxPolicy_coll__map" id="gengeopop_1_1BoxPolicy_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:acfcc6c9d82f3b0ba28276db9087081be"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> = std::tuple&lt; <a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a> &gt;</td></tr>
+<tr class="memdesc:acfcc6c9d82f3b0ba28276db9087081be"><td class="mdescLeft">&#160;</td><td class="mdescRight">lon1, lat1, lon2, lat2  <a href="#acfcc6c9d82f3b0ba28276db9087081be">More...</a><br /></td></tr>
+<tr class="separator:acfcc6c9d82f3b0ba28276db9087081be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab64fd7e415603011e89bdd453015683b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#ab64fd7e415603011e89bdd453015683b">BoxplotData</a> ()</td></tr>
-<tr class="separator:ab64fd7e415603011e89bdd453015683b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940492f305ed119b38ca35a59c7d8265"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a940492f305ed119b38ca35a59c7d8265">BoxPolicy</a> (<a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> args)</td></tr>
+<tr class="separator:a940492f305ed119b38ca35a59c7d8265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc7fa5c51d15d5d7ee7877852ff8850"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt; <a class="el" href="../../de/d11/a00021.html">geogrid_detail::KdTree2DPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a8cc7fa5c51d15d5d7ee7877852ff8850">GetBoundingBox</a> () const </td></tr>
+<tr class="separator:a8cc7fa5c51d15d5d7ee7877852ff8850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9e042e3a7e60eebde5221b580198a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#aac9e042e3a7e60eebde5221b580198a6">Contains</a> (const <a class="el" href="../../de/d11/a00021.html">geogrid_detail::KdTree2DPoint</a> &amp;) const </td></tr>
+<tr class="separator:aac9e042e3a7e60eebde5221b580198a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a72a394df7beccfcfb95e0ead67ff7bbc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a72a394df7beccfcfb95e0ead67ff7bbc">name</a></td></tr>
-<tr class="separator:a72a394df7beccfcfb95e0ead67ff7bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac466b65750251938495b974dfc1ed160"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#ac466b65750251938495b974dfc1ed160">min_value</a></td></tr>
-<tr class="separator:ac466b65750251938495b974dfc1ed160"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ab0898577209988d5139777629652bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a4ab0898577209988d5139777629652bf">max_value</a></td></tr>
-<tr class="separator:a4ab0898577209988d5139777629652bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a008469d5fc5d9abbdc9ad1baab672165"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a008469d5fc5d9abbdc9ad1baab672165">median</a></td></tr>
-<tr class="separator:a008469d5fc5d9abbdc9ad1baab672165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a960b021f1a4f6f4f96a07695e703a254"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a960b021f1a4f6f4f96a07695e703a254">lower_quartile</a></td></tr>
-<tr class="separator:a960b021f1a4f6f4f96a07695e703a254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61c72bd9cca45da1fa59e2739aa00dd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#a61c72bd9cca45da1fa59e2739aa00dd9">upper_quartile</a></td></tr>
-<tr class="separator:a61c72bd9cca45da1fa59e2739aa00dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa873e1cd13351fd0d1fc4ebc1921675e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d0b/a00004.html#aa873e1cd13351fd0d1fc4ebc1921675e">m_args</a></td></tr>
+<tr class="separator:aa873e1cd13351fd0d1fc4ebc1921675e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The data that describes a boxplot. </p>
+<div class="textblock"><p>A <a class="el" href="../../d4/d51/a00017.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over an axis aligned bounding box. </p>
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00022">22</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab64fd7e415603011e89bdd453015683b"></a>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00160">160</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="acfcc6c9d82f3b0ba28276db9087081be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">gengeopop::BoxPolicy::Args</a> =  std::tuple&lt;<a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a>, <a class="el" href="../../df/dc2/a00367.html">double</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>lon1, lat1, lon2, lat2 </p>
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00163">163</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a940492f305ed119b38ca35a59c7d8265"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -163,9 +178,10 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">calibration::BoxplotData::BoxplotData </td>
+          <td class="memname">gengeopop::BoxPolicy::BoxPolicy </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a>&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -176,117 +192,95 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00024">24</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00165">165</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8cc7fa5c51d15d5d7ee7877852ff8850"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt;<a class="el" href="../../de/d11/a00021.html">geogrid_detail::KdTree2DPoint</a>&gt; gengeopop::BoxPolicy::GetBoundingBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00167">167</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac9e042e3a7e60eebde5221b580198a6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gengeopop::BoxPolicy::Contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d11/a00021.html">geogrid_detail::KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00173">173</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a72a394df7beccfcfb95e0ead67ff7bbc"></a>
+<a class="anchor" id="aa873e1cd13351fd0d1fc4ebc1921675e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string calibration::BoxplotData::name</td>
+          <td class="memname"><a class="el" href="../../d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">Args</a> gengeopop::BoxPolicy::m_args</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00026">26</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00176">176</a> of file <a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac466b65750251938495b974dfc1ed160"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::BoxplotData::min_value</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00027">27</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4ab0898577209988d5139777629652bf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::BoxplotData::max_value</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00028">28</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a008469d5fc5d9abbdc9ad1baab672165"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::BoxplotData::median</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00029">29</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a960b021f1a4f6f4f96a07695e703a254"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::BoxplotData::lower_quartile</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00030">30</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a61c72bd9cca45da1fa59e2739aa00dd9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/dc9/a00389.html">double</a> calibration::BoxplotData::upper_quartile</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/db2/a00151_source.html#l00031">31</a> of file <a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d48/a00148_source.html#l00093">calibration::Boxplot::Calculate()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dd/de3/a00201_source.html">GeoAggregator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../de/dd7/a00362.html">calibration</a></li><li class="navelem"><a class="el" href="../../d0/d0b/a00004.html">BoxplotData</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/d93/a00341.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/d0b/a00004.html">BoxPolicy</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

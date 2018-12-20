@@ -1,5 +1,8 @@
 var a00039 =
 [
-    [ "~GeoGridWriter", "d3/de7/a00039.html#af7a0b5285a5be682d1272e60927630ed", null ],
-    [ "Write", "d3/de7/a00039.html#af4a6cacfbe68ffae860ae217273413be", null ]
+    [ "K12School", "d3/de7/a00039.html#a5deacd923a5dbde43feb7b481937cb43", null ],
+    [ "Fill", "d3/de7/a00039.html#a686dd2fdbffef436c37f14bc23786c51", null ],
+    [ "GetMaxPools", "d3/de7/a00039.html#add262995f20f78d16c8dffc8c8ba0b3c", null ],
+    [ "GetPoolSize", "d3/de7/a00039.html#a5ef2351ea77265383b0f9e66659d692e", null ],
+    [ "GetType", "d3/de7/a00039.html#aebbfbc1fb0df68b4f8e79bfb69d8ab48", null ]
 ];

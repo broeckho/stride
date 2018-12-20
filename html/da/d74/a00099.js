@@ -1,4 +1,8 @@
 var a00099 =
 [
-    [ "Build", "da/d74/a00099.html#a78076cb42a88b90e4183bfb805d8361f", null ]
+    [ "SummaryFile", "da/d74/a00099.html#a1f848c3aa92042b2fa7d399ad31b0e33", null ],
+    [ "~SummaryFile", "da/d74/a00099.html#ade602b6935ee6c38f21f15b5bcc77847", null ],
+    [ "Print", "da/d74/a00099.html#a9b4fb82839ddf6a7c8d10fc119bf22fb", null ],
+    [ "Initialize", "da/d74/a00099.html#a73334b641e8aeb7edff5cc8b6affc86c", null ],
+    [ "m_fstream", "da/d74/a00099.html#a473d1c4d75f2e873e1b0ee256dabf73a", null ]
 ];

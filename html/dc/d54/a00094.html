@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::DiseaseSeeder Class Reference</title>
+<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -107,142 +107,89 @@ $(document).ready(function(){initNavTree('dc/d54/a00094.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d2/ddd/a00978.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d0/df0/a00934.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::DiseaseSeeder Class Reference</div>  </div>
+<div class="title">stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection.  
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)).  
  <a href="../../dc/d54/a00094.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d3/de5/a00209_source.html">DiseaseSeeder.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d7/d03/a00254_source.html">Infector.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::DiseaseSeeder:</div>
+Collaboration diagram for stride::Infector&lt; LL, TIC, true &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/d49/a00979.gif" border="0" usemap="#stride_1_1DiseaseSeeder_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1DiseaseSeeder_coll__map" id="stride_1_1DiseaseSeeder_coll__map">
-<area shape="rect" id="node3" href="../../df/dcd/a00127.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
+<div class="center"><img src="../../d8/d19/a00935.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aec696ec6255d5068b34a911f9a45ffc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#aec696ec6255d5068b34a911f9a45ffc0">DiseaseSeeder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:aec696ec6255d5068b34a911f9a45ffc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing <a class="el" href="../../dc/d54/a00094.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>.  <a href="#aec696ec6255d5068b34a911f9a45ffc0">More...</a><br /></td></tr>
-<tr class="separator:aec696ec6255d5068b34a911f9a45ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc5b1f152367382afe3dade9421357da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#adc5b1f152367382afe3dade9421357da">Seed</a> (std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:adc5b1f152367382afe3dade9421357da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the simulator.  <a href="#adc5b1f152367382afe3dade9421357da">More...</a><br /></td></tr>
-<tr class="separator:adc5b1f152367382afe3dade9421357da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a5eaa1cecfcca6bba3bbb26128527f01d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5eaa1cecfcca6bba3bbb26128527f01d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#a5eaa1cecfcca6bba3bbb26128527f01d">Vaccinate</a> (const std::string &amp;immunityType, const std::string &amp;immunizationProfile, T &amp;immunityPools)</td></tr>
-<tr class="memdesc:a5eaa1cecfcca6bba3bbb26128527f01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for vaccination/natural immunity.  <a href="#a5eaa1cecfcca6bba3bbb26128527f01d">More...</a><br /></td></tr>
-<tr class="separator:a5eaa1cecfcca6bba3bbb26128527f01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#a564d8b1346c1160f4e68f3ab8ad0bf8a">m_config_pt</a></td></tr>
-<tr class="memdesc:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run config.  <a href="#a564d8b1346c1160f4e68f3ab8ad0bf8a">More...</a><br /></td></tr>
-<tr class="separator:a564d8b1346c1160f4e68f3ab8ad0bf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14564932092a52307a91d9c8e942c18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#ae14564932092a52307a91d9c8e942c18">m_rn_manager</a></td></tr>
-<tr class="memdesc:ae14564932092a52307a91d9c8e942c18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#ae14564932092a52307a91d9c8e942c18">More...</a><br /></td></tr>
-<tr class="separator:ae14564932092a52307a91d9c8e942c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa27dad30b434e742e80300d88854b36d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d54/a00094.html#aa27dad30b434e742e80300d88854b36d">Exec</a> (<a class="el" href="../../d1/d09/a00077.html">ContactPool</a> &amp;pool, const <a class="el" href="../../d1/d6e/a00073.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../df/d98/a00107.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../db/df8/a00076.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
+<tr class="separator:aa27dad30b434e742e80300d88854b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. </p>
+<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC&gt;<br />
+class stride::Infector&lt; LL, TIC, true &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00038">38</a> of file <a class="el" href="../../d3/de5/a00209_source.html">DiseaseSeeder.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aec696ec6255d5068b34a911f9a45ffc0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::DiseaseSeeder::DiseaseSeeder </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
+    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Initializing <a class="el" href="../../dc/d54/a00094.html" title="Seeds population w.r.t immunity (natural immunity, vaccination, ...) and infection. ">DiseaseSeeder</a>. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d31/a00208_source.html#l00041">41</a> of file <a class="el" href="../../dc/d31/a00208_source.html">DiseaseSeeder.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="adc5b1f152367382afe3dade9421357da"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::DiseaseSeeder::Seed </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build the simulator. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d31/a00208_source.html#l00045">45</a> of file <a class="el" href="../../dc/d31/a00208_source.html">DiseaseSeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00060">stride::Person::GetAge()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00081">stride::Person::GetId()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00077">stride::Health::IsSusceptible()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00053">m_config_pt</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00054">m_rn_manager</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00039">stride::Health::StartInfection()</a>, and <a class="el" href="../../dc/d31/a00208_source.html#l00082">Vaccinate()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../db/d53/a00321_source.html#l00042">stride::SimBuilder::Build()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5eaa1cecfcca6bba3bbb26128527f01d"></a>
+<p>Definition at line <a class="el" href="../../d7/d03/a00254_source.html#l00081">81</a> of file <a class="el" href="../../d7/d03/a00254_source.html">Infector.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa27dad30b434e742e80300d88854b36d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stride::DiseaseSeeder::Vaccinate </td>
+          <td class="memname">void <a class="el" href="../../d4/d7d/a00093.html">stride::Infector</a>&lt; LL, TIC, true &gt;::Exec </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>immunityType</em>, </td>
+          <td class="paramtype"><a class="el" href="../../d1/d09/a00077.html">ContactPool</a> &amp;&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>immunizationProfile</em>, </td>
+          <td class="paramtype">const <a class="el" href="../../d1/d6e/a00073.html">AgeContactProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>profile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>immunityPools</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../df/d98/a00107.html">TransmissionProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>transProfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/df8/a00076.html">ContactHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>cHandler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>simDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>cLogger</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -252,85 +199,28 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Seed for vaccination/natural immunity. </p>
+<p>Definition at line <a class="el" href="../../d0/d3e/a00253_source.html#l00207">207</a> of file <a class="el" href="../../d0/d3e/a00253_source.html">Infector.cpp</a>.</p>
 
-<p>Definition at line <a class="el" href="../../dc/d31/a00208_source.html#l00082">82</a> of file <a class="el" href="../../dc/d31/a00208_source.html">DiseaseSeeder.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/da9/a00263_source.html#l00102">stride::Immunizer::Cocoon()</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00053">m_config_pt</a>, <a class="el" href="../../d3/de5/a00209_source.html#l00054">m_rn_manager</a>, <a class="el" href="../../df/da9/a00263_source.html#l00044">stride::Immunizer::Random()</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00207">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00135">stride::util::ToLower()</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00045">Seed()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a564d8b1346c1160f4e68f3ab8ad0bf8a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::DiseaseSeeder::m_config_pt</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Run config. </p>
-
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00053">53</a> of file <a class="el" href="../../d3/de5/a00209_source.html">DiseaseSeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00045">Seed()</a>, and <a class="el" href="../../dc/d31/a00208_source.html#l00082">Vaccinate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae14564932092a52307a91d9c8e942c18"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::DiseaseSeeder::m_rn_manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Random number manager. </p>
-
-<p>Definition at line <a class="el" href="../../d3/de5/a00209_source.html#l00054">54</a> of file <a class="el" href="../../d3/de5/a00209_source.html">DiseaseSeeder.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00045">Seed()</a>, and <a class="el" href="../../dc/d31/a00208_source.html#l00082">Vaccinate()</a>.</p>
+<p>References <a class="el" href="../../dc/d28/a00276_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d8/d23/a00326_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../dd/da7/a00168_source.html#l00042">stride::ContactHandler::HasContactAndTransmission()</a>, <a class="el" href="../../dc/d28/a00276_source.html#l00087">stride::Person::IsInPool()</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00084">stride::ContactPool::m_index_immune</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00085">stride::ContactPool::m_members</a>, <a class="el" href="../../d6/dfb/a00172_source.html#l00083">stride::ContactPool::m_pool_type</a>, <a class="el" href="../../d1/d0d/a00171_source.html#l00043">stride::ContactPool::SortMembers()</a>, and <a class="el" href="../../dc/d55/a00226_source.html#l00039">stride::Health::StartInfection()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d3/de5/a00209_source.html">DiseaseSeeder.h</a></li>
-<li><a class="el" href="../../dc/d31/a00208_source.html">DiseaseSeeder.cpp</a></li>
+<li><a class="el" href="../../d7/d03/a00254_source.html">Infector.h</a></li>
+<li><a class="el" href="../../d0/d3e/a00253_source.html">Infector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">DiseaseSeeder</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d3/dc9/a00355.html">stride</a></li><li class="navelem"><a class="el" href="../../dc/d54/a00094.html">Infector&lt; LL, TIC, true &gt;</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:56 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

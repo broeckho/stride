@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: AbstractPopBuilder.h File Reference</title>
+<title>Stride Reference Manual: BoxPlotData.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
+   &#160;<span id="projectnumber">- generated for commit 0482685</span>
    </div>
   </td>
  </tr>
@@ -108,49 +108,30 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">AbstractPopBuilder.h File Reference</div>  </div>
+<div class="title">BoxPlotData.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base Class for PopBuilders.  
+<p>Header file for BoxPlotData.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/d5d/a00311_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;spdlog/logger.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AbstractPopBuilder.h:</div>
+Include dependency graph for BoxPlotData.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d95/a00391.gif" border="0" usemap="#AbstractPopBuilder_8h" alt=""/></div>
-<map name="AbstractPopBuilder_8h" id="AbstractPopBuilder_8h">
-<area shape="rect" id="node2" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="1390,80,1519,107"/>
-<area shape="rect" id="node28" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="994,162,1094,189"/>
-<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1620,162,1785,189"/>
-<area shape="rect" id="node18" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1762,333,1934,360"/>
-<area shape="rect" id="node25" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1169,162,1276,189"/>
-<area shape="rect" id="node4" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="1127,333,1270,360"/>
-<area shape="rect" id="node7" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1411,408,1581,435"/>
-<area shape="rect" id="node13" href="../../dc/d6a/a00261.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1345,251,1513,278"/>
-<area shape="rect" id="node5" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="1061,408,1256,435"/>
-<area shape="rect" id="node19" href="../../df/df1/a00340.html" title="Interface/Implementation for SVIterator. " alt="" coords="1888,408,1987,435"/>
-<area shape="rect" id="node26" href="../../d4/d9a/a00246.html" title="Header for the Health class. " alt="" coords="1090,251,1219,278"/>
-<area shape="rect" id="node29" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="591,333,641,360"/>
-<area shape="rect" id="node30" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="427,408,527,435"/>
+<div class="center"><img src="../../d8/ddd/a00380.gif" border="0" usemap="#BoxPlotData_8h" alt=""/></div>
+<map name="BoxPlotData_8h" id="BoxPlotData_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d27/a00392.gif" border="0" usemap="#AbstractPopBuilder_8hdep" alt=""/></div>
-<map name="AbstractPopBuilder_8hdep" id="AbstractPopBuilder_8hdep">
-<area shape="rect" id="node2" href="../../de/dd2/a00207.html" title="Initialize populations. " alt="" coords="92,80,239,107"/>
-<area shape="rect" id="node5" href="../../dd/df3/a00219.html" title="Initialize populations. " alt="" coords="263,80,390,107"/>
-<area shape="rect" id="node7" href="../../da/d53/a00265.html" title="Initialize populations. " alt="" coords="414,80,557,107"/>
-<area shape="rect" id="node3" href="../../d5/df1/a00206.html" title="Initialize populations: implementation. " alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node4" href="../../db/da2/a00300.html" title="Core Population class. " alt="" coords="193,155,309,181"/>
-<area shape="rect" id="node6" href="../../dc/d9a/a00218.html" title="Initialize populations: implementation. " alt="" coords="333,155,475,181"/>
-<area shape="rect" id="node8" href="../../d3/dcc/a00264.html" title="Initialize populations: implementation. " alt="" coords="499,155,658,181"/>
+<div class="center"><img src="../../de/d08/a00381.gif" border="0" usemap="#BoxPlotData_8hdep" alt=""/></div>
+<map name="BoxPlotData_8hdep" id="BoxPlotData_8hdep">
+<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Header for the command line controller. " alt="" coords="5,80,145,107"/>
 </map>
 </div>
 </div>
@@ -158,27 +139,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html">stride::AbstractPopBuilder</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base Class for PopBuilders.  <a href="../../d1/d51/a00079.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/dd6/a00108.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  <a href="../../d1/dd6/a00108.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
-<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d3/dc9/a00355"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dc9/a00355.html">stride</a></td></tr>
+<tr class="memdesc:d3/dc9/a00355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d7/ddb/a00361"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/ddb/a00361.html">stride::util</a></td></tr>
+<tr class="memdesc:d7/ddb/a00361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base Class for PopBuilders. </p>
+<div class="textblock"><p>Header file for BoxPlotData. </p>
 
-<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
+<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">AbstractPopBuilder.h</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">BoxPlotData.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 15:04:55 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
