@@ -17,8 +17,8 @@
 
 #include "gengeopop/ContactCenter.h"
 
-#include <iostream>
 #include <omp.h>
+#include <iostream>
 
 namespace gengeopop {
 
@@ -172,4 +172,4 @@ boost::property_tree::ptree GeoGridJSONWriter::WritePerson(stride::Person* perso
         return person_root;
 }
 
-} // namespace gengeopop
+} // namespace

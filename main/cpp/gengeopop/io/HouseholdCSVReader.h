@@ -37,4 +37,4 @@ private:
         stride::util::SegmentedVector<stride::ContactPool> m_contactPools;
 };
 
-} // namespace gengeopop
+} // namespace

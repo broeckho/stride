@@ -70,4 +70,4 @@ unique_ptr<istream> ReaderFactory::OpenFile(const filesys::path& path) const
         }
 }
 
-} // namespace gengeopop
+} // namespace

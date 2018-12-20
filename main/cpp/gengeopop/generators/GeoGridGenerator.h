@@ -19,7 +19,10 @@
 
 namespace gengeopop {
 
-/// Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator)
+/**
+ * Generate a GeoGrid out of PartialGenerators.
+ */
+
 class GeoGridGenerator
 {
 public:
@@ -43,4 +46,5 @@ private:
         std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target
         GeoGridConfig&                                 m_geoGridConfig;     ///< The config
 };
-} // namespace gengeopop
+
+} // namespace

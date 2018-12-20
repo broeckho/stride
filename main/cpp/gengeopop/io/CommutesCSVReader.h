@@ -19,8 +19,7 @@
 #include "gengeopop/Location.h"
 #include "util/CSV.h"
 
-#include <map>
-#include <string>
+#include <memory>
 
 namespace gengeopop {
 
@@ -37,10 +36,7 @@ public:
         void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 
 private:
-        /// Add the provided commute symmetrically to the locations
-        void AddCommute(std::shared_ptr<Location> from, std::shared_ptr<Location> to, double proportion) const;
-
         stride::util::CSV m_reader; ///< The pure CSV reader
 };
 
-} // namespace gengeopop
+} // namespace

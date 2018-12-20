@@ -50,4 +50,4 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         m_logger->info("Number of persons in households: {}", current_person_id);
 }
 
-} // namespace gengeopop
+} // namespace

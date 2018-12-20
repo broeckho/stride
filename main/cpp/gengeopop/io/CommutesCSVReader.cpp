@@ -14,10 +14,9 @@
  */
 
 #include "CommutesCSVReader.h"
+
 #include "util/CSV.h"
 #include "util/Exception.h"
-
-#include <iostream>
 
 namespace gengeopop {
 
@@ -28,7 +27,6 @@ CommutesCSVReader::CommutesCSVReader(std::unique_ptr<std::istream> inputStream)
 
 void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
 {
-        // cols:
         // flanders_commuting format
         // kolom: stad van vertrek (headers = id)
         // rij: stad van aankomst (volgorde = volgorde van kolommen = id).
@@ -75,4 +73,4 @@ void CommutesCSVReader::FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const
         }
 }
 
-} // namespace gengeopop
+} // namespace

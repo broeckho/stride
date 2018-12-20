@@ -43,4 +43,4 @@ private:
         GeoGridConfig                                  m_geoGridConfig;     ///< The config
 };
 
-} // namespace gengeopop
+} // namespace

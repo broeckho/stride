@@ -111,4 +111,5 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
         protoPerson->set_gender(std::string(1, person->GetGender()));
 }
-} // namespace gengeopop
+
+} // namespace

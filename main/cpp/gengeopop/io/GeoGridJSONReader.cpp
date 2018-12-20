@@ -25,6 +25,7 @@
 #include "gengeopop/Workplace.h"
 #include "util/Exception.h"
 
+#include <omp.h>
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <memory>
@@ -86,7 +87,7 @@ shared_ptr<GeoGrid> GeoGridJSONReader::Read()
         m_commutes.clear();
         m_people.clear();
         return m_geoGrid;
-} // namespace gengeopop
+}
 
 shared_ptr<Location> GeoGridJSONReader::ParseLocation(boost::property_tree::ptree& location)
 {
@@ -225,4 +226,4 @@ stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& pers
                                        secondaryCommunityId);
 }
 
-} // namespace gengeopop
+} // namespace

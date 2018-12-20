@@ -14,12 +14,12 @@
  */
 
 #include "CommunityGenerator.h"
-#include "../PrimaryCommunity.h"
-#include "../SecondaryCommunity.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/PrimaryCommunity.h"
+#include "gengeopop/SecondaryCommunity.h"
+
 #include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
 #include <cmath>
-#include <gengeopop/GeoGridConfig.h>
 #include <iostream>
 
 namespace gengeopop {
@@ -41,9 +41,7 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 double weight =
                     static_cast<double>(loc->GetPopulation()) / static_cast<double>(geoGridConfig.input.populationSize);
-
                 CheckWeight("CommunityGenerator", weight);
-
                 weights.push_back(weight);
         }
 
@@ -71,4 +69,4 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         }
 }
 
-} // namespace gengeopop
+} // namespace

@@ -19,7 +19,7 @@
 #include "util/Exception.h"
 
 #include <fstream>
-#include <iostream>
+#include <memory>
 
 #ifdef BOOST_FOUND
 #include <boost/filesystem.hpp>
@@ -49,4 +49,4 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         }
 }
 
-} // namespace gengeopop
+} // namespace

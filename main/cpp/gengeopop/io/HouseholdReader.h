@@ -19,7 +19,6 @@
 #include "gengeopop/Location.h"
 
 #include <memory>
-#include <string>
 #include <vector>
 
 namespace gengeopop {

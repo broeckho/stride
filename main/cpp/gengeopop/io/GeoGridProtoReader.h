@@ -63,4 +63,4 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid; ///< GeoGrid being built
 };
 
-} // namespace gengeopop
+} // namespace

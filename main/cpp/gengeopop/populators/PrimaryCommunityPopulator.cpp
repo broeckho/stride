@@ -19,7 +19,6 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "pop/Person.h"
 
-#include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
 
 namespace gengeopop {
@@ -57,4 +56,4 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
         m_logger->info("Used {} different Primary communities", found.size());
 }
 
-} // namespace gengeopop
+} // namespace

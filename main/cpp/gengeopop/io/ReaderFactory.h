@@ -19,6 +19,8 @@
 #include "CommutesReader.h"
 #include "HouseholdReader.h"
 
+#include <istream>
+#include <memory>
 #include <string>
 
 #ifdef BOOST_FOUND
@@ -62,4 +64,5 @@ private:
         /// Create an istream based on the provided Filesystem Path.
         std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
 };
-} // namespace gengeopop
+
+} // namespace

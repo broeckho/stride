@@ -18,7 +18,6 @@
 #include "gengeopop/K12School.h"
 
 #include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
 #include <cmath>
 #include <iostream>
 
@@ -59,4 +58,4 @@ void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         }
 }
 
-} // namespace gengeopop
+} // namespace

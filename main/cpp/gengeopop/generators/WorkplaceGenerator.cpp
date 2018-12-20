@@ -14,45 +14,41 @@
  */
 
 #include "WorkplaceGenerator.h"
+
+#include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/K12School.h"
+#include "gengeopop/Workplace.h"
+
 #include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
-#include <cmath>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/Workplace.h>
-#include <iostream>
 
 namespace gengeopop {
 
 void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         /*
-         * 1. the amount of active employees and the amount of commuting people are given
-         * 2. calculate the amount of workplaces, each workplace has an average of 20 employees
-         * 3. calculate the amount of working people at each location = #residents + #incoming commuting people -
-         * #outgoing commuting people
+         * 1. active people count and the commuting people count are given
+         * 2. count the workplaces, each workplace has an average of 20 employees
+         * 3. count the working people at each location = #residents + #incoming commuters - #outgoing commuters
          * 4. use the last information for the distribution
          * 5. assign each workplace to a location
          */
 
-        auto amountOfEmployees = geoGridConfig.calculated.popcount_1865_and_years_active;
-        auto amountOfWorkplaces =
-            static_cast<int>(std::ceil(amountOfEmployees / geoGridConfig.constants.meanWorkplaceSchoolSize));
+        auto EmployeeCount = geoGridConfig.calculated.popcount_1865_and_years_active;
+        auto WorkplacesCount =
+            static_cast<int>(std::ceil(EmployeeCount / geoGridConfig.constants.meanWorkplaceSchoolSize));
 
-        std::vector<double>
-            weights; // = for each location #residents + #incoming commuting people - #outgoing commuting people
+        // = for each location #residents + #incoming commuting people - #outgoing commuting people
+        std::vector<double> weights;
 
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                double amountOfWorkingPeople =
+                double ActivePeopleCount =
                     (loc->GetPopulation() +
                      loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
                      loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) *
                          geoGridConfig.input.fraction_1865_years_active);
 
-                double weight = amountOfWorkingPeople / amountOfEmployees;
-
+                double weight = ActivePeopleCount / EmployeeCount;
                 CheckWeight("WorkplaceGenerator", weight);
-
                 weights.push_back(weight);
         }
 
@@ -63,7 +59,7 @@ void WorkplaceGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int workPlaceId = 0; workPlaceId < amountOfWorkplaces; workPlaceId++) {
+        for (int workPlaceId = 0; workPlaceId < WorkplacesCount; workPlaceId++) {
                 int                       locationId = dist();
                 std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
                 auto workplace = std::make_shared<Workplace>(geoGridConfig.generated.contactCenters++);

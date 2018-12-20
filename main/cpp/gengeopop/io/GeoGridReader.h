@@ -18,7 +18,7 @@
 #include "gengeopop/GeoGrid.h"
 
 #include <memory>
-#include <ostream>
+#include <istream>
 
 namespace gengeopop {
 

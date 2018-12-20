@@ -32,4 +32,4 @@ public:
         std::shared_ptr<GeoGridWriter> CreateWriter(std::string filename) const;
 };
 
-} // namespace gengeopop
+} // namespace

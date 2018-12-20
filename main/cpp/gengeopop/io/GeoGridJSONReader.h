@@ -30,7 +30,7 @@ public:
         GeoGridJSONReader(std::unique_ptr<std::istream> inputStream, stride::Population* pop);
 
         /// Actually perform the read and return the GeoGrid.
-        std::shared_ptr<GeoGrid> Read();
+        std::shared_ptr<GeoGrid> Read() override;
 
         /// No copy constructor.
         GeoGridJSONReader(const GeoGridJSONReader&) = delete;
@@ -59,4 +59,4 @@ private:
         std::shared_ptr<GeoGrid> m_geoGrid; ///< The GeoGrid which is being built.
 };
 
-} // namespace gengeopop
+} // namespace

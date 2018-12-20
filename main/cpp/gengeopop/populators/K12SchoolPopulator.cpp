@@ -63,4 +63,4 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
         m_logger->info("Number of different classes: {}", found.size());
 }
 
-} // namespace gengeopop
+} // namespace

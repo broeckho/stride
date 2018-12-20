@@ -14,6 +14,7 @@
  */
 
 #pragma once
+
 #include <boost/optional.hpp>
 #include <mutex>
 
@@ -84,4 +85,4 @@ struct ThreadException::RunType<void>
         using type = void;
 };
 
-} // namespace gengeopop
+} // namespace

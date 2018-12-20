@@ -19,11 +19,7 @@
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 
-//#include <trng/discrete_dist.hpp>
-//#include <trng/lcg64.hpp>
 #include <trng/uniform_int_dist.hpp>
-//#include <cmath>
-//#include <iostream>
 
 namespace gengeopop {
 

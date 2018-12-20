@@ -71,4 +71,4 @@ private:
         discreteDist           m_disCommuting;       ///< distribution to choose from m_commutingLocations
 };
 
-} // namespace gengeopop
+} // namespace
