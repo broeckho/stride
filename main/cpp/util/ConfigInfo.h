@@ -41,9 +41,6 @@ public:
 #endif
         }
 
-        /// True if Qt5 in executable, false otherwise.
-        static constexpr bool HaveQt5() { return Qt5_FOUND; }
-
         /// Return git revision string.
         static std::string GitRevision();
 

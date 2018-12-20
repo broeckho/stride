@@ -160,48 +160,4 @@ if(NOT OPENMP_FOUND)
     include_directories(${CMAKE_HOME_DIRECTORY}/main/resources/lib/domp/include)
 endif()
 
-#----------------------------------------------------------------------------
-# Qt : not a definitive list of components yet; these are placeholders
-#----------------------------------------------------------------------------
-if(NOT STRIDE_FORCE_NO_QT5)
-    find_package(Qt5 COMPONENTS Core Gui PrintSupport Widgets Qml QUIET)
-else()
-    set(Qt5_FOUND FALSE)
-endif()
-
-if (Qt5_FOUND)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=true")
-    set(QT_INCLUDES
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Gui_INCLUDE_DIRS}
-        ${Qt5PrintSupport_INCLUDE_DIRS}
-        ${QtQml_INCLUDE_DIRS}
-        ${Qt5Widgets_INCLUDE_DIRS}
-        )
-	include_directories(SYSTEM ${QT_INCLUDES})
-	add_definitions(
-        ${Qt5Core_DEFINITIONS}
-        ${Qt5Gui_DEFINITIONS}
-        ${Qt5PrintSupport_DEFINITIONS}
-        ${QtQml_DEFINITIONS}
-        ${Qt5Widgets_DEFINITIONS}
-    )
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
-    set(QT_LIBRARIES
-        ${Qt5Core_LIBRARIES}
-        ${Qt5Gui_LIBRARIES}
-        ${Qt5PrintSupport_LIBRARIES}
-        ${QtQml_LIBRARIES}
-        ${Qt5Widgets_LIBRARIES}
-        )
-    if( CMAKE_BUILD_TYPE MATCHES "Release" )
-        add_definitions( -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT )
-    endif()
-    if( CMAKE_BUILD_TYPE MATCHES "Debug" )
-        add_definitions( -DQDEBUG_OUTPUT )
-    endif()
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DQt5_FOUND=false")
-endif()
-
 #############################################################################

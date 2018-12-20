@@ -18,11 +18,7 @@
 #============================================================================
 # Subdirectories.
 #============================================================================
-if(NOT STRIDE_FORCE_NO_QT5)
-	add_subdirectory(calibration)
-endif()
 add_subdirectory(gengeopop)
-add_subdirectory(execs)
 
 #============================================================================
 # Sources.
@@ -83,11 +79,24 @@ set(LIB_SRC
 # Build the Stride library.
 #============================================================================
 add_library(libstride ${LIB_SRC})
-set_source_files_properties(BeliefSeeder.cpp PROPERTIES COMPILE_FLAGS "-Wno-unused-variable")
 target_link_libraries(libstride ${LIBS} libgengeopop)
 target_compile_options(libstride PUBLIC "-fPIC")
 target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVISION_HASH}")
 set_target_properties(libstride PROPERTIES PREFIX "")
+
+#============================================================================
+# Build the stride binary.
+#============================================================================
+add_executable(stride execs/stride.cpp)
+target_link_libraries(stride ${LIBS} libstride libgengeopop)
+install(TARGETS stride DESTINATION ${BIN_INSTALL_LOCATION})
+
+#============================================================================
+# Build the genpop binary.
+#============================================================================
+add_executable(genpop execs/genpop.cpp)
+target_link_libraries(genpop ${LIBS} libprotobuf_insrc libproto libstride libgengeopop)
+install(TARGETS genpop DESTINATION ${BIN_INSTALL_LOCATION})
 
 #============================================================================
 # Clean up.

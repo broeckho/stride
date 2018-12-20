@@ -18,7 +18,6 @@ Compilation and installation of the software creates the following files and dir
         			\item $stride$: executable.
         			\item $gtester$: regression tests for the sequential code.
                	 \item $gengeopop$: generates the population and geographical grid.
-                	\item $calibration$: tool to run the simulator multiple times to generate statistical data. 
         			\item $wrapper\_sim.py$: Python simulation wrapper
         	\end{compactitem}
 %
@@ -114,9 +113,9 @@ Where:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Generating a population and geographical grid}
 
- The generation of a population and geographical grid (sometimes called GeoGrid) can be started from the workspace directory, with the command \mbox{``\texttt{./bin/gengeopop}''}. The following options are available:
+ The generation of a population and geographical grid (sometimes called GeoGrid) can be started from the workspace directory, with the command \mbox{``\texttt{./bin/genpop}''}. The following options are available:
 \begin{verbatim}
-bin/gengeopop  [--loglevel <trace|debug|info|warn|error|critical|off>]
+bin/genpop  [--loglevel <trace|debug|info|warn|error|critical|off>]
                   [--output <OUTPUT FILE>] [--seed <SEED>]
                   [--populationSize <POPULATION SIZE>] [--fracActive
                   <FRACTION OF PEOPLE ACTIVE>] [--frac1826students
@@ -177,54 +176,6 @@ Where:
    -h,  --help
      Displays usage information and exits.
 \end{verbatim}
-
-\section{Using the Calibrator}
-\label{sec:calibrator}
-
-The Calibrator is a tool designed to calibrate the scenario tests.
-It can also be used for running a simulation multiple times to gather statistical data.
-This data can then be written to a file or be used for generating boxplots.
-The following configuration options are available:
-
-\begin{compactdesc}
-    \item[\texttt{--config}] \ \\
-        Specifies the run configuration parameters to be used for the simulation.
-        If this is provided multiple times, the calibration is performed on all given simulations.
-        It may be either \texttt{-c file=<file>} \texttt{or -c name=<name>}.
-        The first option can be shortened to \texttt{-c <file>}, the second option accepts \texttt{TestsInfluenza}, \texttt{TestsMeasles} or \texttt{BenchMeasles} as  \texttt{<name}.
-    \item[\texttt{--testcases}] \ \\
-        Instead of providing the configuration files, you can also select multiple testcases to use for the simulation runs.
-        The default is \texttt{influenza\_a, influenza\_b, influenza\_c, measles\_16} and \texttt{r0\_12}.
-    \item[\texttt{--multiple}]\ \\
-        The amount of simulations to run for each testcase. For each simulation, a different seed will be used.
-    \item[\texttt{--single}]\ \\
-        Run the simulations with the fixed seeds to determine the exact values.
-    \item[\texttt{--output}]\ \\
-        Write the results of the calibration to a file with given filename.
-        This resulting file contains for each configuration and each step in the simulation the mean, standard deviation, exact value using the default seed and the values found with other seeds.
-        These values depend on the selected options, specifically \texttt{--multiple} and \texttt{--single}.
-    \item[\texttt{--write}]\ \\
-        Write boxplots to files in the current directory. This creates an image for each config or testcase.
-    \item[\texttt{--display}]\ \\
-        Display the boxplots for the last step.
-    \item[\texttt{--displayStep}]\ \\
-        Display the boxplots for a specified step.
-\end{compactdesc}
-
-Examples:\\
-To find the exact values for the testcases and write these to a file:\\
-
-\centerline{\texttt{calibration -s -o out.json}}
-
-To run a configuration file 10 times with a random seed and display the generated boxplot for the last step in the simulation:\\
-
-\centerline{\texttt{calibration -c run\_default.xml -m 10 -d}}
-
-To run the testcase \texttt{influenza\_a} 10 times, write the results to a file and for each step in the simulation write a boxplot to a file:\\
-
-\centerline{\texttt{calibration -t influenza\_a -m 10 -w -o out.json}}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Wrapper
