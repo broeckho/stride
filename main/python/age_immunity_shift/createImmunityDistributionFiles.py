@@ -44,9 +44,18 @@ def toFile(year, immunityRates, targetDir, maxAge):
         elem.text = str(immunityRates[age])
     ET.ElementTree(immunity).write(os.path.join(targetDir, str(year) + "_measles_immunity.xml"))
 
+def plotTargetRates(rates, years):
+    for i in range(len(rates)):
+        plt.plot(rates[i])
+    plt.xlabel("Age")
+    plt.ylabel("Fraction susceptible")
+    plt.legend(years)
+    plt.show()
+
 def main(dataDir, targetDir, years):
     maxAge = 99
     numMunicipalities = 593
+    allRates = []
     for year in years:
         if year == 2013:
             ageImmunity = createFromSummary(os.path.join(dataDir, "Susceptibility_Belgium_2013.txt"), maxAge)
@@ -54,6 +63,8 @@ def main(dataDir, targetDir, years):
         else:
             ageImmunity = createFromMultipleFiles(dataDir, year, numMunicipalities, maxAge)
             toFile(year, ageImmunity, targetDir, maxAge)
+        allRates.append(ageImmunity)
+    plotTargetRates(allRates, years)
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
