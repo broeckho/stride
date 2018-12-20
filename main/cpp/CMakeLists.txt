@@ -90,11 +90,6 @@ target_compile_definitions(libstride PUBLIC "-DSTRIDE_GIT_HASH=${STRIDE_WC_REVIS
 set_target_properties(libstride PROPERTIES PREFIX "")
 
 #============================================================================
-# Build the Myhayai library.
-#============================================================================
-add_subdirectory(myhayai)
-
-#============================================================================
 # Clean up.
 #============================================================================
 unset(LIB_SRC)

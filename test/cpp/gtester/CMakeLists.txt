@@ -77,6 +77,7 @@ if (OPENMP_FOUND)
         set(SRC ${SRC} ParallelRuns.cpp)
 endif ()
 
+include_directories(${CMAKE_SOURCE_DIR}/test/cpp)
 add_executable(${EXEC} ${SRC})
 target_link_libraries(${EXEC} gtest pthread libstride libgengeopop libmyhayai ${LIBS})
 install(TARGETS ${EXEC}  DESTINATION   ${BIN_INSTALL_LOCATION})
