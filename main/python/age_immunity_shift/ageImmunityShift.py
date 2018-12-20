@@ -97,7 +97,7 @@ def main(numRuns, years, R0s, poolSize):
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--numRuns", type=int, default=5, help="Number of simulation runs per scenario")
-    parser.add_argument("--years", type=int, default=[2013, 2020], help="From which projected year the immunity data should be used")
+    parser.add_argument("--years", type=int, nargs="+", default=[2013, 2020], help="From which projected year the immunity data should be used")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 13], help="Basic reproduction numbers to simulate for")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
