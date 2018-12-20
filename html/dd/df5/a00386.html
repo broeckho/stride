@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: SummaryFile.cpp File Reference</title>
+<title>Stride Reference Manual: stride::viewers Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -47,9 +47,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,49 +105,42 @@ $(document).ready(function(){initNavTree('dd/df5/a00386.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">SummaryFile.cpp File Reference</div>  </div>
+<div class="title">stride::viewers Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of the SummaryFile class.  
+<p>Namespace for MVC-viewers that may be registered with <a class="el" href="../../dd/d6d/a00111.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/db9/a00387_source.html">SummaryFile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d1a/a00251_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for SummaryFile.cpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d8/d7d/a00789.gif" border="0" usemap="#SummaryFile_8cpp" alt=""/></div>
-<map name="SummaryFile_8cpp" id="SummaryFile_8cpp">
-<area shape="rect" id="node2" href="../../db/db9/a00387.html" title="Header for the SummaryFile class. " alt="" coords="187,80,304,107"/>
-<area shape="rect" id="node6" href="../../d3/d1a/a00251.html" title="Interface for install directory queries. " alt="" coords="410,80,510,107"/>
-</map>
-</div>
-</div>
-<p><a href="../../dd/df5/a00386_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d5e/a00136.html">CliViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for commandline interface.  <a href="../../d0/d5e/a00136.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d3/dea/a00444"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00444.html">stride::output</a></td></tr>
-<tr class="memdesc:d3/dea/a00444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the output files. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html">InfectedFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d2/df5/a00137.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/ddd/a00138.html">InfectedViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer gathers infection count at each sim step.  <a href="../../d4/ddd/a00138.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d14/a00139.html">PersonsFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../de/d14/a00139.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html">SummaryFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d5/db1/a00140.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of the SummaryFile class. </p>
-
-<p>Definition in file <a class="el" href="../../dd/df5/a00386_source.html">SummaryFile.cpp</a>.</p>
+<div class="textblock"><p>Namespace for MVC-viewers that may be registered with <a class="el" href="../../dd/d6d/a00111.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b358e65754510cda43fac14f1ca8bfd9.html">output</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">SummaryFile.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">viewers</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

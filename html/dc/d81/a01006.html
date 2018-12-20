@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d9/d73/a00060.html','../../');});
+$(document).ready(function(){initNavTree('d4/d81/a00110.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,25 +107,23 @@ $(document).ready(function(){initNavTree('d9/d73/a00060.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">gengeopop::SecondaryCommunityPopulator Member List</div>  </div>
+<div class="title">stride::SimBuilder Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d9/d73/a00060.html">gengeopop::SecondaryCommunityPopulator</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d9/d73/a00060.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">Apply</a>(std::shared_ptr&lt; GeoGrid &gt; geogrid, GeoGridConfig &amp;geoGridConfig) override</td><td class="entry"><a class="el" href="../../d9/d73/a00060.html">gengeopop::SecondaryCommunityPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/dee/a00053.html#a992a6f6b8761f481eabe22ffccc8f961">GetContactPoolInIncreasingRadius</a>(const std::shared_ptr&lt; GeoGrid &gt; &amp;geoGrid, const std::shared_ptr&lt; Location &gt; &amp;start, double startRadius=10) const </td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/dee/a00053.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a></td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/dee/a00053.html#a9984205ae3e758af34d41b55d38c7868">m_rnManager</a></td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/dee/a00053.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a>(double fraction)</td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="../../dc/dee/a00053.html#adbc3fc5b84add8eac20a6db378827a7e">PartialPopulator</a>(stride::util::RnMan &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/dee/a00053.html#a033d360f64872196bcb57ca0ce232d6f">~PartialPopulator</a>()=default</td><td class="entry"><a class="el" href="../../dc/dee/a00053.html">gengeopop::PartialPopulator</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d81/a00110.html#a94ce5fb3cae915f0bdb261498f31c444">Build</a>(std::shared_ptr&lt; Sim &gt; sim, std::shared_ptr&lt; Population &gt; pop)</td><td class="entry"><a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d81/a00110.html#a24875cf5b77b860f11ed1327d71dce5f">m_config_pt</a></td><td class="entry"><a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d81/a00110.html#ad551b02c507948570f07af10d85d29ce">ReadAgeContactPtree</a>()</td><td class="entry"><a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d4/d81/a00110.html#adffa42c6b8b171616fcdfb4805260c92">ReadDiseasePtree</a>()</td><td class="entry"><a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d4/d81/a00110.html#ada7d6656e97857b9bacd2285f7784021">SimBuilder</a>(const boost::property_tree::ptree &amp;configPt)</td><td class="entry"><a class="el" href="../../d4/d81/a00110.html">stride::SimBuilder</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

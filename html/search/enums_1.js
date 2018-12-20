@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['geogrid_5flocation_5fcontactcenter_5ftype',['GeoGrid_Location_ContactCenter_Type',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8b',1,'proto']]]
+  ['healthstatus',['HealthStatus',['../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070',1,'stride']]]
 ];

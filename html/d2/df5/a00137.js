@@ -1,9 +1,8 @@
 var a00137 =
 [
-    [ "HaveOpenMP", "d2/df5/a00137.html#ad6fc5f3f3e32a15f059c64b74dfea905", null ],
-    [ "HaveQt5", "d2/df5/a00137.html#a9842e76d67b4e02e5c31a3071ec286d0", null ],
-    [ "GitRevision", "d2/df5/a00137.html#aea2c9d397f10f54b7ae47f4b0f181799", null ],
-    [ "GetHostname", "d2/df5/a00137.html#a502bd4410a3e77792ea575f77f470d41", null ],
-    [ "NumberAvailableThreads", "d2/df5/a00137.html#a6b4240ce29160e778c69f9e246e1747d", null ],
-    [ "ProcessorCount", "d2/df5/a00137.html#ada59da077e51cbd44e829a88c5cc62e3", null ]
+    [ "InfectedFileViewer", "d2/df5/a00137.html#aca10d70842e06a7a00cd633c4071d0ac", null ],
+    [ "Update", "d2/df5/a00137.html#a8128b6620992860cad456275e2173b16", null ],
+    [ "m_infected", "d2/df5/a00137.html#a29f6d1abe2d4b71535a0c0134a48a5a0", null ],
+    [ "m_infected_file", "d2/df5/a00137.html#ae3711a48a4aba215ee7c45893c18532c", null ],
+    [ "m_runner", "d2/df5/a00137.html#af4ffa40d65229dcd9ae06ad592809c1c", null ]
 ];

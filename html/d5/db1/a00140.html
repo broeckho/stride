@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::viewers::SummaryFileViewer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -108,55 +108,75 @@ $(document).ready(function(){initNavTree('d5/db1/a00140.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d7/d88/a01255.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d6/dbc/a01099.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::detail::pair2data&lt; T, Ptree &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::viewers::SummaryFileViewer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="../../d6/de1/a00356_source.html">PtreeUtils.h</a>&gt;</code></p>
+<p>Viewer of Simulator for cases output.  
+ <a href="../../d5/db1/a00140.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
+Collaboration diagram for stride::viewers::SummaryFileViewer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d6/d0f/a01256.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_inherit__map">
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::util::detail::pair2data&lt; T, Ptree &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/de7/a01257.gif" border="0" usemap="#stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map" id="stride_1_1util_1_1detail_1_1pair2data_3_01T_00_01Ptree_01_4_coll__map">
+<div class="center"><img src="../../d3/dbd/a01100.gif" border="0" usemap="#stride_1_1viewers_1_1SummaryFileViewer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1viewers_1_1SummaryFileViewer_coll__map" id="stride_1_1viewers_1_1SummaryFileViewer_coll__map">
+<area shape="rect" id="node2" href="../../d7/d70/a00106.html" title="Produces a file with simulation summary output. " alt="" coords="5,681,204,803"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="51,541,159,619"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="31,400,179,492"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="33,259,177,351"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="21,132,189,209"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="51,5,158,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af75ac339034526cfb3e419d0f175bf07"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#af75ac339034526cfb3e419d0f175bf07">operator()</a> (const typename Ptree::value_type &amp;pair) const </td></tr>
-<tr class="separator:af75ac339034526cfb3e419d0f175bf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae32a48e518b0393ca96921802278ecaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ae32a48e518b0393ca96921802278ecaf">SummaryFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
+<tr class="memdesc:ae32a48e518b0393ca96921802278ecaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#ae32a48e518b0393ca96921802278ecaf">More...</a><br /></td></tr>
+<tr class="separator:ae32a48e518b0393ca96921802278ecaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e54b49cad6f7b645668551b08762e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#a1e54b49cad6f7b645668551b08762e28">Update</a> (<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
+<tr class="memdesc:a1e54b49cad6f7b645668551b08762e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a1e54b49cad6f7b645668551b08762e28">More...</a><br /></td></tr>
+<tr class="separator:a1e54b49cad6f7b645668551b08762e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d70/a00106.html">output::SummaryFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ad78a0b86893d6f5ef0acb1937482bd06">m_summary_file</a></td></tr>
+<tr class="separator:ad78a0b86893d6f5ef0acb1937482bd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/db1/a00140.html#ad6728d6ca9828f1f405d8c6eeb3793c2">m_runner</a></td></tr>
+<tr class="separator:ad6728d6ca9828f1f405d8c6eeb3793c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class T, class Ptree&gt;<br />
-struct stride::util::detail::pair2data&lt; T, Ptree &gt;</h3>
+<div class="textblock"><p>Viewer of Simulator for cases output. </p>
 
-
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00041">41</a> of file <a class="el" href="../../d6/de1/a00356_source.html">PtreeUtils.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af75ac339034526cfb3e419d0f175bf07"></a>
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00033">33</a> of file <a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae32a48e518b0393ca96921802278ecaf"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class Ptree &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="../../d5/db1/a00140.html">stride::util::detail::pair2data</a>&lt; T, Ptree &gt;::operator() </td>
+          <td class="memname">stride::viewers::SummaryFileViewer::SummaryFileViewer </td>
           <td>(</td>
-          <td class="paramtype">const typename Ptree::value_type &amp;&#160;</td>
-          <td class="paramname"><em>pair</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -166,20 +186,93 @@ template&lt;class T , class Ptree &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/de1/a00356_source.html#l00043">43</a> of file <a class="el" href="../../d6/de1/a00356_source.html">PtreeUtils.h</a>.</p>
+<p>Instantiate cases viewer. </p>
+
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00037">37</a> of file <a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a>.</p>
+
+<p>References <a class="el" href="../../dd/d1d/a00336_source.html#l00034">Update()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d6/de1/a00356_source.html">PtreeUtils.h</a></li>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1e54b49cad6f7b645668551b08762e28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::viewers::SummaryFileViewer::Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Let viewer perform update. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d1d/a00336_source.html#l00034">34</a> of file <a class="el" href="../../dd/d1d/a00336_source.html">SummaryFileViewer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d3/d2a/a00195_source.html#l00116">stride::ControlHelper::RegisterViewers()</a>, and <a class="el" href="../../d4/dce/a00337_source.html#l00037">SummaryFileViewer()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ad78a0b86893d6f5ef0acb1937482bd06"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d70/a00106.html">output::SummaryFile</a> stride::viewers::SummaryFileViewer::m_summary_file</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00046">46</a> of file <a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6728d6ca9828f1f405d8c6eeb3793c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/d6d/a00111.html">SimRunner</a>&gt; stride::viewers::SummaryFileViewer::m_runner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/dce/a00337_source.html#l00047">47</a> of file <a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d4/dce/a00337_source.html">SummaryFileViewer.h</a></li>
+<li><a class="el" href="../../dd/d1d/a00336_source.html">SummaryFileViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d84/a00447.html">util</a></li><li class="navelem"><a class="el" href="../../de/dfe/a00448.html">detail</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">pair2data</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">viewers</a></li><li class="navelem"><a class="el" href="../../d5/db1/a00140.html">SummaryFileViewer</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

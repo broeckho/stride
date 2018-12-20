@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ContactLogMode.h File Reference</title>
+<title>Stride Reference Manual: GeoGridGenerator.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,78 +105,40 @@ $(document).ready(function(){initNavTree('dc/d55/a00226.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ContactLogMode.h File Reference</div>  </div>
+<div class="title">GeoGridGenerator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Header for the ContactLogMode class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d01/a00227_source.html">GeoGridGenerator.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ContactLogMode.h:</div>
+Include dependency graph for GeoGridGenerator.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/de7/a00550.gif" border="0" usemap="#ContactLogMode_8h" alt=""/></div>
-<map name="ContactLogMode_8h" id="ContactLogMode_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d87/a00551.gif" border="0" usemap="#ContactLogMode_8hdep" alt=""/></div>
-<map name="ContactLogMode_8hdep" id="ContactLogMode_8hdep">
-<area shape="rect" id="node2" href="../../dc/d98/a00225.html" title="Implementation of ContactLogMode. " alt="" coords="1631,80,1789,107"/>
-<area shape="rect" id="node3" href="../../d0/d39/a00314.html" title="Header for the Infector class. " alt="" coords="1864,80,1945,107"/>
-<area shape="rect" id="node5" href="../../d3/db8/a00316.html" title="Header for the InfectorMap. " alt="" coords="1711,155,1821,181"/>
-<area shape="rect" id="node7" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="2035,80,2145,107"/>
-<area shape="rect" id="node47" href="../../db/d7e/a00372.html" title="Header for the Simulator class. " alt="" coords="2939,304,2998,331"/>
-<area shape="rect" id="node49" href="../../d6/d82/a00243.html" title="Initialize populations: implementation. " alt="" coords="2739,229,2902,256"/>
-<area shape="rect" id="node4" href="../../dd/db3/a00313.html" title="Implementation of Infector algorithms. " alt="" coords="1833,304,1929,331"/>
-<area shape="rect" id="node6" href="../../dc/de3/a00373.html" title="Implementation for the SimBuilder class. " alt="" coords="2283,453,2401,480"/>
-<area shape="rect" id="node8" href="../../d4/d9a/a00246.html" title="Header for the DiseaseSeeder class. " alt="" coords="1941,379,2071,405"/>
-<area shape="rect" id="node10" href="../../d8/d17/a00304.html" title="Header for the Immunizer class. " alt="" coords="2403,304,2505,331"/>
-<area shape="rect" id="node12" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1301,379,1388,405"/>
-<area shape="rect" id="node33" href="../../d9/d72/a00412.html" title="WorkplacePopulator.cpp" alt="" coords="2003,304,2177,331"/>
-<area shape="rect" id="node34" href="../../d9/d01/a00227.html" title="Implementation for the core ContcatPool class. " alt="" coords="2201,304,2328,331"/>
-<area shape="rect" id="node35" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2401,229,2536,256"/>
-<area shape="rect" id="node45" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2435,155,2572,181"/>
-<area shape="rect" id="node9" href="../../d6/d22/a00245.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="2425,453,2571,480"/>
-<area shape="rect" id="node11" href="../../dc/d0f/a00303.html" title="Implementation for the Immunizer class. " alt="" coords="1800,379,1916,405"/>
-<area shape="rect" id="node13" href="../../dc/ded/a00252.html" title="gengeopop.cpp" alt="" coords="1548,603,1669,629"/>
-<area shape="rect" id="node14" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="491,453,617,480"/>
-<area shape="rect" id="node15" href="../../de/d79/a00203.html" title="College.h" alt="" coords="5,528,87,555"/>
-<area shape="rect" id="node21" href="../../dd/de2/a00320.html" title="K12School.h" alt="" coords="1049,528,1150,555"/>
-<area shape="rect" id="node23" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="693,453,823,480"/>
-<area shape="rect" id="node24" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="848,453,985,480"/>
-<area shape="rect" id="node25" href="../../d7/d2f/a00258.html" title="GeoGrid.cpp" alt="" coords="1010,453,1111,480"/>
-<area shape="rect" id="node26" href="../../de/db1/a00197.html" title="CitiesReader.h" alt="" coords="1135,453,1247,480"/>
-<area shape="rect" id="node27" href="../../d3/dd1/a00214.html" title="CommutesReader.h" alt="" coords="1271,453,1419,480"/>
-<area shape="rect" id="node28" href="../../dc/d28/a00276.html" title="GeoGridReader.h" alt="" coords="1443,453,1572,480"/>
-<area shape="rect" id="node29" href="../../d2/d82/a00279.html" title="GeoGridWriter.h" alt="" coords="1596,453,1717,480"/>
-<area shape="rect" id="node30" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="1742,453,1875,480"/>
-<area shape="rect" id="node31" href="../../d6/d9c/a00352.html" title="PrimaryCommunity.cpp" alt="" coords="1899,453,2070,480"/>
-<area shape="rect" id="node32" href="../../dd/dea/a00408.html" title="Workplace.cpp" alt="" coords="2095,453,2208,480"/>
-<area shape="rect" id="node16" href="../../d3/de5/a00209.html" title="Community.h" alt="" coords="918,528,1025,555"/>
-<area shape="rect" id="node17" href="../../da/ddc/a00288.html" title="Household.h" alt="" coords="791,528,893,555"/>
-<area shape="rect" id="node18" href="../../d0/d24/a00222.html" title="ContactCenter.cpp" alt="" coords="111,528,253,555"/>
-<area shape="rect" id="node19" href="../../d1/dd4/a00267.html" title="GeoGridJSONWriter.cpp" alt="" coords="277,528,445,555"/>
-<area shape="rect" id="node20" href="../../d0/d19/a00273.html" title="GeoGridProtoWriter.cpp" alt="" coords="469,528,639,555"/>
-<area shape="rect" id="node22" href="../../d8/dfc/a00327.html" title="Location.cpp" alt="" coords="664,528,767,555"/>
-<area shape="rect" id="node36" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="2529,304,2630,331"/>
-<area shape="rect" id="node37" href="../../dd/df4/a00193.html" title="Calibrator.cpp" alt="" coords="3064,379,3175,405"/>
-<area shape="rect" id="node38" href="../../d6/d80/a00371.html" title="Implementation for the Simulator class. " alt="" coords="3199,379,3274,405"/>
-<area shape="rect" id="node39" href="../../dd/dcb/a00375.html" title="Implementation for SimRunner. " alt="" coords="3298,379,3415,405"/>
-<area shape="rect" id="node40" href="../../dc/de6/a00167.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2197,379,2361,405"/>
-<area shape="rect" id="node41" href="../../d3/db1/a00200.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2385,379,2491,405"/>
-<area shape="rect" id="node42" href="../../d2/d71/a00309.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2515,379,2676,405"/>
-<area shape="rect" id="node43" href="../../d1/d5d/a00311.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="2898,379,3039,405"/>
-<area shape="rect" id="node44" href="../../d9/dc1/a00388.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="2701,379,2874,405"/>
-<area shape="rect" id="node46" href="../../d6/dfb/a00172.html" title="Contact profiles stored in simulator. " alt="" coords="2561,229,2715,256"/>
-<area shape="rect" id="node50" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="2229,229,2308,256"/>
-<area shape="rect" id="node48" href="../../df/d03/a00348.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="3491,379,3652,405"/>
+<div class="center"><img src="../../d8/d14/a00522.gif" border="0" usemap="#GeoGridGenerator_8cpp" alt=""/></div>
+<map name="GeoGridGenerator_8cpp" id="GeoGridGenerator_8cpp">
+<area shape="rect" id="node2" href="../../d9/d01/a00227.html" title="GeoGridGenerator.h" alt="" coords="1865,80,2015,107"/>
+<area shape="rect" id="node3" href="../../da/dd4/a00291.html" title="PartialGenerator.h" alt="" coords="1158,155,1295,181"/>
+<area shape="rect" id="node4" href="../../d0/d24/a00222.html" title="gengeopop/GeoGrid.h" alt="" coords="1849,453,2012,480"/>
+<area shape="rect" id="node31" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="942,625,1042,651"/>
+<area shape="rect" id="node44" href="../../dc/d98/a00225.html" title="gengeopop/GeoGridConfig.h" alt="" coords="2072,229,2275,256"/>
+<area shape="rect" id="node48" href="../../da/de7/a00210.html" title="util/ExcAssert.h" alt="" coords="5,625,125,651"/>
+<area shape="rect" id="node5" href="../../dd/dfe/a00283.html" title="KdTree.h" alt="" coords="1291,625,1367,651"/>
+<area shape="rect" id="node14" href="../../d3/d58/a00285.html" title="Location.h" alt="" coords="1996,625,2084,651"/>
+<area shape="rect" id="node22" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="235,714,378,741"/>
+<area shape="rect" id="node26" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="779,535,909,562"/>
+<area shape="rect" id="node41" href="../../d5/d0b/a00220.html" title="GeoAggregator.h" alt="" coords="1865,535,1996,562"/>
+<area shape="rect" id="node23" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="213,796,408,823"/>
+<area shape="rect" id="node24" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="533,796,704,823"/>
+<area shape="rect" id="node27" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="528,625,693,651"/>
+<area shape="rect" id="node28" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="911,714,1083,741"/>
+<area shape="rect" id="node30" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="397,625,504,651"/>
+<area shape="rect" id="node32" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="836,714,887,741"/>
+<area shape="rect" id="node45" href="../../d0/da7/a00250.html" title="gengeopop/Household.h" alt="" coords="1907,304,2085,331"/>
+<area shape="rect" id="node46" href="../../d8/d00/a00186.html" title="ContactCenter.h" alt="" coords="1921,379,2047,405"/>
+<area shape="rect" id="node49" href="../../dd/dc1/a00212.html" title="util/Exception.h" alt="" coords="555,714,674,741"/>
 </map>
 </div>
 </div>
@@ -184,45 +146,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:db/d34/a00442"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/a00442.html">stride::ContactLogMode</a></td></tr>
-<tr class="memdesc:db/d34/a00442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum specifiying the level of logging required: <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a8f1467c1f622638893d3a1c12eead2ba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/a00442.html#a8f1467c1f622638893d3a1c12eead2ba">stride::ContactLogMode::Id</a> { <a class="el" href="../../db/d34/a00442.html#a8f1467c1f622638893d3a1c12eead2baa6adf97f83acf6453d4a6a4b1070f3754">stride::ContactLogMode::Id::None</a> = 0U, 
-<a class="el" href="../../db/d34/a00442.html#a8f1467c1f622638893d3a1c12eead2baa6d688add062a0c9e2d77cbb1e7594ae5">stride::ContactLogMode::Id::Transmissions</a> = 1U, 
-<a class="el" href="../../db/d34/a00442.html#a8f1467c1f622638893d3a1c12eead2baab1c94ca2fbc3e78fc30069c8d0f01680">stride::ContactLogMode::Id::All</a> = 2U, 
-<a class="el" href="../../db/d34/a00442.html#a8f1467c1f622638893d3a1c12eead2baa5006b319d87706ec01a6e59c64a1433c">stride::ContactLogMode::Id::Susceptibles</a> = 3U
- }</td></tr>
-<tr class="separator:a8f1467c1f622638893d3a1c12eead2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/a00442.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">stride::ContactLogMode::ToString</a> (ContactLogMode::Id w)</td></tr>
-<tr class="memdesc:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a LogMode value to corresponding name.  <a href="../../db/d34/a00442.html#a025f9ff3cf2df8c0c8b95e48724d9b7c">More...</a><br /></td></tr>
-<tr class="separator:a025f9ff3cf2df8c0c8b95e48724d9b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3242678fd1548cd6dd420490dc06fcff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/a00442.html#a3242678fd1548cd6dd420490dc06fcff">stride::ContactLogMode::IsMode</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a3242678fd1548cd6dd420490dc06fcff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of LogMode value.  <a href="../../db/d34/a00442.html#a3242678fd1548cd6dd420490dc06fcff">More...</a><br /></td></tr>
-<tr class="separator:a3242678fd1548cd6dd420490dc06fcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12707c23b43baa1a0f5bed51db72756d"><td class="memItemLeft" align="right" valign="top">Id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d34/a00442.html#a12707c23b43baa1a0f5bed51db72756d">stride::ContactLogMode::ToMode</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:a12707c23b43baa1a0f5bed51db72756d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to LogMode value.  <a href="../../db/d34/a00442.html#a12707c23b43baa1a0f5bed51db72756d">More...</a><br /></td></tr>
-<tr class="separator:a12707c23b43baa1a0f5bed51db72756d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the ContactLogMode class. </p>
-
-<p>Definition in file <a class="el" href="../../dc/d55/a00226_source.html">ContactLogMode.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dc/d55/a00226.html">ContactLogMode.h</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../dc/d55/a00226.html">GeoGridGenerator.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

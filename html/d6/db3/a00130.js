@@ -1,14 +1,14 @@
 var a00130 =
 [
-    [ "SimRunner", "d6/db3/a00130.html#a0f1cdbcca511bc11fd898dc3a872718d", null ],
-    [ "~SimRunner", "d6/db3/a00130.html#ad59e65dfe839b8a589b1c6ffa805ba2f", null ],
-    [ "GetClock", "d6/db3/a00130.html#aceb24930d50702acfa88bdfe5cb13a1b", null ],
-    [ "GetConfig", "d6/db3/a00130.html#a9eeaa63450413a62f31bcee07df29fa3", null ],
-    [ "GetSim", "d6/db3/a00130.html#a99014dd891a3422214c2a088dd38cde9", null ],
-    [ "Run", "d6/db3/a00130.html#a81720a1766d513eb248cb443d948567f", null ],
-    [ "Run", "d6/db3/a00130.html#a233f76f6af0cef8c5971112b6d2235d0", null ],
-    [ "m_clock", "d6/db3/a00130.html#ae2de72162f806fe5b7008e81854bdc2d", null ],
-    [ "m_config_pt", "d6/db3/a00130.html#a1c4778adb0be5161932d107c2a84d477", null ],
-    [ "m_output_prefix", "d6/db3/a00130.html#a78babbce6074c1f0d612c67febfb388e", null ],
-    [ "m_sim", "d6/db3/a00130.html#a4ff961d97649b68ef661d38c098baaf0", null ]
+    [ "range_type", "d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f", null ],
+    [ "SliceIndexer", "d6/db3/a00130.html#af2bedaa13b9427b736bfc88bcb974741", null ],
+    [ "Get", "d6/db3/a00130.html#ac63541daeed03c7731fb820005e64f06", null ],
+    [ "Get", "d6/db3/a00130.html#aaa3ea63497e88e0f8673cecd56de8b57", null ],
+    [ "Get", "d6/db3/a00130.html#a7c0b86821b30ab6830b3846231b52b9f", null ],
+    [ "Set", "d6/db3/a00130.html#a773c442bcca2708aa1c1f8a8b5ca347c", null ],
+    [ "Set", "d6/db3/a00130.html#a670eb7b0d4bec5445d5a30ea71384be5", null ],
+    [ "check", "d6/db3/a00130.html#a194f218151d935420737a20c40c27a00", null ],
+    [ "m_map", "d6/db3/a00130.html#ad7137d9d5caad8581de354a750b70403", null ],
+    [ "m_slices", "d6/db3/a00130.html#ab5d8b55d94fc42b0c4644621957e5c87", null ],
+    [ "m_t", "d6/db3/a00130.html#a00a95be5edf914ec430a0890a3c82005", null ]
 ];

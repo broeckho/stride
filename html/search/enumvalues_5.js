@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['finished',['Finished',['../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b',1,'stride::sim_event']]]
+  ['household',['Household',['../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449abaea4be67641b70cfa3fec0f86ea7f239b',1,'stride::ContactPoolType']]]
 ];

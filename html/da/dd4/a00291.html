@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: HouseholdGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: PartialGenerator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,52 +105,77 @@ $(document).ready(function(){initNavTree('da/dd4/a00291.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">HouseholdGenerator.cpp File Reference</div>  </div>
+<div class="title">PartialGenerator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d0a/a00292_source.html">HouseholdGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">gengeopop/K12School.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
-<code>#include &lt;trng/lcg64.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d24/a00222_source.html">gengeopop/GeoGrid.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d98/a00225_source.html">gengeopop/GeoGridConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/de7/a00210_source.html">util/ExcAssert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d5d/a00311_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &lt;spdlog/logger.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for HouseholdGenerator.cpp:</div>
+Include dependency graph for PartialGenerator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d1f/a00648.gif" border="0" usemap="#HouseholdGenerator_8cpp" alt=""/></div>
-<map name="HouseholdGenerator_8cpp" id="HouseholdGenerator_8cpp">
-<area shape="rect" id="node2" href="../../d8/d0a/a00292.html" title="HouseholdGenerator.h" alt="" coords="487,80,654,107"/>
-<area shape="rect" id="node49" href="../../dd/de2/a00320.html" title="gengeopop/K12School.h" alt="" coords="835,304,1013,331"/>
-<area shape="rect" id="node3" href="../../d9/d8d/a00262.html" title="../GeoGridConfig.h" alt="" coords="501,229,640,256"/>
-<area shape="rect" id="node45" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="351,155,489,181"/>
-<area shape="rect" id="node4" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="632,304,811,331"/>
-<area shape="rect" id="node5" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="759,379,886,405"/>
-<area shape="rect" id="node6" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="874,453,961,480"/>
-<area shape="rect" id="node7" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="1601,714,1677,741"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="905,625,993,651"/>
-<area shape="rect" id="node24" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="2066,714,2209,741"/>
-<area shape="rect" id="node28" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1623,535,1753,562"/>
-<area shape="rect" id="node43" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1469,535,1600,562"/>
-<area shape="rect" id="node25" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="2132,796,2327,823"/>
-<area shape="rect" id="node26" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1937,796,2108,823"/>
-<area shape="rect" id="node29" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1939,625,2104,651"/>
-<area shape="rect" id="node30" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1814,714,1986,741"/>
-<area shape="rect" id="node31" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1483,625,1589,651"/>
-<area shape="rect" id="node32" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="1395,714,1474,741"/>
-<area shape="rect" id="node34" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="339,625,439,651"/>
-<area shape="rect" id="node35" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="288,714,339,741"/>
-<area shape="rect" id="node46" href="../../d0/d1f/a00247.html" title="util/ExcAssert.h" alt="" coords="237,229,357,256"/>
-<area shape="rect" id="node47" href="../../de/dbc/a00249.html" title="util/Exception.h" alt="" coords="238,304,357,331"/>
+<div class="center"><img src="../../de/d85/a00618.gif" border="0" usemap="#PartialGenerator_8h" alt=""/></div>
+<map name="PartialGenerator_8h" id="PartialGenerator_8h">
+<area shape="rect" id="node2" href="../../d0/d24/a00222.html" title="gengeopop/GeoGrid.h" alt="" coords="1475,304,1637,331"/>
+<area shape="rect" id="node29" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="362,475,462,502"/>
+<area shape="rect" id="node45" href="../../dc/d98/a00225.html" title="gengeopop/GeoGridConfig.h" alt="" coords="1749,80,1952,107"/>
+<area shape="rect" id="node48" href="../../da/de7/a00210.html" title="util/ExcAssert.h" alt="" coords="144,475,264,502"/>
+<area shape="rect" id="node3" href="../../dd/dfe/a00283.html" title="KdTree.h" alt="" coords="1382,565,1458,591"/>
+<area shape="rect" id="node12" href="../../d3/d58/a00285.html" title="Location.h" alt="" coords="2057,475,2145,502"/>
+<area shape="rect" id="node20" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="338,565,481,591"/>
+<area shape="rect" id="node24" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="582,386,711,413"/>
+<area shape="rect" id="node42" href="../../d5/d0b/a00220.html" title="GeoAggregator.h" alt="" coords="1619,386,1749,413"/>
+<area shape="rect" id="node21" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="299,647,493,673"/>
+<area shape="rect" id="node22" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="968,647,1139,673"/>
+<area shape="rect" id="node25" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="485,475,651,502"/>
+<area shape="rect" id="node26" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="845,565,1017,591"/>
+<area shape="rect" id="node28" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1045,475,1152,502"/>
+<area shape="rect" id="node30" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="719,565,769,591"/>
+<area shape="rect" id="node31" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="1403,647,1503,673"/>
+<area shape="rect" id="node46" href="../../d0/da7/a00250.html" title="gengeopop/Household.h" alt="" coords="1756,155,1935,181"/>
+<area shape="rect" id="node47" href="../../d8/d00/a00186.html" title="ContactCenter.h" alt="" coords="1613,229,1739,256"/>
+<area shape="rect" id="node49" href="../../dd/dc1/a00212.html" title="util/Exception.h" alt="" coords="195,565,314,591"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d6/d6a/a00619.gif" border="0" usemap="#PartialGenerator_8hdep" alt=""/></div>
+<map name="PartialGenerator_8hdep" id="PartialGenerator_8hdep">
+<area shape="rect" id="node2" href="../../d1/d0d/a00171.html" title="CollegeGenerator.h" alt="" coords="1150,80,1295,107"/>
+<area shape="rect" id="node6" href="../../dd/d4c/a00177.html" title="CommunityGenerator.h" alt="" coords="954,80,1126,107"/>
+<area shape="rect" id="node8" href="../../d9/d01/a00227.html" title="GeoGridGenerator.h" alt="" coords="402,80,553,107"/>
+<area shape="rect" id="node10" href="../../d7/d03/a00254.html" title="HouseholdGenerator.h" alt="" coords="211,80,378,107"/>
+<area shape="rect" id="node12" href="../../d0/dcd/a00280.html" title="K12SchoolGenerator.h" alt="" coords="577,80,743,107"/>
+<area shape="rect" id="node14" href="../../de/d25/a00290.html" title="PartialGenerator.cpp" alt="" coords="1320,80,1472,107"/>
+<area shape="rect" id="node15" href="../../d0/d48/a00351.html" title="WorkplaceGenerator.h" alt="" coords="767,80,929,107"/>
+<area shape="rect" id="node3" href="../../d3/dd5/a00215.html" title="gengeopop.cpp" alt="" coords="605,155,726,181"/>
+<area shape="rect" id="node4" href="../../d5/dcb/a00170.html" title="CollegeGenerator.cpp" alt="" coords="1375,155,1535,181"/>
+<area shape="rect" id="node5" href="../../d6/d43/a00216.html" title="GenGeoPopController.cpp" alt="" coords="751,155,937,181"/>
+<area shape="rect" id="node7" href="../../d5/de9/a00176.html" title="CommunityGenerator.cpp" alt="" coords="1164,155,1351,181"/>
+<area shape="rect" id="node9" href="../../dc/d55/a00226.html" title="GeoGridGenerator.cpp" alt="" coords="211,155,376,181"/>
+<area shape="rect" id="node11" href="../../d0/d3e/a00253.html" title="HouseholdGenerator.cpp" alt="" coords="5,155,187,181"/>
+<area shape="rect" id="node13" href="../../d2/d82/a00279.html" title="K12SchoolGenerator.cpp" alt="" coords="401,155,581,181"/>
+<area shape="rect" id="node16" href="../../db/d10/a00350.html" title="WorkplaceGenerator.cpp" alt="" coords="962,155,1139,181"/>
 </map>
 </div>
 </div>
 <p><a href="../../da/dd4/a00291_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d84/a00052.html">gengeopop::PartialGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface for generators that provide a partial solution.  <a href="../../d1/d84/a00052.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -158,8 +183,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../da/dd4/a00291.html">HouseholdGenerator.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../da/dd4/a00291.html">PartialGenerator.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

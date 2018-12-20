@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: K12School.cpp File Reference</title>
+<title>Stride Reference Manual: Sim.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,35 +107,51 @@ $(document).ready(function(){initNavTree('de/dab/a00319.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">K12School.cpp File Reference</div>  </div>
+<div class="title">Sim.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">K12School.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d8d/a00262_source.html">GeoGridConfig.h</a>&quot;</code><br />
+
+<p>Implementation for the Simulator class.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/de2/a00320_source.html">Sim.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/d13/a00205_source.html">calendar/DaysOffStandard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/d57/a00194_source.html">pool/ContactPoolType.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/de9/a00322_source.html">sim/SimBuilder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db3/a00313_source.html">util/RunConfigManager.h</a>&quot;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for K12School.cpp:</div>
+Include dependency graph for Sim.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/dd2/a00693.gif" border="0" usemap="#K12School_8cpp" alt=""/></div>
-<map name="K12School_8cpp" id="K12School_8cpp">
-<area shape="rect" id="node2" href="../../dd/de2/a00320.html" title="K12School.h" alt="" coords="2295,155,2396,181"/>
-<area shape="rect" id="node48" href="../../d9/d8d/a00262.html" title="GeoGridConfig.h" alt="" coords="2917,80,3044,107"/>
-<area shape="rect" id="node3" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="2282,229,2409,256"/>
-<area shape="rect" id="node4" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1625,304,1712,331"/>
-<area shape="rect" id="node5" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="2157,475,2233,502"/>
-<area shape="rect" id="node14" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="712,475,800,502"/>
-<area shape="rect" id="node22" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1217,647,1360,673"/>
-<area shape="rect" id="node27" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1604,386,1733,413"/>
-<area shape="rect" id="node45" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="2206,386,2336,413"/>
-<area shape="rect" id="node23" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="687,721,882,748"/>
-<area shape="rect" id="node24" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1534,721,1704,748"/>
-<area shape="rect" id="node28" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1586,475,1751,502"/>
-<area shape="rect" id="node30" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1881,565,2053,591"/>
-<area shape="rect" id="node31" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1455,475,1562,502"/>
-<area shape="rect" id="node34" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="1826,475,1905,502"/>
-<area shape="rect" id="node36" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="1929,475,2029,502"/>
-<area shape="rect" id="node29" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1486,565,1654,591"/>
-<area shape="rect" id="node32" href="../../db/dc3/a00284.html" title="Header for the Health class. " alt="" coords="1230,565,1360,591"/>
-<area shape="rect" id="node49" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="2650,155,2828,181"/>
+<div class="center"><img src="../../d0/d50/a00661.gif" border="0" usemap="#Sim_8cpp" alt=""/></div>
+<map name="Sim_8cpp" id="Sim_8cpp">
+<area shape="rect" id="node2" href="../../dd/de2/a00320.html" title="Header for the Simulator class. " alt="" coords="593,80,651,107"/>
+<area shape="rect" id="node5" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1935,408,2106,435"/>
+<area shape="rect" id="node30" href="../../d5/d13/a00205.html" title="DaysOffStandard class. " alt="" coords="1039,162,1242,189"/>
+<area shape="rect" id="node36" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="1616,80,1745,107"/>
+<area shape="rect" id="node47" href="../../de/de9/a00322.html" title="Header for the SimBuilder class. " alt="" coords="761,244,891,271"/>
+<area shape="rect" id="node48" href="../../dd/db3/a00313.html" title="Produce run config ptree. " alt="" coords="5,244,180,271"/>
+<area shape="rect" id="node3" href="../../d0/d4a/a00147.html" title="Contact profiles stored in simulator. " alt="" coords="1557,162,1764,189"/>
+<area shape="rect" id="node16" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="730,408,925,435"/>
+<area shape="rect" id="node20" href="../../d6/daa/a00187.html" title="Header for the ContactHandler class. " alt="" coords="247,162,432,189"/>
+<area shape="rect" id="node21" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="421,244,521,271"/>
+<area shape="rect" id="node27" href="../../dd/d56/a00274.html" title="Header for the InfectorExec class. " alt="" coords="1267,162,1431,189"/>
+<area shape="rect" id="node29" href="../../d1/dc6/a00347.html" title="Header for the TransmissionProfile class. " alt="" coords="660,162,867,189"/>
+<area shape="rect" id="node4" href="../../d9/db6/a00146.html" title="Contact profile. " alt="" coords="1557,244,1757,271"/>
+<area shape="rect" id="node14" href="../../dc/d6a/a00261.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2037,244,2205,271"/>
+<area shape="rect" id="node11" href="../../d5/da7/a00144.html" title="Helpers for age. " alt="" coords="1359,326,1445,353"/>
+<area shape="rect" id="node15" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="1572,326,1715,353"/>
+<area shape="rect" id="node22" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="447,326,498,353"/>
+<area shape="rect" id="node23" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="555,408,655,435"/>
+<area shape="rect" id="node31" href="../../d3/df8/a00155.html" title="Header file for the Calendar class. " alt="" coords="914,244,1063,271"/>
+<area shape="rect" id="node35" href="../../db/d53/a00202.html" title="Interface for DaysOff classes. " alt="" coords="1087,244,1285,271"/>
+<area shape="rect" id="node37" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="2093,162,2258,189"/>
+<area shape="rect" id="node38" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2384,244,2556,271"/>
+<area shape="rect" id="node44" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1789,162,1895,189"/>
+<area shape="rect" id="node39" href="../../df/df1/a00340.html" title="Interface/Implementation for SVIterator. " alt="" coords="2615,326,2714,353"/>
+<area shape="rect" id="node45" href="../../d4/d9a/a00246.html" title="Header for the Health class. " alt="" coords="1832,244,1961,271"/>
+<area shape="rect" id="node49" href="../../d2/d94/a00184.html" title="Info on configuration. " alt="" coords="61,408,181,435"/>
 </map>
 </div>
 </div>
@@ -143,16 +159,21 @@ Include dependency graph for K12School.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation for the Simulator class. </p>
+
+<p>Definition in file <a class="el" href="../../de/dab/a00319_source.html">Sim.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../de/dab/a00319.html">K12School.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../de/dab/a00319.html">Sim.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: PartialPopulator.cpp File Reference</title>
+<title>Stride Reference Manual: TestCalibrationRunner.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,34 +107,27 @@ $(document).ready(function(){initNavTree('d3/d93/a00341.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">PartialPopulator.cpp File Reference</div>  </div>
+<div class="title">TestCalibrationRunner.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d45/a00342_source.html">PartialPopulator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d45/a00342_source.html">TestCalibrationRunner.h</a>&quot;</code><br />
+<code>#include &quot;../../test/cpp/gtester/ScenarioData.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d1e/a00149_source.html">Boxplot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for PartialPopulator.cpp:</div>
+Include dependency graph for TestCalibrationRunner.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d14/a00720.gif" border="0" usemap="#PartialPopulator_8cpp" alt=""/></div>
-<map name="PartialPopulator_8cpp" id="PartialPopulator_8cpp">
-<area shape="rect" id="node2" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="538,80,672,107"/>
-<area shape="rect" id="node3" href="../../d0/d2f/a00259.html" title="gengeopop/GeoGrid.h" alt="" coords="1234,379,1397,405"/>
-<area shape="rect" id="node31" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="196,550,296,577"/>
-<area shape="rect" id="node46" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGridConfig.h" alt="" coords="504,155,706,181"/>
-<area shape="rect" id="node4" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="1058,639,1134,666"/>
-<area shape="rect" id="node13" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="1906,550,1994,577"/>
-<area shape="rect" id="node21" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1208,639,1351,666"/>
-<area shape="rect" id="node25" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="390,461,519,487"/>
-<area shape="rect" id="node43" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1497,461,1628,487"/>
-<area shape="rect" id="node22" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="780,721,974,748"/>
-<area shape="rect" id="node23" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1441,721,1612,748"/>
-<area shape="rect" id="node26" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="830,550,996,577"/>
-<area shape="rect" id="node27" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="642,639,814,666"/>
-<area shape="rect" id="node28" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1121,550,1228,577"/>
-<area shape="rect" id="node29" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="119,639,198,666"/>
-<area shape="rect" id="node32" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="230,639,281,666"/>
-<area shape="rect" id="node33" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="322,721,422,748"/>
-<area shape="rect" id="node47" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="634,229,813,256"/>
-<area shape="rect" id="node48" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="858,304,984,331"/>
+<div class="center"><img src="../../d5/d5b/a00695.gif" border="0" usemap="#TestCalibrationRunner_8cpp" alt=""/></div>
+<map name="TestCalibrationRunner_8cpp" id="TestCalibrationRunner_8cpp">
+<area shape="rect" id="node2" href="../../d2/d45/a00342.html" title="TestCalibrationRunner.h" alt="" coords="627,87,797,114"/>
+<area shape="rect" id="node7" href="../../de/d38/a00160.html" title="Calibrator.h" alt="" coords="747,244,842,271"/>
+<area shape="rect" id="node26" href="../../da/d1e/a00149.html" title="Boxplot.h" alt="" coords="1431,408,1513,435"/>
+<area shape="rect" id="node6" href="../../d6/db8/a00158.html" title="CalibrationRunner.h" alt="" coords="590,169,735,196"/>
+<area shape="rect" id="node9" href="../../d6/d7f/a00287.html" title="Logging (spdlog) utilities. " alt="" coords="1617,483,1725,509"/>
+<area shape="rect" id="node12" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="751,326,851,353"/>
+<area shape="rect" id="node13" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="776,408,827,435"/>
+<area shape="rect" id="node14" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="835,483,935,509"/>
+<area shape="rect" id="node27" href="../../dd/db2/a00151.html" title="BoxplotData.h" alt="" coords="1427,483,1541,509"/>
 </map>
 </div>
 </div>
@@ -142,7 +135,7 @@ Include dependency graph for PartialPopulator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">calibration</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
@@ -150,8 +143,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d3/d93/a00341.html">PartialPopulator.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d3/d93/a00341.html">TestCalibrationRunner.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

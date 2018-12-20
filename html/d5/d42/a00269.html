@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridPopulator.cpp File Reference</title>
+<title>Stride Reference Manual: InfectedFileViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,55 +105,75 @@ $(document).ready(function(){initNavTree('d5/d42/a00269.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridPopulator.cpp File Reference</div>  </div>
+<div class="title">InfectedFileViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d2a/a00270_source.html">GeoGridPopulator.h</a>&quot;</code><br />
+
+<p>Observer for Infected output.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d1/dd4/a00267_source.html">output/InfectedFile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d8f/a00324_source.html">sim/SimRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dd7/a00260_source.html">sim/event/Id.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridPopulator.cpp:</div>
+Include dependency graph for InfectedFileViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/db5/a00616.gif" border="0" usemap="#GeoGridPopulator_8cpp" alt=""/></div>
-<map name="GeoGridPopulator_8cpp" id="GeoGridPopulator_8cpp">
-<area shape="rect" id="node2" href="../../d9/d2a/a00270.html" title="GeoGridPopulator.h" alt="" coords="1836,80,1983,107"/>
-<area shape="rect" id="node3" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="1548,155,1681,181"/>
-<area shape="rect" id="node4" href="../../d0/d2f/a00259.html" title="gengeopop/GeoGrid.h" alt="" coords="1533,453,1696,480"/>
-<area shape="rect" id="node32" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="43,625,143,651"/>
-<area shape="rect" id="node45" href="../../d9/d8d/a00262.html" title="gengeopop/GeoGridConfig.h" alt="" coords="1988,229,2191,256"/>
-<area shape="rect" id="node5" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="2247,625,2323,651"/>
-<area shape="rect" id="node14" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="1203,625,1291,651"/>
-<area shape="rect" id="node22" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="334,714,477,741"/>
-<area shape="rect" id="node26" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="729,535,858,562"/>
-<area shape="rect" id="node42" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1652,535,1783,562"/>
-<area shape="rect" id="node23" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="360,796,555,823"/>
-<area shape="rect" id="node24" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="680,796,851,823"/>
-<area shape="rect" id="node27" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="832,625,997,651"/>
-<area shape="rect" id="node28" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="803,714,975,741"/>
-<area shape="rect" id="node29" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1021,625,1128,651"/>
-<area shape="rect" id="node30" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="729,625,807,651"/>
-<area shape="rect" id="node33" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="68,714,119,741"/>
-<area shape="rect" id="node46" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="2000,304,2179,331"/>
-<area shape="rect" id="node47" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="1763,379,1890,405"/>
+<div class="center"><img src="../../d6/d92/a00586.gif" border="0" usemap="#InfectedFileViewer_8h" alt=""/></div>
+<map name="InfectedFileViewer_8h" id="InfectedFileViewer_8h">
+<area shape="rect" id="node2" href="../../d1/dd4/a00267.html" title="Header for the InfectedFile class. " alt="" coords="5,319,156,345"/>
+<area shape="rect" id="node6" href="../../d4/d8f/a00324.html" title="Header for the SimRunner class. " alt="" coords="1352,80,1481,107"/>
+<area shape="rect" id="node7" href="../../dd/dd7/a00260.html" title="Definition of EventId. " alt="" coords="1369,244,1481,271"/>
+<area shape="rect" id="node9" href="../../dc/d50/a00332.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="1174,162,1323,189"/>
+<area shape="rect" id="node14" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="885,162,985,189"/>
+<area shape="rect" id="node26" href="../../d4/db5/a00328.html" title="Definition of Stopwatch. " alt="" coords="1631,244,1755,271"/>
+<area shape="rect" id="node10" href="../../d2/d0a/a00333.html" title="Interface/Implementation of Subject. " alt="" coords="1201,244,1307,271"/>
+<area shape="rect" id="node15" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="795,244,846,271"/>
+<area shape="rect" id="node16" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="283,319,383,345"/>
+<area shape="rect" id="node27" href="../../d9/d48/a00345.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1657,319,1773,345"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/dde/a00587.gif" border="0" usemap="#InfectedFileViewer_8hdep" alt=""/></div>
+<map name="InfectedFileViewer_8hdep" id="InfectedFileViewer_8hdep">
+<area shape="rect" id="node2" href="../../d3/d2a/a00195.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../db/d12/a00268.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="166,80,327,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/d42/a00269_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html">stride::viewers::InfectedFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d2/df5/a00137.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:dd/df5/a00386"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/df5/a00386.html">stride::viewers</a></td></tr>
+<tr class="memdesc:dd/df5/a00386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../dd/d6d/a00111.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Observer for Infected output. </p>
+
+<p>Definition in file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d5/d42/a00269.html">GeoGridPopulator.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../d5/d42/a00269.html">InfectedFileViewer.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

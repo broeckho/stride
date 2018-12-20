@@ -1,7 +1,8 @@
 var a00103 =
 [
-    [ "DaysOffSchool", "d5/d1e/a00103.html#ab77c78d8d9b00fe50c8f845fe459a657", null ],
-    [ "IsWorkOff", "d5/d1e/a00103.html#a633453bbe4892b56891c42a4f4ac72fd", null ],
-    [ "IsSchoolOff", "d5/d1e/a00103.html#a709acf6d0cec5722e20760a797ae35bb", null ],
-    [ "m_calendar", "d5/d1e/a00103.html#a5ac5b045ac4db6ae397d91d7dd663784", null ]
+    [ "AdoptedFile", "d5/d1e/a00103.html#aa24c13053bcf131ad878b465a4125828", null ],
+    [ "~AdoptedFile", "d5/d1e/a00103.html#a3ffdabc86a3d9e8300cdbde251ab4763", null ],
+    [ "Print", "d5/d1e/a00103.html#aa93f976e835a7255e7d479252eca28c9", null ],
+    [ "Initialize", "d5/d1e/a00103.html#aefdeb0e49b52e1fb5844bb311a6319cb", null ],
+    [ "m_fstream", "d5/d1e/a00103.html#aa82a130d557abb519a61bde42e626103", null ]
 ];

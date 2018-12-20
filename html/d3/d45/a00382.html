@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: StringUtils.h File Reference</title>
+<title>Stride Reference Manual: stride::sim_event Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -47,9 +47,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -105,161 +105,226 @@ $(document).ready(function(){initNavTree('d3/d45/a00382.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">StringUtils.h File Reference</div>  </div>
+<div class="title">stride::sim_event Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Miscellaneous string utilities.  
+<p>Namespace to manage events signalled by the <a class="el" href="../../dd/d6d/a00111.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/algorithm/string.hpp&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cctype&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for StringUtils.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/d96/a00782.gif" border="0" usemap="#StringUtils_8h" alt=""/></div>
-<map name="StringUtils_8h" id="StringUtils_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../dc/d0c/a00783.gif" border="0" usemap="#StringUtils_8hdep" alt=""/></div>
-<map name="StringUtils_8hdep" id="StringUtils_8hdep">
-<area shape="rect" id="node2" href="../../d6/d22/a00245.html" title="Implementation for the DiseaseSeeder class. " alt="" coords="1443,379,1589,405"/>
-<area shape="rect" id="node3" href="../../de/d08/a00381.html" title="Main program: command line handling. " alt="" coords="632,80,717,107"/>
-<area shape="rect" id="node4" href="../../dc/d6a/a00261.html" title="GeoGridConfig.cpp" alt="" coords="741,80,883,107"/>
-<area shape="rect" id="node5" href="../../d6/d82/a00243.html" title="Initialize populations: implementation. " alt="" coords="1764,304,1927,331"/>
-<area shape="rect" id="node6" href="../../d4/d04/a00255.html" title="Initialize populations: implementation. " alt="" coords="2215,304,2358,331"/>
-<area shape="rect" id="node7" href="../../d7/d08/a00378.html" title="Header for the command line controller. " alt="" coords="863,304,1003,331"/>
-<area shape="rect" id="node8" href="../../d4/d08/a00237.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="907,80,991,107"/>
-<area shape="rect" id="node10" href="../../d3/d42/a00235.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="565,155,624,181"/>
-<area shape="rect" id="node18" href="../../d0/da7/a00250.html" title="Utilities for interaction with filesystem. " alt="" coords="1758,80,1850,107"/>
-<area shape="rect" id="node19" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="1683,80,1733,107"/>
-<area shape="rect" id="node20" href="../../d7/ddb/a00361.html" title="Implementation of RnPcg. " alt="" coords="2026,155,2091,181"/>
-<area shape="rect" id="node9" href="../../d3/d2a/a00195.html" title="CitiesCSVReader.cpp" alt="" coords="5,304,160,331"/>
-<area shape="rect" id="node17" href="../../d7/d40/a00236.html" title="Source file of CSVRow. " alt="" coords="893,229,992,256"/>
-<area shape="rect" id="node11" href="../../d7/ded/a00196.html" title="CitiesCSVReader.h" alt="" coords="120,229,259,256"/>
-<area shape="rect" id="node13" href="../../d1/de1/a00213.html" title="CommutesCSVReader.h" alt="" coords="283,229,458,256"/>
-<area shape="rect" id="node14" href="../../dd/dc1/a00212.html" title="CommutesCSVReader.cpp" alt="" coords="453,304,643,331"/>
-<area shape="rect" id="node15" href="../../d4/d66/a00289.html" title="HouseholdCSVReader.cpp" alt="" coords="632,229,819,256"/>
-<area shape="rect" id="node16" href="../../da/d31/a00234.html" title="Source file of csv. " alt="" coords="483,229,557,256"/>
-<area shape="rect" id="node12" href="../../d4/def/a00359.html" title="ReaderFactory.cpp" alt="" coords="243,304,381,331"/>
-<area shape="rect" id="node21" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="1924,155,2001,181"/>
-<area shape="rect" id="node22" href="../../d5/de9/a00176.html" title="Header file for the HealthSeeder. " alt="" coords="2521,229,2636,256"/>
-<area shape="rect" id="node23" href="../../de/d45/a00175.html" title="Implementation for BeliefSeeder class. " alt="" coords="2382,304,2511,331"/>
-<area shape="rect" id="node25" href="../../dc/d57/a00194.html" title="Calibrator.h" alt="" coords="3207,229,3302,256"/>
-<area shape="rect" id="node34" href="../../d5/ddf/a00224.html" title="Header for the ContactHandler class. " alt="" coords="2836,229,2969,256"/>
-<area shape="rect" id="node36" href="../../db/d7e/a00372.html" title="Header for the Simulator class. " alt="" coords="2779,304,2837,331"/>
-<area shape="rect" id="node37" href="../../d4/d9a/a00246.html" title="Header for the DiseaseSeeder class. " alt="" coords="1348,304,1479,331"/>
-<area shape="rect" id="node38" href="../../d3/d58/a00285.html" title="Implementation for HelthSeeder class. " alt="" coords="1604,304,1740,331"/>
-<area shape="rect" id="node39" href="../../d8/d17/a00304.html" title="Header for the Immunizer class. " alt="" coords="2660,229,2761,256"/>
-<area shape="rect" id="node40" href="../../dc/d0f/a00303.html" title="Implementation for the Immunizer class. " alt="" coords="2638,304,2754,331"/>
-<area shape="rect" id="node41" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="2994,229,3131,256"/>
-<area shape="rect" id="node42" href="../../d7/d03/a00254.html" title="GenGeoPopController.h" alt="" coords="2175,229,2345,256"/>
-<area shape="rect" id="node43" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="1269,229,1403,256"/>
-<area shape="rect" id="node44" href="../../db/ddf/a00164.html" title="Base Class for PopBuilders. " alt="" coords="1028,304,1183,331"/>
-<area shape="rect" id="node45" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1427,229,1528,256"/>
-<area shape="rect" id="node46" href="../../db/d10/a00350.html" title="Core Population class. " alt="" coords="1207,304,1323,331"/>
-<area shape="rect" id="node47" href="../../d9/d0a/a00390.html" title="Implementation for the SurveySeeder class. " alt="" coords="2001,304,2140,331"/>
-<area shape="rect" id="node48" href="../../db/d95/a00391.html" title="Header file for the SurveySeeder class. " alt="" coords="2028,229,2151,256"/>
-<area shape="rect" id="node49" href="../../d6/de1/a00233.html" title="Header for the command line controller. " alt="" coords="1705,229,1826,256"/>
-<area shape="rect" id="node50" href="../../d6/db8/a00376.html" title="Header for the SimRunner class. " alt="" coords="1850,229,1953,256"/>
-<area shape="rect" id="node24" href="../../dc/de3/a00373.html" title="Implementation for the SimBuilder class. " alt="" coords="2241,379,2359,405"/>
-<area shape="rect" id="node26" href="../../dd/da2/a00192.html" title="CalibrationRunner.h" alt="" coords="3271,304,3417,331"/>
-<area shape="rect" id="node27" href="../../d9/dd0/a00191.html" title="CalibrationRunner.cpp" alt="" coords="3069,379,3229,405"/>
-<area shape="rect" id="node28" href="../../d6/d43/a00216.html" title="ConfigFileCalibrationRunner.h" alt="" coords="3499,379,3704,405"/>
-<area shape="rect" id="node29" href="../../d3/dd5/a00215.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="3587,453,3807,480"/>
-<area shape="rect" id="node30" href="../../d7/d6e/a00190.html" title="calibration.cpp" alt="" coords="3404,453,3519,480"/>
-<area shape="rect" id="node31" href="../../db/dbc/a00395.html" title="TestCalibrationRunner.h" alt="" coords="3253,379,3424,405"/>
-<area shape="rect" id="node32" href="../../d9/dad/a00394.html" title="TestCalibrationRunner.cpp" alt="" coords="3067,453,3253,480"/>
-<area shape="rect" id="node33" href="../../dd/df4/a00193.html" title="Calibrator.cpp" alt="" coords="2507,379,2618,405"/>
-<area shape="rect" id="node35" href="../../d0/d39/a00314.html" title="Header for the Infector class. " alt="" coords="2862,304,2943,331"/>
-</map>
-</div>
-</div>
-<p><a href="../../d3/d45/a00382_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/d84/a00447"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html">stride::util</a></td></tr>
-<tr class="memdesc:de/d84/a00447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab046b05654e26ef19fd5e4e46c16e836"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> { <br />
+&#160;&#160;<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">Id::AtStart</a>, 
+<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Id::Stepped</a>, 
+<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Id::Finished</a>, 
+<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">Id::SetupBegin</a>, 
+<br />
+&#160;&#160;<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">Id::SetupEnd</a>
+<br />
+ }<tr class="memdesc:ab046b05654e26ef19fd5e4e46c16e836"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the event.  <a href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:ab046b05654e26ef19fd5e4e46c16e836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#aed0a8c66f95a390d87398e0f2c7c7ceb">stride::util::CheckAllDigits</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">All characters in string are digits (or string is empty)  <a href="../../de/d84/a00447.html#aed0a8c66f95a390d87398e0f2c7c7ceb">More...</a><br /></td></tr>
-<tr class="separator:aed0a8c66f95a390d87398e0f2c7c7ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae33774027798262390fbf95fbabc3f82"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#ae33774027798262390fbf95fbabc3f82">stride::util::FromString</a> (const std::string &amp;s)</td></tr>
-<tr class="memdesc:ae33774027798262390fbf95fbabc3f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a value of type T representation from a string.  <a href="../../de/d84/a00447.html#ae33774027798262390fbf95fbabc3f82">More...</a><br /></td></tr>
-<tr class="separator:ae33774027798262390fbf95fbabc3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadef750132d5d399e7ed8a96eab53c4c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#aadef750132d5d399e7ed8a96eab53c4c">stride::util::Split</a> (const std::string &amp;s, const std::string &amp;delimiters)</td></tr>
-<tr class="memdesc:aadef750132d5d399e7ed8a96eab53c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a string (in order of occurence) by splitting it on the given delimiters.  <a href="../../de/d84/a00447.html#aadef750132d5d399e7ed8a96eab53c4c">More...</a><br /></td></tr>
-<tr class="separator:aadef750132d5d399e7ed8a96eab53c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a919ad6efcd17eb2bda30b1c6e044bc3c">stride::util::Tokenize</a> (const std::string &amp;str, const std::string &amp;delimiters)</td></tr>
-<tr class="memdesc:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize a string (in order of occurence) with the given delimiters.  <a href="../../de/d84/a00447.html#a919ad6efcd17eb2bda30b1c6e044bc3c">More...</a><br /></td></tr>
-<tr class="separator:a919ad6efcd17eb2bda30b1c6e044bc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a256d75fffdad0f4f49c6e58c69f76e20">stride::util::ToString</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:a256d75fffdad0f4f49c6e58c69f76e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation of a value of type T.  <a href="../../de/d84/a00447.html#a256d75fffdad0f4f49c6e58c69f76e20">More...</a><br /></td></tr>
-<tr class="separator:a256d75fffdad0f4f49c6e58c69f76e20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplParams" colspan="2">template&lt;&gt; </td></tr>
-<tr class="memitem:a78bfb92201f2007d9068aedde33460e3"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a78bfb92201f2007d9068aedde33460e3">stride::util::ToString&lt; std::string &gt;</a> (const std::string &amp;value)</td></tr>
-<tr class="separator:a78bfb92201f2007d9068aedde33460e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a9694bd388159d8b8ddb0356cd1f0453c">stride::util::ToString</a> (typename std::enable_if&lt;!std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
-<tr class="memdesc:a9694bd388159d8b8ddb0356cd1f0453c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are not strings) in a range and put them in a vector.  <a href="../../de/d84/a00447.html#a9694bd388159d8b8ddb0356cd1f0453c">More...</a><br /></td></tr>
-<tr class="separator:a9694bd388159d8b8ddb0356cd1f0453c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
-<tr class="memitem:a0be3b48676adcc37f61a120fc862b4b1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a0be3b48676adcc37f61a120fc862b4b1">stride::util::ToString</a> (typename std::enable_if&lt; std::is_same&lt; typename It::value_type, std::string &gt;::value, It &gt;::type first, It last)</td></tr>
-<tr class="memdesc:a0be3b48676adcc37f61a120fc862b4b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringify values (that are strings - so no-op) in a range and put them in a vector.  <a href="../../de/d84/a00447.html#a0be3b48676adcc37f61a120fc862b4b1">More...</a><br /></td></tr>
-<tr class="separator:a0be3b48676adcc37f61a120fc862b4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#adb4ae75f64a04f4acd0c562fe2b8add0">stride::util::ToString</a> (const T &amp;value, int width, char fill= ' ')</td></tr>
-<tr class="memdesc:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string representation with minimum width of a value of type T.  <a href="../../de/d84/a00447.html#adb4ae75f64a04f4acd0c562fe2b8add0">More...</a><br /></td></tr>
-<tr class="separator:adb4ae75f64a04f4acd0c562fe2b8add0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#aa45ab4a5a30f65dcd1bf25c3d095825b">stride::util::ToLower</a> (const std::string &amp;source)</td></tr>
-<tr class="memdesc:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with lower case characters only.  <a href="../../de/d84/a00447.html#aa45ab4a5a30f65dcd1bf25c3d095825b">More...</a><br /></td></tr>
-<tr class="separator:aa45ab4a5a30f65dcd1bf25c3d095825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#aeb06057f363c4ad2c5ac5eae719d392f">stride::util::ToUpper</a> (const std::string &amp;source)</td></tr>
-<tr class="memdesc:aeb06057f363c4ad2c5ac5eae719d392f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a string with upper case characters only.  <a href="../../de/d84/a00447.html#aeb06057f363c4ad2c5ac5eae719d392f">More...</a><br /></td></tr>
-<tr class="separator:aeb06057f363c4ad2c5ac5eae719d392f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a9fa614ccd671679a0e1feff6e0f6da33">stride::util::TrimRight</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
-<tr class="memdesc:a9fa614ccd671679a0e1feff6e0f6da33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at right end of string.  <a href="../../de/d84/a00447.html#a9fa614ccd671679a0e1feff6e0f6da33">More...</a><br /></td></tr>
-<tr class="separator:a9fa614ccd671679a0e1feff6e0f6da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a2c5aacbb4d606af3e43a96e8aad692cf">stride::util::TrimLeft</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
-<tr class="memdesc:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at left end of string.  <a href="../../de/d84/a00447.html#a2c5aacbb4d606af3e43a96e8aad692cf">More...</a><br /></td></tr>
-<tr class="separator:a2c5aacbb4d606af3e43a96e8aad692cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a01882a252a5e262d442f9a8b8f64e3ef">stride::util::Trim</a> (const std::string &amp;source, const std::string &amp;t=&quot; &quot;)</td></tr>
-<tr class="memdesc:a01882a252a5e262d442f9a8b8f64e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim characters at both ends of string.  <a href="../../de/d84/a00447.html#a01882a252a5e262d442f9a8b8f64e3ef">More...</a><br /></td></tr>
-<tr class="separator:a01882a252a5e262d442f9a8b8f64e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html#a19fc82f584acd29930d95cb07ddd9e5f">stride::util::intToDottedString</a> (const T &amp;value)</td></tr>
-<tr class="separator:a19fc82f584acd29930d95cb07ddd9e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#a43c0310b3eef6024b540ffaa5c4c39b2">IsType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether string is name of a <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>.  <a href="#a43c0310b3eef6024b540ffaa5c4c39b2">More...</a><br /></td></tr>
+<tr class="separator:a43c0310b3eef6024b540ffaa5c4c39b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa54357f0c5b3af4e7905ed503167ede"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#aaa54357f0c5b3af4e7905ed503167ede">ToString</a> (<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> w)</td></tr>
+<tr class="memdesc:aaa54357f0c5b3af4e7905ed503167ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name.  <a href="#aaa54357f0c5b3af4e7905ed503167ede">More...</a><br /></td></tr>
+<tr class="separator:aaa54357f0c5b3af4e7905ed503167ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81b85da174b73232cac26f53bd6d3a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#ac81b85da174b73232cac26f53bd6d3a0">ToType</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:ac81b85da174b73232cac26f53bd6d3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string with name to Id.  <a href="#ac81b85da174b73232cac26f53bd6d3a0">More...</a><br /></td></tr>
+<tr class="separator:ac81b85da174b73232cac26f53bd6d3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd464f4ca1769b7880cb27383a3cafd2"><td class="memItemLeft" align="right" valign="top">constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#afd464f4ca1769b7880cb27383a3cafd2">NumOfTypes</a> ()</td></tr>
+<tr class="memdesc:afd464f4ca1769b7880cb27383a3cafd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of <a class="el" href="../../df/d5d/a00084.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types.  <a href="#afd464f4ca1769b7880cb27383a3cafd2">More...</a><br /></td></tr>
+<tr class="separator:afd464f4ca1769b7880cb27383a3cafd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdde1acea1c3f4536af74bb4b126a739"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d45/a00382.html#acdde1acea1c3f4536af74bb4b126a739">ToSizeT</a> (<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> id)</td></tr>
+<tr class="memdesc:acdde1acea1c3f4536af74bb4b126a739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast to size_t for indexing.  <a href="#acdde1acea1c3f4536af74bb4b126a739">More...</a><br /></td></tr>
+<tr class="separator:acdde1acea1c3f4536af74bb4b126a739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Miscellaneous string utilities. </p>
+<div class="textblock"><p>Namespace to manage events signalled by the <a class="el" href="../../dd/d6d/a00111.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p>Definition in file <a class="el" href="../../d3/d45/a00382_source.html">StringUtils.h</a>.</p>
-</div></div><!-- contents -->
+<p>Enumerates the event. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe"></a>AtStart&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568"></a>Stepped&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b"></a>Finished&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac"></a>SetupBegin&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe"></a>SetupEnd&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00260_source.html#l00030">30</a> of file <a class="el" href="../../dd/dd7/a00260_source.html">Id.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a43c0310b3eef6024b540ffaa5c4c39b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::sim_event::IsType </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether string is name of a <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a>. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d2f/a00259_source.html#l00032">32</a> of file <a class="el" href="../../d0/d2f/a00259_source.html">Id.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00040">NumOfTypes()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa54357f0c5b3af4e7905ed503167ede"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::sim_event::ToString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a>&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a <a class="el" href="../../d8/d95/a00379.html#aaa214aee675050e781497b0dd15449ab" title="Enumerates the ContactPool types. ">ContactPoolType::Id</a> value to corresponding name. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d2f/a00259_source.html#l00042">42</a> of file <a class="el" href="../../d0/d2f/a00259_source.html">Id.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00046">ToSizeT()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac81b85da174b73232cac26f53bd6d3a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a> stride::sim_event::ToType </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a string with name to Id. </p>
+
+<p>Definition at line <a class="el" href="../../d0/d2f/a00259_source.html#l00050">50</a> of file <a class="el" href="../../d0/d2f/a00259_source.html">Id.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836afcf908843999113ed917adfa7d3582fe">AtStart</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a8f3d10eb21bd36347c258679eba9e92b">Finished</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836ac5be476a42d4abe754e94797ccc012ac">SetupBegin</a>, <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a6e3d315343f8cb5b914a65acb273e7fe">SetupEnd</a>, and <a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836a5ea38ba255e963326e6dbe47d8be6568">Stepped</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dd/dd7/a00260_source.html#l00046">ToSizeT()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd464f4ca1769b7880cb27383a3cafd2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned int stride::sim_event::NumOfTypes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of <a class="el" href="../../df/d5d/a00084.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> types. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00260_source.html#l00040">40</a> of file <a class="el" href="../../dd/dd7/a00260_source.html">Id.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/d2f/a00259_source.html#l00032">IsType()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdde1acea1c3f4536af74bb4b126a739"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t stride::sim_event::ToSizeT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cast to size_t for indexing. </p>
+
+<p>Definition at line <a class="el" href="../../dd/dd7/a00260_source.html#l00046">46</a> of file <a class="el" href="../../dd/dd7/a00260_source.html">Id.h</a>.</p>
+
+<p>References <a class="el" href="../../d0/d2f/a00259_source.html#l00042">ToString()</a>, and <a class="el" href="../../d0/d2f/a00259_source.html#l00050">ToType()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d3/d45/a00382.html">StringUtils.h</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../d3/d45/a00382.html">sim_event</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

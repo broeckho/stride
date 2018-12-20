@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Location.h File Reference</title>
+<title>Stride Reference Manual: Stopwatch.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,82 +107,50 @@ $(document).ready(function(){initNavTree('d4/db5/a00328.html','../../');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Location.h File Reference</div>  </div>
+<div class="title">Stopwatch.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;boost/geometry/core/cs.hpp&gt;</code><br />
-<code>#include &lt;boost/geometry/geometries/point.hpp&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
+
+<p>Definition of Stopwatch.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>&quot;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;typeindex&gt;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
-<code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Location.h:</div>
+Include dependency graph for Stopwatch.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d8/dcb/a00706.gif" border="0" usemap="#Location_8h" alt=""/></div>
-<map name="Location_8h" id="Location_8h">
+<div class="center"><img src="../../d8/d73/a00674.gif" border="0" usemap="#Stopwatch_8h" alt=""/></div>
+<map name="Stopwatch_8h" id="Stopwatch_8h">
+<area shape="rect" id="node2" href="../../d9/d48/a00345.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="211,80,327,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d56/a00707.gif" border="0" usemap="#Location_8hdep" alt=""/></div>
-<map name="Location_8hdep" id="Location_8hdep">
-<area shape="rect" id="node2" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1903,80,1989,107"/>
-<area shape="rect" id="node13" href="../../db/d7b/a00296.html" title="HouseholdReader.h" alt="" coords="2764,304,2909,331"/>
-<area shape="rect" id="node24" href="../../d8/dfc/a00327.html" title="Location.cpp" alt="" coords="2209,229,2312,256"/>
-<area shape="rect" id="node27" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="2438,155,2569,181"/>
-<area shape="rect" id="node37" href="../../de/db1/a00197.html" title="CitiesReader.h" alt="" coords="3058,304,3170,331"/>
-<area shape="rect" id="node40" href="../../d1/de1/a00213.html" title="CommutesCSVReader.h" alt="" coords="3569,379,3744,405"/>
-<area shape="rect" id="node3" href="../../dc/ded/a00252.html" title="gengeopop.cpp" alt="" coords="1745,453,1867,480"/>
-<area shape="rect" id="node4" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="1339,155,1465,181"/>
-<area shape="rect" id="node5" href="../../de/d79/a00203.html" title="College.h" alt="" coords="204,229,285,256"/>
-<area shape="rect" id="node23" href="../../dd/de2/a00320.html" title="K12School.h" alt="" coords="851,229,953,256"/>
-<area shape="rect" id="node26" href="../../dd/dea/a00408.html" title="Workplace.cpp" alt="" coords="1139,304,1252,331"/>
-<area shape="rect" id="node28" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="2076,304,2213,331"/>
-<area shape="rect" id="node36" href="../../d7/d2f/a00258.html" title="GeoGrid.cpp" alt="" coords="2033,155,2134,181"/>
-<area shape="rect" id="node39" href="../../d3/dd1/a00214.html" title="CommutesReader.h" alt="" coords="3264,304,3412,331"/>
-<area shape="rect" id="node42" href="../../dc/d28/a00276.html" title="GeoGridReader.h" alt="" coords="681,155,811,181"/>
-<area shape="rect" id="node47" href="../../d2/d82/a00279.html" title="GeoGridWriter.h" alt="" coords="1836,155,1957,181"/>
-<area shape="rect" id="node49" href="../../d2/d45/a00342.html" title="PartialPopulator.h" alt="" coords="329,155,462,181"/>
-<area shape="rect" id="node50" href="../../d6/d9c/a00352.html" title="PrimaryCommunity.cpp" alt="" coords="486,155,657,181"/>
-<area shape="rect" id="node11" href="../../d3/de5/a00209.html" title="Community.h" alt="" coords="1587,229,1694,256"/>
-<area shape="rect" id="node12" href="../../da/ddc/a00288.html" title="Household.h" alt="" coords="1100,229,1203,256"/>
-<area shape="rect" id="node20" href="../../d0/d24/a00222.html" title="ContactCenter.cpp" alt="" coords="1422,229,1563,256"/>
-<area shape="rect" id="node21" href="../../d1/dd4/a00267.html" title="GeoGridJSONWriter.cpp" alt="" coords="1725,304,1893,331"/>
-<area shape="rect" id="node22" href="../../d0/d19/a00273.html" title="GeoGridProtoWriter.cpp" alt="" coords="1227,229,1398,256"/>
-<area shape="rect" id="node25" href="../../de/d3d/a00409.html" title="Workplace.h" alt="" coords="977,229,1075,256"/>
-<area shape="rect" id="node6" href="../../db/d53/a00202.html" title="College.cpp" alt="" coords="406,304,502,331"/>
-<area shape="rect" id="node7" href="../../d1/d72/a00204.html" title="CollegeGenerator.cpp" alt="" coords="739,453,899,480"/>
-<area shape="rect" id="node8" href="../../da/d53/a00265.html" title="GeoGridJSONReader.cpp" alt="" coords="938,304,1114,331"/>
-<area shape="rect" id="node9" href="../../dd/d86/a00271.html" title="GeoGridProtoReader.cpp" alt="" coords="735,304,914,331"/>
-<area shape="rect" id="node10" href="../../d5/df1/a00206.html" title="CollegePopulator.cpp" alt="" coords="225,304,381,331"/>
-<area shape="rect" id="node14" href="../../dc/d6a/a00261.html" title="GeoGridConfig.cpp" alt="" coords="3043,379,3185,405"/>
-<area shape="rect" id="node15" href="../../de/d25/a00290.html" title="HouseholdCSVReader.h" alt="" coords="2847,379,3019,405"/>
-<area shape="rect" id="node17" href="../../d9/d5e/a00295.html" title="HouseholdReader.cpp" alt="" coords="2662,379,2822,405"/>
-<area shape="rect" id="node18" href="../../d0/d65/a00360.html" title="ReaderFactory.h" alt="" coords="3209,379,3331,405"/>
-<area shape="rect" id="node16" href="../../d4/def/a00359.html" title="ReaderFactory.cpp" alt="" coords="3279,453,3416,480"/>
-<area shape="rect" id="node19" href="../../d0/d3e/a00253.html" title="GenGeoPopController.cpp" alt="" coords="2090,453,2277,480"/>
-<area shape="rect" id="node29" href="../../d5/d13/a00205.html" title="CollegeGenerator.h" alt="" coords="1379,379,1524,405"/>
-<area shape="rect" id="node30" href="../../dd/ded/a00211.html" title="CommunityGenerator.h" alt="" coords="1913,379,2085,405"/>
-<area shape="rect" id="node31" href="../../d3/dcc/a00264.html" title="GeoGridGenerator.h" alt="" coords="1548,379,1699,405"/>
-<area shape="rect" id="node32" href="../../d8/d0a/a00292.html" title="HouseholdGenerator.h" alt="" coords="1723,379,1889,405"/>
-<area shape="rect" id="node33" href="../../de/de9/a00322.html" title="K12SchoolGenerator.h" alt="" coords="2473,379,2638,405"/>
-<area shape="rect" id="node34" href="../../d0/d01/a00339.html" title="PartialGenerator.cpp" alt="" coords="2110,379,2262,405"/>
-<area shape="rect" id="node35" href="../../d2/db6/a00411.html" title="WorkplaceGenerator.h" alt="" coords="2286,379,2449,405"/>
-<area shape="rect" id="node38" href="../../d7/ded/a00196.html" title="CitiesCSVReader.h" alt="" coords="3355,379,3494,405"/>
-<area shape="rect" id="node41" href="../../dd/dc1/a00212.html" title="CommutesCSVReader.cpp" alt="" coords="3561,453,3752,480"/>
-<area shape="rect" id="node43" href="../../d5/d35/a00266.html" title="GeoGridJSONReader.h" alt="" coords="665,229,827,256"/>
-<area shape="rect" id="node44" href="../../d9/dd6/a00272.html" title="GeoGridProtoReader.h" alt="" coords="310,229,473,256"/>
-<area shape="rect" id="node45" href="../../d3/d5e/a00275.html" title="GeoGridReader.cpp" alt="" coords="497,229,641,256"/>
-<area shape="rect" id="node46" href="../../dc/d5d/a00278.html" title="GeoGridReaderFactory.h" alt="" coords="5,229,180,256"/>
-<area shape="rect" id="node48" href="../../db/d12/a00268.html" title="GeoGridJSONWriter.h" alt="" coords="1820,229,1973,256"/>
+<div class="center"><img src="../../d6/da1/a00675.gif" border="0" usemap="#Stopwatch_8hdep" alt=""/></div>
+<map name="Stopwatch_8hdep" id="Stopwatch_8hdep">
+<area shape="rect" id="node2" href="../../d7/ded/a00196.html" title="Header for the command line controller. " alt="" coords="192,80,313,107"/>
+<area shape="rect" id="node9" href="../../d4/d8f/a00324.html" title="Header for the SimRunner class. " alt="" coords="1005,80,1108,107"/>
+<area shape="rect" id="node3" href="../../d0/d48/a00165.html" title="Header for the command line controller. " alt="" coords="5,155,116,181"/>
+<area shape="rect" id="node6" href="../../d3/d2a/a00195.html" title="Header for the command line controller. " alt="" coords="569,229,705,256"/>
+<area shape="rect" id="node7" href="../../d8/dfc/a00327.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="141,155,266,181"/>
+<area shape="rect" id="node4" href="../../dd/d4e/a00329.html" title="Main program: command line handling. " alt="" coords="30,229,115,256"/>
+<area shape="rect" id="node5" href="../../db/ddf/a00164.html" title="Header for the command line controller. " alt="" coords="162,229,287,256"/>
+<area shape="rect" id="node8" href="../../d8/d23/a00326.html" title="Header for the command line controller. " alt="" coords="1369,229,1509,256"/>
+<area shape="rect" id="node10" href="../../de/db9/a00159.html" title="Calibrator.cpp" alt="" coords="1533,229,1644,256"/>
+<area shape="rect" id="node11" href="../../de/d55/a00323.html" title="Implementation for SimRunner. " alt="" coords="1119,155,1237,181"/>
+<area shape="rect" id="node12" href="../../dc/de6/a00167.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1261,155,1351,181"/>
+<area shape="rect" id="node13" href="../../d9/d38/a00166.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="1240,229,1345,256"/>
+<area shape="rect" id="node14" href="../../d5/d42/a00269.html" title="Observer for Infected output. " alt="" coords="442,155,589,181"/>
+<area shape="rect" id="node15" href="../../db/d12/a00268.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="348,229,509,256"/>
+<area shape="rect" id="node16" href="../../dd/d86/a00271.html" title="Observer for infection count at each sim step. " alt="" coords="1477,155,1604,181"/>
+<area shape="rect" id="node17" href="../../d9/d2a/a00270.html" title="Observer for SimEvents for commandline interface usage. " alt="" coords="1669,229,1810,256"/>
+<area shape="rect" id="node18" href="../../df/d95/a00299.html" title="Observer for Persons output. " alt="" coords="663,155,810,181"/>
+<area shape="rect" id="node19" href="../../d9/d0d/a00298.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="752,229,913,256"/>
+<area shape="rect" id="node20" href="../../d4/dce/a00337.html" title="Observer for Persons output. " alt="" coords="835,155,993,181"/>
+<area shape="rect" id="node21" href="../../dd/d1d/a00336.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="983,229,1157,256"/>
 </map>
 </div>
 </div>
@@ -190,27 +158,37 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d79/a00051.html">gengeopop::Location</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A location for use within the <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> Contains useful information, both spatial and administrative.  <a href="../../d2/d79/a00051.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d06/a00131.html">stride::util::Stopwatch&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a stopwatch interface to time: it accumulates time between start/stop pairs.  <a href="../../d7/d06/a00131.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
+<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a787d85bc4a485c85bc62824e3434b953"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html#a787d85bc4a485c85bc62824e3434b953">gengeopop::Coordinate</a> = boost::geometry::model::point&lt; <a class="el" href="../../da/dc3/a00453.html">double</a>, 2, boost::geometry::cs::geographic&lt; boost::geometry::degree &gt;&gt;</td></tr>
-<tr class="separator:a787d85bc4a485c85bc62824e3434b953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html#a1c487ec7202a72d7aa33bc6b5767b287">stride::util::operator&lt;&lt;</a> (std::ostream &amp;oss, Stopwatch&lt; T &gt; const &amp;stopwatch)</td></tr>
+<tr class="memdesc:a1c487ec7202a72d7aa33bc6b5767b287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert accumulated time into output stream without altering stopwatch state.  <a href="../../da/dee/a00383.html#a1c487ec7202a72d7aa33bc6b5767b287">More...</a><br /></td></tr>
+<tr class="separator:a1c487ec7202a72d7aa33bc6b5767b287"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definition of Stopwatch. </p>
+
+<p>Definition in file <a class="el" href="../../d4/db5/a00328_source.html">Stopwatch.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d4/db5/a00328.html">Location.h</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../d4/db5/a00328.html">Stopwatch.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

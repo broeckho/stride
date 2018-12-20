@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride.cpp File Reference</title>
+<title>Stride Reference Manual: stride::RNEngineType Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -47,9 +47,9 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="../../namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,8 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
-      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="../../namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="../../namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -104,98 +104,22 @@ $(document).ready(function(){initNavTree('de/d08/a00381.html','../../');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">stride.cpp File Reference</div>  </div>
+<div class="title">stride::RNEngineType Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Main program: command line handling.  
+<p>Namespace to manage types of random engines.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d8/d72/a00199_source.html">sim/CliController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d95/a00379_source.html">sim/StanController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d1a/a00251_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/db5/a00365_source.html">util/RunConfigManager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d45/a00382_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/da0/a00403_source.html">util/TimeStamp.h</a>&quot;</code><br />
-<code>#include &lt;tclap/CmdLine.h&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;regex&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for stride.cpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d6/d86/a00781.gif" border="0" usemap="#stride_8cpp" alt=""/></div>
-<map name="stride_8cpp" id="stride_8cpp">
-<area shape="rect" id="node2" href="../../d8/d72/a00199.html" title="Header for the command line controller. " alt="" coords="1425,80,1562,107"/>
-<area shape="rect" id="node6" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="347,401,447,427"/>
-<area shape="rect" id="node28" href="../../d8/d95/a00379.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1587,80,1739,107"/>
-<area shape="rect" id="node29" href="../../d3/d1a/a00251.html" title="Interface for install directory queries. " alt="" coords="1761,319,1861,345"/>
-<area shape="rect" id="node31" href="../../dd/db5/a00365.html" title="Produce run config ptree. " alt="" coords="2026,319,2201,345"/>
-<area shape="rect" id="node33" href="../../d0/da0/a00403.html" title="TimeStamp class. " alt="" coords="193,401,324,427"/>
-<area shape="rect" id="node3" href="../../d6/de1/a00233.html" title="Header for the command line controller. " alt="" coords="1567,162,1715,189"/>
-<area shape="rect" id="node4" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="1087,244,1187,271"/>
-<area shape="rect" id="node19" href="../../d8/ddd/a00380.html" title="Definition of Stopwatch. " alt="" coords="1351,319,1475,345"/>
-<area shape="rect" id="node5" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="867,319,917,345"/>
-<area shape="rect" id="node20" href="../../d9/de6/a00404.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1345,401,1461,427"/>
-<area shape="rect" id="node32" href="../../dc/d9a/a00218.html" title="Info on configuration. " alt="" coords="2133,401,2253,427"/>
-</map>
-</div>
-</div>
-<p><a href="../../de/d08/a00381_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d08/a00381.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
-<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main program of the stride simulator.  <a href="#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br /></td></tr>
-<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Main program: command line handling. </p>
-
-<p>Definition in file <a class="el" href="../../de/d08/a00381_source.html">stride.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char **&#160;</td>
-          <td class="paramname"><em>argv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Main program of the stride simulator. </p>
-
-<p>Definition at line <a class="el" href="../../de/d08/a00381_source.html#l00041">41</a> of file <a class="el" href="../../de/d08/a00381_source.html">stride.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/da0/a00198_source.html#l00036">stride::CliController::Control()</a>, <a class="el" href="../../d7/d08/a00378_source.html#l00047">stride::StanController::Control()</a>, and <a class="el" href="../../d3/d45/a00382_source.html#l00067">stride::util::Tokenize()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p>Namespace to manage types of random engines. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../de/d08/a00381.html">stride.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d08/a00381.html">RNEngineType</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

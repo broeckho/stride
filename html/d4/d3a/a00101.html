@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::DaysOffInterface Class Reference</title>
+<title>Stride Reference Manual: stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,143 +107,120 @@ $(document).ready(function(){initNavTree('d4/d3a/a00101.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d1/d3d/a01110.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d4/dd0/a00994.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::DaysOffInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stride::Infector&lt; LL, TIC, true &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface definition.  
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)).  
  <a href="../../d4/d3a/a00101.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d0/d27/a00239_source.html">DaysOffInterface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d0/d19/a00273_source.html">Infector.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::DaysOffInterface:</div>
+Collaboration diagram for stride::Infector&lt; LL, TIC, true &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/de1/a01111.gif" border="0" usemap="#stride_1_1DaysOffInterface_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1DaysOffInterface_inherit__map" id="stride_1_1DaysOffInterface_inherit__map">
-<area shape="rect" id="node2" href="../../d0/d61/a00100.html" title="No days off work or school. " alt="" coords="5,160,136,267"/>
-<area shape="rect" id="node3" href="../../d9/dcc/a00102.html" title="No days off work or school. " alt="" coords="161,160,311,267"/>
-<area shape="rect" id="node4" href="../../d5/d1e/a00103.html" title="Schools closed. " alt="" coords="335,160,494,267"/>
-<area shape="rect" id="node5" href="../../d0/dc2/a00104.html" title="Standard situation for days off from work and school. " alt="" coords="518,160,693,267"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::DaysOffInterface:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d0/d39/a01112.gif" border="0" usemap="#stride_1_1DaysOffInterface_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1DaysOffInterface_coll__map" id="stride_1_1DaysOffInterface_coll__map">
+<div class="center"><img src="../../dd/d48/a00995.gif" border="0" usemap="#stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map" id="stride_1_1Infector_3_01LL_00_01TIC_00_01true_01_4_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a2ae431c15cddca106e2a0753fde99f83"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a2ae431c15cddca106e2a0753fde99f83">IsWorkOff</a> ()=0</td></tr>
-<tr class="memdesc:a2ae431c15cddca106e2a0753fde99f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is a work day.  <a href="#a2ae431c15cddca106e2a0753fde99f83">More...</a><br /></td></tr>
-<tr class="separator:a2ae431c15cddca106e2a0753fde99f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a747d7b072b24545437aa9326ba024185"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#a747d7b072b24545437aa9326ba024185">IsSchoolOff</a> ()=0</td></tr>
-<tr class="memdesc:a747d7b072b24545437aa9326ba024185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether today is school day.  <a href="#a747d7b072b24545437aa9326ba024185">More...</a><br /></td></tr>
-<tr class="separator:a747d7b072b24545437aa9326ba024185"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec638f8fcc3e653e389f47bd30d63e1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#afec638f8fcc3e653e389f47bd30d63e1">~DaysOffInterface</a> ()=default</td></tr>
-<tr class="memdesc:afec638f8fcc3e653e389f47bd30d63e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#afec638f8fcc3e653e389f47bd30d63e1">More...</a><br /></td></tr>
-<tr class="separator:afec638f8fcc3e653e389f47bd30d63e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa27dad30b434e742e80300d88854b36d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d3a/a00101.html#aa27dad30b434e742e80300d88854b36d">Exec</a> (<a class="el" href="../../df/d5d/a00084.html">ContactPool</a> &amp;pool, const <a class="el" href="../../da/dec/a00080.html">AgeContactProfile</a> &amp;profile, const <a class="el" href="../../d8/d17/a00114.html">TransmissionProfile</a> &amp;transProfile, <a class="el" href="../../d2/d1f/a00083.html">ContactHandler</a> &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td></tr>
+<tr class="separator:aa27dad30b434e742e80300d88854b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface definition. </p>
+<div class="textblock"><h3>template&lt;ContactLogMode::Id LL, bool TIC&gt;<br />
+class stride::Infector&lt; LL, TIC, true &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d0/d27/a00239_source.html#l00028">28</a> of file <a class="el" href="../../d0/d27/a00239_source.html">DaysOffInterface.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afec638f8fcc3e653e389f47bd30d63e1"></a>
+<p>Time-optimized version (For NoLocalInformation &amp;&amp; (None || Transmission logging)). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">LL</td><td>LogLevel </td></tr>
+    <tr><td class="paramname">TIC</td><td>TrackIndexCase </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../d0/d19/a00273_source.html#l00081">81</a> of file <a class="el" href="../../d0/d19/a00273_source.html">Infector.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa27dad30b434e742e80300d88854b36d"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;ContactLogMode::Id LL, bool TIC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stride::DaysOffInterface::~DaysOffInterface </td>
+          <td class="memname">void <a class="el" href="../../d0/d61/a00100.html">stride::Infector</a>&lt; LL, TIC, true &gt;::Exec </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="../../df/d5d/a00084.html">ContactPool</a> &amp;&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Virtual destructor. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2ae431c15cddca106e2a0753fde99f83"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsWorkOff </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/dec/a00080.html">AgeContactProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>profile</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Whether today is a work day. </p>
-
-<p>Implemented in <a class="el" href="../../d0/d61/a00100.html#a61f87cc93335185f90d9d772f168b1bb">stride::DaysOffAll</a>, <a class="el" href="../../d0/dc2/a00104.html#a5f55ab77243cf483c5c47e8f81bf3b2a">stride::DaysOffStandard</a>, <a class="el" href="../../d9/dcc/a00102.html#a6287fa68ca109373fc9be31f3941079d">stride::DaysOffNone</a>, and <a class="el" href="../../d5/d1e/a00103.html#a633453bbe4892b56891c42a4f4ac72fd">stride::DaysOffSchool</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a747d7b072b24545437aa9326ba024185"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">virtual bool stride::DaysOffInterface::IsSchoolOff </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="../../d8/d17/a00114.html">TransmissionProfile</a> &amp;&#160;</td>
+          <td class="paramname"><em>transProfile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/d1f/a00083.html">ContactHandler</a> &amp;&#160;</td>
+          <td class="paramname"><em>cHandler</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>simDay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>cLogger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Whether today is school day. </p>
+<p>Definition at line <a class="el" href="../../d9/dd6/a00272_source.html#l00207">207</a> of file <a class="el" href="../../d9/dd6/a00272_source.html">Infector.cpp</a>.</p>
 
-<p>Implemented in <a class="el" href="../../d0/d61/a00100.html#a12a699d750a9b0a640db4ea47df0b11c">stride::DaysOffAll</a>, <a class="el" href="../../d0/dc2/a00104.html#ad27b8f2efdbb153c71d1a5dbdce42537">stride::DaysOffStandard</a>, <a class="el" href="../../d9/dcc/a00102.html#a939df1a48d594f56ec3099d1edcfdca7">stride::DaysOffNone</a>, and <a class="el" href="../../d5/d1e/a00103.html#a709acf6d0cec5722e20760a797ae35bb">stride::DaysOffSchool</a>.</p>
+<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d1/dc6/a00347_source.html#l00037">stride::TransmissionProfile::GetRate()</a>, <a class="el" href="../../d6/daa/a00187_source.html#l00042">stride::ContactHandler::HasContactAndTransmission()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00087">stride::Person::IsInPool()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00084">stride::ContactPool::m_index_immune</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00085">stride::ContactPool::m_members</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00083">stride::ContactPool::m_pool_type</a>, <a class="el" href="../../d7/d6e/a00190_source.html#l00043">stride::ContactPool::SortMembers()</a>, and <a class="el" href="../../d6/d22/a00245_source.html#l00039">stride::Health::StartInfection()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d0/d27/a00239_source.html">DaysOffInterface.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../d0/d19/a00273_source.html">Infector.h</a></li>
+<li><a class="el" href="../../d9/dd6/a00272_source.html">Infector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">DaysOffInterface</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d3a/a00101.html">Infector&lt; LL, TIC, true &gt;</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

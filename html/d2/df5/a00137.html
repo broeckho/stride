@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::ConfigInfo Class Reference</title>
+<title>Stride Reference Manual: stride::viewers::InfectedFileViewer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,52 +107,57 @@ $(document).ready(function(){initNavTree('d2/df5/a00137.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../de/d04/a01209.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../de/d1c/a01093.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::ConfigInfo Class Reference</div>  </div>
+<div class="title">stride::viewers::InfectedFileViewer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Config information.  
+<p>Viewer of Simulator for cases output.  
  <a href="../../d2/df5/a00137.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::ConfigInfo:</div>
+Collaboration diagram for stride::viewers::InfectedFileViewer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/da6/a01210.gif" border="0" usemap="#stride_1_1util_1_1ConfigInfo_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1ConfigInfo_coll__map" id="stride_1_1util_1_1ConfigInfo_coll__map">
+<div class="center"><img src="../../d6/dea/a01094.gif" border="0" usemap="#stride_1_1viewers_1_1InfectedFileViewer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1viewers_1_1InfectedFileViewer_coll__map" id="stride_1_1viewers_1_1InfectedFileViewer_coll__map">
+<area shape="rect" id="node2" href="../../d0/dc2/a00104.html" title="Produces a file with daily count of infected persons. " alt="" coords="5,695,192,801"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="45,555,153,632"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="25,400,173,492"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="27,259,171,351"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="15,132,183,209"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="45,5,152,83"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="335,555,462,632"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#ad6fc5f3f3e32a15f059c64b74dfea905">HaveOpenMP</a> ()</td></tr>
-<tr class="memdesc:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if OpenMP in executable, false otherwise.  <a href="#ad6fc5f3f3e32a15f059c64b74dfea905">More...</a><br /></td></tr>
-<tr class="separator:ad6fc5f3f3e32a15f059c64b74dfea905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#a9842e76d67b4e02e5c31a3071ec286d0">HaveQt5</a> ()</td></tr>
-<tr class="memdesc:a9842e76d67b4e02e5c31a3071ec286d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if Qt5 in executable, false otherwise.  <a href="#a9842e76d67b4e02e5c31a3071ec286d0">More...</a><br /></td></tr>
-<tr class="separator:a9842e76d67b4e02e5c31a3071ec286d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#aea2c9d397f10f54b7ae47f4b0f181799">GitRevision</a> ()</td></tr>
-<tr class="memdesc:aea2c9d397f10f54b7ae47f4b0f181799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return git revision string.  <a href="#aea2c9d397f10f54b7ae47f4b0f181799">More...</a><br /></td></tr>
-<tr class="separator:aea2c9d397f10f54b7ae47f4b0f181799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502bd4410a3e77792ea575f77f470d41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#a502bd4410a3e77792ea575f77f470d41">GetHostname</a> ()</td></tr>
-<tr class="memdesc:a502bd4410a3e77792ea575f77f470d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current hostname.  <a href="#a502bd4410a3e77792ea575f77f470d41">More...</a><br /></td></tr>
-<tr class="separator:a502bd4410a3e77792ea575f77f470d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b4240ce29160e778c69f9e246e1747d"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#a6b4240ce29160e778c69f9e246e1747d">NumberAvailableThreads</a> ()</td></tr>
-<tr class="memdesc:a6b4240ce29160e778c69f9e246e1747d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of threads (in case of OpenMP).  <a href="#a6b4240ce29160e778c69f9e246e1747d">More...</a><br /></td></tr>
-<tr class="separator:a6b4240ce29160e778c69f9e246e1747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada59da077e51cbd44e829a88c5cc62e3"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#ada59da077e51cbd44e829a88c5cc62e3">ProcessorCount</a> ()</td></tr>
-<tr class="memdesc:ada59da077e51cbd44e829a88c5cc62e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return processor count for system.  <a href="#ada59da077e51cbd44e829a88c5cc62e3">More...</a><br /></td></tr>
-<tr class="separator:ada59da077e51cbd44e829a88c5cc62e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aca10d70842e06a7a00cd633c4071d0ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#aca10d70842e06a7a00cd633c4071d0ac">InfectedFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
+<tr class="memdesc:aca10d70842e06a7a00cd633c4071d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#aca10d70842e06a7a00cd633c4071d0ac">More...</a><br /></td></tr>
+<tr class="separator:aca10d70842e06a7a00cd633c4071d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8128b6620992860cad456275e2173b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#a8128b6620992860cad456275e2173b16">Update</a> (<a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
+<tr class="memdesc:a8128b6620992860cad456275e2173b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a8128b6620992860cad456275e2173b16">More...</a><br /></td></tr>
+<tr class="separator:a8128b6620992860cad456275e2173b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a29f6d1abe2d4b71535a0c0134a48a5a0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#a29f6d1abe2d4b71535a0c0134a48a5a0">m_infected</a></td></tr>
+<tr class="separator:a29f6d1abe2d4b71535a0c0134a48a5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3711a48a4aba215ee7c45893c18532c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc2/a00104.html">output::InfectedFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#ae3711a48a4aba215ee7c45893c18532c">m_infected_file</a></td></tr>
+<tr class="separator:ae3711a48a4aba215ee7c45893c18532c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ffa40d65229dcd9ae06ad592809c1c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/df5/a00137.html#af4ffa40d65229dcd9ae06ad592809c1c">m_runner</a></td></tr>
+<tr class="separator:af4ffa40d65229dcd9ae06ad592809c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Config information. </p>
+<div class="textblock"><p>Viewer of Simulator for cases output. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00031">31</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6fc5f3f3e32a15f059c64b74dfea905"></a>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00033">33</a> of file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aca10d70842e06a7a00cd633c4071d0ac"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -160,28 +165,63 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveOpenMP </td>
+          <td class="memname">stride::viewers::InfectedFileViewer::InfectedFileViewer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/d6d/a00111.html">SimRunner</a> &gt;&#160;</td>
+          <td class="paramname"><em>runner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>output_prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>True if OpenMP in executable, false otherwise. </p>
+<p>Instantiate cases viewer. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00035">35</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00037">37</a> of file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d53/a00232_source.html#l00095">stride::ControlHelper::LogStartup()</a>.</p>
+<p>References <a class="el" href="../../db/d12/a00268_source.html#l00033">Update()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9842e76d67b4e02e5c31a3071ec286d0"></a>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8128b6620992860cad456275e2173b16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::viewers::InfectedFileViewer::Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d45/a00382.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Let viewer perform update. </p>
+
+<p>Definition at line <a class="el" href="../../db/d12/a00268_source.html#l00033">33</a> of file <a class="el" href="../../db/d12/a00268_source.html">InfectedFileViewer.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00037">InfectedFileViewer()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00116">stride::ControlHelper::RegisterViewers()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a29f6d1abe2d4b71535a0c0134a48a5a0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -189,28 +229,21 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr bool stride::util::ConfigInfo::HaveQt5 </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::InfectedFileViewer::m_infected</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>True if Qt5 in executable, false otherwise. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00045">45</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a>.</p>
-
-<p>References <a class="el" href="../../df/d24/a00217_source.html#l00035">GetHostname()</a>, <a class="el" href="../../df/d24/a00217_source.html#l00033">GitRevision()</a>, and <a class="el" href="../../df/d24/a00217_source.html#l00042">NumberAvailableThreads()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00046">46</a> of file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aea2c9d397f10f54b7ae47f4b0f181799"></a>
+<a class="anchor" id="ae3711a48a4aba215ee7c45893c18532c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -218,30 +251,21 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GitRevision </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="../../d0/dc2/a00104.html">output::InfectedFile</a> stride::viewers::InfectedFileViewer::m_infected_file</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return git revision string. </p>
-
-<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00033">33</a> of file <a class="el" href="../../df/d24/a00217_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>References <a class="el" href="../../df/d24/a00217_source.html#l00028">TOSTRING</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d9a/a00218_source.html#l00045">HaveQt5()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00095">stride::ControlHelper::LogStartup()</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00047">47</a> of file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a502bd4410a3e77792ea575f77f470d41"></a>
+<a class="anchor" id="af4ffa40d65229dcd9ae06ad592809c1c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -249,94 +273,31 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::util::ConfigInfo::GetHostname </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dd/d6d/a00111.html">SimRunner</a>&gt; stride::viewers::InfectedFileViewer::m_runner</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return current hostname. </p>
-
-<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00035">35</a> of file <a class="el" href="../../df/d24/a00217_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d9a/a00218_source.html#l00045">HaveQt5()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6b4240ce29160e778c69f9e246e1747d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int stride::util::ConfigInfo::NumberAvailableThreads </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return number of threads (in case of OpenMP). </p>
-
-<p>Definition at line <a class="el" href="../../df/d24/a00217_source.html#l00042">42</a> of file <a class="el" href="../../df/d24/a00217_source.html">ConfigInfo.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d9a/a00218_source.html#l00045">HaveQt5()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00095">stride::ControlHelper::LogStartup()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ada59da077e51cbd44e829a88c5cc62e3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr unsigned int stride::util::ConfigInfo::ProcessorCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return processor count for system. </p>
-
-<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00057">57</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00048">48</a> of file <a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dc/d9a/a00218_source.html">ConfigInfo.h</a></li>
-<li><a class="el" href="../../df/d24/a00217_source.html">ConfigInfo.cpp</a></li>
+<li><a class="el" href="../../d5/d42/a00269_source.html">InfectedFileViewer.h</a></li>
+<li><a class="el" href="../../db/d12/a00268_source.html">InfectedFileViewer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d84/a00447.html">util</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">ConfigInfo</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../dd/df5/a00386.html">viewers</a></li><li class="navelem"><a class="el" href="../../d2/df5/a00137.html">InfectedFileViewer</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

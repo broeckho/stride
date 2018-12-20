@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -109,48 +109,51 @@ $(document).ready(function(){initNavTree('de/d76/a00134.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../dc/d2d/a01183.html">List of all members</a>  </div>
+<a href="../../dd/df1/a01082.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Transmission rates from disease data.  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../de/d76/a00134.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::TransmissionProfile:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d35/a01184.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
-<area shape="rect" id="node2" href="../../da/dc3/a00453.html" title="{double\n||}" alt="" coords="66,5,131,83"/>
+<div class="center"><img src="../../d6/d9a/a01083.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
-<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br /></td></tr>
-<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dc3/a00453.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
-<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br /></td></tr>
-<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
-<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br /></td></tr>
-<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br /></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br /></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br /></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br /></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dc3/a00453.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
-<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d76/a00134.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Transmission rates from disease data. </p>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d8b/a00406_source.html#l00030">30</a> of file <a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00037">37</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -158,7 +161,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -171,14 +174,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initialize. </p>
+<p>Constructor marks the time for the time stamp. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d8b/a00406_source.html#l00034">34</a> of file <a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00041">41</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -186,7 +189,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/dc3/a00453.html">double</a> stride::TransmissionProfile::GetRate </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -199,50 +202,17 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return transmission rate. </p>
+<p>Returns string with the time stamp after eliminating newline. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d8b/a00406_source.html#l00037">37</a> of file <a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00044">44</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
 
-<p>References <a class="el" href="../../de/de8/a00405_source.html#l00030">Initialize()</a>, and <a class="el" href="../../d1/d8b/a00406_source.html#l00043">m_transmission_rate</a>.</p>
+<p>References <a class="el" href="../../d8/d8e/a00344_source.html#l00074">m_tp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/db3/a00313_source.html#l00145">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../db/d7e/a00372_source.html#l00077">stride::Sim::GetTransmissionRate()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::TransmissionProfile::Initialize </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>diseasePt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialize. </p>
-
-<p>Definition at line <a class="el" href="../../de/de8/a00405_source.html#l00030">30</a> of file <a class="el" href="../../de/de8/a00405_source.html">TransmissionProfile.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d1/d8b/a00406_source.html#l00037">GetRate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d8e/a00344_source.html#l00080">stride::util::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -250,7 +220,64 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/dc3/a00453.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00053">53</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns time stamp as a time_t. </p>
+
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00071">71</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../d8/d8e/a00344_source.html#l00074">m_tp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
   </td>
@@ -260,23 +287,22 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d1/d8b/a00406_source.html#l00043">43</a> of file <a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d8e/a00344_source.html#l00074">74</a> of file <a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d1/d8b/a00406_source.html#l00037">GetRate()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/d8e/a00344_source.html#l00044">ToString()</a>, and <a class="el" href="../../d8/d8e/a00344_source.html#l00071">ToTimeT()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/d8b/a00406_source.html">TransmissionProfile.h</a></li>
-<li><a class="el" href="../../de/de8/a00405_source.html">TransmissionProfile.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d8/d8e/a00344_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">TransmissionProfile</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../da/dee/a00383.html">util</a></li><li class="navelem"><a class="el" href="../../de/d76/a00134.html">TimeStamp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

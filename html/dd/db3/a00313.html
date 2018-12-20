@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Infector.cpp File Reference</title>
+<title>Stride Reference Manual: RunConfigManager.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,62 +105,67 @@ $(document).ready(function(){initNavTree('dd/db3/a00313.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Infector.cpp File Reference</div>  </div>
+<div class="title">RunConfigManager.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of Infector algorithms.  
+<p>Produce run config ptree.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d39/a00314_source.html">Infector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/deb/a00189_source.html">calendar/Calendar.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/dc2/a00228_source.html">pool/ContactPool.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d48/a00345_source.html">pop/Person.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d2/d94/a00184_source.html">util/ConfigInfo.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Infector.cpp:</div>
+Include dependency graph for RunConfigManager.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/dc3/a00682.gif" border="0" usemap="#Infector_8cpp" alt=""/></div>
-<map name="Infector_8cpp" id="Infector_8cpp">
-<area shape="rect" id="node2" href="../../d0/d39/a00314.html" title="Header for the Infector class. " alt="" coords="773,80,855,107"/>
-<area shape="rect" id="node9" href="../../da/deb/a00189.html" title="Header file for the Calendar class. " alt="" coords="949,162,1098,189"/>
-<area shape="rect" id="node36" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1331,333,1473,360"/>
-<area shape="rect" id="node38" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1630,162,1737,189"/>
-<area shape="rect" id="node3" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="1111,408,1253,435"/>
-<area shape="rect" id="node5" href="../../d1/d8b/a00406.html" title="Header for the TransmissionProfile class. " alt="" coords="1122,162,1277,189"/>
-<area shape="rect" id="node7" href="../../d8/d23/a00326.html" title="Header file for LocalDiscussion info policy. " alt="" coords="32,155,225,196"/>
-<area shape="rect" id="node8" href="../../dc/d84/a00338.html" title="behaviour/information\l_policies/NoLocalInformation.h" alt="" coords="250,155,466,196"/>
-<area shape="rect" id="node15" href="../../d1/d0d/a00171.html" title="Contact profile. " alt="" coords="1301,162,1501,189"/>
-<area shape="rect" id="node22" href="../../d5/ddf/a00224.html" title="Header for the ContactHandler class. " alt="" coords="491,162,676,189"/>
-<area shape="rect" id="node16" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1459,408,1630,435"/>
-<area shape="rect" id="node20" href="../../de/d53/a00169.html" title="Helpers for age. " alt="" coords="1336,251,1423,278"/>
-<area shape="rect" id="node23" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="533,251,633,278"/>
-<area shape="rect" id="node24" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="558,333,609,360"/>
-<area shape="rect" id="node25" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="404,408,504,435"/>
-<area shape="rect" id="node39" href="../../db/dc3/a00284.html" title="Header for the Health class. " alt="" coords="1912,251,2041,278"/>
-<area shape="rect" id="node40" href="../../da/d50/a00301.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1599,251,1767,278"/>
+<div class="center"><img src="../../de/d33/a00651.gif" border="0" usemap="#RunConfigManager_8h" alt=""/></div>
+<map name="RunConfigManager_8h" id="RunConfigManager_8h">
+<area shape="rect" id="node2" href="../../d2/d94/a00184.html" title="Info on configuration. " alt="" coords="5,87,125,114"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../df/d37/a00652.gif" border="0" usemap="#RunConfigManager_8hdep" alt=""/></div>
+<map name="RunConfigManager_8hdep" id="RunConfigManager_8hdep">
+<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="5,80,225,107"/>
+<area shape="rect" id="node3" href="../../dd/d4e/a00329.html" title="Main program: command line handling. " alt="" coords="250,80,335,107"/>
+<area shape="rect" id="node4" href="../../db/da2/a00300.html" title="Core Population class. " alt="" coords="360,80,476,107"/>
+<area shape="rect" id="node5" href="../../de/dab/a00319.html" title="Implementation for the Simulator class. " alt="" coords="501,80,575,107"/>
+<area shape="rect" id="node6" href="../../d7/df2/a00312.html" title="Implementation of ptree utils. " alt="" coords="599,80,765,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/db3/a00313_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d47/a00129.html">stride::util::RunConfigManager</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce run config ptree.  <a href="../../d9/d47/a00129.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:da/dee/a00383"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dee/a00383.html">stride::util</a></td></tr>
+<tr class="memdesc:da/dee/a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of Infector algorithms. </p>
+<div class="textblock"><p>Produce run config ptree. </p>
 
-<p>Definition in file <a class="el" href="../../dd/db3/a00313_source.html">Infector.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/db3/a00313_source.html">RunConfigManager.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d006795525347f4aaca311cb4e45f0bc.html">contact</a></li><li class="navelem"><a class="el" href="../../dd/db3/a00313.html">Infector.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/db3/a00313.html">RunConfigManager.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

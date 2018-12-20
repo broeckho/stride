@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Any Class Reference</title>
+<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,63 +107,49 @@ $(document).ready(function(){initNavTree('d5/d5b/a00135.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d61/a01205.html">List of all members</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../da/d93/a01084.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Any Class Reference</div>  </div>
+<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A RAII void*, for type erasure, that can point to anything.  
+<p>Utilities to tag clocks and to reformat number of ticks to a string.  
  <a href="../../d5/d5b/a00135.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::Any:</div>
+Collaboration diagram for stride::util::TimeToString:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d9e/a01206.gif" border="0" usemap="#stride_1_1util_1_1Any_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Any_coll__map" id="stride_1_1util_1_1Any_coll__map">
+<div class="center"><img src="../../d2/df3/a01085.gif" border="0" usemap="#stride_1_1util_1_1TimeToString_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeToString_coll__map" id="stride_1_1util_1_1TimeToString_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a78136d1eb13e5df0bd7f8043adff152a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a78136d1eb13e5df0bd7f8043adff152a">Any</a> ()</td></tr>
-<tr class="separator:a78136d1eb13e5df0bd7f8043adff152a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af470920e28dbd0aae6cd94859cab7e83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#af470920e28dbd0aae6cd94859cab7e83">~Any</a> ()</td></tr>
-<tr class="separator:af470920e28dbd0aae6cd94859cab7e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa382d9d331bfccce805ca47dd0e0998"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#aaa382d9d331bfccce805ca47dd0e0998">Any</a> (const <a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;)=delete</td></tr>
-<tr class="separator:aaa382d9d331bfccce805ca47dd0e0998"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1330eaf1df07a82065354e88a87a6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#ad1330eaf1df07a82065354e88a87a6fd">operator=</a> (const <a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;)=delete</td></tr>
-<tr class="separator:ad1330eaf1df07a82065354e88a87a6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#aa37a30a7324377f7afe3b614d3c8f1eb">Any</a> (<a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:aa37a30a7324377f7afe3b614d3c8f1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac5387b1910deeba0f0fb319c8a6e710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#aac5387b1910deeba0f0fb319c8a6e710">operator=</a> (<a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:aac5387b1910deeba0f0fb319c8a6e710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplParams" colspan="2">template&lt;typename T , class... Args&gt; </td></tr>
-<tr class="memitem:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a8aee74d02cb317ad6a8212f9a84c9254">emplace</a> (Args &amp;&amp;...args)</td></tr>
-<tr class="separator:a8aee74d02cb317ad6a8212f9a84c9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a25363f8f215051caae46e3094da0bff8"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a25363f8f215051caae46e3094da0bff8">cast</a> () const </td></tr>
-<tr class="separator:a25363f8f215051caae46e3094da0bff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60543e81cc55aee3d0a2d8e02779825b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a60543e81cc55aee3d0a2d8e02779825b">operator bool</a> () const </td></tr>
-<tr class="separator:a60543e81cc55aee3d0a2d8e02779825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a581dd8c8a98e7470e351687980a7f41d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a581dd8c8a98e7470e351687980a7f41d">m_ptr</a></td></tr>
-<tr class="separator:a581dd8c8a98e7470e351687980a7f41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43e14abfb952e01348cb11cb50649daf"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a43e14abfb952e01348cb11cb50649daf">m_destroy</a></td></tr>
-<tr class="separator:a43e14abfb952e01348cb11cb50649daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
+<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br /></td></tr>
+<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
+<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br /></td></tr>
+<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
+<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br /></td></tr>
+<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
+<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br /></td></tr>
+<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d5b/a00135.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
+<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br /></td></tr>
+<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A RAII void*, for type erasure, that can point to anything. </p>
-<p><a class="el" href="../../d5/d5b/a00135.html" title="A RAII void*, for type erasure, that can point to anything. ">Any</a> owns the pointer, and cleans up with a custom destructor. Does type verification when NDEBUG is not set. </p>
+<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
 
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00037">37</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a78136d1eb13e5df0bd7f8043adff152a"></a>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00036">36</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -171,26 +157,29 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Any::Any </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::minutes&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00041">41</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
+<p>Produce string in hh:mm:ss format. </p>
 
-<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00051">~Any()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00039">39</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d4/db5/a00328_source.html#l00094">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af470920e28dbd0aae6cd94859cab7e83"></a>
+<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -198,26 +187,27 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Any::~Any </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::seconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00051">51</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
+<p>Produce string in hh:mm:ss format. </p>
 
-<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00041">Any()</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00091">m_destroy</a>, and <a class="el" href="../../d5/d5b/a00135.html#ad1330eaf1df07a82065354e88a87a6fd">operator=()</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00054">54</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aaa382d9d331bfccce805ca47dd0e0998"></a>
+<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -225,23 +215,27 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Any::Any </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::milliseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Produce string in hh:mm:ss:mus format. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00070">70</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aa37a30a7324377f7afe3b614d3c8f1eb"></a>
+<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -249,24 +243,27 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::util::Any::Any </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::microseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Produce string in hh:mm:ss:ms:mus format. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00087">87</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad1330eaf1df07a82065354e88a87a6fd"></a>
+<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -274,193 +271,36 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d5b/a00135.html">Any</a>&amp; stride::util::Any::operator= </td>
+          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00051">~Any()</a>.</p>
+<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
+
+<p>Definition at line <a class="el" href="../../d9/d48/a00345_source.html#l00105">105</a> of file <a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aac5387b1910deeba0f0fb319c8a6e710"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d5b/a00135.html">Any</a>&amp; stride::util::Any::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d5b/a00135.html">Any</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8aee74d02cb317ad6a8212f9a84c9254"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::util::Any::emplace </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00061">61</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-
-<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00091">m_destroy</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00090">m_ptr</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a25363f8f215051caae46e3094da0bff8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T* stride::util::Any::cast </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00073">73</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-
-<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00090">m_ptr</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a60543e81cc55aee3d0a2d8e02779825b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::Any::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00087">87</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-
-<p>References <a class="el" href="../../d7/d3f/a00173_source.html#l00090">m_ptr</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a581dd8c8a98e7470e351687980a7f41d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* stride::util::Any::m_ptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00090">90</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00073">cast()</a>, <a class="el" href="../../d7/d3f/a00173_source.html#l00061">emplace()</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00087">operator bool()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a43e14abfb952e01348cb11cb50649daf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::function&lt;void()&gt; stride::util::Any::m_destroy</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d7/d3f/a00173_source.html#l00091">91</a> of file <a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d7/d3f/a00173_source.html#l00061">emplace()</a>, and <a class="el" href="../../d7/d3f/a00173_source.html#l00051">~Any()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d7/d3f/a00173_source.html">Any.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d9/d48/a00345_source.html">TimeToString.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d84/a00447.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d5b/a00135.html">Any</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../da/dee/a00383.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d5b/a00135.html">TimeToString</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

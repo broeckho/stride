@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ContactPool Class Reference</title>
+<title>Stride Reference Manual: stride::Health Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,143 +107,137 @@ $(document).ready(function(){initNavTree('d9/df8/a00096.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
-<a href="../../d4/da7/a01102.html">List of all members</a>  </div>
+<a href="../../d7/d98/a00983.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactPool Class Reference</div>  </div>
+<div class="title">stride::Health Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a group of Persons that potentially have contacts.  
+<p>Holds a person's health data.  
  <a href="../../d9/df8/a00096.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::ContactPool:</div>
+Collaboration diagram for stride::Health:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d9/d10/a01103.gif" border="0" usemap="#stride_1_1ContactPool_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactPool_coll__map" id="stride_1_1ContactPool_coll__map">
-<area shape="rect" id="node3" href="../../d7/d12/a00126.html" title="Store and handle person data. " alt="" coords="596,1013,715,1237"/>
-<area shape="rect" id="node4" href="../../da/dc3/a00453.html" title="{double\n||}" alt="" coords="1245,778,1311,855"/>
-<area shape="rect" id="node5" href="../../d4/d31/a00069.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="106,719,349,914"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="105,247,261,339"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="220,145,435,223"/>
-<area shape="rect" id="node19" title="STL class. " alt="" coords="5,581,132,659"/>
-<area shape="rect" id="node8" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="225,363,397,557"/>
-<area shape="rect" id="node11" href="../../d1/d44/a00098.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="447,734,639,899"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="442,421,645,499"/>
-<area shape="rect" id="node15" href="../../dd/d42/a00109.html" title="Holds a person&#39;s health data. " alt="" coords="862,683,1070,951"/>
-<area shape="rect" id="node18" href="../../da/d82/a00091.html" title="Base class for all belief policies. " alt="" coords="1095,763,1221,870"/>
+<div class="center"><img src="../../d2/d4c/a00984.gif" border="0" usemap="#stride_1_1Health_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Health_coll__map" id="stride_1_1Health_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a12e167b902612c7efe48d2e396ad0e03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> = std::vector&lt; <a class="el" href="../../d7/d12/a00126.html">stride::Person</a> * &gt;::<a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td></tr>
-<tr class="separator:a12e167b902612c7efe48d2e396ad0e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8823b3c4a242f11f02e8c41b03ccd032"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a8823b3c4a242f11f02e8c41b03ccd032">ContactPool</a> (std::size_t pool_id, <a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> type)</td></tr>
-<tr class="memdesc:a8823b3c4a242f11f02e8c41b03ccd032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a8823b3c4a242f11f02e8c41b03ccd032">More...</a><br /></td></tr>
-<tr class="separator:a8823b3c4a242f11f02e8c41b03ccd032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#adee0ae5ebfa3ec1ccd684b2a4e16542c">~ContactPool</a> ()=default</td></tr>
-<tr class="separator:adee0ae5ebfa3ec1ccd684b2a4e16542c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aa9aeb5154fea3446d9a4ac4d1844b510">AddMember</a> (<a class="el" href="../../d7/d12/a00126.html">Person</a> *p)</td></tr>
-<tr class="memdesc:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the given <a class="el" href="../../d7/d12/a00126.html" title="Store and handle person data. ">Person</a>.  <a href="#aa9aeb5154fea3446d9a4ac4d1844b510">More...</a><br /></td></tr>
-<tr class="separator:aa9aeb5154fea3446d9a4ac4d1844b510"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7962d506db44920ed1fd99471cabc50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d12/a00126.html">Person</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ae7962d506db44920ed1fd99471cabc50">GetMember</a> (unsigned int index) const </td></tr>
-<tr class="memdesc:ae7962d506db44920ed1fd99471cabc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get member at index.  <a href="#ae7962d506db44920ed1fd99471cabc50">More...</a><br /></td></tr>
-<tr class="separator:ae7962d506db44920ed1fd99471cabc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d7/d12/a00126.html">Person</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#afb9a65718e51a5afa72e9f34724f1fe0">GetPool</a> () const </td></tr>
-<tr class="memdesc:afb9a65718e51a5afa72e9f34724f1fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entire pool of members.  <a href="#afb9a65718e51a5afa72e9f34724f1fe0">More...</a><br /></td></tr>
-<tr class="separator:afb9a65718e51a5afa72e9f34724f1fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a206057a57bf75587c303c41f27f3bf23"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a206057a57bf75587c303c41f27f3bf23">GetSize</a> () const </td></tr>
-<tr class="memdesc:a206057a57bf75587c303c41f27f3bf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get size (number of members).  <a href="#a206057a57bf75587c303c41f27f3bf23">More...</a><br /></td></tr>
-<tr class="separator:a206057a57bf75587c303c41f27f3bf23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a673e600d5e166263f96f9081967cb277"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a673e600d5e166263f96f9081967cb277">GetInfectedCount</a> ()</td></tr>
-<tr class="memdesc:a673e600d5e166263f96f9081967cb277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Infected count.  <a href="#a673e600d5e166263f96f9081967cb277">More...</a><br /></td></tr>
-<tr class="separator:a673e600d5e166263f96f9081967cb277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85249b3315c664761fbd1448708473ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a85249b3315c664761fbd1448708473ab">begin</a> ()</td></tr>
-<tr class="memdesc:a85249b3315c664761fbd1448708473ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to first person.  <a href="#a85249b3315c664761fbd1448708473ab">More...</a><br /></td></tr>
-<tr class="separator:a85249b3315c664761fbd1448708473ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59eb79bf2d47f73de6ece95400106f2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a59eb79bf2d47f73de6ece95400106f2f">end</a> ()</td></tr>
-<tr class="memdesc:a59eb79bf2d47f73de6ece95400106f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator to end of persons.  <a href="#a59eb79bf2d47f73de6ece95400106f2f">More...</a><br /></td></tr>
-<tr class="separator:a59eb79bf2d47f73de6ece95400106f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0f72fc64a2ccb4885b91680def969e0"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ab0f72fc64a2ccb4885b91680def969e0">GetId</a> () const </td></tr>
-<tr class="memdesc:ab0f72fc64a2ccb4885b91680def969e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pool id.  <a href="#ab0f72fc64a2ccb4885b91680def969e0">More...</a><br /></td></tr>
-<tr class="separator:ab0f72fc64a2ccb4885b91680def969e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c05e5e8f715b2d0e90cdcb5bf6092ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a9c05e5e8f715b2d0e90cdcb5bf6092ad">GetType</a> () const </td></tr>
-<tr class="memdesc:a9c05e5e8f715b2d0e90cdcb5bf6092ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type of <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>, used for logging and tests.  <a href="#a9c05e5e8f715b2d0e90cdcb5bf6092ad">More...</a><br /></td></tr>
-<tr class="separator:a9c05e5e8f715b2d0e90cdcb5bf6092ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ca39e47180884b3c7681636d1c550d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a29ca39e47180884b3c7681636d1c550d">Health</a> (unsigned short int start_infectiousness=0U, unsigned int short start_symptomatic=0U, unsigned short int time_infectious=0U, unsigned short int time_symptomatic=0U)</td></tr>
+<tr class="separator:a29ca39e47180884b3c7681636d1c550d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8b3c6fe823b70820f868bb597ade73"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a8e8b3c6fe823b70820f868bb597ade73">GetEndInfectiousness</a> () const </td></tr>
+<tr class="separator:a8e8b3c6fe823b70820f868bb597ade73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2a22ae31603c4dbaea3f440974d0d5"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aac2a22ae31603c4dbaea3f440974d0d5">GetEndSymptomatic</a> () const </td></tr>
+<tr class="separator:aac2a22ae31603c4dbaea3f440974d0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eab117bce0fe7009188aad7e534ca82"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a9eab117bce0fe7009188aad7e534ca82">GetStartInfectiousness</a> () const </td></tr>
+<tr class="separator:a9eab117bce0fe7009188aad7e534ca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2c4f06cd9ad0dac95c5a2ffdd39489"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#adf2c4f06cd9ad0dac95c5a2ffdd39489">GetStartSymptomatic</a> () const </td></tr>
+<tr class="separator:adf2c4f06cd9ad0dac95c5a2ffdd39489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9caae07db1dd15732f726cec514dc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a7c9caae07db1dd15732f726cec514dc2">IsImmune</a> () const </td></tr>
+<tr class="separator:a7c9caae07db1dd15732f726cec514dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa54f0be8ce25462aaf62847ded75a29d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aa54f0be8ce25462aaf62847ded75a29d">IsInfected</a> () const </td></tr>
+<tr class="separator:aa54f0be8ce25462aaf62847ded75a29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c0cb686c22ec8504942b84105eaed2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a84c0cb686c22ec8504942b84105eaed2">IsInfectious</a> () const </td></tr>
+<tr class="separator:a84c0cb686c22ec8504942b84105eaed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dae2bfe69375adb5dd89819f6798090"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a4dae2bfe69375adb5dd89819f6798090">IsRecovered</a> () const </td></tr>
+<tr class="separator:a4dae2bfe69375adb5dd89819f6798090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a3b14e79e08a261ca7122afba9b95c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ae2a3b14e79e08a261ca7122afba9b95c">IsSusceptible</a> () const </td></tr>
+<tr class="memdesc:ae2a3b14e79e08a261ca7122afba9b95c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person susceptible?  <a href="#ae2a3b14e79e08a261ca7122afba9b95c">More...</a><br /></td></tr>
+<tr class="separator:ae2a3b14e79e08a261ca7122afba9b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#aaf92d0eeeee7fac8c98854f4ae5a38ac">IsSymptomatic</a> () const </td></tr>
+<tr class="memdesc:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is this person symptomatic?  <a href="#aaf92d0eeeee7fac8c98854f4ae5a38ac">More...</a><br /></td></tr>
+<tr class="separator:aaf92d0eeeee7fac8c98854f4ae5a38ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed35c613838b7cc9fab87fb494f87a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a2ed35c613838b7cc9fab87fb494f87a1">SetImmune</a> ()</td></tr>
+<tr class="memdesc:a2ed35c613838b7cc9fab87fb494f87a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set health state to immune.  <a href="#a2ed35c613838b7cc9fab87fb494f87a1">More...</a><br /></td></tr>
+<tr class="separator:a2ed35c613838b7cc9fab87fb494f87a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8edeec79c050faabe2c09a1bc4860261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a8edeec79c050faabe2c09a1bc4860261">SetSusceptible</a> ()</td></tr>
+<tr class="memdesc:a8edeec79c050faabe2c09a1bc4860261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set health state to susceptible.  <a href="#a8edeec79c050faabe2c09a1bc4860261">More...</a><br /></td></tr>
+<tr class="separator:a8edeec79c050faabe2c09a1bc4860261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d85541b8e22aeaa75b364a454f59088"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a5d85541b8e22aeaa75b364a454f59088">StartInfection</a> ()</td></tr>
+<tr class="memdesc:a5d85541b8e22aeaa75b364a454f59088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the infection.  <a href="#a5d85541b8e22aeaa75b364a454f59088">More...</a><br /></td></tr>
+<tr class="separator:a5d85541b8e22aeaa75b364a454f59088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a2ca202696ba2f39744a5381918922"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#af6a2ca202696ba2f39744a5381918922">StopInfection</a> ()</td></tr>
+<tr class="memdesc:af6a2ca202696ba2f39744a5381918922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the infection.  <a href="#af6a2ca202696ba2f39744a5381918922">More...</a><br /></td></tr>
+<tr class="separator:af6a2ca202696ba2f39744a5381918922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b7fd4e8c9107413d09592734bae3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a26b7fd4e8c9107413d09592734bae3ce">Update</a> ()</td></tr>
+<tr class="memdesc:a26b7fd4e8c9107413d09592734bae3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update progress of the disease.  <a href="#a26b7fd4e8c9107413d09592734bae3ce">More...</a><br /></td></tr>
+<tr class="separator:a26b7fd4e8c9107413d09592734bae3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; bool, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a6c90e9734ee7c6566bdf1f4416e99fd8">SortMembers</a> ()</td></tr>
-<tr class="memdesc:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune.  <a href="#a6c90e9734ee7c6566bdf1f4416e99fd8">More...</a><br /></td></tr>
-<tr class="separator:a6c90e9734ee7c6566bdf1f4416e99fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a0c07c78dcaca9cade5b5a762faa36dd6">GetDiseaseCounter</a> () const </td></tr>
+<tr class="memdesc:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the disease counter.  <a href="#a0c07c78dcaca9cade5b5a762faa36dd6">More...</a><br /></td></tr>
+<tr class="separator:a0c07c78dcaca9cade5b5a762faa36dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af86e0e738953615c5d63613d2054d9e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#af86e0e738953615c5d63613d2054d9e8">IncrementDiseaseCounter</a> ()</td></tr>
+<tr class="memdesc:af86e0e738953615c5d63613d2054d9e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment disease counter.  <a href="#af86e0e738953615c5d63613d2054d9e8">More...</a><br /></td></tr>
+<tr class="separator:af86e0e738953615c5d63613d2054d9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a468c554771acc883799456c14373e9db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a468c554771acc883799456c14373e9db">ResetDiseaseCounter</a> ()</td></tr>
+<tr class="memdesc:a468c554771acc883799456c14373e9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the disease counter.  <a href="#a468c554771acc883799456c14373e9db">More...</a><br /></td></tr>
+<tr class="separator:a468c554771acc883799456c14373e9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a2b89a6990328cbbb99d580e1a716da08"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a2b89a6990328cbbb99d580e1a716da08">m_pool_id</a></td></tr>
-<tr class="memdesc:a2b89a6990328cbbb99d580e1a716da08"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ID of the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes).  <a href="#a2b89a6990328cbbb99d580e1a716da08">More...</a><br /></td></tr>
-<tr class="separator:a2b89a6990328cbbb99d580e1a716da08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f177c0e74c8749112841384c640c749"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a7f177c0e74c8749112841384c640c749">m_pool_type</a></td></tr>
-<tr class="memdesc:a7f177c0e74c8749112841384c640c749"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging and testing purposes).  <a href="#a7f177c0e74c8749112841384c640c749">More...</a><br /></td></tr>
-<tr class="separator:a7f177c0e74c8749112841384c640c749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62c93d5ae7d1981ca160bb01b543ee93"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a62c93d5ae7d1981ca160bb01b543ee93">m_index_immune</a></td></tr>
-<tr class="memdesc:a62c93d5ae7d1981ca160bb01b543ee93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the first immune member in the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>.  <a href="#a62c93d5ae7d1981ca160bb01b543ee93">More...</a><br /></td></tr>
-<tr class="separator:a62c93d5ae7d1981ca160bb01b543ee93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a672b69837fbd57d9a61f8acb18fec82e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d7/d12/a00126.html">Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a672b69837fbd57d9a61f8acb18fec82e">m_members</a></td></tr>
-<tr class="memdesc:a672b69837fbd57d9a61f8acb18fec82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointers to contactpool members (raw pointers intentional).  <a href="#a672b69837fbd57d9a61f8acb18fec82e">More...</a><br /></td></tr>
-<tr class="separator:a672b69837fbd57d9a61f8acb18fec82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a346978e3da1a4b6079c313de8fde0e52"><td class="memTemplParams" colspan="2">template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </td></tr>
-<tr class="memitem:a346978e3da1a4b6079c313de8fde0e52"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a346978e3da1a4b6079c313de8fde0e52">Infector</a></td></tr>
-<tr class="memdesc:a346978e3da1a4b6079c313de8fde0e52"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d8/d17/a00114.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions.  <a href="#a346978e3da1a4b6079c313de8fde0e52">More...</a><br /></td></tr>
-<tr class="separator:a346978e3da1a4b6079c313de8fde0e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75bc9a662485465d4de779b5cbaf979a"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a75bc9a662485465d4de779b5cbaf979a">m_disease_counter</a></td></tr>
+<tr class="memdesc:a75bc9a662485465d4de779b5cbaf979a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The disease counter.  <a href="#a75bc9a662485465d4de779b5cbaf979a">More...</a><br /></td></tr>
+<tr class="separator:a75bc9a662485465d4de779b5cbaf979a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8026c3ff228a052fb849251910bde83b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070">HealthStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a8026c3ff228a052fb849251910bde83b">m_status</a></td></tr>
+<tr class="memdesc:a8026c3ff228a052fb849251910bde83b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current status of the person w.r.t. the disease.  <a href="#a8026c3ff228a052fb849251910bde83b">More...</a><br /></td></tr>
+<tr class="separator:a8026c3ff228a052fb849251910bde83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad925abd929c25a1c404adc3c73639815"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#ad925abd929c25a1c404adc3c73639815">m_start_infectiousness</a></td></tr>
+<tr class="memdesc:ad925abd929c25a1c404adc3c73639815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to become infectious.  <a href="#ad925abd929c25a1c404adc3c73639815">More...</a><br /></td></tr>
+<tr class="separator:ad925abd929c25a1c404adc3c73639815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be1828a7863a4f1e89a3181770fd759"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a7be1828a7863a4f1e89a3181770fd759">m_start_symptomatic</a></td></tr>
+<tr class="memdesc:a7be1828a7863a4f1e89a3181770fd759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to become symptomatic.  <a href="#a7be1828a7863a4f1e89a3181770fd759">More...</a><br /></td></tr>
+<tr class="separator:a7be1828a7863a4f1e89a3181770fd759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af68b0d0713728f5981e4830eb9f0ad4a"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#af68b0d0713728f5981e4830eb9f0ad4a">m_end_infectiousness</a></td></tr>
+<tr class="memdesc:af68b0d0713728f5981e4830eb9f0ad4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to end infectious state.  <a href="#af68b0d0713728f5981e4830eb9f0ad4a">More...</a><br /></td></tr>
+<tr class="separator:af68b0d0713728f5981e4830eb9f0ad4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df8/a00096.html#a61cba0b10ed32b10e72a334ce7f9a34d">m_end_symptomatic</a></td></tr>
+<tr class="memdesc:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days after infection to end symptomatic state.  <a href="#a61cba0b10ed32b10e72a334ce7f9a34d">More...</a><br /></td></tr>
+<tr class="separator:a61cba0b10ed32b10e72a334ce7f9a34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a group of Persons that potentially have contacts. </p>
+<div class="textblock"><p>Holds a person's health data. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00036">36</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a12e167b902612c7efe48d2e396ad0e03"></a>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00038">38</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a29ca39e47180884b3c7681636d1c550d"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">stride::ContactPool::iterator</a> =  std::vector&lt;<a class="el" href="../../d7/d12/a00126.html">stride::Person</a>*&gt;::<a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00059">59</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8823b3c4a242f11f02e8c41b03ccd032"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::ContactPool::ContactPool </td>
+          <td class="memname">stride::Health::Health </td>
           <td>(</td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>pool_id</em>, </td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>start_infectiousness</em> = <code>0U</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
+          <td class="paramtype">unsigned int short&#160;</td>
+          <td class="paramname"><em>start_symptomatic</em> = <code>0U</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>time_infectious</em> = <code>0U</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short int&#160;</td>
+          <td class="paramname"><em>time_symptomatic</em> = <code>0U</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -251,63 +245,21 @@ Friends</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>Initializing constructor. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00032">32</a> of file <a class="el" href="../../d9/d01/a00227_source.html">ContactPool.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adee0ae5ebfa3ec1ccd684b2a4e16542c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::ContactPool::~ContactPool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00027">27</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa9aeb5154fea3446d9a4ac4d1844b510"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::ContactPool::AddMember </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/d12/a00126.html">Person</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add the given <a class="el" href="../../d7/d12/a00126.html" title="Store and handle person data. ">Person</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00037">37</a> of file <a class="el" href="../../d9/d01/a00227_source.html">ContactPool.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00084">m_index_immune</a>, and <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d8/d21/a00368_source.html#l00024">gengeopop::SecondaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d4/d66/a00289_source.html#l00020">gengeopop::HouseholdCSVReader::HouseholdCSVReader()</a>, and <a class="el" href="../../dd/d86/a00271_source.html#l00195">gengeopop::GeoGridProtoReader::ParseContactPool()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae7962d506db44920ed1fd99471cabc50"></a>
+<a class="anchor" id="a8e8b3c6fe823b70820f868bb597ade73"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -315,39 +267,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d12/a00126.html">Person</a>* stride::ContactPool::GetMember </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get member at index. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00048">48</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d17/a00304_source.html#l00044">stride::Immunizer::Random()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afb9a65718e51a5afa72e9f34724f1fe0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="../../d7/d12/a00126.html">Person</a>*&gt;&amp; stride::ContactPool::GetPool </td>
+          <td class="memname">unsigned short int stride::Health::GetEndInfectiousness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -360,15 +280,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the entire pool of members. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00051">51</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00046">46</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a206057a57bf75587c303c41f27f3bf23"></a>
+<a class="anchor" id="aac2a22ae31603c4dbaea3f440974d0d5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -376,7 +292,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t stride::ContactPool::GetSize </td>
+          <td class="memname">unsigned short int stride::Health::GetEndSymptomatic </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -389,40 +305,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get size (number of members). </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00054">54</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../d9/d01/a00227_source.html#l00078">GetInfectedCount()</a>, and <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d8/d17/a00304_source.html#l00044">stride::Immunizer::Random()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00049">49</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a673e600d5e166263f96f9081967cb277"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::ContactPool::GetInfectedCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Infected count. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00078">78</a> of file <a class="el" href="../../d9/d01/a00227_source.html">ContactPool.cpp</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dc2/a00228_source.html#l00054">GetSize()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a85249b3315c664761fbd1448708473ab"></a>
+<a class="anchor" id="a9eab117bce0fe7009188aad7e534ca82"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -430,65 +317,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Iterator to first person. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00062">62</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a59eb79bf2d47f73de6ece95400106f2f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/df8/a00096.html#a12e167b902612c7efe48d2e396ad0e03">iterator</a> stride::ContactPool::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Iterator to end of persons. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00065">65</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab0f72fc64a2ccb4885b91680def969e0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::ContactPool::GetId </td>
+          <td class="memname">unsigned short int stride::Health::GetStartInfectiousness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -501,17 +330,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the pool id. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00068">68</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00082">m_pool_id</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/d82/a00293_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d8/d21/a00368_source.html#l00024">gengeopop::SecondaryCommunityPopulator::Apply()</a>, <a class="el" href="../../dd/d86/a00271_source.html#l00195">gengeopop::GeoGridProtoReader::ParseContactPool()</a>, <a class="el" href="../../d0/d19/a00273_source.html#l00098">gengeopop::GeoGridProtoWriter::WriteContactPool()</a>, and <a class="el" href="../../d1/dd4/a00267_source.html#l00144">gengeopop::GeoGridJSONWriter::WriteContactPool()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00052">52</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9c05e5e8f715b2d0e90cdcb5bf6092ad"></a>
+<a class="anchor" id="adf2c4f06cd9ad0dac95c5a2ffdd39489"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -519,7 +342,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> stride::ContactPool::GetType </td>
+          <td class="memname">unsigned short int stride::Health::GetStartSymptomatic </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -532,15 +355,11 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the type of <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>, used for logging and tests. </p>
-
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00071">71</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00083">m_pool_type</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00043">SortMembers()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00055">55</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6c90e9734ee7c6566bdf1f4416e99fd8"></a>
+<a class="anchor" id="a7c9caae07db1dd15732f726cec514dc2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -548,7 +367,323 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::tuple&lt; bool, size_t &gt; stride::ContactPool::SortMembers </td>
+          <td class="memname">bool stride::Health::IsImmune </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00058">58</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb">stride::Immune</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/da9/a00263_source.html#l00044">stride::Immunizer::Random()</a>, and <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa54f0be8ce25462aaf62847ded75a29d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsInfected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00061">61</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a84c0cb686c22ec8504942b84105eaed2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsInfectious </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00068">68</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dae2bfe69375adb5dd89819f6798090"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsRecovered </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00074">74</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca">stride::Recovered</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2a3b14e79e08a261ca7122afba9b95c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsSusceptible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this person susceptible? </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00077">77</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00045">stride::DiseaseSeeder::Seed()</a>, and <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf92d0eeeee7fac8c98854f4ae5a38ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stride::Health::IsSymptomatic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is this person symptomatic? </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00080">80</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ed35c613838b7cc9fab87fb494f87a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::SetImmune </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set health state to immune. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00035">35</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb">stride::Immune</a>, and <a class="el" href="../../d4/d9a/a00246_source.html#l00112">m_status</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8edeec79c050faabe2c09a1bc4860261"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::SetSusceptible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set health state to susceptible. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00037">37</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d9a/a00246_source.html#l00112">m_status</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../df/da9/a00263_source.html#l00044">stride::Immunizer::Random()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d85541b8e22aeaa75b364a454f59088"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::StartInfection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start the infection. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00039">39</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00112">m_status</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00108">ResetDiseaseCounter()</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a494bf3eaa390dc405dd04ed1c8c99311">stride::Susceptible</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d9/dd6/a00272_source.html#l00207">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../dc/d31/a00208_source.html#l00045">stride::DiseaseSeeder::Seed()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6a2ca202696ba2f39744a5381918922"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::StopInfection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop the infection. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00047">47</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00112">m_status</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca">stride::Recovered</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26b7fd4e8c9107413d09592734bae3ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update progress of the disease. </p>
+
+<p>Definition at line <a class="el" href="../../d6/d22/a00245_source.html#l00055">55</a> of file <a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070aa54eecd5041d37f5c8443e0ee91e241a">stride::Exposed</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00102">GetDiseaseCounter()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00105">IncrementDiseaseCounter()</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215">stride::Infectious</a>, <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a">stride::InfectiousAndSymptomatic</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00116">m_end_infectiousness</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00117">m_end_symptomatic</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00114">m_start_infectiousness</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00115">m_start_symptomatic</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00112">m_status</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00047">StopInfection()</a>, and <a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a89e0873bf9fe03198540a2a9c1d9c76f">stride::Symptomatic</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c07c78dcaca9cade5b5a762faa36dd6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::GetDiseaseCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the disease counter. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00102">102</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af86e0e738953615c5d63613d2054d9e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Health::IncrementDiseaseCounter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -556,50 +691,50 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sort w.r.t. health status: order: exposed/infected/recovered, susceptible, immune. </p>
+<p>Increment disease counter. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d01/a00227_source.html#l00043">43</a> of file <a class="el" href="../../d9/d01/a00227_source.html">ContactPool.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00105">105</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
-<p>References <a class="el" href="../../de/dc2/a00228_source.html#l00084">m_index_immune</a>, and <a class="el" href="../../de/dc2/a00228_source.html#l00085">m_members</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/db3/a00313_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../de/dc2/a00228_source.html#l00071">GetType()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a346978e3da1a4b6079c313de8fde0e52"></a>
+<a class="anchor" id="a468c554771acc883799456c14373e9db"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="../../d8/d17/a00114.html">Infector</a></td>
+          <td class="memname">void stride::Health::ResetDiseaseCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d8/d17/a00114.html" title="Actual contacts and transmission in contactpool (primary template). ">Infector</a> calculates contacts and transmissions. </p>
+<p>Reset the disease counter. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00079">79</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00108">108</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00039">StartInfection()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a2b89a6990328cbbb99d580e1a716da08"></a>
+<a class="anchor" id="a75bc9a662485465d4de779b5cbaf979a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -607,7 +742,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t stride::ContactPool::m_pool_id</td>
+          <td class="memname">unsigned short int stride::Health::m_disease_counter</td>
         </tr>
       </table>
   </td>
@@ -617,15 +752,13 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The ID of the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging purposes). </p>
+<p>The disease counter. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00082">82</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/dc2/a00228_source.html#l00068">GetId()</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00111">111</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7f177c0e74c8749112841384c640c749"></a>
+<a class="anchor" id="a8026c3ff228a052fb849251910bde83b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -633,7 +766,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> stride::ContactPool::m_pool_type</td>
+          <td class="memname"><a class="el" href="../../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070">HealthStatus</a> stride::Health::m_status</td>
         </tr>
       </table>
   </td>
@@ -643,15 +776,15 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>The type of the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a> (for logging and testing purposes). </p>
+<p>The current status of the person w.r.t. the disease. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00083">83</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00112">112</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/db3/a00313_source.html#l00145">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../de/dc2/a00228_source.html#l00071">GetType()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00035">SetImmune()</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00037">SetSusceptible()</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00039">StartInfection()</a>, <a class="el" href="../../d6/d22/a00245_source.html#l00047">StopInfection()</a>, and <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a62c93d5ae7d1981ca160bb01b543ee93"></a>
+<a class="anchor" id="ad925abd929c25a1c404adc3c73639815"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -659,7 +792,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t stride::ContactPool::m_index_immune</td>
+          <td class="memname">unsigned short int stride::Health::m_start_infectiousness</td>
         </tr>
       </table>
   </td>
@@ -669,15 +802,15 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Index of the first immune member in the <a class="el" href="../../d9/df8/a00096.html" title="Represents a group of Persons that potentially have contacts. ">ContactPool</a>. </p>
+<p>Days after infection to become infectious. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00084">84</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00114">114</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d01/a00227_source.html#l00037">AddMember()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00043">SortMembers()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a672b69837fbd57d9a61f8acb18fec82e"></a>
+<a class="anchor" id="a7be1828a7863a4f1e89a3181770fd759"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -685,7 +818,7 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d7/d12/a00126.html">Person</a>*&gt; stride::ContactPool::m_members</td>
+          <td class="memname">unsigned short int stride::Health::m_start_symptomatic</td>
         </tr>
       </table>
   </td>
@@ -695,25 +828,77 @@ template&lt;ContactLogMode::Id LL, bool TIC, typename LIP , bool TO&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Pointers to contactpool members (raw pointers intentional). </p>
+<p>Days after infection to become symptomatic. </p>
 
-<p>Definition at line <a class="el" href="../../de/dc2/a00228_source.html#l00085">85</a> of file <a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00115">115</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d9/d01/a00227_source.html#l00037">AddMember()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00062">begin()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00065">end()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00145">stride::Infector&lt; LL, TIC, LIP, TO &gt;::Exec()</a>, <a class="el" href="../../dd/db3/a00313_source.html#l00211">stride::Infector&lt; LL, TIC, NoLocalInformation, true &gt;::Exec()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00078">GetInfectedCount()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00048">GetMember()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00051">GetPool()</a>, <a class="el" href="../../de/dc2/a00228_source.html#l00054">GetSize()</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00043">SortMembers()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af68b0d0713728f5981e4830eb9f0ad4a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_end_infectiousness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to end infectious state. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00116">116</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61cba0b10ed32b10e72a334ce7f9a34d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short int stride::Health::m_end_symptomatic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Days after infection to end symptomatic state. </p>
+
+<p>Definition at line <a class="el" href="../../d4/d9a/a00246_source.html#l00117">117</a> of file <a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d22/a00245_source.html#l00055">Update()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/dc2/a00228_source.html">ContactPool.h</a></li>
-<li><a class="el" href="../../d9/d01/a00227_source.html">ContactPool.cpp</a></li>
+<li><a class="el" href="../../d4/d9a/a00246_source.html">Health.h</a></li>
+<li><a class="el" href="../../d6/d22/a00245_source.html">Health.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/df8/a00096.html">ContactPool</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../d9/df8/a00096.html">Health</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

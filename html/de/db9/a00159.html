@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::CliViewer Class Reference</title>
+<title>Stride Reference Manual: Calibrator.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,166 +105,72 @@ $(document).ready(function(){initNavTree('de/db9/a00159.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d3/d53/a01262.html">List of all members</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::CliViewer Class Reference</div>  </div>
+<div class="title">Calibrator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Viewer of Simulator for commandline interface.  
- <a href="../../de/db9/a00159.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for stride::viewers::CliViewer:</div>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>&quot;</code><br />
+<code>#include &quot;../../test/cpp/gtester/ScenarioData.h&quot;</code><br />
+<code>#include &lt;<a class="el" href="../../da/d50/a00301_source.html">pop/Population.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../dd/de2/a00320_source.html">sim/Sim.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../d4/d8f/a00324_source.html">sim/SimRunner.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../dd/d86/a00271_source.html">viewers/InfectedViewer.h</a>&gt;</code><br />
+<code>#include &lt;boost/property_tree/json_parser.hpp&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;omp.h&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Calibrator.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/dcb/a01263.gif" border="0" usemap="#stride_1_1viewers_1_1CliViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1CliViewer_coll__map" id="stride_1_1viewers_1_1CliViewer_coll__map">
+<div class="center"><img src="../../d3/d29/a00419.gif" border="0" usemap="#Calibrator_8cpp" alt=""/></div>
+<map name="Calibrator_8cpp" id="Calibrator_8cpp">
+<area shape="rect" id="node2" href="../../de/d38/a00160.html" title="Calibrator.h" alt="" coords="1629,87,1723,114"/>
+<area shape="rect" id="node15" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="981,87,1110,114"/>
+<area shape="rect" id="node34" href="../../dd/de2/a00320.html" title="Header for the Simulator class. " alt="" coords="1787,87,1874,114"/>
+<area shape="rect" id="node40" href="../../d4/d8f/a00324.html" title="Header for the SimRunner class. " alt="" coords="2383,177,2513,203"/>
+<area shape="rect" id="node44" href="../../dd/d86/a00271.html" title="Observer for infection count at each sim step. " alt="" coords="1898,87,2075,114"/>
+<area shape="rect" id="node5" href="../../d6/d7f/a00287.html" title="Logging (spdlog) utilities. " alt="" coords="1583,177,1691,203"/>
+<area shape="rect" id="node9" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="1995,259,2095,285"/>
+<area shape="rect" id="node10" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="1885,341,1936,367"/>
+<area shape="rect" id="node16" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="443,177,608,203"/>
+<area shape="rect" id="node25" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="291,259,463,285"/>
+<area shape="rect" id="node31" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="805,177,912,203"/>
+<area shape="rect" id="node17" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="782,341,925,367"/>
+<area shape="rect" id="node19" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1008,423,1179,449"/>
+<area shape="rect" id="node23" href="../../dc/d6a/a00261.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="744,259,912,285"/>
+<area shape="rect" id="node18" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="1945,423,2140,449"/>
+<area shape="rect" id="node26" href="../../df/df1/a00340.html" title="Interface/Implementation for SVIterator. " alt="" coords="275,341,373,367"/>
+<area shape="rect" id="node32" href="../../d4/d9a/a00246.html" title="Header for the Health class. " alt="" coords="590,259,719,285"/>
+<area shape="rect" id="node35" href="../../d0/d4a/a00147.html" title="Contact profiles stored in simulator. " alt="" coords="937,177,1143,203"/>
+<area shape="rect" id="node37" href="../../d6/daa/a00187.html" title="Header for the ContactHandler class. " alt="" coords="2021,177,2206,203"/>
+<area shape="rect" id="node38" href="../../dd/d56/a00274.html" title="Header for the InfectorExec class. " alt="" coords="1395,177,1559,203"/>
+<area shape="rect" id="node39" href="../../d1/dc6/a00347.html" title="Header for the TransmissionProfile class. " alt="" coords="1713,259,1919,285"/>
+<area shape="rect" id="node36" href="../../d9/db6/a00146.html" title="Contact profile. " alt="" coords="987,259,1187,285"/>
+<area shape="rect" id="node41" href="../../dd/dd7/a00260.html" title="Definition of EventId. " alt="" coords="2281,341,2393,367"/>
+<area shape="rect" id="node42" href="../../dc/d50/a00332.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2373,259,2523,285"/>
+<area shape="rect" id="node43" href="../../d4/db5/a00328.html" title="Definition of Stopwatch. " alt="" coords="2438,423,2562,449"/>
 </map>
 </div>
+</div>
+<p><a href="../../de/db9/a00159_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db9/a00159.html#a4ddb15ac567fd751c2be3a9d973d1666">CliViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt; runner, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="memdesc:a4ddb15ac567fd751c2be3a9d973d1666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cli viewer.  <a href="#a4ddb15ac567fd751c2be3a9d973d1666">More...</a><br /></td></tr>
-<tr class="separator:a4ddb15ac567fd751c2be3a9d973d1666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db9/a00159.html#a9f3a2f9efda499fa6a80f3871c7298d7">Update</a> (<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a9f3a2f9efda499fa6a80f3871c7298d7">More...</a><br /></td></tr>
-<tr class="separator:a9f3a2f9efda499fa6a80f3871c7298d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:acc77dad91899a0d4183493023e082e9f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db9/a00159.html#acc77dad91899a0d4183493023e082e9f">m_logger</a></td></tr>
-<tr class="separator:acc77dad91899a0d4183493023e082e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af789850b449fdadcc8572def4a0eb4af"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/db9/a00159.html#af789850b449fdadcc8572def4a0eb4af">m_runner</a></td></tr>
-<tr class="separator:af789850b449fdadcc8572def4a0eb4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">calibration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for commandline interface. </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00031">31</a> of file <a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4ddb15ac567fd751c2be3a9d973d1666"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::CliViewer::CliViewer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Instantiate cli viewer. </p>
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00035">35</a> of file <a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../d3/db1/a00200_source.html#l00039">Update()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9f3a2f9efda499fa6a80f3871c7298d7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::CliViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00039">39</a> of file <a class="el" href="../../d3/db1/a00200_source.html">CliViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/de3/a00201_source.html#l00035">CliViewer()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00117">stride::ControlHelper::RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="acc77dad91899a0d4183493023e082e9f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; stride::viewers::CliViewer::m_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00044">44</a> of file <a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af789850b449fdadcc8572def4a0eb4af"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d6/db3/a00130.html">SimRunner</a>&gt; stride::viewers::CliViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/de3/a00201_source.html#l00045">45</a> of file <a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/de3/a00201_source.html">CliViewer.h</a></li>
-<li><a class="el" href="../../d3/db1/a00200_source.html">CliViewer.cpp</a></li>
-</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/df4/a00450.html">viewers</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">CliViewer</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../de/db9/a00159.html">Calibrator.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Subject&lt; E &gt; Class Template Reference</title>
+<title>Stride Reference Manual: BoxplotGenerator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,334 +105,56 @@ $(document).ready(function(){initNavTree('da/d01/a00153.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d1/d31/a01245.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Subject&lt; E &gt; Class Template Reference</div>  </div>
+<div class="title">BoxplotGenerator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Template for Subject/Observer (or Publish/Subscribe).  
- <a href="../../da/d01/a00153.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../d5/d05/a00385_source.html">Subject.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for stride::util::Subject&lt; E &gt;:</div>
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;<a class="el" href="../../d6/d7f/a00287_source.html">util/LogUtils.h</a>&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db2/a00151_source.html">BoxplotData.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for BoxplotGenerator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d04/a01246.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map" id="stride_1_1util_1_1Subject_3_01E_01_4_inherit__map">
-<area shape="rect" id="node2" href="../../da/d01/a00153.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
-<area shape="rect" id="node4" href="../../da/d01/a00153.html" title="{stride::util::Subject\l\&lt; event::Payload \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="213,233,358,399"/>
-<area shape="rect" id="node3" href="../../d6/db3/a00130.html" title="The simulation runner drive simulator throufgh time steps. " alt="" coords="27,448,162,657"/>
-<area shape="rect" id="node5" href="../../d6/d2c/a00072.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b..." alt="" coords="186,463,387,643"/>
+<div class="center"><img src="../../d8/d91/a00410.gif" border="0" usemap="#BoxplotGenerator_8h" alt=""/></div>
+<map name="BoxplotGenerator_8h" id="BoxplotGenerator_8h">
+<area shape="rect" id="node4" href="../../d6/d7f/a00287.html" title="Logging (spdlog) utilities. " alt="" coords="355,80,463,107"/>
+<area shape="rect" id="node8" href="../../dd/db2/a00151.html" title="BoxplotData.h" alt="" coords="131,80,245,107"/>
 </map>
 </div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Subject&lt; E &gt;:</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d95/a01247.gif" border="0" usemap="#stride_1_1util_1_1Subject_3_01E_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Subject_3_01E_01_4_coll__map" id="stride_1_1util_1_1Subject_3_01E_01_4_coll__map">
-<area shape="rect" id="node4" href="../../df/de8/a00839.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="117,145,261,223"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="285,145,417,223"/>
-<area shape="rect" id="node7" href="../../dd/d70/a00835.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
+<div class="center"><img src="../../d2/db6/a00411.gif" border="0" usemap="#BoxplotGenerator_8hdep" alt=""/></div>
+<map name="BoxplotGenerator_8hdep" id="BoxplotGenerator_8hdep">
+<area shape="rect" id="node2" href="../../d7/d9a/a00152.html" title="BoxplotGenerator.cpp" alt="" coords="5,80,167,107"/>
+<area shape="rect" id="node3" href="../../d1/db7/a00157.html" title="CalibrationRunner.cpp" alt="" coords="191,80,351,107"/>
 </map>
 </div>
+</div>
+<p><a href="../../da/d01/a00153_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ac4fa78f455203ba23ab4442d14822895"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = E</td></tr>
-<tr class="separator:ac4fa78f455203ba23ab4442d14822895"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;)&gt;</td></tr>
-<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dad/a00005.html">calibration::BoxplotGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class used to generate QtCharts Boxplots.  <a href="../../dd/dad/a00005.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
-<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
-<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
-<tr class="separator:acddc520ab930ec98e120790b91fb8021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
-<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
-<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9496d626bbde63eb55836f0af402522c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;e)</td></tr>
-<tr class="separator:a9496d626bbde63eb55836f0af402522c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::weak_ptr&lt; const void &gt;, <a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt; std::weak_ptr&lt; const void &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a3d7c672aaa180fc9b0a8c272639bd821">m_observers</a></td></tr>
-<tr class="separator:a3d7c672aaa180fc9b0a8c272639bd821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">calibration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename E&gt;<br />
-class stride::util::Subject&lt; E &gt;</h3>
-
-<p>Template for Subject/Observer (or Publish/Subscribe). </p>
-<p>Offers flexibility in defining event types and having customized callbacks. Despite the shared_ptrs in the Register/Unregister, the <a class="el" href="../../da/d01/a00153.html" title="Template for Subject/Observer (or Publish/Subscribe). ">Subject</a> takes no ownership of the observer object and only stores a weak_ptr. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00037">37</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="ac4fa78f455203ba23ab4442d14822895"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> =  E</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00040">40</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3face8040dba107d2ddcfc5f766aa58d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> =  std::function&lt;void(const <a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a>&amp;)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00041">41</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4853b1d31d30e83840a9ab9a01d460dd"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::<a class="el" href="../../da/d01/a00153.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00044">44</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade16fa2818574a0a42874b5f15b1d3ec"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::~<a class="el" href="../../da/d01/a00153.html">Subject</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00046">46</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="acddc520ab930ec98e120790b91fb8021"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::Register </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00049">49</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d50/a00332_source.html#l00158">myhayai::MyhayaiController::RunBenchmarks()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aaa38f379243ec0d27b47b5bd110ebe75"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::Unregister </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; U &gt; &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00055">55</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8e0f20cb6cc045cf215f5d5a0963046f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::UnregisterAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00060">60</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d05/a00385_source.html#l00046">stride::util::Subject&lt; event::Payload &gt;::~Subject()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9496d626bbde63eb55836f0af402522c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::Notify </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00062">62</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a3d7c672aaa180fc9b0a8c272639bd821"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename E&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::weak_ptr&lt;const void&gt;, <a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a>, std::owner_less&lt;std::weak_ptr&lt;const void&gt; &gt; &gt; <a class="el" href="../../da/d01/a00153.html">stride::util::Subject</a>&lt; E &gt;::m_observers</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d05/a00385_source.html#l00075">75</a> of file <a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d5/d05/a00385_source.html#l00062">stride::util::Subject&lt; event::Payload &gt;::Notify()</a>, <a class="el" href="../../d5/d05/a00385_source.html#l00049">stride::util::Subject&lt; event::Payload &gt;::Register()</a>, <a class="el" href="../../d5/d05/a00385_source.html#l00055">stride::util::Subject&lt; event::Payload &gt;::Unregister()</a>, and <a class="el" href="../../d5/d05/a00385_source.html#l00060">stride::util::Subject&lt; event::Payload &gt;::UnregisterAll()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/d05/a00385_source.html">util/Subject.h</a></li>
-</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d84/a00447.html">util</a></li><li class="navelem"><a class="el" href="../../da/d01/a00153.html">Subject</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../da/d01/a00153.html">BoxplotGenerator.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

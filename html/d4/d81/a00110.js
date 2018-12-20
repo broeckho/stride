@@ -1,11 +1,8 @@
 var a00110 =
 [
-    [ "HealthSeeder", "d4/d81/a00110.html#a7b4785c0728c9f154aa1426034d6e1b5", null ],
-    [ "Seed", "d4/d81/a00110.html#ad6a9061857cee5335745fe5501bcb73d", null ],
-    [ "GetDistribution", "d4/d81/a00110.html#a7b240a326b204767217481b3fcc46237", null ],
-    [ "Sample", "d4/d81/a00110.html#a562b022d2c7f2836b4400e7d19e1b040", null ],
-    [ "m_distrib_start_infectiousness", "d4/d81/a00110.html#a2933ce9d9b3e17d11edb4d50bc005a1a", null ],
-    [ "m_distrib_start_symptomatic", "d4/d81/a00110.html#a09f22ca66e79edf806a249517ec6ac35", null ],
-    [ "m_distrib_time_infectious", "d4/d81/a00110.html#a520743c093005b7ccda658475107f0c2", null ],
-    [ "m_distrib_time_symptomatic", "d4/d81/a00110.html#a6d190e53a3a83864d7a40cb78b2188e4", null ]
+    [ "SimBuilder", "d4/d81/a00110.html#ada7d6656e97857b9bacd2285f7784021", null ],
+    [ "Build", "d4/d81/a00110.html#a94ce5fb3cae915f0bdb261498f31c444", null ],
+    [ "ReadAgeContactPtree", "d4/d81/a00110.html#ad551b02c507948570f07af10d85d29ce", null ],
+    [ "ReadDiseasePtree", "d4/d81/a00110.html#adffa42c6b8b171616fcdfb4805260c92", null ],
+    [ "m_config_pt", "d4/d81/a00110.html#a24875cf5b77b860f11ed1327d71dce5f", null ]
 ];

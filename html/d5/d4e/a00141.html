@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::Exception Class Reference</title>
+<title>Stride Reference Manual: AbstractPopBuilder.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,83 +105,80 @@ $(document).ready(function(){initNavTree('d5/d4e/a00141.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d8/df3/a01216.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::Exception Class Reference</div>  </div>
+<div class="title">AbstractPopBuilder.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible".  
- <a href="../../d5/d4e/a00141.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../de/dbc/a00249_source.html">Exception.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for stride::util::Exception:</div>
+<p>Base Class for PopBuilders.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">pop/Population.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d5d/a00311_source.html">util/RnMan.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;spdlog/logger.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AbstractPopBuilder.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d39/a01219.gif" border="0" usemap="#stride_1_1util_1_1Exception_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1util_1_1Exception_inherit__map" id="stride_1_1util_1_1Exception_inherit__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="13,131,152,208"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="27,5,139,83"/>
+<div class="center"><img src="../../db/d95/a00391.gif" border="0" usemap="#AbstractPopBuilder_8h" alt=""/></div>
+<map name="AbstractPopBuilder_8h" id="AbstractPopBuilder_8h">
+<area shape="rect" id="node2" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="1390,80,1519,107"/>
+<area shape="rect" id="node28" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="994,162,1094,189"/>
+<area shape="rect" id="node3" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1620,162,1785,189"/>
+<area shape="rect" id="node18" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1762,333,1934,360"/>
+<area shape="rect" id="node25" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1169,162,1276,189"/>
+<area shape="rect" id="node4" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="1127,333,1270,360"/>
+<area shape="rect" id="node7" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1411,408,1581,435"/>
+<area shape="rect" id="node13" href="../../dc/d6a/a00261.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1345,251,1513,278"/>
+<area shape="rect" id="node5" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="1061,408,1256,435"/>
+<area shape="rect" id="node19" href="../../df/df1/a00340.html" title="Interface/Implementation for SVIterator. " alt="" coords="1888,408,1987,435"/>
+<area shape="rect" id="node26" href="../../d4/d9a/a00246.html" title="Header for the Health class. " alt="" coords="1090,251,1219,278"/>
+<area shape="rect" id="node29" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="591,333,641,360"/>
+<area shape="rect" id="node30" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="427,408,527,435"/>
 </map>
 </div>
-<div class="dynheader">
-Collaboration diagram for stride::util::Exception:</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../db/d42/a01220.gif" border="0" usemap="#stride_1_1util_1_1Exception_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1Exception_coll__map" id="stride_1_1util_1_1Exception_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="13,131,152,208"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="27,5,139,83"/>
+<div class="center"><img src="../../d4/d27/a00392.gif" border="0" usemap="#AbstractPopBuilder_8hdep" alt=""/></div>
+<map name="AbstractPopBuilder_8hdep" id="AbstractPopBuilder_8hdep">
+<area shape="rect" id="node2" href="../../de/dd2/a00207.html" title="Initialize populations. " alt="" coords="92,80,239,107"/>
+<area shape="rect" id="node5" href="../../dd/df3/a00219.html" title="Initialize populations. " alt="" coords="263,80,390,107"/>
+<area shape="rect" id="node7" href="../../da/d53/a00265.html" title="Initialize populations. " alt="" coords="414,80,557,107"/>
+<area shape="rect" id="node3" href="../../d5/df1/a00206.html" title="Initialize populations: implementation. " alt="" coords="5,155,168,181"/>
+<area shape="rect" id="node4" href="../../db/da2/a00300.html" title="Core Population class. " alt="" coords="193,155,309,181"/>
+<area shape="rect" id="node6" href="../../dc/d9a/a00218.html" title="Initialize populations: implementation. " alt="" coords="333,155,475,181"/>
+<area shape="rect" id="node8" href="../../d3/dcc/a00264.html" title="Initialize populations: implementation. " alt="" coords="499,155,658,181"/>
 </map>
 </div>
+</div>
+<p><a href="../../d5/d4e/a00141_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d4e/a00141.html#afa3f2f4a87be564f7f77fbc8cb64bfe1">Exception</a> (const std::string &amp;msg)</td></tr>
-<tr class="separator:afa3f2f4a87be564f7f77fbc8cb64bfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base Class for PopBuilders.  <a href="../../d1/d51/a00079.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Basic exception class: needed to prevent clang-tidy warning "thrown exception type is not nothrow copy constructible". </p>
+<div class="textblock"><p>Base Class for PopBuilders. </p>
 
-<p>Definition at line <a class="el" href="../../de/dbc/a00249_source.html#l00027">27</a> of file <a class="el" href="../../de/dbc/a00249_source.html">Exception.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afa3f2f4a87be564f7f77fbc8cb64bfe1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::util::Exception::Exception </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../de/dbc/a00249_source.html#l00030">30</a> of file <a class="el" href="../../de/dbc/a00249_source.html">Exception.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../de/dbc/a00249_source.html">Exception.h</a></li>
-<li><a class="el" href="../../dd/dd7/a00248_source.html">Exception.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>Definition in file <a class="el" href="../../d5/d4e/a00141_source.html">AbstractPopBuilder.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/d84/a00447.html">util</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">Exception</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../d5/d4e/a00141.html">AbstractPopBuilder.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

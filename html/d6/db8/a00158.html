@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::viewers::AdoptedFileViewer Class Reference</title>
+<title>Stride Reference Manual: CalibrationRunner.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -48,8 +48,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
     <ul class="tablist">
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../namespaces.html"><span>Namespaces</span></a></li>
-      <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
-      <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,10 +70,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="../../annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="../../classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="../../inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="../../files.html"><span>File&#160;List</span></a></li>
+      <li><a href="../../globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -107,197 +105,62 @@ $(document).ready(function(){initNavTree('d6/db8/a00158.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d7/da3/a01260.html">List of all members</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">stride::viewers::AdoptedFileViewer Class Reference</div>  </div>
+<div class="title">CalibrationRunner.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Viewer of Simulator for cases output.  
- <a href="../../d6/db8/a00158.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for stride::viewers::AdoptedFileViewer:</div>
+<div class="textblock"><code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../de/d38/a00160_source.html">Calibrator.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for CalibrationRunner.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d34/a01261.gif" border="0" usemap="#stride_1_1viewers_1_1AdoptedFileViewer_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1viewers_1_1AdoptedFileViewer_coll__map" id="stride_1_1viewers_1_1AdoptedFileViewer_coll__map">
-<area shape="rect" id="node2" href="../../df/dc8/a00122.html" title="Produces a file with daily count of person having adopted a belief. " alt="" coords="5,695,196,816"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="47,555,155,632"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="27,400,175,492"/>
-<area shape="rect" id="node5" title="STL class. " alt="" coords="29,259,173,351"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="17,132,185,209"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="47,5,154,83"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="339,555,465,632"/>
+<div class="center"><img src="../../d8/de7/a00417.gif" border="0" usemap="#CalibrationRunner_8h" alt=""/></div>
+<map name="CalibrationRunner_8h" id="CalibrationRunner_8h">
+<area shape="rect" id="node5" href="../../de/d38/a00160.html" title="Calibrator.h" alt="" coords="225,80,319,107"/>
+<area shape="rect" id="node7" href="../../d6/d7f/a00287.html" title="Logging (spdlog) utilities. " alt="" coords="849,162,957,189"/>
+<area shape="rect" id="node10" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="450,162,550,189"/>
+<area shape="rect" id="node11" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="521,244,572,271"/>
+<area shape="rect" id="node12" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="795,319,895,345"/>
 </map>
 </div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/df7/a00418.gif" border="0" usemap="#CalibrationRunner_8hdep" alt=""/></div>
+<map name="CalibrationRunner_8hdep" id="CalibrationRunner_8hdep">
+<area shape="rect" id="node2" href="../../d1/db7/a00157.html" title="CalibrationRunner.cpp" alt="" coords="5,80,165,107"/>
+<area shape="rect" id="node3" href="../../d7/d25/a00182.html" title="ConfigFileCalibrationRunner.h" alt="" coords="189,80,395,107"/>
+<area shape="rect" id="node6" href="../../d2/d45/a00342.html" title="TestCalibrationRunner.h" alt="" coords="419,80,589,107"/>
+<area shape="rect" id="node4" href="../../d8/d64/a00181.html" title="ConfigFileCalibrationRunner.cpp" alt="" coords="105,155,325,181"/>
+<area shape="rect" id="node5" href="../../d2/d34/a00156.html" title="calibration.cpp" alt="" coords="349,155,464,181"/>
+<area shape="rect" id="node7" href="../../d3/d93/a00341.html" title="TestCalibrationRunner.cpp" alt="" coords="489,155,674,181"/>
+</map>
+</div>
+</div>
+<p><a href="../../d6/db8/a00158_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a46c44f1a5065810bc501ed8669c9d75f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00158.html#a46c44f1a5065810bc501ed8669c9d75f">AdoptedFileViewer</a> (std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt; runner, const std::string &amp;output_prefix)</td></tr>
-<tr class="memdesc:a46c44f1a5065810bc501ed8669c9d75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiate cases viewer.  <a href="#a46c44f1a5065810bc501ed8669c9d75f">More...</a><br /></td></tr>
-<tr class="separator:a46c44f1a5065810bc501ed8669c9d75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c4df8f5c1de7318b196c9f6d1ee2f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00158.html#a4c4df8f5c1de7318b196c9f6d1ee2f51">Update</a> (<a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a> id)</td></tr>
-<tr class="memdesc:a4c4df8f5c1de7318b196c9f6d1ee2f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Let viewer perform update.  <a href="#a4c4df8f5c1de7318b196c9f6d1ee2f51">More...</a><br /></td></tr>
-<tr class="separator:a4c4df8f5c1de7318b196c9f6d1ee2f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/a00006.html">calibration::CalibrationRunner</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A runner for the Calibration.  <a href="../../de/d21/a00006.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ad3e91689bf7d032e0bc24678a936b78a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00158.html#ad3e91689bf7d032e0bc24678a936b78a">m_adopted</a></td></tr>
-<tr class="separator:ad3e91689bf7d032e0bc24678a936b78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafce91e8bed6ce1185e2ae4d233318f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/dc8/a00122.html">output::AdoptedFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00158.html#aafce91e8bed6ce1185e2ae4d233318f7">m_adopted_file</a></td></tr>
-<tr class="separator:aafce91e8bed6ce1185e2ae4d233318f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3397e7a84c8081d0760014908d17262a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db8/a00158.html#a3397e7a84c8081d0760014908d17262a">m_runner</a></td></tr>
-<tr class="separator:a3397e7a84c8081d0760014908d17262a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:de/dd7/a00362"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd7/a00362.html">calibration</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Viewer of Simulator for cases output. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00033">33</a> of file <a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a46c44f1a5065810bc501ed8669c9d75f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">stride::viewers::AdoptedFileViewer::AdoptedFileViewer </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/db3/a00130.html">SimRunner</a> &gt;&#160;</td>
-          <td class="paramname"><em>runner</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>output_prefix</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Instantiate cases viewer. </p>
-
-<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00037">37</a> of file <a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>.</p>
-
-<p>References <a class="el" href="../../dc/de6/a00167_source.html#l00033">Update()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4c4df8f5c1de7318b196c9f6d1ee2f51"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::viewers::AdoptedFileViewer::Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">sim_event::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Let viewer perform update. </p>
-
-<p>Definition at line <a class="el" href="../../dc/de6/a00167_source.html#l00033">33</a> of file <a class="el" href="../../dc/de6/a00167_source.html">AdoptedFileViewer.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/da7/a00168_source.html#l00037">AdoptedFileViewer()</a>, and <a class="el" href="../../d0/d53/a00232_source.html#l00117">stride::ControlHelper::RegisterViewers()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ad3e91689bf7d032e0bc24678a936b78a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;unsigned int&gt; stride::viewers::AdoptedFileViewer::m_adopted</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00046">46</a> of file <a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aafce91e8bed6ce1185e2ae4d233318f7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dc8/a00122.html">output::AdoptedFile</a> stride::viewers::AdoptedFileViewer::m_adopted_file</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00047">47</a> of file <a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3397e7a84c8081d0760014908d17262a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d6/db3/a00130.html">SimRunner</a>&gt; stride::viewers::AdoptedFileViewer::m_runner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../dd/da7/a00168_source.html#l00048">48</a> of file <a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/da7/a00168_source.html">AdoptedFileViewer.h</a></li>
-<li><a class="el" href="../../dc/de6/a00167_source.html">AdoptedFileViewer.cpp</a></li>
-</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../de/df4/a00450.html">viewers</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">AdoptedFileViewer</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:30 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_5983ae1f36a4d5d05095401b20a25a7e.html">calibration</a></li><li class="navelem"><a class="el" href="../../d6/db8/a00158.html">CalibrationRunner.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

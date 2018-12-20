@@ -1,8 +1,8 @@
 var a00106 =
 [
-    [ "DiseaseSeeder", "d7/d70/a00106.html#aec696ec6255d5068b34a911f9a45ffc0", null ],
-    [ "Seed", "d7/d70/a00106.html#adc5b1f152367382afe3dade9421357da", null ],
-    [ "Vaccinate", "d7/d70/a00106.html#a5eaa1cecfcca6bba3bbb26128527f01d", null ],
-    [ "m_config_pt", "d7/d70/a00106.html#a564d8b1346c1160f4e68f3ab8ad0bf8a", null ],
-    [ "m_rn_manager", "d7/d70/a00106.html#ae14564932092a52307a91d9c8e942c18", null ]
+    [ "SummaryFile", "d7/d70/a00106.html#a1f848c3aa92042b2fa7d399ad31b0e33", null ],
+    [ "~SummaryFile", "d7/d70/a00106.html#ade602b6935ee6c38f21f15b5bcc77847", null ],
+    [ "Print", "d7/d70/a00106.html#a9b4fb82839ddf6a7c8d10fc119bf22fb", null ],
+    [ "Initialize", "d7/d70/a00106.html#a73334b641e8aeb7edff5cc8b6affc86c", null ],
+    [ "m_fstream", "d7/d70/a00106.html#a473d1c4d75f2e873e1b0ee256dabf73a", null ]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::SimRunner Class Reference</title>
+<title>Stride Reference Manual: stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -107,140 +107,258 @@ $(document).ready(function(){initNavTree('d6/db3/a00130.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d6/db6/a01172.html">List of all members</a>  </div>
+<a href="../../d6/d6a/a01072.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::SimRunner Class Reference</div>  </div>
+<div class="title">stride::util::SliceIndexer&lt; T, Key &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The simulation runner drive simulator throufgh time steps.  
+<p>Datastructure to index a container (supporting RandomAccessIterators) with slices.  
  <a href="../../d6/db3/a00130.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::SimRunner:</div>
+Collaboration diagram for stride::util::SliceIndexer&lt; T, Key &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d0c/a01173.gif" border="0" usemap="#stride_1_1SimRunner_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1SimRunner_inherit__map" id="stride_1_1SimRunner_inherit__map">
-<area shape="rect" id="node2" href="../../da/d01/a00153.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n|&#45; m_observers\l|+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="5,233,187,399"/>
-<area shape="rect" id="node3" href="../../da/d01/a00153.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="7,5,185,156"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::SimRunner:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/dfb/a01174.gif" border="0" usemap="#stride_1_1SimRunner_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1SimRunner_coll__map" id="stride_1_1SimRunner_coll__map">
-<area shape="rect" id="node2" href="../../da/d01/a00153.html" title="{stride::util::Subject\l\&lt; stride::sim_event::Id \&gt;\n||+ Subject()\l+ ~Subject()\l+ Register()\l+ Unregister()\l+ UnregisterAll()\l+ Notify()\l}" alt="" coords="395,874,577,1039"/>
-<area shape="rect" id="node11" href="../../da/d01/a00153.html" title="Template for Subject/Observer (or Publish/Subscribe). " alt="" coords="398,639,577,789"/>
-<area shape="rect" id="node5" href="../../df/de8/a00839.html" title="{const void\n||}" alt="" coords="5,145,92,223"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="117,145,261,223"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="285,145,417,223"/>
-<area shape="rect" id="node8" href="../../dd/d70/a00835.html" title="{CallbackType\n||}" alt="" coords="540,293,643,370"/>
-<area shape="rect" id="node12" title="STL class. " alt="" coords="1017,675,1104,753"/>
-<area shape="rect" id="node15" href="../../d7/d9a/a00152.html" title="Provides a stopwatch interface to time: it accumulates time between start/stop pairs. " alt="" coords="811,867,1009,1047"/>
-<area shape="rect" id="node13" title="STL class. " alt="" coords="992,462,1129,554"/>
+<div class="center"><img src="../../d9/d7c/a01073.gif" border="0" usemap="#stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map" id="stride_1_1util_1_1SliceIndexer_3_01T_00_01Key_01_4_coll__map">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="124,145,251,223"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="275,145,407,223"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa697693cf36c60a25c469e21b26cb84f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> = boost::sliced_range&lt; T &gt;</td></tr>
+<tr class="separator:aa697693cf36c60a25c469e21b26cb84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0f1cdbcca511bc11fd898dc3a872718d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a0f1cdbcca511bc11fd898dc3a872718d">SimRunner</a> (const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; <a class="el" href="../../df/dcd/a00127.html">Population</a> &gt; pop, <a class="el" href="../../de/d84/a00447.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
-<tr class="memdesc:a0f1cdbcca511bc11fd898dc3a872718d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization with property tree.  <a href="#a0f1cdbcca511bc11fd898dc3a872718d">More...</a><br /></td></tr>
-<tr class="separator:a0f1cdbcca511bc11fd898dc3a872718d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#ad59e65dfe839b8a589b1c6ffa805ba2f">~SimRunner</a> () override=default</td></tr>
-<tr class="memdesc:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad59e65dfe839b8a589b1c6ffa805ba2f">More...</a><br /></td></tr>
-<tr class="separator:ad59e65dfe839b8a589b1c6ffa805ba2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d7/d9a/a00152.html">util::Stopwatch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#aceb24930d50702acfa88bdfe5cb13a1b">GetClock</a> () const </td></tr>
-<tr class="memdesc:aceb24930d50702acfa88bdfe5cb13a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#aceb24930d50702acfa88bdfe5cb13a1b">More...</a><br /></td></tr>
-<tr class="separator:aceb24930d50702acfa88bdfe5cb13a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eeaa63450413a62f31bcee07df29fa3"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a9eeaa63450413a62f31bcee07df29fa3">GetConfig</a> () const </td></tr>
-<tr class="memdesc:a9eeaa63450413a62f31bcee07df29fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the run &amp; sim configuration.  <a href="#a9eeaa63450413a62f31bcee07df29fa3">More...</a><br /></td></tr>
-<tr class="separator:a9eeaa63450413a62f31bcee07df29fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99014dd891a3422214c2a088dd38cde9"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/d88/a00128.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a99014dd891a3422214c2a088dd38cde9">GetSim</a> () const </td></tr>
-<tr class="memdesc:a99014dd891a3422214c2a088dd38cde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Simulator.  <a href="#a99014dd891a3422214c2a088dd38cde9">More...</a><br /></td></tr>
-<tr class="separator:a99014dd891a3422214c2a088dd38cde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81720a1766d513eb248cb443d948567f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a81720a1766d513eb248cb443d948567f">Run</a> ()</td></tr>
-<tr class="memdesc:a81720a1766d513eb248cb443d948567f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for as many steps/days as indicated in config.  <a href="#a81720a1766d513eb248cb443d948567f">More...</a><br /></td></tr>
-<tr class="separator:a81720a1766d513eb248cb443d948567f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a233f76f6af0cef8c5971112b6d2235d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a233f76f6af0cef8c5971112b6d2235d0">Run</a> (unsigned int numSteps)</td></tr>
-<tr class="memdesc:a233f76f6af0cef8c5971112b6d2235d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulator for numSteps steps/days.  <a href="#a233f76f6af0cef8c5971112b6d2235d0">More...</a><br /></td></tr>
-<tr class="separator:a233f76f6af0cef8c5971112b6d2235d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00153"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00153')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../da/d01/a00153.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
-<tr class="memitem:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a4853b1d31d30e83840a9ab9a01d460dd">Subject</a> ()</td></tr>
-<tr class="separator:a4853b1d31d30e83840a9ab9a01d460dd inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#ade16fa2818574a0a42874b5f15b1d3ec">~Subject</a> ()</td></tr>
-<tr class="separator:ade16fa2818574a0a42874b5f15b1d3ec inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#acddc520ab930ec98e120790b91fb8021">Register</a> (const std::shared_ptr&lt; U &gt; &amp;u, <a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> f)</td></tr>
-<tr class="separator:acddc520ab930ec98e120790b91fb8021 inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#aaa38f379243ec0d27b47b5bd110ebe75">Unregister</a> (const std::shared_ptr&lt; U &gt; &amp;u)</td></tr>
-<tr class="separator:aaa38f379243ec0d27b47b5bd110ebe75 inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a8e0f20cb6cc045cf215f5d5a0963046f">UnregisterAll</a> ()</td></tr>
-<tr class="separator:a8e0f20cb6cc045cf215f5d5a0963046f inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a9496d626bbde63eb55836f0af402522c">Notify</a> (const <a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;e)</td></tr>
-<tr class="separator:a9496d626bbde63eb55836f0af402522c inherit pub_methods_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bedaa13b9427b736bfc88bcb974741"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#af2bedaa13b9427b736bfc88bcb974741">SliceIndexer</a> (T &amp;t)</td></tr>
+<tr class="memdesc:af2bedaa13b9427b736bfc88bcb974741"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/db3/a00130.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes.  <a href="#af2bedaa13b9427b736bfc88bcb974741">More...</a><br /></td></tr>
+<tr class="separator:af2bedaa13b9427b736bfc88bcb974741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63541daeed03c7731fb820005e64f06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#ac63541daeed03c7731fb820005e64f06">Get</a> (const Key &amp;s)</td></tr>
+<tr class="memdesc:ac63541daeed03c7731fb820005e64f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve reference to a range by its key.  <a href="#ac63541daeed03c7731fb820005e64f06">More...</a><br /></td></tr>
+<tr class="separator:ac63541daeed03c7731fb820005e64f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#aaa3ea63497e88e0f8673cecd56de8b57">Get</a> (const Key &amp;s) const </td></tr>
+<tr class="memdesc:aaa3ea63497e88e0f8673cecd56de8b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve const reference to a range by its Id.  <a href="#aaa3ea63497e88e0f8673cecd56de8b57">More...</a><br /></td></tr>
+<tr class="separator:aaa3ea63497e88e0f8673cecd56de8b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0b86821b30ab6830b3846231b52b9f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a7c0b86821b30ab6830b3846231b52b9f">Get</a> ()</td></tr>
+<tr class="memdesc:a7c0b86821b30ab6830b3846231b52b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve all the ranges,.  <a href="#a7c0b86821b30ab6830b3846231b52b9f">More...</a><br /></td></tr>
+<tr class="separator:a7c0b86821b30ab6830b3846231b52b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a773c442bcca2708aa1c1f8a8b5ca347c">Set</a> (std::size_t ibegin, std::size_t iend, const Key &amp;name)</td></tr>
+<tr class="memdesc:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included!  <a href="#a773c442bcca2708aa1c1f8a8b5ca347c">More...</a><br /></td></tr>
+<tr class="separator:a773c442bcca2708aa1c1f8a8b5ca347c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a670eb7b0d4bec5445d5a30ea71384be5">Set</a> (std::size_t ibegin, const Key &amp;name)</td></tr>
+<tr class="memdesc:a670eb7b0d4bec5445d5a30ea71384be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a range, where the end is the end of the container.  <a href="#a670eb7b0d4bec5445d5a30ea71384be5">More...</a><br /></td></tr>
+<tr class="separator:a670eb7b0d4bec5445d5a30ea71384be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a194f218151d935420737a20c40c27a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a194f218151d935420737a20c40c27a00">check</a> (const Key &amp;name)</td></tr>
+<tr class="memdesc:a194f218151d935420737a20c40c27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check key map for duplicate; throw iff duplicate.  <a href="#a194f218151d935420737a20c40c27a00">More...</a><br /></td></tr>
+<tr class="separator:a194f218151d935420737a20c40c27a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ae2de72162f806fe5b7008e81854bdc2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d9a/a00152.html">util::Stopwatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#ae2de72162f806fe5b7008e81854bdc2d">m_clock</a></td></tr>
-<tr class="memdesc:ae2de72162f806fe5b7008e81854bdc2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stopwatch for timing the computation.  <a href="#ae2de72162f806fe5b7008e81854bdc2d">More...</a><br /></td></tr>
-<tr class="separator:ae2de72162f806fe5b7008e81854bdc2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c4778adb0be5161932d107c2a84d477"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a1c4778adb0be5161932d107c2a84d477">m_config_pt</a></td></tr>
-<tr class="memdesc:a1c4778adb0be5161932d107c2a84d477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ptree with configuration.  <a href="#a1c4778adb0be5161932d107c2a84d477">More...</a><br /></td></tr>
-<tr class="separator:a1c4778adb0be5161932d107c2a84d477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78babbce6074c1f0d612c67febfb388e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a78babbce6074c1f0d612c67febfb388e">m_output_prefix</a></td></tr>
-<tr class="memdesc:a78babbce6074c1f0d612c67febfb388e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix for output data files.  <a href="#a78babbce6074c1f0d612c67febfb388e">More...</a><br /></td></tr>
-<tr class="separator:a78babbce6074c1f0d612c67febfb388e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ff961d97649b68ef661d38c098baaf0"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/d88/a00128.html">Sim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a4ff961d97649b68ef661d38c098baaf0">m_sim</a></td></tr>
-<tr class="memdesc:a4ff961d97649b68ef661d38c098baaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulator object.  <a href="#a4ff961d97649b68ef661d38c098baaf0">More...</a><br /></td></tr>
-<tr class="separator:a4ff961d97649b68ef661d38c098baaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00153"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00153')"><img src="../../closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="../../da/d01/a00153.html">stride::util::Subject&lt; stride::sim_event::Id &gt;</a></td></tr>
-<tr class="memitem:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00153"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#ac4fa78f455203ba23ab4442d14822895">EventType</a> = <a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">stride::sim_event::Id</a></td></tr>
-<tr class="separator:ac4fa78f455203ba23ab4442d14822895 inherit pub_types_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00153"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d01/a00153.html#a3face8040dba107d2ddcfc5f766aa58d">CallbackType</a> = std::function&lt; void(const <a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836">EventType</a> &amp;)&gt;</td></tr>
-<tr class="separator:a3face8040dba107d2ddcfc5f766aa58d inherit pub_types_a00153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7137d9d5caad8581de354a750b70403"><td class="memItemLeft" align="right" valign="top">std::map&lt; Key, std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#ad7137d9d5caad8581de354a750b70403">m_map</a></td></tr>
+<tr class="memdesc:ad7137d9d5caad8581de354a750b70403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps key values to subscripts.  <a href="#ad7137d9d5caad8581de354a750b70403">More...</a><br /></td></tr>
+<tr class="separator:ad7137d9d5caad8581de354a750b70403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#ab5d8b55d94fc42b0c4644621957e5c87">m_slices</a></td></tr>
+<tr class="memdesc:ab5d8b55d94fc42b0c4644621957e5c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the slices.  <a href="#ab5d8b55d94fc42b0c4644621957e5c87">More...</a><br /></td></tr>
+<tr class="separator:ab5d8b55d94fc42b0c4644621957e5c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a95be5edf914ec430a0890a3c82005"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/db3/a00130.html#a00a95be5edf914ec430a0890a3c82005">m_t</a></td></tr>
+<tr class="memdesc:a00a95be5edf914ec430a0890a3c82005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refernec to container that gets sliced into ranges.  <a href="#a00a95be5edf914ec430a0890a3c82005">More...</a><br /></td></tr>
+<tr class="separator:a00a95be5edf914ec430a0890a3c82005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The simulation runner drive simulator throufgh time steps. </p>
-<p>It's functions are: </p><ul>
-<li>invokes the simulator builder (<dl class="section see"><dt>See also</dt><dd>SimulatorBuilder) </dd></dl>
-</li>
-<li>manages elapsed time clock </li>
-<li>manages time steps  viewers of its events (<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d3/def/a00446.html#ab046b05654e26ef19fd5e4e46c16e836" title="Enumerates the event. ">sim_event::Id</a>) </dd></dl>
-</li>
-</ul>
+<div class="textblock"><h3>template&lt;typename T, typename Key = std::string&gt;<br />
+class stride::util::SliceIndexer&lt; T, Key &gt;</h3>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00045">45</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0f1cdbcca511bc11fd898dc3a872718d"></a>
+<p>Datastructure to index a container (supporting RandomAccessIterators) with slices. </p>
+<p>We store those slices in order in a vector and expose the vector because processing effiency may dictate that we retrieve the in that order. They can also be retrieved by ket (key type defaults to std::string). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the container in whom the ranges are indexed. </td></tr>
+    <tr><td class="paramname">Key</td><td>Type of Id that can be useld to retrieve the ranges. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00039">39</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="aa697693cf36c60a25c469e21b26cb84f"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a> =  boost::sliced_range&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00042">42</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af2bedaa13b9427b736bfc88bcb974741"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimRunner::SimRunner </td>
+          <td class="memname"><a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::<a class="el" href="../../d6/db3/a00130.html">SliceIndexer</a> </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em>, </td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../d6/db3/a00130.html" title="Datastructure to index a container (supporting RandomAccessIterators) with slices. ">SliceIndexer</a> holds a reference to the conatiner that it indexes. </p>
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00046">46</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac63541daeed03c7731fb820005e64f06"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve reference to a range by its key. </p>
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00049">49</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa3ea63497e88e0f8673cecd56de8b57"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve const reference to a range by its Id. </p>
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00052">52</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c0b86821b30ab6830b3846231b52b9f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt;&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve all the ranges,. </p>
+
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00055">55</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
+
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a773c442bcca2708aa1c1f8a8b5ca347c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>ibegin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../df/dcd/a00127.html">Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>iend</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d84/a00447.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>&#160;</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -250,63 +368,44 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initialization with property tree. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">configPt</td><td>config info for run and for config of simulator </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Set a range. Warning: range is [ibegin, iend) i.e. half-open, iend not included! </p>
 
-<p>Definition at line <a class="el" href="../../dd/dcb/a00375_source.html#l00033">33</a> of file <a class="el" href="../../dd/dcb/a00375_source.html">SimRunner.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00058">58</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d1/d88/a00128.html#a719c0fbe957430ce7b9aed3d9a0e8f0a">stride::Sim::Create()</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00072">m_clock</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00073">m_config_pt</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00074">m_output_prefix</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00075">m_sim</a>, <a class="el" href="../../d5/d05/a00385_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d8/ddd/a00380_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d8/ddd/a00380_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad59e65dfe839b8a589b1c6ffa805ba2f"></a>
+<a class="anchor" id="a670eb7b0d4bec5445d5a30ea71384be5"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::SimRunner::~SimRunner </td>
+          <td class="memname"><a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::Set </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>ibegin</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aceb24930d50702acfa88bdfe5cb13a1b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d7/d9a/a00152.html">util::Stopwatch</a>&amp; stride::SimRunner::GetClock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -316,127 +415,60 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return the run &amp; sim configuration. </p>
+<p>Set a range, where the end is the end of the container. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00057">57</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00068">68</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00376_source.html#l00072">m_clock</a>.</p>
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00088">stride::util::SliceIndexer&lt; T, Key &gt;::m_slices</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00089">stride::util::SliceIndexer&lt; T, Key &gt;::m_t</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9eeaa63450413a62f31bcee07df29fa3"></a>
+<a class="anchor" id="a194f218151d935420737a20c40c27a00"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const boost::property_tree::ptree&amp; stride::SimRunner::GetConfig </td>
+          <td class="memname">void <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::check </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return the run &amp; sim configuration. </p>
+<p>Check key map for duplicate; throw iff duplicate. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00060">60</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00079">79</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>References <a class="el" href="../../d6/db8/a00376_source.html#l00073">m_config_pt</a>.</p>
+<p>References <a class="el" href="../../de/dc8/a00325_source.html#l00087">stride::util::SliceIndexer&lt; T, Key &gt;::m_map</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="a99014dd891a3422214c2a088dd38cde9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d1/d88/a00128.html">Sim</a>&gt; stride::SimRunner::GetSim </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the Simulator. </p>
-
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00063">63</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
-
-<p>References <a class="el" href="../../d6/db8/a00376_source.html#l00075">m_sim</a>, and <a class="el" href="../../dd/dcb/a00375_source.html#l00081">Run()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a81720a1766d513eb248cb443d948567f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::SimRunner::Run </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Run simulator for as many steps/days as indicated in config. </p>
-
-<p>Definition at line <a class="el" href="../../dd/dcb/a00375_source.html#l00081">81</a> of file <a class="el" href="../../dd/dcb/a00375_source.html">SimRunner.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d6/db8/a00376_source.html#l00073">m_config_pt</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/db8/a00376_source.html#l00063">GetSim()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a233f76f6af0cef8c5971112b6d2235d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::SimRunner::Run </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>numSteps</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Run simulator for numSteps steps/days. </p>
-
-<p>Definition at line <a class="el" href="../../dd/dcb/a00375_source.html#l00046">46</a> of file <a class="el" href="../../dd/dcb/a00375_source.html">SimRunner.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d6/db8/a00376_source.html#l00072">m_clock</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00073">m_config_pt</a>, <a class="el" href="../../d6/db8/a00376_source.html#l00075">m_sim</a>, <a class="el" href="../../d5/d05/a00385_source.html#l00062">stride::util::Subject&lt; stride::sim_event::Id &gt;::Notify()</a>, <a class="el" href="../../d8/ddd/a00380_source.html#l00050">stride::util::Stopwatch&lt; T &gt;::Start()</a>, and <a class="el" href="../../d8/ddd/a00380_source.html#l00060">stride::util::Stopwatch&lt; T &gt;::Stop()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dc8/a00325_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ae2de72162f806fe5b7008e81854bdc2d"></a>
+<a class="anchor" id="ad7137d9d5caad8581de354a750b70403"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/d9a/a00152.html">util::Stopwatch</a> stride::SimRunner::m_clock</td>
+          <td class="memname">std::map&lt;Key, std::size_t&gt; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_map</td>
         </tr>
       </table>
   </td>
@@ -446,23 +478,25 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stopwatch for timing the computation. </p>
+<p>Maps key values to subscripts. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00072">72</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00087">87</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/db8/a00376_source.html#l00057">GetClock()</a>, <a class="el" href="../../dd/dcb/a00375_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dcb/a00375_source.html#l00033">SimRunner()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dc8/a00325_source.html#l00079">stride::util::SliceIndexer&lt; T, Key &gt;::check()</a>, <a class="el" href="../../de/dc8/a00325_source.html#l00049">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1c4778adb0be5161932d107c2a84d477"></a>
+<a class="anchor" id="ab5d8b55d94fc42b0c4644621957e5c87"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">boost::property_tree::ptree stride::SimRunner::m_config_pt</td>
+          <td class="memname">std::vector&lt;<a class="el" href="../../d6/db3/a00130.html#aa697693cf36c60a25c469e21b26cb84f">range_type</a>&gt; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_slices</td>
         </tr>
       </table>
   </td>
@@ -472,23 +506,25 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Ptree with configuration. </p>
+<p>Contains the slices. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00073">73</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00088">88</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/db8/a00376_source.html#l00060">GetConfig()</a>, <a class="el" href="../../dd/dcb/a00375_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dcb/a00375_source.html#l00033">SimRunner()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dc8/a00325_source.html#l00049">stride::util::SliceIndexer&lt; T, Key &gt;::Get()</a>, and <a class="el" href="../../de/dc8/a00325_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a78babbce6074c1f0d612c67febfb388e"></a>
+<a class="anchor" id="a00a95be5edf914ec430a0890a3c82005"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Key  = std::string&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string stride::SimRunner::m_output_prefix</td>
+          <td class="memname">T&amp; <a class="el" href="../../d6/db3/a00130.html">stride::util::SliceIndexer</a>&lt; T, Key &gt;::m_t</td>
         </tr>
       </table>
   </td>
@@ -498,51 +534,24 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prefix for output data files. </p>
+<p>Refernec to container that gets sliced into ranges. </p>
 
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00074">74</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dc8/a00325_source.html#l00089">89</a> of file <a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dcb/a00375_source.html#l00033">SimRunner()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4ff961d97649b68ef661d38c098baaf0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d1/d88/a00128.html">Sim</a>&gt; stride::SimRunner::m_sim</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Simulator object. </p>
-
-<p>Definition at line <a class="el" href="../../d6/db8/a00376_source.html#l00075">75</a> of file <a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d6/db8/a00376_source.html#l00063">GetSim()</a>, <a class="el" href="../../dd/dcb/a00375_source.html#l00046">Run()</a>, and <a class="el" href="../../dd/dcb/a00375_source.html#l00033">SimRunner()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dc8/a00325_source.html#l00058">stride::util::SliceIndexer&lt; T, Key &gt;::Set()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d6/db8/a00376_source.html">SimRunner.h</a></li>
-<li><a class="el" href="../../dd/dcb/a00375_source.html">SimRunner.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../de/dc8/a00325_source.html">SliceIndexer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/db3/a00130.html">SimRunner</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../da/dee/a00383.html">util</a></li><li class="navelem"><a class="el" href="../../d6/db3/a00130.html">SliceIndexer</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:28 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

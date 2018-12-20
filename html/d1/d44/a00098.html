@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::ContactPoolType::IdSubscriptArray&lt; bool &gt; Class Template Reference</title>
+<title>Stride Reference Manual: stride::Immunizer Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -108,63 +108,54 @@ $(document).ready(function(){initNavTree('d1/d44/a00098.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="../../d2/db4/a01192.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d4/d21/a00987.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::ContactPoolType::IdSubscriptArray&lt; bool &gt; Class Template Reference</div>  </div>
+<div class="title">stride::Immunizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Specialisation of <a class="el" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans.  
+<p>Deals with immunization strategies.  
  <a href="../../d1/d44/a00098.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;:</div>
+Collaboration diagram for stride::Immunizer:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/d43/a01193.gif" border="0" usemap="#stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map" id="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_inherit__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,208,83"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d9/d2e/a01194.gif" border="0" usemap="#stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map" id="stride_1_1ContactPoolType_1_1IdSubscriptArray_3_01bool_01_4_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="5,5,208,83"/>
+<div class="center"><img src="../../d6/d48/a00988.gif" border="0" usemap="#stride_1_1Immunizer_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1Immunizer_coll__map" id="stride_1_1Immunizer_coll__map">
+<area shape="rect" id="node2" href="../../df/dcd/a00127.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node3" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa98360b18191924317dce92e50135df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#afa98360b18191924317dce92e50135df">IdSubscriptArray</a> (bool t=bool())</td></tr>
-<tr class="memdesc:afa98360b18191924317dce92e50135df"><td class="mdescLeft">&#160;</td><td class="mdescRight">What we 'll use most often and where we can have a default and initialize all array elements to the same value.  <a href="#afa98360b18191924317dce92e50135df">More...</a><br /></td></tr>
-<tr class="separator:afa98360b18191924317dce92e50135df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9be463390b642d1510f1d19e992dd7ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a9be463390b642d1510f1d19e992dd7ac">IdSubscriptArray</a> (std::initializer_list&lt; bool &gt; l)</td></tr>
-<tr class="memdesc:a9be463390b642d1510f1d19e992dd7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">When we want to use an initializer list the elements is the (possibly emty) initializer list are applied to the first elements in order; any remaininig elements are default initialized.  <a href="#a9be463390b642d1510f1d19e992dd7ac">More...</a><br /></td></tr>
-<tr class="separator:a9be463390b642d1510f1d19e992dd7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49e53d429850a6b8d43759fcd16e0ab"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#af49e53d429850a6b8d43759fcd16e0ab">operator[]</a> (<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id)</td></tr>
-<tr class="memdesc:af49e53d429850a6b8d43759fcd16e0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#af49e53d429850a6b8d43759fcd16e0ab">More...</a><br /></td></tr>
-<tr class="separator:af49e53d429850a6b8d43759fcd16e0ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefba95dc5355b9b62c9842f01395249d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#aefba95dc5355b9b62c9842f01395249d">operator[]</a> (<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id) const </td></tr>
-<tr class="memdesc:aefba95dc5355b9b62c9842f01395249d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#aefba95dc5355b9b62c9842f01395249d">More...</a><br /></td></tr>
-<tr class="separator:aefba95dc5355b9b62c9842f01395249d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09e9e0818406cc10eeacc3f992aef7cb"><td class="memItemLeft" align="right" valign="top">bitset&lt; <a class="el" href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a09e9e0818406cc10eeacc3f992aef7cb">at</a> (<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id)</td></tr>
-<tr class="memdesc:a09e9e0818406cc10eeacc3f992aef7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#a09e9e0818406cc10eeacc3f992aef7cb">More...</a><br /></td></tr>
-<tr class="separator:a09e9e0818406cc10eeacc3f992aef7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e760b389cdca2516385b1600332a4f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a9e760b389cdca2516385b1600332a4f0">at</a> (<a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a> id) const </td></tr>
-<tr class="memdesc:a9e760b389cdca2516385b1600332a4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscripting with pool typ id as argument.  <a href="#a9e760b389cdca2516385b1600332a4f0">More...</a><br /></td></tr>
-<tr class="separator:a9e760b389cdca2516385b1600332a4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a9cf69f9df2b2b2e357fab3d3ed48b64a">Immunizer</a> (<a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
+<tr class="separator:a9cf69f9df2b2b2e357fab3d3ed48b64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e768c089b957b8fa3301b829748585e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8e768c089b957b8fa3301b829748585e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a8e768c089b957b8fa3301b829748585e">Random</a> (T &amp;pools, std::vector&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt; &amp;immunityDistribution, <a class="el" href="../../dc/dc9/a00389.html">double</a> immunityLinkProbability)</td></tr>
+<tr class="memdesc:a8e768c089b957b8fa3301b829748585e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random immunization.  <a href="#a8e768c089b957b8fa3301b829748585e">More...</a><br /></td></tr>
+<tr class="separator:a8e768c089b957b8fa3301b829748585e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687eaab4246581183bd9f31be6fc08a5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a687eaab4246581183bd9f31be6fc08a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a687eaab4246581183bd9f31be6fc08a5">Cocoon</a> (const T &amp;, std::vector&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt; &amp;, <a class="el" href="../../dc/dc9/a00389.html">double</a>)</td></tr>
+<tr class="memdesc:a687eaab4246581183bd9f31be6fc08a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cocoon immunization.  <a href="#a687eaab4246581183bd9f31be6fc08a5">More...</a><br /></td></tr>
+<tr class="separator:a687eaab4246581183bd9f31be6fc08a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5231c62a7ca03433f4b72006f7351004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d44/a00098.html#a5231c62a7ca03433f4b72006f7351004">m_rn_manager</a></td></tr>
+<tr class="memdesc:a5231c62a7ca03433f4b72006f7351004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number manager.  <a href="#a5231c62a7ca03433f4b72006f7351004">More...</a><br /></td></tr>
+<tr class="separator:a5231c62a7ca03433f4b72006f7351004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;&gt;<br />
-class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
+<div class="textblock"><p>Deals with immunization strategies. </p>
 
-<p>Specialisation of <a class="el" href="../../d4/d31/a00069.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. ">IdSubscriptArray</a> foor booleans. </p>
-
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00134">134</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/da9/a00263_source.html#l00036">36</a> of file <a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afa98360b18191924317dce92e50135df"></a>
+<a class="anchor" id="a9cf69f9df2b2b2e357fab3d3ed48b64a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -172,10 +163,10 @@ class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::<a class="el" href="../../d4/d31/a00069.html">IdSubscriptArray</a> </td>
+          <td class="memname">stride::Immunizer::Immunizer </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>t</em> = <code>bool()</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td>
+          <td class="paramname"><em>rnManager</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -186,118 +177,42 @@ class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>What we 'll use most often and where we can have a default and initialize all array elements to the same value. </p>
-<p>e.g. <a class="el" href="../../d1/d44/a00098.html" title="Specialisation of IdSubscriptArray foor booleans. ">IdSubscriptArray&lt;bool&gt;</a> m(true); </p>
-
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00140">140</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9be463390b642d1510f1d19e992dd7ac"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::<a class="el" href="../../d4/d31/a00069.html">IdSubscriptArray</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::initializer_list&lt; bool &gt;&#160;</td>
-          <td class="paramname"><em>l</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>When we want to use an initializer list the elements is the (possibly emty) initializer list are applied to the first elements in order; any remaininig elements are default initialized. </p>
-<p>e.g. <a class="el" href="../../d1/d44/a00098.html" title="Specialisation of IdSubscriptArray foor booleans. ">IdSubscriptArray&lt;bool&gt;</a> mm {true, false, true}; </p>
-
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00152">152</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
-
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00076">stride::ContactPoolType::IdList</a>, and <a class="el" href="../../da/d50/a00301_source.html#l00100">stride::ContactPoolType::IdSubscriptArray&lt; T &gt;::operator[]()</a>.</p>
+<p>Definition at line <a class="el" href="../../df/da9/a00263_source.html#l00040">40</a> of file <a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af49e53d429850a6b8d43759fcd16e0ab"></a>
+<a class="anchor" id="a8e768c089b957b8fa3301b829748585e"></a>
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::bitset&lt;<a class="el" href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference <a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::operator[] </td>
+          <td class="memname">void stride::Immunizer::Random </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>pools</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>immunityDistribution</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Subscripting with pool typ id as argument. </p>
-
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00166">166</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
-
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aefba95dc5355b9b62c9842f01395249d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Subscripting with pool typ id as argument. </p>
-
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00172">172</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
-
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a09e9e0818406cc10eeacc3f992aef7cb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bitset&lt;<a class="el" href="../../d0/dc4/a00443.html#af724b7d598645a8c1054b66306dee629">NumOfTypes</a>()&gt;::reference <a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::at </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td>
+          <td class="paramname"><em>immunityLinkProbability</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -307,15 +222,66 @@ class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>Subscripting with pool typ id as argument. </p>
+<p>Random immunization. </p>
 
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00178">178</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/da9/a00263_source.html#l00044">44</a> of file <a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>.</p>
 
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00046">stride::ContactPoolType::NumOfTypes()</a>, and <a class="el" href="../../df/d17/a00231_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+<p>References <a class="el" href="../../d9/d5e/a00295_source.html#l00060">stride::Person::GetAge()</a>, <a class="el" href="../../d9/d5e/a00295_source.html#l00075">stride::Person::GetHealth()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00048">stride::ContactPool::GetMember()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00054">stride::ContactPool::GetSize()</a>, <a class="el" href="../../d4/d9a/a00246_source.html#l00058">stride::Health::IsImmune()</a>, <a class="el" href="../../df/da9/a00263_source.html#l00133">m_rn_manager</a>, and <a class="el" href="../../d6/d22/a00245_source.html#l00037">stride::Health::SetSusceptible()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00082">stride::DiseaseSeeder::Vaccinate()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9e760b389cdca2516385b1600332a4f0"></a>
+<a class="anchor" id="a687eaab4246581183bd9f31be6fc08a5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::Immunizer::Cocoon </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="../../dc/dc9/a00389.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/dc9/a00389.html">double</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cocoon immunization. </p>
+
+<p>Definition at line <a class="el" href="../../df/da9/a00263_source.html#l00102">102</a> of file <a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00082">stride::DiseaseSeeder::Vaccinate()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a5231c62a7ca03433f4b72006f7351004"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -323,38 +289,35 @@ class stride::ContactPoolType::IdSubscriptArray&lt; bool &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d31/a00069.html">stride::ContactPoolType::IdSubscriptArray</a>&lt; bool &gt;::at </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc4/a00443.html#aaa214aee675050e781497b0dd15449ab">ContactPoolType::Id</a>&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td> const</td>
+          <td class="memname"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a>&amp; stride::Immunizer::m_rn_manager</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Subscripting with pool typ id as argument. </p>
+<p>Random number manager. </p>
 
-<p>Definition at line <a class="el" href="../../da/d50/a00301_source.html#l00187">187</a> of file <a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a>.</p>
+<p>Definition at line <a class="el" href="../../df/da9/a00263_source.html#l00133">133</a> of file <a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a>.</p>
 
-<p>References <a class="el" href="../../df/d17/a00231_source.html#l00046">stride::ContactPoolType::NumOfTypes()</a>, and <a class="el" href="../../df/d17/a00231_source.html#l00052">stride::ContactPoolType::ToSizeT()</a>.</p>
+<p>Referenced by <a class="el" href="../../df/da9/a00263_source.html#l00044">Random()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/d50/a00301_source.html">IdSubscriptArray.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../df/da9/a00263_source.html">Immunizer.h</a></li>
+<li><a class="el" href="../../d9/d8d/a00262_source.html">Immunizer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/dc4/a00443.html">ContactPoolType</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">IdSubscriptArray&lt; bool &gt;</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/d44/a00098.html">Immunizer</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

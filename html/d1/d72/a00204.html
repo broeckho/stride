@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: CollegeGenerator.cpp File Reference</title>
+<title>Stride Reference Manual: DaysOffSchool.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,62 +105,52 @@ $(document).ready(function(){initNavTree('d1/d72/a00204.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">CollegeGenerator.cpp File Reference</div>  </div>
+<div class="title">DaysOffSchool.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d5/d13/a00205_source.html">CollegeGenerator.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d79/a00203_source.html">gengeopop/College.h</a>&quot;</code><br />
-<code>#include &lt;trng/discrete_dist.hpp&gt;</code><br />
-<code>#include &lt;trng/lcg64.hpp&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;queue&gt;</code><br />
+
+<p>DaysOffAll class: everybody gets the day off.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/df8/a00155_source.html">calendar/Calendar.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d53/a00202_source.html">calendar/DaysOffInterface.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for CollegeGenerator.cpp:</div>
+Include dependency graph for DaysOffSchool.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d4/d40/a00516.gif" border="0" usemap="#CollegeGenerator_8cpp" alt=""/></div>
-<map name="CollegeGenerator_8cpp" id="CollegeGenerator_8cpp">
-<area shape="rect" id="node2" href="../../d5/d13/a00205.html" title="CollegeGenerator.h" alt="" coords="1829,80,1974,107"/>
-<area shape="rect" id="node49" href="../../de/d79/a00203.html" title="gengeopop/College.h" alt="" coords="2155,304,2312,331"/>
-<area shape="rect" id="node3" href="../../d9/d8d/a00262.html" title="../GeoGridConfig.h" alt="" coords="1581,229,1720,256"/>
-<area shape="rect" id="node45" href="../../df/df1/a00340.html" title="PartialGenerator.h" alt="" coords="1833,155,1970,181"/>
-<area shape="rect" id="node4" href="../../da/ddc/a00288.html" title="gengeopop/Household.h" alt="" coords="1851,304,2029,331"/>
-<area shape="rect" id="node5" href="../../dc/d28/a00223.html" title="ContactCenter.h" alt="" coords="1877,379,2003,405"/>
-<area shape="rect" id="node6" href="../../d0/d2f/a00259.html" title="GeoGrid.h" alt="" coords="1178,453,1265,480"/>
-<area shape="rect" id="node7" href="../../de/dc8/a00325.html" title="KdTree.h" alt="" coords="1367,625,1443,651"/>
-<area shape="rect" id="node16" href="../../d4/db5/a00328.html" title="Location.h" alt="" coords="931,625,1019,651"/>
-<area shape="rect" id="node24" href="../../de/dc2/a00228.html" title="Header for the core ContactPool class. " alt="" coords="1921,714,2063,741"/>
-<area shape="rect" id="node28" href="../../d0/d48/a00351.html" title="Header file for the core Population class. " alt="" coords="1818,535,1947,562"/>
-<area shape="rect" id="node43" href="../../d9/d39/a00257.html" title="GeoAggregator.h" alt="" coords="1105,535,1236,562"/>
-<area shape="rect" id="node25" href="../../dc/d55/a00226.html" title="Header for the ContactLogMode class. " alt="" coords="1963,796,2157,823"/>
-<area shape="rect" id="node26" href="../../df/d17/a00231.html" title="Definition of ContactPoolType. " alt="" coords="1717,796,1888,823"/>
-<area shape="rect" id="node29" href="../../dd/d2d/a00229.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1720,625,1885,651"/>
-<area shape="rect" id="node30" href="../../d3/d30/a00370.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="1522,714,1694,741"/>
-<area shape="rect" id="node31" href="../../d9/d48/a00345.html" title="Header file for the Person class. " alt="" coords="1909,625,2016,651"/>
-<area shape="rect" id="node32" href="../../d7/d3f/a00173.html" title="Interface/Implementation of Any. " alt="" coords="2214,625,2293,651"/>
-<area shape="rect" id="node34" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="2391,625,2491,651"/>
-<area shape="rect" id="node35" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="2416,714,2467,741"/>
-<area shape="rect" id="node46" href="../../d0/d1f/a00247.html" title="util/ExcAssert.h" alt="" coords="2336,229,2456,256"/>
-<area shape="rect" id="node47" href="../../de/dbc/a00249.html" title="util/Exception.h" alt="" coords="2337,304,2455,331"/>
+<div class="center"><img src="../../d4/ddf/a00488.gif" border="0" usemap="#DaysOffSchool_8h" alt=""/></div>
+<map name="DaysOffSchool_8h" id="DaysOffSchool_8h">
+<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="Header file for the Calendar class. " alt="" coords="289,80,439,107"/>
+<area shape="rect" id="node9" href="../../db/d53/a00202.html" title="Interface for DaysOff classes. " alt="" coords="462,80,661,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d1/d72/a00204_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d82/a00091.html">stride::DaysOffSchool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schools closed.  <a href="../../da/d82/a00091.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:dc/df3/a00424"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/df3/a00424.html">gengeopop</a></td></tr>
+<tr class="memitem:d4/d13/a00377"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d13/a00377.html">stride</a></td></tr>
+<tr class="memdesc:d4/d13/a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>DaysOffAll class: everybody gets the day off. </p>
+
+<p>Definition in file <a class="el" href="../../d1/d72/a00204_source.html">DaysOffSchool.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d1/d72/a00204.html">CollegeGenerator.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_479f5232607056a987532404314b00ea.html">calendar</a></li><li class="navelem"><a class="el" href="../../d1/d72/a00204.html">DaysOffSchool.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

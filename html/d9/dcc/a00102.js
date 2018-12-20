@@ -1,6 +1,5 @@
 var a00102 =
 [
-    [ "DaysOffNone", "d9/dcc/a00102.html#afa7a609a793bf8aa77b5ee94fdb94fda", null ],
-    [ "IsWorkOff", "d9/dcc/a00102.html#a6287fa68ca109373fc9be31f3941079d", null ],
-    [ "IsSchoolOff", "d9/dcc/a00102.html#a939df1a48d594f56ec3099d1edcfdca7", null ]
+    [ "InfectorMap", "d9/dcc/a00102.html#a389bcbbddf547f27cb2e60feadca12af", null ],
+    [ "Add", "d9/dcc/a00102.html#ae0e244621d901cb06ae8ec8d7dc82161", null ]
 ];

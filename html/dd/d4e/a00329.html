@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: LogUtils.cpp File Reference</title>
+<title>Stride Reference Manual: stride.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -105,48 +105,97 @@ $(document).ready(function(){initNavTree('dd/d4e/a00329.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">LogUtils.cpp File Reference</div>  </div>
+<div class="title">stride.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of file utils.  
+<p>Main program: command line handling.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/dbb/a00330_source.html">LogUtils.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">sim/CliController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/dfc/a00327_source.html">sim/StanController.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/dd1/a00214_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/db3/a00313_source.html">util/RunConfigManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/dbb/a00330_source.html">util/StringUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d8/d8e/a00344_source.html">util/TimeStamp.h</a>&quot;</code><br />
+<code>#include &lt;tclap/CmdLine.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;spdlog/sinks/null_sink.h&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for LogUtils.cpp:</div>
+Include dependency graph for stride.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/d6b/a00708.gif" border="0" usemap="#LogUtils_8cpp" alt=""/></div>
-<map name="LogUtils_8cpp" id="LogUtils_8cpp">
-<area shape="rect" id="node2" href="../../dd/dbb/a00330.html" title="Logging (spdlog) utilities. " alt="" coords="125,80,210,107"/>
+<div class="center"><img src="../../d5/d39/a00676.gif" border="0" usemap="#stride_8cpp" alt=""/></div>
+<map name="stride_8cpp" id="stride_8cpp">
+<area shape="rect" id="node2" href="../../d0/d48/a00165.html" title="Header for the command line controller. " alt="" coords="1425,80,1562,107"/>
+<area shape="rect" id="node6" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="347,401,447,427"/>
+<area shape="rect" id="node28" href="../../d8/dfc/a00327.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1587,80,1739,107"/>
+<area shape="rect" id="node29" href="../../d3/dd1/a00214.html" title="Interface for install directory queries. " alt="" coords="1761,319,1861,345"/>
+<area shape="rect" id="node31" href="../../dd/db3/a00313.html" title="Produce run config ptree. " alt="" coords="2026,319,2201,345"/>
+<area shape="rect" id="node33" href="../../d8/d8e/a00344.html" title="TimeStamp class. " alt="" coords="193,401,324,427"/>
+<area shape="rect" id="node3" href="../../d7/ded/a00196.html" title="Header for the command line controller. " alt="" coords="1567,162,1715,189"/>
+<area shape="rect" id="node4" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="1087,244,1187,271"/>
+<area shape="rect" id="node19" href="../../d4/db5/a00328.html" title="Definition of Stopwatch. " alt="" coords="1351,319,1475,345"/>
+<area shape="rect" id="node5" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="867,319,917,345"/>
+<area shape="rect" id="node20" href="../../d9/d48/a00345.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1345,401,1461,427"/>
+<area shape="rect" id="node32" href="../../d2/d94/a00184.html" title="Info on configuration. " alt="" coords="2133,401,2253,427"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/d4e/a00329_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:de/d84/a00447"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d84/a00447.html">stride::util</a></td></tr>
-<tr class="memdesc:de/d84/a00447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utilities for the project. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d4e/a00329.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main program of the stride simulator.  <a href="#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br /></td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of file utils. </p>
+<div class="textblock"><p>Main program: command line handling. </p>
 
-<p>Definition in file <a class="el" href="../../dd/d4e/a00329_source.html">LogUtils.cpp</a>.</p>
-</div></div><!-- contents -->
+<p>Definition in file <a class="el" href="../../dd/d4e/a00329_source.html">stride.cpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main program of the stride simulator. </p>
+
+<p>Definition at line <a class="el" href="../../dd/d4e/a00329_source.html#l00041">41</a> of file <a class="el" href="../../dd/d4e/a00329_source.html">stride.cpp</a>.</p>
+
+<p>References <a class="el" href="../../db/ddf/a00164_source.html#l00036">stride::CliController::Control()</a>, <a class="el" href="../../d8/d23/a00326_source.html#l00047">stride::StanController::Control()</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00067">stride::util::Tokenize()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_cf56009b1fcb470adac12e74ab7406a1.html">util</a></li><li class="navelem"><a class="el" href="../../dd/d4e/a00329.html">LogUtils.cpp</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../dd/d4e/a00329.html">stride.cpp</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['low',['Low',['../d6/d66/a00441.html#a9d01e8d18496c1065ce04a29ec8b3470a28d0edd045e05cf5af64e35ae0c4c6ef',1,'stride']]]
+  ['recovered',['Recovered',['../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5c4c4cf7bbab0d76fe61420aee14a5ca',1,'stride']]]
 ];

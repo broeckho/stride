@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fcollege',['GeoGrid_Location_ContactCenter_Type_College',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8ba515eed7ba2015e006e9543976a0f1bfa',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fcommunity',['GeoGrid_Location_ContactCenter_Type_Community',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8baad239fb07a61835e8b6f34eaf04913de',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fhousehold',['GeoGrid_Location_ContactCenter_Type_Household',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8bacec062406667e8d42bfba22854331d1c',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fk12school',['GeoGrid_Location_ContactCenter_Type_K12School',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8baad3ada6021a90153f0fe7d23c4961b8c',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fprimarycommunity',['GeoGrid_Location_ContactCenter_Type_PrimaryCommunity',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8baca568431921aa96c039bfcb4f6787b4c',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fsecondarycommunity',['GeoGrid_Location_ContactCenter_Type_SecondaryCommunity',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8bad068b29dc49070b52a4123c4afed3f73',1,'proto']]],
-  ['geogrid_5flocation_5fcontactcenter_5ftype_5fworkplace',['GeoGrid_Location_ContactCenter_Type_Workplace',['../d1/d7e/a00434.html#a87e31302cbdcd5134821ad9ae876ed8ba1ad089f32ca30b8b40231170d4d9f81e',1,'proto']]],
-  ['green',['Green',['../d9/dd5/a00432.html#a196b4ed0c2880905970a7d5d38e2055fad382816a3cbeed082c9e216e7392eed1',1,'myhayai::console']]]
+  ['immune',['Immune',['../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a9ef69f48f751342bb563666bdbc224fb',1,'stride']]],
+  ['infectious',['Infectious',['../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a313760d5227147d14dfed36005286215',1,'stride']]],
+  ['infectiousandsymptomatic',['InfectiousAndSymptomatic',['../d4/d13/a00377.html#a738f5251821f53315d2aebf214fbd070a5f022e9ca4876084c0ef540485a5fa1a',1,'stride']]]
 ];

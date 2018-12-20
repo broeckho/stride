@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: ControlHelper.h File Reference</title>
+<title>Stride Reference Manual: GeoGridPopulator.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -108,41 +108,43 @@ $(document).ready(function(){initNavTree('d6/de1/a00233.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">ControlHelper.h File Reference</div>  </div>
+<div class="title">GeoGridPopulator.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Header for the command line controller.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/d9b/a00363_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/ddd/a00380_source.html">util/Stopwatch.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d6/d82/a00293_source.html">PartialPopulator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ControlHelper.h:</div>
+Include dependency graph for GeoGridPopulator.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d50/a00561.gif" border="0" usemap="#ControlHelper_8h" alt=""/></div>
-<map name="ControlHelper_8h" id="ControlHelper_8h">
-<area shape="rect" id="node2" href="../../d9/d9b/a00363.html" title="Interface of RnMan. " alt="" coords="354,87,454,114"/>
-<area shape="rect" id="node17" href="../../d8/ddd/a00380.html" title="Definition of Stopwatch. " alt="" coords="131,169,255,196"/>
-<area shape="rect" id="node3" href="../../de/dd7/a00362.html" title="Interface of RnPcg. " alt="" coords="736,169,787,196"/>
-<area shape="rect" id="node4" href="../../d3/d45/a00382.html" title="Miscellaneous string utilities. " alt="" coords="455,244,555,271"/>
-<area shape="rect" id="node18" href="../../d9/de6/a00404.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="111,244,227,271"/>
+<div class="center"><img src="../../d7/d41/a00532.gif" border="0" usemap="#GeoGridPopulator_8h" alt=""/></div>
+<map name="GeoGridPopulator_8h" id="GeoGridPopulator_8h">
+<area shape="rect" id="node2" href="../../d6/d82/a00293.html" title="PartialPopulator.h" alt="" coords="1759,80,1892,107"/>
+<area shape="rect" id="node3" href="../../d0/d24/a00222.html" title="gengeopop/GeoGrid.h" alt="" coords="1660,379,1823,405"/>
+<area shape="rect" id="node29" href="../../d1/d5d/a00311.html" title="Interface of RnMan. " alt="" coords="238,550,338,577"/>
+<area shape="rect" id="node46" href="../../dc/d98/a00225.html" title="gengeopop/GeoGridConfig.h" alt="" coords="1724,155,1927,181"/>
+<area shape="rect" id="node4" href="../../dd/dfe/a00283.html" title="KdTree.h" alt="" coords="1683,639,1759,666"/>
+<area shape="rect" id="node13" href="../../d3/d58/a00285.html" title="Location.h" alt="" coords="1251,550,1339,577"/>
+<area shape="rect" id="node21" href="../../d9/dd0/a00191.html" title="Header for the core ContactPool class. " alt="" coords="750,639,893,666"/>
+<area shape="rect" id="node25" href="../../da/d50/a00301.html" title="Header file for the core Population class. " alt="" coords="1677,461,1806,487"/>
+<area shape="rect" id="node43" href="../../d5/d0b/a00220.html" title="GeoAggregator.h" alt="" coords="1101,461,1232,487"/>
+<area shape="rect" id="node22" href="../../da/deb/a00189.html" title="Header for the ContactLogMode class. " alt="" coords="749,721,944,748"/>
+<area shape="rect" id="node23" href="../../dc/d57/a00194.html" title="Definition of ContactPoolType. " alt="" coords="1660,721,1831,748"/>
+<area shape="rect" id="node26" href="../../dd/da2/a00192.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="1819,550,1984,577"/>
+<area shape="rect" id="node27" href="../../d2/d41/a00318.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="2010,639,2182,666"/>
+<area shape="rect" id="node28" href="../../d9/d5e/a00295.html" title="Header file for the Person class. " alt="" coords="1688,550,1795,577"/>
+<area shape="rect" id="node30" href="../../d1/d67/a00310.html" title="Interface of RnPcg. " alt="" coords="263,639,313,666"/>
+<area shape="rect" id="node31" href="../../dd/dbb/a00330.html" title="Miscellaneous string utilities. " alt="" coords="233,721,333,748"/>
+<area shape="rect" id="node47" href="../../d0/da7/a00250.html" title="gengeopop/Household.h" alt="" coords="1731,229,1909,256"/>
+<area shape="rect" id="node48" href="../../d8/d00/a00186.html" title="ContactCenter.h" alt="" coords="1738,304,1865,331"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/d2f/a00562.gif" border="0" usemap="#ControlHelper_8hdep" alt=""/></div>
-<map name="ControlHelper_8hdep" id="ControlHelper_8hdep">
-<area shape="rect" id="node2" href="../../d8/d72/a00199.html" title="Header for the command line controller. " alt="" coords="13,80,123,107"/>
-<area shape="rect" id="node5" href="../../d0/d53/a00232.html" title="Header for the command line controller. " alt="" coords="148,80,284,107"/>
-<area shape="rect" id="node6" href="../../d8/d95/a00379.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="308,80,433,107"/>
-<area shape="rect" id="node3" href="../../de/d08/a00381.html" title="Main program: command line handling. " alt="" coords="172,155,257,181"/>
-<area shape="rect" id="node4" href="../../d7/da0/a00198.html" title="Header for the command line controller. " alt="" coords="5,155,131,181"/>
-<area shape="rect" id="node7" href="../../d7/d08/a00378.html" title="Header for the command line controller. " alt="" coords="301,155,441,181"/>
+<div class="center"><img src="../../db/d44/a00533.gif" border="0" usemap="#GeoGridPopulator_8hdep" alt=""/></div>
+<map name="GeoGridPopulator_8hdep" id="GeoGridPopulator_8hdep">
+<area shape="rect" id="node2" href="../../d3/dd5/a00215.html" title="gengeopop.cpp" alt="" coords="5,80,127,107"/>
+<area shape="rect" id="node3" href="../../d6/d43/a00216.html" title="GenGeoPopController.cpp" alt="" coords="151,80,338,107"/>
+<area shape="rect" id="node4" href="../../d0/d53/a00232.html" title="GeoGridPopulator.cpp" alt="" coords="363,80,524,107"/>
 </map>
 </div>
 </div>
@@ -150,27 +152,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d74/a00099.html">stride::ControlHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls a simulation run initiated with the command line interface (cli).  <a href="../../da/d74/a00099.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/df3/a00034.html">gengeopop::GeoGridPopulator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add population to a <a class="el" href="../../d0/d33/a00027.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../df/d61/a00031.html" title="Generate a GeoGrid out of PartialGenerators (analog to GeoGridPopulator) ">GeoGridGenerator</a>).  <a href="../../db/df3/a00034.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d6/d66/a00441"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d66/a00441.html">stride</a></td></tr>
-<tr class="memdesc:d6/d66/a00441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
-
-<p>Definition in file <a class="el" href="../../d6/de1/a00233_source.html">ControlHelper.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00233.html">ControlHelper.h</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_9f285331fa22d31fc477d9abb25a54a2.html">populators</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00233.html">GeoGridPopulator.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

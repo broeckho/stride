@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::Calendar Class Reference</title>
+<title>Stride Reference Manual: stride::DefaultPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -109,86 +109,71 @@ $(document).ready(function(){initNavTree('d4/d7d/a00093.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d6d/a01095.html">List of all members</a>  </div>
+<a href="../../db/dbf/a00975.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::Calendar Class Reference</div>  </div>
+<div class="title">stride::DefaultPopBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class that keeps track of the 'state' of simulated world.  
+<p>Initializes <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a> objects.  
  <a href="../../d4/d7d/a00093.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dd2/a00207_source.html">DefaultPopBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::Calendar:</div>
+Inheritance diagram for stride::DefaultPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d20/a01096.gif" border="0" usemap="#stride_1_1Calendar_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1Calendar_coll__map" id="stride_1_1Calendar_coll__map">
-<area shape="rect" id="node5" title="STL class. " alt="" coords="160,145,287,223"/>
+<div class="center"><img src="../../d0/d85/a00976.gif" border="0" usemap="#stride_1_1DefaultPopBuilder_inherit__map" alt="Inheritance graph"/></div>
+<map name="stride_1_1DefaultPopBuilder_inherit__map" id="stride_1_1DefaultPopBuilder_inherit__map">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Base Class for PopBuilders. " alt="" coords="5,5,193,127"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for stride::DefaultPopBuilder:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d6c/a00977.gif" border="0" usemap="#stride_1_1DefaultPopBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1DefaultPopBuilder_coll__map" id="stride_1_1DefaultPopBuilder_coll__map">
+<area shape="rect" id="node2" href="../../d1/d51/a00079.html" title="Base Class for PopBuilders. " alt="" coords="108,572,296,679"/>
+<area shape="rect" id="node4" href="../../df/dcd/a00127.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node9" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2f1b3543ea350957ea793e6b2d3ae851"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a2f1b3543ea350957ea793e6b2d3ae851">Calendar</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="memdesc:a2f1b3543ea350957ea793e6b2d3ae851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a2f1b3543ea350957ea793e6b2d3ae851">More...</a><br /></td></tr>
-<tr class="separator:a2f1b3543ea350957ea793e6b2d3ae851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73664cd7c25b08adff14429ca3291394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a73664cd7c25b08adff14429ca3291394">AdvanceDay</a> ()</td></tr>
-<tr class="memdesc:a73664cd7c25b08adff14429ca3291394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the simulated calendar by one day.  <a href="#a73664cd7c25b08adff14429ca3291394">More...</a><br /></td></tr>
-<tr class="separator:a73664cd7c25b08adff14429ca3291394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45666f29f36e462403710354043c735b"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a45666f29f36e462403710354043c735b">GetDay</a> () const </td></tr>
-<tr class="memdesc:a45666f29f36e462403710354043c735b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day of the month in the simulated calendar.  <a href="#a45666f29f36e462403710354043c735b">More...</a><br /></td></tr>
-<tr class="separator:a45666f29f36e462403710354043c735b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06eddc08e5684d05443c9bba48444258"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a06eddc08e5684d05443c9bba48444258">GetDayOfTheWeek</a> () const </td></tr>
-<tr class="memdesc:a06eddc08e5684d05443c9bba48444258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar.  <a href="#a06eddc08e5684d05443c9bba48444258">More...</a><br /></td></tr>
-<tr class="separator:a06eddc08e5684d05443c9bba48444258"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1321c2a696a5cdbc8ffa0c2313084989"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a1321c2a696a5cdbc8ffa0c2313084989">GetMonth</a> () const </td></tr>
-<tr class="memdesc:a1321c2a696a5cdbc8ffa0c2313084989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current month in the simulated calendar.  <a href="#a1321c2a696a5cdbc8ffa0c2313084989">More...</a><br /></td></tr>
-<tr class="separator:a1321c2a696a5cdbc8ffa0c2313084989"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a440b877497550ef988931917fc243809"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a440b877497550ef988931917fc243809">GetSimulationDay</a> () const </td></tr>
-<tr class="memdesc:a440b877497550ef988931917fc243809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current simulated day since the start of the simulation.  <a href="#a440b877497550ef988931917fc243809">More...</a><br /></td></tr>
-<tr class="separator:a440b877497550ef988931917fc243809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43a71244d76958385cc83e761d748c88"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a43a71244d76958385cc83e761d748c88">GetYear</a> () const </td></tr>
-<tr class="memdesc:a43a71244d76958385cc83e761d748c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current year in the simulated calendar.  <a href="#a43a71244d76958385cc83e761d748c88">More...</a><br /></td></tr>
-<tr class="separator:a43a71244d76958385cc83e761d748c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a9d4a023834f98c6ab8af55bbae7bc6df">IsHoliday</a> () const </td></tr>
-<tr class="memdesc:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's a holiday.  <a href="#a9d4a023834f98c6ab8af55bbae7bc6df">More...</a><br /></td></tr>
-<tr class="separator:a9d4a023834f98c6ab8af55bbae7bc6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497cee60c64a52c36dbf44536b3c2d3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a497cee60c64a52c36dbf44536b3c2d3d">IsSchoolHoliday</a> () const </td></tr>
-<tr class="memdesc:a497cee60c64a52c36dbf44536b3c2d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's a school holiday.  <a href="#a497cee60c64a52c36dbf44536b3c2d3d">More...</a><br /></td></tr>
-<tr class="separator:a497cee60c64a52c36dbf44536b3c2d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3569df106b24b3df5bf6836849b150a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a3569df106b24b3df5bf6836849b150a4">IsWeekend</a> () const </td></tr>
-<tr class="memdesc:a3569df106b24b3df5bf6836849b150a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if it's the weekend.  <a href="#a3569df106b24b3df5bf6836849b150a4">More...</a><br /></td></tr>
-<tr class="separator:a3569df106b24b3df5bf6836849b150a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1071f808ade6b38dd14a74024e64d4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a8c1071f808ade6b38dd14a74024e64d4">Build</a> (std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt; pop) override</td></tr>
+<tr class="memdesc:a8c1071f808ade6b38dd14a74024e64d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a> and return it afterwards.  <a href="#a8c1071f808ade6b38dd14a74024e64d4">More...</a><br /></td></tr>
+<tr class="separator:a8c1071f808ade6b38dd14a74024e64d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00079"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00079')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d1/d51/a00079.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:a90a1db9c0f08cb95f6565b673c3e39f5 inherit pub_methods_a00079"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a90a1db9c0f08cb95f6565b673c3e39f5">AbstractPopBuilder</a> (const boost::property_tree::ptree &amp;configPt, <a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;rnManager)</td></tr>
+<tr class="memdesc:a90a1db9c0f08cb95f6565b673c3e39f5 inherit pub_methods_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializing constructor.  <a href="#a90a1db9c0f08cb95f6565b673c3e39f5">More...</a><br /></td></tr>
+<tr class="separator:a90a1db9c0f08cb95f6565b673c3e39f5 inherit pub_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00079"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a938da421d2a2d203e7cb90ead7b91807">~AbstractPopBuilder</a> ()=default</td></tr>
+<tr class="separator:a938da421d2a2d203e7cb90ead7b91807 inherit pub_methods_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:acfc5f6f917fe7d81ead2fecdeb85eb70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#acfc5f6f917fe7d81ead2fecdeb85eb70">InitializeHolidays</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
-<tr class="separator:acfc5f6f917fe7d81ead2fecdeb85eb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3738040e683004b9ecefc9ba7608eba4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a3738040e683004b9ecefc9ba7608eba4">MakePersons</a> (std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt; pop)</td></tr>
+<tr class="memdesc:a3738040e683004b9ecefc9ba7608eba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates pop's individuals and return pop.  <a href="#a3738040e683004b9ecefc9ba7608eba4">More...</a><br /></td></tr>
+<tr class="separator:a3738040e683004b9ecefc9ba7608eba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a52c72045d2805141b5c8f7cf23f2b586"><td class="memItemLeft" align="right" valign="top">date::year_month_day&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a52c72045d2805141b5c8f7cf23f2b586">m_date</a></td></tr>
-<tr class="memdesc:a52c72045d2805141b5c8f7cf23f2b586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current simulated date.  <a href="#a52c72045d2805141b5c8f7cf23f2b586">More...</a><br /></td></tr>
-<tr class="separator:a52c72045d2805141b5c8f7cf23f2b586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; date::year_month_day &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a5f20fb48a594f5bc5134ef9cc7418eae">m_holidays</a></td></tr>
-<tr class="memdesc:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of general holidays.  <a href="#a5f20fb48a594f5bc5134ef9cc7418eae">More...</a><br /></td></tr>
-<tr class="separator:a5f20fb48a594f5bc5134ef9cc7418eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bb29e7831bae17514c7a07710da5141"><td class="memItemLeft" align="right" valign="top">std::vector&lt; date::year_month_day &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a1bb29e7831bae17514c7a07710da5141">m_school_holidays</a></td></tr>
-<tr class="memdesc:a1bb29e7831bae17514c7a07710da5141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of school holidays.  <a href="#a1bb29e7831bae17514c7a07710da5141">More...</a><br /></td></tr>
-<tr class="separator:a1bb29e7831bae17514c7a07710da5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8a87a703604c326355557e1b72d119"><td class="memItemLeft" align="right" valign="top">unsigned short int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d7d/a00093.html#a9d8a87a703604c326355557e1b72d119">m_day</a></td></tr>
-<tr class="memdesc:a9d8a87a703604c326355557e1b72d119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current day since start of simulation.  <a href="#a9d8a87a703604c326355557e1b72d119">More...</a><br /></td></tr>
-<tr class="separator:a9d8a87a703604c326355557e1b72d119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a00079"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00079')"><img src="../../closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="../../d1/d51/a00079.html">stride::AbstractPopBuilder</a></td></tr>
+<tr class="memitem:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top">const boost::property_tree::ptree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#ae531cd041f5d2a849258039f820f9c9a">m_config_pt</a></td></tr>
+<tr class="memdesc:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration property tree.  <a href="#ae531cd041f5d2a849258039f820f9c9a">More...</a><br /></td></tr>
+<tr class="separator:ae531cd041f5d2a849258039f820f9c9a inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00079"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/dee/a00383.html#a5af266718bee631b09a6b77d7d380c69">util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d51/a00079.html#a3c0d0ab608a32c5938d832e9cab15cb9">m_rn_manager</a></td></tr>
+<tr class="memdesc:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation management.  <a href="#a3c0d0ab608a32c5938d832e9cab15cb9">More...</a><br /></td></tr>
+<tr class="separator:a3c0d0ab608a32c5938d832e9cab15cb9 inherit pro_attribs_a00079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class that keeps track of the 'state' of simulated world. </p>
-<p>E.g. what day it is, holidays, quarantines, ... </p>
+<div class="textblock"><p>Initializes <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a> objects. </p>
 
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00042">42</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2f1b3543ea350957ea793e6b2d3ae851"></a>
+<p>Definition at line <a class="el" href="../../de/dd2/a00207_source.html#l00035">35</a> of file <a class="el" href="../../de/dd2/a00207_source.html">DefaultPopBuilder.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8c1071f808ade6b38dd14a74024e64d4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -196,158 +181,39 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">stride::Calendar::Calendar </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt; stride::DefaultPopBuilder::Build </td>
           <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. </p>
+<p>Build <a class="el" href="../../d1/dd6/a00108.html" title="Container for persons in population. ">Population</a> and return it afterwards. </p>
+<p>The steps are:</p><ul>
+<li>Check input data.</li>
+<li>Read persons from file and instantiate them.</li>
+<li>Fill up the various type of contactpools.</li>
+<li>Seed the population with contact survey participants. </li>
+</ul>
 
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00106">106</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
+<p>Implements <a class="el" href="../../d1/d51/a00079.html#a864865f7e88c7b737ad91a245f49f466">stride::AbstractPopBuilder</a>.</p>
 
-<p>References <a class="el" href="../../da/d15/a00188_source.html#l00096">stride::ConvertFromString()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00122">InitializeHolidays()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00083">83</a> of file <a class="el" href="../../d5/df1/a00206_source.html">DefaultPopBuilder.cpp</a>.</p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a73664cd7c25b08adff14429ca3291394"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Calendar::AdvanceDay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>References <a class="el" href="../../dc/d57/a00194_source.html#l00076">stride::ContactPoolType::IdList</a>, and <a class="el" href="../../dc/d84/a00338_source.html#l00037">stride::SurveySeeder::Seed()</a>.</p>
 
-<p>Advance the simulated calendar by one day. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00116">116</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00093">m_day</a>.</p>
+<p>Referenced by <a class="el" href="../../db/da2/a00300_source.html#l00042">stride::Population::Create()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a45666f29f36e462403710354043c735b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::Calendar::GetDay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current day of the month in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00160">160</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a06eddc08e5684d05443c9bba48444258"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::Calendar::GetDayOfTheWeek </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current day of the week (0 (Sunday), ..., 6 (Saturday)) in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00162">162</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/deb/a00189_source.html#l00077">IsWeekend()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1321c2a696a5cdbc8ffa0c2313084989"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::Calendar::GetMonth </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current month in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00167">167</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a440b877497550ef988931917fc243809"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned short int stride::Calendar::GetSimulationDay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current simulated day since the start of the simulation. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00169">169</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00093">m_day</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a43a71244d76958385cc83e761d748c88"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t stride::Calendar::GetYear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Current year in the simulated calendar. </p>
-
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00171">171</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9d4a023834f98c6ab8af55bbae7bc6df"></a>
+<a class="anchor" id="a3738040e683004b9ecefc9ba7608eba4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -355,97 +221,10 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stride::Calendar::IsHoliday </td>
+          <td class="memname">shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt; stride::DefaultPopBuilder::MakePersons </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if it's a holiday. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00067">67</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00090">m_holidays</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a497cee60c64a52c36dbf44536b3c2d3d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Calendar::IsSchoolHoliday </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if it's a school holiday. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00070">70</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>References <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00091">m_school_holidays</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3569df106b24b3df5bf6836849b150a4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool stride::Calendar::IsWeekend </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if it's the weekend. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00077">77</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>References <a class="el" href="../../da/d15/a00188_source.html#l00162">GetDayOfTheWeek()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00122">InitializeHolidays()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00089">m_date</a>, <a class="el" href="../../da/deb/a00189_source.html#l00090">m_holidays</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00091">m_school_holidays</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acfc5f6f917fe7d81ead2fecdeb85eb70"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stride::Calendar::InitializeHolidays </td>
-          <td>(</td>
-          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
-          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d1/dd6/a00108.html">Population</a> &gt;&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -455,133 +234,26 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Append zero's due to a bug in stdc++ <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896</a></p>
-<p>Append zero's due to a bug in stdc++ <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45896</a> </p>
 
-<p>Definition at line <a class="el" href="../../da/d15/a00188_source.html#l00122">122</a> of file <a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a>.</p>
+<p>Generates pop's individuals and return pop. </p>
 
-<p>References <a class="el" href="../../da/d15/a00188_source.html#l00096">stride::ConvertFromString()</a>, <a class="el" href="../../d3/d1a/a00251_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00090">m_holidays</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00091">m_school_holidays</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/df1/a00206_source.html#l00043">43</a> of file <a class="el" href="../../d5/df1/a00206_source.html">DefaultPopBuilder.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00106">Calendar()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00077">IsWeekend()</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a52c72045d2805141b5c8f7cf23f2b586"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">date::year_month_day stride::Calendar::m_date</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Current simulated date. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00089">89</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00116">AdvanceDay()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00106">Calendar()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00160">GetDay()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00162">GetDayOfTheWeek()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00167">GetMonth()</a>, <a class="el" href="../../da/d15/a00188_source.html#l00171">GetYear()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00067">IsHoliday()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00070">IsSchoolHoliday()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00077">IsWeekend()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5f20fb48a594f5bc5134ef9cc7418eae"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;date::year_month_day&gt; stride::Calendar::m_holidays</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Vector of general holidays. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00090">90</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00122">InitializeHolidays()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00067">IsHoliday()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00077">IsWeekend()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1bb29e7831bae17514c7a07710da5141"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;date::year_month_day&gt; stride::Calendar::m_school_holidays</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Vector of school holidays. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00091">91</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00122">InitializeHolidays()</a>, <a class="el" href="../../da/deb/a00189_source.html#l00070">IsSchoolHoliday()</a>, and <a class="el" href="../../da/deb/a00189_source.html#l00077">IsWeekend()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9d8a87a703604c326355557e1b72d119"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned short int stride::Calendar::m_day</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Current day since start of simulation. </p>
-
-<p>Definition at line <a class="el" href="../../da/deb/a00189_source.html#l00093">93</a> of file <a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../da/d15/a00188_source.html#l00116">AdvanceDay()</a>, and <a class="el" href="../../da/d15/a00188_source.html#l00169">GetSimulationDay()</a>.</p>
+<p>References <a class="el" href="../../d3/dd1/a00214_source.html#l00088">stride::util::FileSys::GetDataDir()</a>, and <a class="el" href="../../dd/dbb/a00330_source.html#l00058">stride::util::Split()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../da/deb/a00189_source.html">Calendar.h</a></li>
-<li><a class="el" href="../../da/d15/a00188_source.html">Calendar.cpp</a></li>
+<li><a class="el" href="../../de/dd2/a00207_source.html">DefaultPopBuilder.h</a></li>
+<li><a class="el" href="../../d5/df1/a00206_source.html">DefaultPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d6/d66/a00441.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d7d/a00093.html">Calendar</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d4/d13/a00377.html">stride</a></li><li class="navelem"><a class="el" href="../../d4/d7d/a00093.html">DefaultPopBuilder</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

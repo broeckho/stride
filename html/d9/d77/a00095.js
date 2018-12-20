@@ -1,10 +1,4 @@
 var a00095 =
 [
-    [ "ContactHandler", "d9/d77/a00095.html#acd8b09e759ed6049412de25662d1301d", null ],
-    [ "operator()", "d9/d77/a00095.html#ac03cd0d69d17bb0a97189c24ed537fdf", null ],
-    [ "HasContactAndTransmission", "d9/d77/a00095.html#a65ae0c571176ea267cf980ce31408f35", null ],
-    [ "HasContact", "d9/d77/a00095.html#a4a6ef10cff06328c9bc5b7f6337339ad", null ],
-    [ "HasTransmission", "d9/d77/a00095.html#a94d8f2bdeff1e99b1e6380060e8fb622", null ],
-    [ "RateToProbability", "d9/d77/a00095.html#a51fd44b433163a1bd2a9fb424a003344", null ],
-    [ "m_uniform01_generator", "d9/d77/a00095.html#ad89329d01eda188d96ac8fea0386cdc4", null ]
+    [ "Build", "d9/d77/a00095.html#a9cfeb0e0c8ccc56a49fa15efff5bab18", null ]
 ];

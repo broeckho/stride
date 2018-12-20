@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Payload.h File Reference</title>
+<title>Stride Reference Manual: ThreadException.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 725b14b</span>
+   &#160;<span id="projectnumber">- generated for commit 2b2059a</span>
    </div>
   </td>
  </tr>
@@ -108,38 +108,25 @@ $(document).ready(function(){initNavTree('d0/dc5/a00343.html','../../');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Payload.h File Reference</div>  </div>
+<div class="title">ThreadException.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Payload for Subject/Observer for myhayaia::events.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/da2/a00300_source.html">Id.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/d95/a00400_source.html">TestResult.h</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/optional.hpp&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Payload.h:</div>
+Include dependency graph for ThreadException.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/de6/a00723.gif" border="0" usemap="#Payload_8h" alt=""/></div>
-<map name="Payload_8h" id="Payload_8h">
-<area shape="rect" id="node2" href="../../db/da2/a00300.html" title="Definition of myhayai::event::Id. " alt="" coords="63,80,124,107"/>
-<area shape="rect" id="node5" href="../../d9/d95/a00400.html" title="Header file for TestResult. " alt="" coords="302,80,399,107"/>
+<div class="center"><img src="../../df/dbb/a00698.gif" border="0" usemap="#ThreadException_8h" alt=""/></div>
+<map name="ThreadException_8h" id="ThreadException_8h">
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/d72/a00724.gif" border="0" usemap="#Payload_8hdep" alt=""/></div>
-<map name="Payload_8hdep" id="Payload_8hdep">
-<area shape="rect" id="node2" href="../../d8/d64/a00181.html" title="Header file for Benchmarker. " alt="" coords="362,80,513,107"/>
-<area shape="rect" id="node5" href="../../dd/d52/a00221.html" title="Header file for ConsoleViewer. " alt="" coords="13,155,139,181"/>
-<area shape="rect" id="node9" href="../../df/d73/a00358.html" title="Header file for PtreeViewer. " alt="" coords="705,155,815,181"/>
-<area shape="rect" id="node3" href="../../db/dd9/a00179.html" title="Header file for Benchmark. " alt="" coords="164,155,271,181"/>
-<area shape="rect" id="node4" href="../../d0/d81/a00180.html" title="Implementation file for Benchmarker. " alt="" coords="295,155,460,181"/>
-<area shape="rect" id="node7" href="../../dc/d50/a00332.html" title="Implementation file for myhayai::CliContoller. " alt="" coords="463,229,625,256"/>
-<area shape="rect" id="node8" href="../../d2/d0a/a00333.html" title="Header file for myhayai::MyhayaiController. " alt="" coords="535,155,681,181"/>
-<area shape="rect" id="node6" href="../../d5/d0b/a00220.html" title="Implementation file for ConsoleViewer. " alt="" coords="5,229,147,256"/>
-<area shape="rect" id="node10" href="../../df/df1/a00357.html" title="Implementation file for PtreeViewer. " alt="" coords="698,229,822,256"/>
+<div class="center"><img src="../../d8/d33/a00699.gif" border="0" usemap="#ThreadException_8hdep" alt=""/></div>
+<map name="ThreadException_8hdep" id="ThreadException_8hdep">
+<area shape="rect" id="node2" href="../../de/dc2/a00228.html" title="GeoGridJSONReader.cpp" alt="" coords="5,80,181,107"/>
+<area shape="rect" id="node3" href="../../da/d31/a00234.html" title="GeoGridProtoReader.cpp" alt="" coords="205,80,384,107"/>
 </map>
 </div>
 </div>
@@ -147,28 +134,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/db6/a00074.html">myhayai::event::Payload</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The payload of the event notification used by the <a class="el" href="../../d6/d2c/a00072.html" title="BenchmarkRunner registers all tests (hence the singleton construction) and runs the tests specified b...">BenchmarkRunner</a> and accepted in the Update by the event Observers.  <a href="../../db/db6/a00074.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de8/a00061.html">gengeopop::ThreadException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a wrapper for capturing the exceptions thrown in a multi-threaded environment This caught exception can then later be re-thrown in the main thread.  <a href="../../d4/de8/a00061.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00062.html">gengeopop::ThreadException::RunType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used for executing a function with a return type.  <a href="../../df/d03/a00062.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d6f/a00063.html">gengeopop::ThreadException::RunType&lt; void &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:df/d70/a00431"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d70/a00431.html">myhayai</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/d07/a00433"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d07/a00433.html">myhayai::event</a></td></tr>
+<tr class="memitem:d9/d9b/a00363"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d9b/a00363.html">gengeopop</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Payload for Subject/Observer for myhayaia::events. </p>
-
-<p>Definition in file <a class="el" href="../../d0/dc5/a00343_source.html">Payload.h</a>.</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_b8e33f028d4538c4936a731362286f0f.html">myhayai</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">Payload.h</a></li>
-    <li class="footer">Generated on Tue Dec 18 2018 11:22:29 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_55739d37f413ef1c85848467d9dce641.html">io</a></li><li class="navelem"><a class="el" href="../../d0/dc5/a00343.html">ThreadException.h</a></li>
+    <li class="footer">Generated on Thu Dec 20 2018 09:43:27 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
