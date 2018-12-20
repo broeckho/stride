@@ -23,12 +23,13 @@ if(CMAKE_VERSION VERSION_LESS 3.8)
     set(STRIDE_FORCE_NO_PYTHON ON)
 endif()
 include(CMakeConfig.cmake)
+include(CMakeLocal.cmake OPTIONAL)
 
 #============================================================================
 # Configuration for CMake, for build & install.
 #============================================================================
 project(STRIDE)
-include(CMakeLocal.cmake OPTIONAL)
+include(CMakeLocalConfig.cmake OPTIONAL)
 
 #============================================================================
 # INSTALL LOCATION for bin, doc etc.

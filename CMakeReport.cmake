@@ -59,7 +59,6 @@ endif()
 if( CMAKE_BUILD_TYPE MATCHES "^[Dd]ebug$" )
 	message( STATUS "------> CMAKE_CXX_FLAGS_DEBUG       : ${CMAKE_CXX_FLAGS_DEBUG}"  )
 endif()
-message( STATUS "------> Include directories         : ${INCLUDE_DIRECTORIES} "       )
 message( STATUS "------> CCACHE_PROGRAM              : ${CCACHE_PROGRAM}"             )
 #
 message( STATUS "" )
