@@ -21,6 +21,7 @@
 INSTALL(FILES
       ageImmunityPostProcessing.py
   		ageImmunityShift.py
+      ageImmunityShiftUniform.py
       createImmunityDistributionFiles.py
 	DESTINATION ${BIN_INSTALL_LOCATION}
 	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_WRITE GROUP_READ

@@ -7,6 +7,15 @@ import time
 from pystride.Event import Event, EventType
 from pystride.PyController import PyController
 
+IMMUNITY_RATES = {
+    2013: 0.9161450000000001,
+    2020: 0.9081133333333328,
+    2025: 0.8891299999999993,
+    2030: 0.8666783333333348,
+    2035: 0.8457200000000000,
+    2040: 0.8290033333333328,
+}
+
 # Callback function to register person's age and immunity status
 # at the beginning of the simulation
 def registerSusceptibles(simulator, event):
@@ -62,14 +71,12 @@ def runSimulation(year, R0, seed):
     configFile = os.path.join("config", "ageImmunityShift.xml")
     control = PyController(data_dir="data")
     control.loadRunConfig(configFile)
-    control.runConfig.setParameter("output_prefix", str(year) +
-                                    "_R0_" + str(R0) + "_" + str(seed))
+    control.runConfig.setParameter("output_prefix",
+                                    str(year) + "_R0_" + str(R0) + "_" + str(seed))
     control.runConfig.setParameter("rng_seed", seed)
     control.runConfig.setParameter("r0", R0)
-    control.runConfig.setParameter("immunity_link_probability", 0)
-    control.runConfig.setParameter("immunity_profile", "AgeDependent")
-    control.runConfig.setParameter("immunity_distribution_file",
-                        os.path.join("data", str(year) + "_measles_immunity.xml"))
+    control.runConfig.setParameter("immunity_profile", "Random")
+    control.runConfig.setParameter("immunity_rate", IMMUNITY_RATES[year])
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
     control.control()
@@ -78,15 +85,14 @@ def runSimulation(year, R0, seed):
 def runSimulations(numRuns, year, R0, poolSize):
     seeds = generateRngSeeds(numRuns)
     writeSeeds(year, R0, seeds)
-    args = [(year, R0, seeds[i]) for i in range(numRuns)]
     with multiprocessing.Pool(processes=poolSize) as pool:
-        pool.starmap(runSimulation, args)
+        pool.starmap(runSimulation, [(year, R0, s) for s in seeds])
 
 def main(numRuns, years, R0s, poolSize):
     start = time.perf_counter()
     for year in years:
         for R0 in R0s:
-            print("Running simulations for " + str(year) + " with R0 " + str(R0))
+            print("Running simulations for {} with R0 {}".format(year, R0))
             runSimulations(numRuns, year, R0, poolSize)
     end = time.perf_counter()
     totalTimeSeconds = end - start
