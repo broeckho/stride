@@ -24,25 +24,25 @@
 
 namespace gengeopop {
 /**
- * An interface for generators that provide a partial solution. They generate some data and apply it onto the GeoGrid.
+ * An interface for generators that provide geo data and apply it onto the GeoGrid.
  */
-class PartialGenerator
+class GeneratorInterface
 {
 public:
-        /// Constructor with a RnMan and a logger
-        explicit PartialGenerator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
+        /// Constructor with random number manager and logger.
+        explicit GeneratorInterface(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
             : m_rnManager(rn_manager), m_logger(std::move(logger))
         {
         }
 
-        /// Apply this PartialGenerator to the given geogrid, generating ContactCenters
+        /// Apply this PartialGenerator to the given geogrid, generating ContactCenters.
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
 
         /// Virtual destructor for inheritance
-        virtual ~PartialGenerator() = default;
+        virtual ~GeneratorInterface() = default;
 
 protected:
-        /// Make sure we're using a valid weight for random numbers
+        /// Make sure we're using a valid weight for random numbers.
         void CheckWeight(const std::string& func, double weight)
         {
                 ExcAssert(weight >= 0 && weight <= 1 && !std::isnan(weight),
@@ -51,8 +51,8 @@ protected:
         }
 
 protected:
-        stride::util::RnMan&            m_rnManager; ///< RnManager used by generators
-        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators
+        stride::util::RnMan&            m_rnManager; ///< RnManager used by generators.
+        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators.
 };
 
 } // namespace gengeopop

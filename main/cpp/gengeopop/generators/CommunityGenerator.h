@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "PartialGenerator.h"
+#include "GeneratorInterface.h"
 #include "gengeopop/GeoGridConfig.h"
 
 namespace gengeopop {
@@ -23,10 +23,10 @@ namespace gengeopop {
 /**
  * Generate Communities.
  */
-class CommunityGenerator : public PartialGenerator
+class CommunityGenerator : public GeneratorInterface
 {
 public:
-        using PartialGenerator::PartialGenerator;
+        using GeneratorInterface::GeneratorInterface;
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

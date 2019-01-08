@@ -40,9 +40,6 @@ public:
         virtual ~PartialPopulator() = default;
 
 protected:
-        stride::util::RnMan&            m_rnManager; ///< RnManager used by populators
-        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
-
         /// Find contactpools in `geoGrid` in an exponentially increasing radius.
         /// Start at `startRadius`, around `start`; as soon as at least one pool is found,
         /// all pools within the current radius are returne.
@@ -73,6 +70,10 @@ protected:
 
         /// Convenience wrapper around m_rnManager
         bool MakeChoice(double fraction);
+        
+protected:
+        stride::util::RnMan&            m_rnManager; ///< RnManager used by populators
+        std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by populators
 };
 
 } // namespace gengeopop

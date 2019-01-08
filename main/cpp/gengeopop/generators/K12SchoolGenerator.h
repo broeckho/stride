@@ -16,17 +16,17 @@
 #pragma once
 
 #include "../GeoGridConfig.h"
-#include "PartialGenerator.h"
+#include "GeneratorInterface.h"
 
 namespace gengeopop {
 
 /**
  * Generate K12Schools.
  */
-class K12SchoolGenerator : public PartialGenerator
+class K12SchoolGenerator : public GeneratorInterface
 {
 public:
-        using PartialGenerator::PartialGenerator;
+        using GeneratorInterface::GeneratorInterface;
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

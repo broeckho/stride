@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "PartialGenerator.h"
+#include "GeneratorInterface.h"
 
 namespace gengeopop {
 
@@ -30,7 +30,7 @@ public:
         GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
 
         /// Add a PartialGenerator to use when generating
-        void AddPartialGenerator(std::shared_ptr<PartialGenerator> gen);
+        void AddPartialGenerator(std::shared_ptr<GeneratorInterface> gen);
 
         /**
          * @param filename Filename with the config of the wanted geogrid.
@@ -42,7 +42,7 @@ public:
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        std::vector<std::shared_ptr<PartialGenerator>> m_partialGenerators; ///< Our PartialGenerators
+        std::vector<std::shared_ptr<GeneratorInterface>> m_partialGenerators; ///< Our PartialGenerators
         std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target
         GeoGridConfig&                                 m_geoGridConfig;     ///< The config
 };

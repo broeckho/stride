@@ -28,14 +28,14 @@ GeoGridGenerator::GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr
 
 void GeoGridGenerator::GenerateGeoGrid()
 {
-        for (std::shared_ptr<PartialGenerator>& partialGen : m_partialGenerators) {
+        for (std::shared_ptr<GeneratorInterface>& partialGen : m_partialGenerators) {
                 partialGen->Apply(m_geoGrid, m_geoGridConfig);
         }
 }
 
 std::shared_ptr<GeoGrid> GeoGridGenerator::GetGeoGrid() { return m_geoGrid; }
 
-void GeoGridGenerator::AddPartialGenerator(std::shared_ptr<PartialGenerator> gen)
+void GeoGridGenerator::AddPartialGenerator(std::shared_ptr<GeneratorInterface> gen)
 {
         m_partialGenerators.push_back(gen);
 }
