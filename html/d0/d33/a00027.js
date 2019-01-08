@@ -1,10 +1,11 @@
 var a00027 =
 [
-    [ "GeoGridPopulator", "d0/d33/a00027.html#a33b4ff3e2a26fac5dc4189580ad4ff94", null ],
-    [ "AddPartialPopulator", "d0/d33/a00027.html#a68e37467896ed3bc3cddf201282585ad", null ],
-    [ "PopulateGeoGrid", "d0/d33/a00027.html#a1fa2934bb8d3335c17883c56887da917", null ],
-    [ "GetGeoGrid", "d0/d33/a00027.html#ab201324110f6509318c17bff95f513c5", null ],
-    [ "m_partialPopulators", "d0/d33/a00027.html#ace21dd729826b385b0b54006a672b9e9", null ],
-    [ "m_geoGrid", "d0/d33/a00027.html#a9aa23397da0a882e1320b22c43e82526", null ],
-    [ "m_geoGridConfig", "d0/d33/a00027.html#a0141e36ba7d15a329c4d267f0d64e3d3", null ]
+    [ "GeoGridJSONWriter", "d0/d33/a00027.html#a91952922418a0800836f9a19bebeb493", null ],
+    [ "Write", "d0/d33/a00027.html#a06da89c72da72992bbd517973c9513eb", null ],
+    [ "WriteLocation", "d0/d33/a00027.html#a1d075fff537fe69d2d626483f539387e", null ],
+    [ "WriteCoordinate", "d0/d33/a00027.html#ac5545a046c71d35be38df00f73c87235", null ],
+    [ "WriteContactCenter", "d0/d33/a00027.html#a09ef74af7673c46cc0a14338ec9f2d89", null ],
+    [ "WriteContactPool", "d0/d33/a00027.html#a0943d6e4e335053ba2e5dff6cbca187c", null ],
+    [ "WritePerson", "d0/d33/a00027.html#a0e11b2f67f86e812421761f61fd7274f", null ],
+    [ "m_persons_found", "d0/d33/a00027.html#a0aff3009be27579a5aec48bed22aa570", null ]
 ];

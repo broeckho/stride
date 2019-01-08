@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: GeoGridGenerator.h File Reference</title>
+<title>Stride Reference Manual: GeoGridGenerator.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
+   &#160;<span id="projectnumber">- generated for commit 0c10d47</span>
    </div>
   </td>
  </tr>
@@ -105,59 +105,45 @@ $(document).ready(function(){initNavTree('d5/df1/a00206.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">GeoGridGenerator.h File Reference</div>  </div>
+<div class="title">GeoGridGenerator.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="../../db/d12/a00268_source.html">PartialGenerator.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../de/dd2/a00207_source.html">GeoGridGenerator.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for GeoGridGenerator.h:</div>
+Include dependency graph for GeoGridGenerator.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/d26/a00474.gif" border="0" usemap="#GeoGridGenerator_8h" alt=""/></div>
-<map name="GeoGridGenerator_8h" id="GeoGridGenerator_8h">
-<area shape="rect" id="node2" href="../../db/d12/a00268.html" title="PartialGenerator.h" alt="" coords="1846,80,1983,107"/>
-<area shape="rect" id="node3" href="../../dd/de3/a00201.html" title="gengeopop/GeoGrid.h" alt="" coords="1833,379,1996,405"/>
-<area shape="rect" id="node30" href="../../d6/d7f/a00287.html" title="Interface of RnMan. " alt="" coords="942,550,1042,577"/>
-<area shape="rect" id="node45" href="../../d1/d72/a00204.html" title="gengeopop/GeoGridConfig.h" alt="" coords="2033,155,2236,181"/>
-<area shape="rect" id="node48" href="../../da/deb/a00189.html" title="util/ExcAssert.h" alt="" coords="5,550,125,577"/>
-<area shape="rect" id="node4" href="../../dc/d6a/a00261.html" title="KdTree.h" alt="" coords="1367,639,1443,666"/>
-<area shape="rect" id="node13" href="../../df/da9/a00263.html" title="Location.h" alt="" coords="2156,550,2244,577"/>
-<area shape="rect" id="node21" href="../../d5/dcb/a00170.html" title="Header for the core ContactPool class. " alt="" coords="201,639,343,666"/>
-<area shape="rect" id="node25" href="../../dc/d5d/a00278.html" title="Header file for the core Population class. " alt="" coords="711,461,841,487"/>
-<area shape="rect" id="node42" href="../../d8/d72/a00199.html" title="GeoAggregator.h" alt="" coords="1849,461,1980,487"/>
-<area shape="rect" id="node22" href="../../dd/da7/a00168.html" title="Header for the ContactLogMode class. " alt="" coords="200,721,395,748"/>
-<area shape="rect" id="node23" href="../../d7/d3f/a00173.html" title="Definition of ContactPoolType. " alt="" coords="520,721,691,748"/>
-<area shape="rect" id="node26" href="../../d1/d0d/a00171.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="381,550,547,577"/>
-<area shape="rect" id="node27" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="694,639,866,666"/>
-<area shape="rect" id="node29" href="../../d9/dd6/a00272.html" title="Header file for the Person class. " alt="" coords="251,550,357,577"/>
-<area shape="rect" id="node31" href="../../d5/d7b/a00286.html" title="Interface of RnPcg. " alt="" coords="1056,639,1107,666"/>
-<area shape="rect" id="node32" href="../../d3/d07/a00305.html" title="Miscellaneous string utilities. " alt="" coords="1267,721,1367,748"/>
-<area shape="rect" id="node46" href="../../dd/d2d/a00229.html" title="gengeopop/Household.h" alt="" coords="2040,229,2219,256"/>
-<area shape="rect" id="node47" href="../../d0/d48/a00165.html" title="ContactCenter.h" alt="" coords="1969,304,2095,331"/>
-<area shape="rect" id="node49" href="../../d9/dd0/a00191.html" title="util/Exception.h" alt="" coords="470,639,589,666"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d1/d92/a00475.gif" border="0" usemap="#GeoGridGenerator_8hdep" alt=""/></div>
-<map name="GeoGridGenerator_8hdep" id="GeoGridGenerator_8hdep">
-<area shape="rect" id="node2" href="../../dc/d57/a00194.html" title="genpop.cpp" alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node3" href="../../d5/d13/a00205.html" title="GeoGridGenerator.cpp" alt="" coords="127,80,293,107"/>
-<area shape="rect" id="node4" href="../../de/db1/a00197.html" title="GenPopController.cpp" alt="" coords="317,80,477,107"/>
+<div class="center"><img src="../../d1/d92/a00475.gif" border="0" usemap="#GeoGridGenerator_8cpp" alt=""/></div>
+<map name="GeoGridGenerator_8cpp" id="GeoGridGenerator_8cpp">
+<area shape="rect" id="node2" href="../../de/dd2/a00207.html" title="GeoGridGenerator.h" alt="" coords="1862,80,2013,107"/>
+<area shape="rect" id="node3" href="../../dc/d57/a00194.html" title="GeneratorInterface.h" alt="" coords="1147,155,1301,181"/>
+<area shape="rect" id="node4" href="../../db/d53/a00202.html" title="gengeopop/GeoGrid.h" alt="" coords="1849,453,2012,480"/>
+<area shape="rect" id="node31" href="../../d6/d7f/a00287.html" title="Interface of RnMan. " alt="" coords="942,625,1042,651"/>
+<area shape="rect" id="node44" href="../../d5/d13/a00205.html" title="gengeopop/GeoGridConfig.h" alt="" coords="2083,229,2285,256"/>
+<area shape="rect" id="node48" href="../../da/deb/a00189.html" title="util/ExcAssert.h" alt="" coords="5,625,125,651"/>
+<area shape="rect" id="node5" href="../../d9/d8d/a00262.html" title="KdTree.h" alt="" coords="1291,625,1367,651"/>
+<area shape="rect" id="node14" href="../../d3/dcc/a00264.html" title="Location.h" alt="" coords="1996,625,2084,651"/>
+<area shape="rect" id="node22" href="../../d5/dcb/a00170.html" title="Header for the core ContactPool class. " alt="" coords="235,714,378,741"/>
+<area shape="rect" id="node26" href="../../dc/d5d/a00278.html" title="Header file for the core Population class. " alt="" coords="779,535,909,562"/>
+<area shape="rect" id="node41" href="../../d3/db1/a00200.html" title="GeoAggregator.h" alt="" coords="1865,535,1996,562"/>
+<area shape="rect" id="node23" href="../../dd/da7/a00168.html" title="Header for the ContactLogMode class. " alt="" coords="213,796,408,823"/>
+<area shape="rect" id="node24" href="../../d7/d3f/a00173.html" title="Definition of ContactPoolType. " alt="" coords="533,796,704,823"/>
+<area shape="rect" id="node27" href="../../d1/d0d/a00171.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="528,625,693,651"/>
+<area shape="rect" id="node28" href="../../d6/d82/a00293.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="911,714,1083,741"/>
+<area shape="rect" id="node30" href="../../d9/dd6/a00272.html" title="Header file for the Person class. " alt="" coords="397,625,504,651"/>
+<area shape="rect" id="node32" href="../../d5/d7b/a00286.html" title="Interface of RnPcg. " alt="" coords="836,714,887,741"/>
+<area shape="rect" id="node45" href="../../d1/da8/a00230.html" title="gengeopop/Household.h" alt="" coords="1931,304,2109,331"/>
+<area shape="rect" id="node46" href="../../d0/d48/a00165.html" title="ContactCenter.h" alt="" coords="1897,379,2023,405"/>
+<area shape="rect" id="node49" href="../../d9/dd0/a00191.html" title="util/Exception.h" alt="" coords="555,714,674,741"/>
 </map>
 </div>
 </div>
 <p><a href="../../d5/df1/a00206_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html">gengeopop::GeoGridGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartialGenerators.  <a href="../../dc/de2/a00024.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:da/d75/a00334"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></td></tr>
@@ -168,8 +154,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">GeoGridGenerator.h</a></li>
-    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_179761493184668a345a1ae0c0ebebb4.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dir_81cc4f6bf900e44240520e51973accf6.html">generators</a></li><li class="navelem"><a class="el" href="../../d5/df1/a00206.html">GeoGridGenerator.cpp</a></li>
+    <li class="footer">Generated on Tue Jan 8 2019 15:07:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

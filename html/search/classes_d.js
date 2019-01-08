@@ -1,7 +1,6 @@
 var searchData=
 [
   ['pair2data',['pair2data',['../db/d57/a00112.html',1,'stride::util::detail']]],
-  ['partialgenerator',['PartialGenerator',['../d6/d97/a00045.html',1,'gengeopop']]],
   ['partialpopulator',['PartialPopulator',['../d3/dea/a00046.html',1,'gengeopop']]],
   ['person',['Person',['../d0/d61/a00100.html',1,'stride']]],
   ['personsfile',['PersonsFile',['../d1/d44/a00098.html',1,'stride::output']]],

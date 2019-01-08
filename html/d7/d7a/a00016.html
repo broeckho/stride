@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GenPopController Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeneratorInterface Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
+   &#160;<span id="projectnumber">- generated for commit 0c10d47</span>
    </div>
   </td>
  </tr>
@@ -108,133 +108,92 @@ $(document).ready(function(){initNavTree('d7/d7a/a00016.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../dd/dd8/a00719.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GenPopController Class Reference</div>  </div>
+<div class="title">gengeopop::GeneratorInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Controls the complete generation and population of a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  
+<p>An interface for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  
  <a href="../../d7/d7a/a00016.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GenPopController:</div>
+Inheritance diagram for gengeopop::GeneratorInterface:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d14/a00720.gif" border="0" usemap="#gengeopop_1_1GenPopController_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GenPopController_coll__map" id="gengeopop_1_1GenPopController_coll__map">
-<area shape="rect" id="node5" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="1263,708,1410,888"/>
-<area shape="rect" id="node6" title="STL class. " alt="" coords="1167,261,1389,368"/>
-<area shape="rect" id="node18" title="STL class. " alt="" coords="987,153,1113,230"/>
-<area shape="rect" id="node9" title="STL class. " alt="" coords="1511,399,1597,477"/>
-<area shape="rect" id="node10" title="STL class. " alt="" coords="1485,145,1623,237"/>
-<area shape="rect" id="node13" href="../../d3/d52/a00023.html" title="Configuration data for generating a GeoGrid. " alt="" coords="901,752,1095,844"/>
-<area shape="rect" id="node14" href="../../d0/d65/a00360.html" title="{double\n||}" alt="" coords="999,399,1064,477"/>
+<div class="center"><img src="../../dc/d14/a00720.gif" border="0" usemap="#gengeopop_1_1GeneratorInterface_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1GeneratorInterface_inherit__map" id="gengeopop_1_1GeneratorInterface_inherit__map">
+<area shape="rect" id="node2" href="../../da/da0/a00009.html" title="Generate Colleges. " alt="" coords="5,189,220,267"/>
+<area shape="rect" id="node3" href="../../df/d86/a00012.html" title="Generate Communities. " alt="" coords="244,189,485,267"/>
+<area shape="rect" id="node4" href="../../d1/dc6/a00037.html" title="Generate Households. " alt="" coords="510,189,745,267"/>
+<area shape="rect" id="node5" href="../../dd/d32/a00041.html" title="Generate K12Schools. " alt="" coords="769,189,1003,267"/>
+<area shape="rect" id="node6" href="../../d7/df7/a00058.html" title="Generate Workplaces. " alt="" coords="1028,189,1259,267"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::GeneratorInterface:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/dc1/a00721.gif" border="0" usemap="#gengeopop_1_1GeneratorInterface_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1GeneratorInterface_coll__map" id="gengeopop_1_1GeneratorInterface_coll__map">
+<area shape="rect" id="node3" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
+<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20bf4eeebf8152ee7b09c16ea3288857"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a20bf4eeebf8152ee7b09c16ea3288857">GenPopController</a> (std::shared_ptr&lt; spdlog::logger &gt; logger, <a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig, <a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rnManager, std::string citiesFileName, std::string commutingFileName, std::string householdFileName)</td></tr>
-<tr class="memdesc:a20bf4eeebf8152ee7b09c16ea3288857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a GenGeoPopController.  <a href="#a20bf4eeebf8152ee7b09c16ea3288857">More...</a><br /></td></tr>
-<tr class="separator:a20bf4eeebf8152ee7b09c16ea3288857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f16d7f880756a9f0c0ecd27a9839f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a62f16d7f880756a9f0c0ecd27a9839f5">ReadDataFiles</a> ()</td></tr>
-<tr class="memdesc:a62f16d7f880756a9f0c0ecd27a9839f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the data files.  <a href="#a62f16d7f880756a9f0c0ecd27a9839f5">More...</a><br /></td></tr>
-<tr class="separator:a62f16d7f880756a9f0c0ecd27a9839f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c566705c528d7b94d696051a6894a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ad9c566705c528d7b94d696051a6894a0">GenGeo</a> ()</td></tr>
-<tr class="memdesc:ad9c566705c528d7b94d696051a6894a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate and store the Geo part of the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ad9c566705c528d7b94d696051a6894a0">More...</a><br /></td></tr>
-<tr class="separator:ad9c566705c528d7b94d696051a6894a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada6cb55520ab6db28ae709134a0685a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ada6cb55520ab6db28ae709134a0685a2">GenPop</a> ()</td></tr>
-<tr class="memdesc:ada6cb55520ab6db28ae709134a0685a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate and store the Pop part of the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ada6cb55520ab6db28ae709134a0685a2">More...</a><br /></td></tr>
-<tr class="separator:ada6cb55520ab6db28ae709134a0685a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0162a0a0503a974cdc2d5ee9088108a5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a0162a0a0503a974cdc2d5ee9088108a5">GetGeoGrid</a> ()</td></tr>
-<tr class="memdesc:a0162a0a0503a974cdc2d5ee9088108a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a0162a0a0503a974cdc2d5ee9088108a5">More...</a><br /></td></tr>
-<tr class="separator:a0162a0a0503a974cdc2d5ee9088108a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32af29277ce6b2fc549d19925467a25a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a32af29277ce6b2fc549d19925467a25a">UsePopulation</a> (std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> &gt; pop)</td></tr>
-<tr class="memdesc:a32af29277ce6b2fc549d19925467a25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use the given Population storage during generation.  <a href="#a32af29277ce6b2fc549d19925467a25a">More...</a><br /></td></tr>
-<tr class="separator:a32af29277ce6b2fc549d19925467a25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb061a0b0265c366f644d20e706b68f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aeb061a0b0265c366f644d20e706b68f6">GeneratorInterface</a> (<a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:aeb061a0b0265c366f644d20e706b68f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#aeb061a0b0265c366f644d20e706b68f6">More...</a><br /></td></tr>
+<tr class="separator:aeb061a0b0265c366f644d20e706b68f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b6edab87fe6f084257bd216fabf1fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:a69b6edab87fe6f084257bd216fabf1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this PartialGenerator to the given geogrid, generating ContactCenters.  <a href="#a69b6edab87fe6f084257bd216fabf1fa">More...</a><br /></td></tr>
+<tr class="separator:a69b6edab87fe6f084257bd216fabf1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6694007594dd895fd81bf8cd87324c7d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a6694007594dd895fd81bf8cd87324c7d">~GeneratorInterface</a> ()=default</td></tr>
+<tr class="memdesc:a6694007594dd895fd81bf8cd87324c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a6694007594dd895fd81bf8cd87324c7d">More...</a><br /></td></tr>
+<tr class="separator:a6694007594dd895fd81bf8cd87324c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:abb874c08e0d559a99a9e757c3d685ad5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#abb874c08e0d559a99a9e757c3d685ad5">m_geoGridConfig</a></td></tr>
-<tr class="memdesc:abb874c08e0d559a99a9e757c3d685ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d3/d52/a00023.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> used to generate the grid.  <a href="#abb874c08e0d559a99a9e757c3d685ad5">More...</a><br /></td></tr>
-<tr class="separator:abb874c08e0d559a99a9e757c3d685ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ab423fe32af16fd32d6449891c78d7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a8ab423fe32af16fd32d6449891c78d7d">m_rnManager</a></td></tr>
-<tr class="memdesc:a8ab423fe32af16fd32d6449891c78d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The random number generation manager.  <a href="#a8ab423fe32af16fd32d6449891c78d7d">More...</a><br /></td></tr>
-<tr class="separator:a8ab423fe32af16fd32d6449891c78d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57228f19d1dcd50510f54b15ef759f9a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a57228f19d1dcd50510f54b15ef759f9a">m_geoGrid</a></td></tr>
-<tr class="memdesc:a57228f19d1dcd50510f54b15ef759f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a57228f19d1dcd50510f54b15ef759f9a">More...</a><br /></td></tr>
-<tr class="separator:a57228f19d1dcd50510f54b15ef759f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec9073251d0a4a70cb8beb38e7122eac"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aec9073251d0a4a70cb8beb38e7122eac">m_population</a></td></tr>
-<tr class="memdesc:aec9073251d0a4a70cb8beb38e7122eac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#aec9073251d0a4a70cb8beb38e7122eac">More...</a><br /></td></tr>
-<tr class="separator:aec9073251d0a4a70cb8beb38e7122eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2570211fa6730714b29aeb3dd7bdcec"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d21/a00006.html">CitiesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ad2570211fa6730714b29aeb3dd7bdcec">m_citiesReader</a></td></tr>
-<tr class="memdesc:ad2570211fa6730714b29aeb3dd7bdcec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. ">CitiesReader</a>.  <a href="#ad2570211fa6730714b29aeb3dd7bdcec">More...</a><br /></td></tr>
-<tr class="separator:ad2570211fa6730714b29aeb3dd7bdcec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2035d025d371c4223c6c6a69f652834d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d2/de7/a00014.html">CommutesReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a2035d025d371c4223c6c6a69f652834d">m_commutesReader</a></td></tr>
-<tr class="memdesc:a2035d025d371c4223c6c6a69f652834d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d2/de7/a00014.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a>.  <a href="#a2035d025d371c4223c6c6a69f652834d">More...</a><br /></td></tr>
-<tr class="separator:a2035d025d371c4223c6c6a69f652834d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a489c40decc63afd7a4aa09be25c8a034"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d8/d41/a00038.html">HouseholdReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a489c40decc63afd7a4aa09be25c8a034">m_householdsReader</a></td></tr>
-<tr class="memdesc:a489c40decc63afd7a4aa09be25c8a034"><td class="mdescLeft">&#160;</td><td class="mdescRight">The HouseholdsReader.  <a href="#a489c40decc63afd7a4aa09be25c8a034">More...</a><br /></td></tr>
-<tr class="separator:a489c40decc63afd7a4aa09be25c8a034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac99f1adca18d81bc9dbe8d1ecace18e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aac99f1adca18d81bc9dbe8d1ecace18e">m_logger</a></td></tr>
-<tr class="memdesc:aac99f1adca18d81bc9dbe8d1ecace18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The logger.  <a href="#aac99f1adca18d81bc9dbe8d1ecace18e">More...</a><br /></td></tr>
-<tr class="separator:aac99f1adca18d81bc9dbe8d1ecace18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780dd36cf657e164b10299df9c11c057"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a780dd36cf657e164b10299df9c11c057">m_citiesFileName</a></td></tr>
-<tr class="memdesc:a780dd36cf657e164b10299df9c11c057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename for info on cities.  <a href="#a780dd36cf657e164b10299df9c11c057">More...</a><br /></td></tr>
-<tr class="separator:a780dd36cf657e164b10299df9c11c057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12726f987575d8943e9dce98f6aee6e2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a12726f987575d8943e9dce98f6aee6e2">m_commutingFileName</a></td></tr>
-<tr class="memdesc:a12726f987575d8943e9dce98f6aee6e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename for info on commutes.  <a href="#a12726f987575d8943e9dce98f6aee6e2">More...</a><br /></td></tr>
-<tr class="separator:a12726f987575d8943e9dce98f6aee6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87540e8c95434d195d009c8e1b6c884f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a87540e8c95434d195d009c8e1b6c884f">m_householdsFileName</a></td></tr>
-<tr class="memdesc:a87540e8c95434d195d009c8e1b6c884f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filename for info on households.  <a href="#a87540e8c95434d195d009c8e1b6c884f">More...</a><br /></td></tr>
-<tr class="separator:a87540e8c95434d195d009c8e1b6c884f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a52dbf333ce110e13842d89118c7f6865"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a52dbf333ce110e13842d89118c7f6865">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../d0/d65/a00360.html">double</a> weight)</td></tr>
+<tr class="memdesc:a52dbf333ce110e13842d89118c7f6865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#a52dbf333ce110e13842d89118c7f6865">More...</a><br /></td></tr>
+<tr class="separator:a52dbf333ce110e13842d89118c7f6865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a97937caf93267e911560b76e06a9557f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a97937caf93267e911560b76e06a9557f">m_rnManager</a></td></tr>
+<tr class="memdesc:a97937caf93267e911560b76e06a9557f"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a97937caf93267e911560b76e06a9557f">More...</a><br /></td></tr>
+<tr class="separator:a97937caf93267e911560b76e06a9557f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a62604011e94f2fb71e1607bdf114fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a4a62604011e94f2fb71e1607bdf114fc">m_logger</a></td></tr>
+<tr class="memdesc:a4a62604011e94f2fb71e1607bdf114fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4a62604011e94f2fb71e1607bdf114fc">More...</a><br /></td></tr>
+<tr class="separator:a4a62604011e94f2fb71e1607bdf114fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Controls the complete generation and population of a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<div class="textblock"><p>An interface for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00030">30</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00029">29</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a20bf4eeebf8152ee7b09c16ea3288857"></a>
+<a class="anchor" id="aeb061a0b0265c366f644d20e706b68f6"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::GenPopController::GenPopController </td>
+          <td class="memname">gengeopop::GeneratorInterface::GeneratorInterface </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>, </td>
+          <td class="paramname"><em>rn_manager</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>citiesFileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>commutingFileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>householdFileName</em>&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -242,125 +201,131 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Create a GenGeoPopController. </p>
+<p>Constructor with random number manager and logger. </p>
 
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00039">39</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00033">33</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+
+<p>References <a class="el" href="../../d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa">Apply()</a>, and <a class="el" href="../../d7/d7a/a00016.html#a6694007594dd895fd81bf8cd87324c7d">~GeneratorInterface()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6694007594dd895fd81bf8cd87324c7d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual gengeopop::GeneratorInterface::~GeneratorInterface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor for inheritance. </p>
+
+<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00033">GeneratorInterface()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a62f16d7f880756a9f0c0ecd27a9839f5"></a>
+<a class="anchor" id="a69b6edab87fe6f084257bd216fabf1fa"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GenPopController::ReadDataFiles </td>
+          <td class="memname">virtual void gengeopop::GeneratorInterface::Apply </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geogrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Reads the data files. </p>
+<p>Apply this PartialGenerator to the given geogrid, generating ContactCenters. </p>
 
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00049">49</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
+<p>Implemented in <a class="el" href="../../d1/dc6/a00037.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator</a>, <a class="el" href="../../da/da0/a00009.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator</a>, <a class="el" href="../../df/d86/a00012.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator</a>, <a class="el" href="../../dd/d32/a00041.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator</a>, and <a class="el" href="../../d7/df7/a00058.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator</a>.</p>
 
-<p>References <a class="el" href="../../de/d79/a00203_source.html#l00028">gengeopop::GeoGridConfig::Calculate()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00067">m_citiesFileName</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00062">m_citiesReader</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00063">m_commutesReader</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00068">m_commutingFileName</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00058">m_geoGrid</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00054">m_geoGridConfig</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00069">m_householdsFileName</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00064">m_householdsReader</a>, and <a class="el" href="../../d7/da0/a00198_source.html#l00060">m_population</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00054">main()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00033">GeneratorInterface()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad9c566705c528d7b94d696051a6894a0"></a>
+<a class="anchor" id="a52dbf333ce110e13842d89118c7f6865"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GenPopController::GenGeo </td>
+          <td class="memname">void gengeopop::GeneratorInterface::CheckWeight </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate and store the Geo part of the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
-
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00085">85</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d5/d13/a00205_source.html#l00038">gengeopop::GeoGridGenerator::AddPartialGenerator()</a>, <a class="el" href="../../d5/d13/a00205_source.html#l00029">gengeopop::GeoGridGenerator::GenerateGeoGrid()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00058">m_geoGrid</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00054">m_geoGridConfig</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00065">m_logger</a>, and <a class="el" href="../../d7/da0/a00198_source.html#l00056">m_rnManager</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ada6cb55520ab6db28ae709134a0685a2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GenPopController::GenPop </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d65/a00360.html">double</a>&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Populate and store the Pop part of the <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
-
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00096">96</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../dd/ded/a00211_source.html#l00037">gengeopop::GeoGridPopulator::AddPartialPopulator()</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00058">m_geoGrid</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00054">m_geoGridConfig</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00065">m_logger</a>, <a class="el" href="../../d7/da0/a00198_source.html#l00056">m_rnManager</a>, and <a class="el" href="../../dd/ded/a00211_source.html#l00028">gengeopop::GeoGridPopulator::PopulateGeoGrid()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0162a0a0503a974cdc2d5ee9088108a5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; gengeopop::GenPopController::GetGeoGrid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Get the generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<p>Make sure we're using a valid weight for random numbers. </p>
 
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00108">108</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00046">46</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
 
-<p>References <a class="el" href="../../d7/da0/a00198_source.html#l00058">m_geoGrid</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a32af29277ce6b2fc549d19925467a25a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void gengeopop::GenPopController::UsePopulation </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> &gt;&#160;</td>
-          <td class="paramname"><em>pop</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Use the given Population storage during generation. </p>
-
-<p>Definition at line <a class="el" href="../../de/db1/a00197_source.html#l00110">110</a> of file <a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d7/da0/a00198_source.html#l00060">m_population</a>.</p>
+<p>References <a class="el" href="../../da/deb/a00189_source.html#l00025">ExcAssert()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="abb874c08e0d559a99a9e757c3d685ad5"></a>
+<a class="anchor" id="a97937caf93267e911560b76e06a9557f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -368,25 +333,25 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a>&amp; gengeopop::GenPopController::m_geoGridConfig</td>
+          <td class="memname"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::GeneratorInterface::m_rnManager</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The <a class="el" href="../../d3/d52/a00023.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> used to generate the grid. </p>
+<p>RnManager used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00054">54</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00054">54</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00085">GenGeo()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00096">GenPop()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
+<p>Referenced by <a class="el" href="../../d6/de1/a00233_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8ab423fe32af16fd32d6449891c78d7d"></a>
+<a class="anchor" id="a4a62604011e94f2fb71e1607bdf114fc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -394,269 +359,32 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::GenPopController::m_rnManager</td>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::GeneratorInterface::m_logger</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The random number generation manager. </p>
+<p>Logger used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00056">56</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00085">GenGeo()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00096">GenPop()</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00055">55</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a57228f19d1dcd50510f54b15ef759f9a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../db/db2/a00020.html">GeoGrid</a>&gt; gengeopop::GenPopController::m_geoGrid</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00058">58</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00085">GenGeo()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00096">GenPop()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00108">GetGeoGrid()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aec9073251d0a4a70cb8beb38e7122eac"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d4/d3a/a00101.html">stride::Population</a>&gt; gengeopop::GenPopController::m_population</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The generated <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00060">60</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00110">UsePopulation()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad2570211fa6730714b29aeb3dd7bdcec"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../de/d21/a00006.html">CitiesReader</a>&gt; gengeopop::GenPopController::m_citiesReader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../de/d21/a00006.html" title="Create an abstract Reader which fills a GeoGrid with the Cities found in a given file. ">CitiesReader</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00062">62</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2035d025d371c4223c6c6a69f652834d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d2/de7/a00014.html">CommutesReader</a>&gt; gengeopop::GenPopController::m_commutesReader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The <a class="el" href="../../d2/de7/a00014.html" title="Create an abstract Reader which fills a GeoGrid with the Commutes found in a given file...">CommutesReader</a>. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00063">63</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a489c40decc63afd7a4aa09be25c8a034"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d8/d41/a00038.html">HouseholdReader</a>&gt; gengeopop::GenPopController::m_householdsReader</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The HouseholdsReader. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00064">64</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aac99f1adca18d81bc9dbe8d1ecace18e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::GenPopController::m_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The logger. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00065">65</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00085">GenGeo()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00096">GenPop()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a780dd36cf657e164b10299df9c11c057"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string gengeopop::GenPopController::m_citiesFileName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Filename for info on cities. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00067">67</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a12726f987575d8943e9dce98f6aee6e2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string gengeopop::GenPopController::m_commutingFileName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Filename for info on commutes. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00068">68</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a87540e8c95434d195d009c8e1b6c884f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string gengeopop::GenPopController::m_householdsFileName</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Filename for info on households. </p>
-
-<p>Definition at line <a class="el" href="../../d7/da0/a00198_source.html#l00069">69</a> of file <a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00049">ReadDataFiles()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d7/da0/a00198_source.html">GenPopController.h</a></li>
-<li><a class="el" href="../../de/db1/a00197_source.html">GenPopController.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">GenPopController</a></li>
-    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">GeneratorInterface</a></li>
+    <li class="footer">Generated on Tue Jan 8 2019 15:07:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

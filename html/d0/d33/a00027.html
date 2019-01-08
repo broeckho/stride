@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GeoGridPopulator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeoGridJSONWriter Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
+   &#160;<span id="projectnumber">- generated for commit 0c10d47</span>
    </div>
   </td>
  </tr>
@@ -108,75 +108,125 @@ $(document).ready(function(){initNavTree('d0/d33/a00027.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../d5/d68/a00747.html">List of all members</a>  </div>
+<a href="../../d4/dfa/a00746.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeoGridPopulator Class Reference</div>  </div>
+<div class="title">gengeopop::GeoGridJSONWriter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Add population to a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../dc/de2/a00024.html" title="Generate a GeoGrid out of PartialGenerators. ">GeoGridGenerator</a>).  
+<p>An implementation of the <a class="el" href="../../d0/dc0/a00033.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> using JSON This class is used to write a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> to a JSON file.  
  <a href="../../d0/d33/a00027.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/ded/a00211_source.html">GeoGridJSONWriter.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GeoGridPopulator:</div>
+Inheritance diagram for gengeopop::GeoGridJSONWriter:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d3d/a00748.gif" border="0" usemap="#gengeopop_1_1GeoGridPopulator_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GeoGridPopulator_coll__map" id="gengeopop_1_1GeoGridPopulator_coll__map">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="614,153,741,230"/>
-<area shape="rect" id="node7" href="../../d3/d52/a00023.html" title="Configuration data for generating a GeoGrid. " alt="" coords="764,631,959,723"/>
-<area shape="rect" id="node8" href="../../d0/d65/a00360.html" title="{double\n||}" alt="" coords="1463,322,1529,399"/>
+<div class="center"><img src="../../d5/d68/a00747.gif" border="0" usemap="#gengeopop_1_1GeoGridJSONWriter_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1GeoGridJSONWriter_inherit__map" id="gengeopop_1_1GeoGridJSONWriter_inherit__map">
+<area shape="rect" id="node2" href="../../d0/dc0/a00033.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf..." alt="" coords="21,5,212,97"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::GeoGridJSONWriter:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/de8/a00749.gif" border="0" usemap="#gengeopop_1_1GeoGridJSONWriter_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1GeoGridJSONWriter_coll__map" id="gengeopop_1_1GeoGridJSONWriter_coll__map">
+<area shape="rect" id="node2" href="../../d0/dc0/a00033.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf..." alt="" coords="553,1296,744,1388"/>
+<area shape="rect" id="node4" href="../../d0/d61/a00100.html" title="Store and handle person data. " alt="" coords="608,1009,727,1233"/>
+<area shape="rect" id="node5" href="../../d0/d65/a00360.html" title="{double\n||}" alt="" coords="5,774,71,851"/>
+<area shape="rect" id="node6" href="../../df/d03/a00062.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="95,715,338,910"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="71,247,227,339"/>
+<area shape="rect" id="node10" title="STL class. " alt="" coords="185,145,400,223"/>
+<area shape="rect" id="node9" href="../../df/d03/a00062.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="203,363,375,557"/>
+<area shape="rect" id="node12" href="../../d1/d51/a00079.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="437,730,629,895"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="431,421,634,499"/>
+<area shape="rect" id="node17" href="../../db/dab/a00089.html" title="Holds a person&#39;s health data. " alt="" coords="958,679,1166,947"/>
+<area shape="rect" id="node20" title="STL class. " alt="" coords="949,1083,1057,1160"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a33b4ff3e2a26fac5dc4189580ad4ff94">GeoGridPopulator</a> (<a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;geoGridConfig, std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; geoGrid)</td></tr>
-<tr class="memdesc:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a config and a target <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a33b4ff3e2a26fac5dc4189580ad4ff94">More...</a><br /></td></tr>
-<tr class="separator:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e37467896ed3bc3cddf201282585ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a68e37467896ed3bc3cddf201282585ad">AddPartialPopulator</a> (std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt; gen)</td></tr>
-<tr class="memdesc:a68e37467896ed3bc3cddf201282585ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="../../d3/dea/a00046.html" title="Interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating.  <a href="#a68e37467896ed3bc3cddf201282585ad">More...</a><br /></td></tr>
-<tr class="separator:a68e37467896ed3bc3cddf201282585ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa2934bb8d3335c17883c56887da917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a1fa2934bb8d3335c17883c56887da917">PopulateGeoGrid</a> ()</td></tr>
-<tr class="memdesc:a1fa2934bb8d3335c17883c56887da917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply all partial populators onto an empty <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object.  <a href="#a1fa2934bb8d3335c17883c56887da917">More...</a><br /></td></tr>
-<tr class="separator:a1fa2934bb8d3335c17883c56887da917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab201324110f6509318c17bff95f513c5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ab201324110f6509318c17bff95f513c5">GetGeoGrid</a> ()</td></tr>
-<tr class="memdesc:ab201324110f6509318c17bff95f513c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the target <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ab201324110f6509318c17bff95f513c5">More...</a><br /></td></tr>
-<tr class="separator:ab201324110f6509318c17bff95f513c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91952922418a0800836f9a19bebeb493"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a91952922418a0800836f9a19bebeb493">GeoGridJSONWriter</a> ()</td></tr>
+<tr class="memdesc:a91952922418a0800836f9a19bebeb493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the <a class="el" href="../../d0/d33/a00027.html" title="An implementation of the GeoGridWriter using JSON This class is used to write a GeoGrid to a JSON fil...">GeoGridJSONWriter</a>.  <a href="#a91952922418a0800836f9a19bebeb493">More...</a><br /></td></tr>
+<tr class="separator:a91952922418a0800836f9a19bebeb493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06da89c72da72992bbd517973c9513eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a06da89c72da72992bbd517973c9513eb">Write</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geoGrid, std::ostream &amp;stream) override</td></tr>
+<tr class="memdesc:a06da89c72da72992bbd517973c9513eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> to the proved ostream in JSON format.  <a href="#a06da89c72da72992bbd517973c9513eb">More...</a><br /></td></tr>
+<tr class="separator:a06da89c72da72992bbd517973c9513eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00033"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00033')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d0/dc0/a00033.html">gengeopop::GeoGridWriter</a></td></tr>
+<tr class="memitem:af7a0b5285a5be682d1272e60927630ed inherit pub_methods_a00033"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc0/a00033.html#af7a0b5285a5be682d1272e60927630ed">~GeoGridWriter</a> ()=default</td></tr>
+<tr class="memdesc:af7a0b5285a5be682d1272e60927630ed inherit pub_methods_a00033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the Writer.  <a href="#af7a0b5285a5be682d1272e60927630ed">More...</a><br /></td></tr>
+<tr class="separator:af7a0b5285a5be682d1272e60927630ed inherit pub_methods_a00033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1d075fff537fe69d2d626483f539387e"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a1d075fff537fe69d2d626483f539387e">WriteLocation</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">Location</a> &gt; location)</td></tr>
+<tr class="memdesc:a1d075fff537fe69d2d626483f539387e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../d6/d97/a00045.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>.  <a href="#a1d075fff537fe69d2d626483f539387e">More...</a><br /></td></tr>
+<tr class="separator:a1d075fff537fe69d2d626483f539387e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5545a046c71d35be38df00f73c87235"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ac5545a046c71d35be38df00f73c87235">WriteCoordinate</a> (const <a class="el" href="../../da/d75/a00334.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp;coordinate)</td></tr>
+<tr class="memdesc:ac5545a046c71d35be38df00f73c87235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a Coordinate.  <a href="#ac5545a046c71d35be38df00f73c87235">More...</a><br /></td></tr>
+<tr class="separator:ac5545a046c71d35be38df00f73c87235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09ef74af7673c46cc0a14338ec9f2d89"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a09ef74af7673c46cc0a14338ec9f2d89">WriteContactCenter</a> (std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt; contactCenter)</td></tr>
+<tr class="memdesc:a09ef74af7673c46cc0a14338ec9f2d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../dd/d1b/a00015.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>.  <a href="#a09ef74af7673c46cc0a14338ec9f2d89">More...</a><br /></td></tr>
+<tr class="separator:a09ef74af7673c46cc0a14338ec9f2d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0943d6e4e335053ba2e5dff6cbca187c"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a0943d6e4e335053ba2e5dff6cbca187c">WriteContactPool</a> (<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> *contactPool)</td></tr>
+<tr class="memdesc:a0943d6e4e335053ba2e5dff6cbca187c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a ContactPool.  <a href="#a0943d6e4e335053ba2e5dff6cbca187c">More...</a><br /></td></tr>
+<tr class="separator:a0943d6e4e335053ba2e5dff6cbca187c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e11b2f67f86e812421761f61fd7274f"><td class="memItemLeft" align="right" valign="top">boost::property_tree::ptree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a0e11b2f67f86e812421761f61fd7274f">WritePerson</a> (<a class="el" href="../../d0/d61/a00100.html">stride::Person</a> *person)</td></tr>
+<tr class="memdesc:a0e11b2f67f86e812421761f61fd7274f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a Boost Property Tree containing all info needed to reconstruct a Person.  <a href="#a0e11b2f67f86e812421761f61fd7274f">More...</a><br /></td></tr>
+<tr class="separator:a0e11b2f67f86e812421761f61fd7274f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ace21dd729826b385b0b54006a672b9e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#ace21dd729826b385b0b54006a672b9e9">m_partialPopulators</a></td></tr>
-<tr class="memdesc:ace21dd729826b385b0b54006a672b9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">PartialPopulators.  <a href="#ace21dd729826b385b0b54006a672b9e9">More...</a><br /></td></tr>
-<tr class="separator:ace21dd729826b385b0b54006a672b9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa23397da0a882e1320b22c43e82526"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a9aa23397da0a882e1320b22c43e82526">m_geoGrid</a></td></tr>
-<tr class="memdesc:a9aa23397da0a882e1320b22c43e82526"><td class="mdescLeft">&#160;</td><td class="mdescRight">The target.  <a href="#a9aa23397da0a882e1320b22c43e82526">More...</a><br /></td></tr>
-<tr class="separator:a9aa23397da0a882e1320b22c43e82526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a0141e36ba7d15a329c4d267f0d64e3d3">m_geoGridConfig</a></td></tr>
-<tr class="memdesc:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The config.  <a href="#a0141e36ba7d15a329c4d267f0d64e3d3">More...</a><br /></td></tr>
-<tr class="separator:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aff3009be27579a5aec48bed22aa570"><td class="memItemLeft" align="right" valign="top">std::set&lt; <a class="el" href="../../d0/d61/a00100.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d33/a00027.html#a0aff3009be27579a5aec48bed22aa570">m_persons_found</a></td></tr>
+<tr class="memdesc:a0aff3009be27579a5aec48bed22aa570"><td class="mdescLeft">&#160;</td><td class="mdescRight">The persons found when looping over the ContactPools.  <a href="#a0aff3009be27579a5aec48bed22aa570">More...</a><br /></td></tr>
+<tr class="separator:a0aff3009be27579a5aec48bed22aa570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Add population to a <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../dc/de2/a00024.html" title="Generate a GeoGrid out of PartialGenerators. ">GeoGridGenerator</a>). </p>
+<div class="textblock"><p>An implementation of the <a class="el" href="../../d0/dc0/a00033.html" title="An interface for writing the GeoGrid to a file, can be implemented with multiple file types (protobuf...">GeoGridWriter</a> using JSON This class is used to write a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> to a JSON file. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00025">25</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00030">30</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridJSONWriter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a33b4ff3e2a26fac5dc4189580ad4ff94"></a>
+<a class="anchor" id="a91952922418a0800836f9a19bebeb493"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::GeoGridPopulator::GeoGridPopulator </td>
+          <td class="memname">gengeopop::GeoGridJSONWriter::GeoGridJSONWriter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the <a class="el" href="../../d0/d33/a00027.html" title="An implementation of the GeoGridWriter using JSON This class is used to write a GeoGrid to a JSON fil...">GeoGridJSONWriter</a>. </p>
+
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00027">27</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a06da89c72da72992bbd517973c9513eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::GeoGridJSONWriter::Write </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geoGrid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>&#160;</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,85 +234,183 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Construct with a config and a target <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<p>Write the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> to the proved ostream in JSON format. </p>
 
-<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00023">23</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Implements <a class="el" href="../../d0/dc0/a00033.html#af4a6cacfbe68ffae860ae217273413be">gengeopop::GeoGridWriter</a>.</p>
+
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00029">29</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/ded/a00211_source.html#l00056">m_persons_found</a>, <a class="el" href="../../da/de7/a00210_source.html#l00073">WriteLocation()</a>, and <a class="el" href="../../da/de7/a00210_source.html#l00160">WritePerson()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a68e37467896ed3bc3cddf201282585ad"></a>
+<a class="anchor" id="a1d075fff537fe69d2d626483f539387e"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GeoGridPopulator::AddPartialPopulator </td>
+          <td class="memname">boost::property_tree::ptree gengeopop::GeoGridJSONWriter::WriteLocation </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt;&#160;</td>
-          <td class="paramname"><em>gen</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">Location</a> &gt;&#160;</td>
+          <td class="paramname"><em>location</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Add a <a class="el" href="../../d3/dea/a00046.html" title="Interface for populators that provide a partial solution. ">PartialPopulator</a> to use when populating. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../d6/d97/a00045.html" title="A location for use within the GeoGrid Contains useful information, both spatial and administrative...">Location</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00037">37</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00073">73</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/dc1/a00212_source.html#l00041">m_partialPopulators</a>.</p>
+<p>References <a class="el" href="../../da/de7/a00210_source.html#l00120">WriteContactCenter()</a>, and <a class="el" href="../../da/de7/a00210_source.html#l00111">WriteCoordinate()</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00096">gengeopop::GenPopController::GenPop()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00029">Write()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1fa2934bb8d3335c17883c56887da917"></a>
+<a class="anchor" id="ac5545a046c71d35be38df00f73c87235"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GeoGridPopulator::PopulateGeoGrid </td>
+          <td class="memname">boost::property_tree::ptree gengeopop::GeoGridJSONWriter::WriteCoordinate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../da/d75/a00334.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>coordinate</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Apply all partial populators onto an empty <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a Coordinate. </p>
 
-<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00028">28</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00111">111</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/dc1/a00212_source.html#l00042">m_geoGrid</a>, <a class="el" href="../../dd/dc1/a00212_source.html#l00043">m_geoGridConfig</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00041">m_partialPopulators</a>.</p>
-
-<p>Referenced by <a class="el" href="../../de/db1/a00197_source.html#l00096">gengeopop::GenPopController::GenPop()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00073">WriteLocation()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab201324110f6509318c17bff95f513c5"></a>
+<a class="anchor" id="a09ef74af7673c46cc0a14338ec9f2d89"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../db/db2/a00020.html">GeoGrid</a> &gt; gengeopop::GeoGridPopulator::GetGeoGrid </td>
+          <td class="memname">boost::property_tree::ptree gengeopop::GeoGridJSONWriter::WriteContactCenter </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dd/d1b/a00015.html">ContactCenter</a> &gt;&#160;</td>
+          <td class="paramname"><em>contactCenter</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Get the target <a class="el" href="../../db/db2/a00020.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<p>Create a Boost Property Tree containing all info needed to reconstruct a <a class="el" href="../../dd/d1b/a00015.html" title="A ContactCenter contains multiple ContactPools. ">ContactCenter</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00035">35</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00120">120</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dd/dc1/a00212_source.html#l00042">m_geoGrid</a>.</p>
+<p>References <a class="el" href="../../da/de7/a00210_source.html#l00144">WriteContactPool()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00073">WriteLocation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0943d6e4e335053ba2e5dff6cbca187c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree gengeopop::GeoGridJSONWriter::WriteContactPool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> *&#160;</td>
+          <td class="paramname"><em>contactPool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a Boost Property Tree containing all info needed to reconstruct a ContactPool. </p>
+
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00144">144</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d5/dcb/a00170_source.html#l00068">stride::ContactPool::GetId()</a>, and <a class="el" href="../../dd/ded/a00211_source.html#l00056">m_persons_found</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00120">WriteContactCenter()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e11b2f67f86e812421761f61fd7274f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::property_tree::ptree gengeopop::GeoGridJSONWriter::WritePerson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d61/a00100.html">stride::Person</a> *&#160;</td>
+          <td class="paramname"><em>person</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a Boost Property Tree containing all info needed to reconstruct a Person. </p>
+
+<p>Definition at line <a class="el" href="../../da/de7/a00210_source.html#l00160">160</a> of file <a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a>.</p>
+
+<p>References <a class="el" href="../../d9/dd6/a00272_source.html#l00060">stride::Person::GetAge()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00118">stride::Person::GetCollegeId()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00072">stride::Person::GetGender()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00107">stride::Person::GetHouseholdId()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00081">stride::Person::GetId()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00112">stride::Person::GetK12SchoolId()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00130">stride::Person::GetPrimaryCommunityId()</a>, <a class="el" href="../../d9/dd6/a00272_source.html#l00139">stride::Person::GetSecondaryCommunityId()</a>, and <a class="el" href="../../d9/dd6/a00272_source.html#l00124">stride::Person::GetWorkId()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00029">Write()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ace21dd729826b385b0b54006a672b9e9"></a>
+<a class="anchor" id="a0aff3009be27579a5aec48bed22aa570"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -270,7 +418,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a>&gt; &gt; gengeopop::GeoGridPopulator::m_partialPopulators</td>
+          <td class="memname">std::set&lt;<a class="el" href="../../d0/d61/a00100.html">stride::Person</a>*&gt; gengeopop::GeoGridJSONWriter::m_persons_found</td>
         </tr>
       </table>
   </td>
@@ -280,77 +428,25 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>PartialPopulators. </p>
+<p>The persons found when looping over the ContactPools. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00041">41</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/ded/a00211_source.html#l00056">56</a> of file <a class="el" href="../../dd/ded/a00211_source.html">GeoGridJSONWriter.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/ded/a00211_source.html#l00037">AddPartialPopulator()</a>, and <a class="el" href="../../dd/ded/a00211_source.html#l00028">PopulateGeoGrid()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9aa23397da0a882e1320b22c43e82526"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../db/db2/a00020.html">GeoGrid</a>&gt; gengeopop::GeoGridPopulator::m_geoGrid</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The target. </p>
-
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00042">42</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/ded/a00211_source.html#l00035">GetGeoGrid()</a>, and <a class="el" href="../../dd/ded/a00211_source.html#l00028">PopulateGeoGrid()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0141e36ba7d15a329c4d267f0d64e3d3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d3/d52/a00023.html">GeoGridConfig</a> gengeopop::GeoGridPopulator::m_geoGridConfig</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The config. </p>
-
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00043">43</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../dd/ded/a00211_source.html#l00028">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/de7/a00210_source.html#l00029">Write()</a>, and <a class="el" href="../../da/de7/a00210_source.html#l00144">WriteContactPool()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.h</a></li>
-<li><a class="el" href="../../dd/ded/a00211_source.html">GeoGridPopulator.cpp</a></li>
+<li><a class="el" href="../../dd/ded/a00211_source.html">GeoGridJSONWriter.h</a></li>
+<li><a class="el" href="../../da/de7/a00210_source.html">GeoGridJSONWriter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/d33/a00027.html">GeoGridPopulator</a></li>
-    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d0/d33/a00027.html">GeoGridJSONWriter</a></li>
+    <li class="footer">Generated on Tue Jan 8 2019 15:07:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

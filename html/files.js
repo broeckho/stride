@@ -121,147 +121,147 @@ var files =
       [ "FileSys", "d8/d17/a00114.html", "d8/d17/a00114" ],
       [ "Dirs", "d2/da3/a00115.html", "d2/da3/a00115" ]
     ] ],
-    [ "genpop.cpp", "dc/d57/a00194.html", "dc/d57/a00194" ],
-    [ "GenPopBuilder.cpp", "d3/d2a/a00195.html", null ],
-    [ "GenPopBuilder.h", "d7/ded/a00196.html", [
+    [ "GeneratorInterface.h", "dc/d57/a00194.html", [
+      [ "GeneratorInterface", "d7/d7a/a00016.html", "d7/d7a/a00016" ]
+    ] ],
+    [ "genpop.cpp", "d3/d2a/a00195.html", "d3/d2a/a00195" ],
+    [ "GenPopBuilder.cpp", "d7/ded/a00196.html", null ],
+    [ "GenPopBuilder.h", "de/db1/a00197.html", [
       [ "GenPopBuilder", "db/ddf/a00088.html", "db/ddf/a00088" ]
     ] ],
-    [ "GenPopController.cpp", "de/db1/a00197.html", null ],
-    [ "GenPopController.h", "d7/da0/a00198.html", [
-      [ "GenPopController", "d7/d7a/a00016.html", "d7/d7a/a00016" ]
+    [ "GenPopController.cpp", "d7/da0/a00198.html", null ],
+    [ "GenPopController.h", "d8/d72/a00199.html", [
+      [ "GenPopController", "d4/d51/a00017.html", "d4/d51/a00017" ]
     ] ],
-    [ "GeoAggregator.h", "d8/d72/a00199.html", "d8/d72/a00199" ],
-    [ "GeoGrid.cpp", "d3/db1/a00200.html", null ],
-    [ "GeoGrid.h", "dd/de3/a00201.html", "dd/de3/a00201" ],
-    [ "geogrid.pb.h", "db/d53/a00202.html", "db/d53/a00202" ],
-    [ "GeoGridConfig.cpp", "de/d79/a00203.html", "de/d79/a00203" ],
-    [ "GeoGridConfig.h", "d1/d72/a00204.html", [
-      [ "GeoGridConfig", "d3/d52/a00023.html", "d3/d52/a00023" ]
+    [ "GeoAggregator.h", "d3/db1/a00200.html", "d3/db1/a00200" ],
+    [ "GeoGrid.cpp", "dd/de3/a00201.html", null ],
+    [ "GeoGrid.h", "db/d53/a00202.html", "db/d53/a00202" ],
+    [ "geogrid.pb.h", "de/d79/a00203.html", "de/d79/a00203" ],
+    [ "GeoGridConfig.cpp", "d1/d72/a00204.html", "d1/d72/a00204" ],
+    [ "GeoGridConfig.h", "d5/d13/a00205.html", [
+      [ "GeoGridConfig", "dc/de2/a00024.html", "dc/de2/a00024" ]
     ] ],
-    [ "GeoGridGenerator.cpp", "d5/d13/a00205.html", null ],
-    [ "GeoGridGenerator.h", "d5/df1/a00206.html", [
-      [ "GeoGridGenerator", "dc/de2/a00024.html", "dc/de2/a00024" ]
+    [ "GeoGridGenerator.cpp", "d5/df1/a00206.html", null ],
+    [ "GeoGridGenerator.h", "de/dd2/a00207.html", [
+      [ "GeoGridGenerator", "d3/dfe/a00025.html", "d3/dfe/a00025" ]
     ] ],
-    [ "GeoGridJSONReader.cpp", "de/dd2/a00207.html", null ],
-    [ "GeoGridJSONReader.h", "dc/d31/a00208.html", [
-      [ "GeoGridJSONReader", "d3/dfe/a00025.html", "d3/dfe/a00025" ]
+    [ "GeoGridJSONReader.cpp", "dc/d31/a00208.html", null ],
+    [ "GeoGridJSONReader.h", "d3/de5/a00209.html", [
+      [ "GeoGridJSONReader", "d6/d5b/a00026.html", "d6/d5b/a00026" ]
     ] ],
-    [ "GeoGridJSONWriter.cpp", "d3/de5/a00209.html", null ],
-    [ "GeoGridJSONWriter.h", "da/de7/a00210.html", [
-      [ "GeoGridJSONWriter", "d6/d5b/a00026.html", "d6/d5b/a00026" ]
+    [ "GeoGridJSONWriter.cpp", "da/de7/a00210.html", null ],
+    [ "GeoGridJSONWriter.h", "dd/ded/a00211.html", [
+      [ "GeoGridJSONWriter", "d0/d33/a00027.html", "d0/d33/a00027" ]
     ] ],
-    [ "GeoGridPopulator.cpp", "dd/ded/a00211.html", null ],
-    [ "GeoGridPopulator.h", "dd/dc1/a00212.html", [
-      [ "GeoGridPopulator", "d0/d33/a00027.html", "d0/d33/a00027" ]
+    [ "GeoGridPopulator.cpp", "dd/dc1/a00212.html", null ],
+    [ "GeoGridPopulator.h", "d1/de1/a00213.html", [
+      [ "GeoGridPopulator", "dc/d3c/a00028.html", "dc/d3c/a00028" ]
     ] ],
-    [ "GeoGridProtoReader.cpp", "d1/de1/a00213.html", null ],
-    [ "GeoGridProtoReader.h", "d3/dd1/a00214.html", [
-      [ "GeoGridProtoReader", "dc/d3c/a00028.html", "dc/d3c/a00028" ]
+    [ "GeoGridProtoReader.cpp", "d3/dd1/a00214.html", null ],
+    [ "GeoGridProtoReader.h", "d3/dd5/a00215.html", [
+      [ "GeoGridProtoReader", "d5/d16/a00029.html", "d5/d16/a00029" ]
     ] ],
-    [ "GeoGridProtoWriter.cpp", "d3/dd5/a00215.html", null ],
-    [ "GeoGridProtoWriter.h", "d6/d43/a00216.html", [
-      [ "GeoGridProtoWriter", "d5/d16/a00029.html", "d5/d16/a00029" ]
+    [ "GeoGridProtoWriter.cpp", "d6/d43/a00216.html", null ],
+    [ "GeoGridProtoWriter.h", "df/d24/a00217.html", [
+      [ "GeoGridProtoWriter", "d5/d79/a00030.html", "d5/d79/a00030" ]
     ] ],
-    [ "GeoGridReader.cpp", "df/d24/a00217.html", null ],
-    [ "GeoGridReader.h", "dc/d9a/a00218.html", [
-      [ "GeoGridReader", "d5/d79/a00030.html", "d5/d79/a00030" ]
+    [ "GeoGridReader.cpp", "dc/d9a/a00218.html", null ],
+    [ "GeoGridReader.h", "dd/df3/a00219.html", [
+      [ "GeoGridReader", "df/d61/a00031.html", "df/d61/a00031" ]
     ] ],
-    [ "GeoGridReaderFactory.cpp", "dd/df3/a00219.html", null ],
-    [ "GeoGridReaderFactory.h", "d5/d0b/a00220.html", [
-      [ "GeoGridReaderFactory", "df/d61/a00031.html", "df/d61/a00031" ]
+    [ "GeoGridReaderFactory.cpp", "d5/d0b/a00220.html", null ],
+    [ "GeoGridReaderFactory.h", "dd/d52/a00221.html", [
+      [ "GeoGridReaderFactory", "dc/d87/a00032.html", "dc/d87/a00032" ]
     ] ],
-    [ "GeoGridWriter.h", "dd/d52/a00221.html", [
-      [ "GeoGridWriter", "dc/d87/a00032.html", "dc/d87/a00032" ]
+    [ "GeoGridWriter.h", "d0/d24/a00222.html", [
+      [ "GeoGridWriter", "d0/dc0/a00033.html", "d0/dc0/a00033" ]
     ] ],
-    [ "GeoGridWriterFactory.cpp", "d0/d24/a00222.html", null ],
-    [ "GeoGridWriterFactory.h", "dc/d28/a00223.html", [
-      [ "GeoGridWriterFactory", "d0/dc0/a00033.html", "d0/dc0/a00033" ]
+    [ "GeoGridWriterFactory.cpp", "dc/d28/a00223.html", null ],
+    [ "GeoGridWriterFactory.h", "d5/ddf/a00224.html", [
+      [ "GeoGridWriterFactory", "db/df3/a00034.html", "db/df3/a00034" ]
     ] ],
-    [ "Health.cpp", "d5/ddf/a00224.html", null ],
-    [ "Health.h", "dc/d98/a00225.html", "dc/d98/a00225" ],
-    [ "HealthSeeder.cpp", "dc/d55/a00226.html", null ],
-    [ "HealthSeeder.h", "d9/d01/a00227.html", [
+    [ "Health.cpp", "dc/d98/a00225.html", null ],
+    [ "Health.h", "dc/d55/a00226.html", "dc/d55/a00226" ],
+    [ "HealthSeeder.cpp", "d9/d01/a00227.html", null ],
+    [ "HealthSeeder.h", "de/dc2/a00228.html", [
       [ "HealthSeeder", "d9/dec/a00090.html", "d9/dec/a00090" ]
     ] ],
-    [ "Household.cpp", "de/dc2/a00228.html", null ],
-    [ "Household.h", "dd/d2d/a00229.html", [
-      [ "Household", "db/df3/a00034.html", "db/df3/a00034" ]
+    [ "Household.cpp", "dd/d2d/a00229.html", null ],
+    [ "Household.h", "d1/da8/a00230.html", [
+      [ "Household", "d4/d8c/a00035.html", "d4/d8c/a00035" ]
     ] ],
-    [ "HouseholdCSVReader.cpp", "d1/da8/a00230.html", null ],
-    [ "HouseholdCSVReader.h", "df/d17/a00231.html", [
-      [ "HouseholdCSVReader", "d4/d8c/a00035.html", "d4/d8c/a00035" ]
+    [ "HouseholdCSVReader.cpp", "df/d17/a00231.html", null ],
+    [ "HouseholdCSVReader.h", "d0/d53/a00232.html", [
+      [ "HouseholdCSVReader", "de/d8c/a00036.html", "de/d8c/a00036" ]
     ] ],
-    [ "HouseholdGenerator.cpp", "d0/d53/a00232.html", null ],
-    [ "HouseholdGenerator.h", "d6/de1/a00233.html", [
-      [ "HouseholdGenerator", "de/d8c/a00036.html", "de/d8c/a00036" ]
+    [ "HouseholdGenerator.cpp", "d6/de1/a00233.html", null ],
+    [ "HouseholdGenerator.h", "da/d31/a00234.html", [
+      [ "HouseholdGenerator", "d1/dc6/a00037.html", "d1/dc6/a00037" ]
     ] ],
-    [ "HouseholdPopulator.cpp", "da/d31/a00234.html", null ],
-    [ "HouseholdPopulator.h", "d3/d42/a00235.html", [
-      [ "HouseholdPopulator", "d1/dc6/a00037.html", "d1/dc6/a00037" ]
+    [ "HouseholdPopulator.cpp", "d3/d42/a00235.html", null ],
+    [ "HouseholdPopulator.h", "d7/d40/a00236.html", [
+      [ "HouseholdPopulator", "d8/d41/a00038.html", "d8/d41/a00038" ]
     ] ],
-    [ "HouseholdReader.cpp", "d7/d40/a00236.html", null ],
-    [ "HouseholdReader.h", "d4/d08/a00237.html", [
-      [ "HouseholdReader", "d8/d41/a00038.html", "d8/d41/a00038" ]
+    [ "HouseholdReader.cpp", "d4/d08/a00237.html", null ],
+    [ "HouseholdReader.h", "da/d2e/a00238.html", [
+      [ "HouseholdReader", "d3/de7/a00039.html", "d3/de7/a00039" ]
     ] ],
-    [ "Id.cpp", "da/d2e/a00238.html", "da/d2e/a00238" ],
-    [ "Id.h", "d0/d27/a00239.html", "d0/d27/a00239" ],
-    [ "IdSubscriptArray.h", "d9/d21/a00240.html", [
+    [ "Id.cpp", "d0/d27/a00239.html", "d0/d27/a00239" ],
+    [ "Id.h", "d9/d21/a00240.html", "d9/d21/a00240" ],
+    [ "IdSubscriptArray.h", "d6/db6/a00241.html", [
       [ "IdSubscriptArray", "df/d03/a00062.html", "df/d03/a00062" ],
       [ "IdSubscriptArray< bool >", "d1/d51/a00079.html", "d1/d51/a00079" ]
     ] ],
-    [ "Immunizer.cpp", "d6/db6/a00241.html", null ],
-    [ "Immunizer.h", "d2/dc8/a00242.html", [
+    [ "Immunizer.cpp", "d2/dc8/a00242.html", null ],
+    [ "Immunizer.h", "d6/d82/a00243.html", [
       [ "Immunizer", "da/d82/a00091.html", "da/d82/a00091" ]
     ] ],
-    [ "ImportPopBuilder.cpp", "d6/d82/a00243.html", null ],
-    [ "ImportPopBuilder.h", "d6/d08/a00244.html", [
+    [ "ImportPopBuilder.cpp", "d6/d08/a00244.html", null ],
+    [ "ImportPopBuilder.h", "d6/d22/a00245.html", [
       [ "ImportPopBuilder", "d1/dc1/a00092.html", "d1/dc1/a00092" ]
     ] ],
-    [ "InfectedFile.cpp", "d6/d22/a00245.html", null ],
-    [ "InfectedFile.h", "d4/d9a/a00246.html", [
+    [ "InfectedFile.cpp", "d4/d9a/a00246.html", null ],
+    [ "InfectedFile.h", "d0/d1f/a00247.html", [
       [ "InfectedFile", "d1/d84/a00097.html", "d1/d84/a00097" ]
     ] ],
-    [ "InfectedFileViewer.cpp", "d0/d1f/a00247.html", null ],
-    [ "InfectedFileViewer.h", "dd/dd7/a00248.html", [
+    [ "InfectedFileViewer.cpp", "dd/dd7/a00248.html", null ],
+    [ "InfectedFileViewer.h", "de/dbc/a00249.html", [
       [ "InfectedFileViewer", "d6/db3/a00130.html", "d6/db3/a00130" ]
     ] ],
-    [ "InfectedViewer.cpp", "de/dbc/a00249.html", null ],
-    [ "InfectedViewer.h", "d0/da7/a00250.html", [
+    [ "InfectedViewer.cpp", "d0/da7/a00250.html", null ],
+    [ "InfectedViewer.h", "d3/d1a/a00251.html", [
       [ "InfectedViewer", "d7/d06/a00131.html", "d7/d06/a00131" ]
     ] ],
-    [ "Infector.cpp", "d3/d1a/a00251.html", null ],
-    [ "Infector.h", "dc/ded/a00252.html", [
+    [ "Infector.cpp", "dc/ded/a00252.html", null ],
+    [ "Infector.h", "d0/d3e/a00253.html", [
       [ "Infector", "d4/d7d/a00093.html", "d4/d7d/a00093" ],
       [ "Infector< LL, TIC, true >", "dc/d54/a00094.html", "dc/d54/a00094" ]
     ] ],
-    [ "InfectorExec.h", "d0/d3e/a00253.html", "d0/d3e/a00253" ],
-    [ "InfectorMap.h", "d7/d03/a00254.html", [
+    [ "InfectorExec.h", "d7/d03/a00254.html", "d7/d03/a00254" ],
+    [ "InfectorMap.h", "d4/d04/a00255.html", [
       [ "InfectorMap", "d9/d77/a00095.html", "d9/d77/a00095" ]
     ] ],
-    [ "is_iterator.h", "d4/d04/a00255.html", "d4/d04/a00255" ],
-    [ "K12School.h", "d0/def/a00256.html", [
-      [ "K12School", "d3/de7/a00039.html", "d3/de7/a00039" ]
+    [ "is_iterator.h", "d0/def/a00256.html", "d0/def/a00256" ],
+    [ "K12School.h", "d9/d39/a00257.html", [
+      [ "K12School", "db/d3a/a00040.html", "db/d3a/a00040" ]
     ] ],
-    [ "K12SchoolGenerator.cpp", "d9/d39/a00257.html", null ],
-    [ "K12SchoolGenerator.h", "d7/d2f/a00258.html", [
-      [ "K12SchoolGenerator", "db/d3a/a00040.html", "db/d3a/a00040" ]
+    [ "K12SchoolGenerator.cpp", "d7/d2f/a00258.html", null ],
+    [ "K12SchoolGenerator.h", "d0/d2f/a00259.html", [
+      [ "K12SchoolGenerator", "dd/d32/a00041.html", "dd/d32/a00041" ]
     ] ],
-    [ "K12SchoolPopulator.cpp", "d0/d2f/a00259.html", null ],
-    [ "K12SchoolPopulator.h", "dd/dd7/a00260.html", [
-      [ "K12SchoolPopulator", "dd/d32/a00041.html", "dd/d32/a00041" ]
+    [ "K12SchoolPopulator.cpp", "dd/dd7/a00260.html", null ],
+    [ "K12SchoolPopulator.h", "dc/d6a/a00261.html", [
+      [ "K12SchoolPopulator", "d5/db6/a00042.html", "d5/db6/a00042" ]
     ] ],
-    [ "KdTree.h", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
-    [ "Location.cpp", "d9/d8d/a00262.html", null ],
-    [ "Location.h", "df/da9/a00263.html", "df/da9/a00263" ],
-    [ "LogUtils.cpp", "d3/dcc/a00264.html", null ],
-    [ "LogUtils.h", "da/d53/a00265.html", [
+    [ "KdTree.h", "d9/d8d/a00262.html", "d9/d8d/a00262" ],
+    [ "Location.cpp", "df/da9/a00263.html", null ],
+    [ "Location.h", "d3/dcc/a00264.html", "d3/dcc/a00264" ],
+    [ "LogUtils.cpp", "da/d53/a00265.html", null ],
+    [ "LogUtils.h", "d5/d35/a00266.html", [
       [ "LogUtils", "df/d6a/a00119.html", "df/d6a/a00119" ]
     ] ],
-    [ "mainpage.doxy", "d5/d35/a00266.html", null ],
-    [ "namespaces.doxy", "d1/dd4/a00267.html", null ],
-    [ "PartialGenerator.h", "db/d12/a00268.html", [
-      [ "PartialGenerator", "d6/d97/a00045.html", "d6/d97/a00045" ]
-    ] ],
+    [ "mainpage.doxy", "d1/dd4/a00267.html", null ],
+    [ "namespaces.doxy", "db/d12/a00268.html", null ],
     [ "PartialPopulator.cpp", "d5/d42/a00269.html", null ],
     [ "PartialPopulator.h", "d9/d2a/a00270.html", [
       [ "PartialPopulator", "d3/dea/a00046.html", "d3/dea/a00046" ]

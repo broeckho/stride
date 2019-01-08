@@ -9,5 +9,5 @@ var searchData=
   ['descriptor',['descriptor',['../da/d24/a00068.html#ade88045367aa436965f2067b19e6fc00',1,'proto::GeoGrid_Location_Coordinate::descriptor()'],['../dc/ddf/a00067.html#a4d5ef41455d9c6403443b5738a834510',1,'proto::GeoGrid_Location_ContactCenter_ContactPool::descriptor()'],['../d9/db3/a00066.html#a5f421c2007309ef9491ebff5ad098a06',1,'proto::GeoGrid_Location_ContactCenter::descriptor()'],['../de/de1/a00065.html#a8bbf5f1553e06a50fda0eb2f05120d60',1,'proto::GeoGrid_Location_Commute::descriptor()'],['../df/d5f/a00064.html#a9142882adec24247d36610ee120d95f5',1,'proto::GeoGrid_Location::descriptor()'],['../d4/d31/a00069.html#a626c18e0d4a739ae7da52ba5086ba305',1,'proto::GeoGrid_Person::descriptor()'],['../d1/d6f/a00063.html#a91917f97a836a3cd49870ff3eb8f18d5',1,'proto::GeoGrid::descriptor()']]],
   ['dirs',['Dirs',['../d2/da3/a00115.html#a5c0e642aa05f9c73a9d5edb298b7fa1c',1,'stride::util::FileSys::Dirs']]],
   ['diseaseseeder',['DiseaseSeeder',['../d1/d1e/a00087.html#aec696ec6255d5068b34a911f9a45ffc0',1,'stride::DiseaseSeeder']]],
-  ['distance',['Distance',['../de/d11/a00021.html#aa75fa16b3e4daa51fa633f420404cda4',1,'gengeopop::geogrid_detail::KdTree2DPoint']]]
+  ['distance',['Distance',['../d7/de0/a00022.html#aa75fa16b3e4daa51fa633f420404cda4',1,'gengeopop::geogrid_detail::KdTree2DPoint']]]
 ];

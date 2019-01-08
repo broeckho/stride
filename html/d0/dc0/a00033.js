@@ -1,4 +1,5 @@
 var a00033 =
 [
-    [ "CreateWriter", "d0/dc0/a00033.html#a4992a30def6112ba16f8b76c7d5ea768", null ]
+    [ "~GeoGridWriter", "d0/dc0/a00033.html#af7a0b5285a5be682d1272e60927630ed", null ],
+    [ "Write", "d0/dc0/a00033.html#af4a6cacfbe68ffae860ae217273413be", null ]
 ];

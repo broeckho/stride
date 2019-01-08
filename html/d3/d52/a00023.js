@@ -1,28 +1,4 @@
 var a00023 =
 [
-    [ "GeoGridConfig", "d3/d52/a00023.html#a402df7e9798ac2206d7e10e0eb158177", null ],
-    [ "Calculate", "d3/d52/a00023.html#ae840dd7732fd6c16ab759adacdd7c35a", null ],
-    [ "operator<<", "d3/d52/a00023.html#a9f960d6e61af9bf7cc9230f772834b96", null ],
-    [ "fraction_1826_years_WhichAreStudents", "d3/d52/a00023.html#a9a3f4f357cef24a66d3c9dcdc58f7b5b", null ],
-    [ "fraction_active_commutingPeople", "d3/d52/a00023.html#abc57c86996194cd95c586896e8918a20", null ],
-    [ "fraction_student_commutingPeople", "d3/d52/a00023.html#a78e9f4c58c365259d7d080dabc329f96", null ],
-    [ "fraction_1865_years_active", "d3/d52/a00023.html#a34a5fe86ba4e60ef668c1bc60222634d", null ],
-    [ "populationSize", "d3/d52/a00023.html#ae5b9fde4c7f1f62339043b23f91850f5", null ],
-    [ "input", "d3/d52/a00023.html#a932e91e15c65933abb7934ecace53f35", null ],
-    [ "compulsoryPupils", "d3/d52/a00023.html#a6f6aa2c75003ae4952a3ad7ce5afe880", null ],
-    [ "popcount_1865_years", "d3/d52/a00023.html#a2deb75fb25072ae95d500f56f5bf3254", null ],
-    [ "popcount_1826_years", "d3/d52/a00023.html#afd0c5db56314f0efa26ce9dfd84b98c5", null ],
-    [ "popcount_1826_years_and_student", "d3/d52/a00023.html#a126c9bbb820118ce7454c2a31d0d8177", null ],
-    [ "popcount_1865_and_years_active", "d3/d52/a00023.html#a91402a31104f1c57aad3f6804d18401a", null ],
-    [ "households", "d3/d52/a00023.html#a6c12e7a934465249adfaf5b476d62eaf", null ],
-    [ "calculated", "d3/d52/a00023.html#af9610682c3d25a6c5cf4dc0164988a54", null ],
-    [ "contactPools", "d3/d52/a00023.html#a90f5ed4ddabd82da2713fe68f6c1bd6c", null ],
-    [ "contactCenters", "d3/d52/a00023.html#a737d7b1ed78c73a8628b1a938a47475f", null ],
-    [ "household_types", "d3/d52/a00023.html#a56c54e65b247d0b49962a00f382e8912", null ],
-    [ "generated", "d3/d52/a00023.html#a981511c45d99012d50aefe53d08fef7c", null ],
-    [ "meanCollegeSize", "d3/d52/a00023.html#a1811a952ecb5b6e9043e845cff9f2234", null ],
-    [ "meanCommunitySize", "d3/d52/a00023.html#aa71b5402529c5ae2dc2acc30f186fd47", null ],
-    [ "meanK12SchoolSize", "d3/d52/a00023.html#a379e3f07ea36ff40b12a69fb05822a11", null ],
-    [ "meanWorkplaceSchoolSize", "d3/d52/a00023.html#a7a8aa6cce07959cac4b85e80b487af5d", null ],
-    [ "constants", "d3/d52/a00023.html#a2ef783a0eb04a2a0dfc164b72f2c4503", null ]
+    [ "type", "d3/d52/a00023.html#a2189cf45785422a26fb25006ac0841ca", null ]
 ];

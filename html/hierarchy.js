@@ -1,7 +1,7 @@
 var hierarchy =
 [
     [ "gengeopop::kd::BaseNode< geogrid_detail::KdTree2DPoint >", "d7/d46/a00002.html", [
-      [ "gengeopop::kd::Node< geogrid_detail::KdTree2DPoint, 0 >", "d5/db6/a00042.html", null ]
+      [ "gengeopop::kd::Node< geogrid_detail::KdTree2DPoint, 0 >", "d6/d42/a00043.html", null ]
     ] ],
     [ "gengeopop::AABB< P >", "d1/d7c/a00003.html", null ],
     [ "gengeopop::BoxPolicy", "d0/d0b/a00004.html", null ],
@@ -18,51 +18,51 @@ var hierarchy =
         [ "gengeopop::PrimaryCommunity", "d4/dca/a00048.html", null ],
         [ "gengeopop::SecondaryCommunity", "d1/d84/a00052.html", null ]
       ] ],
-      [ "gengeopop::Household", "db/df3/a00034.html", null ],
-      [ "gengeopop::K12School", "d3/de7/a00039.html", null ],
+      [ "gengeopop::Household", "d4/d8c/a00035.html", null ],
+      [ "gengeopop::K12School", "db/d3a/a00040.html", null ],
       [ "gengeopop::Workplace", "d1/d22/a00057.html", null ]
     ] ],
-    [ "gengeopop::GenPopController", "d7/d7a/a00016.html", null ],
-    [ "gengeopop::GeoAggregator< Policy, F >", "d4/d51/a00017.html", null ],
-    [ "gengeopop::GeoAggregator< Policy >", "d1/d2b/a00018.html", [
-      [ "gengeopop::GeoAggregator< Policy, F >", "dd/da2/a00019.html", null ]
-    ] ],
-    [ "gengeopop::GeoGrid", "db/db2/a00020.html", null ],
-    [ "gengeopop::geogrid_detail::KdTree2DPoint", "de/d11/a00021.html", null ],
-    [ "gengeopop::geogrid_detail::KdTree2DPoint::dimension_type< D >", "d7/de0/a00022.html", null ],
-    [ "gengeopop::GeoGridConfig", "d3/d52/a00023.html", null ],
-    [ "gengeopop::GeoGridGenerator", "dc/de2/a00024.html", null ],
-    [ "gengeopop::GeoGridPopulator", "d0/d33/a00027.html", null ],
-    [ "gengeopop::GeoGridReader", "d5/d79/a00030.html", [
-      [ "gengeopop::GeoGridJSONReader", "d3/dfe/a00025.html", null ],
-      [ "gengeopop::GeoGridProtoReader", "dc/d3c/a00028.html", null ]
-    ] ],
-    [ "gengeopop::GeoGridReaderFactory", "df/d61/a00031.html", null ],
-    [ "gengeopop::GeoGridWriter", "dc/d87/a00032.html", [
-      [ "gengeopop::GeoGridJSONWriter", "d6/d5b/a00026.html", null ],
-      [ "gengeopop::GeoGridProtoWriter", "d5/d16/a00029.html", null ]
-    ] ],
-    [ "gengeopop::GeoGridWriterFactory", "d0/dc0/a00033.html", null ],
-    [ "gengeopop::HouseholdReader", "d8/d41/a00038.html", [
-      [ "gengeopop::HouseholdCSVReader", "d4/d8c/a00035.html", null ]
-    ] ],
-    [ "gengeopop::kd::BaseNode< P >", "d7/d46/a00002.html", [
-      [ "gengeopop::kd::Node< P, D >", "d5/db6/a00042.html", null ],
-      [ "gengeopop::kd::Node< P, 0 >", "d5/db6/a00042.html", null ]
-    ] ],
-    [ "gengeopop::KdTree< P >", "d6/d42/a00043.html", null ],
-    [ "gengeopop::Location", "d5/df9/a00044.html", null ],
-    [ "gengeopop::PartialGenerator", "d6/d97/a00045.html", [
+    [ "gengeopop::GeneratorInterface", "d7/d7a/a00016.html", [
       [ "gengeopop::CollegeGenerator", "da/da0/a00009.html", null ],
       [ "gengeopop::CommunityGenerator", "df/d86/a00012.html", null ],
-      [ "gengeopop::HouseholdGenerator", "de/d8c/a00036.html", null ],
-      [ "gengeopop::K12SchoolGenerator", "db/d3a/a00040.html", null ],
+      [ "gengeopop::HouseholdGenerator", "d1/dc6/a00037.html", null ],
+      [ "gengeopop::K12SchoolGenerator", "dd/d32/a00041.html", null ],
       [ "gengeopop::WorkplaceGenerator", "d7/df7/a00058.html", null ]
     ] ],
+    [ "gengeopop::GenPopController", "d4/d51/a00017.html", null ],
+    [ "gengeopop::GeoAggregator< Policy, F >", "d1/d2b/a00018.html", null ],
+    [ "gengeopop::GeoAggregator< Policy >", "dd/da2/a00019.html", [
+      [ "gengeopop::GeoAggregator< Policy, F >", "db/db2/a00020.html", null ]
+    ] ],
+    [ "gengeopop::GeoGrid", "de/d11/a00021.html", null ],
+    [ "gengeopop::geogrid_detail::KdTree2DPoint", "d7/de0/a00022.html", null ],
+    [ "gengeopop::geogrid_detail::KdTree2DPoint::dimension_type< D >", "d3/d52/a00023.html", null ],
+    [ "gengeopop::GeoGridConfig", "dc/de2/a00024.html", null ],
+    [ "gengeopop::GeoGridGenerator", "d3/dfe/a00025.html", null ],
+    [ "gengeopop::GeoGridPopulator", "dc/d3c/a00028.html", null ],
+    [ "gengeopop::GeoGridReader", "df/d61/a00031.html", [
+      [ "gengeopop::GeoGridJSONReader", "d6/d5b/a00026.html", null ],
+      [ "gengeopop::GeoGridProtoReader", "d5/d16/a00029.html", null ]
+    ] ],
+    [ "gengeopop::GeoGridReaderFactory", "dc/d87/a00032.html", null ],
+    [ "gengeopop::GeoGridWriter", "d0/dc0/a00033.html", [
+      [ "gengeopop::GeoGridJSONWriter", "d0/d33/a00027.html", null ],
+      [ "gengeopop::GeoGridProtoWriter", "d5/d79/a00030.html", null ]
+    ] ],
+    [ "gengeopop::GeoGridWriterFactory", "db/df3/a00034.html", null ],
+    [ "gengeopop::HouseholdReader", "d3/de7/a00039.html", [
+      [ "gengeopop::HouseholdCSVReader", "de/d8c/a00036.html", null ]
+    ] ],
+    [ "gengeopop::kd::BaseNode< P >", "d7/d46/a00002.html", [
+      [ "gengeopop::kd::Node< P, D >", "d6/d42/a00043.html", null ],
+      [ "gengeopop::kd::Node< P, 0 >", "d6/d42/a00043.html", null ]
+    ] ],
+    [ "gengeopop::KdTree< P >", "d5/df9/a00044.html", null ],
+    [ "gengeopop::Location", "d6/d97/a00045.html", null ],
     [ "gengeopop::PartialPopulator", "d3/dea/a00046.html", [
       [ "gengeopop::CollegePopulator", "d7/dec/a00010.html", null ],
-      [ "gengeopop::HouseholdPopulator", "d1/dc6/a00037.html", null ],
-      [ "gengeopop::K12SchoolPopulator", "dd/d32/a00041.html", null ],
+      [ "gengeopop::HouseholdPopulator", "d8/d41/a00038.html", null ],
+      [ "gengeopop::K12SchoolPopulator", "d5/db6/a00042.html", null ],
       [ "gengeopop::PrimaryCommunityPopulator", "d2/dee/a00049.html", null ],
       [ "gengeopop::SecondaryCommunityPopulator", "dc/dee/a00053.html", null ],
       [ "gengeopop::WorkplacePopulator", "d3/d8b/a00059.html", null ]
@@ -84,7 +84,7 @@ var hierarchy =
       [ "proto::GeoGrid_Location_Coordinate", "da/d24/a00068.html", null ],
       [ "proto::GeoGrid_Person", "d4/d31/a00069.html", null ]
     ] ],
-    [ "gengeopop::KdTree< geogrid_detail::KdTree2DPoint >", "d6/d42/a00043.html", null ],
+    [ "gengeopop::KdTree< geogrid_detail::KdTree2DPoint >", "d5/df9/a00044.html", null ],
     [ "protobuf_geogrid_2eproto::TableStruct", "d2/db1/a00070.html", null ],
     [ "stride::util::SegmentedVector< Person >", "d0/d89/a00071.html", [
       [ "stride::Population", "d4/d3a/a00101.html", null ]

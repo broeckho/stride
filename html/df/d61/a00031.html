@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GeoGridReaderFactory Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeoGridReader Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
+   &#160;<span id="projectnumber">- generated for commit 0c10d47</span>
    </div>
   </td>
  </tr>
@@ -108,44 +108,108 @@ $(document).ready(function(){initNavTree('df/d61/a00031.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../d2/d4a/a00758.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeoGridReaderFactory Class Reference</div>  </div>
+<div class="title">gengeopop::GeoGridReader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A Factory for creating the correct implementation of a <a class="el" href="../../d5/d79/a00030.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension.  
+<p>An abstract base class for creating a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> that was read from a file, can be implemented using multiple file types (proto and json are currently implemented)  
  <a href="../../df/d61/a00031.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GeoGridReaderFactory:</div>
+Inheritance diagram for gengeopop::GeoGridReader:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d2/d87/a00759.gif" border="0" usemap="#gengeopop_1_1GeoGridReaderFactory_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GeoGridReaderFactory_coll__map" id="gengeopop_1_1GeoGridReaderFactory_coll__map">
+<div class="center"><img src="../../d2/d87/a00759.gif" border="0" usemap="#gengeopop_1_1GeoGridReader_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1GeoGridReader_inherit__map" id="gengeopop_1_1GeoGridReader_inherit__map">
+<area shape="rect" id="node2" href="../../d6/d5b/a00026.html" title="An implementation of the GeoGridReader using JSON This class is used to read a GeoGrid from a JSON fi..." alt="" coords="5,248,236,443"/>
+<area shape="rect" id="node3" href="../../d5/d16/a00029.html" title="An implementation of the GeoGridReader using Protocol Buffers. " alt="" coords="261,248,493,443"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for gengeopop::GeoGridReader:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/db4/a00760.gif" border="0" usemap="#gengeopop_1_1GeoGridReader_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1GeoGridReader_coll__map" id="gengeopop_1_1GeoGridReader_coll__map">
+<area shape="rect" id="node3" title="STL class. " alt="" coords="67,1112,165,1189"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="23,781,161,873"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="5,436,173,513"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="36,153,143,230"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="439,269,593,346"/>
+<area shape="rect" id="node14" title="STL class. " alt="" coords="1091,153,1218,230"/>
+<area shape="rect" id="node25" title="STL class. " alt="" coords="1730,261,1886,353"/>
+<area shape="rect" id="node27" title="STL class. " alt="" coords="1555,153,1770,230"/>
+<area shape="rect" id="node37" title="STL class. " alt="" coords="2233,153,2365,230"/>
+<area shape="rect" id="node9" href="../../d4/d3a/a00101.html" title="Container for persons in population. " alt="" coords="649,1340,820,1549"/>
+<area shape="rect" id="node10" href="../../d0/d89/a00071.html" title="{stride::util::SegmentedVector\l\&lt; Person \&gt;\n||+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ SegmentedVector()\l+ operator=()\l+ operator=()\l+ ~SegmentedVector()\l+ at()\l+ at()\land 23 more...\l&#45; get_chunk()\l}" alt="" coords="729,1024,938,1277"/>
+<area shape="rect" id="node11" href="../../dd/d07/a00433.html" title="{size_t\n||}" alt="" coords="685,436,744,513"/>
+<area shape="rect" id="node15" href="../../d0/d89/a00071.html" title="Container that stores objects &quot;almost contiguously&quot; (in a chain of blocks) and guarantees that pointe..." alt="" coords="794,701,1003,954"/>
+<area shape="rect" id="node13" href="../../d7/d5f/a00663.html" title="{Chunk *\n||}" alt="" coords="895,153,969,230"/>
+<area shape="rect" id="node22" href="../../d0/d61/a00100.html" title="Store and handle person data. " alt="" coords="1765,1039,1883,1263"/>
+<area shape="rect" id="node23" href="../../d0/d65/a00360.html" title="{double\n||}" alt="" coords="1821,789,1886,866"/>
+<area shape="rect" id="node24" href="../../df/d03/a00062.html" title="{stride::ContactPoolType\l::IdSubscriptArray\&lt; unsigned int \&gt;\n||+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ IdSubscriptArray()\l+ operator[]()\l+ operator[]()\l+ at()\l+ at()\l}" alt="" coords="1553,730,1796,925"/>
+<area shape="rect" id="node26" href="../../df/d03/a00062.html" title="An std::array modified to enable subscripting with the constact pool type indentifiers. " alt="" coords="1594,377,1766,572"/>
+<area shape="rect" id="node29" href="../../d1/d51/a00079.html" title="Specialisation of IdSubscriptArray foor booleans. " alt="" coords="2157,745,2349,910"/>
+<area shape="rect" id="node30" title="STL class. " alt="" coords="2152,436,2355,513"/>
+<area shape="rect" id="node34" href="../../db/dab/a00089.html" title="Holds a person&#39;s health data. " alt="" coords="1321,693,1529,961"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aadb26eff01fe18bfc9c48f08df2984e8"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#aadb26eff01fe18bfc9c48f08df2984e8">CreateReader</a> (std::string filename, <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *pop) const </td></tr>
-<tr class="memdesc:aadb26eff01fe18bfc9c48f08df2984e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="../../d5/d79/a00030.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename.  <a href="#aadb26eff01fe18bfc9c48f08df2984e8">More...</a><br /></td></tr>
-<tr class="separator:aadb26eff01fe18bfc9c48f08df2984e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7274a8aba64a533998887ec46fee72bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a7274a8aba64a533998887ec46fee72bd">GeoGridReader</a> (std::unique_ptr&lt; std::istream &gt; inputStream, <a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *pop)</td></tr>
+<tr class="memdesc:a7274a8aba64a533998887ec46fee72bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parametrized constructor.  <a href="#a7274a8aba64a533998887ec46fee72bd">More...</a><br /></td></tr>
+<tr class="separator:a7274a8aba64a533998887ec46fee72bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05b9b4cd41490fa218056043090dca06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a05b9b4cd41490fa218056043090dca06">GeoGridReader</a> (const <a class="el" href="../../df/d61/a00031.html">GeoGridReader</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a05b9b4cd41490fa218056043090dca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy constructor.  <a href="#a05b9b4cd41490fa218056043090dca06">More...</a><br /></td></tr>
+<tr class="separator:a05b9b4cd41490fa218056043090dca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed6028b0ac4ee06a820208188ffdb68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d61/a00031.html">GeoGridReader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a2ed6028b0ac4ee06a820208188ffdb68">operator=</a> (const <a class="el" href="../../df/d61/a00031.html">GeoGridReader</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a2ed6028b0ac4ee06a820208188ffdb68"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy assignment.  <a href="#a2ed6028b0ac4ee06a820208188ffdb68">More...</a><br /></td></tr>
+<tr class="separator:a2ed6028b0ac4ee06a820208188ffdb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6013cfc52c2643a6a967b781ce25a334"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a6013cfc52c2643a6a967b781ce25a334">~GeoGridReader</a> ()=default</td></tr>
+<tr class="memdesc:a6013cfc52c2643a6a967b781ce25a334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <a href="#a6013cfc52c2643a6a967b781ce25a334">More...</a><br /></td></tr>
+<tr class="separator:a6013cfc52c2643a6a967b781ce25a334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a53634f7886fdd97d544027663ec9c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a75a53634f7886fdd97d544027663ec9c">Read</a> ()=0</td></tr>
+<tr class="memdesc:a75a53634f7886fdd97d544027663ec9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the actual read and return the created <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a75a53634f7886fdd97d544027663ec9c">More...</a><br /></td></tr>
+<tr class="separator:a75a53634f7886fdd97d544027663ec9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af173ec28b1fb8313b64c8a14308b9710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#af173ec28b1fb8313b64c8a14308b9710">AddCommutes</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geoGrid)</td></tr>
+<tr class="memdesc:af173ec28b1fb8313b64c8a14308b9710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the commutes that were found to their respective Locations symmetrically.  <a href="#af173ec28b1fb8313b64c8a14308b9710">More...</a><br /></td></tr>
+<tr class="separator:af173ec28b1fb8313b64c8a14308b9710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a25c66335a8ce2710593123c80ebea5e3"><td class="memItemLeft" align="right" valign="top">std::map&lt; unsigned int, <a class="el" href="../../d0/d61/a00100.html">stride::Person</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a25c66335a8ce2710593123c80ebea5e3">m_people</a></td></tr>
+<tr class="memdesc:a25c66335a8ce2710593123c80ebea5e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commutes from, to, number.  <a href="#a25c66335a8ce2710593123c80ebea5e3">More...</a><br /></td></tr>
+<tr class="separator:a25c66335a8ce2710593123c80ebea5e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad638e9563c6270f35e5a6c03b40572f6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, <a class="el" href="../../d0/d65/a00360.html">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#ad638e9563c6270f35e5a6c03b40572f6">m_commutes</a></td></tr>
+<tr class="separator:ad638e9563c6270f35e5a6c03b40572f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b57af40336cf2ad466154e97b68701"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a55b57af40336cf2ad466154e97b68701">m_inputStream</a></td></tr>
+<tr class="memdesc:a55b57af40336cf2ad466154e97b68701"><td class="mdescLeft">&#160;</td><td class="mdescRight">file to read.  <a href="#a55b57af40336cf2ad466154e97b68701">More...</a><br /></td></tr>
+<tr class="separator:a55b57af40336cf2ad466154e97b68701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d3a/a00101.html">stride::Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d61/a00031.html#a09f66d214c32d99edff6ddf0ea2b5cbd">m_population</a></td></tr>
+<tr class="memdesc:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">population to use in the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> may be nullptr.  <a href="#a09f66d214c32d99edff6ddf0ea2b5cbd">More...</a><br /></td></tr>
+<tr class="separator:a09f66d214c32d99edff6ddf0ea2b5cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A Factory for creating the correct implementation of a <a class="el" href="../../d5/d79/a00030.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the filename extension. </p>
+<div class="textblock"><p>An abstract base class for creating a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> that was read from a file, can be implemented using multiple file types (proto and json are currently implemented) </p>
 
-<p>Definition at line <a class="el" href="../../d5/d0b/a00220_source.html#l00026">26</a> of file <a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aadb26eff01fe18bfc9c48f08df2984e8"></a>
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00029">29</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7274a8aba64a533998887ec46fee72bd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../d5/d79/a00030.html">GeoGridReader</a> &gt; gengeopop::GeoGridReaderFactory::CreateReader </td>
+          <td class="memname">gengeopop::GeoGridReader::GeoGridReader </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
+          <td class="paramtype">std::unique_ptr&lt; std::istream &gt;&#160;</td>
+          <td class="paramname"><em>inputStream</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -156,30 +220,269 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a <a class="el" href="../../d5/d79/a00030.html" title="An abstract base class for creating a GeoGrid that was read from a file, can be implemented using mul...">GeoGridReader</a> based on the provided extension in the filename. </p>
+<p>Parametrized constructor. </p>
 
-<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00035">35</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReaderFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00020">20</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">GeoGridReader.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/d82/a00243_source.html#l00042">stride::ImportPopBuilder::Build()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a05b9b4cd41490fa218056043090dca06"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::GeoGridReader::GeoGridReader </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d61/a00031.html">GeoGridReader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>No copy constructor. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6013cfc52c2643a6a967b781ce25a334"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual gengeopop::GeoGridReader::~GeoGridReader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2ed6028b0ac4ee06a820208188ffdb68"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d61/a00031.html">GeoGridReader</a>&amp; gengeopop::GeoGridReader::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d61/a00031.html">GeoGridReader</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>No copy assignment. </p>
+
+</div>
+</div>
+<a class="anchor" id="a75a53634f7886fdd97d544027663ec9c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="../../de/d11/a00021.html">GeoGrid</a>&gt; gengeopop::GeoGridReader::Read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perform the actual read and return the created <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+
+<p>Implemented in <a class="el" href="../../d5/d16/a00029.html#a551020787ddca406bd25104d8d6f7026">gengeopop::GeoGridProtoReader</a>, and <a class="el" href="../../d6/d5b/a00026.html#a63497f177cb7f3aa13807c497ab19c92">gengeopop::GeoGridJSONReader</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af173ec28b1fb8313b64c8a14308b9710"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gengeopop::GeoGridReader::AddCommutes </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
+          <td class="paramname"><em>geoGrid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add the commutes that were found to their respective Locations symmetrically. </p>
+<p>Store the persons (id-&gt;person) that were found while loping over the ContactPools. </p>
+
+<p>Definition at line <a class="el" href="../../dc/d9a/a00218_source.html#l00024">24</a> of file <a class="el" href="../../dc/d9a/a00218_source.html">GeoGridReader.cpp</a>.</p>
+
+<p>References <a class="el" href="../../dd/df3/a00219_source.html#l00055">m_commutes</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00042">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a25c66335a8ce2710593123c80ebea5e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;unsigned int, <a class="el" href="../../d0/d61/a00100.html">stride::Person</a>*&gt; gengeopop::GeoGridReader::m_people</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Commutes from, to, number. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00052">52</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00194">gengeopop::GeoGridJSONReader::ParseContactPool()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00195">gengeopop::GeoGridProtoReader::ParseContactPool()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00042">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad638e9563c6270f35e5a6c03b40572f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::tuple&lt;unsigned int, unsigned int, <a class="el" href="../../d0/d65/a00360.html">double</a>&gt; &gt; gengeopop::GeoGridReader::m_commutes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00055">55</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d9a/a00218_source.html#l00024">AddCommutes()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00092">gengeopop::GeoGridJSONReader::ParseLocation()</a>, <a class="el" href="../../d3/dd1/a00214_source.html#l00089">gengeopop::GeoGridProtoReader::ParseLocation()</a>, <a class="el" href="../../dc/d31/a00208_source.html#l00042">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a55b57af40336cf2ad466154e97b68701"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;std::istream&gt; gengeopop::GeoGridReader::m_inputStream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>file to read. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00057">57</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00042">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a09f66d214c32d99edff6ddf0ea2b5cbd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d3a/a00101.html">stride::Population</a>* gengeopop::GeoGridReader::m_population</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>population to use in the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> may be nullptr. </p>
+
+<p>Definition at line <a class="el" href="../../dd/df3/a00219_source.html#l00058">58</a> of file <a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d31/a00208_source.html#l00042">gengeopop::GeoGridJSONReader::Read()</a>, and <a class="el" href="../../d3/dd1/a00214_source.html#l00042">gengeopop::GeoGridProtoReader::Read()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d5/d0b/a00220_source.html">GeoGridReaderFactory.h</a></li>
-<li><a class="el" href="../../dd/df3/a00219_source.html">GeoGridReaderFactory.cpp</a></li>
+<li><a class="el" href="../../dd/df3/a00219_source.html">GeoGridReader.h</a></li>
+<li><a class="el" href="../../dc/d9a/a00218_source.html">GeoGridReader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../df/d61/a00031.html">GeoGridReaderFactory</a></li>
-    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../df/d61/a00031.html">GeoGridReader</a></li>
+    <li class="footer">Generated on Tue Jan 8 2019 15:07:11 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
