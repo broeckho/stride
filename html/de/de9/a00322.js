@@ -1,5 +1,0 @@
-var a00322 =
-[
-    [ "TimeStamp", "df/dcd/a00127.html", "df/dcd/a00127" ],
-    [ "operator<<", "de/de9/a00322.html#a93f9f2ea967f7688a4ed4ef10852b566", null ]
-];

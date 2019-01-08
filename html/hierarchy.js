@@ -22,7 +22,7 @@ var hierarchy =
       [ "gengeopop::K12School", "d3/de7/a00039.html", null ],
       [ "gengeopop::Workplace", "d1/d22/a00057.html", null ]
     ] ],
-    [ "gengeopop::GenGeoPopController", "d7/d7a/a00016.html", null ],
+    [ "gengeopop::GenPopController", "d7/d7a/a00016.html", null ],
     [ "gengeopop::GeoAggregator< Policy, F >", "d4/d51/a00017.html", null ],
     [ "gengeopop::GeoAggregator< Policy >", "d1/d2b/a00018.html", [
       [ "gengeopop::GeoAggregator< Policy, F >", "dd/da2/a00019.html", null ]
@@ -74,11 +74,13 @@ var hierarchy =
     [ "gengeopop::ThreadException::RunType< T >", "d4/d6d/a00055.html", null ],
     [ "gengeopop::ThreadException::RunType< void >", "d9/d2e/a00056.html", null ],
     [ "Message", "d4/de8/a00061.html", [
+      [ "proto::GeoGrid_Location_ContactCenter", "d9/db3/a00066.html", null ],
+      [ "proto::GeoGrid_Location_ContactCenter_ContactPool", "dc/ddf/a00067.html", null ]
+    ] ],
+    [ "Message", "d4/de8/a00061.html", [
       [ "proto::GeoGrid", "d1/d6f/a00063.html", null ],
       [ "proto::GeoGrid_Location", "df/d5f/a00064.html", null ],
       [ "proto::GeoGrid_Location_Commute", "de/de1/a00065.html", null ],
-      [ "proto::GeoGrid_Location_ContactCenter", "d9/db3/a00066.html", null ],
-      [ "proto::GeoGrid_Location_ContactCenter_ContactPool", "dc/ddf/a00067.html", null ],
       [ "proto::GeoGrid_Location_Coordinate", "da/d24/a00068.html", null ],
       [ "proto::GeoGrid_Person", "d4/d31/a00069.html", null ]
     ] ],
@@ -180,11 +182,11 @@ var hierarchy =
     [ "stride::util::Subject< stride::sim_event::Id >", "dc/dfe/a00125.html", [
       [ "stride::SimRunner", "d0/dc2/a00104.html", null ]
     ] ],
-    [ "CallbackType", "d4/d4f/a00673.html", null ],
-    [ "Chunk *", "d6/da1/a00675.html", null ],
-    [ "const void", "dc/de4/a00677.html", null ],
-    [ "double", "d2/d3e/a00366.html", null ],
-    [ "random_generator< E, randutils::seed_seq_fe128 >", "d4/d9b/a00680.html", null ],
-    [ "size_t", "d6/d66/a00441.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool >", "db/d77/a00683.html", null ]
+    [ "CallbackType", "d0/d50/a00661.html", null ],
+    [ "Chunk *", "d7/d5f/a00663.html", null ],
+    [ "const void", "da/d46/a00665.html", null ],
+    [ "double", "d0/d65/a00360.html", null ],
+    [ "random_generator< E, randutils::seed_seq_fe128 >", "d0/d5c/a00668.html", null ],
+    [ "size_t", "dd/d07/a00433.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool >", "d8/d13/a00671.html", null ]
 ];

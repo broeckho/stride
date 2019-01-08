@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 55eba32</span>
+   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('d4/d7d/a00093.html','../../');});
+$(document).ready(function(){initNavTree('d9/dcc/a00102.html','../../');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,19 +107,42 @@ $(document).ready(function(){initNavTree('d4/d7d/a00093.html','../../');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">stride::Infector&lt; LL, TIC, TO &gt; Member List</div>  </div>
+<div class="title">stride::Sim Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d4/d7d/a00093.html">stride::Infector&lt; LL, TIC, TO &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d7d/a00093.html#a7a04fe600bfbb5b09330163fd2d49409">Exec</a>(ContactPool &amp;pool, const AgeContactProfile &amp;profile, const TransmissionProfile &amp;transProfile, ContactHandler &amp;cHandler, unsigned short int simDay, std::shared_ptr&lt; spdlog::logger &gt; cLogger)</td><td class="entry"><a class="el" href="../../d4/d7d/a00093.html">stride::Infector&lt; LL, TIC, TO &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a719c0fbe957430ce7b9aed3d9a0e8f0a">Create</a>(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop, util::RnMan &amp;rnManager)</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a5eea8fdfe62370a9f953bb4406f9f7fb">Create</a>(const boost::property_tree::ptree &amp;configPt, std::shared_ptr&lt; Population &gt; pop, std::shared_ptr&lt; util::RnMan &gt; rnManager)</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#afea0f1297e849966883bcc1d8e3d8e86">GetCalendar</a>() const </td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a1b5ec0fca8e7496868ca067afe83f560">GetConfigValue</a>(const std::string &amp;attribute) const </td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#ae0d62bc95008a4974dd9227b5084e161">GetPopulation</a>()</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#ab93f63f0db601f8cd6543e6510808048">GetRnManager</a>()</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a59f0ea739583f91283738089112a08dc">GetTransmissionProfile</a>() const </td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a484ffc98b4b45673cf1533a0571f38fd">GetTransmissionRate</a>() const </td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#af238badc880ea1db8dba6be4272f957c">m_calendar</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#ac0f1837c346b11b4cea734b6769b8d1d">m_config_pt</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#af58f9eda3c97affca6acbfde33bc68c0">m_contact_log_mode</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a9fd4ab1a0802a5b855efa4bf2b5a8e08">m_contact_profiles</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#aa32eb53f04209e58c93b25d8c6c24a40">m_handlers</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a36d96f3112de535bd8a48b8694545212">m_infector</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a6ea31f057cd8b04a29439301a786790f">m_num_threads</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#ab558b35470a8f91f051a32f374e54e00">m_population</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#acec00fb79fb58700e4eef6f0a20209ac">m_rn_manager</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a88a205a5cfbd78547c63e7643f19de5a">m_rn_manager_ptr</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a4d51a48a2354c6c138552edbfaf57870">m_track_index_case</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a07c55a625ad780341af4eef33ad3d5cf">m_transmission_profile</a></td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a419307faed65206a987f39072bdc34ab">Sim</a>(util::RnMan &amp;)</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">explicit</span><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a5cf16ad00de0d1a780d009584904bcdd">Sim</a>(std::shared_ptr&lt; util::RnMan &gt; rnMan)</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">explicit</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a9a439036c5f4a413765b48764c0b1741">SimBuilder</a> class</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="../../d9/dcc/a00102.html#a032911d7270c91e0a6a9c55f68800096">TimeStep</a>()</td><td class="entry"><a class="el" href="../../d9/dcc/a00102.html">stride::Sim</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Dec 20 2018 16:15:00 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

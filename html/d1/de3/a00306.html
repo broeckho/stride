@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: StanController.cpp File Reference</title>
+<title>Stride Reference Manual: Subject.cpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 55eba32</span>
+   &#160;<span id="projectnumber">- generated for commit 21b1b9a</span>
    </div>
   </td>
  </tr>
@@ -107,56 +107,21 @@ $(document).ready(function(){initNavTree('d1/de3/a00306.html','../../');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">StanController.cpp File Reference</div>  </div>
+<div class="title">Subject.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header for the command line controller.  
+<p>Definition of Subject/Observer for SimEvents.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/da2/a00307_source.html">sim/StanController.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d2/d04/a00281_source.html">pop/Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d17/a00304_source.html">sim/SimRunner.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d4e/a00141_source.html">util/BoxPlotData.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../db/dd9/a00179_source.html">util/CSV.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d0/d48/a00165_source.html">util/ConfigInfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d3/d2a/a00195_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d1/d67/a00310_source.html">util/StringUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/ded/a00252_source.html">viewers/InfectedViewer.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;initializer_list&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;random&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d0/da2/a00307_source.html">Subject.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for StanController.cpp:</div>
+Include dependency graph for Subject.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../da/dd1/a00629.gif" border="0" usemap="#StanController_8cpp" alt=""/></div>
-<map name="StanController_8cpp" id="StanController_8cpp">
-<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1416,80,1568,107"/>
-<area shape="rect" id="node6" href="../../d1/d67/a00310.html" title="Miscellaneous string utilities. " alt="" coords="1618,408,1718,435"/>
-<area shape="rect" id="node21" href="../../d2/d04/a00281.html" title="Header file for the core Population class. " alt="" coords="1211,80,1340,107"/>
-<area shape="rect" id="node37" href="../../d8/d17/a00304.html" title="Header for the SimRunner class. " alt="" coords="2012,162,2142,189"/>
-<area shape="rect" id="node40" href="../../d5/d4e/a00141.html" title="Header file for BoxPlotData. " alt="" coords="44,408,180,435"/>
-<area shape="rect" id="node42" href="../../db/dd9/a00179.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1081,251,1164,278"/>
-<area shape="rect" id="node47" href="../../d0/d48/a00165.html" title="Info on configuration. " alt="" coords="2114,80,2234,107"/>
-<area shape="rect" id="node48" href="../../d3/d2a/a00195.html" title="Interface for install directory queries. " alt="" coords="1811,162,1911,189"/>
-<area shape="rect" id="node49" href="../../dc/ded/a00252.html" title="Observer for infection count at each sim step. " alt="" coords="1862,80,2039,107"/>
-<area shape="rect" id="node3" href="../../dd/d4c/a00177.html" title="Header for the command line controller. " alt="" coords="1587,162,1735,189"/>
-<area shape="rect" id="node4" href="../../da/dd4/a00291.html" title="Interface of RnMan. " alt="" coords="1762,251,1862,278"/>
-<area shape="rect" id="node16" href="../../d5/d0f/a00308.html" title="Definition of Stopwatch. " alt="" coords="2039,251,2163,278"/>
-<area shape="rect" id="node5" href="../../de/d25/a00290.html" title="Interface of RnPcg. " alt="" coords="1772,333,1822,360"/>
-<area shape="rect" id="node22" href="../../d7/d3f/a00173.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="706,162,872,189"/>
-<area shape="rect" id="node30" href="../../d9/d0d/a00298.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="427,333,599,360"/>
-<area shape="rect" id="node35" href="../../d3/d5e/a00275.html" title="Header file for the Person class. " alt="" coords="940,162,1046,189"/>
-<area shape="rect" id="node23" href="../../d6/dfb/a00172.html" title="Header for the core ContactPool class. " alt="" coords="827,333,970,360"/>
-<area shape="rect" id="node24" href="../../de/d45/a00175.html" title="Definition of ContactPoolType. " alt="" coords="798,408,969,435"/>
-<area shape="rect" id="node27" href="../../d2/dc8/a00242.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="584,251,752,278"/>
-<area shape="rect" id="node31" href="../../dd/de2/a00320.html" title="Interface/Implementation for SVIterator. " alt="" coords="385,408,484,435"/>
-<area shape="rect" id="node36" href="../../d9/d01/a00227.html" title="Header for the Health class. " alt="" coords="928,251,1058,278"/>
-<area shape="rect" id="node38" href="../../d6/db6/a00241.html" title="Definition of EventId. " alt="" coords="2324,333,2436,360"/>
-<area shape="rect" id="node39" href="../../d7/df2/a00312.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="2340,251,2489,278"/>
-<area shape="rect" id="node43" href="../../d8/d64/a00181.html" title="Header file of base class for config that needs to be read from a file. " alt="" coords="1242,333,1326,360"/>
-<area shape="rect" id="node44" href="../../d9/d39/a00257.html" title="Interface/Implementation of is_iterator. " alt="" coords="1044,408,1164,435"/>
+<div class="center"><img src="../../d6/dfa/a00626.gif" border="0" usemap="#Subject_8cpp" alt=""/></div>
+<map name="Subject_8cpp" id="Subject_8cpp">
+<area shape="rect" id="node2" href="../../d0/da2/a00307.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="159,80,241,107"/>
+<area shape="rect" id="node3" href="../../d0/d27/a00239.html" title="Definition of EventId. " alt="" coords="105,155,151,181"/>
+<area shape="rect" id="node6" href="../../d5/d0f/a00308.html" title="Interface/Implementation of Subject. " alt="" coords="219,155,325,181"/>
 </map>
 </div>
 </div>
@@ -164,21 +129,21 @@ Include dependency graph for StanController.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d0/dc3/a00354"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc3/a00354.html">stride</a></td></tr>
-<tr class="memdesc:d0/dc3/a00354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:df/d03/a00348"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d03/a00348.html">stride</a></td></tr>
+<tr class="memdesc:df/d03/a00348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for the command line controller. </p>
+<div class="textblock"><p>Definition of Subject/Observer for SimEvents. </p>
 
-<p>Definition in file <a class="el" href="../../d1/de3/a00306_source.html">StanController.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../d1/de3/a00306_source.html">Subject.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../d1/de3/a00306.html">StanController.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 20 2018 16:15:00 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_e5f84963ccc55302ca6163b928f19348.html">sim</a></li><li class="navelem"><a class="el" href="../../dir_3176c632cf0b47b7b3ccddf7a3eb7ed2.html">event</a></li><li class="navelem"><a class="el" href="../../d1/de3/a00306.html">Subject.cpp</a></li>
+    <li class="footer">Generated on Tue Jan 8 2019 11:07:06 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
