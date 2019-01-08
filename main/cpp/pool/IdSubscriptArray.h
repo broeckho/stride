@@ -193,5 +193,5 @@ public:
         }
 };
 
-} // namespace
-} // namespace
+} // namespace ContactPoolType
+} // namespace stride

@@ -31,7 +31,9 @@ class PartialGenerator
 public:
         /// Constructor with a RnMan and a logger
         explicit PartialGenerator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
-                : m_rnManager(rn_manager), m_logger(std::move(logger)) {}
+            : m_rnManager(rn_manager), m_logger(std::move(logger))
+        {
+        }
 
         /// Apply this PartialGenerator to the given geogrid, generating ContactCenters
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
@@ -53,4 +55,4 @@ protected:
         std::shared_ptr<spdlog::logger> m_logger;    ///< Logger used by generators
 };
 
-} // namespace
+} // namespace gengeopop

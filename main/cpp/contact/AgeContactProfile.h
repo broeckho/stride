@@ -41,4 +41,4 @@ public:
         AgeContactProfile(ContactPoolType::Id poolType, const boost::property_tree::ptree& contactPt);
 };
 
-} // namespace
+} // namespace stride

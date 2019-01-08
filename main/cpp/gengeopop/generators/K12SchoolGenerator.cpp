@@ -58,4 +58,4 @@ void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         }
 }
 
-} // namespace
+} // namespace gengeopop

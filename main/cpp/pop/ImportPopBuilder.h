@@ -37,4 +37,4 @@ public:
         std::shared_ptr<Population> Build(std::shared_ptr<Population> pop) override;
 };
 
-} // namespace
+} // namespace stride

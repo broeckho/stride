@@ -54,4 +54,4 @@ void CliController::Control()
         spdlog::drop_all();
 }
 
-} // namespace
+} // namespace stride

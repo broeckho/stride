@@ -61,4 +61,4 @@ private:
         std::function<double()> m_uniform01_generator; ///< Random number generator: double in [0.0, 1.0)
 };
 
-} // namespace
+} // namespace stride

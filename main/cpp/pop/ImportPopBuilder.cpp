@@ -56,4 +56,4 @@ shared_ptr<Population> ImportPopBuilder::Build(shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace 
+} // namespace stride

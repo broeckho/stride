@@ -112,4 +112,4 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
         protoPerson->set_gender(std::string(1, person->GetGender()));
 }
 
-} // namespace
+} // namespace gengeopop

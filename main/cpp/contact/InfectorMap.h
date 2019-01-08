@@ -54,15 +54,13 @@ private:
         {
                 using namespace ContactLogMode;
 
-                this->emplace(std::make_pair(
-                        std::make_tuple(Id::Susceptibles, B), &Infector<Id::Susceptibles, B>::Exec));
-                this->emplace(std::make_pair(
-                        std::make_tuple(Id::Transmissions, B), &Infector<Id::Transmissions, B>::Exec));
-                this->emplace(std::make_pair(
-                        std::make_tuple(Id::All, B), &Infector<Id::All, B>::Exec));
-                this->emplace(std::make_pair(
-                        std::make_tuple(Id::None, B), &Infector<Id::None, B>::Exec));
+                this->emplace(
+                    std::make_pair(std::make_tuple(Id::Susceptibles, B), &Infector<Id::Susceptibles, B>::Exec));
+                this->emplace(
+                    std::make_pair(std::make_tuple(Id::Transmissions, B), &Infector<Id::Transmissions, B>::Exec));
+                this->emplace(std::make_pair(std::make_tuple(Id::All, B), &Infector<Id::All, B>::Exec));
+                this->emplace(std::make_pair(std::make_tuple(Id::None, B), &Infector<Id::None, B>::Exec));
         }
 };
 
-} // namespace
+} // namespace stride

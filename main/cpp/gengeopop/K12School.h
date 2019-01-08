@@ -20,7 +20,10 @@
 
 namespace gengeopop {
 
-/// Models a K12School as ContactCenter
+/**
+ * Models a K12School as ContactCenter.
+ */
+
 class K12School : public ContactCenter
 {
 public:
@@ -28,7 +31,12 @@ public:
         explicit K12School(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
+        {
+                for (std::size_t i = 0; i < GetMaxPools(); ++i) {
+                        AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::K12School));
+                }
+        }
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 25; }
@@ -39,4 +47,5 @@ public:
         /// See ContactCenter::GetType.
         std::string GetType() const override { return "K12School"; }
 };
+
 } // namespace gengeopop

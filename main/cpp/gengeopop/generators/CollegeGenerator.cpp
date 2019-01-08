@@ -64,4 +64,4 @@ void CollegeGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& ge
         }
 }
 
-} // namespace
+} // namespace gengeopop

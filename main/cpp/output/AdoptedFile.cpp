@@ -40,5 +40,5 @@ void AdoptedFile::Initialize(const string& output_prefix)
         m_fstream.open(p.c_str());
 }
 
-} // namespace
-} // namespace
+} // namespace output
+} // namespace stride

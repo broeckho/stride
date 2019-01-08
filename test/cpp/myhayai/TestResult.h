@@ -30,4 +30,4 @@ namespace myhayai {
 /// Test result descriptor. All durations are expressed in nanoseconds.
 using TestResult = std::vector<std::chrono::steady_clock::duration>;
 
-} // namespace
+} // namespace myhayai

@@ -15,7 +15,6 @@
 
 #include "HouseholdReader.h"
 
-
 namespace gengeopop {
 
 HouseholdReader::HouseholdReader() : m_households() {}
@@ -47,4 +46,4 @@ double HouseholdReader::GetFraction1865Years() const
         return static_cast<double>(m_total1865Years) / static_cast<double>(m_total);
 }
 
-} // namespace
+} // namespace gengeopop

@@ -81,4 +81,4 @@ protected:
         util::RnMan                     m_rn_manager;       ///< The manager for random numbers
 };
 
-} // namespace
+} // namespace stride

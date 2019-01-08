@@ -45,4 +45,4 @@ std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string fi
         }
 }
 
-} // namespace
+} // namespace gengeopop

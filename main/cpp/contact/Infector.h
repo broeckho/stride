@@ -96,4 +96,4 @@ extern template class Infector<ContactLogMode::Id::All, true>;
 extern template class Infector<ContactLogMode::Id::Susceptibles, false>;
 extern template class Infector<ContactLogMode::Id::Susceptibles, true>;
 
-} // namespace
+} // namespace stride

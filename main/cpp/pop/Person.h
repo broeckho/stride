@@ -176,4 +176,4 @@ private:
         ContactPoolType::IdSubscriptArray<bool> m_in_pools;
 };
 
-} // namespace
+} // namespace stride

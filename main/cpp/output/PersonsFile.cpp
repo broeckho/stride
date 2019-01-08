@@ -52,5 +52,5 @@ void PersonsFile::Print(std::shared_ptr<const Population> population)
         }
 }
 
-} // namespace
-} // namespace
+} // namespace output
+} // namespace stride

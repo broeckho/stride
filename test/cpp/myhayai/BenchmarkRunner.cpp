@@ -82,4 +82,4 @@ void BenchmarkRunner::RunTests(const vector<string>& canonicalNames)
         Notify(event::Payload(event::Id::EndBench));
 }
 
-} // namespace
+} // namespace myhayai

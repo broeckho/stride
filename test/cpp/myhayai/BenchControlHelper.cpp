@@ -81,4 +81,4 @@ void BenchControlHelper::Shuffle(vector<string>& names) const
         shuffle(names.begin(), names.end(), g);
 }
 
-} // namespace
+} // namespace myhayai

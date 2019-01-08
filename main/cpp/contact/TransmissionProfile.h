@@ -43,4 +43,4 @@ private:
         double m_transmission_rate;
 };
 
-} // namespace
+} // namespace stride

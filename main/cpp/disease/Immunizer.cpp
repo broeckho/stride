@@ -35,4 +35,4 @@ using namespace util;
 
 Immunizer::Immunizer(stride::util::RnMan& rnManager) : m_rn_manager(rnManager) {}
 
-} // namespace
+} // namespace stride

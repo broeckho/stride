@@ -40,4 +40,4 @@ void GeoGridGenerator::AddPartialGenerator(std::shared_ptr<PartialGenerator> gen
         m_partialGenerators.push_back(gen);
 }
 
-} // namespace
+} // namespace gengeopop

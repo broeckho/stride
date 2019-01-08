@@ -32,4 +32,4 @@ public:
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
 
-} // namespace
+} // namespace gengeopop

@@ -116,4 +116,4 @@ template class ConsoleViewer<std::chrono::microseconds>;
 template class ConsoleViewer<std::chrono::milliseconds>;
 template class ConsoleViewer<std::chrono::seconds>;
 
-} // namespace
+} // namespace myhayai

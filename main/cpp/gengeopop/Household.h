@@ -29,7 +29,10 @@ public:
         explicit Household(unsigned int id = 0U) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
+        { 
+                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Household)); 
+        }
 
         /// See ContactCenter::GetMaxPools
         unsigned int GetMaxPools() const override { return 1; }

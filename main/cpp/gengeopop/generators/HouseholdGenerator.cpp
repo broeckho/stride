@@ -45,4 +45,4 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         }
 }
 
-} // namespace
+} // namespace gengeopop

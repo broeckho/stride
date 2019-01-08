@@ -64,5 +64,5 @@ void SummaryFile::Print(const boost::property_tree::ptree& config_pt, unsigned i
                   << config_pt.get<string>("run.disease_config_file") << endl;
 }
 
-} // namespace
-} // namespace
+} // namespace output
+} // namespace stride

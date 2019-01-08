@@ -39,4 +39,4 @@ public:
         std::size_t CountDisabled();
 };
 
-} // namespace
+} // namespace myhayai

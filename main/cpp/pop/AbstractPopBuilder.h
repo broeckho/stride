@@ -56,4 +56,4 @@ protected:
         util::RnMan&                       m_rn_manager; ///< Random number generation management.
 };
 
-} // namespace
+} // namespace stride

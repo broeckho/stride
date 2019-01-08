@@ -48,5 +48,5 @@ bool IsMode(const std::string& s);
 /// Converts a string with name to LogMode value.
 ContactLogMode::Id ToMode(const std::string& s);
 
-} // namespace
-} // namespace
+} // namespace ContactLogMode
+} // namespace stride

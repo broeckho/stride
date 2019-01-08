@@ -205,9 +205,8 @@ void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& pro
 //-------------------------------------------------------------------------------------------
 template <ContactLogMode::Id LL, bool TIC>
 void Infector<LL, TIC, true>::Exec(ContactPool& pool, const AgeContactProfile& profile,
-                                                       const TransmissionProfile& transProfile,
-                                                       ContactHandler& cHandler, unsigned short int simDay,
-                                                       shared_ptr<spdlog::logger> cLogger)
+                                   const TransmissionProfile& transProfile, ContactHandler& cHandler,
+                                   unsigned short int simDay, shared_ptr<spdlog::logger> cLogger)
 {
         using LP = LOG_POLICY<LL>;
 
@@ -272,4 +271,4 @@ template class Infector<ContactLogMode::Id::All, true>;
 template class Infector<ContactLogMode::Id::Susceptibles, false>;
 template class Infector<ContactLogMode::Id::Susceptibles, true>;
 
-} // namespace
+} // namespace stride

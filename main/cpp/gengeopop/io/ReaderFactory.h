@@ -65,4 +65,4 @@ private:
         std::unique_ptr<std::istream> OpenFile(const filesys::path& path) const;
 };
 
-} // namespace
+} // namespace gengeopop

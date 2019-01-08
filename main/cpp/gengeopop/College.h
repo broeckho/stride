@@ -22,7 +22,7 @@
 
 namespace gengeopop {
 
-/***
+/**
  * Models a College (institution of higher education).
  */
 class College : public ContactCenter
@@ -32,7 +32,12 @@ public:
         explicit College(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
-        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override;
+        void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
+        {
+                for (std::size_t i = 0; i < GetMaxPools(); ++i) {
+                        AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::College));
+                }
+        }
 
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 20; };

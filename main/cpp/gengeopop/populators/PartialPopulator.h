@@ -74,4 +74,5 @@ protected:
         /// Convenience wrapper around m_rnManager
         bool MakeChoice(double fraction);
 };
-} // namespace
+
+} // namespace gengeopop

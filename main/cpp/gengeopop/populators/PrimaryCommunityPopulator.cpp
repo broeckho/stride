@@ -56,4 +56,4 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
         m_logger->info("Used {} different Primary communities", found.size());
 }
 
-} // namespace
+} // namespace gengeopop

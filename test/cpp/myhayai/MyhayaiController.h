@@ -72,4 +72,4 @@ private:
         std::vector<std::string> m_positive; ///< Positive for including tests.
 };
 
-} // namespace
+} // namespace myhayai

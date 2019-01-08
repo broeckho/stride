@@ -85,4 +85,4 @@ private:
         std::vector<Person*> m_members;      ///< Pointers to contactpool members (raw pointers intentional).
 };
 
-} // namespace
+} // namespace stride

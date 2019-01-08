@@ -57,5 +57,5 @@ Id ToType(const string& s)
         return (ids.count(t) == 1) ? ids[t] : throw runtime_error("EventId::ToString> not available:" + t);
 }
 
-} // namespace
-} // namespace
+} // namespace sim_event
+} // namespace stride

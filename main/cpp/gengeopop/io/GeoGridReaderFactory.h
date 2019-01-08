@@ -30,4 +30,4 @@ public:
         std::shared_ptr<GeoGridReader> CreateReader(std::string filename, stride::Population* pop) const;
 };
 
-} // namespace
+} // namespace gengeopop

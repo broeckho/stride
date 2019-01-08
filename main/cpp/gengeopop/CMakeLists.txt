@@ -18,17 +18,11 @@
 # Sources.
 #============================================================================
 set(GENGEOPOP_LIB
-        Community.cpp
-        PrimaryCommunity.cpp
-        SecondaryCommunity.cpp
+#
         ContactCenter.cpp
-        GenGeoPopController.cpp
+        GenPopController.cpp
         GeoGrid.cpp
-        College.cpp
-        Household.cpp
         Location.cpp
-        K12School.cpp
-        Workplace.cpp
         GeoGridConfig.cpp
 #
         generators/GeoGridGenerator.cpp

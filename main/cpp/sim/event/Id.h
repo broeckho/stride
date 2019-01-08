@@ -51,5 +51,5 @@ std::string ToString(Id w);
 /// Converts a string with name to Id.
 Id ToType(const std::string& s);
 
-} // namespace
-} // namespace
+} // namespace sim_event
+} // namespace stride

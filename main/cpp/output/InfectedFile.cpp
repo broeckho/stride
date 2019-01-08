@@ -43,5 +43,5 @@ void InfectedFile::Print(const vector<unsigned int>& infectionCounts)
         m_fstream << infectionCounts[infectionCounts.size() - 1] << endl;
 }
 
-} // namespace
-} // namespace
+} // namespace output
+} // namespace stride

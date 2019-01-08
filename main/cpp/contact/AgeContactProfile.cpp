@@ -39,4 +39,4 @@ AgeContactProfile::AgeContactProfile(ContactPoolType::Id poolType, const ptree& 
         }
 }
 
-} // namespace
+} // namespace stride

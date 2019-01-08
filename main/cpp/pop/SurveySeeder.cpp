@@ -63,4 +63,4 @@ shared_ptr<Population> SurveySeeder::Seed(shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace
+} // namespace stride

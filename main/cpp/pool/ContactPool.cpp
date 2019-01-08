@@ -87,4 +87,4 @@ std::size_t ContactPool::GetInfectedCount()
         return infected;
 }
 
-} // namespace
+} // namespace stride

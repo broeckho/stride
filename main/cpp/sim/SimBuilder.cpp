@@ -44,12 +44,12 @@ shared_ptr<Sim> SimBuilder::Build(shared_ptr<Sim> sim, shared_ptr<Population> po
         // --------------------------------------------------------------
         // Read config info and setup random number manager
         // --------------------------------------------------------------
-        sim->m_config_pt         = m_config_pt;
-        sim->m_population        = std::move(pop);
-        sim->m_track_index_case  = m_config_pt.get<bool>("run.track_index_case");
-        sim->m_num_threads       = m_config_pt.get<unsigned int>("run.num_threads");
-        sim->m_calendar          = make_shared<Calendar>(m_config_pt);
-        sim->m_contact_log_mode  = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
+        sim->m_config_pt        = m_config_pt;
+        sim->m_population       = std::move(pop);
+        sim->m_track_index_case = m_config_pt.get<bool>("run.track_index_case");
+        sim->m_num_threads      = m_config_pt.get<unsigned int>("run.num_threads");
+        sim->m_calendar         = make_shared<Calendar>(m_config_pt);
+        sim->m_contact_log_mode = ContactLogMode::ToMode(m_config_pt.get<string>("run.contact_log_level", "None"));
         sim->m_rn_manager.Initialize(
             RnMan::Info{m_config_pt.get<string>("run.rng_seed", "1,2,3,4"), "", sim->m_num_threads});
 
@@ -113,4 +113,4 @@ ptree SimBuilder::ReadDiseasePtree()
         return FileSys::ReadPtreeFile(fp);
 }
 
-} // namespace
+} // namespace stride

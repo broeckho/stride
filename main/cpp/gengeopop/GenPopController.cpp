@@ -13,7 +13,7 @@
  *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
  */
 
-#include "GenGeoPopController.h"
+#include "GenPopController.h"
 
 #include "gengeopop/generators/CollegeGenerator.h"
 #include "gengeopop/generators/CommunityGenerator.h"
@@ -36,9 +36,9 @@
 
 namespace gengeopop {
 
-GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                                         stride::util::RnMan& rnManager, std::string citiesFileName,
-                                         std::string commutingFileName, std::string householdFileName)
+GenPopController::GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
+                                   stride::util::RnMan& rnManager, std::string citiesFileName,
+                                   std::string commutingFileName, std::string householdFileName)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr),
       m_population(stride::Population::Create()), m_citiesReader(nullptr), m_commutesReader(nullptr),
       m_householdsReader(nullptr), m_logger(std::move(logger)), m_citiesFileName(std::move(citiesFileName)),
@@ -46,7 +46,7 @@ GenGeoPopController::GenGeoPopController(std::shared_ptr<spdlog::logger> logger,
 {
 }
 
-void GenGeoPopController::ReadDataFiles()
+void GenPopController::ReadDataFiles()
 {
         m_geoGrid = std::make_shared<GeoGrid>(m_population.get());
 
@@ -62,7 +62,7 @@ void GenGeoPopController::ReadDataFiles()
 
 #pragma omp section
                 {
-                        if (m_commutingFileName != "") {
+                        if (!m_commutingFileName.empty()) {
                                 m_commutesReader = readerFactory.CreateCommutesReader(m_commutingFileName);
                         }
                 }
@@ -73,7 +73,7 @@ void GenGeoPopController::ReadDataFiles()
                 }
         }
 
-        if (m_commutingFileName != "") {
+        if (!m_commutingFileName.empty()) {
                 m_commutesReader->FillGeoGrid(m_geoGrid);
         }
 
@@ -82,7 +82,7 @@ void GenGeoPopController::ReadDataFiles()
         m_geoGrid->Finalize();
 }
 
-void GenGeoPopController::GenGeo()
+void GenPopController::GenGeo()
 {
         GeoGridGenerator geoGridGenerator(m_geoGridConfig, m_geoGrid);
         geoGridGenerator.AddPartialGenerator(std::make_shared<K12SchoolGenerator>(m_rnManager, m_logger));
@@ -93,7 +93,7 @@ void GenGeoPopController::GenGeo()
         geoGridGenerator.GenerateGeoGrid();
 }
 
-void GenGeoPopController::GenPop()
+void GenPopController::GenPop()
 {
         GeoGridPopulator geoGridPopulator(m_geoGridConfig, m_geoGrid);
         geoGridPopulator.AddPartialPopulator(std::make_shared<HouseholdPopulator>(m_rnManager, m_logger));
@@ -105,8 +105,8 @@ void GenGeoPopController::GenPop()
         geoGridPopulator.PopulateGeoGrid();
 }
 
-std::shared_ptr<GeoGrid> GenGeoPopController::GetGeoGrid() { return m_geoGrid; }
+std::shared_ptr<GeoGrid> GenPopController::GetGeoGrid() { return m_geoGrid; }
 
-void GenGeoPopController::UsePopulation(std::shared_ptr<stride::Population> pop) { m_population = std::move(pop); }
+void GenPopController::UsePopulation(std::shared_ptr<stride::Population> pop) { m_population = std::move(pop); }
 
 } // namespace gengeopop

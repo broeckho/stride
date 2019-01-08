@@ -58,4 +58,4 @@ extern template class PtreeViewer<std::chrono::microseconds>;
 extern template class PtreeViewer<std::chrono::milliseconds>;
 extern template class PtreeViewer<std::chrono::seconds>;
 
-} // namespace
+} // namespace myhayai

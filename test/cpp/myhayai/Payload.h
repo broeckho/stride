@@ -51,5 +51,5 @@ struct Payload
         myhayai::TestResult m_run_times;
 };
 
-} // namespace
-} // namespace
+} // namespace event
+} // namespace myhayai

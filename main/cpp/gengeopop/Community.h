@@ -30,9 +30,6 @@ public:
         /// Construct community with assigned ID.
         explicit Community(unsigned int id) : ContactCenter(id) {}
 
-        ///
-        // void         AddHouseHold(std::shared_ptr<Household> household);
-
         /// See ContactCenter::GetMaxPools.
         unsigned int GetMaxPools() const override { return 1; }
 

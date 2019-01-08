@@ -80,4 +80,4 @@ void SimRunner::Run(unsigned int numSteps)
 
 void SimRunner::Run() { Run(m_config_pt.get<unsigned int>("run.num_days")); }
 
-} // namespace
+} // namespace stride

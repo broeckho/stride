@@ -49,4 +49,4 @@ private:
         util::RnMan&                       m_rn_manager; ///< Random number manager.
 };
 
-} // namespace
+} // namespace stride

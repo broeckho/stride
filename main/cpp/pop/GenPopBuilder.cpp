@@ -20,7 +20,7 @@
 
 #include "GenPopBuilder.h"
 
-#include "gengeopop/GenGeoPopController.h"
+#include "gengeopop/GenPopController.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "pop/Population.h"
 #include "pop/SurveySeeder.h"
@@ -67,9 +67,9 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
                 commutesFile = m_config_pt.get<std::string>("run.geopop_gen.commuting_file");
         }
 
-        GenGeoPopController genGeoPopController(
-            stride_logger, geoGridConfig, m_rn_manager, m_config_pt.get<std::string>("run.geopop_gen.cities_file"),
-            commutesFile, m_config_pt.get<std::string>("run.geopop_gen.household_file"));
+        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager,
+                                             m_config_pt.get<std::string>("run.geopop_gen.cities_file"), commutesFile,
+                                             m_config_pt.get<std::string>("run.geopop_gen.household_file"));
 
         genGeoPopController.UsePopulation(pop);
 
@@ -100,4 +100,4 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         return pop;
 }
 
-} // namespace
+} // namespace stride

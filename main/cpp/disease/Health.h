@@ -117,4 +117,4 @@ private:
         unsigned short int m_end_symptomatic;      ///< Days after infection to end symptomatic state.
 };
 
-} // namespace
+} // namespace stride

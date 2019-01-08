@@ -32,4 +32,4 @@ void GeoGridReader::AddCommutes(std::shared_ptr<GeoGrid> geoGrid)
         }
 }
 
-} // namespace
+} // namespace gengeopop

@@ -25,10 +25,10 @@
 #include "gengeopop/Workplace.h"
 #include "util/Exception.h"
 
-#include <omp.h>
 #include <boost/lexical_cast.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <memory>
+#include <omp.h>
 
 namespace gengeopop {
 
@@ -226,4 +226,4 @@ stride::Person* GeoGridJSONReader::ParsePerson(boost::property_tree::ptree& pers
                                        secondaryCommunityId);
 }
 
-} // namespace
+} // namespace gengeopop

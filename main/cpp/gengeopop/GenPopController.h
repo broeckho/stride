@@ -27,13 +27,13 @@ class CommutesReader;
 /**
  * Controls the complete generation and population of a GeoGrid.
  */
-class GenGeoPopController
+class GenPopController
 {
 public:
         /// Create a GenGeoPopController
-        GenGeoPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                            stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
-                            std::string householdFileName);
+        GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
+                         stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
+                         std::string householdFileName);
 
         /// Reads the data files
         void ReadDataFiles();
@@ -51,22 +51,22 @@ public:
         void UsePopulation(std::shared_ptr<stride::Population> pop);
 
 private:
-        GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate
+        GeoGridConfig& m_geoGridConfig; ///< The GeoGridConfig used to generate the grid.
 
-        stride::util::RnMan& m_rnManager; ///< The RnMan used
+        stride::util::RnMan& m_rnManager; ///< The random number generation manager.
 
-        std::shared_ptr<GeoGrid> m_geoGrid; ///< The generated GeoGrid
+        std::shared_ptr<GeoGrid> m_geoGrid; ///< The generated GeoGrid.
 
-        std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid
+        std::shared_ptr<stride::Population> m_population; ///< The generated GeoGrid.
 
-        std::shared_ptr<CitiesReader>    m_citiesReader;     ///< The CitiesReader
-        std::shared_ptr<CommutesReader>  m_commutesReader;   ///< The CommutesReader
-        std::shared_ptr<HouseholdReader> m_householdsReader; ///< The HouseholdsReader
-        std::shared_ptr<spdlog::logger>  m_logger;           ///< The logger used
+        std::shared_ptr<CitiesReader>    m_citiesReader;     ///< The CitiesReader.
+        std::shared_ptr<CommutesReader>  m_commutesReader;   ///< The CommutesReader.
+        std::shared_ptr<HouseholdReader> m_householdsReader; ///< The HouseholdsReader.
+        std::shared_ptr<spdlog::logger>  m_logger;           ///< The logger
 
-        std::string m_citiesFileName;     ///< Filename of the file which stores information about the cities
-        std::string m_commutingFileName;  ///< Filename of the file which stores information about the commutes
-        std::string m_householdsFileName; ///< Filename of the file which stores information about the households
+        std::string m_citiesFileName;     ///< Filename for info on cities.
+        std::string m_commutingFileName;  ///< Filename for info on commutes.
+        std::string m_householdsFileName; ///< Filename for info on households.
 };
 
 } // namespace gengeopop

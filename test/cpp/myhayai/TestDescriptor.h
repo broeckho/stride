@@ -74,4 +74,4 @@ struct TestDescriptor
         bool        m_is_disabled;  ///< Disabled (or not).
 };
 
-} // namespace
+} // namespace myhayai

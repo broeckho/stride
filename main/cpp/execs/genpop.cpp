@@ -14,7 +14,7 @@
  */
 
 #include "gengeopop/Community.h"
-#include "gengeopop/GenGeoPopController.h"
+#include "gengeopop/GenPopController.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/generators/CollegeGenerator.h"
@@ -79,12 +79,12 @@ int main(int argc, char* argv[])
                 string sfrac2 = "Fraction of active persons that commute.                                 "
                                 "Defaults to --fracActiveCommuting 0.5.";
                 ValueArg<double> fractionActiveCommuting("", "fracActiveCommuting", sfrac2, false, 0.50,
-                                                               "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
+                                                         "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
 
                 string sfrac3 = "Fraction of students that commute.                                       "
                                 "Defaults to --fracStudentCommuting 0.5.";
                 ValueArg<double> fractionStudentCommuting("", "fracStudentCommuting", sfrac3, false, 0.50,
-                                                                "FRACTION OF STUDENTS COMMUTING", cmd);
+                                                          "FRACTION OF STUDENTS COMMUTING", cmd);
 
                 string sfrac1 = "Fraction of 18-26 year old persons that are students.                    "
                                 "Defaults to --frac1826students 0.5.";
@@ -96,17 +96,17 @@ int main(int argc, char* argv[])
                 ValueArg<double> fractionActivePeople("", "fracActive", sfrac0, false, 0.75,
                                                       "FRACTION OF PEOPLE ACTIVE", cmd);
 
-                string spop = "Populations size. Defaults to --populationSize 600000.";
+                string                 spop = "Populations size. Defaults to --populationSize 600000.";
                 ValueArg<unsigned int> popSize("", "populationSize", spop, false, 6000000, "POPULATION SIZE", cmd);
 
-                string sseed = "The seed sequence for the random engine. Defaults to {1,2,3,4}.";
+                string           sseed = "The seed sequence for the random engine. Defaults to {1,2,3,4}.";
                 ValueArg<string> rng_seed("", "seed", sseed, false, "1,2,3,4", "SEED", cmd);
 
                 string sou = "Output file with synthetic population in protobuf format.                    "
                              "Defaults to --output gengeopop.proto.";
                 ValueArg<string> outputFile("", "output", sou, false, "gengeopop.proto", "OUTPUT FILE", cmd);
 
-                vector<string>           levels {"trace", "debug", "info", "warn", "error", "critical", "off"};
+                vector<string>           levels{"trace", "debug", "info", "warn", "error", "critical", "off"};
                 ValuesConstraint<string> vc_levels(levels);
                 string                   slog = "Log level. Defaults to --loglevel info.";
                 ValueArg<string>         logLevel("", "loglevel", slog, false, "info", &vc_levels, cmd);
@@ -133,8 +133,8 @@ int main(int argc, char* argv[])
                 RnMan::Info info(rng_seed.getValue(), "", static_cast<unsigned int>(omp_get_num_threads()));
                 RnMan       rnManager(info);
 
-                GenGeoPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
-                                                        commutingFile.getValue(), houseHoldFile.getValue());
+                GenPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
+                                                     commutingFile.getValue(), houseHoldFile.getValue());
 
                 // --------------------------------------------------------------
                 // Read input files.

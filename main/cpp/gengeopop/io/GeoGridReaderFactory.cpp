@@ -49,4 +49,4 @@ std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string fi
         }
 }
 
-} // namespace
+} // namespace gengeopop

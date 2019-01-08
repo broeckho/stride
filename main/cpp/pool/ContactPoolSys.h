@@ -33,4 +33,4 @@ namespace stride {
 /// with the enum class of the pool types.
 using ContactPoolSys = ContactPoolType::IdSubscriptArray<util::SegmentedVector<ContactPool>>;
 
-} // namespace
+} // namespace stride

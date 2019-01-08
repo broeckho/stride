@@ -28,4 +28,4 @@ namespace stride {
 
 using AgeContactProfiles = ContactPoolType::IdSubscriptArray<AgeContactProfile>;
 
-} // namespace
+} // namespace stride

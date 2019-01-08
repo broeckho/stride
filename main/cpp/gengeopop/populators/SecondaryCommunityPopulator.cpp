@@ -63,4 +63,4 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
         m_logger->info("Finished populating Secondary Communities");
         m_logger->info("Used {} different Secondary communities", found.size());
 }
-} // namespace
+} // namespace gengeopop

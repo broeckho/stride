@@ -172,4 +172,4 @@ void WorkplacePopulator::CalculateNearbyWorkspaces()
             trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
 }
 
-} // namespace
+} // namespace gengeopop

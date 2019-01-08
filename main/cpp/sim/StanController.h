@@ -64,4 +64,4 @@ public:
         void Control();
 };
 
-} // namespace
+} // namespace stride

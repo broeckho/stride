@@ -75,5 +75,5 @@ constexpr IdPack_t IdPack;
 /// To allow iteration over the type ids.
 constexpr std::initializer_list<Id> IdList = IdPack_t::AsInitializerList;
 
-} // namespace
-} // namespace
+} // namespace ContactPoolType
+} // namespace stride

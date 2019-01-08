@@ -142,4 +142,4 @@ void ControlHelper::RegisterViewers(shared_ptr<SimRunner> runner)
         }
 }
 
-} // namespace
+} // namespace stride

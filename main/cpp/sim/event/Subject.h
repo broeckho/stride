@@ -28,4 +28,4 @@ namespace stride {
 // Cannot declare this in sim_event as it has to be declared in enclosing namespace.
 extern template class stride::util::Subject<sim_event::Id>;
 
-} // namespace
+} // namespace stride

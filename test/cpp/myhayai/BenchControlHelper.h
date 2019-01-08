@@ -58,4 +58,4 @@ private:
         std::vector<std::regex> m_positive;    ///< Positive regexes for including tests.
 };
 
-} // namespace
+} // namespace myhayai

@@ -30,4 +30,5 @@ bool PartialPopulator::MakeChoice(double fraction)
         auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
         return static_cast<bool>(dist());
 }
-} // namespace
+
+} // namespace gengeopop
