@@ -15,7 +15,6 @@
 
 #pragma once
 
-#include "../GeoGridConfig.h"
 #include "GeneratorInterface.h"
 
 namespace gengeopop {

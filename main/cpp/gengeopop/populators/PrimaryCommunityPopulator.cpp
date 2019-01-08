@@ -35,19 +35,19 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& pools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
                 const auto dist = m_rnManager[0].variate_generator(
-                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(pools.size())));
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearbyPools.size())));
 
-                for (const std::shared_ptr<ContactCenter>& household : loc->GetContactCentersOfType<Household>()) {
-                        stride::ContactPool* contactPool = household->GetPools()[0];
-                        for (stride::Person* p : *contactPool) {
-                                const auto pool = dist();
-                                found.insert(pools[pool]);
-                                pools[pool]->AddMember(p);
-                                p->SetPrimaryCommunityId(static_cast<unsigned int>(pools[pool]->GetId()));
+                for (const auto& household : loc->GetContactCentersOfType<Household>()) {
+                        auto contactPool = household->GetPools()[0];
+                        for (auto p : *contactPool) {
+                                auto& pool = nearbyPools[dist()];
+                                found.insert(pool);
+                                pool->AddMember(p);
+                                p->SetPrimaryCommunityId(static_cast<unsigned int>(pool->GetId()));
                         }
                 }
         }

@@ -30,8 +30,8 @@ public:
 
         /// See ContactCenter::Fill.
         void Fill(const std::shared_ptr<GeoGrid>& geoGrid) override
-        { 
-                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Household)); 
+        {
+                AddPool(geoGrid->CreateContactPool(stride::ContactPoolType::Id::Household));
         }
 
         /// See ContactCenter::GetMaxPools

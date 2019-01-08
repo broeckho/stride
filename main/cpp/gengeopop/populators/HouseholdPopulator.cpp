@@ -29,25 +29,24 @@ void HouseholdPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
 {
         m_logger->info("Starting to populate Households");
 
-        unsigned int current_person_id = 0;
-        auto         household_dist    = m_rnManager[0].variate_generator(trng::uniform_int_dist(
+        auto person_id      = 0U;
+        auto household_dist = m_rnManager[0].variate_generator(trng::uniform_int_dist(
             0, static_cast<trng::uniform_int_dist::result_type>(geoGridConfig.generated.household_types.size())));
 
         for (const shared_ptr<Location>& loc : *geoGrid) {
                 const vector<shared_ptr<ContactCenter>>& households = loc->GetContactCentersOfType<Household>();
                 for (const auto& household : households) {
-                        stride::ContactPool* contactPool     = household->GetPools()[0];
-                        auto                 householdTypeId = static_cast<unsigned int>(household_dist());
-                        stride::ContactPool* householdType =
-                            geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
+                        auto contactPool     = household->GetPools()[0];
+                        auto householdTypeId = static_cast<unsigned int>(household_dist());
+                        auto householdType   = geoGridConfig.generated.household_types[householdTypeId]->GetPools()[0];
                         for (stride::Person* personType : *householdType) {
-                                auto person = geoGrid->CreatePerson(current_person_id++, personType->GetAge(),
+                                auto person = geoGrid->CreatePerson(person_id++, personType->GetAge(),
                                                                     contactPool->GetId(), 0, 0, 0, 0, 0);
                                 contactPool->AddMember(person);
                         }
                 }
         }
-        m_logger->info("Number of persons in households: {}", current_person_id);
+        m_logger->info("Number of persons in households: {}", person_id);
 }
 
 } // namespace gengeopop

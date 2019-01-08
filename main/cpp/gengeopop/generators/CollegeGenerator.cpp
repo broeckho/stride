@@ -14,53 +14,48 @@
  */
 
 #include "CollegeGenerator.h"
+
 #include "gengeopop/College.h"
+
 #include <trng/discrete_dist.hpp>
-#include <trng/lcg64.hpp>
-#include <cmath>
-#include <gengeopop/College.h>
-#include <iostream>
-#include <queue>
 
 namespace gengeopop {
 
-void CollegeGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
-{
-        int  amountOfPupils  = geoGridConfig.calculated.popcount_1826_years_and_student;
-        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / geoGridConfig.constants.meanCollegeSize));
+using namespace std;
 
-        std::vector<std::shared_ptr<Location>> cities = geoGrid->TopK(10);
+void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+{
+        int  pupilCount  = geoGridConfig.calculated.popcount_1826_years_and_student;
+        auto schoolCount = static_cast<int>(ceil(pupilCount / geoGridConfig.constants.meanCollegeSize));
+
+        vector<shared_ptr<Location>> cities = geoGrid->TopK(10);
 
         if (cities.empty()) {
                 // trng can't handle empty vectors
                 return;
         }
 
-        int totalCitiesPopulation = 0;
-
-        for (const std::shared_ptr<Location>& loc : cities) {
-                totalCitiesPopulation += loc->GetPopulation();
+        // Aggregate population in cities.
+        int totalPop = 0;
+        for (const shared_ptr<Location>& c : cities) {
+                totalPop += c->GetPopulation();
         }
 
-        std::vector<double> weights;
-
-        for (const std::shared_ptr<Location>& loc : cities) {
-                double weight =
-                    static_cast<double>(loc->GetPopulation()) / static_cast<double>((double)totalCitiesPopulation);
-
+        // Weights determined by relative population in city.
+        vector<double> weights;
+        for (const shared_ptr<Location>& c : cities) {
+                double weight = static_cast<double>(c->GetPopulation()) / static_cast<double>(totalPop);
                 CheckWeight("CollegeGenerator", weight);
-
                 weights.push_back(weight);
         }
 
         auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
-                int                       locationId = dist();
-                std::shared_ptr<Location> loc        = cities[locationId];
-                auto highschool = std::make_shared<College>(geoGridConfig.generated.contactCenters++);
-                highschool->Fill(geoGrid);
-                loc->AddContactCenter(highschool);
+        for (int i = 0; i < schoolCount; i++) {
+                auto loc     = cities[dist()];
+                auto college = make_shared<College>(geoGridConfig.generated.contactCenters++);
+                college->Fill(geoGrid);
+                loc->AddContactCenter(college);
         }
 }
 

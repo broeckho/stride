@@ -19,40 +19,41 @@
 #============================================================================
 set(GENGEOPOP_LIB
 #
-        ContactCenter.cpp
-        GenPopController.cpp
-        GeoGrid.cpp
-        Location.cpp
-        GeoGridConfig.cpp
+    ContactCenter.cpp
+    GenPopController.cpp
+    GeoGrid.cpp
+    GeoGridConfig.cpp
+    Location.cpp
+
 #
-        generators/GeoGridGenerator.cpp
-        generators/K12SchoolGenerator.cpp
-        generators/CollegeGenerator.cpp
-        generators/HouseholdGenerator.cpp
-        generators/WorkplaceGenerator.cpp
-        generators/CommunityGenerator.cpp
+    generators/CollegeGenerator.cpp
+    generators/CommunityGenerator.cpp
+    generators/GeoGridGenerator.cpp
+    generators/HouseholdGenerator.cpp
+    generators/K12SchoolGenerator.cpp
+    generators/WorkplaceGenerator.cpp
 #
-        populators/PrimaryCommunityPopulator.cpp
-        populators/SecondaryCommunityPopulator.cpp
-        populators/GeoGridPopulator.cpp
-        populators/HouseholdPopulator.cpp
-        populators/PartialPopulator.cpp
-        populators/K12SchoolPopulator.cpp
-        populators/CollegePopulator.cpp
-        populators/WorkplacePopulator.cpp
+    populators/CollegePopulator.cpp
+    populators/GeoGridPopulator.cpp
+    populators/HouseholdPopulator.cpp
+    populators/K12SchoolPopulator.cpp
+    populators/PartialPopulator.cpp
+    populators/PrimaryCommunityPopulator.cpp
+    populators/SecondaryCommunityPopulator.cpp
+    populators/WorkplacePopulator.cpp
 #
-        io/CitiesCSVReader.cpp
-        io/CommutesCSVReader.cpp
-        io/HouseholdCSVReader.cpp
-        io/HouseholdReader.cpp
-        io/ReaderFactory.cpp
-        io/GeoGridJSONWriter.cpp
-        io/GeoGridJSONReader.cpp
-        io/GeoGridProtoWriter.cpp
-        io/GeoGridProtoReader.cpp
-        io/GeoGridWriterFactory.cpp
-        io/GeoGridReaderFactory.cpp
-        io/GeoGridReader.cpp
+    io/CitiesCSVReader.cpp
+    io/CommutesCSVReader.cpp
+    io/GeoGridJSONReader.cpp
+    io/GeoGridJSONWriter.cpp
+    io/GeoGridProtoReader.cpp
+    io/GeoGridProtoWriter.cpp
+    io/GeoGridReader.cpp
+    io/GeoGridReaderFactory.cpp
+    io/GeoGridWriterFactory.cpp
+    io/HouseholdCSVReader.cpp
+    io/HouseholdReader.cpp
+    io/ReaderFactory.cpp
 )
 
 #============================================================================

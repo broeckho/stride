@@ -24,23 +24,20 @@
 
 namespace gengeopop {
 
-void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+using namespace std;
+
+void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        /*
-         * 1. calculate amount of communities, each community has average 2000 persons
-         * 2. assign communities to a location by using a discrete distribution which reflects the relative amount of
-         * people for that location
-         */
+        // 1. calculate number of communities, each community has average 2000 persons
+        // 2. assign communities to a location using a discrete distribution reflecting the relative number of
+        //    people at that location
 
-        int  populationSize = geoGridConfig.input.populationSize;
-        auto amountOfCommunities =
-            static_cast<int>(std::ceil(populationSize / geoGridConfig.constants.meanCommunitySize));
+        int  popCount       = geoGridConfig.input.populationSize;
+        auto communityCount = static_cast<int>(ceil(popCount / geoGridConfig.constants.meanCommunitySize));
 
-        std::vector<double> weights;
-
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
-                double weight =
-                    static_cast<double>(loc->GetPopulation()) / static_cast<double>(geoGridConfig.input.populationSize);
+        vector<double> weights;
+        for (const shared_ptr<Location>& loc : *geoGrid) {
+                double weight = static_cast<double>(loc->GetPopulation()) / static_cast<double>(popCount);
                 CheckWeight("CommunityGenerator", weight);
                 weights.push_back(weight);
         }
@@ -51,21 +48,18 @@ void CommunityGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
         }
 
         auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
-        for (int communityId = 0; communityId < amountOfCommunities; communityId++) {
-                int                               locationId = dist();
-                std::shared_ptr<Location>         loc        = (*geoGrid)[locationId];
-                std::shared_ptr<PrimaryCommunity> community =
-                    std::make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
-                community->Fill(geoGrid);
-                loc->AddContactCenter(community);
+
+        for (int communityId = 0; communityId < communityCount; communityId++) {
+                auto loc = (*geoGrid)[dist()];
+                auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
+                pc->Fill(geoGrid);
+                loc->AddContactCenter(pc);
         }
-        for (int communityId = 0; communityId < amountOfCommunities; communityId++) {
-                int                                 locationId = dist();
-                std::shared_ptr<Location>           loc        = (*geoGrid)[locationId];
-                std::shared_ptr<SecondaryCommunity> community =
-                    std::make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
-                community->Fill(geoGrid);
-                loc->AddContactCenter(community);
+        for (int i = 0; i < communityCount; i++) {
+                auto loc = (*geoGrid)[dist()];
+                auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
+                sc->Fill(geoGrid);
+                loc->AddContactCenter(sc);
         }
 }
 

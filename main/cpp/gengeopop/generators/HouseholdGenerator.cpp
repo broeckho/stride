@@ -14,18 +14,15 @@
  */
 
 #include "HouseholdGenerator.h"
-#include "gengeopop/K12School.h"
+#include "gengeopop/Household.h"
 
 #include <trng/discrete_dist.hpp>
-#include <cmath>
-#include <iostream>
 
 namespace gengeopop {
 
 void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::vector<double> weights;
-
         for (const std::shared_ptr<Location>& loc : *geoGrid) {
                 weights.push_back(loc->GetRelativePopulationSize());
         }
@@ -35,13 +32,13 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 return;
         }
 
-        auto loc_dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
-        for (unsigned int householdId = 0; householdId < geoGridConfig.calculated.households; householdId++) {
-                int                       locationId = loc_dist();
-                std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                auto household = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
-                household->Fill(geoGrid);
-                loc->AddContactCenter(household);
+        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+
+        for (unsigned int i = 0; i < geoGridConfig.calculated.households; i++) {
+                auto loc = (*geoGrid)[dist()];
+                auto h   = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
+                h->Fill(geoGrid);
+                loc->AddContactCenter(h);
         }
 }
 

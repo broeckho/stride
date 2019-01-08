@@ -14,31 +14,29 @@
  */
 
 #include "K12SchoolGenerator.h"
+
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/K12School.h"
 
 #include <trng/discrete_dist.hpp>
-#include <cmath>
-#include <iostream>
 
 namespace gengeopop {
 
-void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
+using namespace std;
+
+void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        /*
-         * 1. given the number of person of school age, calculate number of schools; each school
-         *    has 500 pupils on average
-         * 2. assign schools to a location by using a discrete distribution which reflects the
-         *    relative number of pupils for that location; the relative number of pupils is set
-         *    to the relative population w.r.t the total population.
-         */
+        // 1. given the number of persons of school age, calculate number of schools; schools
+        //    have 500 pupils on average
+        // 2. assign schools to a location by using a discrete distribution which reflects the
+        //    relative number of pupils for that location; the relative number of pupils is set
+        //    to the relative population w.r.t the total population.
 
-        int  amountOfPupils  = geoGridConfig.calculated.compulsoryPupils;
-        auto amountOfSchools = static_cast<int>(std::ceil(amountOfPupils / geoGridConfig.constants.meanK12SchoolSize));
+        int  pupilCount  = geoGridConfig.calculated.compulsoryPupils;
+        auto schoolCount = static_cast<int>(ceil(pupilCount / geoGridConfig.constants.meanK12SchoolSize));
 
-        std::vector<double> weights;
-
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        vector<double> weights;
+        for (const shared_ptr<Location>& loc : *geoGrid) {
                 weights.push_back(loc->GetRelativePopulationSize());
         }
 
@@ -49,12 +47,11 @@ void K12SchoolGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
 
         auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int schoolId = 0; schoolId < amountOfSchools; schoolId++) {
-                int                       locationId = dist();
-                std::shared_ptr<Location> loc        = (*geoGrid)[locationId];
-                auto k12School = std::make_shared<K12School>(geoGridConfig.generated.contactCenters++);
-                k12School->Fill(geoGrid);
-                loc->AddContactCenter(k12School);
+        for (int i = 0; i < schoolCount; i++) {
+                auto loc = (*geoGrid)[dist()];
+                auto k12 = make_shared<K12School>(geoGridConfig.generated.contactCenters++);
+                k12->Fill(geoGrid);
+                loc->AddContactCenter(k12);
         }
 }
 

@@ -24,25 +24,26 @@ namespace gengeopop {
 void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
 {
         m_logger->info("Starting to populate Secondary Communities");
-
         std::set<stride::ContactPool*> found;
+
         // for every location
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        for (const auto& loc : *geoGrid) {
                 if (loc->GetPopulation() == 0) {
                         continue;
                 }
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& pools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetContactPoolInIncreasingRadius<SecondaryCommunity>(geoGrid, loc);
 
                 // 2. find all households in this location
                 const auto& households = loc->GetContactCentersOfType<Household>();
 
-                unsigned int households_per_community        = households.size() / pools.size();
-                unsigned int remainder                       = households.size() % pools.size();
-                unsigned int current_community               = 0;
-                unsigned int current_households_in_community = 0;
+                auto households_per_community        = households.size() / nearbyPools.size();
+                auto remainder                       = households.size() % nearbyPools.size();
+                auto current_community               = 0U;
+                auto current_households_in_community = 0U;
+
                 for (unsigned int i = 0; i < households.size(); i++) {
-                        stride::ContactPool* housePool = households[i]->GetPools()[0];
+                        auto housePool = households[i]->GetPools()[0];
                         if ((current_households_in_community == households_per_community &&
                              (!remainder || current_community >= remainder)) ||
                             (current_households_in_community == households_per_community + 1 &&
@@ -51,8 +52,8 @@ void SecondaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGri
                                 current_households_in_community = 0;
                         }
                         current_households_in_community++;
-                        stride::ContactPool* pool = pools[current_community];
-                        for (stride::Person* p : *housePool) {
+                        auto pool = nearbyPools[current_community];
+                        for (auto p : *housePool) {
                                 found.insert(pool);
                                 pool->AddMember(p);
                                 p->SetSecondaryCommunityId(static_cast<unsigned int>(pool->GetId()));
