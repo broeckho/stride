@@ -94,3 +94,34 @@ def getAvgOverallImmunityRate(outputDir, scenarioName, poolSize):
         immunityRates = pool.starmap(getOverallImmunityRate,
                                     [(outputDir, scenarioName, s) for s in seeds])
         return (sum(immunityRates) / len(immunityRates))
+
+def getInfectedByAge(outputDir, scenarioName, seed):
+    infectedFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "infected.csv")
+    infectedByAge = [0] * (MAX_AGE + 1)
+    with open(infectedFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            if (int(row["infected"])):
+                age = int(float(row["age"]))
+                infectedByAge[age] += 1
+    return infectedByAge
+
+def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
+    seeds = getRngSeeds(outputDir, scenarioName)
+    with multiprocessing.Pool(processes=poolSize) as pool:
+        infectedByAge = pool.starmap(getInfectedByAge, [(outputDir, scenarioName, s) for s in seeds])
+        allInfectedByAge = []
+        for i in range(MAX_AGE + 1):
+            age = []
+            for run in infectedByAge:
+                age.append(run[i])
+            allInfectedByAge.append(age)
+        plt.boxplot(allInfectedByAge)
+        plt.ylabel("Number of infected individuals")
+        plt.xlabel("Age")
+        plt.xticks(range(MAX_AGE+2)[::5], range(MAX_AGE+2)[::5],rotation=90)
+        plt.savefig(os.path.join(outputDir, figName))
+        plt.clf()
+
+def createInfectedPctByAgePlot(outputDir, scenarioNames, poolSize):
+    pass

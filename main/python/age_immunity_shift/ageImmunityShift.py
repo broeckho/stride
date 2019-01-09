@@ -32,6 +32,23 @@ def registerSusceptibles(simulator, event):
                 isSusceptible = 0
             writer.writerow({"age": age, "susceptible": isSusceptible})
 
+def registerAgesInfected(simulator, event):
+    outputPrefix = simulator.GetConfigValue('run.output_prefix')
+    pop = simulator.GetPopulation()
+    with open(os.path.join(outputPrefix, 'infected.csv'), 'w') as csvfile:
+        fieldnames = ["age", "infected"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for i in range(pop.size()):
+            person = pop[i]
+            age = person.GetAge()
+            beenInfected = person.GetHealth().IsInfected() or person.GetHealth().IsRecovered()
+            if beenInfected:
+                beenInfected = 1
+            else:
+                beenInfected = 0
+            writer.writerow({"age": age, "infected": beenInfected})
+
 # Callback function to track the cumulative cases
 # at each timestep
 def trackCases(simulator, event):
@@ -72,6 +89,7 @@ def runSimulation(year, R0, seed):
                         os.path.join("data", str(year) + "_measles_immunity.xml"))
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
+    control.registerCallback(registerAgesInfected, EventType.AtFinished)
     control.control()
     return
 
