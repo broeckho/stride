@@ -123,5 +123,5 @@ def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
         plt.savefig(os.path.join(outputDir, figName))
         plt.clf()
 
-def createInfectedPctByAgePlot(outputDir, scenarioNames, poolSize):
+def createInfectedPctByAgePlot(outputDir, scenarioName, poolSize):
     pass

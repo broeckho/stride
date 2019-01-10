@@ -10,33 +10,33 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
         for year in years:
             scenarioName = str(year) + "_R0_" + str(R0)
             # Calculate average overall immunity
-            #avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenarioName, poolSize)
-            #print("Avg overall immunity rate for {} with R0 {} is {}".format(year, R0, avgImmunityRate))
+            avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenarioName, poolSize)
+            print("Avg overall immunity rate for {} with R0 {} is {}".format(year, R0, avgImmunityRate))
             # Create extinction threshold histogram
-            #ExtinctionThreshold.createFinalSizeHistogram(outputDir, scenarioName, numDays,
-            #                            poolSize, scenarioName + "_ExtinctionThreshold.png")
+            ExtinctionThreshold.createFinalSizeHistogram(outputDir, scenarioName, numDays,
+                                        poolSize, scenarioName + "_ExtinctionThreshold.png")
             # Create outbreak evolution plots
-            #OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays,
-            #                            extinctionThreshold, poolSize,
-            #                            scenarioName + "_CumulativeCases.png")
-            #OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenarioName, numDays,
-            #                            extinctionThreshold, poolSize,
-            #                            scenarioName + "_NewCases.png")
+            OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays,
+                                        extinctionThreshold, poolSize,
+                                        scenarioName + "_CumulativeCases.png")
+            OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenarioName, numDays,
+                                        extinctionThreshold, poolSize,
+                                        scenarioName + "_NewCases.png")
 
             AgeImmunity.createInfectedByAgePlot(outputDir, scenarioName, poolSize, scenarioName + "_NewCases.png")
         scenarioNames = [str(y) + "_R0_" + str(R0) for y in years]
         scenarioDisplayNames = [str(y) for y in years]
         # Create age-immunity plot
-        #AgeImmunity.createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_AgeImmunityPlot.png")
-        #ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                numDays, poolSize, "R0_" + str(R0) + "_ExtinctionThreshold.png")
-        #OutbreakOccurrenceAndSize.createOutbreakOccurrencePlot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
-        #                                [str(y) for y in years], numDays, extinctionThreshold,
-        #                                poolSize, "R0_" + str(R0) + "_OutbreakOccurrence.png")
-        #OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
-        #                                [str(y) for y in years], numDays, extinctionThreshold,
-        #                                poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
+        AgeImmunity.createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
+                                        poolSize, "R0_" + str(R0) + "_AgeImmunityPlot.png")
+        ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames,
+                                        numDays, poolSize, "R0_" + str(R0) + "_ExtinctionThreshold.png")
+        OutbreakOccurrenceAndSize.createOutbreakOccurrencePlot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
+                                        [str(y) for y in years], numDays, extinctionThreshold,
+                                        poolSize, "R0_" + str(R0) + "_OutbreakOccurrence.png")
+        OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
+                                        [str(y) for y in years], numDays, extinctionThreshold,
+                                        poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
     '''
     #TODO Effective Rs -> VS R0'''
     end = time.perf_counter()
