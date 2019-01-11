@@ -116,14 +116,15 @@ inspect_contact_data <- function(project_dir){
     
     ref_data_tag <- 'ref_fl2010'
     if(grepl('15touch',exp_summary$age_contact_matrix_file)){
-      ref_data_tag <- 'ref_fl2010_15touch'
+      #ref_data_tag <- 'ref_fl2010_15touch'
+      .rstride$cli_print("NO REFERENCE 15_touch CONTACT DATA AVAIABLE",WARNING = TRUE)
     }
     
     # LOAD SURVEY DATA FROM FLANDERS AND FULLY CONNECTED HOUSEHOLDS
     #survey_mij_hh         <- read.table(file=paste0(project_dir,'/data/ref_miami_household_gam_mij_rec.csv'),sep=';',dec=',',header=T)
     survey_mij_hh         <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_household_gam_mij_rec.csv')),sep=';',dec=',',header=T)
-    survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_student_age24_gam_mij_median.csv')),sep=';',dec=',',header=T)
-    survey_mij_work       <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_workplace_employed_age_gam_mij_median.csv')),sep=';',dec=',',header=T)
+    survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_conditional_age23_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
+    survey_mij_work       <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_workplace_conditional_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
     survey_mij_community  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     survey_mij_total      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     
@@ -131,6 +132,11 @@ inspect_contact_data <- function(project_dir){
     survey_mij_work_weekend       <- survey_mij_work*0
     survey_mij_community_weekend  <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_community_gam_mij_rec.csv')),sep=';',dec=',',header=T)
     survey_mij_total_weekend      <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_weekend_gam_mij_rec.csv')),sep=';',dec=',',header=T)
+    
+    ## SPECIAL CASE: TEACHERS
+    if(grepl('teacher',exp_summary$age_contact_matrix_file)){
+      survey_mij_school     <- read.table(file=file.path(data_dir,paste0(ref_data_tag,'_regular_weekday_school_conditional_age23_teachers_gam_mij_rec_median.csv')),sep=';',dec=',',header=T)
+    }
     
     
     ## COMPARE

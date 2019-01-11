@@ -24,8 +24,8 @@ source('./bin/rstride/misc.R')
 
 if(0==1) # for debugging
 {
- #  source('./Misc.R')
- # .rstride$set_wd()
+   source('./Misc.R')
+  .rstride$set_wd()
 
     ref_data_tag  <- 'ref_fl2010'
     generate_social_contact_data_file(ref_data_tag)
@@ -38,45 +38,61 @@ if(0==1) # for debugging
 # GENERATE XML FILE WITH SOCIAL CONTACT PATTERNS                           ##
 #############################################################################
 
-generate_social_contact_data_file <- function(ref_data_tag){
+generate_social_contact_data_file <- function(ref_data_tag,cnt_matrices_lib,postfix=''){
   
   ref_data_tag
   data_dir <- './data'
   output_prefix <- paste0('contact_matrix_',ref_data_tag)
-  output_prefix <- sub('ref_','',output_prefix)
+  output_prefix <- sub('ref_fl2010','flanders',output_prefix)
 
- cnt_matrices_opt <- paste0(ref_data_tag,
-                            c('_regular_weekday_household_gam_mij_rec.csv',
-                           # '_regular_weekday_school_student_age24_gam_mij_median.csv',
-                           '_regular_weekday_school_student_age24_teachers_gam_mij_median.csv',
-                           '_regular_weekday_workplace_employed_age_gam_mij_median.csv',
-                           '_regular_weekday_community_gam_mij_rec.csv',
-                           '_weekend_community_gam_mij_rec.csv'))
- 
- cnt_context_opt <- c('household',
-                   'school',
-                   'work',
-                   'secondary_community',
-                   'primary_community')
+  # add postfix?
+  if(nchar(postfix)>0){
+    output_prefix <- paste(output_prefix,postfix,sep='_')
+  }
   
-
+  # complete file names
+  cnt_matrices_opt <- file.path(data_dir,paste(ref_data_tag,t(cnt_matrices_lib),sep='_'))
+ 
+  # check files 
+  bool_file_exists <- (is.na(cnt_matrices_lib) | file.exists(cnt_matrices_opt))
+  if(any(!bool_file_exists)){
+    print(cnt_matrices_opt[!bool_file_exists]) 
+    print('file does not exist => STOP')
+    return(-1)
+  }
+  
+  # store social contact context
+  cnt_context_opt <- names(cnt_matrices_lib)
+  
+  # generate matrix with "no contacts"
+  # load one and set all values to '0'
+  tmp_cnt_matrix_file_name <- cnt_matrices_opt[which(!is.na(cnt_matrices_lib))[1]]
+  absence_cnt_matrix       <- read.table(file=tmp_cnt_matrix_file_name,sep=';',dec=',',header=T)
+  absence_cnt_matrix       <- absence_cnt_matrix*0
+  
   # setup XML doc (to add prefix)
   xml_doc = newXMLDoc()
   
   cnt_matrix_xml  <- newXMLNode("matrices", doc = xml_doc)
   cnt_matrix_meta <- newXMLNode("raw_data_files", parent = cnt_matrix_xml)
-  i_context <- 2
-  for(i_context in 1:length(cnt_matrices_opt))
+  i_context <- 1
+  for(i_context in 1:length(cnt_matrices_lib))
   {
     print(cnt_matrices_opt[i_context])
     
     # add input file name
-    cnt_meta_data           <- newXMLNode(cnt_context_opt[i_context], parent=cnt_matrix_meta)
+    cnt_meta_data           <- newXMLNode(names(cnt_matrices_lib)[i_context], parent=cnt_matrix_meta)
     xmlValue(cnt_meta_data) <- cnt_matrices_opt[i_context]
     
-    # add contact data
-    survey_mij <- read.table(file=file.path(data_dir,cnt_matrices_opt[i_context]),sep=';',dec=',',header=T)
+    # start from contact matrix with all '0'
+    survey_mij <- absence_cnt_matrix 
     
+    # add contact data if given tot this function
+    if(!is.na(cnt_matrices_lib[i_context])){
+      survey_mij <- read.table(file=cnt_matrices_opt[i_context],sep=';',dec=',',header=T)
+    }
+    
+    # add matrix to XML
     cnt_context <- newXMLNode(cnt_context_opt[i_context], parent=cnt_matrix_xml)
     for(i in 1:nrow(survey_mij)){
       
@@ -108,5 +124,38 @@ generate_social_contact_data_file <- function(ref_data_tag){
   # fix: http://r.789695.n4.nabble.com/saveXML-prefix-argument-td4678407.html
   cat( saveXML( xml_doc, indent = TRUE, prefix = newXMLCommentNode(xml_prefix)),  file = filename) 
   
+}
+
+
+if(0==1){
+  
+  ref_data_tag  <- 'ref_fl2010'
+  
+  # 3 level mixing (conditional)
+  cnt_matrices_lib <- data.frame(household            = 'regular_weekday_household_gam_mij_rec.csv',
+                                 school               = 'regular_weekday_school_conditional_age23_teachers_gam_mij_rec_median.csv',
+                                 work                 = 'regular_weekday_workplace_conditional_gam_mij_rec_median.csv',
+                                 secondary_community  = 'regular_weekday_community_gam_mij_rec.csv',
+                                 primary_community    = 'weekend_community_gam_mij_rec.csv')
+  generate_social_contact_data_file(ref_data_tag,cnt_matrices_lib,postfix='conditional_3level')
+  
+  # 2 level mixing (conditional)
+  cnt_matrices_lib <- data.frame(household            = 'regular_weekday_household_gam_mij_rec.csv',
+                                 school               = NA,
+                                 work                 = NA,
+                                 secondary_community  = 'regular_weekday_community_2level_gam_mij_rec.csv',
+                                 primary_community    = 'weekend_community_gam_mij_rec.csv')
+  generate_social_contact_data_file(ref_data_tag,cnt_matrices_lib,postfix='conditional_2level')
+  
+  # 1 level mixing (conditional)
+  cnt_matrices_lib <- data.frame(household            = NA,
+                                 school               = NA,
+                                 work                 = NA,
+                                 secondary_community  = 'regular_weekday_gam_mij_rec.csv',
+                                 primary_community    = 'weekend_gam_mij_rec.csv')
+  generate_social_contact_data_file(ref_data_tag,cnt_matrices_lib,postfix='conditional_1level')
+  
+  
+
 }
 

@@ -185,19 +185,20 @@ inspect_transmission_data <- function(project_dir)
     outbreak_size_breaks <- c(1,2,5,10,20,50,max(c(100,outbreak_size_data+1)))
     outbreak_size_cat    <- cut(outbreak_size_data,breaks=outbreak_size_breaks,right = F)
     levels(outbreak_size_cat)[6] <- "[50,+]"
-    bplot <- barplot(table(outbreak_size_cat)/length(outbreak_size_cat),
-            ylab='fraction',
+    percentage_plot <- round(table(outbreak_size_cat)/length(outbreak_size_cat)*100)
+    bplot <- barplot(percentage_plot,
+            ylab='%',
             xlab='outbreak size',
             main=paste0('outbreak size (n:',max(data_outbreak$outbreak_id),')'),
             las=2,
-            ylim=0:1)
+            ylim=c(0,100),
+            cex.names = 0.8)
     # add some info to the legend
     num_infected_seeds <- max(data_outbreak$outbreak_id) / length(unique(data_outbreak$exp_id))
     legend('top',c(paste('num. runs',num_runs_exp),paste('outbreaks / run',num_infected_seeds)),cex=0.8)
     # add values
-    fraction_plot <- table(outbreak_size_cat)/length(outbreak_size_cat)
-    label_plot    <- paste0(round(fraction_plot*100),'%')
-    text(bplot,fraction_plot,label_plot,pos=3)
+    label_plot    <- paste0(percentage_plot,'%')
+    text(bplot,percentage_plot,label_plot,pos=3)
     
     # count / day
     tbl_all <- table(data_outbreak$sim_day+1,data_outbreak$outbreak_id)
@@ -272,21 +273,21 @@ inspect_transmission_data <- function(project_dir)
    
     # define the number of outbreaks
     num_outbreaks <- sum(data_outbreak$sim_day==0)
-    
-    # calculate the incidence per 1000PY
+
+    # calculate the incidence 
     inc_case_age     <- table(data_case_age) / num_outbreaks
     inc_sec_case_age <- table(data_sec_case_age) / num_outbreaks
-    plot_ylim <- range((c(0,inc_case_age,inc_sec_case_age)*1.2))
+    plot_ylim <- range((c(0,0.5,inc_case_age,inc_sec_case_age)*1.2))
     
     # plot the incidence per age group
     barplot(inc_case_age,
-            las=2,xlab='age',ylab='Incidence per outbreak',cex.names=0.8,
+            las=2,xlab='age',ylab='Incidence',cex.names=0.8,
             ylim=plot_ylim, main = 'Incidence per outbreak\nby age group')
   
     # plot the secondary incidence per age group
     barplot(inc_sec_case_age,
-            las=2,xlab='age',ylab='Secundary incidence per outbreak',cex.names=0.8,
-            ylim=plot_ylim, main = 'Secundary incidence per outbreak\nby age group')
+            las=2,xlab='age',ylab='Secundary incidence',cex.names=0.8,
+            ylim=plot_ylim, main = 'Secundary incidence per outbreak \nby age group')
     
     
   } # end for-loop to vary the input_opt_design

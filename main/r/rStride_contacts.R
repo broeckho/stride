@@ -30,9 +30,6 @@ rm(list=ls())
 # load rStride
 source('./bin/rstride/rStride.R')
 
-# set directory postfix (optional)
-dir_postfix <- '_cnt'
-
 ##################################
 ## DESIGN OF EXPERIMENTS        ##
 ##################################
@@ -44,16 +41,20 @@ dir_postfix <- '_cnt'
 num_seeds  <- 1
 
 # add parameters and values to combine in a full-factorial grid
-exp_design <- expand.grid(contact_log_level         = "All",
+exp_design <- expand.grid(dir_postfix               = '_cnt_orig',
+                          contact_log_level         = "All",
                           num_days                  = 1,
                           seeding_rate              = 1e-5,
                           num_participants_survey   = 3000,
                           start_date                = c("2017-01-01","2017-01-02"),
                           rng_seed                  = 1:num_seeds,
                           #population_file           = "pop_flanders600.csv",
-                          population_file           = "pop_flanders100_c1000_class.csv",
-                          age_contact_matrix_file   = "contact_matrix_flanders_subpop.xml",
-                          #age_contact_matrix_file   = "contact_matrix_flanders_teachers.xml",
+                          #population_file           = "pop_flanders500_c1000_class.csv",
+                          population_file           = "pop_flanders1300_c1000_class.csv",
+                         # population_file           = "pop_flanders1300_c1000_class_teachers.csv",
+                          age_contact_matrix_file   = "contact_matrix_flanders_conditional.xml",
+                          #age_contact_matrix_file   = "contact_matrix_flanders_conditional_3level.xml",
+                          #age_contact_matrix_file   = "contact_matrix_flanders_conditional_teachers.xml",
                           stringsAsFactors = F)
 
 # add a unique seed for each run
@@ -63,7 +64,7 @@ exp_design$rng_seed <- sample(1e4,nrow(exp_design))
 ##################################
 ## RUN rSTRIDE                  ##
 ##################################
-project_dir <- run_rStride(exp_design,dir_postfix)
+project_dir <- run_rStride(exp_design,unique(exp_design$dir_postfix))
 
 
 #####################################################

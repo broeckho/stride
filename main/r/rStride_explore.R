@@ -52,8 +52,8 @@ exp_design <- expand.grid(r0                            = seq(12,14,2),
                           contact_log_level             = "Transmissions",
                           seeding_rate                  = 0.00002,
                           disease_config_file           = "disease_measles_constant_behavior.xml",
-                          population_file               = "pop_flanders600.csv",
-                          age_contact_matrix_file       = "contact_matrix_flanders_subpop.xml",
+                          population_file               = "pop_flanders500_c1000_class_teachers.csv",
+                          age_contact_matrix_file       = "contact_matrix_flanders_conditional_teachers.xml",
                           adaptive_symptomatic_behavior = 'true',
                           stringsAsFactors = F)
 
