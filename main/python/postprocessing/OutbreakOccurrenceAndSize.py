@@ -38,9 +38,11 @@ def createOutbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames,
                 SEs.append(se)
             else:
                 SEs.append(0)
-        plt.errorbar(scenarioDisplayNames, fractionOutbreaks, SEs, fmt="o", ecolor="red", capsize=4)
+        plt.errorbar([int(x) for x in scenarioDisplayNames], fractionOutbreaks, SEs, fmt="o", ecolor="red", capsize=4)
         plt.ylabel("Fraction outbreaks")
         plt.ylim(0, 1)
+        plt.xlim(2012, 2041)
+        plt.xticks([2013, 2020, 2025, 2030, 2035, 2040])
         plt.savefig(os.path.join(outputDir, figName))
         plt.clf()
 
@@ -53,6 +55,6 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
             finalSizes = [x for x in finalSizes if x >= extinctionThreshold]
             allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
-    plt.ylabel("Finals outbreak size after {} days".format(numDays))
+    plt.ylabel("Final outbreak size after {} days".format(numDays))
     plt.savefig(os.path.join(outputDir, figName))
     plt.clf()
