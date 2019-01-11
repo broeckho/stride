@@ -123,5 +123,31 @@ def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
         plt.savefig(os.path.join(outputDir, figName))
         plt.clf()
 
+def createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
+    for scenario in scenarioNames:
+        seeds = getRngSeeds(outputDir, scenario)
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            infectedByAge = pool.starmap(getInfectedByAge, [(outputDir, scenario, s) for s in seeds])
+            # Remove runs where extinction occurs
+            infectedByAgeNoExt = []
+            for run in infectedByAge:
+                if sum(run) > extinctionThreshold:
+                    infectedByAgeNoExt.append(run)
+            allInfectedByAge = []
+            for i in range(MAX_AGE + 1):
+                age = []
+                for run in infectedByAgeNoExt:
+                    age.append(run[i])
+                if sum(age) > 0:
+                    allInfectedByAge.append(sum(age) / len(age))
+                else:
+                    allInfectedByAge.append(0)
+        plt.plot(allInfectedByAge)
+    plt.legend(scenarioDisplayNames)
+    plt.xlabel("Age")
+    plt.ylabel("Mean number of infected")
+    plt.savefig(os.path.join(outputDir, figName))
+    plt.clf()
+
 def createInfectedPctByAgePlot(outputDir, scenarioName, poolSize):
     pass

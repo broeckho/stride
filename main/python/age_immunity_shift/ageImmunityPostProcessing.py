@@ -22,8 +22,7 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
             OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenarioName, numDays,
                                         extinctionThreshold, poolSize,
                                         scenarioName + "_NewCases.png")
-
-            AgeImmunity.createInfectedByAgePlot(outputDir, scenarioName, poolSize, scenarioName + "_NewCases.png")
+            AgeImmunity.createInfectedByAgePlot(outputDir, scenarioName, poolSize, scenarioName + "_InfectedByAge.png")
         scenarioNames = [str(y) + "_R0_" + str(R0) for y in years]
         scenarioDisplayNames = [str(y) for y in years]
         # Create age-immunity plot
@@ -37,6 +36,10 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
         OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
                                         [str(y) for y in years], numDays, extinctionThreshold,
                                         poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
+        AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
+                                        poolSize, "R0_" + str(R0) + "_InfectedByAge.png", 0)
+        AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
+                                        poolSize, "R0_" + str(R0) + "_InfectedByAgeNoExt.png", extinctionThreshold)
     '''
     #TODO Effective Rs -> VS R0'''
     end = time.perf_counter()
