@@ -47,12 +47,13 @@ def toFile(year, immunityRates, targetDir, maxAge):
 def plotTargetRates(rates, years):
     linestyles = ['-', '--', '-.', ':', '--', '--']
     dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     for i in range(len(rates)):
         d = dashes[i]
         if d is not None:
-            plt.plot(rates[i], linestyle=linestyles[i], dashes=dashes[i])
+            plt.plot(rates[i], linestyle=linestyles[i], dashes=dashes[i], color=colors[i])
         else:
-            plt.plot(rates[i], linestyle=linestyles[i])
+            plt.plot(rates[i], linestyle=linestyles[i], color=colors[i])
     plt.xlabel("Age")
     plt.ylabel("Fraction susceptible")
     plt.ylim(0, 1)

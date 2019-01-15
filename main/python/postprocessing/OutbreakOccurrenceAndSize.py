@@ -46,6 +46,39 @@ def createOutbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames,
         plt.savefig(os.path.join(outputDir, figName))
         plt.clf()
 
+def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
+    fmts = ['o', 'v', '+', 'D', '.', '*', 'x']
+    for R0_i in range(len(R0s)):
+        R0 = R0s[R0_i]
+        fractionOutbreaks = []
+        numRuns = 0
+        for year in years:
+            scenarioName = str(year) + "_R0_" + str(R0)
+            seeds = getRngSeeds(outputDir, scenarioName)
+            numRuns = len(seeds)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize, [(outputDir, scenarioName, s, numDays) for s in seeds])
+                outbreaks = [1 if x>= extinctionThreshold else 0 for x in finalSizes]
+                fractionOutbreaks.append(sum(outbreaks) / len(outbreaks))
+        if numRuns > 0:
+            SEs = []
+            # Calculate confidence intervals
+            for frac in fractionOutbreaks:
+                se = calculateSE(frac, numRuns)
+                if se is not None:
+                    SEs.append(se)
+                else:
+                    SEs.append(0)
+            plt.errorbar(years, fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
+            #TODO ecolor?
+    plt.xlim(2012, 2041)
+    plt.xticks([2013, 2020, 2025, 2030, 2035, 2040])
+    plt.ylabel("Fraction outbreaks")
+    plt.ylim(0, 1)
+    plt.legend([r'$R_0 = $' + str(x) for x in R0s])
+    plt.savefig(os.path.join(outputDir, "AllOutbreakOccurrences.png"))
+    plt.clf()
+
 def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize, figName):
     allFinalSizes = []
     for scenario in scenarioNames:
@@ -56,5 +89,6 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
             allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
     plt.ylabel("Final outbreak size after {} days".format(numDays))
+    plt.ylim(0, 10000)
     plt.savefig(os.path.join(outputDir, figName))
     plt.clf()

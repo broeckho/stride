@@ -62,6 +62,7 @@ def createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
 
     linestyles = ['-', '--', '-.', ':', '--', '--']
     dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     for scenario_i in range(len(scenarioNames)):
         scenario = scenarioNames[scenario_i]
         seeds = getRngSeeds(outputDir, scenario)
@@ -71,9 +72,9 @@ def createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
             for i in range(MAX_AGE + 1):
                 avgRates.append(sum([rates[i] for rates in ageSusceptibilityRates]) / len(ageSusceptibilityRates))
             if dashes[scenario_i] is not None:
-                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i], dashes=dashes[scenario_i])
+                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i], dashes=dashes[scenario_i], color=colors[scenario_i])
             else:
-                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i])
+                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i], color=colors[scenario_i])
     plt.xlabel("Age")
     plt.xlim(0, MAX_AGE + 1)
     plt.ylabel("Fraction susceptibles")
