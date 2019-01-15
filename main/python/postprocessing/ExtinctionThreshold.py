@@ -25,9 +25,19 @@ def createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames, nu
             finalSizes = pool.starmap(getFinalOutbreakSize,
                                     [(outputDir, scenario, s, numDays) for s in seeds])
             allFinalSizes.append(finalSizes)
-    plt.hist(allFinalSizes,bins=25,histtype="barstacked")
+    n, bins, patches = plt.hist(allFinalSizes,bins=25,histtype="barstacked")
+    hatches = ['-', '+', 'x', '\\', 'o', '.']
+    for patch_set, hatch in zip(patches, hatches):
+        plt.setp(patch_set, hatch=hatch)
     plt.xlabel("Final size after {} days".format(numDays))
     plt.ylabel("Frequency")
     plt.legend(scenarioDisplayNames)
     plt.savefig(os.path.join(outputDir, figName))
     plt.clf()
+
+'''
+patterns = ('-', '+', 'x', '\\', '*', 'o', 'O', '.')
+
+for patch_set, hatch in zip(patches, hatches):
+    plt.setp(patch_set, hatch=hatch)
+'''

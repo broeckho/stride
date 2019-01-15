@@ -55,19 +55,25 @@ def getAgeSusceptibilityRates(outputDir, scenarioName, seed):
 
 def createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
     poolSize, figName="AgeImmunityPlot.png", targetRatesFile=None):
-
     if targetRatesFile is not None:
         targetRates = getTargetRates(outputDir, targetRatesFile)
         plt.plot(targetRates, 'bo')
         scenarioDisplayNames = ["Data"] + scenarioDisplayNames
-    for scenario in scenarioNames:
+
+    linestyles = ['-', '--', '-.', ':', '--', '--']
+    dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    for scenario_i in range(len(scenarioNames)):
+        scenario = scenarioNames[scenario_i]
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
             ageSusceptibilityRates = pool.starmap(getAgeSusceptibilityRates, [(outputDir, scenario, s) for s in seeds])
             avgRates = []
             for i in range(MAX_AGE + 1):
                 avgRates.append(sum([rates[i] for rates in ageSusceptibilityRates]) / len(ageSusceptibilityRates))
-            plt.plot(range(MAX_AGE + 1), avgRates)
+            if dashes[scenario_i] is not None:
+                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i], dashes=dashes[scenario_i])
+            else:
+                plt.plot(range(MAX_AGE + 1), avgRates, linestyle=linestyles[scenario_i])
     plt.xlabel("Age")
     plt.xlim(0, MAX_AGE + 1)
     plt.ylabel("Fraction susceptibles")

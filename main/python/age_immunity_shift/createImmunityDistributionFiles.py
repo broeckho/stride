@@ -45,10 +45,17 @@ def toFile(year, immunityRates, targetDir, maxAge):
     ET.ElementTree(immunity).write(os.path.join(targetDir, str(year) + "_measles_immunity.xml"))
 
 def plotTargetRates(rates, years):
+    linestyles = ['-', '--', '-.', ':', '--', '--']
+    dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
     for i in range(len(rates)):
-        plt.plot(rates[i])
+        d = dashes[i]
+        if d is not None:
+            plt.plot(rates[i], linestyle=linestyles[i], dashes=dashes[i])
+        else:
+            plt.plot(rates[i], linestyle=linestyles[i])
     plt.xlabel("Age")
     plt.ylabel("Fraction susceptible")
+    plt.ylim(0, 1)
     plt.legend(years)
     plt.show()
 
