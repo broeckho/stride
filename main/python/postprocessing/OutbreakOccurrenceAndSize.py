@@ -92,3 +92,32 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
     plt.ylim(0, 10000)
     plt.savefig(os.path.join(outputDir, figName))
     plt.clf()
+
+def createFinalSizesOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
+    subplotCoors = [(1, 2, 1), (1, 2, 2)]
+    for R0_i in range(len(R0s)):
+        R0 = R0s[R0_i]
+        allFinalSizes = []
+        for year in years:
+            scenarioName = str(year) + "_R0_" + str(R0)
+            seeds = getRngSeeds(outputDir, scenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize, [(outputDir, scenarioName, s, numDays) for s in seeds])
+                finalSizes = [x for x in finalSizes if x >= extinctionThreshold]
+                allFinalSizes.append(finalSizes)
+        plt.subplot(subplotCoors[R0_i][0], subplotCoors[R0_i][1], subplotCoors[R0_i][2])
+        plt.boxplot(allFinalSizes, labels=years)
+        plt.ylim(0, 100000)
+        plt.title(r'$R_0 = $' + str(R0))
+        if R0_i == 0:
+            plt.ylabel("Final outbreak sizes after {} days".format(numDays))
+        else:
+            plt.tick_params(
+                axis='y',          # changes apply to the x-axis
+                which='both',      # both major and minor ticks are affected
+                left=False,      # ticks along the bottom edge are off
+                right=False,         # ticks along the top edge are off
+                labelleft=False) # labels along the bottom edge are off
+    plt.tight_layout()
+    plt.savefig(os.path.join(outputDir, "AllOutbreakSizes.png"))
+    plt.clf()
