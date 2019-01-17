@@ -37,8 +37,8 @@ set(Python_ADDITIONAL_VERSIONS 3.4)
 #============================================================================
 execute_process(COMMAND git rev-list HEAD --count
         OUTPUT_VARIABLE STRIDE_GIT_LABEL OUTPUT_STRIP_TRAILING_WHITESPACE)
-#set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_LABEL})
-set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride)
+set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride-${STRIDE_GIT_LABEL})
+#set(CMAKE_INSTALL_PREFIX  $ENV{HOME}/opt/stride)
 
 #============================================================================
 # Boost.
