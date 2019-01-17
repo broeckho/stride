@@ -1,17 +1,46 @@
-<!-- This file is part of the Stride software [2018-08-20 15:57:27]-->
+<!-- This file is part of the Stride software [2018-10-12 16:57:41]-->
 <disease>
   <label>
     <pathogen>measles</pathogen>
-    <population_file>pop_flanders600.csv</population_file>
-    <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
-    <r0>0;3;6;9;12;15;18;21;24</r0>
-    <start_date>2017-01-01</start_date>
     <num_infected_seeds>12</num_infected_seeds>
     <total_num_index_cases>540</total_num_index_cases>
     <num_rng_seeds>45</num_rng_seeds>
     <dim_exp_design>9</dim_exp_design>
     <num_realisations>5</num_realisations>
-    <fit_r0_limit>26.2</fit_r0_limit>
+    <fit_r0_limit>101.15</fit_r0_limit>
+    <population_file>pop_flanders600.csv</population_file>
+    <num_days>20</num_days>
+    <seeding_rate>2e-05</seeding_rate>
+    <r0>0;3;6;9;12;15;18;21;24</r0>
+    <immunity_rate>0</immunity_rate>
+    <num_threads>1</num_threads>
+    <start_date>2017-01-01</start_date>
+    <age_contact_matrix_file>contact_matrix_flanders_subpop.xml</age_contact_matrix_file>
+    <num_participants_survey>10</num_participants_survey>
+    <disease_config_file>disease_measles.xml</disease_config_file>
+    <population_size>600000</population_size>
+    <behaviour_policy>NoBehaviour</behaviour_policy>
+    <name>NoBelief</name>
+    <contact_log_level>Transmissions</contact_log_level>
+    <contact_output_file>true</contact_output_file>
+    <global_information_policy>NoGlobalInformation</global_information_policy>
+    <holidays_file>holidays_none.json</holidays_file>
+    <immunity_profile>None</immunity_profile>
+    <local_information_policy>NoLocalInformation</local_information_policy>
+    <output_adopted>false</output_adopted>
+    <output_cases>true</output_cases>
+    <output_persons>false</output_persons>
+    <output_summary>true</output_summary>
+    <rng_type>mrg2</rng_type>
+    <seeding_age_max>99</seeding_age_max>
+    <seeding_age_min>1</seeding_age_min>
+    <stride_log_level>info</stride_log_level>
+    <track_index_case>true</track_index_case>
+    <use_install_dirs>true</use_install_dirs>
+    <vaccine_link_probability>0</vaccine_link_probability>
+    <vaccine_profile>None</vaccine_profile>
+    <vaccine_rate>0</vaccine_rate>
+    <run_tag>20181012_165655_r0</run_tag>
   </label>
   <start_symptomatic>
     <probability>0</probability>
@@ -63,7 +92,7 @@
   </time_symptomatic>
   <transmission>
     <b0>0</b0>
-    <b1>35.9482152134492</b1>
-    <b2>-9.75320013729009</b2>
+    <b1>119.521295177722</b1>
+    <b2>-18.370528333569</b2>
   </transmission>
 </disease>

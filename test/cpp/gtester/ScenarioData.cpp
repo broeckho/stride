@@ -41,13 +41,13 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                 RunConfigManager::ConvertToGenGeoPop(pt);
 
         std::map<std::string, unsigned int> targets_default = {
-            {"influenza_a", 1085U},  {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 599900U},
-            {"measles_60", 600000U}, {"r0_0", 1200U},     {"r0_4", 39080U},    {"r0_8", 110884U},
-            {"r0_12", 118342U},      {"r0_16", 119459U}};
+            {"influenza_a", 550429U},  {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 262470U},
+            {"measles_26", 600000U}, {"r0_0", 1200U},     {"r0_4", 4077U},    {"r0_8", 14588U},
+            {"r0_12", 39234U},      {"r0_16", 71171}};
 
         std::map<std::string, double> sigmas_default = {{"influenza_a", 116.60326645015648},
                                                         {"influenza_b", 0},
-                                                        {"influenza_c", 0},
+                                                        {"influenza_c", 0.2},
                                                         {"measles_16", 660.8227044636814},
                                                         {"measles_60", 0},
                                                         {"r0_0", targets_default["r0_0"] * 0.1},
@@ -57,13 +57,13 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                         {"r0_16", targets_default["r0_16"] * 0.1}};
 
         std::map<std::string, unsigned int> targets_gengeopop = {
-            {"influenza_a_gengeopop", 1276},  {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 5},
+            {"influenza_a_gengeopop", 550429U},  {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 5},
             {"measles_16_gengeopop", 599841}, {"measles_60_gengeopop", 600027}, {"r0_0_gengeopop", 1199},
             {"r0_12_gengeopop", 118125},      {"r0_16_gengeopop", 119442},      {"r0_4_gengeopop", 44391},
             {"r0_8_gengeopop", 111209}};
         std::map<std::string, double> sigmas_gengeopop = {{"influenza_a_gengeopop", 87.347638777473549},
                                                           {"influenza_b_gengeopop", 0},
-                                                          {"influenza_c_gengeopop", 0},
+                                                          {"influenza_c_gengeopop", 0.2},
                                                           {"measles_16_gengeopop", 510.60262435674969},
                                                           {"measles_60_gengeopop", 515.93547077129722},
                                                           {"r0_0_gengeopop", 1.6278820596099706},
@@ -96,9 +96,10 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                 pt.put("run.disease_config_file", "disease_measles.xml");
                 pt.put("run.r0", 16U);
         }
-        if (tag == "measles_60") {
+        if (tag == "measles_26") {
                 pt.put("run.disease_config_file", "disease_measles.xml");
-                pt.put("run.r0", 60U);
+                pt.put("run.r0", 26U);
+                pt.put("run.num_days",200U);
         }
 
         if (tag == "r0_0") {

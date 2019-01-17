@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 #############################################################################
 #  This file is part of the Stride software. 
 #  It is free software: you can redistribute it and/or modify
@@ -13,36 +14,48 @@
 #  see http://www.gnu.org/licenses/.
 #
 #
-#  Copyright 2017, Willem L
+#  Copyright 2018, Willem L, Kuylen E & Broeckhove J
 #############################################################################
 #
-# AGGREGATE THE SUMMARY INFO FROM ALL RUNS IN THE OUTPUT FOLDER
+# Call this script from the main project folder (containing bin, config, lib, ...)
+# to get all relative data links right. 
+#
+# E.g.: path/to/stride $ ./bin/rStride_all.R 
 #
 #############################################################################
+
+# Clear work environment
 rm(list=ls())
 
-# set the directory to aggregate
-main_dir <- 'output'
+# load rStride
+source('./bin/rstride/rStride.R')
 
-# get all files and folder names in the "main_dir"
-all_tags <- dir(main_dir)
+# list all rStride scripts
+script_opt <- list.files('./bin',pattern='rStride_',full.names = T)
 
-# only include folders (with output)
-all_tags <- all_tags[!grepl('.csv',all_tags)]
+# remove current '_all' script
+script_opt <- script_opt[!grepl('rStride_all',script_opt)]
+#script_opt <- script_opt[grepl('rStride_expl',script_opt)]
 
-# collect all summary data
-all_data <- NULL
-for(i in 1:length(all_tags)){
+
+
+# run all rStride scripts
+for(script_i in script_opt){
+  .rstride$cli_print('---------------------------------------')
+  # print script name
+  .rstride$cli_print('RUN',script_i)
   
-  data_file      <- paste0('./',main_dir,'/',all_tags[i],'/',all_tags[i],'_summary.csv')
-  data           <- read.table(data_file, header=TRUE,sep=",",stringsAsFactors=F)
-  data$sim_tag   <- all_tags[i]
-  all_data       <- rbind(all_data,data)
-  print(data_file)
+  # run script
+  system(script_i,ignore.stdout=FALSE)
+  
+  # print script name
+  .rstride$cli_print('CLOSE',script_i)
+  .rstride$cli_print('---------------------------------------')
+  
   
 }
-dim(all_data)
+  
 
-# write all data to a csv file
-file_name <- paste0('./',main_dir,'/','all_summary.csv')
-write.csv(all_data,file=file_name,row.names=F)
+
+
+
