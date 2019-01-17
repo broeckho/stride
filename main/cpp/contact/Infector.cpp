@@ -35,7 +35,7 @@ class LOG_POLICY
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                            unsigned short int)
+                            unsigned short int, const double, const double)
         {
         }
 
@@ -51,7 +51,7 @@ class LOG_POLICY<ContactLogMode::Id::Transmissions>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>&, const Person*, const Person*, ContactPoolType::Id,
-                            unsigned short int)
+                            unsigned short int, const double, const double)
         {
         }
 
@@ -69,17 +69,18 @@ class LOG_POLICY<ContactLogMode::Id::All>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                            ContactPoolType::Id type, unsigned short int sim_day)
+                            ContactPoolType::Id type, unsigned short int sim_day, const double c_rate,
+							const double t_rate)
         {
                 if (p1->IsSurveyParticipant()) {
-                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
+                        logger->info("[CONT] {} {} {} {} {} {} {} {} {} {} {} {}", p1->GetId(), p1->GetAge(), p2->GetAge(),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Household),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::K12School),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::College),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::Work),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::PrimaryCommunity),
                                      static_cast<unsigned int>(type == ContactPoolType::Id::SecondaryCommunity),
-                                     sim_day);
+                                     sim_day, c_rate, t_rate);
                 }
         }
 
@@ -98,7 +99,7 @@ class LOG_POLICY<ContactLogMode::Id::Susceptibles>
 {
 public:
         static void Contact(const std::shared_ptr<spdlog::logger>& logger, const Person* p1, const Person* p2,
-                            ContactPoolType::Id, unsigned short int)
+                            ContactPoolType::Id, unsigned short int, const double, const double)
         {
                 if (p1->IsSurveyParticipant() && p1->GetHealth().IsSusceptible() && p2->GetHealth().IsSusceptible()) {
                         logger->info("[CONT] {} {}", p1->GetId(), p2->GetId());
@@ -172,9 +173,9 @@ void Infector<LL, TIC, TO>::Exec(ContactPool& pool, const AgeContactProfile& pro
                                                 // check for contact
                                                 if (cHandler.HasContact(c_rate)) {
                                                         // log contact if person 1 is participating in survey
-                                                        LP::Contact(cLogger, p1, p2, pType, simDay);
+                                                        LP::Contact(cLogger, p1, p2, pType, simDay, c_rate, tRate);
                                                         // log contact if person 2 is participating in survey
-                                                        LP::Contact(cLogger, p2, p1, pType, simDay);
+                                                        LP::Contact(cLogger, p2, p1, pType, simDay, c_rate, tRate);
 
                                                         // transmission & infection.
                                                         if (cHandler.HasTransmission(tRate)) {

@@ -28,12 +28,13 @@ namespace stride {
 using namespace std;
 using namespace stride::ContactPoolType;
 
-void Person::Update(bool isWorkOff, bool isSchoolOff)
+void Person::Update(bool isWorkOff, bool isSchoolOff, bool adaptiveSymptomaticBehavior)
 {
-        m_health.Update();
+        // Update health and disease status
+		m_health.Update();
 
-        // Update presence in contactpools.
-        if (m_health.IsSymptomatic()) {
+        // Update presence in contact pools.
+        if (m_health.IsSymptomatic() && adaptiveSymptomaticBehavior) {
                 m_in_pools[Id::K12School]          = false;
                 m_in_pools[Id::College]            = false;
                 m_in_pools[Id::Work]               = false;

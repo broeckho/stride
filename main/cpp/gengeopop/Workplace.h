@@ -27,7 +27,7 @@ class GeoGrid;
 class Workplace : public ContactCenter
 {
 public:
-        /// Construct community with assigned ID.
+        /// Construct workplace with assigned ID.
         explicit Workplace(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.

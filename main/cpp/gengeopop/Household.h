@@ -25,7 +25,7 @@ namespace gengeopop {
 class Household : public ContactCenter
 {
 public:
-        /// Construct with assigned ID.
+        /// Construct household with assigned ID.
         explicit Household(unsigned int id = 0U) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.

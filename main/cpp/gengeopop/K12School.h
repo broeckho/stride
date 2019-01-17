@@ -27,7 +27,7 @@ namespace gengeopop {
 class K12School : public ContactCenter
 {
 public:
-        ///
+	    /// Construct K12school with assigned ID.
         explicit K12School(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.

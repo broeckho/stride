@@ -28,7 +28,7 @@ namespace gengeopop {
 class College : public ContactCenter
 {
 public:
-        /// Instatiate college with an assing Idfor its ContactCenter.
+        /// Construct college with assigned ID.
         explicit College(unsigned int id) : ContactCenter(id) {}
 
         /// See ContactCenter::Fill.
