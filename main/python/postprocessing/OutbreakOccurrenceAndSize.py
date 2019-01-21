@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
-from .Util import getFinalOutbreakSize, getRngSeeds
+from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
 
 def calculateSE(fractionSuccesses, sampleSize, confidenceLevel=95):
     zValues = {90: 1.645, 95: 1.96, 99: 2.576}
@@ -38,13 +38,12 @@ def createOutbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames,
                 SEs.append(se)
             else:
                 SEs.append(0)
-        plt.errorbar([int(x) for x in scenarioDisplayNames], fractionOutbreaks, SEs, fmt="o", ecolor="red", capsize=4)
+        plt.errorbar(range(len(fractionOutbreaks)), fractionOutbreaks, SEs, fmt="o", ecolor="red", capsize=4)
+
         plt.ylabel("Fraction outbreaks")
         plt.ylim(0, 1)
-        plt.xlim(2012, 2041)
-        plt.xticks([2013, 2020, 2025, 2030, 2035, 2040])
-        plt.savefig(os.path.join(outputDir, figName))
-        plt.clf()
+        plt.xticks(range(len(fractionOutbreaks)), scenarioDisplayNames)
+        saveFig(outputDir, figName)
 
 def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
     fmts = ['o', 'v', '+', 'D', '.', '*', 'x']
@@ -75,9 +74,8 @@ def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, years, numDays, extinct
     plt.xticks([2013, 2020, 2025, 2030, 2035, 2040])
     plt.ylabel("Fraction outbreaks")
     plt.ylim(0, 1)
-    plt.legend([r'$R_0 = $' + str(x) for x in R0s])
-    plt.savefig(os.path.join(outputDir, "AllOutbreakOccurrences.png"))
-    plt.clf()
+    plt.legend([r'$R_0 = $' + str(x) for x in R0s], loc=4)
+    saveFig(outputDir, "AllOutbreakOccurrences")
 
 def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize, figName):
     allFinalSizes = []
@@ -89,9 +87,8 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
             allFinalSizes.append(finalSizes)
     plt.boxplot(allFinalSizes, labels=scenarioDisplayNames)
     plt.ylabel("Final outbreak size after {} days".format(numDays))
-    plt.ylim(0, 10000)
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    #plt.ylim(0, 10000)
+    saveFig(outputDir, figName)
 
 def createFinalSizesOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
     subplotCoors = [(1, 2, 1), (1, 2, 2)]
@@ -119,5 +116,4 @@ def createFinalSizesOverviewPlot(outputDir, R0s, years, numDays, extinctionThres
                 right=False,         # ticks along the top edge are off
                 labelleft=False) # labels along the bottom edge are off
     plt.tight_layout()
-    plt.savefig(os.path.join(outputDir, "AllOutbreakSizes.png"))
-    plt.clf()
+    saveFig(outputDir, "AllOutbreakSizes")

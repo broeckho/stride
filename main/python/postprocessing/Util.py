@@ -1,6 +1,8 @@
 import csv
 import os
 
+import matplotlib.pyplot as plt
+
 MAX_AGE = 99
 
 def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
@@ -21,3 +23,15 @@ def getRngSeeds(outputDir, scenarioName):
             for s in row:
                 seeds.append(int(s))
     return seeds
+
+def saveFig(outputDir, figName):
+    plt.savefig(os.path.join(outputDir, figName + ".eps"), format='eps', dpi=1000)
+    plt.clf()
+
+'''
+bbox_inches : str or Bbox, optional
+Bbox in inches. Only the given portion of the figure is saved. If 'tight', try to figure out the tight bbox of the figure. If None, use savefig.bbox
+
+pad_inches : scalar, optional
+Amount of padding around the figure when bbox_inches is 'tight'. If None, use savefig.pad_inches
+'''

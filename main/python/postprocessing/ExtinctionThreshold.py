@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
-from .Util import getFinalOutbreakSize, getRngSeeds
+from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
 
 def createFinalSizeHistogram(outputDir, scenarioName, numDays, poolSize, figName):
     seeds = getRngSeeds(outputDir, scenarioName)
@@ -14,8 +14,7 @@ def createFinalSizeHistogram(outputDir, scenarioName, numDays, poolSize, figName
         plt.xlabel("Final size after {} days".format(numDays))
         plt.ylabel("Frequency")
         plt.title(scenarioName)
-        plt.savefig(os.path.join(outputDir, figName))
-        plt.clf()
+        saveFig(outputDir, figName)
 
 def createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames, numDays, poolSize, figName):
     allFinalSizes = []
@@ -33,5 +32,4 @@ def createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames, nu
     plt.xlabel("Final size after {} days".format(numDays))
     plt.ylabel("Frequency")
     plt.legend(scenarioDisplayNames)
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    saveFig(outputDir, figName)

@@ -33,10 +33,10 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
         scenarioDisplayNames = [str(y) for y in years]
         # Create age-immunity plot
         AgeImmunity.createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
-                                        poolSize, "R0_" + str(R0) + "_AgeImmunityPlot.png")
+                                        poolSize, "R0_" + str(R0) + "_AgeImmunityPlot")
         # Create plot to determine extinction threshold
         ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames,
-                                        numDays, poolSize, "R0_" + str(R0) + "_ExtinctionThreshold.png")
+                                        numDays, poolSize, "R0_" + str(R0) + "_ExtinctionThreshold")
         #OutbreakOccurrenceAndSize.createOutbreakOccurrencePlot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
         #                                [str(y) for y in years], numDays, extinctionThreshold,
         #                                poolSize, "R0_" + str(R0) + "_OutbreakOccurrence.png")

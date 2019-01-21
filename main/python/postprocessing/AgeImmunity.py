@@ -4,7 +4,7 @@ import multiprocessing
 import os
 import xml.etree.ElementTree as ET
 
-from .Util import getRngSeeds, MAX_AGE
+from .Util import getRngSeeds, saveFig, MAX_AGE
 
 """
 def createHouseholdConstitutionPlots(outputDir, scenarioNames):
@@ -80,8 +80,7 @@ def createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
     plt.ylabel("Fraction susceptibles")
     plt.ylim(0, 1)
     plt.legend(scenarioDisplayNames)
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    saveFig(outputDir, figName)
 
 def getOverallImmunityRate(outputDir, scenarioName, seed):
     susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
@@ -127,8 +126,7 @@ def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
         plt.ylabel("Number of infected individuals")
         plt.xlabel("Age")
         plt.xticks(range(MAX_AGE+2)[::5], range(MAX_AGE+2)[::5],rotation=90)
-        plt.savefig(os.path.join(outputDir, figName))
-        plt.clf()
+        saveFig(outputDir, figName)
 
 def createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
     for scenario in scenarioNames:
@@ -153,8 +151,7 @@ def createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNam
     plt.legend(scenarioDisplayNames)
     plt.xlabel("Age")
     plt.ylabel("Mean number of infected")
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    saveFig(outputDir, figName)
 
 def createInfectedPctByAgePlot(outputDir, scenarioName, poolSize):
     pass

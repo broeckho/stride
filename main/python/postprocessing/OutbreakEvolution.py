@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
-from .Util import getRngSeeds
+from .Util import getRngSeeds, saveFig
 
 def getCumulativeCasesPerDay(outputDir, scenarioName, seed, numDays):
     casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
@@ -46,8 +46,7 @@ def createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays, extinction
     plt.xlabel("Day")
     plt.xticks(rotation=90)
     plt.ylabel("Cumulative cases")
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    saveFig(outputDir, figName)
 
 def createNewCasesPerDayPlot(outputDir, scenarioName, numDays, extinctionThreshold, poolSize, figName):
     dayScale = int(numDays / 20)
@@ -67,5 +66,4 @@ def createNewCasesPerDayPlot(outputDir, scenarioName, numDays, extinctionThresho
     plt.xticks(rotation=90)
     plt.xlabel("Day")
     plt.ylabel("New cases")
-    plt.savefig(os.path.join(outputDir, figName))
-    plt.clf()
+    saveFig(outputDir, figName)

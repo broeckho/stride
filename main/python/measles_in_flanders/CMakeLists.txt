@@ -28,6 +28,7 @@ INSTALL(FILES
 		measlesStochasticityPlots.py
 		measlesClustering.py
 		measlesClusteringFitting.py
+    measlesClusteringPostProcessing.py
 		outbreakEvolutionPlots.py
     outbreakOccurrenceAndSize.py
 		graphutil.py
