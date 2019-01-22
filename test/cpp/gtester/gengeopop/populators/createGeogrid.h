@@ -10,13 +10,13 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/GeoGridConfig.h>
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/GeoGridConfig.h"
 
 std::shared_ptr<gengeopop::GeoGrid> CreateGeoGrid(int locCount, int locPop, int schoolCount, int houseHoldCount,
                                                   int personCount, stride::Population* pop);

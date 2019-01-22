@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -34,13 +34,13 @@ public:
         /// Apply all partial populators onto an empty GeoGrid object.
         void PopulateGeoGrid();
 
-        /// Get the target GeoGrid
+        /// Get the target GeoGrid.
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        std::vector<std::shared_ptr<PartialPopulator>> m_partialPopulators; ///< PartialPopulators
-        std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target
-        GeoGridConfig                                  m_geoGridConfig;     ///< The config
+        std::vector<std::shared_ptr<PartialPopulator>> m_partialPopulators; ///< PartialPopulators.
+        std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target geogrid.
+        GeoGridConfig                                  m_geoGridConfig;     ///< Configuration of target geogrid.
 };
 
 } // namespace gengeopop

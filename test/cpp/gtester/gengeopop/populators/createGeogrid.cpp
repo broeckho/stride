@@ -10,18 +10,21 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "createGeogrid.h"
-#include <gengeopop/K12School.h>
 
+#include "gengeopop/K12School.h"
+
+using namespace std;
+using namespace stride;
 using namespace gengeopop;
 
-std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount,
-                                       int personCount, stride::Population* pop)
+shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCount, int houseHoldCount,
+                                       int personCount, Population* pop)
 {
-        std::vector<unsigned int> populationSample = {
+        vector<unsigned int> populationSample = {
             17, 27, 65, 40, 29, 76, 27, 50, 28, 62, 50, 14, 30, 36, 12, 31, 25, 72, 62, 4,  40, 52, 55, 50, 62,
             1,  30, 23, 6,  71, 50, 65, 8,  26, 44, 76, 23, 22, 69, 22, 4,  22, 48, 12, 57, 42, 36, 45, 73, 13,
             18, 58, 37, 43, 70, 36, 11, 54, 26, 8,  7,  6,  76, 15, 5,  23, 34, 74, 17, 33, 23, 54, 43, 72, 46,
@@ -35,39 +38,30 @@ std::shared_ptr<GeoGrid> CreateGeoGrid(int locCount, int locPop, int k12SchoolCo
             76, 73, 9,  27, 5,  68, 25, 16, 29, 58, 78, 75, 40, 8,  37, 63, 63, 76, 55, 47, 18, 4,  21, 39, 45,
             42, 20, 41, 40, 37, 38, 30, 48, 9,  40, 23, 68, 77, 21, 50, 18, 27, 54, 1,  32, 67, 27, 14, 4,  78};
 
-        auto geoGrid = std::make_shared<GeoGrid>(pop);
+        const auto populationSize{populationSample.size()};
+        auto geoGrid = make_shared<GeoGrid>(pop);
 
-        std::size_t populationSampleId = 0;
-
+        size_t sampleId = 0;
         int personId = 0;
-
         for (int locI = 0; locI < locCount; locI++) {
-                auto loc = std::make_shared<Location>(locI, 1, locPop);
+                auto loc = make_shared<Location>(locI, 1, locPop);
 
                 for (int schI = 0; schI < k12SchoolCount; schI++) {
-                        auto k12School =
-                            std::make_shared<K12School>(std::stoi(std::to_string(locI) + std::to_string(schI)));
+                        auto k12School = make_shared<K12School>(stoi(to_string(locI) + to_string(schI)));
                         k12School->Fill(geoGrid);
                         loc->AddContactCenter(k12School);
                 }
 
                 for (int hI = 0; hI < houseHoldCount; hI++) {
-                        auto household =
-                            std::make_shared<Household>(std::stoi(std::to_string(locI) + std::to_string(hI)));
-
+                        auto household = make_shared<Household>(stoi(to_string(locI) + to_string(hI)));
                         household->Fill(geoGrid);
-
                         auto contactPool = household->GetPools()[0];
 
-                        for (int pI = 0; pI < personCount; pI++) {
-                                stride::Person* person = geoGrid->CreatePerson(
-                                    personId, populationSample[populationSampleId], household->GetId(), 0, 0, 0, 0, 0);
-
-                                contactPool->AddMember(person);
-                                populationSampleId++;
-                                if (populationSampleId == 300) {
-                                        populationSampleId = 0;
-                                }
+                        for (int i = 0; i < personCount; i++) {
+                                auto sample = populationSample[sampleId%populationSize];
+                                auto p = geoGrid->CreatePerson(personId, sample, household->GetId(), 0, 0, 0, 0, 0);
+                                contactPool->AddMember(p);
+                                sampleId++;
                                 personId++;
                         }
                         loc->AddContactCenter(household);

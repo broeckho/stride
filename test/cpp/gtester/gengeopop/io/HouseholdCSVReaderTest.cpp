@@ -10,35 +10,38 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/io/HouseholdCSVReader.h>
+#include "gengeopop/io/HouseholdCSVReader.h"
+
 #include <gtest/gtest.h>
 #include <memory>
+#include <vector>
 
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
 
 namespace {
 
-std::shared_ptr<Household> createCP(const std::vector<unsigned int>& ages)
+shared_ptr<Household> createCP(const vector<unsigned int>& ages)
 {
-        auto cp = new stride::ContactPool(0, stride::ContactPoolType::Id::Household);
+        auto cp = new ContactPool(0, ContactPoolType::Id::Household);
         for (unsigned int age : ages) {
-                //                auto p = std::make_shared<stride::Person>();
-                stride::Person* p = new stride::Person();
+                auto p = new Person();
                 p->SetAge(age);
                 cp->AddMember(p);
         }
 
-        auto hh = std::make_shared<Household>();
+        auto hh = make_shared<Household>();
         hh->AddPool(cp);
         return hh;
 }
 
-std::vector<std::shared_ptr<Household>> getExpectedHouseHolds()
+vector<shared_ptr<Household>> getExpectedHouseHolds()
 {
-        std::vector<std::shared_ptr<Household>> households;
+        vector<shared_ptr<Household>> households;
 
         households.push_back(createCP({42, 38, 15}));
         households.push_back(createCP({70, 68}));
@@ -54,7 +57,7 @@ std::vector<std::shared_ptr<Household>> getExpectedHouseHolds()
 
 TEST(HouseholdCSVReader, test1)
 {
-        std::string csvString =
+        string csvString =
             R"(hh_age1,hh_age2,hh_age3,hh_age4,hh_age5,hh_age6,hh_age7,hh_age8,hh_age9,hh_age10,hh_age11,hh_age12
  42,38,15,NA,NA,NA,NA,NA,NA,NA,NA,NA
  70,68,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -66,11 +69,10 @@ TEST(HouseholdCSVReader, test1)
  78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 )";
 
-        auto instream = std::make_unique<std::istringstream>(csvString);
-
-        HouseholdCSVReader                             reader(std::move(instream));
-        const std::vector<std::shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
-        const std::vector<std::shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
+        auto instream = make_unique<istringstream>(csvString);
+        HouseholdCSVReader                             reader(move(instream));
+        const vector<shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
+        const vector<shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 
         EXPECT_EQ(HHs.size(), (unsigned int)8);
 

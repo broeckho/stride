@@ -10,26 +10,29 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/io/CommutesCSVReader.h>
-#include <gengeopop/io/HouseholdCSVReader.h>
+#include "gengeopop/io/CommutesCSVReader.h"
+#include "gengeopop/io/HouseholdCSVReader.h"
+
 #include <gtest/gtest.h>
 #include <memory>
 
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
 
 namespace {
 
-std::shared_ptr<GeoGrid> getExpectedGeoGrid()
+shared_ptr<GeoGrid> getExpectedGeoGrid()
 {
-        auto                     pop     = stride::Population::Create();
-        std::shared_ptr<GeoGrid> geoGrid = std::make_shared<GeoGrid>(pop.get());
-        geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
-        geoGrid->AddLocation(std::make_shared<Location>(22, 0, 800));
-        geoGrid->AddLocation(std::make_shared<Location>(23, 0, 900));
-        geoGrid->AddLocation(std::make_shared<Location>(24, 0, 1300));
+        auto pop = Population::Create();
+        shared_ptr<GeoGrid> geoGrid = make_shared<GeoGrid>(pop.get());
+        geoGrid->AddLocation(make_shared<Location>(21, 0, 1000));
+        geoGrid->AddLocation(make_shared<Location>(22, 0, 800));
+        geoGrid->AddLocation(make_shared<Location>(23, 0, 900));
+        geoGrid->AddLocation(make_shared<Location>(24, 0, 1300));
 
         // to 21
         geoGrid->GetById(21)->AddIncomingCommutingLocation(geoGrid->GetById(22), 0.15012305168170631);
@@ -64,24 +67,22 @@ std::shared_ptr<GeoGrid> getExpectedGeoGrid()
 
 TEST(CommutesCSVReaderTest, test1)
 {
-        std::string csvString = "id_21,id_22,id_23,id_24\n"
+        string csvString = "id_21,id_22,id_23,id_24\n"
                                 "550,366,668,425\n" // to 21
                                 "141,761,0,705\n"   // to 22
                                 "487,700,462,0\n"   // to 23
                                 "0,611,0,0\n";      // to 24
 
-        std::shared_ptr<GeoGrid> expectedGeoGrid = getExpectedGeoGrid();
-        auto                     pop             = stride::Population::Create();
-        std::shared_ptr<GeoGrid> geoGrid         = std::make_shared<GeoGrid>(pop.get());
-        geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
-        geoGrid->AddLocation(std::make_shared<Location>(22, 0, 800));
-        geoGrid->AddLocation(std::make_shared<Location>(23, 0, 900));
-        geoGrid->AddLocation(std::make_shared<Location>(24, 0, 1300));
+        const auto expectedGeoGrid = getExpectedGeoGrid();
+        const auto pop             = Population::Create();
+        const auto geoGrid         = make_shared<GeoGrid>(pop.get());
+        geoGrid->AddLocation(make_shared<Location>(21, 0, 1000));
+        geoGrid->AddLocation(make_shared<Location>(22, 0, 800));
+        geoGrid->AddLocation(make_shared<Location>(23, 0, 900));
+        geoGrid->AddLocation(make_shared<Location>(24, 0, 1300));
+        auto instream = make_unique<istringstream>(csvString);
 
-        auto instream = std::make_unique<std::istringstream>(csvString);
-
-        CommutesCSVReader reader(std::move(instream));
-
+        CommutesCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);
 
         for (const auto& loc : *geoGrid) {

@@ -10,15 +10,17 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "PartialPopulator.h"
 
+#include <trng/discrete_dist.hpp>
+
 namespace gengeopop {
 
-PartialPopulator::PartialPopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger)
-    : m_rnManager(rn_manager), m_logger(std::move(logger))
+PartialPopulator::PartialPopulator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
+    : m_rnManager(rnManager), m_logger(std::move(logger))
 {
 }
 

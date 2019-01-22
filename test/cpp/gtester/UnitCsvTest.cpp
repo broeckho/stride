@@ -22,6 +22,7 @@
 
 #include <gtest/gtest.h>
 
+using namespace std;
 using namespace stride::util;
 
 TEST(UnitCsvTest, SafeCastTest)
@@ -36,17 +37,15 @@ TEST(UnitCsvTest, SafeCastTest)
         EXPECT_EQ(safe_cast<unsigned int>("100"), 100);
         EXPECT_EQ(safe_cast<uint8_t>("125"), 125);
         EXPECT_EQ(safe_cast<double>("100.10"), 100.10);
-        EXPECT_EQ(safe_cast<std::string>(std::string("abc")), "abc");
+        EXPECT_EQ(safe_cast<string>(string("abc")), "abc");
 }
 
 TEST(UnitCsvTest, TestBadCast)
 {
-        std::string csvString = "id,naam,col3,col4,col5\n"
+        string csvString = "id,naam,col3,col4,col5\n"
                                 "10test,abc,-100,1024,100.10.1\n"
                                 "10,abc,100,125,100.10";
-
-        std::istringstream instream(csvString);
-
+        istringstream instream(csvString);
         CSV reader(instream);
 
         const auto& row1 = reader.begin();

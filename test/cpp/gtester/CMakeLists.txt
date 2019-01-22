@@ -27,7 +27,6 @@ add_definitions(-DGTEST_LANG_CXX11)
 set(EXEC gtester)
 set(SRC
     BatchRuns.cpp
-    CSVTest.cpp
     ScenarioData.cpp
     #---
     UnitCsvTest.cpp

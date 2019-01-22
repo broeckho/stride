@@ -10,30 +10,31 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "../../createlogger.h"
-#include <gengeopop/Community.h>
-#include <gengeopop/generators/CommunityGenerator.h>
-#include <gtest/gtest.h>
-#include <util/RnMan.h>
+#include "gengeopop/Community.h"
+#include "gengeopop/generators/CommunityGenerator.h"
+#include "util/RnMan.h"
 
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
+using namespace stride::util;
 
 namespace {
 
 TEST(CommunityGeneratorTest, OneLocationTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CommunityGenerator communityGenerator(rnManager, CreateLogger());
+        RnMan rnManager{}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
-        auto pop     = stride::Population::Create();
+        auto pop = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
@@ -46,15 +47,12 @@ TEST(CommunityGeneratorTest, OneLocationTest)
 
 TEST(CommunityGeneratorTest, EqualLocationTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CommunityGenerator communityGenerator(rnManager, CreateLogger());
+        RnMan rnManager{}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 100 * 100 * 1000;
 
-        auto pop     = stride::Population::Create();
+        auto pop = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         for (int i = 0; i < 10; i++) {
                 geoGrid->AddLocation(std::make_shared<Location>(1, 4, 10 * 1000 * 1000, Coordinate(0, 0),
@@ -71,15 +69,12 @@ TEST(CommunityGeneratorTest, EqualLocationTest)
 
 TEST(CommunityGeneratorTest, ZeroLocationTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CommunityGenerator communityGenerator(rnManager, CreateLogger());
+        RnMan rnManager{}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize = 10000;
 
-        auto pop     = stride::Population::Create();
+        auto pop = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         communityGenerator.Apply(geoGrid, config);
 
@@ -88,16 +83,13 @@ TEST(CommunityGeneratorTest, ZeroLocationTest)
 
 TEST(CommunityGeneratorTest, FiveLocationsTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CommunityGenerator communityGenerator(rnManager, CreateLogger());
+        RnMan rnManager{}; // Default random number manager.
+        CommunityGenerator communityGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize        = 37542 * 100;
         config.calculated.compulsoryPupils = 750840;
 
-        auto pop     = stride::Population::Create();
+        auto pop = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
         auto loc2    = std::make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");

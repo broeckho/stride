@@ -17,6 +17,10 @@
 
 #include "PartialPopulator.h"
 
+#include "util/LogUtils.h"
+
+#include <trng/discrete_dist.hpp>
+
 namespace gengeopop {
 
 namespace {
@@ -28,7 +32,8 @@ class WorkplacePopulator : public PartialPopulator
 {
 public:
         /// Constructor
-        WorkplacePopulator(stride::util::RnMan& rn_manager, std::shared_ptr<spdlog::logger> logger);
+        explicit WorkplacePopulator(stride::util::RnMan& rn_manager,
+                std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
 
         /// Populates the workplaces in geogrid with persons
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
@@ -50,25 +55,24 @@ private:
         void AssignActive(stride::Person* person);
 
 private:
-        unsigned int m_assignedTo0          = 0; ///< Number of persons assigned to no workplace
-        unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location
-        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location
+        unsigned int m_assignedTo0          = 0; ///< Number of persons assigned to no workplace.
+        unsigned int m_assignedCommuting    = 0; ///< Number of persons assigned to workplace outside home location.
+        unsigned int m_assignedNotCommuting = 0; ///< Amount of persons assigned to workplace at the home location.
 
-        std::shared_ptr<Location> m_currentLoc; ///< The location for which the workers currently are being assigned
-
-        std::shared_ptr<GeoGrid> m_geoGrid;       ///< The GeoGrid which will be populated
-        GeoGridConfig            m_geoGridConfig; ///< The GeoGridConfig used during populating
+        std::shared_ptr<Location> m_currentLoc;    ///< The location for which the workers currently are being assigned.
+        std::shared_ptr<GeoGrid>  m_geoGrid;       ///< The GeoGrid which will be populated.
+        GeoGridConfig             m_geoGridConfig; ///< The GeoGridConfig used during populating.
 
         std::unordered_map<Location*, std::pair<std::vector<stride::ContactPool*>, discreteDist>>
-            m_workplacesInCity; ///< For each location store the workplaces and a distribution to choose a random one
+            m_workplacesInCity; ///< For each location store workplaces and a distribution fot random selection.
 
-        double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student
+        double m_fractionCommutingStudents; ///< Fraction of the commuting people who are a student.
 
-        std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc
-        discreteDist                      m_distNonCommuting; ///< distribution to choose from m_nearByWorkPlaces;
+        std::vector<stride::ContactPool*> m_nearByWorkplaces; ///< Workplaces which are nearby to the m_currentLoc.
+        discreteDist                      m_distNonCommuting; ///< Distribution to choose from m_nearByWorkPlaces.
 
-        std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to
-        discreteDist           m_disCommuting;       ///< distribution to choose from m_commutingLocations
+        std::vector<Location*> m_commutingLocations; ///< Workplaces which persons from m_currentLoc may commute to.
+        discreteDist           m_disCommuting;       ///< Distribution to choose from m_commutingLocations.
 };
 
 } // namespace gengeopop
