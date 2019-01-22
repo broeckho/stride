@@ -89,8 +89,8 @@ var hierarchy =
     [ "stride::util::SegmentedVector< Person >", "d0/d89/a00071.html", [
       [ "stride::Population", "d4/d3a/a00101.html", null ]
     ] ],
-    [ "stride::util::SegmentedVector< stride::ContactPool >", "d0/d89/a00071.html", null ],
-    [ "stride::util::SegmentedVector< stride::Person >", "d0/d89/a00071.html", null ],
+    [ "stride::util::SegmentedVector< stride::stride::ContactPool >", "d0/d89/a00071.html", null ],
+    [ "stride::util::SegmentedVector< stride::stride::Person >", "d0/d89/a00071.html", null ],
     [ "std::array< T >", null, [
       [ "stride::ContactPoolType::IdSubscriptArray< AgeContactProfile >", "df/d03/a00062.html", null ],
       [ "stride::ContactPoolType::IdSubscriptArray< unsigned int >", "df/d03/a00062.html", null ],

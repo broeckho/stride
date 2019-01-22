@@ -153,7 +153,7 @@ var searchData=
   ['createdirectory',['CreateDirectory',['../d8/d17/a00114.html#a1710fc9d900dba634d24c76f4bea072c',1,'stride::util::FileSys']]],
   ['createfilelogger',['CreateFileLogger',['../df/d6a/a00119.html#a52920faed22a1733b580a42ea065ed0d',1,'stride::util::LogUtils']]],
   ['createhouseholdreader',['CreateHouseholdReader',['../d2/d79/a00051.html#aa871d3021516f62c57462af95f7f507f',1,'gengeopop::ReaderFactory::CreateHouseholdReader(const std::string &amp;filename)'],['../d2/d79/a00051.html#ac0e5de42fe7b43777a3ea8613be3d234',1,'gengeopop::ReaderFactory::CreateHouseholdReader(const filesys::path &amp;path)']]],
-  ['createnulllogger',['CreateNullLogger',['../df/d6a/a00119.html#ab89be4aea714eff74a2d4143023840a6',1,'stride::util::LogUtils']]],
+  ['createnulllogger',['CreateNullLogger',['../df/d6a/a00119.html#af8edb0cd2ef9049e0347f06e73ae57c2',1,'stride::util::LogUtils']]],
   ['createnumthreads',['CreateNumThreads',['../df/dc8/a00122.html#ae981d7a6d9a41f62815541ba874e59a0',1,'stride::util::RunConfigManager']]],
   ['createperson',['CreatePerson',['../de/d11/a00021.html#a95b7496f51d8c85f75b890582dc615c4',1,'gengeopop::GeoGrid::CreatePerson()'],['../d4/d3a/a00101.html#a5680667e8da5d16b5f9b2c4d9a0207fa',1,'stride::Population::CreatePerson()']]],
   ['createreader',['CreateReader',['../dc/d87/a00032.html#aadb26eff01fe18bfc9c48f08df2984e8',1,'gengeopop::GeoGridReaderFactory']]],

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0c10d47</span>
+   &#160;<span id="projectnumber">- generated for commit 921eb44</span>
    </div>
   </td>
  </tr>
@@ -129,14 +129,14 @@ Collaboration diagram for stride::util::LogUtils:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#a106af93dd3f814adf8b87ffaaf3ef3bb">CreateCliLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a106af93dd3f814adf8b87ffaaf3ef3bb">More...</a><br /></td></tr>
+<tr class="memdesc:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline and file logger, without registering it.  <a href="#a106af93dd3f814adf8b87ffaaf3ef3bb">More...</a><br /></td></tr>
 <tr class="separator:a106af93dd3f814adf8b87ffaaf3ef3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52920faed22a1733b580a42ea065ed0d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#a52920faed22a1733b580a42ea065ed0d">CreateFileLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
-<tr class="memdesc:a52920faed22a1733b580a42ea065ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) commandline logger, without registering it.  <a href="#a52920faed22a1733b580a42ea065ed0d">More...</a><br /></td></tr>
+<tr class="memdesc:a52920faed22a1733b580a42ea065ed0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) file logger, without registering it.  <a href="#a52920faed22a1733b580a42ea065ed0d">More...</a><br /></td></tr>
 <tr class="separator:a52920faed22a1733b580a42ea065ed0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab89be4aea714eff74a2d4143023840a6"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#ab89be4aea714eff74a2d4143023840a6">CreateNullLogger</a> (const std::string &amp;logger_name)</td></tr>
-<tr class="memdesc:ab89be4aea714eff74a2d4143023840a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) null logger, without registering it.  <a href="#ab89be4aea714eff74a2d4143023840a6">More...</a><br /></td></tr>
-<tr class="separator:ab89be4aea714eff74a2d4143023840a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#af8edb0cd2ef9049e0347f06e73ae57c2">CreateNullLogger</a> (const std::string &amp;logger_name=&quot;null_logger&quot;)</td></tr>
+<tr class="memdesc:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) null logger, without registering it.  <a href="#af8edb0cd2ef9049e0347f06e73ae57c2">More...</a><br /></td></tr>
+<tr class="separator:af8edb0cd2ef9049e0347f06e73ae57c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a137e01100d0d79b122f731bb1292179d"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d6a/a00119.html#a137e01100d0d79b122f731bb1292179d">CreateRotatingLogger</a> (const std::string &amp;logger_name, const std::string &amp;file_name)</td></tr>
 <tr class="memdesc:a137e01100d0d79b122f731bb1292179d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a (not-yet-registered) rotating logger, without registering it.  <a href="#a137e01100d0d79b122f731bb1292179d">More...</a><br /></td></tr>
 <tr class="separator:a137e01100d0d79b122f731bb1292179d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,12 +178,12 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
+<p>Return a (not-yet-registered) commandline and file logger, without registering it. </p>
 <p>Throws iff logger already registered or if spdlog throws. </p>
 
 <p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00032">32</a> of file <a class="el" href="../../da/d53/a00265_source.html">LogUtils.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00078">stride::ControlHelper::InstallLogger()</a>.</p>
+<p>Referenced by <a class="el" href="../../d8/df1/a00174_source.html#l00078">stride::ControlHelper::InstallLogger()</a>, and <a class="el" href="../../d3/d2a/a00195_source.html#l00054">main()</a>.</p>
 
 </div>
 </div>
@@ -219,14 +219,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return a (not-yet-registered) commandline logger, without registering it. </p>
+<p>Return a (not-yet-registered) file logger, without registering it. </p>
 <p>Throws iff logger already registered or if spdlog throws. </p>
 
 <p>Definition at line <a class="el" href="../../da/d53/a00265_source.html#l00053">53</a> of file <a class="el" href="../../da/d53/a00265_source.html">LogUtils.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab89be4aea714eff74a2d4143023840a6"></a>
+<a class="anchor" id="af8edb0cd2ef9049e0347f06e73ae57c2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -237,7 +237,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">std::shared_ptr&lt; logger &gt; stride::util::LogUtils::CreateNullLogger </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>logger_name</em></td><td>)</td>
+          <td class="paramname"><em>logger_name</em> = <code>&quot;null_logger&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -306,7 +306,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/d03/a00348.html">stride</a></li><li class="navelem"><a class="el" href="../../d0/dc3/a00354.html">util</a></li><li class="navelem"><a class="el" href="../../df/d6a/a00119.html">LogUtils</a></li>
-    <li class="footer">Generated on Tue Jan 8 2019 15:07:12 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Jan 22 2019 16:09:38 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
