@@ -217,8 +217,7 @@ def countImmune(sim, timestep):
         ax.bar([x + (2* width) for x in bins], work_results, width, color='lime')
         ax.bar([x + (3* width) for x in bins], comm1_results, width, color='orange')
         ax.bar([x + (4* width) for x in bins], comm2_results, width, color='black')
-        plt.show()'''
-        '''
+        plt.show()
         # Overall distribution of susceptibles
         bins = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         all_fractions = toFractions(households) + toFractions(schools) + toFractions(workplaces) + toFractions(communities1) + toFractions(communities2)
@@ -226,9 +225,8 @@ def countImmune(sim, timestep):
         plt.ylim([0,1])
         plt.legend(['Baseline'])
         plt.bar(bins, all_results, width=0.08)
-        plt.savefig('baseline')'''
+        plt.savefig('baseline')
 
-'''
 def toHist(fractions, bins):
     ys = [0] * len(bins)
     for frac in fractions:
