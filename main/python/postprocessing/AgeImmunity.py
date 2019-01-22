@@ -201,8 +201,8 @@ def countImmune(sim, timestep):
                 addPerson(communities1, person.GetClusterId(Id_PrimaryCommunity), False)
                 addPerson(communities2, person.GetClusterId(Id_SecondaryCommunity), False)
 
-        # Distribution of susceptibles by cluster type'''
-        '''bins = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+        # Distribution of susceptibles by cluster type
+        bins = [0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         household_results = toHist(toFractions(households), bins)
         school_results = toHist(toFractions(schools), bins)
         work_results = toHist(toFractions(workplaces), bins)
