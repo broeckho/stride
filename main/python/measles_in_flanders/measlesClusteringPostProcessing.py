@@ -9,21 +9,6 @@ SCENARIO_DISPLAY_NAMES = ["Uniform immunity\n+ no clustering",
                             "Uniform immunity\n+ household-based clustering",
                             "Age-dependent immunity\n+ household-based clustering"]
 
-'''
-def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
-    for R0 in R0s:
-
-            # Create infected by age plots
-            #AgeImmunity.createInfectedByAgePlot(outputDir, scenarioName, poolSize, scenarioName + "_InfectedByAge.png")
-        #OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
-        #                                [str(y) for y in years], numDays, extinctionThreshold,
-        #                                poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
-        #AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_InfectedByAge.png", 0)
-        #AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_InfectedByAgeNoExt.png", extinctionThreshold)
-'''
-
 def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
     start = time.perf_counter()
     # TODO overview plot for outbreak occurrence probabilities
