@@ -29,13 +29,13 @@ namespace {
 
 TEST(SchoolGeneratorTest, OneLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = 2000;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
@@ -48,13 +48,13 @@ TEST(SchoolGeneratorTest, OneLocationTest)
 
 TEST(SchoolGeneratorTest, ZeroLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = 2000;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         schoolGenerator.Apply(geoGrid, config);
 
@@ -63,13 +63,13 @@ TEST(SchoolGeneratorTest, ZeroLocationTest)
 
 TEST(SchoolGeneratorTest, FiveLocationsTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         K12SchoolGenerator schoolGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.input.populationSize        = 37542 * 100;
         config.calculated.compulsoryPupils = 750840;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = std::make_shared<GeoGrid>(pop.get());
         auto loc1    = std::make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
         auto loc2    = std::make_shared<Location>(1, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");

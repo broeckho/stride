@@ -43,10 +43,10 @@ TEST(UnitCsvTest, SafeCastTest)
 TEST(UnitCsvTest, TestBadCast)
 {
         string csvString = "id,naam,col3,col4,col5\n"
-                                "10test,abc,-100,1024,100.10.1\n"
-                                "10,abc,100,125,100.10";
+                           "10test,abc,-100,1024,100.10.1\n"
+                           "10,abc,100,125,100.10";
         istringstream instream(csvString);
-        CSV reader(instream);
+        CSV           reader(instream);
 
         const auto& row1 = reader.begin();
         EXPECT_THROW(row1->GetValue<int>("id"), boost::bad_lexical_cast);

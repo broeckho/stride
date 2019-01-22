@@ -27,7 +27,7 @@ namespace {
 
 shared_ptr<GeoGrid> getExpectedGeoGrid()
 {
-        auto pop = Population::Create();
+        auto                pop     = Population::Create();
         shared_ptr<GeoGrid> geoGrid = make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(make_shared<Location>(21, 0, 1000));
         geoGrid->AddLocation(make_shared<Location>(22, 0, 800));
@@ -68,10 +68,10 @@ shared_ptr<GeoGrid> getExpectedGeoGrid()
 TEST(CommutesCSVReaderTest, test1)
 {
         string csvString = "id_21,id_22,id_23,id_24\n"
-                                "550,366,668,425\n" // to 21
-                                "141,761,0,705\n"   // to 22
-                                "487,700,462,0\n"   // to 23
-                                "0,611,0,0\n";      // to 24
+                           "550,366,668,425\n" // to 21
+                           "141,761,0,705\n"   // to 22
+                           "487,700,462,0\n"   // to 23
+                           "0,611,0,0\n";      // to 24
 
         const auto expectedGeoGrid = getExpectedGeoGrid();
         const auto pop             = Population::Create();

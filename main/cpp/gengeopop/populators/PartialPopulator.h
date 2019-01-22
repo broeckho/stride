@@ -31,8 +31,8 @@ class PartialPopulator
 {
 public:
         /// Construct with a RnMan and a logger.
-        explicit PartialPopulator(stride::util::RnMan& rnManager,
-                std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
+        explicit PartialPopulator(stride::util::RnMan&            rnManager,
+                                  std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
 
         /// Populate the given geogrid.
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;

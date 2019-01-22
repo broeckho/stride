@@ -13,10 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/K12SchoolPopulator.h"
 #include "createGeogrid.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/K12School.h"
-#include "gengeopop/populators/K12SchoolPopulator.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -32,12 +32,12 @@ namespace {
 TEST(K12SchoolPopulatorTest, NoPopulation)
 {
         auto rnManager = RnMan(RnMan::Info{});
-        auto pop = Population::Create();
+        auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
         geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
         K12SchoolPopulator k12SchoolPopulator(rnManager);
-        GeoGridConfig config{};
+        GeoGridConfig      config{};
 
         geoGrid->Finalize();
 
@@ -47,8 +47,8 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
         auto rnManager = RnMan(RnMan::Info{});
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
 
         K12SchoolPopulator k12SchoolPopulator(rnManager);
         GeoGridConfig      config{};
@@ -56,7 +56,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
         geoGrid->Finalize();
         k12SchoolPopulator.Apply(geoGrid, config);
 
-        auto location = *geoGrid->begin();
+        auto location   = *geoGrid->begin();
         auto k12Schools = location->GetContactCentersOfType<K12School>();
 
         EXPECT_EQ(5, k12Schools.size());
@@ -131,7 +131,7 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
         auto rnManager = RnMan{};
-        auto pop = Population::Create();
+        auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         K12SchoolPopulator k12SchoolPopulator(rnManager);

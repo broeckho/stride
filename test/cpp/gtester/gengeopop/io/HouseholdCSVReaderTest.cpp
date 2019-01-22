@@ -69,8 +69,8 @@ TEST(HouseholdCSVReader, test1)
  78,75,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 )";
 
-        auto instream = make_unique<istringstream>(csvString);
-        HouseholdCSVReader                             reader(move(instream));
+        auto                                 instream = make_unique<istringstream>(csvString);
+        HouseholdCSVReader                   reader(move(instream));
         const vector<shared_ptr<Household>>& HHs         = reader.GetHouseHolds();
         const vector<shared_ptr<Household>>& expectedHHS = getExpectedHouseHolds();
 

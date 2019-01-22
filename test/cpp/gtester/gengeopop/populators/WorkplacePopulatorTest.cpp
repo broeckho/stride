@@ -13,13 +13,13 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/WorkplacePopulator.h"
 #include "createGeogrid.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/K12School.h"
 #include "gengeopop/Workplace.h"
 #include "gengeopop/populators/CollegePopulator.h"
-#include "gengeopop/populators/WorkplacePopulator.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -34,13 +34,13 @@ namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        auto rnManager = RnMan{};   // Default random number manager.
-        auto pop = Population::Create();
+        auto rnManager = RnMan{}; // Default random number manager.
+        auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
         geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
         WorkplacePopulator workplacePopulator(rnManager);
-        GeoGridConfig config{};
+        GeoGridConfig      config{};
         geoGrid->Finalize();
 
         EXPECT_NO_THROW(workplacePopulator.Apply(geoGrid, config));
@@ -48,9 +48,9 @@ TEST(WorkplacePopulatorTest, NoPopulation)
 
 TEST(WorkplacePopulatorTest, NoActive)
 {
-        auto rnManager = RnMan(RnMan::Info{});   // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
@@ -78,9 +78,9 @@ TEST(WorkplacePopulatorTest, NoActive)
 
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
-        auto rnManager = RnMan(RnMan::Info{});   // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
@@ -164,9 +164,9 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
-        auto rnManager = RnMan(RnMan::Info{});   // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
@@ -235,8 +235,8 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        auto rnManager = RnMan{};   // Default random number manager.
-        auto pop = Population::Create();
+        auto rnManager = RnMan{}; // Default random number manager.
+        auto pop       = Population::Create();
         auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         WorkplacePopulator workplacePopulator(rnManager, LogUtils::CreateNullLogger("nullLogger"));

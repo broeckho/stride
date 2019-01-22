@@ -37,9 +37,8 @@ namespace {
 
 void sortContactCenters(ptree& pt)
 {
-        auto& contactCenters       = pt.get_child("contactCenters");
-        auto  compareContactCenter = [](const std::pair<std::string, ptree>& a,
-                                       const std::pair<std::string, ptree>& b) {
+        auto& contactCenters      = pt.get_child("contactCenters");
+        auto compareContactCenter = [](const std::pair<std::string, ptree>& a, const std::pair<std::string, ptree>& b) {
                 return a.second.get<std::string>("type") < b.second.get<std::string>("type");
         };
         contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
@@ -47,8 +46,7 @@ void sortContactCenters(ptree& pt)
 
 void sortTree(ptree& tree)
 {
-        auto compareLocation = [](const std::pair<std::string, ptree>& a,
-                                  const std::pair<std::string, ptree>& b) {
+        auto compareLocation = [](const std::pair<std::string, ptree>& a, const std::pair<std::string, ptree>& b) {
                 return a.second.get<std::string>("id") < b.second.get<std::string>("id");
         };
         auto& locations = tree.get_child("locations");
@@ -77,7 +75,7 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, const std::string& testnam
 
 TEST(GeoGridJSONWriterTest, locationTest)
 {
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = GetGeoGrid(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
@@ -87,7 +85,7 @@ TEST(GeoGridJSONWriterTest, locationTest)
 }
 TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
-        auto pop = Population::Create();
+        auto pop      = Population::Create();
         auto geoGrid  = GetGeoGrid(pop.get());
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));

@@ -154,14 +154,14 @@ protected:
 
         virtual void HouseholdTestCheck(shared_ptr<Community> community2) = 0;
 
-        shared_ptr<PartialPopulator>    populator;
-        shared_ptr<RnMan>               rnManager;
-        GeoGridConfig                   config;
-        shared_ptr<Location>            location;
-        shared_ptr<CommunityType>       community;
-        shared_ptr<GeoGrid>             geoGrid;
-        shared_ptr<Person>              person;
-        shared_ptr<spdlog::logger>      logger;
+        shared_ptr<PartialPopulator> populator;
+        shared_ptr<RnMan>            rnManager;
+        GeoGridConfig                config;
+        shared_ptr<Location>         location;
+        shared_ptr<CommunityType>    community;
+        shared_ptr<GeoGrid>          geoGrid;
+        shared_ptr<Person>           person;
+        shared_ptr<spdlog::logger>   logger;
 };
 
 class PrimaryCommunityPopulatorTest : public CommunityPopulatorTest<PrimaryCommunity>

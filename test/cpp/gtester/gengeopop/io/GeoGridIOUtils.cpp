@@ -35,24 +35,45 @@ using namespace gengeopop;
 using namespace stride;
 using namespace util;
 
-map<int, Person*>                             persons_found;
+map<int, Person*>                        persons_found;
 map<pair<int, ContactPoolType::Id>, int> persons_pools;
-using namespace gengeopop;
 
-void CompareContactPool(ContactPool* contactPool,
+namespace {
+
+// for internal use only
+void compareGeoGrid(const shared_ptr<GeoGrid>& geoGrid, proto::GeoGrid& protoGrid)
+{
+        ASSERT_EQ(geoGrid->size(), protoGrid.locations_size());
+        for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
+                const auto& protoLocation = protoGrid.locations(idx);
+                auto        location      = geoGrid->GetById(static_cast<unsigned int>(protoLocation.id()));
+                CompareLocation(location, protoLocation);
+        }
+        ASSERT_EQ(persons_found.size(), protoGrid.persons_size());
+        for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
+                const auto& protoPerson = protoGrid.persons(idx);
+                ComparePerson(protoPerson);
+        }
+        persons_found.clear();
+        persons_pools.clear();
+}
+
+}
+
+void CompareContactPool(ContactPool*                                             contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
 {
         ASSERT_EQ(protoContactPool.people_size(), (contactPool->end() - contactPool->begin()));
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
-                auto            personId = protoContactPool.people(idx);
+                auto    personId = protoContactPool.people(idx);
                 Person* person   = contactPool->begin()[idx];
                 EXPECT_EQ(person->GetId(), personId);
-                persons_found[personId] = person;
+                persons_found[personId]                                    = person;
                 persons_pools[make_pair(personId, contactPool->GetType())] = static_cast<int>(contactPool->GetId());
         }
 }
 
-void CompareContactCenter(shared_ptr<ContactCenter>               contactCenter,
+void CompareContactCenter(shared_ptr<ContactCenter>                    contactCenter,
                           const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
         map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
@@ -71,7 +92,7 @@ void CompareContactCenter(shared_ptr<ContactCenter>               contactCenter,
         // Currently no tests with more than one contactpool
         if (contactCenter->GetPools().size() == 1) {
                 const auto& protoContactPool = protoContactCenter.pools(0);
-                auto contactPool      = contactCenter->GetPools()[0];
+                auto        contactPool      = contactCenter->GetPools()[0];
                 CompareContactPool(contactPool, protoContactPool);
         }
 }
@@ -92,7 +113,7 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
         CompareCoordinate(location->GetCoordinate(), protoLocation.coordinate());
         ASSERT_EQ(protoLocation.contactcenters_size(), location->GetContactCenters().size());
 
-        map<int, shared_ptr<ContactCenter>>        idToCenter;
+        map<int, shared_ptr<ContactCenter>>             idToCenter;
         map<int, proto::GeoGrid_Location_ContactCenter> idToProtoCenter;
 
         for (int idx = 0; idx < protoLocation.contactcenters_size(); idx++) {
@@ -108,7 +129,7 @@ void CompareLocation(shared_ptr<Location> location, const proto::GeoGrid_Locatio
         ASSERT_EQ(protoLocation.commutes_size(), location->GetOutgoingCommuningCities().size());
         for (int idx = 0; idx < protoLocation.commutes_size(); idx++) {
                 const auto& protoCommute = protoLocation.commutes(idx);
-                auto commute_pair = location->GetOutgoingCommuningCities()[idx];
+                auto        commute_pair = location->GetOutgoingCommuningCities()[idx];
                 EXPECT_EQ(protoCommute.to(), commute_pair.first->GetID());
                 EXPECT_EQ(protoCommute.proportion(), commute_pair.second);
         }
@@ -119,41 +140,20 @@ void ComparePerson(const proto::GeoGrid_Person& protoPerson)
         const auto person = persons_found[protoPerson.id()];
         EXPECT_EQ(person->GetAge(), protoPerson.age());
         EXPECT_EQ(string(1, person->GetGender()), protoPerson.gender());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::College)],
-                  person->GetCollegeId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::K12School)],
-                  person->GetK12SchoolId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Household)],
-                  person->GetHouseholdId());
-        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Work)],
-                  person->GetWorkId());
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::College)], person->GetCollegeId());
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::K12School)], person->GetK12SchoolId());
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Household)], person->GetHouseholdId());
+        EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::Work)], person->GetWorkId());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::PrimaryCommunity)],
                   person->GetPrimaryCommunityId());
         EXPECT_EQ(persons_pools[make_pair(protoPerson.id(), ContactPoolType::Id::SecondaryCommunity)],
                   person->GetSecondaryCommunityId());
 }
 
-void compareGeoGrid(const shared_ptr<GeoGrid>& geoGrid, proto::GeoGrid& protoGrid)
-{
-        ASSERT_EQ(geoGrid->size(), protoGrid.locations_size());
-        for (int idx = 0; idx < protoGrid.locations_size(); idx++) {
-                const auto& protoLocation = protoGrid.locations(idx);
-                auto location      = geoGrid->GetById(static_cast<unsigned int>(protoLocation.id()));
-                CompareLocation(location, protoLocation);
-        }
-        ASSERT_EQ(persons_found.size(), protoGrid.persons_size());
-        for (int idx = 0; idx < protoGrid.persons_size(); idx++) {
-                const auto& protoPerson = protoGrid.persons(idx);
-                ComparePerson(protoPerson);
-        }
-        persons_found.clear();
-        persons_pools.clear();
-}
-
 void CompareGeoGrid(shared_ptr<GeoGrid> geoGrid)
 {
         GeoGridProtoWriter writer;
-        stringstream  ss;
+        stringstream       ss;
         writer.Write(geoGrid, ss);
         proto::GeoGrid protoGrid;
         protoGrid.ParseFromIstream(&ss);
@@ -162,12 +162,12 @@ void CompareGeoGrid(shared_ptr<GeoGrid> geoGrid)
 
 void CompareGeoGrid(proto::GeoGrid& protoGrid)
 {
-        unique_ptr<stringstream> ss = make_unique<stringstream>();
+        auto ss = make_unique<stringstream>();
         protoGrid.SerializeToOstream(ss.get());
         unique_ptr<istream> is(move(ss));
-        const auto                          pop = Population::Create();
-        GeoGridProtoReader            reader(move(is), pop.get());
-        shared_ptr<GeoGrid>      geogrid = reader.Read();
+        const auto          pop = Population::Create();
+        GeoGridProtoReader  reader(move(is), pop.get());
+        const auto          geogrid = reader.Read();
         compareGeoGrid(geogrid, protoGrid);
 }
 

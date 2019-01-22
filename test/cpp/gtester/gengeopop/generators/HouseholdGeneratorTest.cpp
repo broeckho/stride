@@ -13,9 +13,9 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/generators/HouseholdGenerator.h"
 #include "../../createlogger.h"
 #include "gengeopop/Household.h"
-#include "gengeopop/generators/HouseholdGenerator.h"
 #include "util/RnMan.h"
 
 #include <gtest/gtest.h>
@@ -29,12 +29,12 @@ namespace {
 
 TEST(HouseholdGeneratorTest, OneLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         geoGrid->AddLocation(loc1);
@@ -47,12 +47,12 @@ TEST(HouseholdGeneratorTest, OneLocationTest)
 
 TEST(HouseholdGeneratorTest, ZeroLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         householdGenerator.Apply(geoGrid, config);
 
@@ -61,13 +61,13 @@ TEST(HouseholdGeneratorTest, ZeroLocationTest)
 
 TEST(HouseholdGeneratorTest, FiveLocationsTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan              rnManager{}; // Default random number manager.
         HouseholdGenerator householdGenerator(rnManager, CreateTestLogger());
         GeoGridConfig      config{};
         config.calculated.households = 4000;
         config.input.populationSize  = 37542 * 100;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         auto loc1    = make_shared<Location>(1, 4, 10150 * 100, Coordinate(0, 0), "Antwerpen");
         auto loc2    = make_shared<Location>(2, 4, 10040 * 100, Coordinate(0, 0), "Vlaams-Brabant");

@@ -26,13 +26,13 @@ namespace {
 shared_ptr<GeoGrid> getExpectedGeoGrid()
 {
         auto geoGrid = make_shared<GeoGrid>(Population::Create().get());
-        auto loc1 = make_shared<Location>(11002, 1, Coordinate(4.413545489, 51.2165845), "ANTWERPEN");
-        auto loc2 = make_shared<Location>(11007, 1, Coordinate(4.4856299, 51.1966684), "BORSBEEK");
-        auto loc3 = make_shared<Location>(11008, 1, Coordinate(4.49419, 51.29227), "BRASSCHAAT");
-        auto loc4 = make_shared<Location>(11009, 1, Coordinate(4.6376322, 51.3495775), "BRECHT");
-        auto loc5 = make_shared<Location>(11016, 1, Coordinate(4.47518, 51.38298), "ESSEN");
-        auto loc6 = make_shared<Location>(73107, 7, Coordinate(5.70979219, 50.96991794), "MAASMECHELEN");
-        auto loc7 = make_shared<Location>(73109, 7, Coordinate(5.806343076, 50.74921941), "VOEREN-'S GRAVENVOEREN");
+        auto loc1    = make_shared<Location>(11002, 1, Coordinate(4.413545489, 51.2165845), "ANTWERPEN");
+        auto loc2    = make_shared<Location>(11007, 1, Coordinate(4.4856299, 51.1966684), "BORSBEEK");
+        auto loc3    = make_shared<Location>(11008, 1, Coordinate(4.49419, 51.29227), "BRASSCHAAT");
+        auto loc4    = make_shared<Location>(11009, 1, Coordinate(4.6376322, 51.3495775), "BRECHT");
+        auto loc5    = make_shared<Location>(11016, 1, Coordinate(4.47518, 51.38298), "ESSEN");
+        auto loc6    = make_shared<Location>(73107, 7, Coordinate(5.70979219, 50.96991794), "MAASMECHELEN");
+        auto loc7    = make_shared<Location>(73109, 7, Coordinate(5.806343076, 50.74921941), "VOEREN-'S GRAVENVOEREN");
 
         loc1->SetRelativePopulation(0.76599210042448873);
         loc2->SetRelativePopulation(0.018849454066692393);
@@ -66,9 +66,9 @@ TEST(CitiesCSVReaderTest, test1)
 )";
 
         const auto expectedGeoGrid = getExpectedGeoGrid();
-        auto pop = Population::Create();
-        const auto geoGrid = make_shared<GeoGrid>(pop.get());
-        auto instream = make_unique<istringstream>(csvString);
+        auto       pop             = Population::Create();
+        const auto geoGrid         = make_shared<GeoGrid>(pop.get());
+        auto       instream        = make_unique<istringstream>(csvString);
 
         CitiesCSVReader reader(move(instream));
         reader.FillGeoGrid(geoGrid);

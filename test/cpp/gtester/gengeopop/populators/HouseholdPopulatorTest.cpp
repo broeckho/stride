@@ -13,8 +13,8 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/Household.h"
 #include "gengeopop/populators/HouseholdPopulator.h"
+#include "gengeopop/Household.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -33,15 +33,15 @@ public:
 protected:
         void SetUp() override
         {
-                rnManager = make_shared<RnMan>();
+                rnManager   = make_shared<RnMan>();
                 auto logger = LogUtils::CreateCliLogger("stride_logger", "stride_log.txt");
                 logger->set_level(spdlog::level::off);
                 householdPopulator = make_shared<HouseholdPopulator>(*rnManager.get(), logger);
         }
 
-        shared_ptr<HouseholdPopulator>  householdPopulator;
-        shared_ptr<RnMan>               rnManager;
-        GeoGridConfig                   config;
+        shared_ptr<HouseholdPopulator> householdPopulator;
+        shared_ptr<RnMan>              rnManager;
+        GeoGridConfig                  config;
 };
 
 TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
@@ -54,7 +54,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
         householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
-        auto pop = Population::Create();
+        auto pop       = Population::Create();
         auto geoGrid   = make_shared<GeoGrid>(pop.get());
         auto loc1      = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         auto household = make_shared<Household>();
@@ -71,7 +71,7 @@ TEST_F(HouseholdPopulatorTest, OneHouseholdTest)
 
 TEST_F(HouseholdPopulatorTest, ZeroHouseholdsTest)
 {
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
 
         EXPECT_NO_THROW(householdPopulator->Apply(geoGrid, config));
@@ -87,7 +87,7 @@ TEST_F(HouseholdPopulatorTest, FiveHouseholdsTest)
         householdType->AddPool(poolType);
         config.generated.household_types.push_back(householdType);
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         auto loc1    = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
 
@@ -145,7 +145,7 @@ TEST_F(HouseholdPopulatorTest, MultipleHouseholdTypesTest)
                 config.generated.household_types.push_back(householdType);
         }
 
-        auto pop = Population::Create();
+        auto       pop       = Population::Create();
         const auto geoGrid   = make_shared<GeoGrid>(pop.get());
         const auto loc1      = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Antwerpen");
         const auto household = make_shared<Household>();

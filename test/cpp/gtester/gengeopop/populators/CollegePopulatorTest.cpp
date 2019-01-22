@@ -13,11 +13,11 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/CollegePopulator.h"
 #include "createGeogrid.h"
 #include "gengeopop/College.h"
 #include "gengeopop/GeoGridConfig.h"
 #include "gengeopop/K12School.h"
-#include "gengeopop/populators/CollegePopulator.h"
 #include "util/LogUtils.h"
 #include "util/RnMan.h"
 
@@ -33,21 +33,21 @@ namespace {
 TEST(CollegePopulatorTest, NoPopulation)
 {
         RnMan rnManager{}; // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = make_shared<GeoGrid>(pop.get());
+        auto  pop     = Population::Create();
+        auto  geoGrid = make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
         geoGrid->Finalize();
         CollegePopulator populator(rnManager);
-        GeoGridConfig config{};
+        GeoGridConfig    config{};
 
         EXPECT_NO_THROW(populator.Apply(geoGrid, config));
 }
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        RnMan rnManager(RnMan::Info{}); // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
@@ -84,9 +84,9 @@ TEST(CollegePopulatorTest, NoStudents)
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        RnMan rnManager(RnMan::Info{}); // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
@@ -203,8 +203,8 @@ TEST(CollegePopulatorTest, OnlyCommuting)
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
+        auto pop      = Population::Create();
+        auto geoGrid  = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
         auto location = *geoGrid->begin();
 
         // only commuting
@@ -254,9 +254,9 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        RnMan rnManager(RnMan::Info{}); // Default random number manager.
-        auto pop = Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
         CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 1;

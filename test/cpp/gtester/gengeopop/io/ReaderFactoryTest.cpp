@@ -13,10 +13,10 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/io/ReaderFactory.h"
 #include "gengeopop/io/CitiesCSVReader.h"
 #include "gengeopop/io/CommutesCSVReader.h"
 #include "gengeopop/io/HouseholdCSVReader.h"
-#include "gengeopop/io/ReaderFactory.h"
 #include "util/FileSys.h"
 
 #include <gtest/gtest.h>
@@ -33,8 +33,7 @@ TEST(ReaderFactoryTest, TestCommutes)
 {
         ReaderFactory readerFactory;
 
-        const shared_ptr<CommutesReader>& res1 =
-            readerFactory.CreateCommutesReader(string("flanders_cities.csv"));
+        const shared_ptr<CommutesReader>& res1 = readerFactory.CreateCommutesReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<CommutesCSVReader>(res1), nullptr);
         EXPECT_THROW(readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
@@ -61,26 +60,25 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
 
 TEST(ReaderFactoryTest, TestCities)
 {
-        ReaderFactory readerFactory;
+        ReaderFactory                   readerFactory;
         const shared_ptr<CitiesReader>& res1 = readerFactory.CreateCitiesReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
-                     runtime_error);
+        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"), runtime_error);
         EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/random.txt"),
                      runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestHouseHolds)
 {
-        ReaderFactory readerFactory;
+        ReaderFactory                      readerFactory;
         const shared_ptr<HouseholdReader>& res1 = readerFactory.CreateHouseholdReader(string("flanders_cities.csv"));
 
         EXPECT_NE(dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 
-        EXPECT_THROW(
-            readerFactory.CreateHouseholdReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"), runtime_error);
+        EXPECT_THROW(readerFactory.CreateHouseholdReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     runtime_error);
 }
 
 } // namespace

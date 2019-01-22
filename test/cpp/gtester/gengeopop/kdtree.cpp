@@ -16,9 +16,9 @@
 #include "gengeopop/KdTree.h"
 #include "util/FileSys.h"
 
-#include <gtest/gtest.h>
 #include <cmath>
 #include <fstream>
+#include <gtest/gtest.h>
 #include <set>
 #include <string>
 

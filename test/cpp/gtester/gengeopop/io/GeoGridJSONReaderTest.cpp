@@ -13,8 +13,8 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/ContactCenter.h"
 #include "gengeopop/io/GeoGridJSONReader.h"
+#include "gengeopop/ContactCenter.h"
 #include "util/Exception.h"
 #include "util/FileSys.h"
 
@@ -37,13 +37,13 @@ shared_ptr<GeoGrid> getGeoGridForFile(const string& filename, Population* pop)
         auto file = make_unique<ifstream>();
         file->open(FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + filename);
         GeoGridJSONReader geoGridJSONReader(move(file), pop);
-        auto geoGrid = geoGridJSONReader.Read();
+        auto              geoGrid = geoGridJSONReader.Read();
         return geoGrid;
 }
 
 TEST(GeoGridJSONReaderTest, locationsTest)
 {
-        auto pop = Population::Create();
+        auto       pop     = Population::Create();
         const auto geoGrid = getGeoGridForFile("test0.json", pop.get());
 
         map<unsigned int, shared_ptr<Location>> locations;
@@ -79,7 +79,7 @@ TEST(GeoGridJSONReaderTest, locationsTest)
 
 TEST(GeoGridJSONReaderTest, commutesTest)
 {
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = getGeoGridForFile("test7.json", pop.get());
 
         map<unsigned int, shared_ptr<Location>> locations;
@@ -93,10 +93,9 @@ TEST(GeoGridJSONReaderTest, commutesTest)
         auto location3 = locations[3];
 
         auto sortLoc = [](vector<pair<Location*, double>> loc) {
-                sort(begin(loc), end(loc),
-                          [](const pair<Location*, double>& a, const pair<Location*, double>& b) {
-                                  return a.first->GetID() < b.first->GetID();
-                          });
+                sort(begin(loc), end(loc), [](const pair<Location*, double>& a, const pair<Location*, double>& b) {
+                        return a.first->GetID() < b.first->GetID();
+                });
                 return loc;
         };
 
@@ -143,14 +142,14 @@ TEST(GeoGridJSONReaderTest, commutesTest)
 
 TEST(GeoGridJSONReaderTest, contactCentersTest)
 {
-        auto                        geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
-        auto                        location       = geoGrid->Get(0);
-        auto                        contactCenters = location->GetContactCenters();
+        auto              geoGrid        = getGeoGridForFile("test1.json", Population::Create().get());
+        auto              location       = geoGrid->Get(0);
+        auto              contactCenters = location->GetContactCenters();
         map<string, bool> found          = {{"K12School", false},
-                                             {"Primary Community", false},
-                                             {"College", false},
-                                             {"Household", false},
-                                             {"Workplace", false}};
+                                   {"Primary Community", false},
+                                   {"College", false},
+                                   {"Household", false},
+                                   {"Workplace", false}};
 
         for (unsigned int i = 0; i < 5; i++) {
                 EXPECT_FALSE(found[contactCenters[i]->GetType()]);
@@ -163,11 +162,11 @@ TEST(GeoGridJSONReaderTest, contactCentersTest)
 
 void runPeopleTest(string filename)
 {
-        auto pop = Population::Create();
-        auto                       geoGrid  = getGeoGridForFile(filename, pop.get());
-        auto                       location = geoGrid->Get(0);
+        auto             pop      = Population::Create();
+        auto             geoGrid  = getGeoGridForFile(filename, pop.get());
+        auto             location = geoGrid->Get(0);
         map<int, string> ids      = {{0, "K12School"}, {1, "Primary Community"}, {2, "Secondary Community"},
-                                          {3, "College"},   {4, "Household"},         {5, "Workplace"}};
+                                {3, "College"},   {4, "Household"},         {5, "Workplace"}};
 
         EXPECT_EQ(location->GetID(), 1);
         EXPECT_EQ(location->GetName(), "Bavikhove");
@@ -200,7 +199,7 @@ TEST(GeoGridJSONReaderTest, intTest) { runPeopleTest("test3.json"); }
 TEST(GeoGridJSONReaderTest, emptyStreamTest)
 {
         auto              instream = make_unique<istringstream>("");
-        auto pop = Population::Create();
+        auto              pop      = Population::Create();
         GeoGridJSONReader geoGridJSONReader(move(instream), pop.get());
         EXPECT_THROW(geoGridJSONReader.Read(), Exception);
 }

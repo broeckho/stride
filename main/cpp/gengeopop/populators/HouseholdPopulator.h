@@ -25,7 +25,7 @@ namespace gengeopop {
 class HouseholdPopulator : public PartialPopulator
 {
 public:
-        ///Using base class constructors.
+        /// Using base class constructors.
         using PartialPopulator::PartialPopulator;
 
         /// Core method implementation.

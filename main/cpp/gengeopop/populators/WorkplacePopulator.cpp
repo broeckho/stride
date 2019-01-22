@@ -124,8 +124,8 @@ void WorkplacePopulator::AssignActive(Person* person)
         // this person is (student and active) or active
         if (!m_commutingLocations.empty() && MakeChoice(m_geoGridConfig.input.fraction_active_commutingPeople)) {
                 // this person is commuting
-                const auto& info       = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
-                const auto  id         = info.second();  // id of the location this person is commuting to
+                const auto& info = m_workplacesInCity[m_commutingLocations[m_disCommuting()]];
+                const auto  id   = info.second(); // id of the location this person is commuting to
                 info.first[id]->AddMember(person);
                 person->SetWorkId(info.first[id]->GetId());
                 m_assignedCommuting++;

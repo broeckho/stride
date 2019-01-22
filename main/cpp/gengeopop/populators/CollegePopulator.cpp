@@ -19,8 +19,8 @@
 #include "pop/Person.h"
 #include "util/ExcAssert.h"
 
-#include <trng/uniform_int_dist.hpp>
 #include <trng/discrete_dist.hpp>
+#include <trng/uniform_int_dist.hpp>
 
 namespace gengeopop {
 
@@ -41,13 +41,12 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
                         continue;
                 }
                 // 1. find all highschools in an area of 10-k*10 km
-                const vector<ContactPool*>& nearByColleges =
-                    GetContactPoolInIncreasingRadius<College>(geoGrid, loc);
+                const vector<ContactPool*>& nearByColleges = GetContactPoolInIncreasingRadius<College>(geoGrid, loc);
 
                 ExcAssert(!nearByColleges.empty(), "No HighSchool found due to invalid input in CollegePopulator");
 
-                auto distNonCommuting = m_rnManager[0].variate_generator(trng::uniform_int_dist(
-                    0, static_cast<trng::uniform_int_dist::result_type>(nearByColleges.size())));
+                auto distNonCommuting = m_rnManager[0].variate_generator(
+                    trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(nearByColleges.size())));
 
                 // 2. find all highschools were students from this location commute to
                 vector<Location*> commutingHighSchools;
@@ -103,8 +102,7 @@ void CollegePopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
                                         } else {
                                                 auto id = distNonCommuting();
                                                 nearByColleges[id]->AddMember(p);
-                                                p->SetCollegeId(
-                                                    static_cast<unsigned int>(nearByColleges[id]->GetId()));
+                                                p->SetCollegeId(static_cast<unsigned int>(nearByColleges[id]->GetId()));
                                         }
                                 }
                         }

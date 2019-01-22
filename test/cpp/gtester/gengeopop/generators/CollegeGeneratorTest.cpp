@@ -13,9 +13,9 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/generators/CollegeGenerator.h"
 #include "../../createlogger.h"
 #include "gengeopop/College.h"
-#include "gengeopop/generators/CollegeGenerator.h"
 #include "gengeopop/generators/K12SchoolGenerator.h"
 #include "util/RnMan.h"
 
@@ -30,13 +30,13 @@ namespace {
 
 TEST(CollegeGeneratorTest, OneLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         config.input.populationSize                       = 45000;
         config.calculated.popcount_1826_years_and_student = 9000;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         auto loc1    = make_shared<Location>(1, 4, 45000, Coordinate(0, 0), "Antwerpen");
 
@@ -50,13 +50,13 @@ TEST(CollegeGeneratorTest, OneLocationTest)
 
 TEST(CollegeGeneratorTest, ZeroLocationTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         config.input.populationSize                       = 10000;
         config.calculated.popcount_1826_years_and_student = 2000;
 
-        auto pop = Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = make_shared<GeoGrid>(pop.get());
         collegeGenerator.Apply(geoGrid, config);
 
@@ -65,19 +65,18 @@ TEST(CollegeGeneratorTest, ZeroLocationTest)
 
 TEST(CollegeGeneratorTest, FiveLocationsTest)
 {
-        RnMan rnManager{}; // Default random number manager.
+        RnMan            rnManager{}; // Default random number manager.
         CollegeGenerator collegeGenerator(rnManager, CreateTestLogger());
         GeoGridConfig    config{};
         config.input.populationSize                       = 399992;
         config.calculated.popcount_1826_years_and_student = 79998;
 
-        auto pop = Population::Create();
-        auto             geoGrid = make_shared<GeoGrid>(pop.get());
+        auto        pop     = Population::Create();
+        auto        geoGrid = make_shared<GeoGrid>(pop.get());
         vector<int> sizes{28559, 33319, 39323, 37755, 35050, 10060, 13468, 8384,
-                               9033,  31426, 33860, 4110,  50412, 25098, 40135};
+                          9033,  31426, 33860, 4110,  50412, 25098, 40135};
         for (int size : sizes) {
-                geoGrid->AddLocation(
-                    make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + to_string(size)));
+                geoGrid->AddLocation(make_shared<Location>(1, 4, size, Coordinate(0, 0), "Size: " + to_string(size)));
         }
         collegeGenerator.Apply(geoGrid, config);
 
