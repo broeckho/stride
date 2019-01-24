@@ -1,10 +1,8 @@
 var a00046 =
 [
-    [ "PartialPopulator", "d3/dea/a00046.html#a750a2f821e6d2b41f68a1f032c705f47", null ],
-    [ "~PartialPopulator", "d3/dea/a00046.html#a033d360f64872196bcb57ca0ce232d6f", null ],
-    [ "Apply", "d3/dea/a00046.html#aee01751cc775128b108e03118609091c", null ],
-    [ "GetContactPoolInIncreasingRadius", "d3/dea/a00046.html#a9a1aa7dcf6a6ce7e04484f7764857685", null ],
-    [ "MakeChoice", "d3/dea/a00046.html#ad18d65985647c2afb90627fa7048be6a", null ],
-    [ "m_rnManager", "d3/dea/a00046.html#a9984205ae3e758af34d41b55d38c7868", null ],
-    [ "m_logger", "d3/dea/a00046.html#a7c9b69f1083ed1016458ccaaa8e53964", null ]
+    [ "Args", "d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686", null ],
+    [ "PolygonPolicy", "d3/dea/a00046.html#a4f45af44c216988a695d57633819496a", null ],
+    [ "GetBoundingBox", "d3/dea/a00046.html#a6b61e682cbf2e95e333d170d535720f1", null ],
+    [ "Contains", "d3/dea/a00046.html#a16eaa288435e30ffc3bd28f874cdb256", null ],
+    [ "m_poly", "d3/dea/a00046.html#a6e969812cc31820a81250186a2476e46", null ]
 ];

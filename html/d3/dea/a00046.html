@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::PartialPopulator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::PolygonPolicy Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0f51f78</span>
+   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
    </div>
   </td>
  </tr>
@@ -107,82 +107,67 @@ $(document).ready(function(){initNavTree('d3/dea/a00046.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../dd/d7a/a00795.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d4/dd7/a00793.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::PartialPopulator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::PolygonPolicy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interface for populators.  
+<p>A <a class="el" href="../../d1/d2b/a00018.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over a (clockwise) polygon.  
  <a href="../../d3/dea/a00046.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::PartialPopulator:</div>
+Collaboration diagram for gengeopop::PolygonPolicy:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d0/da2/a00796.gif" border="0" usemap="#gengeopop_1_1PartialPopulator_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1PartialPopulator_inherit__map" id="gengeopop_1_1PartialPopulator_inherit__map">
-<area shape="rect" id="node2" href="../../d7/dec/a00010.html" title="Populate Colleges. " alt="" coords="5,351,216,428"/>
-<area shape="rect" id="node3" href="../../d8/d41/a00038.html" title="Populate Households. " alt="" coords="241,351,471,428"/>
-<area shape="rect" id="node4" href="../../d5/db6/a00042.html" title="Populate K12Schools. " alt="" coords="495,351,726,428"/>
-<area shape="rect" id="node5" href="../../d2/dee/a00049.html" title="Populate primary Communities. " alt="" coords="750,343,975,435"/>
-<area shape="rect" id="node6" href="../../dc/dee/a00053.html" title="Populate secondary Communities. " alt="" coords="999,343,1243,435"/>
-<area shape="rect" id="node7" href="../../d3/d8b/a00059.html" title="Populate Workplaces. " alt="" coords="1267,219,1503,560"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for gengeopop::PartialPopulator:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../da/db8/a00797.gif" border="0" usemap="#gengeopop_1_1PartialPopulator_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1PartialPopulator_coll__map" id="gengeopop_1_1PartialPopulator_coll__map">
-<area shape="rect" id="node3" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
-<area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
-<area shape="rect" id="node8" title="STL class. " alt="" coords="352,5,489,97"/>
+<div class="center"><img src="../../d5/d12/a00794.gif" border="0" usemap="#gengeopop_1_1PolygonPolicy_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1PolygonPolicy_coll__map" id="gengeopop_1_1PolygonPolicy_coll__map">
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad4356187773550de9c9f8f70861e5686"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">Args</a> = boost::geometry::model::polygon&lt; <a class="el" href="../../d2/d0a/a00333.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>, true &gt;</td></tr>
+<tr class="separator:ad4356187773550de9c9f8f70861e5686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a750a2f821e6d2b41f68a1f032c705f47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a750a2f821e6d2b41f68a1f032c705f47">PartialPopulator</a> (<a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rnManager, std::shared_ptr&lt; spdlog::logger &gt; logger=<a class="el" href="../../df/d6a/a00119.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>())</td></tr>
-<tr class="memdesc:a750a2f821e6d2b41f68a1f032c705f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a RnMan and a logger.  <a href="#a750a2f821e6d2b41f68a1f032c705f47">More...</a><br /></td></tr>
-<tr class="separator:a750a2f821e6d2b41f68a1f032c705f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee01751cc775128b108e03118609091c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#aee01751cc775128b108e03118609091c">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
-<tr class="memdesc:aee01751cc775128b108e03118609091c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the given geogrid.  <a href="#aee01751cc775128b108e03118609091c">More...</a><br /></td></tr>
-<tr class="separator:aee01751cc775128b108e03118609091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a033d360f64872196bcb57ca0ce232d6f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a033d360f64872196bcb57ca0ce232d6f">~PartialPopulator</a> ()=default</td></tr>
-<tr class="memdesc:a033d360f64872196bcb57ca0ce232d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a033d360f64872196bcb57ca0ce232d6f">More...</a><br /></td></tr>
-<tr class="separator:a033d360f64872196bcb57ca0ce232d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f45af44c216988a695d57633819496a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a4f45af44c216988a695d57633819496a">PolygonPolicy</a> (<a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">Args</a> args)</td></tr>
+<tr class="separator:a4f45af44c216988a695d57633819496a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b61e682cbf2e95e333d170d535720f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt; <a class="el" href="../../d7/de0/a00022.html">geogrid_detail::KdTree2DPoint</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a6b61e682cbf2e95e333d170d535720f1">GetBoundingBox</a> () const </td></tr>
+<tr class="separator:a6b61e682cbf2e95e333d170d535720f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16eaa288435e30ffc3bd28f874cdb256"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a16eaa288435e30ffc3bd28f874cdb256">Contains</a> (const <a class="el" href="../../d7/de0/a00022.html">geogrid_detail::KdTree2DPoint</a> &amp;pt) const </td></tr>
+<tr class="separator:a16eaa288435e30ffc3bd28f874cdb256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9a1aa7dcf6a6ce7e04484f7764857685"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9a1aa7dcf6a6ce7e04484f7764857685"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a> * &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a9a1aa7dcf6a6ce7e04484f7764857685">GetContactPoolInIncreasingRadius</a> (const std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; &amp;geoGrid, const std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">Location</a> &gt; &amp;start, <a class="el" href="../../d0/d65/a00360.html">double</a> startRadius=10.0) const </td></tr>
-<tr class="memdesc:a9a1aa7dcf6a6ce7e04484f7764857685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find contactpools in <code>geoGrid</code> in an exponentially increasing radius.  <a href="#a9a1aa7dcf6a6ce7e04484f7764857685">More...</a><br /></td></tr>
-<tr class="separator:a9a1aa7dcf6a6ce7e04484f7764857685"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad18d65985647c2afb90627fa7048be6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#ad18d65985647c2afb90627fa7048be6a">MakeChoice</a> (<a class="el" href="../../d0/d65/a00360.html">double</a> fraction)</td></tr>
-<tr class="memdesc:ad18d65985647c2afb90627fa7048be6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper around m_rnManager.  <a href="#ad18d65985647c2afb90627fa7048be6a">More...</a><br /></td></tr>
-<tr class="separator:ad18d65985647c2afb90627fa7048be6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a9984205ae3e758af34d41b55d38c7868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a9984205ae3e758af34d41b55d38c7868">m_rnManager</a></td></tr>
-<tr class="memdesc:a9984205ae3e758af34d41b55d38c7868"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by populators.  <a href="#a9984205ae3e758af34d41b55d38c7868">More...</a><br /></td></tr>
-<tr class="separator:a9984205ae3e758af34d41b55d38c7868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c9b69f1083ed1016458ccaaa8e53964"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a7c9b69f1083ed1016458ccaaa8e53964">m_logger</a></td></tr>
-<tr class="memdesc:a7c9b69f1083ed1016458ccaaa8e53964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by populators.  <a href="#a7c9b69f1083ed1016458ccaaa8e53964">More...</a><br /></td></tr>
-<tr class="separator:a7c9b69f1083ed1016458ccaaa8e53964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6e969812cc31820a81250186a2476e46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">Args</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dea/a00046.html#a6e969812cc31820a81250186a2476e46">m_poly</a></td></tr>
+<tr class="separator:a6e969812cc31820a81250186a2476e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for populators. </p>
-<p>They generate some data and apply it to the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<div class="textblock"><p>A <a class="el" href="../../d1/d2b/a00018.html" title="A GeoAggregator can either be instantiated with a functor, or be called with one every time...">GeoAggregator</a> Policy that aggregates over a (clockwise) polygon. </p>
 
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00030">30</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a750a2f821e6d2b41f68a1f032c705f47"></a>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00182">182</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="ad4356187773550de9c9f8f70861e5686"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">gengeopop::PolygonPolicy::Args</a> =  boost::geometry::model::polygon&lt;<a class="el" href="../../d2/d0a/a00333.html#a787d85bc4a485c85bc62824e3434b953">Coordinate</a>, true&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00185">185</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4f45af44c216988a695d57633819496a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -190,63 +175,26 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::PartialPopulator::PartialPopulator </td>
+          <td class="memname">gengeopop::PolygonPolicy::PolygonPolicy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
-          <td class="paramname"><em>rnManager</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td>
-          <td class="paramname"><em>logger</em> = <code><a class="el" href="../../df/d6a/a00119.html#af8edb0cd2ef9049e0347f06e73ae57c2">stride::util::LogUtils::CreateNullLogger</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct with a RnMan and a logger. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00022">22</a> of file <a class="el" href="../../d5/d42/a00269_source.html">PartialPopulator.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a033d360f64872196bcb57ca0ce232d6f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual gengeopop::PartialPopulator::~PartialPopulator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">Args</a>&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor for inheritance. </p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00187">187</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aee01751cc775128b108e03118609091c"></a>
+<a class="anchor" id="a6b61e682cbf2e95e333d170d535720f1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -254,133 +202,57 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void gengeopop::PartialPopulator::Apply </td>
+          <td class="memname"><a class="el" href="../../d1/d7c/a00003.html">AABB</a>&lt;<a class="el" href="../../d7/de0/a00022.html">geogrid_detail::KdTree2DPoint</a>&gt; gengeopop::PolygonPolicy::GetBoundingBox </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
-          <td class="paramname"><em>geogrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>geoGridConfig</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Populate the given geogrid. </p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00189">189</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
 
-<p>Implemented in <a class="el" href="../../d3/d8b/a00059.html#ace51c5ac0d05c5fca400d8f93a26ec87">gengeopop::WorkplacePopulator</a>, <a class="el" href="../../d7/dec/a00010.html#abc6ecf1b07270c3a1e2152f3be6ffeae">gengeopop::CollegePopulator</a>, <a class="el" href="../../d8/d41/a00038.html#a47168ca7f0ce73610734befed56f0ae7">gengeopop::HouseholdPopulator</a>, <a class="el" href="../../d5/db6/a00042.html#a88753abc8ea1c837507c22c8b305cde2">gengeopop::K12SchoolPopulator</a>, <a class="el" href="../../d2/dee/a00049.html#a20e841fc232bb6cd3a5b4ddf166187eb">gengeopop::PrimaryCommunityPopulator</a>, and <a class="el" href="../../dc/dee/a00053.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">gengeopop::SecondaryCommunityPopulator</a>.</p>
+<p>References <a class="el" href="../../dc/d6a/a00261_source.html#l00054">gengeopop::AABB&lt; P &gt;::lower</a>, and <a class="el" href="../../dc/d6a/a00261_source.html#l00056">gengeopop::AABB&lt; P &gt;::upper</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9a1aa7dcf6a6ce7e04484f7764857685"></a>
+<a class="anchor" id="a16eaa288435e30ffc3bd28f874cdb256"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="../../d1/d09/a00077.html">stride::ContactPool</a>*&gt; gengeopop::PartialPopulator::GetContactPoolInIncreasingRadius </td>
+          <td class="memname">bool gengeopop::PolygonPolicy::Contains </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>geoGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="../../d6/d97/a00045.html">Location</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>start</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d65/a00360.html">double</a>&#160;</td>
-          <td class="paramname"><em>startRadius</em> = <code>10.0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramtype">const <a class="el" href="../../d7/de0/a00022.html">geogrid_detail::KdTree2DPoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>pt</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Find contactpools in <code>geoGrid</code> in an exponentially increasing radius. </p>
-<p>Start at <code>startRadius</code>, around <code>start</code>; as soon as at least one pool is found, all pools within the current radius are returne. May return an empty vector when there are no pools to be found. </p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00199">199</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00049">49</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a>.</p>
-
-<p>References <a class="el" href="../../d5/d42/a00269_source.html#l00027">MakeChoice()</a>.</p>
+<p>References <a class="el" href="../../db/d53/a00202_source.html#l00081">gengeopop::geogrid_detail::KdTree2DPoint::GetPoint()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d3/dea/a00046_a9a1aa7dcf6a6ce7e04484f7764857685_cgraph.gif" border="0" usemap="#d3/dea/a00046_a9a1aa7dcf6a6ce7e04484f7764857685_cgraph" alt=""/></div>
-<map name="d3/dea/a00046_a9a1aa7dcf6a6ce7e04484f7764857685_cgraph" id="d3/dea/a00046_a9a1aa7dcf6a6ce7e04484f7764857685_cgraph">
-<area shape="rect" id="node2" href="../../d3/dea/a00046.html#ad18d65985647c2afb90627fa7048be6a" title="Convenience wrapper around m_rnManager. " alt="" coords="301,5,504,47"/>
-</map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad18d65985647c2afb90627fa7048be6a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool gengeopop::PartialPopulator::MakeChoice </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/d65/a00360.html">double</a>&#160;</td>
-          <td class="paramname"><em>fraction</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Convenience wrapper around m_rnManager. </p>
-
-<p>Definition at line <a class="el" href="../../d5/d42/a00269_source.html#l00027">27</a> of file <a class="el" href="../../d5/d42/a00269_source.html">PartialPopulator.cpp</a>.</p>
-
-<p>References <a class="el" href="../../d9/d2a/a00270_source.html#l00076">m_rnManager</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d4/d8f/a00324_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, and <a class="el" href="../../d9/d2a/a00270_source.html#l00049">GetContactPoolInIncreasingRadius()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="../../d3/dea/a00046_ad18d65985647c2afb90627fa7048be6a_icgraph.gif" border="0" usemap="#d3/dea/a00046_ad18d65985647c2afb90627fa7048be6a_icgraph" alt=""/></div>
-<map name="d3/dea/a00046_ad18d65985647c2afb90627fa7048be6a_icgraph" id="d3/dea/a00046_ad18d65985647c2afb90627fa7048be6a_icgraph">
-<area shape="rect" id="node2" href="../../d3/d8b/a00059.html#ace51c5ac0d05c5fca400d8f93a26ec87" title="Populates the workplaces in geogrid with persons. " alt="" coords="552,5,779,47"/>
-<area shape="rect" id="node3" href="../../d3/d8b/a00059.html#a5ad89eccae3e00345e123b1e65ec7ebe" title="Assign a workplace to an active person. " alt="" coords="267,35,493,76"/>
-<area shape="rect" id="node4" href="../../d3/dea/a00046.html#a9a1aa7dcf6a6ce7e04484f7764857685" title="Find contactpools in geoGrid in an exponentially increasing radius. " alt="" coords="256,100,504,141"/>
+<div class="center"><img src="../../d3/dea/a00046_a16eaa288435e30ffc3bd28f874cdb256_cgraph.gif" border="0" usemap="#d3/dea/a00046_a16eaa288435e30ffc3bd28f874cdb256_cgraph" alt=""/></div>
+<map name="d3/dea/a00046_a16eaa288435e30ffc3bd28f874cdb256_cgraph" id="d3/dea/a00046_a16eaa288435e30ffc3bd28f874cdb256_cgraph">
+<area shape="rect" id="node2" href="../../d7/de0/a00022.html#afb1122c92acd35a750235e1a8655eb94" title="Get the coordinate for this Location. " alt="" coords="241,5,405,61"/>
 </map>
 </div>
 </p>
@@ -388,7 +260,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a9984205ae3e758af34d41b55d38c7868"></a>
+<a class="anchor" id="a6e969812cc31820a81250186a2476e46"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -396,61 +268,30 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::PartialPopulator::m_rnManager</td>
+          <td class="memname"><a class="el" href="../../d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">Args</a> gengeopop::PolygonPolicy::m_poly</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>RnManager used by populators. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00076">76</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dcd/a00280_source.html#l00026">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00141">gengeopop::WorkplacePopulator::CalculateCommutingLocations()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00165">gengeopop::WorkplacePopulator::CalculateNearbyWorkspaces()</a>, <a class="el" href="../../d4/d8f/a00324_source.html#l00107">gengeopop::WorkplacePopulator::CalculateWorkplacesInCity()</a>, and <a class="el" href="../../d5/d42/a00269_source.html#l00027">MakeChoice()</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/db1/a00200_source.html#l00205">205</a> of file <a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7c9b69f1083ed1016458ccaaa8e53964"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::PartialPopulator::m_logger</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Logger used by populators. </p>
-
-<p>Definition at line <a class="el" href="../../d9/d2a/a00270_source.html#l00077">77</a> of file <a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a>.</p>
-
-<p>Referenced by <a class="el" href="../../d0/dcd/a00280_source.html#l00026">gengeopop::PrimaryCommunityPopulator::Apply()</a>, <a class="el" href="../../da/dd4/a00291_source.html#l00026">gengeopop::SecondaryCommunityPopulator::Apply()</a>, and <a class="el" href="../../d4/d8f/a00324_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d9/d2a/a00270_source.html">PartialPopulator.h</a></li>
-<li><a class="el" href="../../d5/d42/a00269_source.html">PartialPopulator.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d3/db1/a00200_source.html">GeoAggregator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 11:05:59 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d3/dea/a00046.html">PolygonPolicy</a></li>
+    <li class="footer">Generated on Thu Jan 24 2019 14:54:18 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

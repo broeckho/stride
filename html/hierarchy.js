@@ -22,7 +22,7 @@ var hierarchy =
       [ "gengeopop::K12School", "db/d3a/a00040.html", null ],
       [ "gengeopop::Workplace", "d1/d22/a00057.html", null ]
     ] ],
-    [ "gengeopop::GeneratorInterface", "d7/d7a/a00016.html", [
+    [ "gengeopop::Generator", "d7/d7a/a00016.html", [
       [ "gengeopop::CollegeGenerator", "da/da0/a00009.html", null ],
       [ "gengeopop::CommunityGenerator", "df/d86/a00012.html", null ],
       [ "gengeopop::HouseholdGenerator", "d1/dc6/a00037.html", null ],
@@ -38,15 +38,15 @@ var hierarchy =
     [ "gengeopop::geogrid_detail::KdTree2DPoint", "d7/de0/a00022.html", null ],
     [ "gengeopop::geogrid_detail::KdTree2DPoint::dimension_type< D >", "d3/d52/a00023.html", null ],
     [ "gengeopop::GeoGridConfig", "dc/de2/a00024.html", null ],
-    [ "gengeopop::GeoGridGenerator", "d3/dfe/a00025.html", null ],
-    [ "gengeopop::GeoGridPopulator", "dc/d3c/a00028.html", null ],
+    [ "gengeopop::GeoGridPoolBuilder", "d0/d33/a00027.html", null ],
+    [ "gengeopop::GeoGridPopBuilder", "dc/d3c/a00028.html", null ],
     [ "gengeopop::GeoGridReader", "df/d61/a00031.html", [
-      [ "gengeopop::GeoGridJSONReader", "d6/d5b/a00026.html", null ],
+      [ "gengeopop::GeoGridJSONReader", "d3/dfe/a00025.html", null ],
       [ "gengeopop::GeoGridProtoReader", "d5/d16/a00029.html", null ]
     ] ],
     [ "gengeopop::GeoGridReaderFactory", "dc/d87/a00032.html", null ],
     [ "gengeopop::GeoGridWriter", "d0/dc0/a00033.html", [
-      [ "gengeopop::GeoGridJSONWriter", "d0/d33/a00027.html", null ],
+      [ "gengeopop::GeoGridJSONWriter", "d6/d5b/a00026.html", null ],
       [ "gengeopop::GeoGridProtoWriter", "d5/d79/a00030.html", null ]
     ] ],
     [ "gengeopop::GeoGridWriterFactory", "db/df3/a00034.html", null ],
@@ -59,7 +59,8 @@ var hierarchy =
     ] ],
     [ "gengeopop::KdTree< P >", "d5/df9/a00044.html", null ],
     [ "gengeopop::Location", "d6/d97/a00045.html", null ],
-    [ "gengeopop::PartialPopulator", "d3/dea/a00046.html", [
+    [ "gengeopop::PolygonPolicy", "d3/dea/a00046.html", null ],
+    [ "gengeopop::Populator", "d6/d2d/a00047.html", [
       [ "gengeopop::CollegePopulator", "d7/dec/a00010.html", null ],
       [ "gengeopop::HouseholdPopulator", "d8/d41/a00038.html", null ],
       [ "gengeopop::K12SchoolPopulator", "d5/db6/a00042.html", null ],
@@ -67,7 +68,6 @@ var hierarchy =
       [ "gengeopop::SecondaryCommunityPopulator", "dc/dee/a00053.html", null ],
       [ "gengeopop::WorkplacePopulator", "d3/d8b/a00059.html", null ]
     ] ],
-    [ "gengeopop::PolygonPolicy", "d6/d2d/a00047.html", null ],
     [ "gengeopop::RadiusPolicy", "d5/de0/a00050.html", null ],
     [ "gengeopop::ReaderFactory", "d2/d79/a00051.html", null ],
     [ "gengeopop::ThreadException", "d1/dea/a00054.html", null ],
@@ -182,11 +182,11 @@ var hierarchy =
     [ "stride::util::Subject< stride::sim_event::Id >", "dc/dfe/a00125.html", [
       [ "stride::SimRunner", "d0/dc2/a00104.html", null ]
     ] ],
-    [ "CallbackType", "d0/d50/a00661.html", null ],
-    [ "Chunk *", "d7/d5f/a00663.html", null ],
-    [ "const void", "da/d46/a00665.html", null ],
-    [ "double", "d0/d65/a00360.html", null ],
-    [ "random_generator< E, randutils::seed_seq_fe128 >", "d0/d5c/a00668.html", null ],
-    [ "size_t", "dd/d07/a00433.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool >", "d8/d13/a00671.html", null ]
+    [ "CallbackType", "dc/d91/a00659.html", null ],
+    [ "Chunk *", "d0/d50/a00661.html", null ],
+    [ "const void", "d7/d5f/a00663.html", null ],
+    [ "double", "d4/def/a00359.html", null ],
+    [ "random_generator< E, randutils::seed_seq_fe128 >", "d9/d41/a00666.html", null ],
+    [ "size_t", "d9/dd5/a00432.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool >", "d8/d7a/a00669.html", null ]
 ];

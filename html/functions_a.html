@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0f51f78</span>
+   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
    </div>
   </td>
  </tr>
@@ -184,6 +184,9 @@ $(document).ready(function(){initNavTree('functions_a.html','');});
 <li>AddContactCenter()
 : <a class="el" href="d6/d97/a00045.html#a7d7684500026a4936e356cae1a6053dc">gengeopop::Location</a>
 </li>
+<li>AddGenerator()
+: <a class="el" href="d0/d33/a00027.html#a83d6d3d450e7a60588d573ed58ee0bce">gengeopop::GeoGridPoolBuilder</a>
+</li>
 <li>AddIncomingCommutingLocation()
 : <a class="el" href="d6/d97/a00045.html#a10a6d750b8c91ef38820b13e5d8964fc">gengeopop::Location</a>
 </li>
@@ -196,11 +199,8 @@ $(document).ready(function(){initNavTree('functions_a.html','');});
 <li>AddOutgoingCommutingLocation()
 : <a class="el" href="d6/d97/a00045.html#ae5af1bf200050e71184676aab798a578">gengeopop::Location</a>
 </li>
-<li>AddPartialGenerator()
-: <a class="el" href="d3/dfe/a00025.html#aa424dcf46d3fc928c4fa08b04fcad413">gengeopop::GeoGridGenerator</a>
-</li>
 <li>AddPartialPopulator()
-: <a class="el" href="dc/d3c/a00028.html#a68e37467896ed3bc3cddf201282585ad">gengeopop::GeoGridPopulator</a>
+: <a class="el" href="dc/d3c/a00028.html#ad8d1c33577dd91898cff131d826cccef">gengeopop::GeoGridPopBuilder</a>
 </li>
 <li>AddPool()
 : <a class="el" href="dd/d1b/a00015.html#a05e2ac775c782a156ad867059f3b5e57">gengeopop::ContactCenter</a>
@@ -230,13 +230,13 @@ $(document).ready(function(){initNavTree('functions_a.html','');});
 : <a class="el" href="da/da0/a00009.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator</a>
 , <a class="el" href="d7/dec/a00010.html#abc6ecf1b07270c3a1e2152f3be6ffeae">gengeopop::CollegePopulator</a>
 , <a class="el" href="df/d86/a00012.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator</a>
-, <a class="el" href="d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa">gengeopop::GeneratorInterface</a>
+, <a class="el" href="d7/d7a/a00016.html#a8f033f2df96aa17fe5ebe383708dbdcc">gengeopop::Generator</a>
 , <a class="el" href="d1/dc6/a00037.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator</a>
 , <a class="el" href="d8/d41/a00038.html#a47168ca7f0ce73610734befed56f0ae7">gengeopop::HouseholdPopulator</a>
 , <a class="el" href="dd/d32/a00041.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator</a>
 , <a class="el" href="d5/db6/a00042.html#a88753abc8ea1c837507c22c8b305cde2">gengeopop::K12SchoolPopulator</a>
 , <a class="el" href="d5/df9/a00044.html#ae9d76910fa3cca092fa8e339226cf0c0">gengeopop::KdTree&lt; P &gt;</a>
-, <a class="el" href="d3/dea/a00046.html#aee01751cc775128b108e03118609091c">gengeopop::PartialPopulator</a>
+, <a class="el" href="d6/d2d/a00047.html#a9b260c3b12d6f43aaec3211e83271542">gengeopop::Populator</a>
 , <a class="el" href="d2/dee/a00049.html#a20e841fc232bb6cd3a5b4ddf166187eb">gengeopop::PrimaryCommunityPopulator</a>
 , <a class="el" href="dc/dee/a00053.html#a2ae716371ebfd9bf1bd7eba3dfe4b8d2">gengeopop::SecondaryCommunityPopulator</a>
 , <a class="el" href="d7/df7/a00058.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator</a>
@@ -244,7 +244,7 @@ $(document).ready(function(){initNavTree('functions_a.html','');});
 </li>
 <li>Args
 : <a class="el" href="d0/d0b/a00004.html#acfcc6c9d82f3b0ba28276db9087081be">gengeopop::BoxPolicy</a>
-, <a class="el" href="d6/d2d/a00047.html#ad4356187773550de9c9f8f70861e5686">gengeopop::PolygonPolicy</a>
+, <a class="el" href="d3/dea/a00046.html#ad4356187773550de9c9f8f70861e5686">gengeopop::PolygonPolicy</a>
 , <a class="el" href="d5/de0/a00050.html#ab7a8c340fbfb47b01ee3cb4cd56441c5">gengeopop::RadiusPolicy</a>
 </li>
 <li>AsInitializerList
@@ -270,7 +270,7 @@ $(document).ready(function(){initNavTree('functions_a.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Jan 24 2019 11:05:59 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Jan 24 2019 14:54:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

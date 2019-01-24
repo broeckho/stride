@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GeoGridPopulator Class Reference</title>
+<title>Stride Reference Manual: gengeopop::GeoGridPopBuilder Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0f51f78</span>
+   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
    </div>
   </td>
  </tr>
@@ -109,65 +109,65 @@ $(document).ready(function(){initNavTree('dc/d3c/a00028.html','../../');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="../../de/d3d/a00748.html">List of all members</a>  </div>
+<a href="../../d4/dfa/a00746.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeoGridPopulator Class Reference</div>  </div>
+<div class="title">gengeopop::GeoGridPopBuilder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Add population to a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../d3/dfe/a00025.html" title="Generate a GeoGrid out of Generators for the various contact pool types. ">GeoGridGenerator</a>).  
+<p>Buld population of <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of populators for each of the contact pool types.  
  <a href="../../dc/d3c/a00028.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GeoGridPopulator:</div>
+Collaboration diagram for gengeopop::GeoGridPopBuilder:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d5/de8/a00749.gif" border="0" usemap="#gengeopop_1_1GeoGridPopulator_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GeoGridPopulator_coll__map" id="gengeopop_1_1GeoGridPopulator_coll__map">
-<area shape="rect" id="node4" title="STL class. " alt="" coords="614,153,741,230"/>
-<area shape="rect" id="node7" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. " alt="" coords="764,631,959,723"/>
-<area shape="rect" id="node8" href="../../d0/d65/a00360.html" title="{double\n||}" alt="" coords="1463,322,1529,399"/>
+<div class="center"><img src="../../d5/d68/a00747.gif" border="0" usemap="#gengeopop_1_1GeoGridPopBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1GeoGridPopBuilder_coll__map" id="gengeopop_1_1GeoGridPopBuilder_coll__map">
+<area shape="rect" id="node4" title="STL class. " alt="" coords="585,153,712,230"/>
+<area shape="rect" id="node7" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. " alt="" coords="726,631,921,723"/>
+<area shape="rect" id="node8" href="../../d4/def/a00359.html" title="{double\n||}" alt="" coords="1425,322,1491,399"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a33b4ff3e2a26fac5dc4189580ad4ff94">GeoGridPopulator</a> (<a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig, std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geoGrid)</td></tr>
-<tr class="memdesc:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a config and a target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a33b4ff3e2a26fac5dc4189580ad4ff94">More...</a><br /></td></tr>
-<tr class="separator:a33b4ff3e2a26fac5dc4189580ad4ff94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e37467896ed3bc3cddf201282585ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a68e37467896ed3bc3cddf201282585ad">AddPartialPopulator</a> (std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt; gen)</td></tr>
-<tr class="memdesc:a68e37467896ed3bc3cddf201282585ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="../../d3/dea/a00046.html" title="Interface for populators. ">PartialPopulator</a> to use when populating.  <a href="#a68e37467896ed3bc3cddf201282585ad">More...</a><br /></td></tr>
-<tr class="separator:a68e37467896ed3bc3cddf201282585ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa2934bb8d3335c17883c56887da917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a1fa2934bb8d3335c17883c56887da917">PopulateGeoGrid</a> ()</td></tr>
-<tr class="memdesc:a1fa2934bb8d3335c17883c56887da917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply all partial populators onto an empty <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object.  <a href="#a1fa2934bb8d3335c17883c56887da917">More...</a><br /></td></tr>
-<tr class="separator:a1fa2934bb8d3335c17883c56887da917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab201324110f6509318c17bff95f513c5"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ab201324110f6509318c17bff95f513c5">GetGeoGrid</a> ()</td></tr>
-<tr class="memdesc:ab201324110f6509318c17bff95f513c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ab201324110f6509318c17bff95f513c5">More...</a><br /></td></tr>
-<tr class="separator:ab201324110f6509318c17bff95f513c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ea8b69f9ab2c94f786ad7abea0a68c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ab8ea8b69f9ab2c94f786ad7abea0a68c">GeoGridPopBuilder</a> (<a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig, std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geoGrid)</td></tr>
+<tr class="memdesc:ab8ea8b69f9ab2c94f786ad7abea0a68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct with a config and a target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#ab8ea8b69f9ab2c94f786ad7abea0a68c">More...</a><br /></td></tr>
+<tr class="separator:ab8ea8b69f9ab2c94f786ad7abea0a68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d1c33577dd91898cff131d826cccef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ad8d1c33577dd91898cff131d826cccef">AddPartialPopulator</a> (std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Populator</a> &gt; gen)</td></tr>
+<tr class="memdesc:ad8d1c33577dd91898cff131d826cccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a PartialPopulator to use when populating.  <a href="#ad8d1c33577dd91898cff131d826cccef">More...</a><br /></td></tr>
+<tr class="separator:ad8d1c33577dd91898cff131d826cccef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3918cde46ad3806505d0f8a8203acf88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a3918cde46ad3806505d0f8a8203acf88">BuildPop</a> ()</td></tr>
+<tr class="memdesc:a3918cde46ad3806505d0f8a8203acf88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply populators for various contact community types to build <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> population.  <a href="#a3918cde46ad3806505d0f8a8203acf88">More...</a><br /></td></tr>
+<tr class="separator:a3918cde46ad3806505d0f8a8203acf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4243ce57563969bc58c51eba397da196"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a4243ce57563969bc58c51eba397da196">GetGeoGrid</a> ()</td></tr>
+<tr class="memdesc:a4243ce57563969bc58c51eba397da196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  <a href="#a4243ce57563969bc58c51eba397da196">More...</a><br /></td></tr>
+<tr class="separator:a4243ce57563969bc58c51eba397da196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:ace21dd729826b385b0b54006a672b9e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ace21dd729826b385b0b54006a672b9e9">m_partialPopulators</a></td></tr>
-<tr class="memdesc:ace21dd729826b385b0b54006a672b9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">PartialPopulators.  <a href="#ace21dd729826b385b0b54006a672b9e9">More...</a><br /></td></tr>
-<tr class="separator:ace21dd729826b385b0b54006a672b9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa23397da0a882e1320b22c43e82526"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a9aa23397da0a882e1320b22c43e82526">m_geoGrid</a></td></tr>
-<tr class="memdesc:a9aa23397da0a882e1320b22c43e82526"><td class="mdescLeft">&#160;</td><td class="mdescRight">The target geogrid.  <a href="#a9aa23397da0a882e1320b22c43e82526">More...</a><br /></td></tr>
-<tr class="separator:a9aa23397da0a882e1320b22c43e82526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a0141e36ba7d15a329c4d267f0d64e3d3">m_geoGridConfig</a></td></tr>
-<tr class="memdesc:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration of target geogrid.  <a href="#a0141e36ba7d15a329c4d267f0d64e3d3">More...</a><br /></td></tr>
-<tr class="separator:a0141e36ba7d15a329c4d267f0d64e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3374734350b5e5ce5ee75f3846c79c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Populator</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#a0c3374734350b5e5ce5ee75f3846c79c">m_populators</a></td></tr>
+<tr class="memdesc:a0c3374734350b5e5ce5ee75f3846c79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PartialPopulators.  <a href="#a0c3374734350b5e5ce5ee75f3846c79c">More...</a><br /></td></tr>
+<tr class="separator:a0c3374734350b5e5ce5ee75f3846c79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7f615077d83412d24f28e5ea0552bd1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ac7f615077d83412d24f28e5ea0552bd1">m_geoGrid</a></td></tr>
+<tr class="memdesc:ac7f615077d83412d24f28e5ea0552bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The target geogrid.  <a href="#ac7f615077d83412d24f28e5ea0552bd1">More...</a><br /></td></tr>
+<tr class="separator:ac7f615077d83412d24f28e5ea0552bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83a36e57bfbf1721787cc0cdd906cab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d3c/a00028.html#ae83a36e57bfbf1721787cc0cdd906cab">m_geoGridConfig</a></td></tr>
+<tr class="memdesc:ae83a36e57bfbf1721787cc0cdd906cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration of target geogrid.  <a href="#ae83a36e57bfbf1721787cc0cdd906cab">More...</a><br /></td></tr>
+<tr class="separator:ae83a36e57bfbf1721787cc0cdd906cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Add population to a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of PartionPopulators (simliar to <a class="el" href="../../d3/dfe/a00025.html" title="Generate a GeoGrid out of Generators for the various contact pool types. ">GeoGridGenerator</a>). </p>
+<div class="textblock"><p>Buld population of <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> out of populators for each of the contact pool types. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00025">25</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00025">25</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a33b4ff3e2a26fac5dc4189580ad4ff94"></a>
+<a class="anchor" id="ab8ea8b69f9ab2c94f786ad7abea0a68c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::GeoGridPopulator::GeoGridPopulator </td>
+          <td class="memname">gengeopop::GeoGridPopBuilder::GeoGridPopBuilder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;&#160;</td>
           <td class="paramname"><em>geoGridConfig</em>, </td>
@@ -188,51 +188,51 @@ Private Attributes</h2></td></tr>
 
 <p>Construct with a config and a target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00023">23</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00023">23</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopBuilder.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a68e37467896ed3bc3cddf201282585ad"></a>
+<a class="anchor" id="ad8d1c33577dd91898cff131d826cccef"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GeoGridPopulator::AddPartialPopulator </td>
+          <td class="memname">void gengeopop::GeoGridPopBuilder::AddPartialPopulator </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d6/d2d/a00047.html">Populator</a> &gt;&#160;</td>
           <td class="paramname"><em>gen</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add a <a class="el" href="../../d3/dea/a00046.html" title="Interface for populators. ">PartialPopulator</a> to use when populating. </p>
+<p>Add a PartialPopulator to use when populating. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00037">37</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00037">37</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopBuilder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00041">m_partialPopulators</a>.</p>
+<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00041">m_populators</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/da0/a00198_source.html#l00096">gengeopop::GenPopController::GenPop()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/da0/a00198_source.html#l00098">gengeopop::GenPopController::GenPop()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d3c/a00028_a68e37467896ed3bc3cddf201282585ad_icgraph.gif" border="0" usemap="#dc/d3c/a00028_a68e37467896ed3bc3cddf201282585ad_icgraph" alt=""/></div>
-<map name="dc/d3c/a00028_a68e37467896ed3bc3cddf201282585ad_icgraph" id="dc/d3c/a00028_a68e37467896ed3bc3cddf201282585ad_icgraph">
-<area shape="rect" id="node2" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Populate and store the Pop part of the GeoGrid. " alt="" coords="268,5,483,47"/>
+<div class="center"><img src="../../dc/d3c/a00028_ad8d1c33577dd91898cff131d826cccef_icgraph.gif" border="0" usemap="#dc/d3c/a00028_ad8d1c33577dd91898cff131d826cccef_icgraph" alt=""/></div>
+<map name="dc/d3c/a00028_ad8d1c33577dd91898cff131d826cccef_icgraph" id="dc/d3c/a00028_ad8d1c33577dd91898cff131d826cccef_icgraph">
+<area shape="rect" id="node2" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Build and store the Pop part of the GeoGrid. " alt="" coords="276,5,491,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a1fa2934bb8d3335c17883c56887da917"></a>
+<a class="anchor" id="a3918cde46ad3806505d0f8a8203acf88"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GeoGridPopulator::PopulateGeoGrid </td>
+          <td class="memname">void gengeopop::GeoGridPopBuilder::BuildPop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -240,32 +240,32 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Apply all partial populators onto an empty <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> object. </p>
+<p>Apply populators for various contact community types to build <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> population. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00028">28</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00028">28</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopBuilder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00042">m_geoGrid</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00043">m_geoGridConfig</a>, and <a class="el" href="../../d1/de1/a00213_source.html#l00041">m_partialPopulators</a>.</p>
+<p>References <a class="el" href="../../d1/de1/a00213_source.html#l00042">m_geoGrid</a>, <a class="el" href="../../d1/de1/a00213_source.html#l00043">m_geoGridConfig</a>, and <a class="el" href="../../d1/de1/a00213_source.html#l00041">m_populators</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d7/da0/a00198_source.html#l00096">gengeopop::GenPopController::GenPop()</a>.</p>
+<p>Referenced by <a class="el" href="../../d7/da0/a00198_source.html#l00098">gengeopop::GenPopController::GenPop()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d3c/a00028_a1fa2934bb8d3335c17883c56887da917_icgraph.gif" border="0" usemap="#dc/d3c/a00028_a1fa2934bb8d3335c17883c56887da917_icgraph" alt=""/></div>
-<map name="dc/d3c/a00028_a1fa2934bb8d3335c17883c56887da917_icgraph" id="dc/d3c/a00028_a1fa2934bb8d3335c17883c56887da917_icgraph">
-<area shape="rect" id="node2" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Populate and store the Pop part of the GeoGrid. " alt="" coords="268,5,483,47"/>
+<div class="center"><img src="../../dc/d3c/a00028_a3918cde46ad3806505d0f8a8203acf88_icgraph.gif" border="0" usemap="#dc/d3c/a00028_a3918cde46ad3806505d0f8a8203acf88_icgraph" alt=""/></div>
+<map name="dc/d3c/a00028_a3918cde46ad3806505d0f8a8203acf88_icgraph" id="dc/d3c/a00028_a3918cde46ad3806505d0f8a8203acf88_icgraph">
+<area shape="rect" id="node2" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Build and store the Pop part of the GeoGrid. " alt="" coords="276,5,491,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ab201324110f6509318c17bff95f513c5"></a>
+<a class="anchor" id="a4243ce57563969bc58c51eba397da196"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; gengeopop::GeoGridPopulator::GetGeoGrid </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; gengeopop::GeoGridPopBuilder::GetGeoGrid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -275,14 +275,14 @@ Here is the caller graph for this function:</div>
 
 <p>Get the target <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00035">35</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dd/dc1/a00212_source.html#l00035">35</a> of file <a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopBuilder.cpp</a>.</p>
 
 <p>References <a class="el" href="../../d1/de1/a00213_source.html#l00042">m_geoGrid</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ace21dd729826b385b0b54006a672b9e9"></a>
+<a class="anchor" id="a0c3374734350b5e5ce5ee75f3846c79c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -290,7 +290,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../d3/dea/a00046.html">PartialPopulator</a>&gt; &gt; gengeopop::GeoGridPopulator::m_partialPopulators</td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="../../d6/d2d/a00047.html">Populator</a>&gt; &gt; gengeopop::GeoGridPopBuilder::m_populators</td>
         </tr>
       </table>
   </td>
@@ -302,13 +302,13 @@ Here is the caller graph for this function:</div>
 
 <p>PartialPopulators. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00041">41</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00041">41</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00037">AddPartialPopulator()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00028">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00037">AddPartialPopulator()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00028">BuildPop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9aa23397da0a882e1320b22c43e82526"></a>
+<a class="anchor" id="ac7f615077d83412d24f28e5ea0552bd1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -316,7 +316,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../de/d11/a00021.html">GeoGrid</a>&gt; gengeopop::GeoGridPopulator::m_geoGrid</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../de/d11/a00021.html">GeoGrid</a>&gt; gengeopop::GeoGridPopBuilder::m_geoGrid</td>
         </tr>
       </table>
   </td>
@@ -328,13 +328,13 @@ Here is the caller graph for this function:</div>
 
 <p>The target geogrid. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00042">42</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00042">42</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00035">GetGeoGrid()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00028">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00028">BuildPop()</a>, and <a class="el" href="../../dd/dc1/a00212_source.html#l00035">GetGeoGrid()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0141e36ba7d15a329c4d267f0d64e3d3"></a>
+<a class="anchor" id="ae83a36e57bfbf1721787cc0cdd906cab"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -342,7 +342,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> gengeopop::GeoGridPopulator::m_geoGridConfig</td>
+          <td class="memname"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> gengeopop::GeoGridPopBuilder::m_geoGridConfig</td>
         </tr>
       </table>
   </td>
@@ -354,23 +354,23 @@ Here is the caller graph for this function:</div>
 
 <p>Configuration of target geogrid. </p>
 
-<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00043">43</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/de1/a00213_source.html#l00043">43</a> of file <a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00028">PopulateGeoGrid()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/dc1/a00212_source.html#l00028">BuildPop()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopulator.h</a></li>
-<li><a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopulator.cpp</a></li>
+<li><a class="el" href="../../d1/de1/a00213_source.html">GeoGridPopBuilder.h</a></li>
+<li><a class="el" href="../../dd/dc1/a00212_source.html">GeoGridPopBuilder.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">GeoGridPopulator</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 11:05:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/d3c/a00028.html">GeoGridPopBuilder</a></li>
+    <li class="footer">Generated on Thu Jan 24 2019 14:54:18 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generatorinterface',['GeneratorInterface',['../d7/d7a/a00016.html',1,'gengeopop']]],
+  ['generator',['Generator',['../d7/d7a/a00016.html',1,'gengeopop']]],
   ['genpopbuilder',['GenPopBuilder',['../db/ddf/a00088.html',1,'stride']]],
   ['genpopcontroller',['GenPopController',['../d4/d51/a00017.html',1,'gengeopop']]],
   ['geoaggregator',['GeoAggregator',['../d1/d2b/a00018.html',1,'gengeopop']]],
@@ -15,10 +15,10 @@ var searchData=
   ['geogrid_5flocation_5fcoordinate',['GeoGrid_Location_Coordinate',['../da/d24/a00068.html',1,'proto']]],
   ['geogrid_5fperson',['GeoGrid_Person',['../d4/d31/a00069.html',1,'proto']]],
   ['geogridconfig',['GeoGridConfig',['../dc/de2/a00024.html',1,'gengeopop']]],
-  ['geogridgenerator',['GeoGridGenerator',['../d3/dfe/a00025.html',1,'gengeopop']]],
-  ['geogridjsonreader',['GeoGridJSONReader',['../d6/d5b/a00026.html',1,'gengeopop']]],
-  ['geogridjsonwriter',['GeoGridJSONWriter',['../d0/d33/a00027.html',1,'gengeopop']]],
-  ['geogridpopulator',['GeoGridPopulator',['../dc/d3c/a00028.html',1,'gengeopop']]],
+  ['geogridjsonreader',['GeoGridJSONReader',['../d3/dfe/a00025.html',1,'gengeopop']]],
+  ['geogridjsonwriter',['GeoGridJSONWriter',['../d6/d5b/a00026.html',1,'gengeopop']]],
+  ['geogridpoolbuilder',['GeoGridPoolBuilder',['../d0/d33/a00027.html',1,'gengeopop']]],
+  ['geogridpopbuilder',['GeoGridPopBuilder',['../dc/d3c/a00028.html',1,'gengeopop']]],
   ['geogridprotoreader',['GeoGridProtoReader',['../d5/d16/a00029.html',1,'gengeopop']]],
   ['geogridprotowriter',['GeoGridProtoWriter',['../d5/d79/a00030.html',1,'gengeopop']]],
   ['geogridreader',['GeoGridReader',['../df/d61/a00031.html',1,'gengeopop']]],

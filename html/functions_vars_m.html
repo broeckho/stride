@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0f51f78</span>
+   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
    </div>
   </td>
  </tr>
@@ -302,19 +302,22 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 <li>m_gender
 : <a class="el" href="d0/d61/a00100.html#a69ae24ea868bb1ee0c03e38c0f971c99">stride::Person</a>
 </li>
+<li>m_generators
+: <a class="el" href="d0/d33/a00027.html#afc317af183f5f9c9bd2788307eb3fa25">gengeopop::GeoGridPoolBuilder</a>
+</li>
 <li>m_geoGrid
 : <a class="el" href="d4/d51/a00017.html#a57228f19d1dcd50510f54b15ef759f9a">gengeopop::GenPopController</a>
-, <a class="el" href="d3/dfe/a00025.html#af0a50e4b870bcdd37bea0ba83f1f65d8">gengeopop::GeoGridGenerator</a>
-, <a class="el" href="d6/d5b/a00026.html#a395068e3cf80305d269a26ac23b2c63e">gengeopop::GeoGridJSONReader</a>
-, <a class="el" href="dc/d3c/a00028.html#a9aa23397da0a882e1320b22c43e82526">gengeopop::GeoGridPopulator</a>
+, <a class="el" href="d3/dfe/a00025.html#a395068e3cf80305d269a26ac23b2c63e">gengeopop::GeoGridJSONReader</a>
+, <a class="el" href="d0/d33/a00027.html#a4b94f6e2d9d8ee674c724339768eb95f">gengeopop::GeoGridPoolBuilder</a>
+, <a class="el" href="dc/d3c/a00028.html#ac7f615077d83412d24f28e5ea0552bd1">gengeopop::GeoGridPopBuilder</a>
 , <a class="el" href="d5/d16/a00029.html#ada3ae9fc9f8d7dccaa43356258b92150">gengeopop::GeoGridProtoReader</a>
 , <a class="el" href="d3/d8b/a00059.html#a5bedb9f80f5b1caa94d2d42d1c0bf5e9">gengeopop::WorkplacePopulator</a>
 , <a class="el" href="d4/d3a/a00101.html#a659571a2d7db98697082b77b6605c41d">stride::Population</a>
 </li>
 <li>m_geoGridConfig
 : <a class="el" href="d4/d51/a00017.html#abb874c08e0d559a99a9e757c3d685ad5">gengeopop::GenPopController</a>
-, <a class="el" href="d3/dfe/a00025.html#a94adee3197f9475dcad30ec1e3ca10e8">gengeopop::GeoGridGenerator</a>
-, <a class="el" href="dc/d3c/a00028.html#a0141e36ba7d15a329c4d267f0d64e3d3">gengeopop::GeoGridPopulator</a>
+, <a class="el" href="d0/d33/a00027.html#af97c99eeb1ac986d8846fca026152e3f">gengeopop::GeoGridPoolBuilder</a>
+, <a class="el" href="dc/d3c/a00028.html#ae83a36e57bfbf1721787cc0cdd906cab">gengeopop::GeoGridPopBuilder</a>
 , <a class="el" href="d3/d8b/a00059.html#ab5ffa6df50bf8cbb7aac393b9abcf9ca">gengeopop::WorkplacePopulator</a>
 </li>
 <li>m_handlers
@@ -392,9 +395,9 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 : <a class="el" href="d1/dea/a00054.html#a9d45697cc0f8b7d0ecf4cfb7243b2af3">gengeopop::ThreadException</a>
 </li>
 <li>m_logger
-: <a class="el" href="d7/d7a/a00016.html#a4a62604011e94f2fb71e1607bdf114fc">gengeopop::GeneratorInterface</a>
+: <a class="el" href="d7/d7a/a00016.html#a7e343b0427a16522791a7f2173ab38d2">gengeopop::Generator</a>
 , <a class="el" href="d4/d51/a00017.html#aac99f1adca18d81bc9dbe8d1ecace18e">gengeopop::GenPopController</a>
-, <a class="el" href="d3/dea/a00046.html#a7c9b69f1083ed1016458ccaaa8e53964">gengeopop::PartialPopulator</a>
+, <a class="el" href="d6/d2d/a00047.html#ae0397499e44323b47ce0fa59f995f777">gengeopop::Populator</a>
 , <a class="el" href="d9/d47/a00129.html#acc77dad91899a0d4183493023e082e9f">stride::viewers::CliViewer</a>
 </li>
 <li>m_map
@@ -439,12 +442,6 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 <li>m_parent
 : <a class="el" href="dd/d6d/a00111.html#aa89bb5ef10f89f4eae23cc0536bf01c1">stride::util::CSVRow</a>
 </li>
-<li>m_partialGenerators
-: <a class="el" href="d3/dfe/a00025.html#abda7416ab7dbc3097f965bbec528663d">gengeopop::GeoGridGenerator</a>
-</li>
-<li>m_partialPopulators
-: <a class="el" href="dc/d3c/a00028.html#ace21dd729826b385b0b54006a672b9e9">gengeopop::GeoGridPopulator</a>
-</li>
 <li>m_people
 : <a class="el" href="df/d61/a00031.html#a25c66335a8ce2710593123c80ebea5e3">gengeopop::GeoGridReader</a>
 </li>
@@ -455,7 +452,7 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 : <a class="el" href="d5/deb/a00132.html#ab49193f33a4ddf52253f1f8cda7d8605">stride::viewers::PersonsFileViewer</a>
 </li>
 <li>m_persons_found
-: <a class="el" href="d0/d33/a00027.html#a0aff3009be27579a5aec48bed22aa570">gengeopop::GeoGridJSONWriter</a>
+: <a class="el" href="d6/d5b/a00026.html#a0aff3009be27579a5aec48bed22aa570">gengeopop::GeoGridJSONWriter</a>
 , <a class="el" href="d5/d79/a00030.html#ada0a307ad7ac6ecfe8198a17a71bba6a">gengeopop::GeoGridProtoWriter</a>
 </li>
 <li>m_point
@@ -465,7 +462,7 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 : <a class="el" href="dd/da2/a00019.html#a89019815e01d3fba1670db4042f32994">gengeopop::GeoAggregator&lt; Policy &gt;</a>
 </li>
 <li>m_poly
-: <a class="el" href="d6/d2d/a00047.html#a6e969812cc31820a81250186a2476e46">gengeopop::PolygonPolicy</a>
+: <a class="el" href="d3/dea/a00046.html#a6e969812cc31820a81250186a2476e46">gengeopop::PolygonPolicy</a>
 </li>
 <li>m_pool_id
 : <a class="el" href="d1/d09/a00077.html#a2b89a6990328cbbb99d580e1a716da08">stride::ContactPool</a>
@@ -488,6 +485,9 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 , <a class="el" href="df/d61/a00031.html#a09f66d214c32d99edff6ddf0ea2b5cbd">gengeopop::GeoGridReader</a>
 , <a class="el" href="d6/d97/a00045.html#abb58411772547ad92b27927c1b0a91c4">gengeopop::Location</a>
 , <a class="el" href="d9/dcc/a00102.html#ab558b35470a8f91f051a32f374e54e00">stride::Sim</a>
+</li>
+<li>m_populators
+: <a class="el" href="dc/d3c/a00028.html#a0c3374734350b5e5ce5ee75f3846c79c">gengeopop::GeoGridPopBuilder</a>
 </li>
 <li>m_province
 : <a class="el" href="d6/d97/a00045.html#a8b50ed8582d3f3e59fce0ab9589b6bb2">gengeopop::Location</a>
@@ -529,9 +529,9 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 : <a class="el" href="d9/dcc/a00102.html#a88a205a5cfbd78547c63e7643f19de5a">stride::Sim</a>
 </li>
 <li>m_rnManager
-: <a class="el" href="d7/d7a/a00016.html#a97937caf93267e911560b76e06a9557f">gengeopop::GeneratorInterface</a>
+: <a class="el" href="d7/d7a/a00016.html#a4ecddfda013273d25890993875c074b3">gengeopop::Generator</a>
 , <a class="el" href="d4/d51/a00017.html#a8ab423fe32af16fd32d6449891c78d7d">gengeopop::GenPopController</a>
-, <a class="el" href="d3/dea/a00046.html#a9984205ae3e758af34d41b55d38c7868">gengeopop::PartialPopulator</a>
+, <a class="el" href="d6/d2d/a00047.html#a9337da6e009f7ab6e112e83c3a233f0b">gengeopop::Populator</a>
 </li>
 <li>m_root
 : <a class="el" href="d5/df9/a00044.html#a99fe9b7899ae84a4ee8637a7e7e5add3">gengeopop::KdTree&lt; P &gt;</a>
@@ -656,7 +656,7 @@ $(document).ready(function(){initNavTree('functions_vars_m.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Jan 24 2019 11:06:00 for Stride Reference Manual by
+    <li class="footer">Generated on Thu Jan 24 2019 14:54:19 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

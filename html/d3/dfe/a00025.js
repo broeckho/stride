@@ -1,10 +1,13 @@
 var a00025 =
 [
-    [ "GeoGridGenerator", "d3/dfe/a00025.html#a97dcebf6b52bd46ad3f56fd7e7a4fff0", null ],
-    [ "AddPartialGenerator", "d3/dfe/a00025.html#aa424dcf46d3fc928c4fa08b04fcad413", null ],
-    [ "GenerateGeoGrid", "d3/dfe/a00025.html#ae69d73e903115ac2abea1d77e1bd2a93", null ],
-    [ "GetGeoGrid", "d3/dfe/a00025.html#a09cf5a53ba6ea89dfd81c07059fb7063", null ],
-    [ "m_partialGenerators", "d3/dfe/a00025.html#abda7416ab7dbc3097f965bbec528663d", null ],
-    [ "m_geoGrid", "d3/dfe/a00025.html#af0a50e4b870bcdd37bea0ba83f1f65d8", null ],
-    [ "m_geoGridConfig", "d3/dfe/a00025.html#a94adee3197f9475dcad30ec1e3ca10e8", null ]
+    [ "GeoGridJSONReader", "d3/dfe/a00025.html#a9c3881374fd2dd16c425cf5a1523fe64", null ],
+    [ "GeoGridJSONReader", "d3/dfe/a00025.html#aef8c46d418aacbd368b1669645e509e2", null ],
+    [ "Read", "d3/dfe/a00025.html#a63497f177cb7f3aa13807c497ab19c92", null ],
+    [ "operator=", "d3/dfe/a00025.html#aa58a207ddb50893d528433d003b37cfe", null ],
+    [ "ParseLocation", "d3/dfe/a00025.html#a3b2a21f497b4d21486e976642f05aa67", null ],
+    [ "ParseCoordinate", "d3/dfe/a00025.html#a79a837a7ecbfb5b5aeccdc5ffb999291", null ],
+    [ "ParseContactCenter", "d3/dfe/a00025.html#a31b18619701c09088fd86fa1dbe33f55", null ],
+    [ "ParseContactPool", "d3/dfe/a00025.html#a53c003140124270ba93af1b57c8c2ced", null ],
+    [ "ParsePerson", "d3/dfe/a00025.html#a8d349e5f3ae49558d75bc7816196d67d", null ],
+    [ "m_geoGrid", "d3/dfe/a00025.html#a395068e3cf80305d269a26ac23b2c63e", null ]
 ];

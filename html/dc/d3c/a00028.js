@@ -1,10 +1,10 @@
 var a00028 =
 [
-    [ "GeoGridPopulator", "dc/d3c/a00028.html#a33b4ff3e2a26fac5dc4189580ad4ff94", null ],
-    [ "AddPartialPopulator", "dc/d3c/a00028.html#a68e37467896ed3bc3cddf201282585ad", null ],
-    [ "PopulateGeoGrid", "dc/d3c/a00028.html#a1fa2934bb8d3335c17883c56887da917", null ],
-    [ "GetGeoGrid", "dc/d3c/a00028.html#ab201324110f6509318c17bff95f513c5", null ],
-    [ "m_partialPopulators", "dc/d3c/a00028.html#ace21dd729826b385b0b54006a672b9e9", null ],
-    [ "m_geoGrid", "dc/d3c/a00028.html#a9aa23397da0a882e1320b22c43e82526", null ],
-    [ "m_geoGridConfig", "dc/d3c/a00028.html#a0141e36ba7d15a329c4d267f0d64e3d3", null ]
+    [ "GeoGridPopBuilder", "dc/d3c/a00028.html#ab8ea8b69f9ab2c94f786ad7abea0a68c", null ],
+    [ "AddPartialPopulator", "dc/d3c/a00028.html#ad8d1c33577dd91898cff131d826cccef", null ],
+    [ "BuildPop", "dc/d3c/a00028.html#a3918cde46ad3806505d0f8a8203acf88", null ],
+    [ "GetGeoGrid", "dc/d3c/a00028.html#a4243ce57563969bc58c51eba397da196", null ],
+    [ "m_populators", "dc/d3c/a00028.html#a0c3374734350b5e5ce5ee75f3846c79c", null ],
+    [ "m_geoGrid", "dc/d3c/a00028.html#ac7f615077d83412d24f28e5ea0552bd1", null ],
+    [ "m_geoGridConfig", "dc/d3c/a00028.html#ae83a36e57bfbf1721787cc0cdd906cab", null ]
 ];

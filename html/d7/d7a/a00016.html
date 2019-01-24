@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: gengeopop::GeneratorInterface Class Reference</title>
+<title>Stride Reference Manual: gengeopop::Generator Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 0f51f78</span>
+   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
    </div>
   </td>
  </tr>
@@ -110,33 +110,33 @@ $(document).ready(function(){initNavTree('d7/d7a/a00016.html','../../');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="../../d3/d82/a00717.html">List of all members</a>  </div>
+<a href="../../d3/d3b/a00715.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">gengeopop::GeneratorInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">gengeopop::Generator Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An interface for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  
+<p>An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>.  
  <a href="../../d7/d7a/a00016.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for gengeopop::GeneratorInterface:</div>
+Inheritance diagram for gengeopop::Generator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dc/d8f/a00718.gif" border="0" usemap="#gengeopop_1_1GeneratorInterface_inherit__map" alt="Inheritance graph"/></div>
-<map name="gengeopop_1_1GeneratorInterface_inherit__map" id="gengeopop_1_1GeneratorInterface_inherit__map">
-<area shape="rect" id="node2" href="../../da/da0/a00009.html" title="Generate Colleges. " alt="" coords="5,189,220,267"/>
-<area shape="rect" id="node3" href="../../df/d86/a00012.html" title="Generate Communities. " alt="" coords="244,189,485,267"/>
-<area shape="rect" id="node4" href="../../d1/dc6/a00037.html" title="Generate Households. " alt="" coords="510,189,745,267"/>
+<div class="center"><img src="../../d2/d94/a00716.gif" border="0" usemap="#gengeopop_1_1Generator_inherit__map" alt="Inheritance graph"/></div>
+<map name="gengeopop_1_1Generator_inherit__map" id="gengeopop_1_1Generator_inherit__map">
+<area shape="rect" id="node2" href="../../da/da0/a00009.html" title="Generator College contact pool types. " alt="" coords="5,189,220,267"/>
+<area shape="rect" id="node3" href="../../df/d86/a00012.html" title="Generator for Community contact pools. " alt="" coords="244,189,485,267"/>
+<area shape="rect" id="node4" href="../../d1/dc6/a00037.html" title="Generator Household contact pools. " alt="" coords="510,189,745,267"/>
 <area shape="rect" id="node5" href="../../dd/d32/a00041.html" title="Generate K12Schools. " alt="" coords="769,189,1003,267"/>
 <area shape="rect" id="node6" href="../../d7/df7/a00058.html" title="Generate Workplaces. " alt="" coords="1028,189,1259,267"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for gengeopop::GeneratorInterface:</div>
+Collaboration diagram for gengeopop::Generator:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../dd/dd8/a00719.gif" border="0" usemap="#gengeopop_1_1GeneratorInterface_coll__map" alt="Collaboration graph"/></div>
-<map name="gengeopop_1_1GeneratorInterface_coll__map" id="gengeopop_1_1GeneratorInterface_coll__map">
+<div class="center"><img src="../../d3/d82/a00717.gif" border="0" usemap="#gengeopop_1_1Generator_coll__map" alt="Collaboration graph"/></div>
+<map name="gengeopop_1_1Generator_coll__map" id="gengeopop_1_1Generator_coll__map">
 <area shape="rect" id="node3" href="../../d4/d98/a00120.html" title="Manages random number generation in parallel (OpenMP) calculations. " alt="" coords="198,329,345,509"/>
 <area shape="rect" id="node4" title="STL class. " alt="" coords="5,160,228,267"/>
 <area shape="rect" id="node7" title="STL class. " alt="" coords="377,175,464,252"/>
@@ -146,37 +146,37 @@ Collaboration diagram for gengeopop::GeneratorInterface:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeb061a0b0265c366f644d20e706b68f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#aeb061a0b0265c366f644d20e706b68f6">GeneratorInterface</a> (<a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
-<tr class="memdesc:aeb061a0b0265c366f644d20e706b68f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#aeb061a0b0265c366f644d20e706b68f6">More...</a><br /></td></tr>
-<tr class="separator:aeb061a0b0265c366f644d20e706b68f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b6edab87fe6f084257bd216fabf1fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
-<tr class="memdesc:a69b6edab87fe6f084257bd216fabf1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this PartialGenerator to the given geogrid, generating ContactCenters.  <a href="#a69b6edab87fe6f084257bd216fabf1fa">More...</a><br /></td></tr>
-<tr class="separator:a69b6edab87fe6f084257bd216fabf1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6694007594dd895fd81bf8cd87324c7d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a6694007594dd895fd81bf8cd87324c7d">~GeneratorInterface</a> ()=default</td></tr>
-<tr class="memdesc:a6694007594dd895fd81bf8cd87324c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a6694007594dd895fd81bf8cd87324c7d">More...</a><br /></td></tr>
-<tr class="separator:a6694007594dd895fd81bf8cd87324c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07fb1d2ee212e228000df3124e25046"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ab07fb1d2ee212e228000df3124e25046">Generator</a> (<a class="el" href="../../db/ddc/a00353.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;rn_manager, std::shared_ptr&lt; spdlog::logger &gt; logger)</td></tr>
+<tr class="memdesc:ab07fb1d2ee212e228000df3124e25046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with random number manager and logger.  <a href="#ab07fb1d2ee212e228000df3124e25046">More...</a><br /></td></tr>
+<tr class="separator:ab07fb1d2ee212e228000df3124e25046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f033f2df96aa17fe5ebe383708dbdcc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a8f033f2df96aa17fe5ebe383708dbdcc">Apply</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geogrid, <a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a> &amp;geoGridConfig)=0</td></tr>
+<tr class="memdesc:a8f033f2df96aa17fe5ebe383708dbdcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the contact centers for a pool type (fixed in implementation) to the geogrid.  <a href="#a8f033f2df96aa17fe5ebe383708dbdcc">More...</a><br /></td></tr>
+<tr class="separator:a8f033f2df96aa17fe5ebe383708dbdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dbafe6632874817818870f452db39e5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a4dbafe6632874817818870f452db39e5">~Generator</a> ()=default</td></tr>
+<tr class="memdesc:a4dbafe6632874817818870f452db39e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for inheritance.  <a href="#a4dbafe6632874817818870f452db39e5">More...</a><br /></td></tr>
+<tr class="separator:a4dbafe6632874817818870f452db39e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a52dbf333ce110e13842d89118c7f6865"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a52dbf333ce110e13842d89118c7f6865">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../d0/d65/a00360.html">double</a> weight)</td></tr>
-<tr class="memdesc:a52dbf333ce110e13842d89118c7f6865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#a52dbf333ce110e13842d89118c7f6865">More...</a><br /></td></tr>
-<tr class="separator:a52dbf333ce110e13842d89118c7f6865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5803efc4dbd93f90c6c94048b4ca5fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#ae5803efc4dbd93f90c6c94048b4ca5fd">CheckWeight</a> (const std::string &amp;func, <a class="el" href="../../d4/def/a00359.html">double</a> weight)</td></tr>
+<tr class="memdesc:ae5803efc4dbd93f90c6c94048b4ca5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make sure we're using a valid weight for random numbers.  <a href="#ae5803efc4dbd93f90c6c94048b4ca5fd">More...</a><br /></td></tr>
+<tr class="separator:ae5803efc4dbd93f90c6c94048b4ca5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a97937caf93267e911560b76e06a9557f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a97937caf93267e911560b76e06a9557f">m_rnManager</a></td></tr>
-<tr class="memdesc:a97937caf93267e911560b76e06a9557f"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a97937caf93267e911560b76e06a9557f">More...</a><br /></td></tr>
-<tr class="separator:a97937caf93267e911560b76e06a9557f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a62604011e94f2fb71e1607bdf114fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a4a62604011e94f2fb71e1607bdf114fc">m_logger</a></td></tr>
-<tr class="memdesc:a4a62604011e94f2fb71e1607bdf114fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a4a62604011e94f2fb71e1607bdf114fc">More...</a><br /></td></tr>
-<tr class="separator:a4a62604011e94f2fb71e1607bdf114fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ecddfda013273d25890993875c074b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/ddc/a00353.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a4ecddfda013273d25890993875c074b3">m_rnManager</a></td></tr>
+<tr class="memdesc:a4ecddfda013273d25890993875c074b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">RnManager used by generators.  <a href="#a4ecddfda013273d25890993875c074b3">More...</a><br /></td></tr>
+<tr class="separator:a4ecddfda013273d25890993875c074b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e343b0427a16522791a7f2173ab38d2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; spdlog::logger &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d7a/a00016.html#a7e343b0427a16522791a7f2173ab38d2">m_logger</a></td></tr>
+<tr class="memdesc:a7e343b0427a16522791a7f2173ab38d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger used by generators.  <a href="#a7e343b0427a16522791a7f2173ab38d2">More...</a><br /></td></tr>
+<tr class="separator:a7e343b0427a16522791a7f2173ab38d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
+<div class="textblock"><p>An interface base class for generators that provide geo data and apply it onto the <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00029">29</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00030">30</a> of file <a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aeb061a0b0265c366f644d20e706b68f6"></a>
+<a class="anchor" id="ab07fb1d2ee212e228000df3124e25046"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -184,9 +184,9 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gengeopop::GeneratorInterface::GeneratorInterface </td>
+          <td class="memname">gengeopop::Generator::Generator </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="../../db/ddc/a00353.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a> &amp;&#160;</td>
           <td class="paramname"><em>rn_manager</em>, </td>
         </tr>
         <tr>
@@ -210,24 +210,24 @@ Protected Attributes</h2></td></tr>
 
 <p>Constructor with random number manager and logger. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00033">33</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00034">34</a> of file <a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>.</p>
 
-<p>References <a class="el" href="../../d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa">Apply()</a>, and <a class="el" href="../../d7/d7a/a00016.html#a6694007594dd895fd81bf8cd87324c7d">~GeneratorInterface()</a>.</p>
+<p>References <a class="el" href="../../d7/d7a/a00016.html#a8f033f2df96aa17fe5ebe383708dbdcc">Apply()</a>, and <a class="el" href="../../d7/d7a/a00016.html#a4dbafe6632874817818870f452db39e5">~Generator()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d7a/a00016_aeb061a0b0265c366f644d20e706b68f6_cgraph.gif" border="0" usemap="#d7/d7a/a00016_aeb061a0b0265c366f644d20e706b68f6_cgraph" alt=""/></div>
-<map name="d7/d7a/a00016_aeb061a0b0265c366f644d20e706b68f6_cgraph" id="d7/d7a/a00016_aeb061a0b0265c366f644d20e706b68f6_cgraph">
-<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#a69b6edab87fe6f084257bd216fabf1fa" title="Apply this PartialGenerator to the given geogrid, generating ContactCenters. " alt="" coords="276,5,499,47"/>
-<area shape="rect" id="node3" href="../../d7/d7a/a00016.html#a6694007594dd895fd81bf8cd87324c7d" title="Virtual destructor for inheritance. " alt="" coords="276,71,499,112"/>
+<div class="center"><img src="../../d7/d7a/a00016_ab07fb1d2ee212e228000df3124e25046_cgraph.gif" border="0" usemap="#d7/d7a/a00016_ab07fb1d2ee212e228000df3124e25046_cgraph" alt=""/></div>
+<map name="d7/d7a/a00016_ab07fb1d2ee212e228000df3124e25046_cgraph" id="d7/d7a/a00016_ab07fb1d2ee212e228000df3124e25046_cgraph">
+<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#a8f033f2df96aa17fe5ebe383708dbdcc" title="Generate the contact centers for a pool type (fixed in implementation) to the geogrid. " alt="" coords="220,5,387,47"/>
+<area shape="rect" id="node3" href="../../d7/d7a/a00016.html#a4dbafe6632874817818870f452db39e5" title="Virtual destructor for inheritance. " alt="" coords="220,71,387,112"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a6694007594dd895fd81bf8cd87324c7d"></a>
+<a class="anchor" id="a4dbafe6632874817818870f452db39e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -235,7 +235,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual gengeopop::GeneratorInterface::~GeneratorInterface </td>
+          <td class="memname">virtual gengeopop::Generator::~Generator </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -250,14 +250,14 @@ Here is the call graph for this function:</div>
 
 <p>Virtual destructor for inheritance. </p>
 
-<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00033">GeneratorInterface()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00034">Generator()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d7a/a00016_a6694007594dd895fd81bf8cd87324c7d_icgraph.gif" border="0" usemap="#d7/d7a/a00016_a6694007594dd895fd81bf8cd87324c7d_icgraph" alt=""/></div>
-<map name="d7/d7a/a00016_a6694007594dd895fd81bf8cd87324c7d_icgraph" id="d7/d7a/a00016_a6694007594dd895fd81bf8cd87324c7d_icgraph">
-<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#aeb061a0b0265c366f644d20e706b68f6" title="Constructor with random number manager and logger. " alt="" coords="276,5,499,47"/>
+<div class="center"><img src="../../d7/d7a/a00016_a4dbafe6632874817818870f452db39e5_icgraph.gif" border="0" usemap="#d7/d7a/a00016_a4dbafe6632874817818870f452db39e5_icgraph" alt=""/></div>
+<map name="d7/d7a/a00016_a4dbafe6632874817818870f452db39e5_icgraph" id="d7/d7a/a00016_a4dbafe6632874817818870f452db39e5_icgraph">
+<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#ab07fb1d2ee212e228000df3124e25046" title="Constructor with random number manager and logger. " alt="" coords="220,5,387,47"/>
 </map>
 </div>
 </p>
@@ -265,7 +265,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a69b6edab87fe6f084257bd216fabf1fa"></a>
+<a class="anchor" id="a8f033f2df96aa17fe5ebe383708dbdcc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -273,7 +273,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void gengeopop::GeneratorInterface::Apply </td>
+          <td class="memname">virtual void gengeopop::Generator::Apply </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt;&#160;</td>
           <td class="paramname"><em>geogrid</em>, </td>
@@ -297,25 +297,25 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Apply this PartialGenerator to the given geogrid, generating ContactCenters. </p>
+<p>Generate the contact centers for a pool type (fixed in implementation) to the geogrid. </p>
 
 <p>Implemented in <a class="el" href="../../d1/dc6/a00037.html#a7285f9c244780890b889405a99814a53">gengeopop::HouseholdGenerator</a>, <a class="el" href="../../da/da0/a00009.html#a3ea831d2b6fbbb1187086e4b985daf07">gengeopop::CollegeGenerator</a>, <a class="el" href="../../df/d86/a00012.html#ab0b32a126df10112d785149cc8dcb7d5">gengeopop::CommunityGenerator</a>, <a class="el" href="../../dd/d32/a00041.html#a650110aa1e45d01478a4227c73635a72">gengeopop::K12SchoolGenerator</a>, and <a class="el" href="../../d7/df7/a00058.html#a382ddb08546a893331863f64bd1e5046">gengeopop::WorkplaceGenerator</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00033">GeneratorInterface()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00034">Generator()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d7a/a00016_a69b6edab87fe6f084257bd216fabf1fa_icgraph.gif" border="0" usemap="#d7/d7a/a00016_a69b6edab87fe6f084257bd216fabf1fa_icgraph" alt=""/></div>
-<map name="d7/d7a/a00016_a69b6edab87fe6f084257bd216fabf1fa_icgraph" id="d7/d7a/a00016_a69b6edab87fe6f084257bd216fabf1fa_icgraph">
-<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#aeb061a0b0265c366f644d20e706b68f6" title="Constructor with random number manager and logger. " alt="" coords="276,5,499,47"/>
+<div class="center"><img src="../../d7/d7a/a00016_a8f033f2df96aa17fe5ebe383708dbdcc_icgraph.gif" border="0" usemap="#d7/d7a/a00016_a8f033f2df96aa17fe5ebe383708dbdcc_icgraph" alt=""/></div>
+<map name="d7/d7a/a00016_a8f033f2df96aa17fe5ebe383708dbdcc_icgraph" id="d7/d7a/a00016_a8f033f2df96aa17fe5ebe383708dbdcc_icgraph">
+<area shape="rect" id="node2" href="../../d7/d7a/a00016.html#ab07fb1d2ee212e228000df3124e25046" title="Constructor with random number manager and logger. " alt="" coords="220,5,387,47"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a52dbf333ce110e13842d89118c7f6865"></a>
+<a class="anchor" id="ae5803efc4dbd93f90c6c94048b4ca5fd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -323,7 +323,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gengeopop::GeneratorInterface::CheckWeight </td>
+          <td class="memname">void gengeopop::Generator::CheckWeight </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>func</em>, </td>
@@ -331,7 +331,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d65/a00360.html">double</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d4/def/a00359.html">double</a>&#160;</td>
           <td class="paramname"><em>weight</em>&#160;</td>
         </tr>
         <tr>
@@ -349,16 +349,16 @@ Here is the caller graph for this function:</div>
 
 <p>Make sure we're using a valid weight for random numbers. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00046">46</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00047">47</a> of file <a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>.</p>
 
 <p>References <a class="el" href="../../da/deb/a00189_source.html#l00025">ExcAssert()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/d7a/a00016_a52dbf333ce110e13842d89118c7f6865_cgraph.gif" border="0" usemap="#d7/d7a/a00016_a52dbf333ce110e13842d89118c7f6865_cgraph" alt=""/></div>
-<map name="d7/d7a/a00016_a52dbf333ce110e13842d89118c7f6865_cgraph" id="d7/d7a/a00016_a52dbf333ce110e13842d89118c7f6865_cgraph">
-<area shape="rect" id="node2" href="../../da/deb/a00189.html#a53951f1917941ac25ba6508b1b72771f" title="ExcAssert" alt="" coords="276,13,361,39"/>
+<div class="center"><img src="../../d7/d7a/a00016_ae5803efc4dbd93f90c6c94048b4ca5fd_cgraph.gif" border="0" usemap="#d7/d7a/a00016_ae5803efc4dbd93f90c6c94048b4ca5fd_cgraph" alt=""/></div>
+<map name="d7/d7a/a00016_ae5803efc4dbd93f90c6c94048b4ca5fd_cgraph" id="d7/d7a/a00016_ae5803efc4dbd93f90c6c94048b4ca5fd_cgraph">
+<area shape="rect" id="node2" href="../../da/deb/a00189.html#a53951f1917941ac25ba6508b1b72771f" title="ExcAssert" alt="" coords="220,13,305,39"/>
 </map>
 </div>
 </p>
@@ -366,7 +366,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a97937caf93267e911560b76e06a9557f"></a>
+<a class="anchor" id="a4ecddfda013273d25890993875c074b3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -374,7 +374,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/dc3/a00354.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::GeneratorInterface::m_rnManager</td>
+          <td class="memname"><a class="el" href="../../db/ddc/a00353.html#a5af266718bee631b09a6b77d7d380c69">stride::util::RnMan</a>&amp; gengeopop::Generator::m_rnManager</td>
         </tr>
       </table>
   </td>
@@ -386,13 +386,13 @@ Here is the call graph for this function:</div>
 
 <p>RnManager used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00054">54</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00055">55</a> of file <a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d6/de1/a00233_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>.</p>
+<p>Referenced by <a class="el" href="../../d0/d53/a00232_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4a62604011e94f2fb71e1607bdf114fc"></a>
+<a class="anchor" id="a7e343b0427a16522791a7f2173ab38d2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -400,7 +400,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::GeneratorInterface::m_logger</td>
+          <td class="memname">std::shared_ptr&lt;spdlog::logger&gt; gengeopop::Generator::m_logger</td>
         </tr>
       </table>
   </td>
@@ -412,20 +412,20 @@ Here is the call graph for this function:</div>
 
 <p>Logger used by generators. </p>
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00055">55</a> of file <a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00056">56</a> of file <a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dc/d57/a00194_source.html">GeneratorInterface.h</a></li>
+<li><a class="el" href="../../dc/d57/a00194_source.html">Generator.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../da/d75/a00334.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">GeneratorInterface</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 11:05:58 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../d2/d0a/a00333.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../d7/d7a/a00016.html">Generator</a></li>
+    <li class="footer">Generated on Thu Jan 24 2019 14:54:18 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
