@@ -4,17 +4,30 @@ import time
 from postprocessing import AgeImmunity, ExtinctionThreshold, OutbreakEvolution, OutbreakOccurrenceAndSize
 
 SCENARIO_NAMES = ["UN_NCLU", "AD_NCLU", "UN_CLUS", "AD_CLUS"]
-SCENARIO_DISPLAY_NAMES = ["Uniform immunity\n+ no clustering",
-                            "Age-dependent immunity\n+ no clustering",
-                            "Uniform immunity\n+ household-based clustering",
-                            "Age-dependent immunity\n+ household-based clustering"]
+SCENARIO_DISPLAY_NAMES = ["Uniform\n+ no clustering",
+                            "Age-dependent\n+ no clustering",
+                            "Uniform\n+ clustering",
+                            "Age-dependent\n+ clustering"]
+
 
 def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
     start = time.perf_counter()
-    # TODO overview plot for outbreak occurrence probabilities
-    # TODO overview plot for sizes of outbreaks?
+    # Overview plot for outbreak occurrence probabilities
+    OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir, R0s,
+                                                    SCENARIO_NAMES, SCENARIO_DISPLAY_NAMES,
+                                                    numDays,
+                                                    extinctionThreshold, poolSize)
+    # Overview plot for sizes of outbreaks?
+    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlot(outputDir, R0s,
+                                                    SCENARIO_NAMES, SCENARIO_DISPLAY_NAMES,
+                                                    numDays,
+                                                    extinctionThreshold, poolSize)
     # TODO effective Rs vs R0s
-    # TODO escape probabilities vs R0s
+    # Escape probabilities vs R0s
+    OutbreakOccurrenceAndSize.createEscapeProbabilityOverviewPlot(outputDir, R0s,
+                                                    SCENARIO_NAMES, SCENARIO_DISPLAY_NAMES,
+                                                    numDays, extinctionThreshold,
+                                                    poolSize)
     for R0 in R0s:
         scenarioNames = [s + "_R0_" + str(R0) for s in SCENARIO_NAMES]
         AgeImmunity.createAgeImmunityPlots(outputDir, scenarioNames, SCENARIO_DISPLAY_NAMES,
@@ -33,12 +46,22 @@ def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
                                                     SCENARIO_DISPLAY_NAMES, numDays,
                                                     extinctionThreshold, poolSize,
                                                     "R0_" + str(R0) + "_OutbreakSizes")
+        OutbreakOccurrenceAndSize.createEscapeProbabilityPlot(outputDir, scenarioNames,
+                                                    SCENARIO_DISPLAY_NAMES, numDays,
+                                                    extinctionThreshold, poolSize,
+                                                    "R0_" + str(R0) + "_EscapeProbability")
         # TODO Infected by age overview?
         for scenario in scenarioNames:
             avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenario, poolSize)
             print("Avg overall immunity rate for {} with R0 {} is {}".format(scenario, R0, avgImmunityRate))
-            # TODO cumulative cases per day?
-            # TODO new cases per day?
+            # Cumulative cases per day
+            OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenario,
+                                                numDays, extinctionThreshold,
+                                                poolSize, scenario + "_CumulativeCases")
+            # New cases per day
+            OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenario,
+                                                numDays, extinctionThreshold,
+                                                poolSize, scenario + "_NewCases")
             # TODO infected by age?
     end = time.perf_counter()
     totalTimeSeconds = end - start

@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import multiprocessing
 import os
 
+from mpl_toolkits import mplot3d
+
 from .Util import getFinalOutbreakSize, getRngSeeds, saveFig
 
 def calculateSE(fractionSuccesses, sampleSize, confidenceLevel=95):
@@ -45,14 +47,15 @@ def createOutbreakOccurrencePlot(outputDir, scenarioNames, scenarioDisplayNames,
         plt.xticks(range(len(fractionOutbreaks)), scenarioDisplayNames)
         saveFig(outputDir, figName)
 
-def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
+# TODO make this a 3D plot too?
+def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize):
     fmts = ['o', 'v', '+', 'D', '.', '*', 'x']
     for R0_i in range(len(R0s)):
         R0 = R0s[R0_i]
         fractionOutbreaks = []
         numRuns = 0
-        for year in years:
-            scenarioName = str(year) + "_R0_" + str(R0)
+        for scn in scenarioNames:
+            scenarioName = str(scn) + "_R0_" + str(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             numRuns = len(seeds)
             with multiprocessing.Pool(processes=poolSize) as pool:
@@ -68,10 +71,9 @@ def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, years, numDays, extinct
                     SEs.append(se)
                 else:
                     SEs.append(0)
-            plt.errorbar(years, fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
+            plt.errorbar(scenarioNames, fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
             #TODO ecolor?
-    plt.xlim(2012, 2041)
-    plt.xticks([2013, 2020, 2025, 2030, 2035, 2040])
+    plt.xticks(range(len(scenarioNames)), scenarioDisplayNames)
     plt.ylabel("Fraction outbreaks")
     plt.ylim(0, 1)
     plt.legend([r'$R_0 = $' + str(x) for x in R0s], loc=4)
@@ -90,107 +92,91 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
     #plt.ylim(0, 10000)
     saveFig(outputDir, figName)
 
-def createFinalSizesOverviewPlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
-    subplotCoors = [(1, 2, 1), (1, 2, 2)]
-    for R0_i in range(len(R0s)):
-        R0 = R0s[R0_i]
-        allFinalSizes = []
-        for year in years:
-            scenarioName = str(year) + "_R0_" + str(R0)
+def createFinalSizesOverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize):
+    xs = [] # x-axis = scenario
+    ys = [] # y-axis = R0
+    zs = [] # z-axis = mean final size when no extinction occurs
+    for R0 in R0s:
+        for s_i in range(len(scenarioNames)):
+            scenarioName = scenarioNames[s_i] + "_R0_" + str(R0)
+            xs.append(s_i)
+            ys.append(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
-                finalSizes = pool.starmap(getFinalOutbreakSize, [(outputDir, scenarioName, s, numDays) for s in seeds])
-                finalSizes = [x for x in finalSizes if x >= extinctionThreshold]
-                allFinalSizes.append(finalSizes)
-        plt.subplot(subplotCoors[R0_i][0], subplotCoors[R0_i][1], subplotCoors[R0_i][2])
-        plt.boxplot(allFinalSizes, labels=years)
-        plt.ylim(0, 100000)
-        plt.title(r'$R_0 = $' + str(R0))
-        if R0_i == 0:
-            plt.ylabel("Final outbreak sizes after {} days".format(numDays))
-        else:
-            plt.tick_params(
-                axis='y',          # changes apply to the x-axis
-                which='both',      # both major and minor ticks are affected
-                left=False,      # ticks along the bottom edge are off
-                right=False,         # ticks along the top edge are off
-                labelleft=False) # labels along the bottom edge are off
-    plt.tight_layout()
+                finalSizes = pool.starmap(getFinalOutbreakSize,
+                                    [(outputDir, scenarioName, s, numDays) for s in seeds])
+                finalSizes = [f for f in finalSizes if f >= extinctionThreshold]
+                if len(finalSizes) > 0:
+                    zs.append(sum(finalSizes) / len(finalSizes))
+                else:
+                    zs.append(0)
+    ax = plt.axes(projection='3d')
+    ax.plot_trisurf(xs, ys, zs)
+    ax.set_xticks(range(len(scenarioNames)))
+    ax.set_xticklabels(scenarioDisplayNames)
+    ax.set_yticks(R0s)
     saveFig(outputDir, "AllOutbreakSizes")
 
-'''
-import argparse
-import csv
-import matplotlib.pyplot as plt
-import os
-
-def getRngSeeds(outputDir, scenarioName):
-    seeds = []
-    seedsFile = os.path.join(outputDir, scenarioName + "Seeds.csv")
-    with open(seedsFile) as csvfile:
-        reader = csv.reader(csvfile)
-        for row in reader:
-            for s in row:
-                seeds.append(int(s))
-    return seeds
-
-def getFinalOutbreakSize(outputDir, scenarioName, seed, numDays):
-    casesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "cases.csv")
-    with open(casesFile) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            timestep = int(row["timestep"])
-            if timestep == numDays - 1:
-                return int(row["cases"])
-
-def getSusceptiblesAtStart(outputDir, scenario, seed):
-    totalSusceptibles = 0
-    susceptiblesFile = os.path.join(outputDir, scenario + "_" + str(seed), "susceptibles.csv")
+def getSusceptiblesAtStart(outputDir, scenarioName, seed):
+    totalSusceptible = 0
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
     with open(susceptiblesFile) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            isSusceptible = int(row["susceptible"])
-            if isSusceptible == 1:
-                totalSusceptibles += 1
-    return totalSusceptibles
+            if int(row["susceptible"]):
+                totalSusceptible += 1
+    return totalSusceptible
 
-def getEscapeProbability(outputDir, scenarioName, seed, finalOutbreakSize):
-    totalSusceptibles = getSusceptiblesAtStart(outputDir, scenarioName, seed)
-    escapeProbability = (totalSusceptibles - finalOutbreakSize) / totalSusceptibles
-    return escapeProbability
+def getEscapeProbability(outputDir, scenarioName, seed, numDays, extinctionThreshold):
+    totalInfected = getFinalOutbreakSize(outputDir, scenarioName, seed, numDays)
+    if totalInfected >= extinctionThreshold:
+        totalSusceptible = getSusceptiblesAtStart(outputDir, scenarioName, seed)
+        if totalSusceptible > 0:
+            return (totalSusceptible - totalInfected) / totalSusceptible
+        else:
+            return 1 # If no-one is susceptible, escape probability is 1
+    else:
+        return None
 
-def escapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold):
+def createEscapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames,
+    numDays, extinctionThreshold, poolSize, figName):
     allEscapeProbabilities = []
     for scenario in scenarioNames:
-        print(scenario)
         seeds = getRngSeeds(outputDir, scenario)
-        scenarioEscapeProbabilities = []
-        for s in seeds:
-            print("        " + scenario + str(s))
-            finalOutbreakSize = getFinalOutbreakSize(outputDir, scenario, s, numDays)
-            if finalOutbreakSize > extinctionThreshold:
-                scenarioEscapeProbabilities.append(getEscapeProbability(outputDir, scenario, s, finalOutbreakSize))
-        allEscapeProbabilities.append(scenarioEscapeProbabilities)
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            escapeProbabilities = pool.starmap(getEscapeProbability,
+                                        [(outputDir, scenario, s, numDays, extinctionThreshold) for s in seeds])
+            allEscapeProbabilities.append([x for x in escapeProbabilities if x is not None])
     plt.boxplot(allEscapeProbabilities, labels=scenarioDisplayNames)
     plt.ylabel("Escape probability")
     plt.ylim(0, 1.05)
-    plt.savefig(os.path.join(outputDir, "EscapeProbabilityPlot.png"))
-    plt.clf()
+    saveFig(outputDir, figName)
 
-def main(outputDir, numDays, extinctionThreshold):
-    scenarioNames = ["Scenario1", "Scenario2", "Scenario3", "Scenario4"]
-    scenarioDisplayNames = ["Uniform\nimmunity rates\n+ no clustering",
-                            "Age-dependent\nimmunity rates\n+ no clustering",
-                            "Uniform\nimmunity rates\n+ clustering",
-                            "Age-dependent\nimmunity rates +\nclustering"]
-    escapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold)
-
-if __name__=="__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("outputDir", type=str, help="Directory containing simulation output files.")
-    parser.add_argument("--numDays", type=int, default=365, help="Number of simulation days for which to make plots.")
-    parser.add_argument("--extinctionThreshold", type=int, default=0, help="Extinction threshold.")
-    args = parser.parse_args()
-    main(args.outputDir, args.numDays, args.extinctionThreshold)
-
-'''
+def createEscapeProbabilityOverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames,
+    numDays, extinctionThreshold, poolSize):
+    xs = [] # x-axis = scenario
+    ys = [] # y-axis = R0
+    zs = [] # z-axis = escape probability
+    for R0 in R0s:
+        for s_i in range(len(scenarioNames)):
+            scenarioName = scenarioNames[s_i] + "_R0_" + str(R0)
+            xs.append(s_i)
+            ys.append(R0)
+            seeds = getRngSeeds(outputDir, scenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                escapeProbabilities = pool.starmap(getEscapeProbability,
+                                                    [(outputDir, scenarioName, s,
+                                                    numDays, extinctionThreshold) for s in seeds])
+                escapeProbabilities = [e for e in escapeProbabilities if e is not None]
+                if len(escapeProbabilities) > 0:
+                    zs.append(sum(escapeProbabilities) / len(escapeProbabilities))
+                else:
+                    xs.pop()
+                    ys.pop()
+    ax = plt.axes(projection='3d')
+    ax.plot_trisurf(xs, ys, zs)
+    ax.set_xticks(range(len(scenarioNames)))
+    ax.set_xticklabels(scenarioDisplayNames)
+    ax.set_yticks(R0s)
+    ax.set_zlim(0, 1)
+    saveFig(outputDir, "AllEscapeProbabilities")
