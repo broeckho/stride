@@ -27,18 +27,18 @@ namespace gengeopop {
 /**
  * Interface for populators. They generate some data and apply it to the GeoGrid.
  */
-class PartialPopulator
+class Populator
 {
 public:
         /// Construct with a RnMan and a logger.
-        explicit PartialPopulator(stride::util::RnMan&            rnManager,
-                                  std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
+        explicit Populator(stride::util::RnMan&            rnManager,
+                           std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger());
 
-        /// Populate the given geogrid.
+        /// Populate the given geogrid for pool type (fixed in implementation).
         virtual void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) = 0;
 
         /// Virtual destructor for inheritance.
-        virtual ~PartialPopulator() = default;
+        virtual ~Populator() = default;
 
 protected:
         /// Find contactpools in `geoGrid` in an exponentially increasing radius.
@@ -46,9 +46,9 @@ protected:
         /// all pools within the current radius are returne.
         /// May return an empty vector when there are no pools to be found.
         template <typename T>
-        std::vector<stride::ContactPool*> GetContactPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
-                                                                           const std::shared_ptr<Location>& start,
-                                                                           double startRadius = 10.0) const
+        std::vector<stride::ContactPool*> GetPoolInIncreasingRadius(const std::shared_ptr<GeoGrid>&  geoGrid,
+                                                                    const std::shared_ptr<Location>& start,
+                                                                    double startRadius = 10.0) const
         {
                 double                            currentRadius = startRadius;
                 std::vector<stride::ContactPool*> pools;

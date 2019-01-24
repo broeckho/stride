@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -21,15 +21,15 @@
 namespace gengeopop {
 
 /**
- * Create a Reader which fills a GeoGrid with the Cities found in a given CSV file.
+ * Create a Reader that fills a GeoGrid with the cities found in a CSV input stream.
  */
 class CitiesCSVReader : public CitiesReader
 {
 public:
-        /// Construct the CitiesCSVReader with an istream containing the CSV data.
+        /// Construct the CitiesCSVReader that reads istream CSV data.
         explicit CitiesCSVReader(std::unique_ptr<std::istream> inputStream);
 
-        /// Add the found Locations to the provided GeoGrid.
+        /// Add the locations read to the GeoGrid.
         void FillGeoGrid(std::shared_ptr<GeoGrid> geoGrid) const override;
 
 private:

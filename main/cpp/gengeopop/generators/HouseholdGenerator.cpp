@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "HouseholdGenerator.h"
@@ -23,7 +23,7 @@ namespace gengeopop {
 void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
         std::vector<double> weights;
-        for (const std::shared_ptr<Location>& loc : *geoGrid) {
+        for (const auto& loc : *geoGrid) {
                 weights.push_back(loc->GetRelativePopulationSize());
         }
 
@@ -32,11 +32,11 @@ void HouseholdGenerator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridConfig& 
                 return;
         }
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (unsigned int i = 0; i < geoGridConfig.calculated.households; i++) {
-                auto loc = (*geoGrid)[dist()];
-                auto h   = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
+        for (auto i = 0U; i < geoGridConfig.calculated.households; i++) {
+                const auto loc = (*geoGrid)[dist()];
+                const auto h   = std::make_shared<Household>(geoGridConfig.generated.contactCenters++);
                 h->Fill(geoGrid);
                 loc->AddContactCenter(h);
         }

@@ -126,7 +126,7 @@ public:
         std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
                                                                      double                    radius) const;
 
-        /// Gets the K biggest Location of this GeoGrid
+        /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
 
         /**

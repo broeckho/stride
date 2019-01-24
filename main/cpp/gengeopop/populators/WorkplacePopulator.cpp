@@ -31,7 +31,7 @@ using namespace stride;
 using namespace util;
 
 WorkplacePopulator::WorkplacePopulator(RnMan& rn_manager, shared_ptr<spdlog::logger> logger)
-    : PartialPopulator(rn_manager, move(logger)), m_currentLoc(nullptr), m_geoGrid(nullptr), m_geoGridConfig(),
+    : Populator(rn_manager, move(logger)), m_currentLoc(nullptr), m_geoGrid(nullptr), m_geoGridConfig(),
       m_workplacesInCity(), m_fractionCommutingStudents(0), m_nearByWorkplaces(), m_distNonCommuting(),
       m_commutingLocations(), m_disCommuting()
 {
@@ -164,7 +164,7 @@ void WorkplacePopulator::CalculateCommutingLocations()
 
 void WorkplacePopulator::CalculateNearbyWorkspaces()
 {
-        m_nearByWorkplaces = GetContactPoolInIncreasingRadius<Workplace>(m_geoGrid, m_currentLoc);
+        m_nearByWorkplaces = GetPoolInIncreasingRadius<Workplace>(m_geoGrid, m_currentLoc);
         m_distNonCommuting = m_rnManager[0].variate_generator(
             trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(m_nearByWorkplaces.size())));
 }

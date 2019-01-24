@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "WorkplaceGenerator.h"
@@ -31,19 +31,20 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         // 4. use the last information for the distribution
         // 5. assign each workplace to a location
 
-        auto EmployeeCount   = geoGridConfig.calculated.popcount_1865_and_years_active;
-        auto WorkplacesCount = static_cast<int>(ceil(EmployeeCount / geoGridConfig.constants.meanWorkplaceSchoolSize));
+        const auto EmployeeCount = geoGridConfig.calculated.popcount_1865_and_years_active;
+        const auto WorkplacesCount =
+            static_cast<unsigned int>(ceil(EmployeeCount / geoGridConfig.constants.meanWorkplaceSchoolSize));
 
         // = for each location #residents + #incoming commuting people - #outgoing commuting people
         vector<double> weights;
-        for (const shared_ptr<Location>& loc : *geoGrid) {
-                double ActivePeopleCount =
+        for (const auto& loc : *geoGrid) {
+                const double ActivePeopleCount =
                     (loc->GetPopulation() +
                      loc->IncomingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) -
                      loc->OutGoingCommutingPeople(geoGridConfig.input.fraction_active_commutingPeople) *
                          geoGridConfig.input.fraction_1865_years_active);
 
-                double weight = ActivePeopleCount / EmployeeCount;
+                const double weight = ActivePeopleCount / EmployeeCount;
                 CheckWeight("WorkplaceGenerator", weight);
                 weights.push_back(weight);
         }
@@ -53,11 +54,11 @@ void WorkplaceGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
                 return;
         }
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int i = 0; i < WorkplacesCount; i++) {
-                auto loc = (*geoGrid)[dist()];
-                auto w   = make_shared<Workplace>(geoGridConfig.generated.contactCenters++);
+        for (auto i = 0U; i < WorkplacesCount; i++) {
+                const auto loc = (*geoGrid)[dist()];
+                const auto w   = make_shared<Workplace>(geoGridConfig.generated.contactCenters++);
                 w->Fill(geoGrid);
                 loc->AddContactCenter(w);
         }

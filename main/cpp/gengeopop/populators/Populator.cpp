@@ -13,18 +13,18 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "PartialPopulator.h"
+#include "Populator.h"
 
 #include <trng/discrete_dist.hpp>
 
 namespace gengeopop {
 
-PartialPopulator::PartialPopulator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
+Populator::Populator(stride::util::RnMan& rnManager, std::shared_ptr<spdlog::logger> logger)
     : m_rnManager(rnManager), m_logger(std::move(logger))
 {
 }
 
-bool PartialPopulator::MakeChoice(double fraction)
+bool Populator::MakeChoice(double fraction)
 {
         std::vector<double> weights;
         weights.push_back(1.0 - fraction); // -> 0, return is false -> not part of the fraction

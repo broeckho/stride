@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include "PartialPopulator.h"
+#include "Populator.h"
 
 #include "util/LogUtils.h"
 
@@ -27,8 +27,11 @@ namespace {
 using discreteDist = std::function<trng::discrete_dist::result_type()>;
 }
 
-/// Populate Workplaces
-class WorkplacePopulator : public PartialPopulator
+/**
+ * Populate the workplaces.
+ */
+
+class WorkplacePopulator : public Populator
 {
 public:
         /// Constructor

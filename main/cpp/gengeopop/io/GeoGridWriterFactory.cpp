@@ -31,7 +31,7 @@ namespace filesys = std::filesystem;
 
 namespace gengeopop {
 
-std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(std::string filename) const
+std::shared_ptr<GeoGridWriter> GeoGridWriterFactory::CreateWriter(const std::string& filename) const
 {
         filesys::path path(filename);
 

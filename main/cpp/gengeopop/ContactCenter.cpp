@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "ContactCenter.h"
@@ -19,8 +19,8 @@ namespace gengeopop {
 
 std::pair<unsigned int, unsigned int> ContactCenter::GetPopulationAndInfectedCount() const
 {
-        unsigned int population = 0;
-        unsigned int infected   = 0;
+        auto population = 0U;
+        auto infected   = 0U;
 
         for (stride::ContactPool* pool : m_pools) {
                 population += pool->GetSize();

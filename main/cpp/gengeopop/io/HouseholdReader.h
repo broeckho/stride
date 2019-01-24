@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -55,12 +55,12 @@ public:
         virtual ~HouseholdReader() = default;
 
 protected:
-        std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found
+        std::vector<std::shared_ptr<Household>> m_households; ///< The households which are (being) found.
 
-        unsigned int m_total           = 0; ///< The total population
-        unsigned int m_total1826Years  = 0; ///< The total number of people between 18 and 26 years of age
-        unsigned int m_total1865Years  = 0; ///< The total number of people between 18 and 65 years of age
-        unsigned int m_totalCompulsory = 0; ///< The total number of compulsory pupils
+        unsigned int m_total           = 0; ///< The total population.
+        unsigned int m_total1826Years  = 0; ///< The total number of people between 18 and 26 years of age.
+        unsigned int m_total1865Years  = 0; ///< The total number of people between 18 and 65 years of age.
+        unsigned int m_totalCompulsory = 0; ///< The total number of compulsory pupils.
 };
 
 } // namespace gengeopop

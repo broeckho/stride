@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "CitiesCSVReader.h"
@@ -32,24 +32,22 @@ void CitiesCSVReader::FillGeoGrid(shared_ptr<GeoGrid> geoGrid) const
         // cols: id   province  population  x_coord  y_coord  latitude  longitude  name
         vector<pair<shared_ptr<Location>, int>> addedLocations;
 
-        unsigned int totalPopulation = 0;
+        auto totalPopulation = 0U;
         for (const stride::util::CSVRow& row : m_reader) {
-                auto id  = row.GetValue<int>(0);
-                auto loc = make_shared<Location>(id,                   // id
-                                                 row.GetValue<int>(1), // province
-                                                 // ignore x and y, not sure what they actually do
-                                                 // then longitude & latitude
-                                                 Coordinate(row.GetValue<double>(6), row.GetValue<double>(5)),
-                                                 row.GetValue(7));
-
+                const auto id = row.GetValue<int>(0);
+                // In file: id,province,population,x_coord,y_coord,latitude,longitude,name
+                // Ignore x and y, we do not use them,
+                // In Coordinate constructor switch order of latitude and longitude
+                const auto loc = make_shared<Location>(id, row.GetValue<int>(1),
+                                                       Coordinate(row.GetValue<double>(6), row.GetValue<double>(5)),
+                                                       row.GetValue(7));
                 geoGrid->AddLocation(loc);
                 addedLocations.emplace_back(loc, row.GetValue<int>(2));
                 totalPopulation += row.GetValue<int>(2);
         }
 
-        for (const auto& loc : addedLocations) {
-                loc.first->SetRelativePopulation(static_cast<double>(loc.second) /
-                                                 static_cast<double>(totalPopulation));
+        for (const auto& l : addedLocations) {
+                l.first->SetRelativePopulation(static_cast<double>(l.second) / static_cast<double>(totalPopulation));
         }
 }
 

@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -29,7 +29,7 @@ class GeoGridWriterFactory
 {
 public:
         /// Create a GeoGridWriter based on the provided extension in the filename.
-        std::shared_ptr<GeoGridWriter> CreateWriter(std::string filename) const;
+        std::shared_ptr<GeoGridWriter> CreateWriter(const std::string& filename) const;
 };
 
 } // namespace gengeopop

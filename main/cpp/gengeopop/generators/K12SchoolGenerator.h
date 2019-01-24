@@ -10,22 +10,22 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include "GeneratorInterface.h"
+#include "Generator.h"
 
 namespace gengeopop {
 
 /**
  * Generate K12Schools.
  */
-class K12SchoolGenerator : public GeneratorInterface
+class K12SchoolGenerator : public Generator
 {
 public:
-        using GeneratorInterface::GeneratorInterface;
+        using Generator::Generator;
 
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };

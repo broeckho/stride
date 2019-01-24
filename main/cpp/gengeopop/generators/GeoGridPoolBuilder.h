@@ -20,14 +20,28 @@
 namespace gengeopop {
 
 /**
- * Generate Workplaces.
+ * Generate a GeoGrid out of generators for the various contact pool types.
  */
-class WorkplaceGenerator : public Generator
+
+class GeoGridPoolBuilder
 {
 public:
-        using Generator::Generator;
+        /// Construct with a config and a target GeoGrid.
+        GeoGridPoolBuilder(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
 
-        void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
+        /// Add a generator for one of the contact pool types.
+        void AddGenerator(std::shared_ptr<Generator> generator);
+
+        /// Generate the geo grid.
+        void BuildPools();
+
+        /// Get the target GeoGrid.
+        std::shared_ptr<GeoGrid> GetGeoGrid();
+
+private:
+        std::vector<std::shared_ptr<Generator>> m_generators;    ///< Generators
+        std::shared_ptr<GeoGrid>                m_geoGrid;       ///< The target
+        GeoGridConfig&                          m_geoGridConfig; ///< The config
 };
 
 } // namespace gengeopop

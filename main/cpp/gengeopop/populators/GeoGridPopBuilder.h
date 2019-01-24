@@ -15,32 +15,32 @@
 
 #pragma once
 
-#include "PartialPopulator.h"
+#include "Populator.h"
 
 namespace gengeopop {
 
 /**
- * Add population to a GeoGrid out of PartionPopulators (simliar to GeoGridGenerator).
+ * Buld population of GeoGrid out of populators for each of the contact pool types.
  */
-class GeoGridPopulator
+class GeoGridPopBuilder
 {
 public:
         /// Construct with a config and a target GeoGrid.
-        GeoGridPopulator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
+        GeoGridPopBuilder(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid);
 
         /// Add a PartialPopulator to use when populating.
-        void AddPartialPopulator(std::shared_ptr<PartialPopulator> gen);
+        void AddPartialPopulator(std::shared_ptr<Populator> gen);
 
-        /// Apply all partial populators onto an empty GeoGrid object.
-        void PopulateGeoGrid();
+        /// Apply populators for various contact community types to build GeoGrid population.
+        void BuildPop();
 
         /// Get the target GeoGrid.
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
 private:
-        std::vector<std::shared_ptr<PartialPopulator>> m_partialPopulators; ///< PartialPopulators.
-        std::shared_ptr<GeoGrid>                       m_geoGrid;           ///< The target geogrid.
-        GeoGridConfig                                  m_geoGridConfig;     ///< Configuration of target geogrid.
+        std::vector<std::shared_ptr<Populator>> m_populators;    ///< PartialPopulators.
+        std::shared_ptr<GeoGrid>                m_geoGrid;       ///< The target geogrid.
+        GeoGridConfig                           m_geoGridConfig; ///< Configuration of target geogrid.
 };
 
 } // namespace gengeopop

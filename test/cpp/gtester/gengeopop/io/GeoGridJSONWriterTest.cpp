@@ -21,7 +21,7 @@
 #include "gengeopop/K12School.h"
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridGenerator.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
 #include "gengeopop/io/GeoGridJSONWriter.h"
 #include "util/FileSys.h"
 

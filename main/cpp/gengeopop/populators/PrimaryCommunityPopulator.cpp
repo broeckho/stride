@@ -35,7 +35,7 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
                 const auto dist = m_rnManager[0].variate_generator(

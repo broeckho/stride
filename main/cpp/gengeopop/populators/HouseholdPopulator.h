@@ -15,18 +15,18 @@
 
 #pragma once
 
-#include "PartialPopulator.h"
+#include "Populator.h"
 
 namespace gengeopop {
 
 /**
- * Populate Households
+ * Populate the households
  */
-class HouseholdPopulator : public PartialPopulator
+class HouseholdPopulator : public Populator
 {
 public:
         /// Using base class constructors.
-        using PartialPopulator::PartialPopulator;
+        using Populator::Populator;
 
         /// Core method implementation.
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;

@@ -22,7 +22,7 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridGenerator.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
 #include "util/FileSys.h"
 
@@ -40,7 +40,7 @@ shared_ptr<GeoGrid> GetGeoGrid(Population* pop)
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
-        GeoGridGenerator geoGridGenerator(config, make_shared<GeoGrid>(pop));
+        GeoGridPoolBuilder geoGridGenerator(config, make_shared<GeoGrid>(pop));
         return geoGridGenerator.GetGeoGrid();
 }
 

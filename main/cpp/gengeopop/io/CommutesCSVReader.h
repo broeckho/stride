@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -24,12 +24,12 @@
 namespace gengeopop {
 
 /**
- * Create a Reader which fills a GeoGrid with the Commutes found in a given CSV file
+ * Create a Reader that fills a GeoGrid with the commute info from CSV file.
  */
 class CommutesCSVReader : public CommutesReader
 {
 public:
-        /// Construct the CommutesCSVReader with an istream containing the CSV data
+        /// Construct the CommutesCSVReader with an istream containing the CSV data.
         explicit CommutesCSVReader(std::unique_ptr<std::istream> istream);
 
         /// Add the found Commutes to the provided GeoGrid

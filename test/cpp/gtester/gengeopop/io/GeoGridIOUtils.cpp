@@ -22,7 +22,7 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridGenerator.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
 #include "gengeopop/io/GeoGridProtoReader.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
 #include "pool/ContactPoolType.h"
@@ -58,7 +58,7 @@ void compareGeoGrid(const shared_ptr<GeoGrid>& geoGrid, proto::GeoGrid& protoGri
         persons_pools.clear();
 }
 
-}
+} // namespace
 
 void CompareContactPool(ContactPool*                                             contactPool,
                         const proto::GeoGrid_Location_ContactCenter_ContactPool& protoContactPool)
@@ -177,7 +177,7 @@ shared_ptr<GeoGrid> GetGeoGrid(Population* pop)
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
-        GeoGridGenerator geoGridGenerator(config, make_shared<GeoGrid>(pop));
+        GeoGridPoolBuilder geoGridGenerator(config, make_shared<GeoGrid>(pop));
         return geoGridGenerator.GetGeoGrid();
 }
 

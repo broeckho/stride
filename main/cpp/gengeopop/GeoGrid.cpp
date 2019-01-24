@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGrid.h"
@@ -23,13 +23,15 @@
 
 namespace gengeopop {
 
+using namespace std;
+
 GeoGrid::GeoGrid(stride::Population* population)
     : m_locations(), m_locationsToIdIndex(), m_population(population), m_finalized(false), m_tree()
 
 {
 }
 
-void GeoGrid::AddLocation(std::shared_ptr<Location> location)
+void GeoGrid::AddLocation(shared_ptr<Location> location)
 {
         if (m_finalized) {
                 throw stride::util::Exception("Calling addLocation while GeoGrid is finalized is not supported!");
@@ -39,17 +41,17 @@ void GeoGrid::AddLocation(std::shared_ptr<Location> location)
         m_locationsToIdIndex[location->GetID()] = location;
 }
 
-std::shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
+shared_ptr<Location> GeoGrid::operator[](size_t index) { return *(begin() + index); }
 
-std::shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
+shared_ptr<Location> GeoGrid::Get(size_t index) { return (*this)[index]; }
 
-std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
+vector<shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 {
-        auto cmp = [](const std::shared_ptr<Location>& rhs, const std::shared_ptr<Location>& lhs) {
+        auto cmp = [](const shared_ptr<Location>& rhs, const shared_ptr<Location>& lhs) {
                 return rhs->GetPopulation() > lhs->GetPopulation();
         };
 
-        std::priority_queue<std::shared_ptr<Location>, std::vector<std::shared_ptr<Location>>, decltype(cmp)> queue(
+        priority_queue<shared_ptr<Location>, vector<shared_ptr<Location>>, decltype(cmp)> queue(
             cmp);
 
         for (auto it = cbegin(); it != cend(); it++) {
@@ -59,7 +61,7 @@ std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
                 }
         }
 
-        std::vector<std::shared_ptr<Location>> topLocations;
+        vector<shared_ptr<Location>> topLocations;
 
         while (!queue.empty()) {
                 auto loc = queue.top();
@@ -72,17 +74,17 @@ std::vector<std::shared_ptr<Location>> GeoGrid::TopK(size_t k) const
 
 size_t GeoGrid::size() const { return m_locations.size(); }
 
-std::shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
+shared_ptr<Location> GeoGrid::GetById(unsigned int id) { return m_locationsToIdIndex.at(id); }
 
-void GeoGrid::remove(const std::shared_ptr<Location>& location)
+void GeoGrid::remove(const shared_ptr<Location>& location)
 {
-        m_locations.erase(std::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
+        m_locations.erase(::gengeopop::remove(m_locations.begin(), m_locations.end(), location), m_locations.end());
         m_locationsToIdIndex.erase(location->GetID());
 }
 
 void GeoGrid::Finalize()
 {
-        std::vector<geogrid_detail::KdTree2DPoint> points;
+        vector<geogrid_detail::KdTree2DPoint> points;
         for (auto it = begin(); it != end(); ++it) {
                 points.emplace_back(geogrid_detail::KdTree2DPoint(*it));
         }
@@ -91,35 +93,35 @@ void GeoGrid::Finalize()
         m_tree      = KdTree<geogrid_detail::KdTree2DPoint>::Build(points);
 }
 
-std::set<std::shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
+set<shared_ptr<Location>> GeoGrid::InBox(double long1, double lat1, double long2, double lat2) const
 {
         CheckFinalized(__func__);
 
-        std::set<std::shared_ptr<Location>> result;
-        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(std::inserter(result, result.begin())),
-                                              std::make_tuple(std::min(long1, long2), std::min(lat1, lat2),
-                                                              std::max(long1, long2), std::max(lat1, lat2)));
+        set<shared_ptr<Location>> result;
+        auto agg = BuildAggregator<BoxPolicy>(MakeCollector(inserter(result, result.begin())),
+                                              make_tuple(min(long1, long2), min(lat1, lat2),
+                                                              max(long1, long2), max(lat1, lat2)));
         agg();
         return result;
 }
 
-std::vector<std::shared_ptr<Location>> GeoGrid::FindLocationsInRadius(std::shared_ptr<Location> start,
+vector<shared_ptr<Location>> GeoGrid::FindLocationsInRadius(shared_ptr<Location> start,
                                                                       double                    radius) const
 {
         CheckFinalized(__func__);
 
         geogrid_detail::KdTree2DPoint startPt(start);
 
-        std::vector<std::shared_ptr<Location>> result;
-        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(std::back_inserter(result)),
-                                                 std::make_tuple(std::move(startPt), radius));
+        vector<shared_ptr<Location>> result;
+        auto agg = BuildAggregator<RadiusPolicy>(MakeCollector(back_inserter(result)),
+                                                 make_tuple(move(startPt), radius));
         agg();
         return result;
 }
 
 stride::Population* GeoGrid::GetPopulation() { return m_population; }
 
-void GeoGrid::CheckFinalized(const std::string& functionName) const
+void GeoGrid::CheckFinalized(const string& functionName) const
 {
         if (!m_finalized) {
                 throw stride::util::Exception("Calling \"" + functionName +

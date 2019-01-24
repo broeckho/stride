@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "CommunityGenerator.h"
@@ -32,12 +32,13 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         // 2. assign communities to a location using a discrete distribution reflecting the relative number of
         //    people at that location
 
-        int  popCount       = geoGridConfig.input.populationSize;
-        auto communityCount = static_cast<int>(ceil(popCount / geoGridConfig.constants.meanCommunitySize));
+        const auto popCount = geoGridConfig.input.populationSize;
+        const auto communityCount =
+            static_cast<unsigned int>(ceil(popCount / geoGridConfig.constants.meanCommunitySize));
 
         vector<double> weights;
-        for (const shared_ptr<Location>& loc : *geoGrid) {
-                double weight = static_cast<double>(loc->GetPopulation()) / static_cast<double>(popCount);
+        for (const auto& loc : *geoGrid) {
+                const auto weight = static_cast<double>(loc->GetPopulation()) / static_cast<double>(popCount);
                 CheckWeight("CommunityGenerator", weight);
                 weights.push_back(weight);
         }
@@ -47,17 +48,17 @@ void CommunityGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
                 return;
         }
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int communityId = 0; communityId < communityCount; communityId++) {
-                auto loc = (*geoGrid)[dist()];
-                auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
+        for (auto i = 0U; i < communityCount; i++) {
+                const auto loc = (*geoGrid)[dist()];
+                const auto pc  = make_shared<PrimaryCommunity>(geoGridConfig.generated.contactCenters++);
                 pc->Fill(geoGrid);
                 loc->AddContactCenter(pc);
         }
-        for (int i = 0; i < communityCount; i++) {
-                auto loc = (*geoGrid)[dist()];
-                auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
+        for (auto i = 0U; i < communityCount; i++) {
+                const auto loc = (*geoGrid)[dist()];
+                const auto sc  = make_shared<SecondaryCommunity>(geoGridConfig.generated.contactCenters++);
                 sc->Fill(geoGrid);
                 loc->AddContactCenter(sc);
         }

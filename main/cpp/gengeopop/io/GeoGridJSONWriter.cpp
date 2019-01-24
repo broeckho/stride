@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridJSONWriter.h"
@@ -26,7 +26,7 @@ using namespace std;
 
 GeoGridJSONWriter::GeoGridJSONWriter() : m_persons_found() {}
 
-void GeoGridJSONWriter::Write(shared_ptr<gengeopop::GeoGrid> geoGrid, ostream& stream)
+void GeoGridJSONWriter::Write(shared_ptr<GeoGrid> geoGrid, ostream& stream)
 {
         boost::property_tree::ptree root;
         boost::property_tree::ptree locations;
@@ -110,10 +110,9 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteLocation(shared_ptr<Location
 
 boost::property_tree::ptree GeoGridJSONWriter::WriteCoordinate(const Coordinate& coordinate)
 {
-        using boost::geometry::get;
         boost::property_tree::ptree coordinate_root;
-        coordinate_root.put("longitude", get<0>(coordinate));
-        coordinate_root.put("latitude", get<1>(coordinate));
+        coordinate_root.put("longitude", boost::geometry::get<0>(coordinate));
+        coordinate_root.put("latitude", boost::geometry::get<1>(coordinate));
         return coordinate_root;
 }
 
@@ -146,7 +145,7 @@ boost::property_tree::ptree GeoGridJSONWriter::WriteContactPool(stride::ContactP
         boost::property_tree::ptree contactPool_root;
         contactPool_root.put("id", contactPool->GetId());
         boost::property_tree::ptree people;
-        for (stride::Person* person : *contactPool) {
+        for (auto person : *contactPool) {
                 boost::property_tree::ptree person_root;
 #pragma omp critical
                 m_persons_found.insert(person);

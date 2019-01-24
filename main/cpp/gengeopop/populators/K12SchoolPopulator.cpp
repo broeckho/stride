@@ -39,7 +39,7 @@ void K12SchoolPopulator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig&)
                 }
 
                 // 1. find all schools in an area of 10-k*10 km
-                const vector<stride::ContactPool*>& classes = GetContactPoolInIncreasingRadius<K12School>(geoGrid, loc);
+                const vector<stride::ContactPool*>& classes = GetPoolInIncreasingRadius<K12School>(geoGrid, loc);
 
                 auto dist = m_rnManager[0].variate_generator(
                     trng::uniform_int_dist(0, static_cast<trng::uniform_int_dist::result_type>(classes.size())));

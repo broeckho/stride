@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "ReaderFactory.h"
@@ -25,11 +25,13 @@
 
 namespace gengeopop {
 
+using namespace stride::util;
+
 using namespace std;
 
 shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const string& filename)
 {
-        return CreateCitiesReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
+        return CreateCitiesReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
 shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& path)
@@ -39,7 +41,7 @@ shared_ptr<CitiesReader> ReaderFactory::CreateCitiesReader(const filesys::path& 
 
 shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const string& filename)
 {
-        return CreateCommutesReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
+        return CreateCommutesReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
 shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::path& path)
@@ -49,7 +51,7 @@ shared_ptr<CommutesReader> ReaderFactory::CreateCommutesReader(const filesys::pa
 
 shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const string& filename)
 {
-        return CreateHouseholdReader(stride::util::FileSys::GetDataDir() / filesys::path(filename));
+        return CreateHouseholdReader(FileSys::GetDataDir() / filesys::path(filename));
 }
 
 shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::path& path)
@@ -60,13 +62,13 @@ shared_ptr<HouseholdReader> ReaderFactory::CreateHouseholdReader(const filesys::
 unique_ptr<istream> ReaderFactory::OpenFile(const filesys::path& path) const
 {
         if (!filesys::exists(path)) {
-                throw stride::util::Exception("File not found: " + path.string());
+                throw Exception("File not found: " + path.string());
         }
 
         if (path.extension().string() == ".csv") {
                 return make_unique<ifstream>(path.string());
         } else {
-                throw stride::util::Exception("Unsupported file extension: " + path.extension().string());
+                throw Exception("Unsupported file extension: " + path.extension().string());
         }
 }
 
