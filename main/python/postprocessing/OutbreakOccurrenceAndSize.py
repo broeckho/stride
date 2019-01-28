@@ -92,30 +92,45 @@ def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numD
     #plt.ylim(0, 10000)
     saveFig(outputDir, figName)
 
-def createFinalSizesOverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize):
-    xs = [] # x-axis = scenario
-    ys = [] # y-axis = R0
-    zs = [] # z-axis = mean final size when no extinction occurs
+def createFinalSizesOverviewPlots(outputDir, R0s, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize):
+    xs_surf = [] # x-axis = scenario
+    xs_scat = []
+    ys_surf = [] # y-axis = R0
+    ys_scat = []
+    zs_surf = [] # z-axis = mean final size when no extinction occurs
+    zs_scat = []
     for R0 in R0s:
         for s_i in range(len(scenarioNames)):
             scenarioName = scenarioNames[s_i] + "_R0_" + str(R0)
-            xs.append(s_i)
-            ys.append(R0)
+            xs_surf.append(s_i)
+            ys_surf.append(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 finalSizes = pool.starmap(getFinalOutbreakSize,
-                                    [(outputDir, scenarioName, s, numDays) for s in seeds])
+                                            [(outputDir, scenarioName, s, numDays) for s in seeds])
                 finalSizes = [f for f in finalSizes if f >= extinctionThreshold]
+                for f in finalSizes:
+                    xs_scat.append(s_i)
+                    ys_scat.append(R0)
+                    zs_scat.append(f)
                 if len(finalSizes) > 0:
-                    zs.append(sum(finalSizes) / len(finalSizes))
+                    zs_surf.append(sum(finalSizes) / len(finalSizes))
                 else:
-                    zs.append(0)
-    ax = plt.axes(projection='3d')
-    ax.plot_trisurf(xs, ys, zs)
+                    zs_surf.append(0)
+    # Create 3D surface plot
+    ax = plt.axes(projection="3d")
+    ax.plot_trisurf(xs_surf, ys_surf, zs_surf)
     ax.set_xticks(range(len(scenarioNames)))
     ax.set_xticklabels(scenarioDisplayNames)
     ax.set_yticks(R0s)
-    saveFig(outputDir, "AllOutbreakSizes")
+    saveFig(outputDir, "AllOutbreakSizesSurface")
+    # Create 3D scatter plot
+    ax = plt.axes(projection="3d")
+    ax.scatter(xs_scat, ys_scat, zs_scat)
+    ax.set_xticks(range(len(scenarioNames)))
+    ax.set_xticklabels(scenarioDisplayNames)
+    ax.set_yticks(R0s)
+    saveFig(outputDir, "AllOutbreakSizesScatter")
 
 def getSusceptiblesAtStart(outputDir, scenarioName, seed):
     totalSusceptible = 0
@@ -152,31 +167,48 @@ def createEscapeProbabilityPlot(outputDir, scenarioNames, scenarioDisplayNames,
     plt.ylim(0, 1.05)
     saveFig(outputDir, figName)
 
-def createEscapeProbabilityOverviewPlot(outputDir, R0s, scenarioNames, scenarioDisplayNames,
+def createEscapeProbabilityOverviewPlots(outputDir, R0s, scenarioNames, scenarioDisplayNames,
     numDays, extinctionThreshold, poolSize):
-    xs = [] # x-axis = scenario
-    ys = [] # y-axis = R0
-    zs = [] # z-axis = escape probability
+    xs_surf = [] # x-axis = scenario
+    xs_scat = []
+    ys_surf = [] # y-axis = R0
+    ys_scat = []
+    zs_surf = [] # z-axis = escape probability
+    zs_scat = []
     for R0 in R0s:
         for s_i in range(len(scenarioNames)):
             scenarioName = scenarioNames[s_i] + "_R0_" + str(R0)
-            xs.append(s_i)
-            ys.append(R0)
+            xs_surf.append(s_i)
+            ys_surf.append(R0)
             seeds = getRngSeeds(outputDir, scenarioName)
             with multiprocessing.Pool(processes=poolSize) as pool:
                 escapeProbabilities = pool.starmap(getEscapeProbability,
                                                     [(outputDir, scenarioName, s,
-                                                    numDays, extinctionThreshold) for s in seeds])
+                                                    numDays, extinctionThreshold)
+                                                    for s in seeds])
                 escapeProbabilities = [e for e in escapeProbabilities if e is not None]
+                for e in escapeProbabilities:
+                    xs_scat.append(s_i)
+                    ys_scat.append(R0)
+                    zs_scat.append(e)
                 if len(escapeProbabilities) > 0:
-                    zs.append(sum(escapeProbabilities) / len(escapeProbabilities))
+                    zs_surf.append(sum(escapeProbabilities) / len(escapeProbabilities))
                 else:
-                    xs.pop()
-                    ys.pop()
-    ax = plt.axes(projection='3d')
-    ax.plot_trisurf(xs, ys, zs)
+                    xs_surf.pop()
+                    ys_surf.pop()
+    # Create 3D surface plot
+    ax = plt.axes(projection="3d")
+    ax.plot_trisurf(xs_surf, ys_surf, zs_surf)
     ax.set_xticks(range(len(scenarioNames)))
     ax.set_xticklabels(scenarioDisplayNames)
     ax.set_yticks(R0s)
     ax.set_zlim(0, 1)
-    saveFig(outputDir, "AllEscapeProbabilities")
+    saveFig(outputDir, "AllEscapeProbabilitiesSurface")
+    # Create 3D scatter plot
+    ax = plt.axes(projection="3d")
+    ax.scatter(xs_scat, ys_scat, zs_scat)
+    ax.set_xticks(range(len(scenarioNames)))
+    ax.set_xticklabels(scenarioDisplayNames)
+    ax.set_yticks(R0s)
+    ax.set_zlim(0, 1)
+    saveFig(outputDir, "AllEscapeProbabilitiesScatter")

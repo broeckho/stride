@@ -18,13 +18,13 @@ def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
                                                     numDays,
                                                     extinctionThreshold, poolSize)
     # Overview plot for sizes of outbreaks?
-    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlot(outputDir, R0s,
+    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlots(outputDir, R0s,
                                                     SCENARIO_NAMES, SCENARIO_DISPLAY_NAMES,
                                                     numDays,
                                                     extinctionThreshold, poolSize)
     # TODO effective Rs vs R0s
     # Escape probabilities vs R0s
-    OutbreakOccurrenceAndSize.createEscapeProbabilityOverviewPlot(outputDir, R0s,
+    OutbreakOccurrenceAndSize.createEscapeProbabilityOverviewPlots(outputDir, R0s,
                                                     SCENARIO_NAMES, SCENARIO_DISPLAY_NAMES,
                                                     numDays, extinctionThreshold,
                                                     poolSize)
@@ -50,7 +50,11 @@ def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
                                                     SCENARIO_DISPLAY_NAMES, numDays,
                                                     extinctionThreshold, poolSize,
                                                     "R0_" + str(R0) + "_EscapeProbability")
-        # TODO Infected by age overview?
+        # Infected by age overview
+        AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames,
+                                                    SCENARIO_DISPLAY_NAMES, poolSize,
+                                                    "R0_" + str(R0) + "_InfectedByAge",
+                                                    extinctionThreshold)
         for scenario in scenarioNames:
             avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenario, poolSize)
             print("Avg overall immunity rate for {} with R0 {} is {}".format(scenario, R0, avgImmunityRate))
@@ -62,7 +66,8 @@ def main(outputDir, numDays, R0s, extinctionThreshold, poolSize):
             OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenario,
                                                 numDays, extinctionThreshold,
                                                 poolSize, scenario + "_NewCases")
-            # TODO infected by age?
+            # Infected by age
+            AgeImmunity.createInfectedByAgePlot(outputDir, scenario, poolSize, scenario + "_InfectedByAge")
     end = time.perf_counter()
     totalTimeSeconds = end - start
     totalTimeMinutes = totalTimeSeconds / 60
