@@ -71,7 +71,7 @@ def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, scenarioNames, scenario
                     SEs.append(se)
                 else:
                     SEs.append(0)
-            plt.errorbar(scenarioNames, fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
+            plt.errorbar(range(len(scenarioNames)), fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
             #TODO ecolor?
     plt.xticks(range(len(scenarioNames)), scenarioDisplayNames)
     plt.ylabel("Fraction outbreaks")
