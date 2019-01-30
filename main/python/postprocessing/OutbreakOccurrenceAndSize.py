@@ -74,10 +74,42 @@ def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, scenarioNames, scenario
             plt.errorbar(range(len(scenarioNames)), fractionOutbreaks, SEs, fmt=fmts[R0_i], markersize=7, capsize=5)
             #TODO ecolor?
     plt.xticks(range(len(scenarioNames)), scenarioDisplayNames)
+    plt.xlabel("Calendar year")
     plt.ylabel("Fraction outbreaks")
     plt.ylim(0, 1)
     plt.legend([r'$R_0 = $' + str(x) for x in R0s], loc=4, numpoints=1)
     saveFig(outputDir, "AllOutbreakOccurrences")
+
+def createFinalSizesSideBySidePlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize):
+    subplotCoors = [(1, 2, 1), (1, 2, 2)]
+    for R0_i in range(len(R0s)):
+        R0 = R0s[R0_i]
+        allFinalSizes = []
+        for year in years:
+            scenarioName = str(year) + "_R0_" + str(R0)
+            seeds = getRngSeeds(outputDir, scenarioName)
+            with multiprocessing.Pool(processes=poolSize) as pool:
+                finalSizes = pool.starmap(getFinalOutbreakSize, [(outputDir, scenarioName, s, numDays) for s in seeds])
+                finalSizes = [x for x in finalSizes if x >= extinctionThreshold]
+                allFinalSizes.append(finalSizes)
+        plt.subplot(subplotCoors[R0_i][0], subplotCoors[R0_i][1], subplotCoors[R0_i][2])
+        plt.boxplot(allFinalSizes, labels=years)
+        plt.xlabel("Calendar year")
+        plt.ylim(0, 100000)
+        plt.title(r'$R_0 = $' + str(R0))
+        if R0_i == 0:
+            plt.ylabel("Final outbreak sizes after {} days".format(numDays))
+        else:
+            plt.tick_params(
+                axis='y',          # changes apply to the x-axis
+                which='both',      # both major and minor ticks are affected
+                left=False,      # ticks along the bottom edge are off
+                right=False,         # ticks along the top edge are off
+                labelleft=False) # labels along the bottom edge are off
+    plt.tight_layout()
+    #plt.savefig(os.path.join(outputDir, "AllOutbreakSizes.png"))
+    #plt.clf()
+    saveFig(outputDir, "AllOutbreakSizesSBS")
 
 def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize, figName):
     allFinalSizes = []
