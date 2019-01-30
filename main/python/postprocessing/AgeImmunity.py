@@ -113,6 +113,16 @@ def getInfectedByAge(outputDir, scenarioName, seed):
                 infectedByAge[age] += 1
     return infectedByAge
 
+def getTotalsByAge(outputDir, scenarioName, seed):
+    susceptiblesFile = os.path.join(outputDir, scenarioName + "_" + str(seed), "susceptibles.csv")
+    totalsByAge = [0] * (MAX_AGE + 1)
+    with open(susceptiblesFile) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            age = int(float(row["age"]))
+            totalsByAge[age] += 1
+    return totalsByAge
+
 def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
     seeds = getRngSeeds(outputDir, scenarioName)
     with multiprocessing.Pool(processes=poolSize) as pool:
@@ -132,6 +142,9 @@ def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
 def createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
     allMeans = []
     allMedians = []
+    linestyles = ['-', '--', '-.', ':', '--', '--']
+    dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
@@ -155,48 +168,80 @@ def createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNa
                     infectedByAgeMeds.append(0)
             allMeans.append(infectedByAgeMeans)
             allMedians.append(infectedByAgeMeds)
-    for m in allMeans:
-        plt.plot(m)
+    for m_i in range(len(allMeans)):
+        if dashes[m_i] is not None:
+            plt.plot(allMeans[m_i], linestyle=linestyles[m_i], dashes=dashes[m_i], color=colors[m_i])
+        else:
+            plt.plot(allMeans[m_i], linestyle=linestyles[m_i], color=colors[m_i])
     plt.xlabel("Age")
     plt.ylabel("Mean number of infected")
     plt.legend(scenarioDisplayNames)
     saveFig(outputDir, figName + "_Means")
 
-    for m in allMedians:
-        plt.plot(m)
+    for m_i in range(len(allMedians)):
+        if dashes[m_i] is not None:
+            plt.plot(allMedians[m_i], linestyle=linestyles[m_i], dashes=dashes[m_i], color=colors[m_i])
+        else:
+            plt.plot(allMedians[m_i], linestyle=linestyles[m_i], color=colors[m_i])
     plt.xlabel("Age")
     plt.ylabel("Median number of infected")
     plt.legend(scenarioDisplayNames)
     saveFig(outputDir, figName + "_Medians")
 
 def createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
-    pass
-
-'''
+    allMeans = []
+    allMedians = []
+    linestyles = ['-', '--', '-.', ':', '--', '--']
+    dashes = [None, (2, 5), None, None, (5, 2), (1, 3)]
+    colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown']
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
             infectedByAge = pool.starmap(getInfectedByAge, [(outputDir, scenario, s) for s in seeds])
+            totalsByAge = pool.starmap(getTotalsByAge, [(outputDir, scenario, s) for s in seeds])
             # Remove runs where extinction occurs
             infectedByAgeNoExt = []
             for run in infectedByAge:
-                if sum(run) > extinctionThreshold:
+                if sum(run) >= extinctionThreshold:
                     infectedByAgeNoExt.append(run)
-            allInfectedByAge = []
-            for i in range(MAX_AGE + 1):
+            infectedPcts = []
+            for a_i in range(MAX_AGE + 1):
                 age = []
-                for run in infectedByAgeNoExt:
-                    age.append(run[i])
+                for r_i in range(len(infectedByAgeNoExt)):
+                    pctInfected = infectedByAgeNoExt[r_i][a_i] / totalsByAge[r_i][a_i]
+                    age.append(pctInfected)
+                infectedPcts.append(age)
+
+            infectedByAgeMeans = []
+            infectedByAgeMeds = []
+            for age in infectedPcts:
                 if sum(age) > 0:
-                    allInfectedByAge.append(sum(age) / len(age))
+                    infectedByAgeMeans.append(sum(age) / len(age))
+                    infectedByAgeMeds.append(statistics.median(age))
                 else:
-                    allInfectedByAge.append(0)
-        plt.plot(allInfectedByAge)
-    plt.legend(scenarioDisplayNames)
+                    infectedByAgeMeans.append(0)
+                    infectedByAgeMeds.append(0)
+            allMeans.append(infectedByAgeMeans)
+            allMedians.append(infectedByAgeMeds)
+    for m_i in range(len(allMeans)):
+        if dashes[m_i] is not None:
+            plt.plot(allMeans[m_i], linestyle=linestyles[m_i], dashes=dashes[m_i], color=colors[m_i])
+        else:
+            plt.plot(allMeans[m_i], linestyle=linestyles[m_i], color=colors[m_i])
     plt.xlabel("Age")
     plt.ylabel("Mean number of infected")
-    saveFig(outputDir, figName)
-'''
+    plt.legend(scenarioDisplayNames)
+    saveFig(outputDir, figName + "_Means")
+
+    for m_i in range(len(allMedians)):
+        if dashes[m_i] is not None:
+            plt.plot(allMedians[m_i], linestyle=linestyles[m_i], dashes=dashes[m_i], color=colors[m_i])
+        else:
+            plt.plot(allMedians[m_i], linestyle=linestyles[m_i], color=colors[m_i])
+    plt.xlabel("Age")
+    plt.ylabel("Median number of infected")
+    plt.legend(scenarioDisplayNames)
+    saveFig(outputDir, figName + "_Medians")
 
 '''
 import networkx as nx

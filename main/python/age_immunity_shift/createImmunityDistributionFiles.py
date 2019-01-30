@@ -58,7 +58,8 @@ def plotTargetRates(rates, years):
     plt.ylabel("Fraction susceptible")
     plt.ylim(0, 1)
     plt.legend(years)
-    plt.show()
+    plt.savefig("TargetRates.eps", format='eps', dpi=1000)
+    plt.clf()
 
 def main(dataDir, targetDir, years):
     maxAge = 99
