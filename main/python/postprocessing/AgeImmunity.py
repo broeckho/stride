@@ -164,7 +164,7 @@ def createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNa
     for m in allMedians:
         plt.plot(m)
     plt.xlabel("Age")
-    plt.ylable("Median number of infected")
+    plt.ylabel("Median number of infected")
     saveFig(outputDir, figName + "_Medians")
 
 def createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
