@@ -101,7 +101,7 @@ def createFinalSizesOverviewPlots(outputDir, R0s, scenarioNames, scenarioDisplay
     zs_scat = []
     for R0 in R0s:
         for s_i in range(len(scenarioNames)):
-            scenarioName = scenarioNames[s_i] + "_R0_" + str(R0)
+            scenarioName = str(scenarioNames[s_i]) + "_R0_" + str(R0)
             xs_surf.append(s_i)
             ys_surf.append(R0)
             seeds = getRngSeeds(outputDir, scenarioName)

@@ -2,6 +2,7 @@ import csv
 import matplotlib.pyplot as plt
 import multiprocessing
 import os
+import statistics
 import xml.etree.ElementTree as ET
 
 from .Util import getRngSeeds, saveFig, MAX_AGE
@@ -128,7 +129,51 @@ def createInfectedByAgePlot(outputDir, scenarioName, poolSize, figName):
         plt.xticks(range(MAX_AGE+2)[::5], range(MAX_AGE+2)[::5],rotation=90)
         saveFig(outputDir, figName)
 
-def createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
+def createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
+    allMeans = []
+    allMedians = []
+    for scenario in scenarioNames:
+        seeds = getRngSeeds(outputDir, scenario)
+        with multiprocessing.Pool(processes=poolSize) as pool:
+            infectedByAge = pool.starmap(getInfectedByAge, [(outputDir, scenario, s) for s in seeds])
+            # Remove runs where extinction occurs
+            infectedByAgeNoExt = []
+            for run in infectedByAge:
+                if sum(run) >= extinctionThreshold:
+                    infectedByAgeNoExt.append(run)
+            infectedByAgeMeans = []
+            infectedByAgeMeds = []
+            for i in range(MAX_AGE + 1):
+                age = []
+                for run in infectedByAgeNoExt:
+                    age.append(run[i])
+                if sum(age) > 0:
+                    infectedByAgeMeans.append(sum(age) / len(age))
+                    infectedByAgeMeds.append(statistics.median(age))
+                else:
+                    infectedByAgeMeans.append(0)
+                    infectedByAgeMeds.append(0)
+            allMeans.append(infectedByAgeMeans)
+            allMedians.append(infectedByAgeMeds)
+    for m in allMeans:
+        plt.plot(m)
+    plt.show()
+
+    for m in allMedians:
+        plt.plot(m)
+    plt.show()
+
+    '''
+        plt.plot(allInfectedByAge)
+    plt.legend(scenarioDisplayNames)
+    plt.xlabel("Age")
+    plt.ylabel("Mean number of infected")
+    saveFig(outputDir, figName)'''
+
+def createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize, figName, extinctionThreshold):
+    pass
+
+'''
     for scenario in scenarioNames:
         seeds = getRngSeeds(outputDir, scenario)
         with multiprocessing.Pool(processes=poolSize) as pool:
@@ -152,9 +197,7 @@ def createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNam
     plt.xlabel("Age")
     plt.ylabel("Mean number of infected")
     saveFig(outputDir, figName)
-
-def createInfectedPctByAgePlot(outputDir, scenarioName, poolSize):
-    pass
+'''
 
 '''
 import networkx as nx

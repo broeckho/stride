@@ -8,8 +8,8 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
     start = time.perf_counter()
     # Create overview plot for outbreak occurrence probabilities
     OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir,
-                            R0s, years, numDays, extinctionThreshold, poolSize)
-    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlot(outputDir, R0s, years,
+                            R0s, years, [str(y) for y in years], numDays, extinctionThreshold, poolSize)
+    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlots(outputDir, R0s, years, [str(y) for y in years],
                             numDays, extinctionThreshold, poolSize)
     for R0 in R0s:
         for year in years:
@@ -17,9 +17,6 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
             # Calculate average overall immunity
             #avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenarioName, poolSize)
             #print("Avg overall immunity rate for {} with R0 {} is {}".format(year, R0, avgImmunityRate))
-            # Create extinction threshold histogram
-            #ExtinctionThreshold.createFinalSizeHistogram(outputDir, scenarioName, numDays,
-            #                            poolSize, scenarioName + "_ExtinctionThreshold.png")
             # Create outbreak evolution plots
             #OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays,
             #                            extinctionThreshold, poolSize,
@@ -43,10 +40,10 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
         #OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
         #                                [str(y) for y in years], numDays, extinctionThreshold,
         #                                poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
-        #AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_InfectedByAge.png", 0)
-        #AgeImmunity.createInfectedByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_InfectedByAgeNoExt.png", extinctionThreshold)
+        AgeImmunity.createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames,
+                                        poolSize, "R0_" + str(R0) + "_InfectedByAge", 0)
+        AgeImmunity.createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames,
+                                        poolSize, "R0_" + str(R0) + "_InfectedByAgeNoExt", extinctionThreshold)
     #TODO Effective Rs -> VS R0
     end = time.perf_counter()
     totalTimeSeconds = end - start
