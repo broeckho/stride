@@ -9,8 +9,8 @@ def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
     # Create overview plot for outbreak occurrence probabilities
     OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir,
                             R0s, years, [str(y) for y in years], numDays, extinctionThreshold, poolSize)
-    OutbreakOccurrenceAndSize.createFinalSizesOverviewPlots(outputDir, R0s, years, [str(y) for y in years],
-                            numDays, extinctionThreshold, poolSize)
+    #OutbreakOccurrenceAndSize.createFinalSizesOverviewPlots(outputDir, R0s, years, [str(y) for y in years],
+    #                        numDays, extinctionThreshold, poolSize)
     for R0 in R0s:
         for year in years:
             scenarioName = str(year) + "_R0_" + str(R0)

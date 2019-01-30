@@ -76,7 +76,7 @@ def createOutbreakOccurrenceOverviewPlot(outputDir, R0s, scenarioNames, scenario
     plt.xticks(range(len(scenarioNames)), scenarioDisplayNames)
     plt.ylabel("Fraction outbreaks")
     plt.ylim(0, 1)
-    plt.legend([r'$R_0 = $' + str(x) for x in R0s], loc=4)
+    plt.legend([r'$R_0 = $' + str(x) for x in R0s], loc=4, numpoints=1)
     saveFig(outputDir, "AllOutbreakOccurrences")
 
 def createFinalSizesBoxplot(outputDir, scenarioNames, scenarioDisplayNames, numDays, extinctionThreshold, poolSize, figName):
