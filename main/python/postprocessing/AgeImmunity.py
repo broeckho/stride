@@ -159,7 +159,6 @@ def createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNa
         plt.plot(m)
     plt.xlabel("Age")
     plt.ylabel("Mean number of infected")
-    plt.show()
     saveFig(outputDir, figName + "_Means")
 
     for m in allMedians:
