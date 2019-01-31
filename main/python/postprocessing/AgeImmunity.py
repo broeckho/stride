@@ -229,7 +229,7 @@ def createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplay
         else:
             plt.plot(allMeans[m_i], linestyle=linestyles[m_i], color=colors[m_i])
     plt.xlabel("Age")
-    plt.ylabel("Mean number of infected")
+    plt.ylabel("Mean fraction of infected")
     plt.ylim(0, 1)
     plt.legend(scenarioDisplayNames)
     saveFig(outputDir, figName + "_Means")
@@ -240,7 +240,7 @@ def createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplay
         else:
             plt.plot(allMedians[m_i], linestyle=linestyles[m_i], color=colors[m_i])
     plt.xlabel("Age")
-    plt.ylabel("Median number of infected")
+    plt.ylabel("Median fraction of infected")
     plt.ylim(0, 1)
     plt.legend(scenarioDisplayNames)
     saveFig(outputDir, figName + "_Medians")
