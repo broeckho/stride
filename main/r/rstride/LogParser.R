@@ -117,8 +117,8 @@ parse_contact_logfile <- function(contact_log_filename)
   if(any(data_log[,1] == "[CONT]"))
   {
     header_cnt          <- c('local_id', 'part_age', 'cnt_age', 'cnt_home', 'cnt_school', 
-                             'cnt_work', 'cnt_prim_comm', 'cnt_sec_comm', 'sim_day',
-                             'cnt_prob', 'trm_prob')
+                             'cnt_college','cnt_work', 'cnt_prim_comm', 'cnt_sec_comm', 
+                             'sim_day', 'cnt_prob', 'trm_prob')
     data_cnt            <- data_log[data_log[,1] == "[CONT]",seq_len(length(header_cnt))+1]
     names(data_cnt)     <- header_cnt
     data_cnt[1,]

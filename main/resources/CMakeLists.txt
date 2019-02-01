@@ -22,6 +22,21 @@ file(GLOB DEPLOY_FILES "data/*")
 INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
 
 #============================================================================
+# UNZIP files from data/* to ${DATA_INSTALL_LOCATION}
+#============================================================================
+file(GLOB DEPLOY_FILES "data/*.zip")
+add_custom_target( unZip ALL)
+add_custom_command(TARGET unZip PRE_BUILD
+    COMMAND ${CMAKE_COMMAND} -E tar xzf ${DEPLOY_FILES}
+	WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+	DEPENDS ${DEPLOY_FILES}
+	VERBATIM
+	)
+
+file(GLOB DEPLOY_FILES ${CMAKE_BINARY_DIR}/*.csv)
+INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
+	
+#============================================================================
 # Copy all files from config/* to ${CONFIG_INSTALL_LOCATION}
 #============================================================================
 file(GLOB DEPLOY_FILES "config/*")
