@@ -23,8 +23,8 @@ var searchData=
   ['_7epersonsfile',['~PersonsFile',['../d1/d44/a00098.html#aafacf4448a2354eff812e02d2048e114',1,'stride::output::PersonsFile']]],
   ['_7epopulator',['~Populator',['../d6/d2d/a00047.html#adce42c51b32d49e3855d7915f86a3725',1,'gengeopop::Populator']]],
   ['_7esegmentedvector',['~SegmentedVector',['../d0/d89/a00071.html#a8631db1786767b0e083f002f2a284757',1,'stride::util::SegmentedVector']]],
-  ['_7esimrunner',['~SimRunner',['../d0/dc2/a00104.html#ad59e65dfe839b8a589b1c6ffa805ba2f',1,'stride::SimRunner']]],
-  ['_7esubject',['~Subject',['../dc/dfe/a00125.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
+  ['_7esimrunner',['~SimRunner',['../d3/d32/a00105.html#ad59e65dfe839b8a589b1c6ffa805ba2f',1,'stride::SimRunner']]],
+  ['_7esubject',['~Subject',['../d7/d12/a00126.html#ade16fa2818574a0a42874b5f15b1d3ec',1,'stride::util::Subject']]],
   ['_7esummaryfile',['~SummaryFile',['../da/d74/a00099.html#ade602b6935ee6c38f21f15b5bcc77847',1,'stride::output::SummaryFile']]],
   ['_7ethreadexception',['~ThreadException',['../d1/dea/a00054.html#af2d64bdb630352c3f88e0be223f70f41',1,'gengeopop::ThreadException']]]
 ];

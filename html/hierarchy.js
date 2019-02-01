@@ -102,28 +102,28 @@ var hierarchy =
     ] ],
     [ "std::exception", null, [
       [ "std::runtime_error", null, [
-        [ "stride::util::Exception", "d3/d00/a00113.html", null ]
+        [ "stride::util::Exception", "d8/d17/a00114.html", null ]
       ] ]
     ] ],
     [ "false_type", null, [
-      [ "stride::util::is_iterator< T, class >", "d9/d4b/a00117.html", null ]
+      [ "stride::util::is_iterator< T, class >", "d8/d87/a00118.html", null ]
     ] ],
     [ "iterator", null, [
-      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "d7/d12/a00126.html", null ]
+      [ "stride::util::SVIterator< T, N, Safe, P, R, is_const_iterator >", "df/dcd/a00127.html", null ]
     ] ],
     [ "std::map< K, T >", null, [
       [ "stride::InfectorMap", "d9/d77/a00095.html", null ]
     ] ],
     [ "true_type", null, [
       [ "google::protobuf::is_proto_enum<::proto::GeoGrid_Location_ContactCenter_Type >", "d9/d73/a00060.html", null ],
-      [ "stride::util::is_iterator< T, ii_detail::void_t< typename std::iterator_traits< T >::iterator_category > >", "d8/d87/a00118.html", null ]
+      [ "stride::util::is_iterator< T, ii_detail::void_t< typename std::iterator_traits< T >::iterator_category > >", "df/d6a/a00119.html", null ]
     ] ],
     [ "unary_function", null, [
-      [ "stride::util::detail::pair2data< T, Ptree >", "db/d57/a00112.html", null ]
+      [ "stride::util::detail::pair2data< T, Ptree >", "d3/d00/a00113.html", null ]
     ] ],
     [ "std::vector< T >", null, [
-      [ "stride::util::CSV", "d4/d81/a00110.html", null ],
-      [ "stride::util::Rn< E >", "d4/d98/a00120.html", null ]
+      [ "stride::util::CSV", "dd/d6d/a00111.html", null ],
+      [ "stride::util::Rn< E >", "d8/dfa/a00121.html", null ]
     ] ],
     [ "stride::AbstractPopBuilder", "d6/d2c/a00072.html", [
       [ "stride::DefaultPopBuilder", "da/d2a/a00086.html", null ],
@@ -136,7 +136,7 @@ var hierarchy =
     [ "stride::ContactPoolType::IDPack< ids >", "d9/da4/a00078.html", null ],
     [ "stride::ControlHelper", "da/dec/a00080.html", [
       [ "stride::CliController", "d9/da5/a00075.html", null ],
-      [ "stride::StanController", "d3/d32/a00105.html", null ]
+      [ "stride::StanController", "d7/d70/a00106.html", null ]
     ] ],
     [ "stride::DaysOffInterface", "d4/d63/a00082.html", [
       [ "stride::DaysOffAll", "d8/d53/a00081.html", null ],
@@ -155,38 +155,39 @@ var hierarchy =
     [ "stride::output::PersonsFile", "d1/d44/a00098.html", null ],
     [ "stride::output::SummaryFile", "da/d74/a00099.html", null ],
     [ "stride::Person", "d0/d61/a00100.html", null ],
-    [ "stride::Sim", "d9/dcc/a00102.html", null ],
-    [ "stride::SimBuilder", "d5/d1e/a00103.html", null ],
-    [ "stride::SurveySeeder", "d7/d70/a00106.html", null ],
-    [ "stride::TransmissionProfile", "df/d98/a00107.html", null ],
-    [ "stride::util::BoxPlotData< T >", "d1/dd6/a00108.html", null ],
-    [ "stride::util::ConfigInfo", "dd/d42/a00109.html", null ],
-    [ "stride::util::CSVRow", "dd/d6d/a00111.html", null ],
-    [ "stride::util::FileSys", "d8/d17/a00114.html", null ],
-    [ "stride::util::FileSys::Dirs", "d2/da3/a00115.html", null ],
-    [ "stride::util::ii_detail::make_void< Ts >", "d4/d3e/a00116.html", null ],
-    [ "stride::util::LogUtils", "df/d6a/a00119.html", null ],
-    [ "stride::util::Rn< E >::Info", "d8/dfa/a00121.html", null ],
-    [ "stride::util::RunConfigManager", "df/dc8/a00122.html", null ],
+    [ "stride::PublicHealthAgency", "d9/dcc/a00102.html", null ],
+    [ "stride::Sim", "d5/d1e/a00103.html", null ],
+    [ "stride::SimBuilder", "d0/dc2/a00104.html", null ],
+    [ "stride::SurveySeeder", "df/d98/a00107.html", null ],
+    [ "stride::TransmissionProfile", "d1/dd6/a00108.html", null ],
+    [ "stride::util::BoxPlotData< T >", "dd/d42/a00109.html", null ],
+    [ "stride::util::ConfigInfo", "d4/d81/a00110.html", null ],
+    [ "stride::util::CSVRow", "db/d57/a00112.html", null ],
+    [ "stride::util::FileSys", "d2/da3/a00115.html", null ],
+    [ "stride::util::FileSys::Dirs", "d4/d3e/a00116.html", null ],
+    [ "stride::util::ii_detail::make_void< Ts >", "d9/d4b/a00117.html", null ],
+    [ "stride::util::LogUtils", "d4/d98/a00120.html", null ],
+    [ "stride::util::Rn< E >::Info", "df/dc8/a00122.html", null ],
+    [ "stride::util::RunConfigManager", "de/d36/a00123.html", null ],
     [ "stride::util::SegmentedVector< T, N, Safe >", "d0/d89/a00071.html", null ],
-    [ "stride::util::SliceIndexer< T, Key >", "de/d36/a00123.html", null ],
-    [ "stride::util::Stopwatch< T >", "da/d72/a00124.html", null ],
-    [ "stride::util::Subject< E >", "dc/dfe/a00125.html", null ],
-    [ "stride::util::TimeStamp", "df/dcd/a00127.html", null ],
-    [ "stride::util::TimeToString", "d1/d88/a00128.html", null ],
-    [ "stride::viewers::CliViewer", "d9/d47/a00129.html", null ],
-    [ "stride::viewers::InfectedFileViewer", "d6/db3/a00130.html", null ],
-    [ "stride::viewers::InfectedViewer", "d7/d06/a00131.html", null ],
-    [ "stride::viewers::PersonsFileViewer", "d5/deb/a00132.html", null ],
-    [ "stride::viewers::SummaryFileViewer", "d0/de8/a00133.html", null ],
-    [ "stride::util::Subject< stride::sim_event::Id >", "dc/dfe/a00125.html", [
-      [ "stride::SimRunner", "d0/dc2/a00104.html", null ]
+    [ "stride::util::SliceIndexer< T, Key >", "da/d72/a00124.html", null ],
+    [ "stride::util::Stopwatch< T >", "dc/dfe/a00125.html", null ],
+    [ "stride::util::Subject< E >", "d7/d12/a00126.html", null ],
+    [ "stride::util::TimeStamp", "d1/d88/a00128.html", null ],
+    [ "stride::util::TimeToString", "d9/d47/a00129.html", null ],
+    [ "stride::viewers::CliViewer", "d6/db3/a00130.html", null ],
+    [ "stride::viewers::InfectedFileViewer", "d7/d06/a00131.html", null ],
+    [ "stride::viewers::InfectedViewer", "d5/deb/a00132.html", null ],
+    [ "stride::viewers::PersonsFileViewer", "d0/de8/a00133.html", null ],
+    [ "stride::viewers::SummaryFileViewer", "de/d76/a00134.html", null ],
+    [ "stride::util::Subject< stride::sim_event::Id >", "d7/d12/a00126.html", [
+      [ "stride::SimRunner", "d3/d32/a00105.html", null ]
     ] ],
-    [ "CallbackType", "dc/d91/a00659.html", null ],
-    [ "Chunk *", "d0/d50/a00661.html", null ],
-    [ "const void", "d7/d5f/a00663.html", null ],
-    [ "double", "d4/def/a00359.html", null ],
-    [ "random_generator< E, randutils::seed_seq_fe128 >", "d9/d41/a00666.html", null ],
-    [ "size_t", "d9/dd5/a00432.html", null ],
-    [ "tuple< stride::ContactLogMode::Id, bool >", "d8/d7a/a00669.html", null ]
+    [ "CallbackType", "da/d46/a00665.html", null ],
+    [ "Chunk *", "d2/d6e/a00667.html", null ],
+    [ "const void", "d8/d7a/a00669.html", null ],
+    [ "double", "de/dd7/a00362.html", null ],
+    [ "random_generator< E, randutils::seed_seq_fe128 >", "d5/d40/a00672.html", null ],
+    [ "size_t", "d0/dc5/a00435.html", null ],
+    [ "tuple< stride::ContactLogMode::Id, bool >", "d6/da1/a00675.html", null ]
 ];

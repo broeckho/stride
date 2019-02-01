@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</title>
+<title>Stride Reference Manual: stride::TransmissionProfile Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
+   &#160;<span id="projectnumber">- generated for commit 8d2fcd0</span>
    </div>
   </td>
  </tr>
@@ -108,76 +108,57 @@ $(document).ready(function(){initNavTree('d1/dd6/a00108.html','../../');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="../../df/d88/a00962.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../df/dc6/a00949.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::BoxPlotData&lt; T &gt; Struct Template Reference</div>  </div>
+<div class="title">stride::TransmissionProfile Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="../../d1/dd6/a00108.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector.  
+<p>Transmission rates from disease data.  
  <a href="../../d1/dd6/a00108.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::BoxPlotData&lt; T &gt;:</div>
+Collaboration diagram for stride::TransmissionProfile:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/dad/a00963.gif" border="0" usemap="#stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map" id="stride_1_1util_1_1BoxPlotData_3_01T_01_4_coll__map">
+<div class="center"><img src="../../df/d39/a00950.gif" border="0" usemap="#stride_1_1TransmissionProfile_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1TransmissionProfile_coll__map" id="stride_1_1TransmissionProfile_coll__map">
+<area shape="rect" id="node2" href="../../de/dd7/a00362.html" title="{double\n||}" alt="" coords="66,5,131,83"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:add3e678e6738fbd9b3f1949f8059388f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#add3e678e6738fbd9b3f1949f8059388f">BoxPlotData</a> ()</td></tr>
-<tr class="separator:add3e678e6738fbd9b3f1949f8059388f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1645757a571f63d0583d54a6838ca1fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a1645757a571f63d0583d54a6838ca1fb">TransmissionProfile</a> ()</td></tr>
+<tr class="memdesc:a1645757a571f63d0583d54a6838ca1fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a1645757a571f63d0583d54a6838ca1fb">More...</a><br /></td></tr>
+<tr class="separator:a1645757a571f63d0583d54a6838ca1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a51ffe104253ffd5bcf12ab299fa6f2e2">GetRate</a> () const </td></tr>
+<tr class="memdesc:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return transmission rate.  <a href="#a51ffe104253ffd5bcf12ab299fa6f2e2">More...</a><br /></td></tr>
+<tr class="separator:a51ffe104253ffd5bcf12ab299fa6f2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e67e9eab813de18fff32722ee6f1437"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a5e67e9eab813de18fff32722ee6f1437">Initialize</a> (const boost::property_tree::ptree &amp;configPt, const boost::property_tree::ptree &amp;diseasePt)</td></tr>
+<tr class="memdesc:a5e67e9eab813de18fff32722ee6f1437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize.  <a href="#a5e67e9eab813de18fff32722ee6f1437">More...</a><br /></td></tr>
+<tr class="separator:a5e67e9eab813de18fff32722ee6f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a25162798845f45f11620427e4c7baf6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/dd6/a00108.html">BoxPlotData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a25162798845f45f11620427e4c7baf6b">Calculate</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
-<tr class="separator:a25162798845f45f11620427e4c7baf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a777b86b3f8efb046dc4de8830c720e45"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a777b86b3f8efb046dc4de8830c720e45">m_total</a></td></tr>
-<tr class="separator:a777b86b3f8efb046dc4de8830c720e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7087ab4e72c5c9a6606d76996bfac882"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a7087ab4e72c5c9a6606d76996bfac882">m_min</a></td></tr>
-<tr class="separator:a7087ab4e72c5c9a6606d76996bfac882"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41acae191d30af298e9bac71d430cc41"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a41acae191d30af298e9bac71d430cc41">m_max</a></td></tr>
-<tr class="separator:a41acae191d30af298e9bac71d430cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a9433b5584a47b7cba8c8090f081a2e5c">m_median</a></td></tr>
-<tr class="separator:a9433b5584a47b7cba8c8090f081a2e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a6a1a8baaa4280bc35b5e58b5185b8471">m_quartile1</a></td></tr>
-<tr class="separator:a6a1a8baaa4280bc35b5e58b5185b8471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ca894900d4879cf4841408c85deaf92"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#a2ca894900d4879cf4841408c85deaf92">m_quartile3</a></td></tr>
-<tr class="separator:a2ca894900d4879cf4841408c85deaf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/dd7/a00362.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd6/a00108.html#afbb8227d4d8b61b291fa521f33dce3ce">m_transmission_rate</a></td></tr>
+<tr class="separator:afbb8227d4d8b61b291fa521f33dce3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T&gt;<br />
-struct stride::util::BoxPlotData&lt; T &gt;</h3>
+<div class="textblock"><p>Transmission rates from disease data. </p>
 
-<p><a class="el" href="../../d1/dd6/a00108.html" title="BoxPlotData calculates total, minimum, maximum, median, lower and upper quartile of the values in the...">BoxPlotData</a> calculates total, minimum, maximum, median, lower and upper quartile of the values in the vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Datatype for which boxplot data get calculated. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00035">35</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00030">30</a> of file <a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="add3e678e6738fbd9b3f1949f8059388f"></a>
+<a class="anchor" id="a1645757a571f63d0583d54a6838ca1fb"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::<a class="el" href="../../d1/dd6/a00108.html">BoxPlotData</a> </td>
+          <td class="memname">stride::TransmissionProfile::TransmissionProfile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -190,146 +171,147 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00038">38</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00034">34</a> of file <a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a25162798845f45f11620427e4c7baf6b"></a>
+<a class="anchor" id="a51ffe104253ffd5bcf12ab299fa6f2e2"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="../../d1/dd6/a00108.html">BoxPlotData</a> <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::Calculate </td>
+          <td class="memname"><a class="el" href="../../de/dd7/a00362.html">double</a> stride::TransmissionProfile::GetRate </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00048">48</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
+<p>Return transmission rate. </p>
+
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00037">37</a> of file <a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a>.</p>
+
+<p>References <a class="el" href="../../db/d53/a00321_source.html#l00030">Initialize()</a>, and <a class="el" href="../../de/de9/a00322_source.html#l00043">m_transmission_rate</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00148">stride::Infector&lt; LL, TIC, TO &gt;::Exec()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00211">stride::Infector&lt; LL, TIC, true &gt;::Exec()</a>, and <a class="el" href="../../d3/d4a/a00297_source.html#l00078">stride::Sim::GetTransmissionRate()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph.gif" border="0" usemap="#d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph" alt=""/></div>
+<map name="d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph" id="d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_cgraph">
+<area shape="rect" id="node2" href="../../d1/dd6/a00108.html#a5e67e9eab813de18fff32722ee6f1437" title="Initialize. " alt="" coords="240,5,427,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph.gif" border="0" usemap="#d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph" alt=""/></div>
+<map name="d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph" id="d1/dd6/a00108_a51ffe104253ffd5bcf12ab299fa6f2e2_icgraph">
+<area shape="rect" id="node2" href="../../d4/d7d/a00093.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="281,5,433,32"/>
+<area shape="rect" id="node3" href="../../dc/d54/a00094.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="283,57,430,98"/>
+<area shape="rect" id="node4" href="../../d5/d1e/a00103.html#a484ffc98b4b45673cf1533a0571f38fd" title="Get the stored transmission rate. " alt="" coords="240,123,473,149"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e67e9eab813de18fff32722ee6f1437"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stride::TransmissionProfile::Initialize </td>
+          <td>(</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>diseasePt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize. </p>
+
+<p>Definition at line <a class="el" href="../../db/d53/a00321_source.html#l00030">30</a> of file <a class="el" href="../../db/d53/a00321_source.html">TransmissionProfile.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/de9/a00322_source.html#l00037">GetRate()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d1/dd6/a00108_a5e67e9eab813de18fff32722ee6f1437_icgraph.gif" border="0" usemap="#d1/dd6/a00108_a5e67e9eab813de18fff32722ee6f1437_icgraph" alt=""/></div>
+<map name="d1/dd6/a00108_a5e67e9eab813de18fff32722ee6f1437_icgraph" id="d1/dd6/a00108_a5e67e9eab813de18fff32722ee6f1437_icgraph">
+<area shape="rect" id="node2" href="../../d1/dd6/a00108.html#a51ffe104253ffd5bcf12ab299fa6f2e2" title="Return transmission rate. " alt="" coords="240,57,427,98"/>
+<area shape="rect" id="node3" href="../../d4/d7d/a00093.html#a7a04fe600bfbb5b09330163fd2d49409" title="stride::Infector::Exec" alt="" coords="515,5,667,32"/>
+<area shape="rect" id="node4" href="../../dc/d54/a00094.html#aa27dad30b434e742e80300d88854b36d" title="stride::Infector\&lt; LL,\l TIC, true \&gt;::Exec" alt="" coords="518,57,665,98"/>
+<area shape="rect" id="node5" href="../../d5/d1e/a00103.html#a484ffc98b4b45673cf1533a0571f38fd" title="Get the stored transmission rate. " alt="" coords="475,123,708,149"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a777b86b3f8efb046dc4de8830c720e45"></a>
+<a class="anchor" id="afbb8227d4d8b61b291fa521f33dce3ce"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_total</td>
+          <td class="memname"><a class="el" href="../../de/dd7/a00362.html">double</a> stride::TransmissionProfile::m_transmission_rate</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00040">40</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/de9/a00322_source.html#l00043">43</a> of file <a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/de9/a00322_source.html#l00037">GetRate()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7087ab4e72c5c9a6606d76996bfac882"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_min</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00041">41</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a41acae191d30af298e9bac71d430cc41"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_max</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00042">42</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9433b5584a47b7cba8c8090f081a2e5c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_median</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00043">43</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6a1a8baaa4280bc35b5e58b5185b8471"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00044">44</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2ca894900d4879cf4841408c85deaf92"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="../../d1/dd6/a00108.html">stride::util::BoxPlotData</a>&lt; T &gt;::m_quartile3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="../../d5/d4e/a00141_source.html#l00045">45</a> of file <a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../d5/d4e/a00141_source.html">BoxPlotData.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="../../de/de9/a00322_source.html">TransmissionProfile.h</a></li>
+<li><a class="el" href="../../db/d53/a00321_source.html">TransmissionProfile.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d1/dc6/a00347.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddc/a00353.html">util</a></li><li class="navelem"><a class="el" href="../../d1/dd6/a00108.html">BoxPlotData</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 14:54:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/d10/a00350.html">stride</a></li><li class="navelem"><a class="el" href="../../d1/dd6/a00108.html">TransmissionProfile</a></li>
+    <li class="footer">Generated on Fri Feb 1 2019 20:01:18 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

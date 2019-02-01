@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: stride::util::TimeToString Struct Reference</title>
+<title>Stride Reference Manual: stride::util::TimeStamp Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
+   &#160;<span id="projectnumber">- generated for commit 8d2fcd0</span>
    </div>
   </td>
  </tr>
@@ -107,49 +107,53 @@ $(document).ready(function(){initNavTree('d1/d88/a00128.html','../../');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="../../dd/dac/a01008.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="../../d0/d56/a01014.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stride::util::TimeToString Struct Reference</div>  </div>
+<div class="title">stride::util::TimeStamp Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities to tag clocks and to reformat number of ticks to a string.  
+<p>Provides wall-clock time stamp using the time call.  
  <a href="../../d1/d88/a00128.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stride::util::TimeToString:</div>
+Collaboration diagram for stride::util::TimeStamp:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d7/ded/a01009.gif" border="0" usemap="#stride_1_1util_1_1TimeToString_coll__map" alt="Collaboration graph"/></div>
-<map name="stride_1_1util_1_1TimeToString_coll__map" id="stride_1_1util_1_1TimeToString_coll__map">
+<div class="center"><img src="../../d1/dac/a01015.gif" border="0" usemap="#stride_1_1util_1_1TimeStamp_coll__map" alt="Collaboration graph"/></div>
+<map name="stride_1_1util_1_1TimeStamp_coll__map" id="stride_1_1util_1_1TimeStamp_coll__map">
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6dcc9ca1dfee4746a739175240585ce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#ad6dcc9ca1dfee4746a739175240585ce">ToColonString</a> (std::chrono::minutes d)</td></tr>
-<tr class="memdesc:ad6dcc9ca1dfee4746a739175240585ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#ad6dcc9ca1dfee4746a739175240585ce">More...</a><br /></td></tr>
-<tr class="separator:ad6dcc9ca1dfee4746a739175240585ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4289b5e11499452e2d8257c7c4bf1393"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a4289b5e11499452e2d8257c7c4bf1393">ToColonString</a> (std::chrono::seconds d)</td></tr>
-<tr class="memdesc:a4289b5e11499452e2d8257c7c4bf1393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss format.  <a href="#a4289b5e11499452e2d8257c7c4bf1393">More...</a><br /></td></tr>
-<tr class="separator:a4289b5e11499452e2d8257c7c4bf1393"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cf053eac30cd061369b1b3bc8320e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a75cf053eac30cd061369b1b3bc8320e2">ToColonString</a> (std::chrono::milliseconds d)</td></tr>
-<tr class="memdesc:a75cf053eac30cd061369b1b3bc8320e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:mus format.  <a href="#a75cf053eac30cd061369b1b3bc8320e2">More...</a><br /></td></tr>
-<tr class="separator:a75cf053eac30cd061369b1b3bc8320e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a3257445eaf8975e71bd08d8ed6d8dad8">ToColonString</a> (std::chrono::microseconds d)</td></tr>
-<tr class="memdesc:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus format.  <a href="#a3257445eaf8975e71bd08d8ed6d8dad8">More...</a><br /></td></tr>
-<tr class="separator:a3257445eaf8975e71bd08d8ed6d8dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc634d3b69e570aa22d04aab7c94823"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a7bc634d3b69e570aa22d04aab7c94823">ToColonString</a> (std::chrono::nanoseconds d)</td></tr>
-<tr class="memdesc:a7bc634d3b69e570aa22d04aab7c94823"><td class="mdescLeft">&#160;</td><td class="mdescRight">Produce string in hh:mm:ss:ms:mus:ns format.  <a href="#a7bc634d3b69e570aa22d04aab7c94823">More...</a><br /></td></tr>
-<tr class="separator:a7bc634d3b69e570aa22d04aab7c94823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a13a61188e51c4e05d05a91e459c33ffc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a13a61188e51c4e05d05a91e459c33ffc">TimeStamp</a> ()</td></tr>
+<tr class="memdesc:a13a61188e51c4e05d05a91e459c33ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor marks the time for the time stamp.  <a href="#a13a61188e51c4e05d05a91e459c33ffc">More...</a><br /></td></tr>
+<tr class="separator:a13a61188e51c4e05d05a91e459c33ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aea42ff56713aa57c0aafe5efc92f29e5">ToString</a> () const </td></tr>
+<tr class="memdesc:aea42ff56713aa57c0aafe5efc92f29e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#aea42ff56713aa57c0aafe5efc92f29e5">More...</a><br /></td></tr>
+<tr class="separator:aea42ff56713aa57c0aafe5efc92f29e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a5f6eefbc6871a229b1c45dbbd98b41fe">ToTag</a> () const </td></tr>
+<tr class="memdesc:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string with the time stamp after eliminating newline.  <a href="#a5f6eefbc6871a229b1c45dbbd98b41fe">More...</a><br /></td></tr>
+<tr class="separator:a5f6eefbc6871a229b1c45dbbd98b41fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#aef8a6ec8cb71ef8ed01506fa614e398f">ToTimeT</a> () const </td></tr>
+<tr class="memdesc:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time stamp as a time_t.  <a href="#aef8a6ec8cb71ef8ed01506fa614e398f">More...</a><br /></td></tr>
+<tr class="separator:aef8a6ec8cb71ef8ed01506fa614e398f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memItemLeft" align="right" valign="top">std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html#a04acbf03cad1f6a0f62dd3e1128726b6">m_tp</a></td></tr>
+<tr class="separator:a04acbf03cad1f6a0f62dd3e1128726b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities to tag clocks and to reformat number of ticks to a string. </p>
+<div class="textblock"><p>Provides wall-clock time stamp using the time call. </p>
+<p>The time is that of the constructor call. </p>
 
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00036">36</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad6dcc9ca1dfee4746a739175240585ce"></a>
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00037">37</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a13a61188e51c4e05d05a91e459c33ffc"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -157,43 +161,68 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">stride::util::TimeStamp::TimeStamp </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::minutes&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
+<p>Constructor marks the time for the time stamp. </p>
 
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00039">39</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00041">41</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d0/d61/a00302_source.html#l00094">stride::util::Stopwatch&lt; T &gt;::ToString()</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aea42ff56713aa57c0aafe5efc92f29e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string stride::util::TimeStamp::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string with the time stamp after eliminating newline. </p>
+
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00044">44</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../de/dab/a00319_source.html#l00074">m_tp</a>.</p>
+
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00080">stride::util::operator&lt;&lt;()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../d1/d88/a00128_ad6dcc9ca1dfee4746a739175240585ce_icgraph.gif" border="0" usemap="#d1/d88/a00128_ad6dcc9ca1dfee4746a739175240585ce_icgraph" alt=""/></div>
-<map name="d1/d88/a00128_ad6dcc9ca1dfee4746a739175240585ce_icgraph" id="d1/d88/a00128_ad6dcc9ca1dfee4746a739175240585ce_icgraph">
-<area shape="rect" id="node2" href="../../da/d72/a00124.html#a1a068a66f6b5db8cf68dabe5a8935f22" title="Returns string representation of readout. " alt="" coords="228,39,388,80"/>
-<area shape="rect" id="node3" href="../../da/dec/a00080.html#aa40b02ef62cb1b4a2db78eb847ffe964" title="Logs info on setup for cli environment to stride_logger. " alt="" coords="436,39,591,80"/>
-<area shape="rect" id="node4" href="../../d9/da5/a00075.html#a126fe70ea36234d7db97a53db9912338" title="Actual run of the simulator. " alt="" coords="647,5,789,47"/>
-<area shape="rect" id="node6" href="../../d3/d32/a00105.html#a5cc6905d4a31b469d89177de47007dbe" title="Actual run of the simulator. " alt="" coords="639,71,797,112"/>
-<area shape="rect" id="node5" href="../../dc/d0f/a00303.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Main program of the stride simulator. " alt="" coords="845,46,900,73"/>
+<div class="center"><img src="../../d1/d88/a00128_aea42ff56713aa57c0aafe5efc92f29e5_icgraph.gif" border="0" usemap="#d1/d88/a00128_aea42ff56713aa57c0aafe5efc92f29e5_icgraph" alt=""/></div>
+<map name="d1/d88/a00128_aea42ff56713aa57c0aafe5efc92f29e5_icgraph" id="d1/d88/a00128_aea42ff56713aa57c0aafe5efc92f29e5_icgraph">
+<area shape="rect" id="node2" href="../../d6/de1/a00356.html#a93f9f2ea967f7688a4ed4ef10852b566" title="TimeStamp helper inserts string representation in output stream. " alt="" coords="220,13,391,39"/>
 </map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a4289b5e11499452e2d8257c7c4bf1393"></a>
+<a class="anchor" id="a5f6eefbc6871a229b1c45dbbd98b41fe"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -201,27 +230,26 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">std::string stride::util::TimeStamp::ToTag </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::seconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss format. </p>
+<p>Returns string with the time stamp after eliminating newline. </p>
 
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00054">54</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00053">53</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a75cf053eac30cd061369b1b3bc8320e2"></a>
+<a class="anchor" id="aef8a6ec8cb71ef8ed01506fa614e398f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -229,27 +257,29 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
+          <td class="memname">std::time_t stride::util::TimeStamp::ToTimeT </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::milliseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:mus format. </p>
+<p>Returns time stamp as a time_t. </p>
 
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00070">70</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00071">71</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
+
+<p>References <a class="el" href="../../de/dab/a00319_source.html#l00074">m_tp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3257445eaf8975e71bd08d8ed6d8dad8"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a04acbf03cad1f6a0f62dd3e1128726b6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -257,64 +287,32 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::microseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
+          <td class="memname">std::chrono::system_clock::time_point stride::util::TimeStamp::m_tp</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Produce string in hh:mm:ss:ms:mus format. </p>
+<p>Definition at line <a class="el" href="../../de/dab/a00319_source.html#l00074">74</a> of file <a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a>.</p>
 
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00087">87</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7bc634d3b69e570aa22d04aab7c94823"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string stride::util::TimeToString::ToColonString </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::nanoseconds&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Produce string in hh:mm:ss:ms:mus:ns format. </p>
-
-<p>Definition at line <a class="el" href="../../da/de0/a00317_source.html#l00105">105</a> of file <a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a>.</p>
+<p>Referenced by <a class="el" href="../../de/dab/a00319_source.html#l00044">ToString()</a>, and <a class="el" href="../../de/dab/a00319_source.html#l00071">ToTimeT()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="../../da/de0/a00317_source.html">TimeToString.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../de/dab/a00319_source.html">TimeStamp.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d1/dc6/a00347.html">stride</a></li><li class="navelem"><a class="el" href="../../db/ddc/a00353.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">TimeToString</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 14:54:19 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../db/d10/a00350.html">stride</a></li><li class="navelem"><a class="el" href="../../d6/de1/a00356.html">util</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">TimeStamp</a></li>
+    <li class="footer">Generated on Fri Feb 1 2019 20:01:18 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

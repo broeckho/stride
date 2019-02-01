@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Stride Reference Manual: Population.cpp File Reference</title>
+<title>Stride Reference Manual: PersonsFileViewer.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit 3f40c6f</span>
+   &#160;<span id="projectnumber">- generated for commit 8d2fcd0</span>
    </div>
   </td>
  </tr>
@@ -105,74 +105,75 @@ $(document).ready(function(){initNavTree('dd/d56/a00274.html','../../');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">Population.cpp File Reference</div>  </div>
+<div class="title">PersonsFileViewer.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Core Population class.  
+<p>Observer for Persons output.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="../../d3/d5e/a00275_source.html">Population.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dc/d55/a00226_source.html">disease/Health.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d00/a00186_source.html">pop/DefaultPopBuilder.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/db1/a00197_source.html">pop/GenPopBuilder.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d08/a00244_source.html">pop/ImportPopBuilder.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../dd/df4/a00193_source.html">util/FileSys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d53/a00265_source.html">util/LogUtils.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/d7b/a00286_source.html">util/RnMan.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../da/ddc/a00288_source.html">util/RunConfigManager.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d8/d0a/a00292_source.html">util/SegmentedVector.h</a>&quot;</code><br />
-<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="../../d9/dd6/a00272_source.html">output/PersonsFile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">sim/SimRunner.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/d21/a00240_source.html">sim/event/Id.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Population.cpp:</div>
+Include dependency graph for PersonsFileViewer.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="../../de/d7c/a00576.gif" border="0" usemap="#Population_8cpp" alt=""/></div>
-<map name="Population_8cpp" id="Population_8cpp">
-<area shape="rect" id="node2" href="../../d3/d5e/a00275.html" title="Header file for the core Population class. " alt="" coords="1140,229,1241,256"/>
-<area shape="rect" id="node18" href="../../d8/d0a/a00292.html" title="Interface and implementation for SegmentedVector class. " alt="" coords="401,401,573,427"/>
-<area shape="rect" id="node26" href="../../dc/d55/a00226.html" title="Header for the Health class. " alt="" coords="757,401,886,427"/>
-<area shape="rect" id="node28" href="../../d5/d7b/a00286.html" title="Interface of RnMan. " alt="" coords="1287,311,1387,338"/>
-<area shape="rect" id="node41" href="../../d8/d00/a00186.html" title="Initialize populations. " alt="" coords="1667,80,1842,107"/>
-<area shape="rect" id="node44" href="../../de/db1/a00197.html" title="Initialize populations. " alt="" coords="1293,80,1448,107"/>
-<area shape="rect" id="node45" href="../../d6/d08/a00244.html" title="Initialize populations. " alt="" coords="1472,80,1643,107"/>
-<area shape="rect" id="node46" href="../../dd/df4/a00193.html" title="Interface for install directory queries. " alt="" coords="2142,311,2242,338"/>
-<area shape="rect" id="node48" href="../../da/d53/a00265.html" title="Logging (spdlog) utilities. " alt="" coords="1797,229,1905,256"/>
-<area shape="rect" id="node49" href="../../da/ddc/a00288.html" title="Produce run config ptree. " alt="" coords="2293,311,2467,338"/>
-<area shape="rect" id="node3" href="../../d1/d0d/a00171.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="961,311,1127,338"/>
-<area shape="rect" id="node25" href="../../d5/d42/a00269.html" title="Header file for the Person class. " alt="" coords="1151,311,1257,338"/>
-<area shape="rect" id="node4" href="../../d5/dcb/a00170.html" title="Header for the core ContactPool class. " alt="" coords="1178,483,1321,509"/>
-<area shape="rect" id="node7" href="../../d7/d3f/a00173.html" title="Definition of ContactPoolType. " alt="" coords="892,557,1063,584"/>
-<area shape="rect" id="node13" href="../../d9/d21/a00240.html" title="Container for the contact pools of various type (household, work, ...). " alt="" coords="911,401,1079,427"/>
-<area shape="rect" id="node5" href="../../dd/da7/a00168.html" title="Header for the ContactLogMode class. " alt="" coords="1456,557,1651,584"/>
-<area shape="rect" id="node19" href="../../d0/d39/a00314.html" title="Interface/Implementation for SVIterator. " alt="" coords="220,483,319,509"/>
-<area shape="rect" id="node29" href="../../d3/d58/a00285.html" title="Interface of RnPcg. " alt="" coords="1791,401,1841,427"/>
-<area shape="rect" id="node30" href="../../d8/d17/a00304.html" title="Miscellaneous string utilities. " alt="" coords="1766,483,1866,509"/>
-<area shape="rect" id="node42" href="../../de/d76/a00134.html" title="Base Class for PopBuilders. " alt="" coords="1473,155,1628,181"/>
-<area shape="rect" id="node50" href="../../dd/dae/a00163.html" title="Info on configuration. " alt="" coords="2443,401,2563,427"/>
+<div class="center"><img src="../../d8/d9b/a00577.gif" border="0" usemap="#PersonsFileViewer_8h" alt=""/></div>
+<map name="PersonsFileViewer_8h" id="PersonsFileViewer_8h">
+<area shape="rect" id="node2" href="../../d9/dd6/a00272.html" title="Header for the PersonFile class. " alt="" coords="46,244,197,271"/>
+<area shape="rect" id="node6" href="../../da/d50/a00301.html" title="Header for the SimRunner class. " alt="" coords="1349,80,1478,107"/>
+<area shape="rect" id="node7" href="../../d9/d21/a00240.html" title="Definition of EventId. " alt="" coords="1392,244,1504,271"/>
+<area shape="rect" id="node9" href="../../d2/d71/a00309.html" title="Definition of Subject/Observer for SimEvents. " alt="" coords="1109,162,1259,189"/>
+<area shape="rect" id="node13" href="../../d4/d66/a00289.html" title="Interface of RnMan. " alt="" coords="843,162,943,189"/>
+<area shape="rect" id="node26" href="../../d3/d07/a00305.html" title="Definition of Stopwatch. " alt="" coords="1603,244,1727,271"/>
+<area shape="rect" id="node10" href="../../d1/d67/a00310.html" title="Interface/Implementation of Subject. " alt="" coords="293,244,398,271"/>
+<area shape="rect" id="node14" href="../../da/ddc/a00288.html" title="Interface of RnPcg. " alt="" coords="747,244,797,271"/>
+<area shape="rect" id="node15" href="../../d0/da2/a00307.html" title="Miscellaneous string utilities. " alt="" coords="539,319,639,345"/>
+<area shape="rect" id="node27" href="../../dd/de2/a00320.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1630,319,1746,345"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dd/d5c/a00578.gif" border="0" usemap="#PersonsFileViewer_8hdep" alt=""/></div>
+<map name="PersonsFileViewer_8hdep" id="PersonsFileViewer_8hdep">
+<area shape="rect" id="node2" href="../../de/d45/a00175.html" title="Header for the command line controller. " alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node3" href="../../d0/d19/a00273.html" title="Definition of Observer for SimEvents for commandline interface usage. " alt="" coords="166,80,327,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../dd/d56/a00274_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de8/a00133.html">stride::viewers::PersonsFileViewer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Viewer of Simulator for cases output.  <a href="../../d0/de8/a00133.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:d1/dc6/a00347"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc6/a00347.html">stride</a></td></tr>
-<tr class="memdesc:d1/dc6/a00347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="memitem:db/d10/a00350"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d10/a00350.html">stride</a></td></tr>
+<tr class="memdesc:db/d10/a00350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main namespace for the project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d4/def/a00359"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/def/a00359.html">stride::viewers</a></td></tr>
+<tr class="memdesc:d4/def/a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for MVC-viewers that may be registered with <a class="el" href="../../d3/d32/a00105.html" title="The simulation runner drive simulator throufgh time steps. ">SimRunner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Core Population class. </p>
+<div class="textblock"><p>Observer for Persons output. </p>
 
-<p>Definition in file <a class="el" href="../../dd/d56/a00274_source.html">Population.cpp</a>.</p>
+<p>Definition in file <a class="el" href="../../dd/d56/a00274_source.html">PersonsFileViewer.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_d174127a4330655b353181aebfd9b441.html">pop</a></li><li class="navelem"><a class="el" href="../../dd/d56/a00274.html">Population.cpp</a></li>
-    <li class="footer">Generated on Thu Jan 24 2019 14:54:18 for Stride Reference Manual by
+    <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_2ae6c1d5e4b832eb120eff875630c108.html">viewers</a></li><li class="navelem"><a class="el" href="../../dd/d56/a00274.html">PersonsFileViewer.h</a></li>
+    <li class="footer">Generated on Fri Feb 1 2019 20:01:17 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -1,7 +1,8 @@
 var a00132 =
 [
-    [ "PersonsFileViewer", "d5/deb/a00132.html#a3a0f69649baabe6b4403195283d860bb", null ],
-    [ "Update", "d5/deb/a00132.html#ae2840bec7fc5f76db6e79130b61fff19", null ],
-    [ "m_persons_file", "d5/deb/a00132.html#ab49193f33a4ddf52253f1f8cda7d8605", null ],
-    [ "m_runner", "d5/deb/a00132.html#a26e40cde6a79993c1d2a2e779fa48751", null ]
+    [ "InfectedViewer", "d5/deb/a00132.html#a772cf9c0229d31368250d437f1596ab0", null ],
+    [ "GetInfectionCounts", "d5/deb/a00132.html#a3051b3ab2155b525830220d7a4e1d3d4", null ],
+    [ "Update", "d5/deb/a00132.html#ac539c7549cc8c19530813f0bdb35a14d", null ],
+    [ "m_infected", "d5/deb/a00132.html#a613860070a4a0778c61631fc4f343028", null ],
+    [ "m_runner", "d5/deb/a00132.html#a13b27fd1d407a15fe3b542952168ba33", null ]
 ];

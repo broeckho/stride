@@ -11,6 +11,7 @@ var a00089 =
     [ "IsRecovered", "db/dab/a00089.html#a4dae2bfe69375adb5dd89819f6798090", null ],
     [ "IsSusceptible", "db/dab/a00089.html#ae2a3b14e79e08a261ca7122afba9b95c", null ],
     [ "IsSymptomatic", "db/dab/a00089.html#aaf92d0eeeee7fac8c98854f4ae5a38ac", null ],
+    [ "SymptomsStartedToday", "db/dab/a00089.html#a0e4f9a80e137d2d70c784219b51e1573", null ],
     [ "SetImmune", "db/dab/a00089.html#a2ed35c613838b7cc9fab87fb494f87a1", null ],
     [ "SetSusceptible", "db/dab/a00089.html#a8edeec79c050faabe2c09a1bc4860261", null ],
     [ "StartInfection", "db/dab/a00089.html#a5d85541b8e22aeaa75b364a454f59088", null ],
