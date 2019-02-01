@@ -91,9 +91,9 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
         }
 
         //------------------------------------------------
-        // Add persons & fill pools
+        // Add persons
         //------------------------------------------------
-        SurveySeeder(m_config_pt, m_rn_manager).Seed(MakePersons(pop));
+        MakePersons(pop);
 
         // --------------------------------------------------------------
         // Determine maximum pool ids in population.
@@ -130,6 +130,7 @@ shared_ptr<Population> DefaultPopBuilder::Build(shared_ptr<Population> pop)
                         }
                 }
         }
+
         return pop;
 }
 

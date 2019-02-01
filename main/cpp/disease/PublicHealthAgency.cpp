@@ -40,7 +40,6 @@ void PublicHealthAgency::Exec(std::shared_ptr<Population> pop, util::RnMan& rnMa
 /// Initialize
 void PublicHealthAgency::Initialize(const double case_detection_probability) {
 	m_case_detection_probability = case_detection_probability;
-	std::cout << "set m_case_detection_probability " << m_case_detection_probability << std::endl;
 }
 
 
