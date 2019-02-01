@@ -55,7 +55,7 @@ parse_contact_logfile <- function(contact_log_filename)
   # - PRIM    seed infection
   # - TRAN    transmission event
   # - CONT    contact event
-  # - VACC     additional immunization
+  # - VACC    additional immunization
   # 
   # note:
   # - drop the first column with the log tag
@@ -65,10 +65,10 @@ parse_contact_logfile <- function(contact_log_filename)
   ######################
   if(any(data_log[,1] == "[PART]"))
   {
-    header_part         <- c('local_id', 'part_age', 'part_gender', 'household_id', 'school_id', 'workplace_id',
+    header_part         <- c('local_id', 'part_age', 'part_gender', 'household_id', 'school_id', 'college_id','workplace_id',
                              'is_susceptible','is_infected','is_infectious','is_recovered','is_immune',
                              'start_infectiousness','start_symptomatic','end_infectiousness','end_symptomatic',
-                             'household_size','school_size','workplace_size','primarycommunity_size','secundarycommunity_size')
+                             'household_size','school_size','college_size','workplace_size','primarycommunity_size','secundarycommunity_size')
     data_part           <- data_log[data_log[,1] == "[PART]",seq_len(length(header_part))+1]
     names(data_part)    <- header_part
     data_part[1,]
@@ -78,8 +78,8 @@ parse_contact_logfile <- function(contact_log_filename)
     data_part[data_part=="false"] <- FALSE
     
     # make sure, all values (exept the gender and booleans) are stored as integers
-    data_part[,-c(3,7:11)] <- data.frame(apply(data_part[,-c(3,7:11)], 2, as.double))
-    apply(data_part, 2, typeof)
+    col_non_numeric <- which(grepl('is_',header_part) | grepl('part_gender',header_part))
+    data_part[,-col_non_numeric] <- data.frame(apply(data_part[,-col_non_numeric], 2, as.double))
     
     # save
     save(data_part,file=file.path(exp_dir,'data_participants.RData'))
@@ -139,7 +139,7 @@ parse_contact_logfile <- function(contact_log_filename)
   {
     header_cnt          <- c('local_id', 'part_age', 'pool_type', 'pool_id', 'case_id', 'case_age','sim_day')
     data_vacc           <- data_log[data_log[,1] == "[VACC]",seq_len(length(header_cnt))+1]
-    names(data_vacc)     <- header_cnt
+    names(data_vacc)    <- header_cnt
     data_vacc[1,]
     
     # make sure, all values are stored as integers
