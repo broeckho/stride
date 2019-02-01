@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridReaderFactory.h"
@@ -32,9 +32,10 @@ namespace filesys = std::filesystem;
 
 namespace gengeopop {
 
-std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(std::string filename, stride::Population* pop) const
+std::shared_ptr<GeoGridReader> GeoGridReaderFactory::CreateReader(const std::string&  filename,
+                                                                  stride::Population* pop) const
 {
-        filesys::path path(filename);
+        const filesys::path path(filename);
         if (!filesys::exists(path)) {
                 throw stride::util::Exception("GeoGridReaderFactory::CreateReader> File not found: " + path.string());
         }

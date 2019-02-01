@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -24,8 +24,7 @@
 namespace gengeopop {
 
 /**
- * An implementation of the GeoGridWriter using JSON
- * This class is used to write a GeoGrid to a JSON file
+ * Writes a GeoGrid to a JSON file.
  */
 class GeoGridJSONWriter : public GeoGridWriter
 {

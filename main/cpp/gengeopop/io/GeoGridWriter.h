@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -23,8 +23,8 @@
 namespace gengeopop {
 
 /**
- * An interface for writing the GeoGrid to a file, can be implemented with multiple file types
- * (protobuf and json are currently implemented)
+ * An interface for writing the GeoGrid to a file, can be implemented with multiple file types.
+ * Protobuf and json are currently implemented.
  */
 class GeoGridWriter
 {
@@ -32,7 +32,7 @@ public:
         /// Construct the Writer.
         virtual ~GeoGridWriter() = default;
 
-        /// Write the provided geoGrid to ostream.
+        /// Write the GeoGrid to ostream.
         virtual void Write(std::shared_ptr<GeoGrid> geoGrid, std::ostream& stream) = 0;
 };
 

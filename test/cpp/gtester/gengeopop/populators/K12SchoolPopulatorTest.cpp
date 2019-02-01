@@ -10,36 +10,34 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/K12SchoolPopulator.h"
 #include "createGeogrid.h"
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/populators/K12SchoolPopulator.h>
-#include <gtest/gtest.h>
-#include <util/LogUtils.h>
-#include <util/RnMan.h>
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "util/LogUtils.h"
+#include "util/RnMan.h"
 
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::util;
 
 namespace {
 
 TEST(K12SchoolPopulatorTest, NoPopulation)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan(RnMan::Info{});
+        auto pop       = Population::Create();
+        auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-
-        geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
-
-        K12SchoolPopulator k12SchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-
-        GeoGridConfig config{};
+        geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
+        K12SchoolPopulator k12SchoolPopulator(rnManager);
+        GeoGridConfig      config{};
 
         geoGrid->Finalize();
 
@@ -48,26 +46,22 @@ TEST(K12SchoolPopulatorTest, NoPopulation)
 
 TEST(K12SchoolPopulatorTest, OneLocationTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan(RnMan::Info{});
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
 
-        K12SchoolPopulator k12SchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        K12SchoolPopulator k12SchoolPopulator(rnManager);
         GeoGridConfig      config{};
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(1, 300, 5, 100, 3, pop.get());
         geoGrid->Finalize();
-
         k12SchoolPopulator.Apply(geoGrid, config);
 
-        auto location = *geoGrid->begin();
-
+        auto location   = *geoGrid->begin();
         auto k12Schools = location->GetContactCentersOfType<K12School>();
 
         EXPECT_EQ(5, k12Schools.size());
 
-        std::map<int, int> usedCapacity{
+        map<int, int> usedCapacity{
             {1, 1},   {2, 1},   {3, 0},   {4, 0},   {5, 0},   {6, 0},   {7, 1},   {8, 1},   {9, 2},   {10, 1},
             {11, 1},  {12, 1},  {13, 0},  {14, 1},  {15, 0},  {16, 0},  {17, 0},  {18, 0},  {19, 0},  {20, 0},
             {21, 1},  {22, 0},  {23, 0},  {24, 1},  {25, 0},  {26, 1},  {27, 0},  {28, 1},  {29, 0},  {30, 0},
@@ -86,14 +80,14 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
                 EXPECT_EQ(25, k12School->GetPools().size());
                 for (auto& pool : k12School->GetPools()) {
                         EXPECT_EQ(usedCapacity[pool->GetId()], pool->GetSize());
-                        for (stride::Person* person : *pool) {
+                        for (Person* person : *pool) {
                                 EXPECT_LE(person->GetAge(), 18);
                                 EXPECT_GE(person->GetAge(), 6);
                         }
                 }
         }
 
-        std::map<int, int> persons{
+        map<int, int> persons{
             {0, 14},    {1, 0},     {2, 0},     {3, 0},     {4, 0},     {5, 0},    {6, 0},    {7, 0},    {8, 0},
             {9, 0},     {10, 0},    {11, 106},  {12, 0},    {13, 0},    {14, 24},  {15, 0},   {16, 0},   {17, 0},
             {18, 0},    {19, 0},    {20, 0},    {21, 0},    {22, 0},    {23, 0},   {24, 0},   {25, 0},   {26, 0},
@@ -129,36 +123,30 @@ TEST(K12SchoolPopulatorTest, OneLocationTest)
             {288, 0},   {289, 0},   {290, 0},   {291, 0},   {292, 0},   {293, 0},  {294, 0},  {295, 0},  {296, 0},
             {297, 111}, {298, 0},   {299, 0}};
 
-        for (const stride::Person& person : *geoGrid->GetPopulation()) {
+        for (const auto& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(persons[person.GetId()], person.GetK12SchoolId());
         }
-} // namespace
+}
 
 TEST(K12SchoolPopulatorTest, TwoLocationTest)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan{};
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        K12SchoolPopulator k12SchoolPopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        K12SchoolPopulator k12SchoolPopulator(rnManager);
         GeoGridConfig      config{};
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         // Brasschaat and Schoten are close to each oter and will both have students from both
         // Kortrijk will only have students going to Kortrijk
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
         geoGrid->Finalize();
-
         k12SchoolPopulator.Apply(geoGrid, config);
 
         auto k12Schools1 = brasschaat->GetContactCentersOfType<K12School>();
@@ -169,7 +157,7 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
         EXPECT_EQ(3, k12Schools2.size());
         EXPECT_EQ(3, k12Schools3.size());
 
-        std::map<int, int> persons{
+        map<int, int> persons{
             {0, 125},   {1, 0},     {2, 0},     {3, 0},     {4, 0},     {5, 0},     {6, 0},     {7, 0},     {8, 0},
             {9, 0},     {10, 0},    {11, 52},   {12, 0},    {13, 0},    {14, 136},  {15, 0},    {16, 0},    {17, 0},
             {18, 0},    {19, 0},    {20, 0},    {21, 0},    {22, 0},    {23, 0},    {24, 0},    {25, 0},    {26, 0},
@@ -204,12 +192,12 @@ TEST(K12SchoolPopulatorTest, TwoLocationTest)
             {279, 0},   {280, 0},   {281, 0},   {282, 0},   {283, 229}, {284, 0},   {285, 0},   {286, 0},   {287, 0},
             {288, 0},   {289, 0},   {290, 0},   {291, 0},   {292, 0},   {293, 0},   {294, 0},   {295, 0},   {296, 0}};
 
-        for (const stride::Person& person : *geoGrid->GetPopulation()) {
+        for (const auto& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(persons[person.GetId()], person.GetK12SchoolId());
         }
 
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
-                for (auto person : *household->GetPools()[0]) {
+                for (const auto& person : *household->GetPools()[0]) {
                         if (person->IsStudentCandidate()) {
                                 EXPECT_TRUE(person->GetK12SchoolId() >= 217 && person->GetK12SchoolId() <= 291);
                         } else {

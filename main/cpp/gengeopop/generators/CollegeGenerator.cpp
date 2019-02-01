@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "CollegeGenerator.h"
@@ -25,10 +25,9 @@ using namespace std;
 
 void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGridConfig)
 {
-        int  pupilCount  = geoGridConfig.calculated.popcount_1826_years_and_student;
-        auto schoolCount = static_cast<int>(ceil(pupilCount / geoGridConfig.constants.meanCollegeSize));
-
-        vector<shared_ptr<Location>> cities = geoGrid->TopK(10);
+        const auto pupilCount  = geoGridConfig.calculated.popcount_1826_years_and_student;
+        const auto schoolCount = static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.meanCollegeSize));
+        const auto cities      = geoGrid->TopK(10);
 
         if (cities.empty()) {
                 // trng can't handle empty vectors
@@ -36,22 +35,22 @@ void CollegeGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGrid
         }
 
         // Aggregate population in cities.
-        int totalPop = 0;
+        auto totalPop = 0U;
         for (const shared_ptr<Location>& c : cities) {
                 totalPop += c->GetPopulation();
         }
 
         // Weights determined by relative population in city.
         vector<double> weights;
-        for (const shared_ptr<Location>& c : cities) {
-                double weight = static_cast<double>(c->GetPopulation()) / static_cast<double>(totalPop);
+        for (const auto& c : cities) {
+                const auto weight = static_cast<double>(c->GetPopulation()) / static_cast<double>(totalPop);
                 CheckWeight("CollegeGenerator", weight);
                 weights.push_back(weight);
         }
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int i = 0; i < schoolCount; i++) {
+        for (auto i = 0U; i < schoolCount; i++) {
                 auto loc     = cities[dist()];
                 auto college = make_shared<College>(geoGridConfig.generated.contactCenters++);
                 college->Fill(geoGrid);

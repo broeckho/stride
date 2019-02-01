@@ -10,131 +10,113 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/CollegePopulator.h"
 #include "createGeogrid.h"
-#include <gengeopop/College.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/populators/CollegePopulator.h>
-#include <gtest/gtest.h>
-#include <util/LogUtils.h>
-#include <util/RnMan.h>
+#include "gengeopop/College.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "util/LogUtils.h"
+#include "util/RnMan.h"
 
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::util;
 
 namespace {
 
 TEST(CollegePopulatorTest, NoPopulation)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-
-        geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
-
-        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-
-        GeoGridConfig config{};
-
+        RnMan rnManager{}; // Default random number manager.
+        auto  pop     = Population::Create();
+        auto  geoGrid = make_shared<GeoGrid>(pop.get());
+        geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
         geoGrid->Finalize();
+        CollegePopulator populator(rnManager);
+        GeoGridConfig    config{};
 
-        EXPECT_NO_THROW(collegePopulator.Apply(geoGrid, config));
+        EXPECT_NO_THROW(populator.Apply(geoGrid, config));
 }
 
 TEST(CollegePopulatorTest, NoStudents)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 0;
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
-        auto location = *geoGrid->begin();
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijk
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeBra = make_shared<College>(config.generated.contactCenters++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeScho = make_shared<College>(config.generated.contactCenters++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeKort = make_shared<College>(config.generated.contactCenters++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
+        populator.Apply(geoGrid, config);
 
-        collegePopulator.Apply(geoGrid, config);
-
-        for (const stride::Person& person : *geoGrid->GetPopulation()) {
+        for (const auto& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(0, person.GetCollegeId());
         }
 }
 
 TEST(CollegePopulatorTest, NotCommuting)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
-        auto location = *geoGrid->begin();
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeBra = make_shared<College>(config.generated.contactCenters++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeScho = make_shared<College>(config.generated.contactCenters++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeKort = make_shared<College>(config.generated.contactCenters++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
         geoGrid->Finalize();
+        populator.Apply(geoGrid, config);
 
-        collegePopulator.Apply(geoGrid, config);
-
-        std::map<int, int> persons{
+        map<int, int> persons{
             {0, 0},     {1, 0},     {2, 0},     {3, 0},     {4, 0},     {5, 0},     {6, 0},     {7, 0},    {8, 0},
             {9, 0},     {10, 0},    {11, 0},    {12, 0},    {13, 0},    {14, 0},    {15, 0},    {16, 338}, {17, 0},
             {18, 0},    {19, 0},    {20, 0},    {21, 0},    {22, 0},    {23, 0},    {24, 0},    {25, 0},   {26, 0},
@@ -214,30 +196,27 @@ TEST(CollegePopulatorTest, NotCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommuting)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        RnMan rnManager(RnMan::Info{}); // Default random number manager.
 
-        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
-
+        auto pop      = Population::Create();
+        auto geoGrid  = CreateGeoGrid(2, 100, 3, 50, 3, pop.get());
         auto location = *geoGrid->begin();
 
         // only commuting
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeScho = make_shared<College>(config.generated.contactCenters++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeKort = make_shared<College>(config.generated.contactCenters++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
@@ -248,7 +227,7 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
         geoGrid->Finalize();
 
-        collegePopulator.Apply(geoGrid, config);
+        populator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
@@ -275,33 +254,29 @@ TEST(CollegePopulatorTest, OnlyCommuting)
 
 TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
-
-        CollegePopulator collegePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        RnMan            rnManager(RnMan::Info{}); // Default random number manager.
+        auto             pop     = Population::Create();
+        auto             geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
+        CollegePopulator populator(rnManager);
         GeoGridConfig    config{};
         config.input.fraction_student_commutingPeople     = 1;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-        auto collegeBra = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeBra = make_shared<College>(config.generated.contactCenters++);
         collegeBra->Fill(geoGrid);
         brasschaat->AddContactCenter(collegeBra);
 
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-        auto collegeScho = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeScho = make_shared<College>(config.generated.contactCenters++);
         collegeScho->Fill(geoGrid);
         schoten->AddContactCenter(collegeScho);
 
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-        auto collegeKort = std::make_shared<College>(config.generated.contactCenters++);
+        auto collegeKort = make_shared<College>(config.generated.contactCenters++);
         collegeKort->Fill(geoGrid);
         kortrijk->AddContactCenter(collegeKort);
 
@@ -314,9 +289,9 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 
         geoGrid->Finalize();
 
-        collegePopulator.Apply(geoGrid, config);
+        populator.Apply(geoGrid, config);
 
-        // Assert that persons of Schoten only go to Kortrijk
+        // Assert that persons of Schoten only commute to Kortrijk
         for (const auto& household : schoten->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
@@ -327,7 +302,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 }
         }
 
-        // Assert that persons of Brasschaat only go to Brasschaat or Schoten
+        // Assert that persons of Brasschaat only commute to Brasschaat or Schoten
         for (const auto& household : brasschaat->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {
@@ -338,7 +313,7 @@ TEST(CollegePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
                 }
         }
 
-        // Assert that persons of Kortrijk only go to Schoten
+        // Assert that persons of Kortrijk only commute to Schoten
         for (const auto& household : kortrijk->GetContactCentersOfType<Household>()) {
                 for (auto person : *household->GetPools()[0]) {
                         if (person->IsCollegeStudentCandidate()) {

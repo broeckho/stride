@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -137,13 +137,18 @@ private:
         unsigned int m_population;         ///< The absolute population
         double       m_relativePopulation; ///< The relative population (relative against whole population)
         Coordinate   m_coordinate;         ///< Coordinate
-        std::vector<std::shared_ptr<ContactCenter>> m_contactCenters; ///< All contactCenters
+
+        ///< All contactCenters at this location.
+        std::vector<std::shared_ptr<ContactCenter>> m_contactCenters;
+
         /// Incomming commutes stored as pair of location and proportion relative to the given location
         std::vector<std::pair<Location*, double>> m_incomingCommutingLocations;
+
         ///< Outgoing commutes stored as pair of location and proportion relative to the this location
         std::vector<std::pair<Location*, double>> m_outgoingCommutingLocations;
-        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>>
-            m_contactCenterByType; ///< Stores the contact centers indexed by their type
+
+        ///< Stores the contact centers indexed by their type
+        std::unordered_map<std::type_index, std::vector<std::shared_ptr<ContactCenter>>> m_contactCenterByType;
 };
 
 } // namespace gengeopop

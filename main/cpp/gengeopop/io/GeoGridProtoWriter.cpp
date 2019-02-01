@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridProtoWriter.h"
@@ -24,9 +24,11 @@
 
 namespace gengeopop {
 
+using namespace std;
+
 GeoGridProtoWriter::GeoGridProtoWriter() : m_persons_found() {}
 
-void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std::ostream& stream)
+void GeoGridProtoWriter::Write(shared_ptr<gengeopop::GeoGrid> geoGrid, ostream& stream)
 {
         GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -46,7 +48,7 @@ void GeoGridProtoWriter::Write(std::shared_ptr<gengeopop::GeoGrid> geoGrid, std:
         stream.flush();
 }
 
-void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
+void GeoGridProtoWriter::WriteLocation(shared_ptr<Location> location, proto::GeoGrid_Location* protoLocation)
 {
         protoLocation->set_id(location->GetID());
         protoLocation->set_name(location->GetName());
@@ -71,15 +73,14 @@ void GeoGridProtoWriter::WriteLocation(std::shared_ptr<Location> location, proto
 void GeoGridProtoWriter::WriteCoordinate(const Coordinate&                   coordinate,
                                          proto::GeoGrid_Location_Coordinate* protoCoordinate)
 {
-        using boost::geometry::get;
-        protoCoordinate->set_longitude(get<0>(coordinate));
-        protoCoordinate->set_latitude(get<1>(coordinate));
+        protoCoordinate->set_longitude(boost::geometry::get<0>(coordinate));
+        protoCoordinate->set_latitude(boost::geometry::get<1>(coordinate));
 }
 
-void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
+void GeoGridProtoWriter::WriteContactCenter(shared_ptr<ContactCenter>              contactCenter,
                                             proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
+        map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
@@ -98,7 +99,7 @@ void GeoGridProtoWriter::WriteContactCenter(std::shared_ptr<ContactCenter>      
 void GeoGridProtoWriter::WriteContactPool(stride::ContactPool*                               contactPool,
                                           proto::GeoGrid_Location_ContactCenter_ContactPool* protoContactPool)
 {
-        protoContactPool->set_id(contactPool->GetId());
+        protoContactPool->set_id(static_cast<google::protobuf::int64>(contactPool->GetId()));
         for (const auto& person : *contactPool) {
                 protoContactPool->add_people(person->GetId());
                 m_persons_found.insert(person);
@@ -109,7 +110,7 @@ void GeoGridProtoWriter::WritePerson(stride::Person* person, proto::GeoGrid_Pers
 {
         protoPerson->set_id(person->GetId());
         protoPerson->set_age(static_cast<google::protobuf::int64>(person->GetAge()));
-        protoPerson->set_gender(std::string(1, person->GetGender()));
+        protoPerson->set_gender(string(1, person->GetGender()));
 }
 
 } // namespace gengeopop

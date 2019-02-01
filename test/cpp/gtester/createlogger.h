@@ -10,15 +10,16 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include <spdlog/logger.h>
-#include <util/LogUtils.h>
+#include "util/LogUtils.h"
 
-inline std::shared_ptr<spdlog::logger> CreateLogger()
+#include <spdlog/logger.h>
+
+inline std::shared_ptr<spdlog::logger> CreateTestLogger()
 {
         std::shared_ptr<spdlog::logger> logger = stride::util::LogUtils::CreateNullLogger("test_logger");
         return logger;

@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "K12SchoolGenerator.h"
@@ -32,11 +32,12 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
         //    relative number of pupils for that location; the relative number of pupils is set
         //    to the relative population w.r.t the total population.
 
-        int  pupilCount  = geoGridConfig.calculated.compulsoryPupils;
-        auto schoolCount = static_cast<int>(ceil(pupilCount / geoGridConfig.constants.meanK12SchoolSize));
+        const auto pupilCount = geoGridConfig.calculated.compulsoryPupils;
+        const auto schoolCount =
+            static_cast<unsigned int>(ceil(pupilCount / geoGridConfig.constants.meanK12SchoolSize));
 
         vector<double> weights;
-        for (const shared_ptr<Location>& loc : *geoGrid) {
+        for (const auto& loc : *geoGrid) {
                 weights.push_back(loc->GetRelativePopulationSize());
         }
 
@@ -45,11 +46,11 @@ void K12SchoolGenerator::Apply(shared_ptr<GeoGrid> geoGrid, GeoGridConfig& geoGr
                 return;
         }
 
-        auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
+        const auto dist = m_rnManager[0].variate_generator(trng::discrete_dist(weights.begin(), weights.end()));
 
-        for (int i = 0; i < schoolCount; i++) {
-                auto loc = (*geoGrid)[dist()];
-                auto k12 = make_shared<K12School>(geoGridConfig.generated.contactCenters++);
+        for (auto i = 0U; i < schoolCount; i++) {
+                const auto loc = (*geoGrid)[dist()];
+                const auto k12 = make_shared<K12School>(geoGridConfig.generated.contactCenters++);
                 k12->Fill(geoGrid);
                 loc->AddContactCenter(k12);
         }

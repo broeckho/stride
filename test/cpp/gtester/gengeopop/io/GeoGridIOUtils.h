@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -33,8 +33,6 @@ void CompareCoordinate(const Coordinate& coordinate, const proto::GeoGrid_Locati
 void CompareLocation(std::shared_ptr<Location> location, const proto::GeoGrid_Location& protoLocation);
 
 void ComparePerson(const proto::GeoGrid_Person& protoPerson);
-
-void CompareProtoGeoGrid(proto::GeoGrid& protoGeoGrid);
 
 void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid);
 

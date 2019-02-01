@@ -10,40 +10,37 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
+#include "gengeopop/populators/WorkplacePopulator.h"
 #include "createGeogrid.h"
-#include <gengeopop/College.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/Workplace.h>
-#include <gengeopop/populators/CollegePopulator.h>
-#include <gengeopop/populators/WorkplacePopulator.h>
-#include <gtest/gtest.h>
-#include <util/LogUtils.h>
-#include <util/RnMan.h>
+#include "gengeopop/College.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "gengeopop/Workplace.h"
+#include "gengeopop/populators/CollegePopulator.h"
+#include "util/LogUtils.h"
+#include "util/RnMan.h"
 
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
 using namespace stride;
+using namespace stride::util;
 
 namespace {
 
 TEST(WorkplacePopulatorTest, NoPopulation)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan{}; // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = make_shared<GeoGrid>(pop.get());
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-
-        geoGrid->AddLocation(std::make_shared<Location>(0, 0, 0));
-
-        WorkplacePopulator workplacePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
-
-        GeoGridConfig config{};
-
+        geoGrid->AddLocation(make_shared<Location>(0, 0, 0));
+        WorkplacePopulator workplacePopulator(rnManager);
+        GeoGridConfig      config{};
         geoGrid->Finalize();
 
         EXPECT_NO_THROW(workplacePopulator.Apply(geoGrid, config));
@@ -51,94 +48,75 @@ TEST(WorkplacePopulatorTest, NoPopulation)
 
 TEST(WorkplacePopulatorTest, NoActive)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        WorkplacePopulator workplacePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
         config.input.fraction_1865_years_active           = 0;
         config.input.fraction_1826_years_WhichAreStudents = 1;
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
         auto location = *geoGrid->begin();
-
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
 
         geoGrid->Finalize();
-
         workplacePopulator.Apply(geoGrid, config);
 
-        for (const stride::Person& person : *geoGrid->GetPopulation()) {
+        for (const Person& person : *geoGrid->GetPopulation()) {
                 EXPECT_EQ(0, person.GetWorkId());
         }
 }
 
 TEST(WorkplacePopulatorTest, NoCommuting)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        WorkplacePopulator workplacePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
         config.input.fraction_active_commutingPeople      = 0;
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
         // Brasschaat and Schoten are close to each other
         // There is no commuting, but since they will still receive students from each other
         // Kortrijk will only receive students from Kortrijik
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-
-        auto workBra1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workBra1 = make_shared<Workplace>(config.generated.contactCenters++);
         workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
-
-        auto workBra2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workBra2 = make_shared<Workplace>(config.generated.contactCenters++);
         workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
-
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-
-        auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho1 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-
-        auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho2 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
-
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-
-        auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor1 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-
-        auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor2 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
         geoGrid->Finalize();
-
         workplacePopulator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Schoten or Brasschaat
@@ -186,11 +164,11 @@ TEST(WorkplacePopulatorTest, NoCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommuting)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan(RnMan::Info{}); // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        WorkplacePopulator workplacePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        WorkplacePopulator workplacePopulator(rnManager);
         GeoGridConfig      config{};
         config.input.fraction_active_commutingPeople      = 0;
         config.input.fraction_active_commutingPeople      = 1;
@@ -199,29 +177,22 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
         // only commuting
         auto schoten = *(geoGrid->begin());
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
 
-        auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho1 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-
-        auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho2 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
-
         auto kortrijk = *(geoGrid->begin() + 1);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-
-        auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor1 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-
-        auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor2 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
@@ -231,7 +202,6 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
         schoten->AddIncomingCommutingLocation(kortrijk, 0.5);
 
         geoGrid->Finalize();
-
         workplacePopulator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Kortrijk
@@ -265,11 +235,11 @@ TEST(WorkplacePopulatorTest, OnlyCommuting)
 
 TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
 {
-        stride::util::RnMan::Info rnInfo;
-        rnInfo.m_seed_seq_init = "1,2,3,4";
-        stride::util::RnMan rnManager(rnInfo);
+        auto rnManager = RnMan{}; // Default random number manager.
+        auto pop       = Population::Create();
+        auto geoGrid   = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
 
-        WorkplacePopulator workplacePopulator(rnManager, stride::util::LogUtils::CreateNullLogger("nullLogger"));
+        WorkplacePopulator workplacePopulator(rnManager, LogUtils::CreateNullLogger("nullLogger"));
         GeoGridConfig      config{};
         config.input.fraction_active_commutingPeople      = 0;
         config.input.fraction_active_commutingPeople      = 1;
@@ -278,51 +248,38 @@ TEST(WorkplacePopulatorTest, OnlyCommutingButNoCommutingAvaiable)
         config.input.fraction_1865_years_active           = 1;
         config.input.fraction_1826_years_WhichAreStudents = 0.5;
 
-        auto pop     = stride::Population::Create();
-        auto geoGrid = CreateGeoGrid(3, 100, 3, 33, 3, pop.get());
-
         auto brasschaat = *geoGrid->begin();
         brasschaat->SetCoordinate(Coordinate(51.29227, 4.49419));
-
-        auto workBra1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workBra1 = make_shared<Workplace>(config.generated.contactCenters++);
         workBra1->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra1);
-
-        auto workBra2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workBra2 = make_shared<Workplace>(config.generated.contactCenters++);
         workBra2->Fill(geoGrid);
         brasschaat->AddContactCenter(workBra2);
-
         auto schoten = *(geoGrid->begin() + 1);
         schoten->SetCoordinate(Coordinate(51.2497532, 4.4977063));
-
-        auto workScho1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho1 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho1->Fill(geoGrid);
         schoten->AddContactCenter(workScho1);
-
-        auto workScho2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workScho2 = make_shared<Workplace>(config.generated.contactCenters++);
         workScho2->Fill(geoGrid);
         schoten->AddContactCenter(workScho2);
-
         auto kortrijk = *(geoGrid->begin() + 2);
         kortrijk->SetCoordinate(Coordinate(50.82900246, 3.264406009));
-
-        auto workKor1 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor1 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor1->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor1);
-
-        auto workKor2 = std::make_shared<Workplace>(config.generated.contactCenters++);
+        auto workKor2 = make_shared<Workplace>(config.generated.contactCenters++);
         workKor2->Fill(geoGrid);
         kortrijk->AddContactCenter(workKor2);
 
         // test case is only commuting but between nobody is commuting from or to Brasschaat
         schoten->AddOutgoingCommutingLocation(kortrijk, 0.5);
         kortrijk->AddIncomingCommutingLocation(schoten, 0.5);
-
         kortrijk->AddOutgoingCommutingLocation(schoten, 0.5);
         schoten->AddIncomingCommutingLocation(kortrijk, 0.5);
 
         geoGrid->Finalize();
-
         workplacePopulator.Apply(geoGrid, config);
 
         // Assert that persons of Schoten only go to Kortrijk

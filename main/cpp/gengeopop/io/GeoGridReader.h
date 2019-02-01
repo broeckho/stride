@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -35,19 +35,20 @@ public:
         /// No copy constructor.
         GeoGridReader(const GeoGridReader&) = delete;
 
-        /// No copy assignment
+        /// No copy assignment.
         GeoGridReader& operator=(const GeoGridReader&) = delete;
 
         /// Default destructor.
         virtual ~GeoGridReader() = default;
 
-        /// Perform the actual read and return the created GeoGrid
+        /// Perform the actual read and return the created GeoGrid.
         virtual std::shared_ptr<GeoGrid> Read() = 0;
 
 protected:
         /// Add the commutes that were found to their respective Locations symmetrically.
         void AddCommutes(std::shared_ptr<GeoGrid> geoGrid);
 
+protected:
         ///< Store the persons (id->person) that were found while loping over the ContactPools.
         std::map<unsigned int, stride::Person*> m_people;
 

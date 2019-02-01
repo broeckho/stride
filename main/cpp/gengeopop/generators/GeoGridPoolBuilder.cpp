@@ -10,17 +10,31 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "Household.h"
+#include "GeoGridPoolBuilder.h"
 
-#include "GeoGridConfig.h"
+#include <iostream>
+#include <memory>
+#include <utility>
 
 namespace gengeopop {
 
-using namespace stride::ContactPoolType;
+GeoGridPoolBuilder::GeoGridPoolBuilder(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+    : m_generators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
+{
+}
 
-void Household::Fill(const std::shared_ptr<GeoGrid>& geoGrid) { AddPool(geoGrid->CreateContactPool(Id::Household)); }
+void GeoGridPoolBuilder::BuildPools()
+{
+        for (const auto& g : m_generators) {
+                g->Apply(m_geoGrid, m_geoGridConfig);
+        }
+}
+
+std::shared_ptr<GeoGrid> GeoGridPoolBuilder::GetGeoGrid() { return m_geoGrid; }
+
+void GeoGridPoolBuilder::AddGenerator(std::shared_ptr<Generator> generator) { m_generators.push_back(generator); }
 
 } // namespace gengeopop

@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "Location.h"
@@ -20,21 +20,24 @@
 #include <cmath>
 
 namespace gengeopop {
-Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, std::string name)
-    : m_id(id), m_name(std::move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
+
+using namespace std;
+
+Location::Location(unsigned int id, unsigned int province, Coordinate coordinate, string name)
+    : m_id(id), m_name(move(name)), m_province(province), m_population(0), m_relativePopulation(0.0),
       m_coordinate(coordinate), m_contactCenters(), m_incomingCommutingLocations(), m_outgoingCommutingLocations(),
       m_contactCenterByType()
 {
 }
 
 Location::Location(unsigned int id, unsigned int province, unsigned int population, Coordinate coordinate,
-                   std::string name)
-    : Location(id, province, coordinate, std::move(name))
+                   string name)
+    : Location(id, province, coordinate, move(name))
 {
         m_population = population;
 }
 
-std::string Location::GetName() const { return m_name; }
+string Location::GetName() const { return m_name; }
 
 unsigned int Location::GetProvince() const { return m_province; }
 
@@ -44,11 +47,11 @@ unsigned int Location::GetPopulation() const { return m_population; }
 
 double Location::GetInfectedRatio() const
 {
-        unsigned int infected   = 0;
-        unsigned int population = 0;
+        auto infected   = 0U;
+        auto population = 0U;
 
-        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
-                auto r = cc->GetPopulationAndInfectedCount();
+        for (const auto& cc : m_contactCenters) {
+                const auto r = cc->GetPopulationAndInfectedCount();
                 population += r.first;
                 infected += r.second;
         }
@@ -57,17 +60,15 @@ double Location::GetInfectedRatio() const
                 return 0;
         }
 
-        double r = static_cast<double>(infected) / static_cast<double>(population);
-
-        return r;
+        return static_cast<double>(infected) / static_cast<double>(population);
 }
 
 double Location::GetInfectedCount() const
 {
-        unsigned int infected = 0;
+        auto infected = 0U;
 
-        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
-                auto r = cc->GetPopulationAndInfectedCount();
+        for (const auto& cc : m_contactCenters) {
+                const auto r = cc->GetPopulationAndInfectedCount();
                 infected += r.second;
         }
 
@@ -76,17 +77,17 @@ double Location::GetInfectedCount() const
 
 unsigned int Location::GetSimulationPopulation() const
 {
-        unsigned int population = 0;
+        auto population = 0U;
 
-        for (const std::shared_ptr<gengeopop::ContactCenter>& cc : m_contactCenters) {
-                auto r = cc->GetPopulationAndInfectedCount();
+        for (const auto& cc : m_contactCenters) {
+                const auto r = cc->GetPopulationAndInfectedCount();
                 population += r.first;
         }
 
         return population;
 }
 
-const std::vector<std::shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
+const vector<shared_ptr<ContactCenter>>& Location::GetContactCenters() const { return m_contactCenters; }
 
 const Coordinate& Location::GetCoordinate() const { return m_coordinate; }
 
@@ -96,22 +97,22 @@ Location::iterator Location::begin() { return m_contactCenters.begin(); }
 
 Location::iterator Location::end() { return m_contactCenters.end(); }
 
-const std::vector<std::pair<Location*, double>>& Location::GetIncomingCommuningCities() const
+const vector<pair<Location*, double>>& Location::GetIncomingCommuningCities() const
 {
         return m_incomingCommutingLocations;
 }
 
-void Location::AddIncomingCommutingLocation(std::shared_ptr<Location> location, double proportion)
+void Location::AddIncomingCommutingLocation(shared_ptr<Location> location, double proportion)
 {
         m_incomingCommutingLocations.emplace_back(location.get(), proportion);
 }
 
-const std::vector<std::pair<Location*, double>>& Location::GetOutgoingCommuningCities() const
+const vector<pair<Location*, double>>& Location::GetOutgoingCommuningCities() const
 {
         return m_outgoingCommutingLocations;
 }
 
-void Location::AddOutgoingCommutingLocation(std::shared_ptr<Location> location, double proportion)
+void Location::AddOutgoingCommutingLocation(shared_ptr<Location> location, double proportion)
 {
         m_outgoingCommutingLocations.emplace_back(location.get(), proportion);
 }
@@ -124,7 +125,7 @@ int Location::IncomingCommutingPeople(double fractionOfPopulationCommuting) cons
                 value += locProportion.second *
                          (fractionOfPopulationCommuting * (double)locProportion.first->GetPopulation());
         }
-        return static_cast<int>(std::floor(value));
+        return static_cast<int>(floor(value));
 }
 
 int Location::OutGoingCommutingPeople(double fractionOfPopulationCommuting) const
@@ -135,7 +136,7 @@ int Location::OutGoingCommutingPeople(double fractionOfPopulationCommuting) cons
                 totalProportion += locProportion.second;
         }
         return static_cast<int>(
-            std::floor(totalProportion * (fractionOfPopulationCommuting * static_cast<double>(m_population))));
+            floor(totalProportion * (fractionOfPopulationCommuting * static_cast<double>(m_population))));
 }
 
 bool Location::operator==(const Location& other) const
@@ -151,9 +152,10 @@ bool Location::operator==(const Location& other) const
 
 void Location::CalculatePopulation(unsigned int totalPopulation)
 {
-        m_population = static_cast<unsigned int>(std::floor(m_relativePopulation * totalPopulation));
+        m_population = static_cast<unsigned int>(floor(m_relativePopulation * totalPopulation));
 }
 void   Location::SetRelativePopulation(double relativePopulation) { m_relativePopulation = relativePopulation; }
+
 double Location::GetRelativePopulationSize() const { return m_relativePopulation; }
 
 } // namespace gengeopop

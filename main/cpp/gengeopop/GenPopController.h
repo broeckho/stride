@@ -11,7 +11,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridConfig.h"
@@ -30,7 +30,7 @@ class CommutesReader;
 class GenPopController
 {
 public:
-        /// Create a GenGeoPopController
+        /// Create a GenGeoPopController.
         GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
                          stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
                          std::string householdFileName);
@@ -38,16 +38,16 @@ public:
         /// Reads the data files
         void ReadDataFiles();
 
-        /// Generate and store the Geo part of the GeoGrid
+        /// Build and store the Geo part of the GeoGrid.
         void GenGeo();
 
-        /// Populate and store the Pop part of the GeoGrid
+        /// Build and store the Pop part of the GeoGrid.
         void GenPop();
 
-        /// Get the generated GeoGrid
+        /// Get the generated GeoGrid.
         std::shared_ptr<GeoGrid> GetGeoGrid();
 
-        /// Use the given Population storage during generation
+        /// Use a specified population storage during generation.
         void UsePopulation(std::shared_ptr<stride::Population> pop);
 
 private:

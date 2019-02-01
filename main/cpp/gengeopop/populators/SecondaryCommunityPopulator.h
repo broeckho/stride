@@ -10,23 +10,25 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
 
-#include "PartialPopulator.h"
+#include "Populator.h"
 
 namespace gengeopop {
 
 /**
- * Populate secondary Communities.
+ * Populate the secondary communities.
  */
-class SecondaryCommunityPopulator : public PartialPopulator
+class SecondaryCommunityPopulator : public Populator
 {
 public:
-        using PartialPopulator::PartialPopulator;
+        /// Using base class constructors.
+        using Populator::Populator;
 
+        /// Core method implementation.
         void Apply(std::shared_ptr<GeoGrid> geogrid, GeoGridConfig& geoGridConfig) override;
 };
 

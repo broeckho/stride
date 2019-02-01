@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "GeoGridProtoReader.h"
@@ -88,11 +88,11 @@ shared_ptr<GeoGrid> GeoGridProtoReader::Read()
 
 shared_ptr<Location> GeoGridProtoReader::ParseLocation(const proto::GeoGrid_Location& protoLocation)
 {
-        auto              id         = protoLocation.id();
-        const string&     name       = protoLocation.name();
-        auto              province   = protoLocation.province();
-        auto              population = protoLocation.population();
-        const Coordinate& coordinate = ParseCoordinate(protoLocation.coordinate());
+        const auto  id         = protoLocation.id();
+        const auto& name       = protoLocation.name();
+        const auto  province   = protoLocation.province();
+        const auto  population = protoLocation.population();
+        const auto& coordinate = ParseCoordinate(protoLocation.coordinate());
 
         auto result = make_shared<Location>(id, province, population, coordinate, name);
 
@@ -132,11 +132,11 @@ Coordinate GeoGridProtoReader::ParseCoordinate(const proto::GeoGrid_Location_Coo
 shared_ptr<ContactCenter> GeoGridProtoReader::ParseContactCenter(
     const proto::GeoGrid_Location_ContactCenter& protoContactCenter)
 {
-        proto::GeoGrid_Location_ContactCenter_Type type = protoContactCenter.type();
-        shared_ptr<ContactCenter>                  result;
-        auto                                       id = protoContactCenter.id();
-        stride::ContactPoolType::Id                typeId;
+        const auto type = protoContactCenter.type();
+        const auto id   = protoContactCenter.id();
 
+        shared_ptr<ContactCenter>   result;
+        stride::ContactPoolType::Id typeId;
         switch (type) {
         case proto::GeoGrid_Location_ContactCenter_Type_K12School:
                 result = make_shared<K12School>(id);
@@ -202,8 +202,8 @@ stride::ContactPool* GeoGridProtoReader::ParseContactPool(
         result = m_geoGrid->CreateContactPool(type);
 
         for (int idx = 0; idx < protoContactPool.people_size(); idx++) {
-                auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
-                auto person    = m_people.at(person_id);
+                const auto person_id = static_cast<unsigned int>(protoContactPool.people(idx));
+                const auto person    = m_people.at(person_id);
 
 #pragma omp critical
                 {

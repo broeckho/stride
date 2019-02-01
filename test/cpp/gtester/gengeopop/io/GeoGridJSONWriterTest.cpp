@@ -10,39 +10,43 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/College.h>
-#include <gengeopop/Community.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/Workplace.h>
-#include <gengeopop/generators/GeoGridGenerator.h>
-#include <gengeopop/io/GeoGridJSONWriter.h>
-#include <gtest/gtest.h>
-#include <util/FileSys.h>
-
 #include "GeoGridIOUtils.h"
+
+#include "gengeopop/College.h"
+#include "gengeopop/Community.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "gengeopop/PrimaryCommunity.h"
+#include "gengeopop/Workplace.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
+#include "gengeopop/io/GeoGridJSONWriter.h"
+#include "util/FileSys.h"
+
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
+using namespace stride::util;
+using boost::property_tree::ptree;
 
 namespace {
 
-void sortContactCenters(boost::property_tree::ptree& tree)
+void sortContactCenters(ptree& pt)
 {
-        auto& contactCenters       = tree.get_child("contactCenters");
-        auto  compareContactCenter = [](const std::pair<std::string, boost::property_tree::ptree>& a,
-                                       const std::pair<std::string, boost::property_tree::ptree>& b) {
+        auto& contactCenters      = pt.get_child("contactCenters");
+        auto compareContactCenter = [](const std::pair<std::string, ptree>& a, const std::pair<std::string, ptree>& b) {
                 return a.second.get<std::string>("type") < b.second.get<std::string>("type");
         };
         contactCenters.sort<decltype(compareContactCenter)>(compareContactCenter);
 }
 
-void sortTree(boost::property_tree::ptree& tree)
+void sortTree(ptree& tree)
 {
-        auto compareLocation = [](const std::pair<std::string, boost::property_tree::ptree>& a,
-                                  const std::pair<std::string, boost::property_tree::ptree>& b) {
+        auto compareLocation = [](const std::pair<std::string, ptree>& a, const std::pair<std::string, ptree>& b) {
                 return a.second.get<std::string>("id") < b.second.get<std::string>("id");
         };
         auto& locations = tree.get_child("locations");
@@ -53,18 +57,17 @@ void sortTree(boost::property_tree::ptree& tree)
         }
 }
 
-bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
+bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, const std::string& testname)
 {
         GeoGridJSONWriter writer;
         std::stringstream ss;
-        writer.Write(geoGrid, ss);
-        boost::property_tree::ptree result;
-        boost::property_tree::read_json(ss, result);
+        writer.Write(std::move(geoGrid), ss);
+        ptree result;
+        read_json(ss, result);
         sortTree(result);
 
-        boost::property_tree::ptree expected;
-        boost::property_tree::read_json(
-            stride::util::FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + testname, expected);
+        ptree expected;
+        read_json(FileSys::GetTestsDir().string() + "/testdata/GeoGridJSON/" + testname, expected);
         sortTree(expected);
 
         return result == expected;
@@ -72,7 +75,7 @@ bool compareGeoGrid(std::shared_ptr<GeoGrid> geoGrid, std::string testname)
 
 TEST(GeoGridJSONWriterTest, locationTest)
 {
-        auto pop     = stride::Population::Create();
+        auto pop     = Population::Create();
         auto geoGrid = GetGeoGrid(pop.get());
         geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
@@ -82,7 +85,7 @@ TEST(GeoGridJSONWriterTest, locationTest)
 }
 TEST(GeoGridJSONWriterTest, contactCentersTest)
 {
-        auto pop      = stride::Population::Create();
+        auto pop      = Population::Create();
         auto geoGrid  = GetGeoGrid(pop.get());
         auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(std::make_shared<K12School>(0));
@@ -97,12 +100,14 @@ TEST(GeoGridJSONWriterTest, contactCentersTest)
 
 TEST(GeoGridJSONWriterTest, peopleTest)
 {
-        auto pop = stride::Population::Create();
+        auto pop = Population::Create();
         EXPECT_TRUE(compareGeoGrid(GetPopulatedGeoGrid(pop.get()), "test2.json"));
 }
+
 TEST(GeoGridJSONWriterTest, commutesTest)
 {
-        auto pop = stride::Population::Create();
+        auto pop = Population::Create();
         EXPECT_TRUE(compareGeoGrid(GetCommutesGeoGrid(pop.get()), "test7.json"));
 }
+
 } // namespace

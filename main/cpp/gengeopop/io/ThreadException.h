@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -21,8 +21,8 @@
 namespace gengeopop {
 
 /**
- * Create a wrapper for capturing the exceptions thrown in a multi-threaded environment
- * This caught exception can then later be re-thrown in the main thread.
+ * Create a wrapper for capturing exceptions thrown in a multi-threaded environment.
+ * This exception can then later be re-thrown in the main thread.
  * Based on https://stackoverflow.com/a/13978507/1393103
  */
 class ThreadException

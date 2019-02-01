@@ -10,18 +10,22 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/io/CitiesCSVReader.h>
-#include <gengeopop/io/CommutesCSVReader.h>
-#include <gengeopop/io/HouseholdCSVReader.h>
-#include <gengeopop/io/ReaderFactory.h>
+#include "gengeopop/io/ReaderFactory.h"
+#include "gengeopop/io/CitiesCSVReader.h"
+#include "gengeopop/io/CommutesCSVReader.h"
+#include "gengeopop/io/HouseholdCSVReader.h"
+#include "util/FileSys.h"
+
 #include <gtest/gtest.h>
 #include <memory>
-#include <util/FileSys.h>
 
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
+using namespace util;
 
 namespace {
 
@@ -29,25 +33,22 @@ TEST(ReaderFactoryTest, TestCommutes)
 {
         ReaderFactory readerFactory;
 
-        const std::shared_ptr<CommutesReader>& res1 =
-            readerFactory.CreateCommutesReader(std::string("flanders_cities.csv"));
+        const shared_ptr<CommutesReader>& res1 = readerFactory.CreateCommutesReader(string("flanders_cities.csv"));
 
-        EXPECT_NE(std::dynamic_pointer_cast<CommutesCSVReader>(res1), nullptr);
-        EXPECT_THROW(readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
-                     std::runtime_error);
+        EXPECT_NE(dynamic_pointer_cast<CommutesCSVReader>(res1), nullptr);
+        EXPECT_THROW(readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestCommutesFromFile)
 {
         ReaderFactory readerFactory;
 
-        const std::shared_ptr<CommutesReader>& res2 =
-            readerFactory.CreateCommutesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/commutes.csv");
-
-        auto pop     = stride::Population::Create();
-        auto geoGrid = std::make_shared<GeoGrid>(pop.get());
-        geoGrid->AddLocation(std::make_shared<Location>(21, 0, 1000));
-        geoGrid->AddLocation(std::make_shared<Location>(22, 0, 1000));
+        const shared_ptr<CommutesReader>& res2 =
+            readerFactory.CreateCommutesReader(FileSys::GetTestsDir() / "testdata/io/commutes.csv");
+        const auto geoGrid = make_shared<GeoGrid>(Population::Create().get());
+        geoGrid->AddLocation(make_shared<Location>(21, 0, 1000));
+        geoGrid->AddLocation(make_shared<Location>(22, 0, 1000));
 
         res2->FillGeoGrid(geoGrid);
 
@@ -59,31 +60,25 @@ TEST(ReaderFactoryTest, TestCommutesFromFile)
 
 TEST(ReaderFactoryTest, TestCities)
 {
-        ReaderFactory readerFactory;
+        ReaderFactory                   readerFactory;
+        const shared_ptr<CitiesReader>& res1 = readerFactory.CreateCitiesReader(string("flanders_cities.csv"));
 
-        const std::shared_ptr<CitiesReader>& res1 =
-            readerFactory.CreateCitiesReader(std::string("flanders_cities.csv"));
+        EXPECT_NE(dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
 
-        EXPECT_NE(std::dynamic_pointer_cast<CitiesCSVReader>(res1), nullptr);
-
-        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
-                     std::runtime_error);
-        EXPECT_THROW(readerFactory.CreateCitiesReader(stride::util::FileSys::GetTestsDir() / "testdata/io/random.txt"),
-                     std::runtime_error);
+        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"), runtime_error);
+        EXPECT_THROW(readerFactory.CreateCitiesReader(FileSys::GetTestsDir() / "testdata/io/random.txt"),
+                     runtime_error);
 }
 
 TEST(ReaderFactoryTest, TestHouseHolds)
 {
-        ReaderFactory readerFactory;
+        ReaderFactory                      readerFactory;
+        const shared_ptr<HouseholdReader>& res1 = readerFactory.CreateHouseholdReader(string("flanders_cities.csv"));
 
-        const std::shared_ptr<HouseholdReader>& res1 =
-            readerFactory.CreateHouseholdReader(std::string("flanders_cities.csv"));
+        EXPECT_NE(dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
 
-        EXPECT_NE(std::dynamic_pointer_cast<HouseholdCSVReader>(res1), nullptr);
-
-        EXPECT_THROW(
-            readerFactory.CreateHouseholdReader(stride::util::FileSys::GetTestsDir() / "testdata/io/empty.txt"),
-            std::runtime_error);
+        EXPECT_THROW(readerFactory.CreateHouseholdReader(FileSys::GetTestsDir() / "testdata/io/empty.txt"),
+                     runtime_error);
 }
 
 } // namespace

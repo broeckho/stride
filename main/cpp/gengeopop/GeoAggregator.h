@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -28,6 +28,7 @@
 BOOST_GEOMETRY_REGISTER_BOX_TEMPLATED(gengeopop::AABB, lower, upper)
 
 namespace geoaggregator_detail {
+
 inline double RadianToDegree(double rad) { return rad / M_PI * 180.0; }
 
 inline double DegreeToRadian(double deg) { return deg / 180.0 * M_PI; }
@@ -58,7 +59,7 @@ Collector<InsertIter, T> MakeCollector(const InsertIter& ins)
 }
 
 /**
- * A GeoAggregator can either be instantiated with a functor, or be called with one every time
+ * A GeoAggregator can either be instantiated with a functor, or be called with one every time.
  *
  * A policy should have the following:
  *  - an embedded type Args: the type of argument it should receive at construction
@@ -74,7 +75,7 @@ class GeoAggregator
         static_assert(sizeof...(F) <= 1, "Should have at most one functor type");
 };
 
-/// A GeoAggregator that has to be called with a functor
+/// A GeoAggregator that has to be called with a functor.
 template <typename Policy>
 class GeoAggregator<Policy>
 {
@@ -91,8 +92,9 @@ public:
                 auto box = m_policy.GetBoundingBox();
                 m_tree.Apply(
                     [&f, this](const geogrid_detail::KdTree2DPoint& pt) -> bool {
-                            if (m_policy.Contains(pt))
+                            if (m_policy.Contains(pt)) {
                                     f(pt.GetLocation());
+                            }
                             return true;
                     },
                     box);
@@ -103,7 +105,7 @@ private:
         const KdTree<geogrid_detail::KdTree2DPoint>& m_tree;
 };
 
-/// A GeoAggregator instanciated with a functor
+/// A GeoAggregator constructed with a functor.
 template <typename Policy, typename F>
 class GeoAggregator<Policy, F> : public GeoAggregator<Policy>
 {
@@ -120,7 +122,7 @@ private:
         F m_functor;
 };
 
-/// A policy for GeoAggregator that aggregates locations within a radius (in km) of a center point
+/// A policy for GeoAggregator that aggregates locations within a radius (in km) of a center point.
 class RadiusPolicy
 {
 public:
@@ -136,12 +138,12 @@ public:
 
                 // As of boost 1.66, there's seems no way to do this in Boost.Geometry
                 constexpr double EARTH_RADIUS_KM = 6371.0;
-                double           scaled_radius   = m_radius / EARTH_RADIUS_KM;
+                const double           scaled_radius   = m_radius / EARTH_RADIUS_KM;
 
-                double startlon = m_center.Get<0>();
-                double startlat = m_center.Get<1>();
-                double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
-                double latdiff  = RadianToDegree(scaled_radius);
+                const double startlon = m_center.Get<0>();
+                const double startlat = m_center.Get<1>();
+                const double londiff  = RadianToDegree(scaled_radius / std::cos(DegreeToRadian(startlat)));
+                const double latdiff  = RadianToDegree(scaled_radius);
 
                 box.upper = geogrid_detail::KdTree2DPoint(startlon + londiff, startlat + latdiff);
                 box.lower = geogrid_detail::KdTree2DPoint(startlon - londiff, startlat - latdiff);

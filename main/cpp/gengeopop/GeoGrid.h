@@ -34,6 +34,7 @@
 #include <vector>
 
 namespace gengeopop {
+
 template <typename Policy, typename... F>
 class GeoAggregator;
 
@@ -103,7 +104,6 @@ private:
 /**
  * A Geographic information grid for a single region.
  */
-
 class GeoGrid
 {
 public:
@@ -126,7 +126,7 @@ public:
         std::vector<std::shared_ptr<Location>> FindLocationsInRadius(std::shared_ptr<Location> start,
                                                                      double                    radius) const;
 
-        /// Gets the K biggest Location of this GeoGrid
+        /// Gets the K biggest (in population count) locations of this GeoGrid
         std::vector<std::shared_ptr<Location>> TopK(size_t k) const;
 
         /**
@@ -211,8 +211,9 @@ private:
 private:
         std::vector<std::shared_ptr<Location>> m_locations; ///< Locations in this geoGrid
         std::unordered_map<unsigned int, std::shared_ptr<Location>>
-                            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id
-        stride::Population* m_population;         ///< Stores, but does not take ownership
+            m_locationsToIdIndex; ///< Locations in this geoGrid indexed by Id.
+
+        stride::Population* m_population; ///< Stores, but does not take ownership
 
         bool m_finalized; ///< Is this finalized yet?
 

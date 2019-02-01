@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "PrimaryCommunityPopulator.h"
@@ -35,7 +35,7 @@ void PrimaryCommunityPopulator::Apply(std::shared_ptr<GeoGrid> geoGrid, GeoGridC
                 }
 
                 // 1. find all communities in an area of 10-k*10 km
-                const auto& nearbyPools = GetContactPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
+                const auto& nearbyPools = GetPoolInIncreasingRadius<PrimaryCommunity>(geoGrid, loc);
 
                 // 2. for every household assign a community
                 const auto dist = m_rnManager[0].variate_generator(

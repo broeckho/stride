@@ -27,7 +27,7 @@ class GeoGridReaderFactory
 {
 public:
         /// Create a GeoGridReader based on the provided extension in the filename
-        std::shared_ptr<GeoGridReader> CreateReader(std::string filename, stride::Population* pop) const;
+        std::shared_ptr<GeoGridReader> CreateReader(const std::string& filename, stride::Population* pop) const;
 };
 
 } // namespace gengeopop

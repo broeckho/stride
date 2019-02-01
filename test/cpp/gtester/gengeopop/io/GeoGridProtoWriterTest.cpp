@@ -10,69 +10,75 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/College.h>
-#include <gengeopop/Community.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/SecondaryCommunity.h>
-#include <gengeopop/Workplace.h>
-#include <gengeopop/generators/GeoGridGenerator.h>
-#include <gengeopop/io/GeoGridProtoWriter.h>
-#include <gengeopop/io/proto/geogrid.pb.h>
-#include <gtest/gtest.h>
-#include <util/FileSys.h>
-
+#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "GeoGridIOUtils.h"
+#include "gengeopop/College.h"
+#include "gengeopop/Community.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "gengeopop/PrimaryCommunity.h"
+#include "gengeopop/SecondaryCommunity.h"
+#include "gengeopop/Workplace.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
+#include "gengeopop/io/proto/geogrid.pb.h"
+#include "util/FileSys.h"
+
+#include <gtest/gtest.h>
+
+using namespace std;
 using namespace gengeopop;
+using namespace stride;
 
 namespace {
 
-std::shared_ptr<GeoGrid> GetGeoGrid(stride::Population* pop)
+shared_ptr<GeoGrid> GetGeoGrid(Population* pop)
 {
         GeoGridConfig config{};
         config.input.populationSize        = 10000;
         config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
 
-        GeoGridGenerator geoGridGenerator(config, std::make_shared<GeoGrid>(pop));
+        GeoGridPoolBuilder geoGridGenerator(config, make_shared<GeoGrid>(pop));
         return geoGridGenerator.GetGeoGrid();
 }
 
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        auto pop     = stride::Population::Create();
-        auto geoGrid = GetGeoGrid(pop.get());
-        geoGrid->AddLocation(std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
-        geoGrid->AddLocation(std::make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
-        geoGrid->AddLocation(std::make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
+        auto       pop     = Population::Create();
+        const auto geoGrid = GetGeoGrid(pop.get());
+        geoGrid->AddLocation(make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
+        geoGrid->AddLocation(make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
+        geoGrid->AddLocation(make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
 
         CompareGeoGrid(geoGrid);
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        auto pop      = stride::Population::Create();
-        auto geoGrid  = GetGeoGrid(pop.get());
-        auto location = std::make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
-        location->AddContactCenter(std::make_shared<K12School>(0));
-        location->AddContactCenter(std::make_shared<PrimaryCommunity>(1));
-        location->AddContactCenter(std::make_shared<College>(2));
-        location->AddContactCenter(std::make_shared<Household>(3));
-        location->AddContactCenter(std::make_shared<Workplace>(4));
+        auto       pop      = Population::Create();
+        const auto geoGrid  = GetGeoGrid(pop.get());
+        const auto location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
+        location->AddContactCenter(make_shared<K12School>(0));
+        location->AddContactCenter(make_shared<PrimaryCommunity>(1));
+        location->AddContactCenter(make_shared<College>(2));
+        location->AddContactCenter(make_shared<Household>(3));
+        location->AddContactCenter(make_shared<Workplace>(4));
         geoGrid->AddLocation(location);
 
         CompareGeoGrid(geoGrid);
 }
+
 TEST(GeoGridProtoWriterTest, peopleTest)
 {
-        auto pop = stride::Population::Create();
+        auto pop = Population::Create();
         CompareGeoGrid(GetPopulatedGeoGrid(pop.get()));
 }
+
 TEST(GeoGridProtoWriterTest, commutesTest)
 {
-        auto pop = stride::Population::Create();
+        auto pop = Population::Create();
         CompareGeoGrid(GetCommutesGeoGrid(pop.get()));
 }
+
 } // namespace

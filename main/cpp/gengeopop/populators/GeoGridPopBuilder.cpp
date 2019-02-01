@@ -10,34 +10,30 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "GeoGridGenerator.h"
+#include "GeoGridPopBuilder.h"
 
 #include <iostream>
 #include <memory>
-#include <utility>
 
 namespace gengeopop {
 
-GeoGridGenerator::GeoGridGenerator(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
-    : m_partialGenerators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
+GeoGridPopBuilder::GeoGridPopBuilder(GeoGridConfig& geoGridConfig, std::shared_ptr<GeoGrid> geoGrid)
+    : m_populators(), m_geoGrid(std::move(geoGrid)), m_geoGridConfig(geoGridConfig)
 {
 }
 
-void GeoGridGenerator::GenerateGeoGrid()
+void GeoGridPopBuilder::BuildPop()
 {
-        for (std::shared_ptr<GeneratorInterface>& partialGen : m_partialGenerators) {
+        for (std::shared_ptr<Populator>& partialGen : m_populators) {
                 partialGen->Apply(m_geoGrid, m_geoGridConfig);
         }
 }
 
-std::shared_ptr<GeoGrid> GeoGridGenerator::GetGeoGrid() { return m_geoGrid; }
+std::shared_ptr<GeoGrid> GeoGridPopBuilder::GetGeoGrid() { return m_geoGrid; }
 
-void GeoGridGenerator::AddPartialGenerator(std::shared_ptr<GeneratorInterface> gen)
-{
-        m_partialGenerators.push_back(gen);
-}
+void GeoGridPopBuilder::AddPartialPopulator(std::shared_ptr<Populator> gen) { m_populators.push_back(gen); }
 
 } // namespace gengeopop

@@ -28,16 +28,16 @@ set(GENGEOPOP_LIB
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp
-    generators/GeoGridGenerator.cpp
+    generators/GeoGridPoolBuilder.cpp
     generators/HouseholdGenerator.cpp
     generators/K12SchoolGenerator.cpp
     generators/WorkplaceGenerator.cpp
 #
     populators/CollegePopulator.cpp
-    populators/GeoGridPopulator.cpp
+    populators/GeoGridPopBuilder.cpp
     populators/HouseholdPopulator.cpp
     populators/K12SchoolPopulator.cpp
-    populators/PartialPopulator.cpp
+    populators/Populator.cpp
     populators/PrimaryCommunityPopulator.cpp
     populators/SecondaryCommunityPopulator.cpp
     populators/WorkplacePopulator.cpp

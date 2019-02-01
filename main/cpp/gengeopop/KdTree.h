@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #pragma once
@@ -28,12 +28,14 @@
 namespace gengeopop {
 
 namespace kd {
+
 template <typename P>
 class BaseNode;
 template <typename P, std::size_t D>
 class Node;
 template <typename P, std::size_t D>
 std::size_t Median(const std::vector<P>& points);
+
 } // namespace kd
 
 /**********************************
@@ -234,7 +236,7 @@ public:
                         q.emplace(h + 1, n->BorrowLeft());
                         q.emplace(h + 1, n->BorrowRight());
                 }
-                return h;
+                return static_cast<size_t>(h);
         }
 
         /**
@@ -291,7 +293,7 @@ template <typename P>
 class BaseNode
 {
 public:
-        virtual ~BaseNode(){};
+        virtual ~BaseNode() = default;
 
         /**
          * Get a non-owning pointer to the left child

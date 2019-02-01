@@ -10,42 +10,43 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include <gengeopop/College.h>
-#include <gengeopop/Community.h>
-#include <gengeopop/GeoGridConfig.h>
-#include <gengeopop/K12School.h>
-#include <gengeopop/PrimaryCommunity.h>
-#include <gengeopop/SecondaryCommunity.h>
-#include <gengeopop/Workplace.h>
-#include <gengeopop/generators/GeoGridGenerator.h>
-#include <gengeopop/io/GeoGridProtoWriter.h>
-#include <gengeopop/io/proto/geogrid.pb.h>
-#include <gtest/gtest.h>
-#include <util/FileSys.h>
-
 #include "GeoGridIOUtils.h"
+#include "gengeopop/College.h"
+#include "gengeopop/Community.h"
+#include "gengeopop/GeoGridConfig.h"
+#include "gengeopop/K12School.h"
+#include "gengeopop/PrimaryCommunity.h"
+#include "gengeopop/SecondaryCommunity.h"
+#include "gengeopop/Workplace.h"
+#include "gengeopop/generators/GeoGridPoolBuilder.h"
+#include "gengeopop/io/GeoGridProtoWriter.h"
+#include "gengeopop/io/proto/geogrid.pb.h"
+#include "util/FileSys.h"
+
+#include <gtest/gtest.h>
+
 using namespace gengeopop;
 using boost::geometry::get;
 
 namespace {
 
-void fillLocation(int id, unsigned int province, unsigned int population, Coordinate coordinate, std::string name,
-                  proto::GeoGrid_Location* location)
+void fillLocation(int id, unsigned int province, unsigned int population, Coordinate coordinate,
+                  const std::string& name, proto::GeoGrid_Location* location)
 {
         location->set_id(id);
         location->set_province(province);
         location->set_name(name);
         location->set_population(population);
-        auto protoCoordinate = new proto::GeoGrid_Location_Coordinate();
+        const auto protoCoordinate = new proto::GeoGrid_Location_Coordinate();
         protoCoordinate->set_latitude(get<1>(coordinate));
         protoCoordinate->set_longitude(get<0>(coordinate));
         location->set_allocated_coordinate(protoCoordinate);
 }
 
-void fillContactCenter(std::shared_ptr<ContactCenter>         contactCenter,
+void fillContactCenter(const std::shared_ptr<ContactCenter>&  contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
         std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {

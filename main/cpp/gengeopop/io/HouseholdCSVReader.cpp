@@ -10,7 +10,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with the software. If not, see <http://www.gnu.org/licenses/>.
  *
- *  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+ *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
 #include "HouseholdCSVReader.h"
@@ -25,9 +25,9 @@ gengeopop::HouseholdCSVReader::HouseholdCSVReader(std::unique_ptr<std::istream> 
         unsigned int id = 1;
 
         for (const stride::util::CSVRow& row : reader) {
-                std::shared_ptr<gengeopop::Household> household = std::make_shared<gengeopop::Household>();
+                auto household = std::make_shared<gengeopop::Household>();
 
-                // Create contactpool of the household
+                // Create contactpool of the household.
                 m_contactPools.emplace_back(id++, stride::ContactPoolType::Id::Household);
                 stride::ContactPool* newCP = &m_contactPools.back();
 
