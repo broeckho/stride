@@ -39,16 +39,15 @@ namespace gengeopop {
 using namespace std;
 
 GenPopController::GenPopController(shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                                   stride::util::RnMan& rnManager, string citiesFileName,
-                                   string commutingFileName, string householdFileName)
+                                   stride::util::RnMan& rnManager)
     : m_geoGridConfig(geoGridConfig), m_rnManager(rnManager), m_geoGrid(nullptr),
       m_population(stride::Population::Create()), m_citiesReader(nullptr), m_commutesReader(nullptr),
-      m_householdsReader(nullptr), m_logger(move(logger)), m_citiesFileName(move(citiesFileName)),
-      m_commutingFileName(move(commutingFileName)), m_householdsFileName(move(householdFileName))
+      m_householdsReader(nullptr), m_logger(move(logger))
 {
 }
 
-void GenPopController::ReadDataFiles()
+void GenPopController::ReadDataFiles(const std::string& citiesFileName, const std::string& commutingFileName,
+                                     const std::string& householdsFileName)
 {
         m_geoGrid = make_shared<GeoGrid>(m_population.get());
 
@@ -58,29 +57,28 @@ void GenPopController::ReadDataFiles()
         {
 #pragma omp section
                 {
-                        m_citiesReader = readerFactory.CreateCitiesReader(m_citiesFileName);
+                        m_citiesReader = readerFactory.CreateCitiesReader(citiesFileName);
                         m_citiesReader->FillGeoGrid(m_geoGrid);
                 }
 
 #pragma omp section
                 {
-                        if (!m_commutingFileName.empty()) {
-                                m_commutesReader = readerFactory.CreateCommutesReader(m_commutingFileName);
+                        if (!commutingFileName.empty()) {
+                                m_commutesReader = readerFactory.CreateCommutesReader(commutingFileName);
                         }
                 }
 
 #pragma omp section
                 {
-                        m_householdsReader = readerFactory.CreateHouseholdReader(m_householdsFileName);
+                        m_householdsReader = readerFactory.CreateHouseholdReader(householdsFileName);
                 }
         }
 
-        if (!m_commutingFileName.empty()) {
+        if (!commutingFileName.empty()) {
                 m_commutesReader->FillGeoGrid(m_geoGrid);
         }
 
         m_geoGridConfig.Calculate(m_geoGrid, m_householdsReader);
-
         m_geoGrid->Finalize();
 }
 

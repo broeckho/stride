@@ -133,13 +133,13 @@ int main(int argc, char* argv[])
                 RnMan::Info info(rng_seed.getValue(), "", static_cast<unsigned int>(omp_get_num_threads()));
                 RnMan       rnManager(info);
 
-                GenPopController genGeoPopController(logger, geoGridConfig, rnManager, citiesFile.getValue(),
-                                                     commutingFile.getValue(), houseHoldFile.getValue());
+                GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
 
                 // --------------------------------------------------------------
                 // Read input files.
                 // --------------------------------------------------------------
-                genGeoPopController.ReadDataFiles();
+                genGeoPopController.ReadDataFiles(citiesFile.getValue(), commutingFile.getValue(),
+                                                  houseHoldFile.getValue());
                 logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
                 logger->info("Random engine initialized with seed: {}", info.m_seed_seq_init);
                 logger->info("Number of threads: {}", info.m_stream_count);

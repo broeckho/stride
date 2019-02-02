@@ -15,7 +15,7 @@
 
 /**
  * @file
- * Core Population class
+ * Core Population class.
  */
 
 #include "Population.h"

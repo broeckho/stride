@@ -32,11 +32,11 @@ class GenPopController
 public:
         /// Create a GenGeoPopController.
         GenPopController(std::shared_ptr<spdlog::logger> logger, GeoGridConfig& geoGridConfig,
-                         stride::util::RnMan& rnManager, std::string citiesFileName, std::string commutingFileName,
-                         std::string householdFileName);
+                         stride::util::RnMan& rnManager);
 
-        /// Reads the data files
-        void ReadDataFiles();
+        /// Reads the data files.
+        void ReadDataFiles(const std::string& citiesFileName, const std::string& commutingFileName,
+                           const std::string& householdsFileName);
 
         /// Build and store the Geo part of the GeoGrid.
         void GenGeo();
@@ -63,10 +63,6 @@ private:
         std::shared_ptr<CommutesReader>  m_commutesReader;   ///< The CommutesReader.
         std::shared_ptr<HouseholdReader> m_householdsReader; ///< The HouseholdsReader.
         std::shared_ptr<spdlog::logger>  m_logger;           ///< The logger
-
-        std::string m_citiesFileName;     ///< Filename for info on cities.
-        std::string m_commutingFileName;  ///< Filename for info on commutes.
-        std::string m_householdsFileName; ///< Filename for info on households.
 };
 
 } // namespace gengeopop

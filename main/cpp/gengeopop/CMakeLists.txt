@@ -11,7 +11,7 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2018, Niels Aerens, Thomas Avé, Jan Broeckhove, Tobia De Koninck, Robin Jadoul
+#  Copyright 2018, Jan Broeckhove and Bistromatics group.
 #############################################################################
 
 #============================================================================
@@ -24,7 +24,6 @@ set(GENGEOPOP_LIB
     GeoGrid.cpp
     GeoGridConfig.cpp
     Location.cpp
-
 #
     generators/CollegeGenerator.cpp
     generators/CommunityGenerator.cpp
