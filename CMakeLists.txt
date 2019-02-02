@@ -29,7 +29,7 @@ include(CMakeLocal.cmake OPTIONAL)
 # Configuration for CMake, for build & install.
 #============================================================================
 project(STRIDE)
-include(CMakeLocalConfig.cmake OPTIONAL)
+include(CMakeLocalProject.cmake OPTIONAL)
 
 #============================================================================
 # INSTALL LOCATION for bin, doc etc.
