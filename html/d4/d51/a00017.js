@@ -1,7 +1,7 @@
 var a00017 =
 [
-    [ "GenPopController", "d4/d51/a00017.html#a20bf4eeebf8152ee7b09c16ea3288857", null ],
-    [ "ReadDataFiles", "d4/d51/a00017.html#a62f16d7f880756a9f0c0ecd27a9839f5", null ],
+    [ "GenPopController", "d4/d51/a00017.html#aee9a07829de89d805b6adbc0b587cbe5", null ],
+    [ "ReadDataFiles", "d4/d51/a00017.html#a78e8176d380b72a2e8da3a7df06d55a4", null ],
     [ "GenGeo", "d4/d51/a00017.html#ad9c566705c528d7b94d696051a6894a0", null ],
     [ "GenPop", "d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2", null ],
     [ "GetGeoGrid", "d4/d51/a00017.html#aaf17fe181624081c6b3f3b2b4137aee1", null ],
@@ -13,8 +13,5 @@ var a00017 =
     [ "m_citiesReader", "d4/d51/a00017.html#ad2570211fa6730714b29aeb3dd7bdcec", null ],
     [ "m_commutesReader", "d4/d51/a00017.html#a2035d025d371c4223c6c6a69f652834d", null ],
     [ "m_householdsReader", "d4/d51/a00017.html#a489c40decc63afd7a4aa09be25c8a034", null ],
-    [ "m_logger", "d4/d51/a00017.html#aac99f1adca18d81bc9dbe8d1ecace18e", null ],
-    [ "m_citiesFileName", "d4/d51/a00017.html#a780dd36cf657e164b10299df9c11c057", null ],
-    [ "m_commutingFileName", "d4/d51/a00017.html#a12726f987575d8943e9dce98f6aee6e2", null ],
-    [ "m_householdsFileName", "d4/d51/a00017.html#a87540e8c95434d195d009c8e1b6c884f", null ]
+    [ "m_logger", "d4/d51/a00017.html#aac99f1adca18d81bc9dbe8d1ecace18e", null ]
 ];

@@ -6,7 +6,7 @@ var searchData=
   ['ratetoprobability',['RateToProbability',['../db/df8/a00076.html#a51fd44b433163a1bd2a9fb424a003344',1,'stride::ContactHandler']]],
   ['read',['Read',['../d3/dfe/a00025.html#a63497f177cb7f3aa13807c497ab19c92',1,'gengeopop::GeoGridJSONReader::Read()'],['../d5/d16/a00029.html#a551020787ddca406bd25104d8d6f7026',1,'gengeopop::GeoGridProtoReader::Read()'],['../df/d61/a00031.html#a75a53634f7886fdd97d544027663ec9c',1,'gengeopop::GeoGridReader::Read()']]],
   ['readagecontactptree',['ReadAgeContactPtree',['../d0/dc2/a00104.html#ad551b02c507948570f07af10d85d29ce',1,'stride::SimBuilder']]],
-  ['readdatafiles',['ReadDataFiles',['../d4/d51/a00017.html#a62f16d7f880756a9f0c0ecd27a9839f5',1,'gengeopop::GenPopController']]],
+  ['readdatafiles',['ReadDataFiles',['../d4/d51/a00017.html#a78e8176d380b72a2e8da3a7df06d55a4',1,'gengeopop::GenPopController']]],
   ['readdiseaseptree',['ReadDiseasePtree',['../d0/dc2/a00104.html#adffa42c6b8b171616fcdfb4805260c92',1,'stride::SimBuilder']]],
   ['readfromstream',['ReadFromStream',['../dd/d6d/a00111.html#a2f3c33a76164f6cbc6e31aab6f8b560d',1,'stride::util::CSV']]],
   ['readptreefile',['ReadPtreeFile',['../d2/da3/a00115.html#a5d54b4b545adf557c65c238ad2fb7801',1,'stride::util::FileSys::ReadPtreeFile(const filesys::path &amp;f_p)'],['../d2/da3/a00115.html#ad397ab1440ed0fb182ed9afc7ea6fa10',1,'stride::util::FileSys::ReadPtreeFile(const std::string &amp;f_n)']]],

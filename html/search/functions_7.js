@@ -4,7 +4,7 @@ var searchData=
   ['generator',['Generator',['../d7/d7a/a00016.html#ab07fb1d2ee212e228000df3124e25046',1,'gengeopop::Generator']]],
   ['gengeo',['GenGeo',['../d4/d51/a00017.html#ad9c566705c528d7b94d696051a6894a0',1,'gengeopop::GenPopController']]],
   ['genpop',['GenPop',['../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2',1,'gengeopop::GenPopController']]],
-  ['genpopcontroller',['GenPopController',['../d4/d51/a00017.html#a20bf4eeebf8152ee7b09c16ea3288857',1,'gengeopop::GenPopController']]],
+  ['genpopcontroller',['GenPopController',['../d4/d51/a00017.html#aee9a07829de89d805b6adbc0b587cbe5',1,'gengeopop::GenPopController']]],
   ['geoaggregator',['GeoAggregator',['../dd/da2/a00019.html#aee8c9590a79d4dfa0de73db55ac7594b',1,'gengeopop::GeoAggregator&lt; Policy &gt;::GeoAggregator()'],['../db/db2/a00020.html#afd0df798ea07bcf9bce0811af1099b36',1,'gengeopop::GeoAggregator&lt; Policy, F &gt;::GeoAggregator()']]],
   ['geogrid',['GeoGrid',['../de/d11/a00021.html#aed699f56717f6f0d71e4457552c8d6c0',1,'gengeopop::GeoGrid::GeoGrid(stride::Population *population)'],['../de/d11/a00021.html#afc0dcbb47d36a94f2b56ddd3bfe4314f',1,'gengeopop::GeoGrid::GeoGrid(const GeoGrid &amp;)=delete'],['../d1/d6f/a00063.html#a4fee992d5d7fced60a847258f37e9b62',1,'proto::GeoGrid::GeoGrid()'],['../d1/d6f/a00063.html#a59548cbbed93d5c0cd85a6eea1247b7e',1,'proto::GeoGrid::GeoGrid(const GeoGrid &amp;from)']]],
   ['geogrid_5flocation',['GeoGrid_Location',['../df/d5f/a00064.html#aac7b99d1d33890606786aebe1d7d8a02',1,'proto::GeoGrid_Location::GeoGrid_Location()'],['../df/d5f/a00064.html#a66a50f961c4c37f7788cf771845d5867',1,'proto::GeoGrid_Location::GeoGrid_Location(const GeoGrid_Location &amp;from)']]],
