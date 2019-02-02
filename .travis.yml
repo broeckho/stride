@@ -20,10 +20,6 @@ addons:
       # - libhdf5-dev
       - doxygen
       - graphviz
-  homebrew:
-    packages:
-      - llvm@7
-    update: true
 
 matrix:
   include:
@@ -63,11 +59,6 @@ matrix:
     #  compiler: clang
     #  env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: gcc
-      env: MATRIX_EVAL="CXX_ID=llvm7 && CC=clang && CXX=clang++"
-
 before_install:
   - eval "${MATRIX_EVAL}"
   # OpenMP issue with linux+clang
@@ -90,11 +81,6 @@ before_install:
       brew link --force --overwrite llvm@7
       export PATH="/usr/local/opt/llvm@7/bin:$PATH"
       ls $(brew --prefix llvm@7)/bin
-    fi
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "llvm7" ]]; then
-      brew install gcc;
-      brew link gcc
     fi
 
 install:
@@ -153,5 +139,5 @@ after_success:
     if [[ "$TRAVIS_BRANCH" = "master" && "$TRAVIS_BUILD_DOCS" = "true" && "$TRAVIS_PULL_REQUEST" = "false" ]]; then
       cd $TRAVIS_BUILD_DIR
       chmod +x resources/sh/generate-doxygen.sh
-    #  resources/sh/generate-doxygen.sh
+      resources/sh/generate-doxygen.sh
     fi
