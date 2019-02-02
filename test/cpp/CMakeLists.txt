@@ -12,15 +12,19 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, 2018 Willem L, Kuylen E & Broeckhove J
+#  Copyright 2019 Willem L, Kuylen E & Broeckhove J
 #############################################################################
 
 #============================================================================
 # Define smoke test. DO NOT BREAK THE COMMAND LINE.
 #============================================================================
-add_test(NAME smoke
+add_test(NAME stride_smoke
     WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
     COMMAND ${BIN_INSTALL_LOCATION}/stride --override output_prefix=tests/stride_smoke
+	)
+add_test(NAME genpop_smoke
+	WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}
+	COMMAND ${BIN_INSTALL_LOCATION}/genpop --output tests/gengeopop.proto
 	)
 
 #============================================================================

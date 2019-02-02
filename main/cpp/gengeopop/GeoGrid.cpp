@@ -14,6 +14,7 @@
  */
 
 #include "GeoGrid.h"
+
 #include "util/Exception.h"
 
 #include <cmath>

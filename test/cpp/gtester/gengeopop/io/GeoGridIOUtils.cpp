@@ -22,7 +22,6 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridPoolBuilder.h"
 #include "gengeopop/io/GeoGridProtoReader.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
 #include "pool/ContactPoolType.h"
@@ -171,19 +170,9 @@ void CompareGeoGrid(proto::GeoGrid& protoGrid)
         compareGeoGrid(geogrid, protoGrid);
 }
 
-shared_ptr<GeoGrid> GetGeoGrid(Population* pop)
-{
-        GeoGridConfig config{};
-        config.input.populationSize        = 10000;
-        config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
-
-        GeoGridPoolBuilder geoGridGenerator(config, make_shared<GeoGrid>(pop));
-        return geoGridGenerator.GetGeoGrid();
-}
-
 shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 {
-        const auto geoGrid  = GetGeoGrid(pop);
+        const auto geoGrid  = make_shared<GeoGrid>(pop);
         const auto location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
 
         const auto school = make_shared<K12School>(0);
@@ -229,7 +218,7 @@ shared_ptr<GeoGrid> GetPopulatedGeoGrid(Population* pop)
 
 shared_ptr<GeoGrid> GetCommutesGeoGrid(Population* pop)
 {
-        const auto geoGrid   = GetGeoGrid(pop);
+        const auto geoGrid   = make_shared<GeoGrid>(pop);
         const auto bavikhove = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         const auto gent      = make_shared<Location>(2, 4, 2500, Coordinate(0, 0), "Gent");
         const auto mons      = make_shared<Location>(3, 4, 2500, Coordinate(0, 0), "Mons");

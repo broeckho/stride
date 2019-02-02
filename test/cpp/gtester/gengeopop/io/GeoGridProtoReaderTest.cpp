@@ -28,13 +28,14 @@
 
 #include <gtest/gtest.h>
 
+using namespace std;
 using namespace gengeopop;
 using boost::geometry::get;
 
 namespace {
 
 void fillLocation(int id, unsigned int province, unsigned int population, Coordinate coordinate,
-                  const std::string& name, proto::GeoGrid_Location* location)
+                  const string& name, proto::GeoGrid_Location* location)
 {
         location->set_id(id);
         location->set_province(province);
@@ -46,10 +47,10 @@ void fillLocation(int id, unsigned int province, unsigned int population, Coordi
         location->set_allocated_coordinate(protoCoordinate);
 }
 
-void fillContactCenter(const std::shared_ptr<ContactCenter>&  contactCenter,
+void fillContactCenter(const shared_ptr<ContactCenter>&  contactCenter,
                        proto::GeoGrid_Location_ContactCenter* protoContactCenter)
 {
-        std::map<std::string, proto::GeoGrid_Location_ContactCenter_Type> types = {
+        map<string, proto::GeoGrid_Location_ContactCenter_Type> types = {
             {"K12School", proto::GeoGrid_Location_ContactCenter_Type_K12School},
             {"Community", proto::GeoGrid_Location_ContactCenter_Type_Community},
             {"Primary Community", proto::GeoGrid_Location_ContactCenter_Type_PrimaryCommunity},
@@ -75,11 +76,11 @@ TEST(GeoGridProtoReaderTest, contactCentersTest)
         proto::GeoGrid geoGrid;
         auto           location = geoGrid.add_locations();
         fillLocation(1, 4, 2500, Coordinate(0, 0), "Bavikhove", location);
-        fillContactCenter(std::make_shared<K12School>(0), location->add_contactcenters());
-        fillContactCenter(std::make_shared<PrimaryCommunity>(1), location->add_contactcenters());
-        fillContactCenter(std::make_shared<College>(2), location->add_contactcenters());
-        fillContactCenter(std::make_shared<Household>(3), location->add_contactcenters());
-        fillContactCenter(std::make_shared<Workplace>(4), location->add_contactcenters());
+        fillContactCenter(make_shared<K12School>(0), location->add_contactcenters());
+        fillContactCenter(make_shared<PrimaryCommunity>(1), location->add_contactcenters());
+        fillContactCenter(make_shared<College>(2), location->add_contactcenters());
+        fillContactCenter(make_shared<Household>(3), location->add_contactcenters());
+        fillContactCenter(make_shared<Workplace>(4), location->add_contactcenters());
 
         CompareGeoGrid(geoGrid);
 }
@@ -91,42 +92,42 @@ TEST(GeoGridProtoReaderTest, peopleTest)
 
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<K12School>(0), contactCenter);
+                fillContactCenter(make_shared<K12School>(0), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(2);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<PrimaryCommunity>(1), contactCenter);
+                fillContactCenter(make_shared<PrimaryCommunity>(1), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(3);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<SecondaryCommunity>(2), contactCenter);
+                fillContactCenter(make_shared<SecondaryCommunity>(2), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(7);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<College>(3), contactCenter);
+                fillContactCenter(make_shared<College>(3), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(4);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<Household>(4), contactCenter);
+                fillContactCenter(make_shared<Household>(4), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(5);
                 pool->add_people(1);
         }
         {
                 auto contactCenter = location->add_contactcenters();
-                fillContactCenter(std::make_shared<Workplace>(5), contactCenter);
+                fillContactCenter(make_shared<Workplace>(5), contactCenter);
                 auto pool = contactCenter->add_pools();
                 pool->set_id(6);
                 pool->add_people(1);

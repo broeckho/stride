@@ -13,7 +13,6 @@
  *  Copyright 2018, Jan Broeckhove and Bistromatics group.
  */
 
-#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "GeoGridIOUtils.h"
 #include "gengeopop/College.h"
 #include "gengeopop/Community.h"
@@ -22,7 +21,7 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridPoolBuilder.h"
+#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
 #include "util/FileSys.h"
 
@@ -34,20 +33,10 @@ using namespace stride;
 
 namespace {
 
-shared_ptr<GeoGrid> GetGeoGrid(Population* pop)
-{
-        GeoGridConfig config{};
-        config.input.populationSize        = 10000;
-        config.calculated.compulsoryPupils = static_cast<unsigned int>(0.20 * 1000);
-
-        GeoGridPoolBuilder geoGridGenerator(config, make_shared<GeoGrid>(pop));
-        return geoGridGenerator.GetGeoGrid();
-}
-
 TEST(GeoGridProtoWriterTest, locationTest)
 {
-        auto       pop     = Population::Create();
-        const auto geoGrid = GetGeoGrid(pop.get());
+        const auto pop      = Population::Create();
+        const auto geoGrid  = make_shared<GeoGrid>(pop.get());
         geoGrid->AddLocation(make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove"));
         geoGrid->AddLocation(make_shared<Location>(2, 3, 5000, Coordinate(0, 0), "Gent"));
         geoGrid->AddLocation(make_shared<Location>(3, 2, 2500, Coordinate(0, 0), "Mons"));
@@ -56,8 +45,8 @@ TEST(GeoGridProtoWriterTest, locationTest)
 }
 TEST(GeoGridProtoWriterTest, contactCentersTest)
 {
-        auto       pop      = Population::Create();
-        const auto geoGrid  = GetGeoGrid(pop.get());
+        const auto pop      = Population::Create();
+        const auto geoGrid  = make_shared<GeoGrid>(pop.get());
         const auto location = make_shared<Location>(1, 4, 2500, Coordinate(0, 0), "Bavikhove");
         location->AddContactCenter(make_shared<K12School>(0));
         location->AddContactCenter(make_shared<PrimaryCommunity>(1));

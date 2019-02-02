@@ -15,10 +15,10 @@
 
 #pragma once
 
-#include <gengeopop/ContactCenter.h>
-#include <gengeopop/GeoGrid.h>
-#include <gengeopop/Location.h>
-#include <gengeopop/io/proto/geogrid.pb.h>
+#include "gengeopop/ContactCenter.h"
+#include "gengeopop/GeoGrid.h"
+#include "gengeopop/Location.h"
+#include "gengeopop/io/proto/geogrid.pb.h"
 
 using namespace gengeopop;
 
@@ -39,7 +39,5 @@ void CompareGeoGrid(std::shared_ptr<GeoGrid> geoGrid);
 void CompareGeoGrid(proto::GeoGrid& protoGrid);
 
 std::shared_ptr<GeoGrid> GetPopulatedGeoGrid(stride::Population*);
-
-std::shared_ptr<GeoGrid> GetGeoGrid(stride::Population*);
 
 std::shared_ptr<GeoGrid> GetCommutesGeoGrid(stride::Population*);
