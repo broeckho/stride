@@ -54,15 +54,15 @@ matrix:
       compiler: clang
       env: MATRIX_EVAL="CXX_ID=clang6 && CC=/usr/local/opt/llvm@6/bin/clang && CXX=/usr/local/opt/llvm@6/bin/clang++"
 
-    - os: osx
-      osx_image: xcode10.1
-      compiler: clang
-      env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
-
     #- os: osx
     #  osx_image: xcode10.1
-    #  compiler: gcc
-    #  env: MATRIX_EVAL="CXX_ID=gcc && CC=/usr/local/bin/gcc-8 && CXX=/usr/local/bin/g++-8"
+    #  compiler: clang
+    #  env: MATRIX_EVAL="CXX_ID=clang7 && CC=/usr/local/opt/llvm@7/bin/clang && CXX=/usr/local/opt/llvm@7/bin/clang++"
+
+    - os: osx
+      osx_image: xcode10.1
+      compiler: gcc
+      env: MATRIX_EVAL="CXX_ID=gcc && CC=gcc-7 && CXX=g++-7"
 
 before_install:
   - eval "${MATRIX_EVAL}"
@@ -89,11 +89,8 @@ before_install:
     fi
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$CXX_ID" == "gcc" ]]; then
-      # https://github.com/Homebrew/brew/issues/1742
-      rm -f /usr/local/include/c++;
-      brew install gcc@8;
+      brew install gcc;
       brew link gcc
-      ls $(brew --prefix gcc@8)/bin
     fi
 
 install:
