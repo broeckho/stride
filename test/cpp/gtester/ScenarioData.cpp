@@ -41,9 +41,9 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                 RunConfigManager::ConvertToGenGeoPop(pt);
 
         std::map<std::string, unsigned int> targets_default = {
-            {"influenza_a", 550429U},  {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 273372U},
+            {"influenza_a", 550429U},  {"influenza_b", 0U}, {"influenza_c", 5U}, {"measles_16", 259604U},
             {"measles_26", 600000U}, {"r0_0", 1200U},     {"r0_4", 4077U},    {"r0_8", 14588U},
-            {"r0_12", 39234U},      {"r0_16", 71171}};
+            {"r0_12", 38634U},      {"r0_16", 70471}};
 
         std::map<std::string, double> sigmas_default = {{"influenza_a", 116.60326645015648},
                                                         {"influenza_b", 0},
@@ -57,9 +57,9 @@ tuple<ptree, unsigned int, double> ScenarioData::Get(string tag)
                                                         {"r0_16", targets_default["r0_16"] * 0.1}};
 
         std::map<std::string, unsigned int> targets_gengeopop = {
-            {"influenza_a_gengeopop", 554299U},  {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 5},
-            {"measles_16_gengeopop", 275643U}, {"measles_26_gengeopop", 600000U}, {"r0_0_gengeopop", 1199U},
-            {"r0_12_gengeopop", 39362U},      {"r0_16_gengeopop", 71220U},      {"r0_4_gengeopop", 4354U},
+            {"influenza_a_gengeopop", 553756U},  {"influenza_b_gengeopop", 0},     {"influenza_c_gengeopop", 5},
+            {"measles_16_gengeopop", 272300U}, {"measles_26_gengeopop", 600000U}, {"r0_0_gengeopop", 1199U},
+            {"r0_12_gengeopop", 38646U},      {"r0_16_gengeopop", 70477U},      {"r0_4_gengeopop", 4354U},
             {"r0_8_gengeopop", 15849U}};
         std::map<std::string, double> sigmas_gengeopop = {{"influenza_a_gengeopop", 87.347638777473549},
                                                           {"influenza_b_gengeopop", 0},
