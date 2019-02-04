@@ -6,12 +6,19 @@ from postprocessing import EffectiveR
 
 def main(outputDir, years, R0s, poolSize):
     start = time.perf_counter()
+    EffectiveR.createEffectiveROverviewPlot(outputDir, years,
+                                        [str(y) for y in years], R0s, poolSize,
+                                        "AllEffectiveR_Mean")
+    EffectiveR.createEffectiveROverviewPlot(outputDir, years,
+                                        [str(y) for y in years], R0s, poolSize,
+                                        "AllEffectiveR_Median",
+                                        stat="median")
     for R0 in R0s:
         scenarioNames = [str(y) + "_R0_" + str(R0) for y in years]
         scenarioDisplayNames = [str(y) for y in years]
-        EffectiveR.createEffectiveRPlot(outputDir, scenarioNames, scenarioDisplayNames, poolSize)
-
-    #TODO Effective Rs -> VS R0
+        EffectiveR.createEffectiveRPlot(outputDir, scenarioNames,
+                                        scenarioDisplayNames, poolSize,
+                                        "R0_" + str(R0) + "_EffectiveR")
     end = time.perf_counter()
     totalTimeSeconds = end - start
     totalTimeMinutes = totalTimeSeconds / 60
