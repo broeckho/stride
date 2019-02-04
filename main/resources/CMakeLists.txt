@@ -12,29 +12,39 @@
 #  along with the software. If not, see <http://www.gnu.org/licenses/>.
 #  see http://www.gnu.org/licenses/.
 #
-#  Copyright 2017, Willem L, Kuylen E & Broeckhove J
+#  Copyright 2019, Willem L, Kuylen E & Broeckhove J
 #############################################################################
+
+#============================================================================
+# UNZIP files from data/* to ${DATA_INSTALL_LOCATION}
+#============================================================================
+# Create build folder to unzip all compressed files
+set( UNZIP_FOLDER ${CMAKE_BINARY_DIR}/main/resources/data_zip/ )
+execute_process( COMMAND ${CMAKE_COMMAND} -E make_directory ${UNZIP_FOLDER} )
+
+# Unzip all ZIP files
+file(GLOB ZIP_FILES "data/*.zip")
+foreach( file_i ${ZIP_FILES} )
+	execute_process(
+		COMMAND ${CMAKE_COMMAND} -E tar xzf ${file_i} 
+		WORKING_DIRECTORY ${UNZIP_FOLDER}
+	)	
+endforeach( file_i )
+
+# Install unzipped files
+file(GLOB DEPLOY_FILES ${UNZIP_FOLDER}*)
+INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION})
+unset(UNZIP_FOLDER)
 
 #============================================================================
 # Copy all files from data/* to ${DATA_INSTALL_LOCATION}
 #============================================================================
 file(GLOB DEPLOY_FILES "data/*")
-INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
+list(REMOVE_ITEM DEPLOY_FILES ${ZIP_FILES})
+INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION})
+unset(ZIP_FILES)
+unset(DEPLOY_FILES)
 
-#============================================================================
-# UNZIP files from data/* to ${DATA_INSTALL_LOCATION}
-#============================================================================
-file(GLOB DEPLOY_FILES "data/*.zip")
-add_custom_target( unZip ALL)
-add_custom_command(TARGET unZip PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E tar xzf ${DEPLOY_FILES}
-	WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-	DEPENDS ${DEPLOY_FILES}
-	VERBATIM
-	)
-
-file(GLOB DEPLOY_FILES ${CMAKE_BINARY_DIR}/*.csv)
-INSTALL(FILES ${DEPLOY_FILES} DESTINATION ${DATA_INSTALL_LOCATION} )
 	
 #============================================================================
 # Copy all files from config/* to ${CONFIG_INSTALL_LOCATION}
