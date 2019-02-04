@@ -19,6 +19,7 @@
 # Copy scripts to the bin folder.
 #================================================================================================
 INSTALL(FILES
+      ageImmunityEffectiveR.py
       ageImmunityPostProcessing.py
   		ageImmunityShift.py
       ageImmunityShiftUniform.py

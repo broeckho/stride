@@ -2,51 +2,45 @@ import argparse
 import itertools
 import time
 
-from postprocessing import AgeImmunity, ExtinctionThreshold, OutbreakEvolution, OutbreakOccurrenceAndSize
+from postprocessing import AgeImmunity, ExtinctionThreshold, InfectedByAge, OutbreakEvolution, OutbreakOccurrenceAndSize
 
 def main(outputDir, years, R0s, numDays, extinctionThreshold, poolSize):
     start = time.perf_counter()
-    # Create overview plot for outbreak occurrence probabilities
-    #OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir,
-    #                        R0s, years, [str(y) for y in years], numDays, extinctionThreshold, poolSize)
-    #OutbreakOccurrenceAndSize.createFinalSizesSideBySidePlot(outputDir, R0s, years, numDays, extinctionThreshold, poolSize)
+    AgeImmunity.createAgeDistributionPlots(outputDir, "data/pop_flanders600.csv")
+    # Overview plot for outbreak occurrence probabilities
+    OutbreakOccurrenceAndSize.createOutbreakOccurrenceOverviewPlot(outputDir,
+                                            R0s, years, [str(y) for y in years],
+                                            numDays, extinctionThreshold, poolSize)
+    # Overview plot for outbreak sizes
+    OutbreakOccurrenceAndSize.createFinalSizesSideBySidePlot(outputDir, R0s,
+                                            years, numDays, extinctionThreshold, poolSize)
     for R0 in R0s:
         for year in years:
-            scenarioName = str(year) + "_R0_" + str(R0)
             # Calculate average overall immunity
-            #avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir, scenarioName, poolSize)
-            #print("Avg overall immunity rate for {} with R0 {} is {}".format(year, R0, avgImmunityRate))
-            # Create outbreak evolution plots
-            #OutbreakEvolution.createCumulativeCasesPerDayPlot(outputDir, scenarioName, numDays,
-            #                            extinctionThreshold, poolSize,
-            #                            scenarioName + "_CumulativeCases.png")
-            #OutbreakEvolution.createNewCasesPerDayPlot(outputDir, scenarioName, numDays,
-            #                            extinctionThreshold, poolSize,
-            #                            scenarioName + "_NewCases.png")
-            # Create infected by age plots
-            #AgeImmunity.createInfectedByAgePlot(outputDir, scenarioName, poolSize, scenarioName + "_InfectedByAge.png")
+            avgImmunityRate = AgeImmunity.getAvgOverallImmunityRate(outputDir,
+                                            str(year) + "_R0_" + str(R0), poolSize)
+            print("Average immunity level for {} with R0 {} is {}".format(year, R0, avgImmunityRate))
         scenarioNames = [str(y) + "_R0_" + str(R0) for y in years]
         scenarioDisplayNames = [str(y) for y in years]
-        # Create age-immunity plot
-        #AgeImmunity.createAgeImmunityPlots(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_AgeImmunityPlot")
-        # Create plot to determine extinction threshold
-        #ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                numDays, poolSize, "R0_" + str(R0) + "_ExtinctionThreshold")
-        #OutbreakOccurrenceAndSize.createOutbreakOccurrencePlot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
-        #                                [str(y) for y in years], numDays, extinctionThreshold,
-        #                                poolSize, "R0_" + str(R0) + "_OutbreakOccurrence.png")
-        #OutbreakOccurrenceAndSize.createFinalSizesBoxplot(outputDir, [str(y) + "_R0_" + str(R0) for y in years],
-        #                                [str(y) for y in years], numDays, extinctionThreshold,
-        #                                poolSize, "R0_" + str(R0) + "_OutbreakSizes.png")
-        #AgeImmunity.createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames,
-        #                                poolSize, "R0_" + str(R0) + "_InfectedByAge", 0)
-        AgeImmunity.createInfectedByAgeOverviewPlots(outputDir, scenarioNames, scenarioDisplayNames,
-                                        poolSize, "R0_" + str(R0) + "_InfectedByAgeNoExt", extinctionThreshold)
-        AgeImmunity.createInfectedPctByAgeOverviewPlot(outputDir, scenarioNames, scenarioDisplayNames,
-                                        poolSize, "R0_" + str(R0) + "_InfectedByAgePcts", extinctionThreshold)
+        # Age-immunity plot
+        AgeImmunity.createAgeImmunityPlot(outputDir, scenarioNames,
+                                        scenarioDisplayNames, poolSize,
+                                        "R0_" + str(R0) + "_AgeImmunityPlot")
+        # Plot to determine extinction threshold
+        ExtinctionThreshold.createFinalSizesHistogram(outputDir, scenarioNames,
+                                        scenarioDisplayNames, numDays, poolSize,
+                                        "R0_" + str(R0) + "_ExtinctionThreshold")
+        # Infected by age plots
+        InfectedByAge.createInfectedByAgeOverviewPlot(outputDir, scenarioNames,
+                                        scenarioDisplayNames, extinctionThreshold,
+                                        poolSize, "R0_" + str(R0) + "_InfectedByAge")
+        InfectedByAge.createInfectedFractionByAgeOverviewPlot(outputDir, scenarioNames,
+                                        scenarioDisplayNames, extinctionThreshold,
+                                        poolSize, "R0_" + str(R0) + "_InfectedFractionByAge")
+        InfectedByAge.createFractionOfInfectedByAgeOverviewPlot(outputDir, scenarioNames,
+                                        scenarioDisplayNames, extinctionThreshold,
+                                        poolSize, "R0_" + str(R0) + "_FractionOfInfectedByAge")
 
-    #TODO Effective Rs -> VS R0
     end = time.perf_counter()
     totalTimeSeconds = end - start
     totalTimeMinutes = totalTimeSeconds / 60
@@ -60,7 +54,7 @@ if __name__=="__main__":
     parser.add_argument("outputDir", type=str, help="Directory with simulation output")
     parser.add_argument("--years", type=int, nargs="+", default=[2013, 2020], help="Years for which was simulated")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12], help="R0 values for which was simulated")
-    parser.add_argument("--numDays", type=int, default=365, help="Total simulation days")
+    parser.add_argument("--numDays", type=int, default=730, help="Total simulation days")
     parser.add_argument("--extinctionThreshold", type=int, default=0, help="Threshold for epidemic extinction")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()

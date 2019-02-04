@@ -75,7 +75,7 @@ def writeSeeds(year, R0, seeds):
         writer = csv.writer(csvfile)
         writer.writerow(seeds)
 
-def runSimulation(year, R0, seed):
+def runSimulation(year, R0, numDays, seed, trackIndexCase):
     configFile = os.path.join("config", "ageImmunityShift.xml")
     control = PyController(data_dir="data")
     control.loadRunConfig(configFile)
@@ -83,29 +83,32 @@ def runSimulation(year, R0, seed):
                                     "_R0_" + str(R0) + "_" + str(seed))
     control.runConfig.setParameter("rng_seed", seed)
     control.runConfig.setParameter("r0", R0)
+    control.runConfig.setParameter("num_days", numDays)
     control.runConfig.setParameter("immunity_link_probability", 0)
     control.runConfig.setParameter("immunity_profile", "AgeDependent")
     control.runConfig.setParameter("immunity_distribution_file",
                         os.path.join("data", str(year) + "_measles_immunity.xml"))
+    if trackIndexCase:
+        control.runConfig.setParameter("track_index_case", "true")
     control.registerCallback(registerSusceptibles, EventType.AtStart)
     control.registerCallback(trackCases, EventType.Stepped)
     control.registerCallback(registerAgesInfected, EventType.AtFinished)
     control.control()
     return
 
-def runSimulations(numRuns, year, R0, poolSize):
+def runSimulations(numRuns, year, R0, numDays, trackIndexCase, poolSize):
     seeds = generateRngSeeds(numRuns)
     writeSeeds(year, R0, seeds)
-    args = [(year, R0, seeds[i]) for i in range(numRuns)]
+    args = [(year, R0, numDays, seeds[i], trackIndexCase) for i in range(numRuns)]
     with multiprocessing.Pool(processes=poolSize) as pool:
         pool.starmap(runSimulation, args)
 
-def main(numRuns, years, R0s, poolSize):
+def main(numRuns, years, R0s, numDays, trackIndexCase, poolSize):
     start = time.perf_counter()
     for year in years:
         for R0 in R0s:
             print("Running simulations for " + str(year) + " with R0 " + str(R0))
-            runSimulations(numRuns, year, R0, poolSize)
+            runSimulations(numRuns, year, R0, numDays, trackIndexCase, poolSize)
     end = time.perf_counter()
     totalTimeSeconds = end - start
     totalTimeMinutes = totalTimeSeconds / 60
@@ -119,6 +122,8 @@ if __name__=="__main__":
     parser.add_argument("--numRuns", type=int, default=5, help="Number of simulation runs per scenario")
     parser.add_argument("--years", type=int, nargs="+", default=[2013, 2020], help="From which projected year the immunity data should be used")
     parser.add_argument("--R0s", type=int, nargs="+", default=[12, 13], help="Basic reproduction numbers to simulate for")
+    parser.add_argument("--numDays", type=int, default=730, help="For how many days to run each simulation")
+    parser.add_argument("--trackIndexCase", type=bool, default=False, help="Only track index case infections")
     parser.add_argument("--poolSize", type=int, default=8, help="Number of workers in pool for multiprocessing")
     args = parser.parse_args()
-    main(args.numRuns, args.years, args.R0s, args.poolSize)
+    main(args.numRuns, args.years, args.R0s, args.numDays, args.trackIndexCase, args.poolSize)
