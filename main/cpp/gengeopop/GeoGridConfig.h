@@ -16,6 +16,7 @@
 
 #include "gengeopop/Household.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -35,8 +36,10 @@ public:
         /// Default constructor needed.
         GeoGridConfig();
 
-        /// Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid and
-        /// HouseholdReader
+        /// Constructor that configures input data.
+        explicit GeoGridConfig(const boost::property_tree::ptree& configPt);
+
+        /// Fill the GeoGridConfig based on information in the provided GeoGrid and HouseholdReader.
         void Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader);
 
         /// Prints the GeoGridconfig

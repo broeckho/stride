@@ -21,8 +21,11 @@
 #include "gengeopop/io/GeoGridWriterFactory.h"
 #include "gengeopop/io/ReaderFactory.h"
 #include "util/LogUtils.h"
+#include "util/FileSys.h"
+#include "util/RunConfigManager.h"
 
 #include <boost/lexical_cast.hpp>
+#include <boost/property_tree/ptree.hpp>
 #include <omp.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
@@ -30,6 +33,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <string>
 #include <utility>
 #include <vector>
@@ -38,6 +42,7 @@ using namespace gengeopop;
 using namespace TCLAP;
 using namespace std;
 using namespace stride::util;
+using namespace boost::property_tree;
 
 int main(int argc, char* argv[])
 {
@@ -49,43 +54,6 @@ int main(int argc, char* argv[])
                 // Parse parameters.
                 // --------------------------------------------------------------
                 CmdLine cmd("gengeopop", ' ', "1.0");
-
-                string sci = "Input file with data on cities in csv format.                               "
-                             "Defaults to --cities flanders_cities.csv.";
-                ValueArg<string> citiesFile("", "cities", sci, false, "flanders_cities.csv", "CITIES FILE", cmd);
-
-                string sco = "Input file with data on commuting in csv format.                            "
-                             "Defaults to --commuting flanders_commuting.csv.";
-                ValueArg<string> commutingFile("", "commuting", sco, false, "flanders_commuting.csv", "COMMUTING FILE",
-                                               cmd);
-
-                string sho = "Input file with reference set of households in csv format.                  "
-                             "Defaults to --household households_flanders.csv.";
-                ValueArg<string> houseHoldFile("", "household", sho, false, "households_flanders.csv",
-                                               "HOUSEHOLDS FILE", cmd);
-
-                string sfrac2 = "Fraction of active persons that commute.                                 "
-                                "Defaults to --fracActiveCommuting 0.5.";
-                ValueArg<double> fractionActiveCommuting("", "fracActiveCommuting", sfrac2, false, 0.50,
-                                                         "FRACTION OF ACTIVE PEOPLE COMMUTING", cmd);
-
-                string sfrac3 = "Fraction of students that commute.                                       "
-                                "Defaults to --fracStudentCommuting 0.5.";
-                ValueArg<double> fractionStudentCommuting("", "fracStudentCommuting", sfrac3, false, 0.50,
-                                                          "FRACTION OF STUDENTS COMMUTING", cmd);
-
-                string sfrac1 = "Fraction of 18-26 year old persons that are students.                    "
-                                "Defaults to --frac1826students 0.5.";
-                ValueArg<double> fraction1826Students("", "frac1826students", sfrac1, false, 0.50,
-                                                      "FRACTION 18-26 STUDENTS", cmd);
-
-                string sfrac0 = "Fraction of people that are active. "
-                                "Defaults to --fracActive 0.75.";
-                ValueArg<double> fractionActivePeople("", "fracActive", sfrac0, false, 0.75,
-                                                      "FRACTION OF PEOPLE ACTIVE", cmd);
-
-                string                 spop = "Populations size. Defaults to --populationSize 600000.";
-                ValueArg<unsigned int> popSize("", "populationSize", spop, false, 6000000, "POPULATION SIZE", cmd);
 
                 string           sseed = "The seed sequence for the random engine. Defaults to {1,2,3,4}.";
                 ValueArg<string> rng_seed("", "seed", sseed, false, "1,2,3,4", "SEED", cmd);
@@ -99,7 +67,46 @@ int main(int argc, char* argv[])
                 string                   slog = "Log level. Defaults to --loglevel info.";
                 ValueArg<string>         logLevel("", "loglevel", slog, false, "info", &vc_levels, cmd);
 
+
+
+
+                string si = "Look for configuration file specified by the -c file=<file> "
+                            " or -c <file> in the stride install directories";
+                SwitchArg installedArg("i", "installed", si, cmd, true);
+
+                string           so = "Override configuration file parameters with values provided here.";
+                MultiArg<string> overrideArg("o", "override", so, false, "<NAME>=<VALUE>", cmd);
+
+                string sc = "Specifies the run configuration parameters. The format may be "
+                            "either -c file=<file> or -c name=<name>. The first is most "
+                            "used and may be shortened to -c <file>. The second refers to "
+                            "built-in configurations specified by their name."
+                            "\nDefaults to -c file=run_default.xml";
+                ValueArg<string> configArg("c", "config", sc, false, "run_generate_default.xml", "CONFIGURATION", cmd);
+
                 cmd.parse(argc, static_cast<const char* const*>(argv));
+
+
+                // -----------------------------------------------------------------------------------------
+                // Get configuration and path with overrides (if any).
+                // -----------------------------------------------------------------------------------------
+                auto  config = configArg.getValue();
+                ptree configPt;
+
+                if (regex_search(config, regex("^name="))) {
+                        config   = regex_replace(config, regex(string("^name=")), string(""));
+                        configPt = RunConfigManager::Create(config);
+                } else {
+                        config = regex_replace(config, regex(string("^file=")), string(""));
+                        const filesys::path configPath =
+                                (installedArg.getValue()) ? FileSys::GetConfigDir() /= config : filesys::path(config);
+                        configPt = FileSys::ReadPtreeFile(configPath);
+                }
+
+                for (const auto& p_assignment : overrideArg.getValue()) {
+                        const auto v = stride::util::Tokenize(p_assignment, "=");
+                        configPt.put("run." + v[0], v[1]);
+                }
 
                 // --------------------------------------------------------------
                 // Create logger.
@@ -109,28 +116,32 @@ int main(int argc, char* argv[])
                 logger->flush_on(spdlog::level::err);
 
                 // --------------------------------------------------------------
-                // Configure.
+                // Create random number manager.
                 // --------------------------------------------------------------
-                GeoGridConfig geoGridConfig{};
-                geoGridConfig.input.populationSize                       = popSize.getValue();
-                geoGridConfig.input.fraction_1826_years_WhichAreStudents = fraction1826Students.getValue();
-                geoGridConfig.input.fraction_active_commutingPeople      = fractionActiveCommuting.getValue();
-                geoGridConfig.input.fraction_student_commutingPeople     = fractionStudentCommuting.getValue();
-                geoGridConfig.input.fraction_1865_years_active           = fractionActivePeople.getValue();
-
-                RnMan::Info info(rng_seed.getValue(), "", static_cast<unsigned int>(omp_get_num_threads()));
+                RnMan::Info info{configPt.get<string>("pop.rng_seed", "1,2,3,4"), "",
+                                 configPt.get<unsigned int>("run.num_threads")};
                 RnMan       rnManager(info);
-
-                GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
-
-                // --------------------------------------------------------------
-                // Read input files.
-                // --------------------------------------------------------------
-                genGeoPopController.ReadDataFiles(citiesFile.getValue(), commutingFile.getValue(),
-                                                  houseHoldFile.getValue());
-                logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
                 logger->info("Random engine initialized with seed: {}", info.m_seed_seq_init);
                 logger->info("Number of threads: {}", info.m_stream_count);
+
+                // --------------------------------------------------------------
+                // Configuration for GeoGrid.
+                // --------------------------------------------------------------
+                GeoGridConfig geoGridConfig(configPt);
+                logger->info("GeoGridConfig:\n\n{}", geoGridConfig);
+
+                // --------------------------------------------------------------
+                // Read input files (commutesFile may be absent).
+                // --------------------------------------------------------------
+                string commutesFile;
+                // Check if given
+                auto geopop_gen = configPt.get_child("run.geopop_gen");
+                if (geopop_gen.count("commuting_file")) {
+                        commutesFile = configPt.get<std::string>("run.geopop_gen.commuting_file");
+                }
+                GenPopController genGeoPopController(logger, geoGridConfig, rnManager);
+                genGeoPopController.ReadDataFiles(configPt.get<string>("run.geopop_gen.cities_file"), commutesFile,
+                                                  configPt.get<string>("run.geopop_gen.household_file"));
 
                 // --------------------------------------------------------------
                 // Generate Geo

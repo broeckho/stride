@@ -25,6 +25,7 @@
 #include "util/StringUtils.h"
 #include "util/TimeStamp.h"
 
+#include <boost/property_tree/ptree.hpp>
 #include <tclap/CmdLine.h>
 #include <iostream>
 #include <regex>

@@ -49,31 +49,19 @@ shared_ptr<Population> GenPopBuilder::Build(std::shared_ptr<Population> pop)
         // --------------------------------------------------------------
         // Configure.
         // --------------------------------------------------------------
-        GeoGridConfig geoGridConfig{};
-        geoGridConfig.input.populationSize = m_config_pt.get<unsigned int>("run.geopop_gen.population_size");
-        geoGridConfig.input.fraction_1826_years_WhichAreStudents =
-            m_config_pt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
-        geoGridConfig.input.fraction_active_commutingPeople =
-            m_config_pt.get<double>("run.geopop_gen.fraction_active_commuting_people");
-        geoGridConfig.input.fraction_student_commutingPeople =
-            m_config_pt.get<double>("run.geopop_gen.fraction_student_commuting_people");
-        geoGridConfig.input.fraction_1865_years_active =
-            m_config_pt.get<double>("run.geopop_gen.fraction_1865_years_active");
+        GeoGridConfig geoGridConfig(m_config_pt);
+        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager);
+        genGeoPopController.UsePopulation(pop);
 
+        // --------------------------------------------------------------
+        // Read input files.
+        // --------------------------------------------------------------
         std::string commutesFile;
         // Check if given
         auto geopop_gen = m_config_pt.get_child("run.geopop_gen");
         if (geopop_gen.count("commuting_file")) {
                 commutesFile = m_config_pt.get<std::string>("run.geopop_gen.commuting_file");
         }
-
-        GenPopController genGeoPopController(stride_logger, geoGridConfig, m_rn_manager);
-
-        genGeoPopController.UsePopulation(pop);
-
-        // --------------------------------------------------------------
-        // Read input files.
-        // --------------------------------------------------------------
         genGeoPopController.ReadDataFiles(m_config_pt.get<std::string>("run.geopop_gen.cities_file"), commutesFile,
                                           m_config_pt.get<std::string>("run.geopop_gen.household_file"));
 

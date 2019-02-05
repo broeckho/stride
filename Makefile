@@ -32,8 +32,9 @@ endif
 #============================================================================
 #   Test related: had to duplicate CMAKE_INSTALL_PREFIX here for gtester
 #============================================================================
-LABEL=$(shell git rev-list HEAD --count)
-CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
+#LABEL=$(shell git rev-list HEAD --count)
+#CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride-$(LABEL)
+CMAKE_INSTALL_PREFIX  = $(HOME)/opt/stride
 
 #============================================================================
 # 	CMake command

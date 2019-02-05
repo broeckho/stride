@@ -22,8 +22,20 @@
 namespace gengeopop {
 
 using stride::util::intToDottedString;
+using namespace boost::property_tree;
 
 GeoGridConfig::GeoGridConfig() : input{}, calculated{}, generated{}, constants{} {}
+
+GeoGridConfig::GeoGridConfig(const ptree& configPt)
+        : GeoGridConfig()
+{
+        input.populationSize = configPt.get<unsigned int>("run.geopop_gen.population_size");
+        input.fraction_1826_years_WhichAreStudents
+                = configPt.get<double>("run.geopop_gen.fraction_1826_years_which_are_students");
+        input.fraction_active_commutingPeople = configPt.get<double>("run.geopop_gen.fraction_active_commuting_people");
+        input.fraction_student_commutingPeople = configPt.get<double>("run.geopop_gen.fraction_student_commuting_people");
+        input.fraction_1865_years_active = configPt.get<double>("run.geopop_gen.fraction_1865_years_active");
+}
 
 void GeoGridConfig::Calculate(std::shared_ptr<GeoGrid> geoGrid, std::shared_ptr<HouseholdReader> householdReader)
 {
