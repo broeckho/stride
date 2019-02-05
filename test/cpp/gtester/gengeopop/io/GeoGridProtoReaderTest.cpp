@@ -21,10 +21,7 @@
 #include "gengeopop/PrimaryCommunity.h"
 #include "gengeopop/SecondaryCommunity.h"
 #include "gengeopop/Workplace.h"
-#include "gengeopop/generators/GeoGridPoolBuilder.h"
-#include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/proto/geogrid.pb.h"
-#include "util/FileSys.h"
 
 #include <gtest/gtest.h>
 
@@ -139,6 +136,7 @@ TEST(GeoGridProtoReaderTest, peopleTest)
 
         CompareGeoGrid(geoGrid);
 }
+
 TEST(GeoGridProtoReaderTest, commutesTest)
 {
         proto::GeoGrid geoGrid;

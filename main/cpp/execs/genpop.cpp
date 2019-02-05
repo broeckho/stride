@@ -17,31 +17,19 @@
 #include "gengeopop/GenPopController.h"
 #include "gengeopop/GeoGrid.h"
 #include "gengeopop/GeoGridConfig.h"
-#include "gengeopop/generators/CollegeGenerator.h"
-#include "gengeopop/generators/CommunityGenerator.h"
-#include "gengeopop/generators/GeoGridPoolBuilder.h"
-#include "gengeopop/generators/HouseholdGenerator.h"
-#include "gengeopop/generators/K12SchoolGenerator.h"
-#include "gengeopop/generators/WorkplaceGenerator.h"
 #include "gengeopop/io/GeoGridProtoWriter.h"
 #include "gengeopop/io/GeoGridWriterFactory.h"
 #include "gengeopop/io/ReaderFactory.h"
-#include "gengeopop/populators/CollegePopulator.h"
-#include "gengeopop/populators/GeoGridPopBuilder.h"
-#include "gengeopop/populators/HouseholdPopulator.h"
-#include "gengeopop/populators/K12SchoolPopulator.h"
-#include "gengeopop/populators/PrimaryCommunityPopulator.h"
-#include "gengeopop/populators/SecondaryCommunityPopulator.h"
-#include "gengeopop/populators/WorkplacePopulator.h"
 #include "util/LogUtils.h"
 
 #include <boost/lexical_cast.hpp>
-#include <tclap/CmdLine.h>
-#include <fstream>
-#include <iostream>
 #include <omp.h>
 #include <spdlog/common.h>
 #include <spdlog/fmt/ostr.h>
+#include <tclap/CmdLine.h>
+
+#include <fstream>
+#include <iostream>
 #include <string>
 #include <utility>
 #include <vector>

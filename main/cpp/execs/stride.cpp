@@ -100,7 +100,7 @@ int main(int argc, char** argv)
                 }
 
                 // -----------------------------------------------------------------------------------------
-                // If run simulation in cli ...
+                // If sim ...  fix config and then run simulation in cli ...
                 // -----------------------------------------------------------------------------------------
                 if (execArg.getValue() == "sim") {
                         if (configPt.get<string>("run.output_prefix", "").empty()) {
@@ -116,12 +116,6 @@ int main(int argc, char** argv)
                         } else {
                                 StanController(configPt).Control();
                         }
-                }
-                // -----------------------------------------------------------------------------------------
-                // If run simulation in gui ...
-                // -----------------------------------------------------------------------------------------
-                else if (execArg.getValue() == "simgui") {
-                        cout << "Not implemented here yet ..." << endl;
                 }
                 // -----------------------------------------------------------------------------------------
                 // If geopop ...

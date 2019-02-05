@@ -17,14 +17,12 @@
 
 #include "gengeopop/generators/CollegeGenerator.h"
 #include "gengeopop/generators/CommunityGenerator.h"
-#include "gengeopop/generators/GeoGridPoolBuilder.h"
 #include "gengeopop/generators/HouseholdGenerator.h"
 #include "gengeopop/generators/K12SchoolGenerator.h"
 #include "gengeopop/generators/WorkplaceGenerator.h"
 #include "gengeopop/io/CommutesReader.h"
 #include "gengeopop/io/ReaderFactory.h"
 #include "gengeopop/populators/CollegePopulator.h"
-#include "gengeopop/populators/GeoGridPopBuilder.h"
 #include "gengeopop/populators/HouseholdPopulator.h"
 #include "gengeopop/populators/K12SchoolPopulator.h"
 #include "gengeopop/populators/PrimaryCommunityPopulator.h"
@@ -84,25 +82,34 @@ void GenPopController::ReadDataFiles(const std::string& citiesFileName, const st
 
 void GenPopController::GenGeo()
 {
-        GeoGridPoolBuilder geoBuilder(m_geoGridConfig, m_geoGrid);
-        geoBuilder.AddGenerator(make_shared<K12SchoolGenerator>(m_rnManager, m_logger));
-        geoBuilder.AddGenerator(make_shared<CollegeGenerator>(m_rnManager, m_logger));
-        geoBuilder.AddGenerator(make_shared<WorkplaceGenerator>(m_rnManager, m_logger));
-        geoBuilder.AddGenerator(make_shared<CommunityGenerator>(m_rnManager, m_logger));
-        geoBuilder.AddGenerator(make_shared<HouseholdGenerator>(m_rnManager, m_logger));
-        geoBuilder.BuildPools();
+        std::vector<std::shared_ptr<Generator>> generators {
+                make_shared<K12SchoolGenerator>(m_rnManager, m_logger),
+                make_shared<CollegeGenerator>(m_rnManager, m_logger),
+                make_shared<WorkplaceGenerator>(m_rnManager, m_logger),
+                make_shared<CommunityGenerator>(m_rnManager, m_logger),
+                make_shared<HouseholdGenerator>(m_rnManager, m_logger)
+        };
+
+        for (const auto& g : generators) {
+                g->Apply(m_geoGrid, m_geoGridConfig);
+        }
 }
 
 void GenPopController::GenPop()
 {
-        GeoGridPopBuilder popBuilder(m_geoGridConfig, m_geoGrid);
-        popBuilder.AddPartialPopulator(make_shared<HouseholdPopulator>(m_rnManager, m_logger));
-        popBuilder.AddPartialPopulator(make_shared<K12SchoolPopulator>(m_rnManager, m_logger));
-        popBuilder.AddPartialPopulator(make_shared<CollegePopulator>(m_rnManager, m_logger));
-        popBuilder.AddPartialPopulator(make_shared<PrimaryCommunityPopulator>(m_rnManager, m_logger));
-        popBuilder.AddPartialPopulator(make_shared<SecondaryCommunityPopulator>(m_rnManager, m_logger));
-        popBuilder.AddPartialPopulator(make_shared<WorkplacePopulator>(m_rnManager, m_logger));
-        popBuilder.BuildPop();
+        std::vector<std::shared_ptr<Populator>> populators {
+                make_shared<HouseholdPopulator>(m_rnManager, m_logger),
+                make_shared<K12SchoolPopulator>(m_rnManager, m_logger),
+                make_shared<CollegePopulator>(m_rnManager, m_logger),
+                make_shared<PrimaryCommunityPopulator>(m_rnManager, m_logger),
+                make_shared<SecondaryCommunityPopulator>(m_rnManager, m_logger),
+                make_shared<WorkplacePopulator>(m_rnManager, m_logger)
+        };
+
+        for (std::shared_ptr<Populator>& p : populators) {
+                p->Apply(m_geoGrid, m_geoGridConfig);
+        }
+
 }
 
 shared_ptr<GeoGrid> GenPopController::GetGeoGrid() { return m_geoGrid; }
