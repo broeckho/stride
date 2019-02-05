@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
+   &#160;<span id="projectnumber">- generated for commit 3d31f4c</span>
    </div>
   </td>
  </tr>
@@ -118,13 +118,17 @@ $(document).ready(function(){initNavTree('dc/d57/a00194.html','../../');});
 <code>#include &quot;<a class="el" href="../../dd/df3/a00219_source.html">gengeopop/io/GeoGridWriterFactory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d0/dcd/a00280_source.html">gengeopop/io/ReaderFactory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/dd7/a00260_source.html">util/LogUtils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da2/a00192_source.html">util/FileSys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d58/a00285_source.html">util/RunConfigManager.h</a>&quot;</code><br />
 <code>#include &lt;boost/lexical_cast.hpp&gt;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
 <code>#include &lt;omp.h&gt;</code><br />
 <code>#include &lt;spdlog/common.h&gt;</code><br />
 <code>#include &lt;spdlog/fmt/ostr.h&gt;</code><br />
 <code>#include &lt;tclap/CmdLine.h&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
@@ -133,28 +137,29 @@ Include dependency graph for genpop.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d7/d9f/a00454.gif" border="0" usemap="#genpop_8cpp" alt=""/></div>
 <map name="genpop_8cpp" id="genpop_8cpp">
-<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="gengeopop/Community.h" alt="" coords="1167,155,1350,181"/>
-<area shape="rect" id="node4" href="../../dd/de3/a00201.html" title="GeoGrid.h" alt="" coords="978,393,1065,420"/>
-<area shape="rect" id="node29" href="../../d7/da0/a00198.html" title="gengeopop/GenPopController.h" alt="" coords="763,80,984,107"/>
-<area shape="rect" id="node30" href="../../d1/d72/a00204.html" title="GeoGridConfig.h" alt="" coords="662,155,789,181"/>
-<area shape="rect" id="node34" href="../../dd/dc1/a00212.html" title="gengeopop/io/GeoGridProto\lWriter.h" alt="" coords="1755,229,1954,271"/>
-<area shape="rect" id="node37" href="../../dd/df3/a00219.html" title="gengeopop/io/GeoGridWriter\lFactory.h" alt="" coords="1978,229,2179,271"/>
-<area shape="rect" id="node38" href="../../d0/dcd/a00280.html" title="gengeopop/io/ReaderFactory.h" alt="" coords="2175,80,2388,107"/>
-<area shape="rect" id="node44" href="../../dd/dd7/a00260.html" title="Logging (spdlog) utilities. " alt="" coords="2490,475,2598,502"/>
-<area shape="rect" id="node3" href="../../db/ddf/a00164.html" title="ContactCenter.h" alt="" coords="1059,319,1186,345"/>
-<area shape="rect" id="node5" href="../../d0/def/a00256.html" title="KdTree.h" alt="" coords="301,565,377,591"/>
-<area shape="rect" id="node12" href="../../d7/d2f/a00258.html" title="Location.h" alt="" coords="947,565,1035,591"/>
-<area shape="rect" id="node17" href="../../de/d53/a00169.html" title="Header for the core ContactPool class. " alt="" coords="453,565,595,591"/>
-<area shape="rect" id="node18" href="../../d9/d2a/a00270.html" title="Header file for the core Population class. " alt="" coords="1930,475,2059,502"/>
-<area shape="rect" id="node28" href="../../d8/d72/a00199.html" title="GeoAggregator.h" alt="" coords="536,475,667,502"/>
-<area shape="rect" id="node19" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="1711,565,1811,591"/>
-<area shape="rect" id="node20" href="../../dc/dc9/a00282.html" title="Interface of RnPcg. " alt="" coords="1736,654,1787,681"/>
-<area shape="rect" id="node31" href="../../d5/ddf/a00224.html" title="gengeopop/Household.h" alt="" coords="1109,237,1288,263"/>
-<area shape="rect" id="node35" href="../../df/d24/a00217.html" title="GeoGridWriter.h" alt="" coords="1901,319,2022,345"/>
-<area shape="rect" id="node36" href="../../db/d53/a00202.html" title="proto/geogrid.pb.h" alt="" coords="1818,393,1958,420"/>
-<area shape="rect" id="node39" href="../../da/ddb/a00145.html" title="CitiesReader.h" alt="" coords="2048,319,2160,345"/>
-<area shape="rect" id="node40" href="../../de/d38/a00160.html" title="CommutesReader.h" alt="" coords="2297,155,2445,181"/>
-<area shape="rect" id="node42" href="../../d0/d53/a00232.html" title="HouseholdReader.h" alt="" coords="1485,155,1630,181"/>
+<area shape="rect" id="node2" href="../../d3/df8/a00155.html" title="gengeopop/Community.h" alt="" coords="799,155,982,181"/>
+<area shape="rect" id="node4" href="../../dd/de3/a00201.html" title="GeoGrid.h" alt="" coords="977,393,1063,420"/>
+<area shape="rect" id="node25" href="../../d7/da0/a00198.html" title="gengeopop/GenPopController.h" alt="" coords="196,80,417,107"/>
+<area shape="rect" id="node26" href="../../d1/d72/a00204.html" title="GeoGridConfig.h" alt="" coords="97,155,223,181"/>
+<area shape="rect" id="node31" href="../../dd/dc1/a00212.html" title="gengeopop/io/GeoGridProto\lWriter.h" alt="" coords="1806,229,2005,271"/>
+<area shape="rect" id="node34" href="../../dd/df3/a00219.html" title="gengeopop/io/GeoGridWriter\lFactory.h" alt="" coords="2079,229,2281,271"/>
+<area shape="rect" id="node35" href="../../d0/dcd/a00280.html" title="gengeopop/io/ReaderFactory.h" alt="" coords="2223,80,2436,107"/>
+<area shape="rect" id="node41" href="../../dd/dd7/a00260.html" title="Logging (spdlog) utilities. " alt="" coords="2398,565,2506,591"/>
+<area shape="rect" id="node42" href="../../dd/da2/a00192.html" title="Interface for install directory queries. " alt="" coords="2565,80,2665,107"/>
+<area shape="rect" id="node43" href="../../d3/d58/a00285.html" title="Produce run config ptree. " alt="" coords="2835,155,3010,181"/>
+<area shape="rect" id="node3" href="../../db/ddf/a00164.html" title="ContactCenter.h" alt="" coords="805,319,931,345"/>
+<area shape="rect" id="node5" href="../../d0/def/a00256.html" title="KdTree.h" alt="" coords="499,565,575,591"/>
+<area shape="rect" id="node10" href="../../d7/d2f/a00258.html" title="Location.h" alt="" coords="1284,565,1372,591"/>
+<area shape="rect" id="node15" href="../../de/d53/a00169.html" title="Header for the core ContactPool class. " alt="" coords="723,565,866,591"/>
+<area shape="rect" id="node16" href="../../d9/d2a/a00270.html" title="Header file for the core Population class. " alt="" coords="1161,475,1290,502"/>
+<area shape="rect" id="node24" href="../../d8/d72/a00199.html" title="GeoAggregator.h" alt="" coords="955,475,1085,502"/>
+<area shape="rect" id="node17" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="599,565,699,591"/>
+<area shape="rect" id="node27" href="../../d5/ddf/a00224.html" title="gengeopop/Household.h" alt="" coords="675,237,853,263"/>
+<area shape="rect" id="node32" href="../../df/d24/a00217.html" title="GeoGridWriter.h" alt="" coords="1853,319,1974,345"/>
+<area shape="rect" id="node33" href="../../db/d53/a00202.html" title="proto/geogrid.pb.h" alt="" coords="2237,393,2377,420"/>
+<area shape="rect" id="node36" href="../../da/ddb/a00145.html" title="CitiesReader.h" alt="" coords="1999,319,2111,345"/>
+<area shape="rect" id="node37" href="../../de/d38/a00160.html" title="CommutesReader.h" alt="" coords="2246,155,2394,181"/>
+<area shape="rect" id="node39" href="../../d0/d53/a00232.html" title="HouseholdReader.h" alt="" coords="1641,155,1786,181"/>
 </map>
 </div>
 </div>
@@ -190,22 +195,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00042">42</a> of file <a class="el" href="../../dc/d57/a00194_source.html">genpop.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d57/a00194_source.html#l00047">47</a> of file <a class="el" href="../../dc/d57/a00194_source.html">genpop.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d2f/a00259_source.html#l00032">stride::util::LogUtils::CreateCliLogger()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00034">gengeopop::GeoGridWriterFactory::CreateWriter()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00083">gengeopop::GenPopController::GenGeo()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00098">gengeopop::GenPopController::GenPop()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00115">gengeopop::GenPopController::GetGeoGrid()</a>, <a class="el" href="../../dc/de2/a00024.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, <a class="el" href="../../dc/dc9/a00282_source.html#l00058">stride::util::Rn&lt; E &gt;::Info::m_seed_seq_init</a>, <a class="el" href="../../dc/dc9/a00282_source.html#l00062">stride::util::Rn&lt; E &gt;::Info::m_stream_count</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00063">gengeopop::GeoGridConfig::populationSize</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00047">gengeopop::GenPopController::ReadDataFiles()</a>.</p>
+<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00104">gengeopop::GeoGridConfig::contactCenters</a>, <a class="el" href="../../d1/d72/a00204_source.html#l00100">gengeopop::GeoGridConfig::contactPools</a>, <a class="el" href="../../db/dc3/a00284_source.html#l00048">stride::util::RunConfigManager::Create()</a>, <a class="el" href="../../d0/d2f/a00259_source.html#l00032">stride::util::LogUtils::CreateCliLogger()</a>, <a class="el" href="../../dc/d9a/a00218_source.html#l00034">gengeopop::GeoGridWriterFactory::CreateWriter()</a>, <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a>, <a class="el" href="../../dd/da2/a00192_source.html#l00085">stride::util::FileSys::GetConfigDir()</a>, <a class="el" href="../../d9/dd0/a00191_source.html#l00207">stride::util::FileSys::ReadPtreeFile()</a>, and <a class="el" href="../../da/d50/a00301_source.html#l00067">stride::util::Tokenize()</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d57/a00194_a0ddf1224851353fc92bfbff6f499fa97_cgraph.gif" border="0" usemap="#dc/d57/a00194_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="dc/d57/a00194_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="dc/d57/a00194_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#a106af93dd3f814adf8b87ffaaf3ef3bb" title="Return a (not&#45;yet&#45;registered) commandline and file logger, without registering it. " alt="" coords="143,5,287,47"/>
-<area shape="rect" id="node3" href="../../dc/d87/a00032.html#a67adb42aa493fd9b55dca8671c129270" title="Create a GeoGridWriter based on the provided extension in the filename. " alt="" coords="120,71,311,112"/>
-<area shape="rect" id="node4" href="../../d4/d51/a00017.html#ad9c566705c528d7b94d696051a6894a0" title="Build and store the Geo part of the GeoGrid. " alt="" coords="108,136,323,177"/>
-<area shape="rect" id="node5" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Build and store the Pop part of the GeoGrid. " alt="" coords="108,201,323,243"/>
-<area shape="rect" id="node6" href="../../d4/d51/a00017.html#aaf17fe181624081c6b3f3b2b4137aee1" title="Get the generated GeoGrid. " alt="" coords="108,267,323,308"/>
-<area shape="rect" id="node7" href="../../d4/d51/a00017.html#a78e8176d380b72a2e8da3a7df06d55a4" title="Reads the data files. " alt="" coords="108,332,323,373"/>
-<area shape="rect" id="node8" href="../../dc/de2/a00024.html#ae840dd7732fd6c16ab759adacdd7c35a" title="Fill the input and calculated parts of the GeoGridConfig based on information in the provided GeoGrid..." alt="" coords="371,332,565,373"/>
+<area shape="rect" id="node2" href="../../d8/dfa/a00121.html#ab4007f793a1924a65458824fef455208" title="stride::util::RunConfigManager\l::Create" alt="" coords="108,5,320,47"/>
+<area shape="rect" id="node4" href="../../d8/d87/a00118.html#a106af93dd3f814adf8b87ffaaf3ef3bb" title="Return a (not&#45;yet&#45;registered) commandline and file logger, without registering it. " alt="" coords="142,71,286,112"/>
+<area shape="rect" id="node5" href="../../dc/d87/a00032.html#a67adb42aa493fd9b55dca8671c129270" title="Create a GeoGridWriter based on the provided extension in the filename. " alt="" coords="119,136,309,177"/>
+<area shape="rect" id="node6" href="../../d3/d00/a00113.html#a74338206b2b8392ff8e727b0be31d123" title="Return config dir (only relevant when use_install_dirs mode is active) " alt="" coords="146,201,282,243"/>
+<area shape="rect" id="node8" href="../../d3/d00/a00113.html#a5d54b4b545adf557c65c238ad2fb7801" title="Read ptree from file at path. " alt="" coords="146,267,282,308"/>
+<area shape="rect" id="node9" href="../../db/d10/a00350.html#a919ad6efcd17eb2bda30b1c6e044bc3c" title="Tokenize a string (in order of occurence) with the given delimiters. " alt="" coords="141,333,287,359"/>
+<area shape="rect" id="node3" href="../../db/d10/a00350.html#ae33774027798262390fbf95fbabc3f82" title="Builds a value of type T representation from a string. " alt="" coords="370,13,533,39"/>
+<area shape="rect" id="node7" href="../../d3/d00/a00113.html#a811a1d113f57785952045d9541c95db5" title="Return paths. " alt="" coords="368,209,535,235"/>
 </map>
 </div>
 </p>
@@ -218,7 +224,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../dc/d57/a00194.html">genpop.cpp</a></li>
-    <li class="footer">Generated on Tue Feb 5 2019 11:23:08 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Feb 5 2019 15:24:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

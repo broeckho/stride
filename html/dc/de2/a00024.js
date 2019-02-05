@@ -1,6 +1,7 @@
 var a00024 =
 [
     [ "GeoGridConfig", "dc/de2/a00024.html#a402df7e9798ac2206d7e10e0eb158177", null ],
+    [ "GeoGridConfig", "dc/de2/a00024.html#aa801f622f71a87c7446573fdc58361e8", null ],
     [ "Calculate", "dc/de2/a00024.html#ae840dd7732fd6c16ab759adacdd7c35a", null ],
     [ "operator<<", "dc/de2/a00024.html#a9f960d6e61af9bf7cc9230f772834b96", null ],
     [ "fraction_1826_years_WhichAreStudents", "dc/de2/a00024.html#a9a3f4f357cef24a66d3c9dcdc58f7b5b", null ],

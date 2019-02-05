@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
+   &#160;<span id="projectnumber">- generated for commit 3d31f4c</span>
    </div>
   </td>
  </tr>
@@ -164,7 +164,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Initializes <a class="el" href="../../da/d74/a00099.html" title="Key Data structure: container for (a) all individuals in the population (b) the ContactPoolSys wchich...">Population</a> objects. </p>
 
-<p>Definition at line <a class="el" href="../../d7/ded/a00196_source.html#l00035">35</a> of file <a class="el" href="../../d7/ded/a00196_source.html">GenPopBuilder.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/ded/a00196_source.html#l00037">37</a> of file <a class="el" href="../../d7/ded/a00196_source.html">GenPopBuilder.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9cfeb0e0c8ccc56a49fa15efff5bab18"></a>
 <div class="memitem">
@@ -194,7 +194,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d3/d2a/a00195_source.html#l00043">43</a> of file <a class="el" href="../../d3/d2a/a00195_source.html">GenPopBuilder.cpp</a>.</p>
 
-<p>References <a class="el" href="../../d0/d2f/a00259_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, <a class="el" href="../../dc/de2/a00024.html#a932e91e15c65933abb7934ecace53f35">gengeopop::GeoGridConfig::input</a>, and <a class="el" href="../../d1/d72/a00204_source.html#l00063">gengeopop::GeoGridConfig::populationSize</a>.</p>
+<p>References <a class="el" href="../../d1/d72/a00204_source.html#l00104">gengeopop::GeoGridConfig::contactCenters</a>, <a class="el" href="../../d0/d2f/a00259_source.html#l00071">stride::util::LogUtils::CreateNullLogger()</a>, <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">gengeopop::GeoGridConfig::generated</a>, <a class="el" href="../../de/db1/a00197_source.html#l00083">gengeopop::GenPopController::GenGeo()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00098">gengeopop::GenPopController::GenPop()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00115">gengeopop::GenPopController::GetGeoGrid()</a>, <a class="el" href="../../de/db1/a00197_source.html#l00047">gengeopop::GenPopController::ReadDataFiles()</a>, and <a class="el" href="../../de/db1/a00197_source.html#l00117">gengeopop::GenPopController::UsePopulation()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d5/d42/a00269_source.html#l00042">stride::Population::Create()</a>.</p>
 
@@ -203,7 +203,13 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../da/d2a/a00086_a9cfeb0e0c8ccc56a49fa15efff5bab18_cgraph.gif" border="0" usemap="#da/d2a/a00086_a9cfeb0e0c8ccc56a49fa15efff5bab18_cgraph" alt=""/></div>
 <map name="da/d2a/a00086_a9cfeb0e0c8ccc56a49fa15efff5bab18_cgraph" id="da/d2a/a00086_a9cfeb0e0c8ccc56a49fa15efff5bab18_cgraph">
-<area shape="rect" id="node2" href="../../d8/d87/a00118.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="213,5,357,47"/>
+<area shape="rect" id="node2" href="../../d8/d87/a00118.html#af8edb0cd2ef9049e0347f06e73ae57c2" title="Return a (not&#45;yet&#45;registered) null logger, without registering it. " alt="" coords="249,5,393,47"/>
+<area shape="rect" id="node3" href="../../d4/d51/a00017.html#ad9c566705c528d7b94d696051a6894a0" title="Build and store the Geo part of the GeoGrid. " alt="" coords="213,71,428,112"/>
+<area shape="rect" id="node4" href="../../d4/d51/a00017.html#ada6cb55520ab6db28ae709134a0685a2" title="Build and store the Pop part of the GeoGrid. " alt="" coords="213,136,428,177"/>
+<area shape="rect" id="node5" href="../../d4/d51/a00017.html#aaf17fe181624081c6b3f3b2b4137aee1" title="Get the generated GeoGrid. " alt="" coords="213,201,428,243"/>
+<area shape="rect" id="node6" href="../../d4/d51/a00017.html#a78e8176d380b72a2e8da3a7df06d55a4" title="Reads the data files. " alt="" coords="213,267,428,308"/>
+<area shape="rect" id="node8" href="../../d4/d51/a00017.html#a32af29277ce6b2fc549d19925467a25a" title="Use a specified population storage during generation. " alt="" coords="213,332,428,373"/>
+<area shape="rect" id="node7" href="../../dc/de2/a00024.html#ae840dd7732fd6c16ab759adacdd7c35a" title="Fill the GeoGridConfig based on information in the provided GeoGrid and HouseholdReader. " alt="" coords="476,267,671,308"/>
 </map>
 </div>
 </p>
@@ -230,7 +236,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d8e/a00344.html">stride</a></li><li class="navelem"><a class="el" href="../../da/d2a/a00086.html">GenPopBuilder</a></li>
-    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Feb 5 2019 15:24:03 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

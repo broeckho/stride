@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
+   &#160;<span id="projectnumber">- generated for commit 3d31f4c</span>
    </div>
   </td>
  </tr>
@@ -135,8 +135,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a402df7e9798ac2206d7e10e0eb158177"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#a402df7e9798ac2206d7e10e0eb158177">GeoGridConfig</a> ()</td></tr>
 <tr class="memdesc:a402df7e9798ac2206d7e10e0eb158177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor needed.  <a href="#a402df7e9798ac2206d7e10e0eb158177">More...</a><br /></td></tr>
 <tr class="separator:a402df7e9798ac2206d7e10e0eb158177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa801f622f71a87c7446573fdc58361e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#aa801f622f71a87c7446573fdc58361e8">GeoGridConfig</a> (const boost::property_tree::ptree &amp;configPt)</td></tr>
+<tr class="memdesc:aa801f622f71a87c7446573fdc58361e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that configures input data.  <a href="#aa801f622f71a87c7446573fdc58361e8">More...</a><br /></td></tr>
+<tr class="separator:aa801f622f71a87c7446573fdc58361e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae840dd7732fd6c16ab759adacdd7c35a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/de2/a00024.html#ae840dd7732fd6c16ab759adacdd7c35a">Calculate</a> (std::shared_ptr&lt; <a class="el" href="../../de/d11/a00021.html">GeoGrid</a> &gt; geoGrid, std::shared_ptr&lt; <a class="el" href="../../d1/dc6/a00037.html">HouseholdReader</a> &gt; householdReader)</td></tr>
-<tr class="memdesc:ae840dd7732fd6c16ab759adacdd7c35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the input and calculated parts of the <a class="el" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d1/dc6/a00037.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>.  <a href="#ae840dd7732fd6c16ab759adacdd7c35a">More...</a><br /></td></tr>
+<tr class="memdesc:ae840dd7732fd6c16ab759adacdd7c35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the <a class="el" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d1/dc6/a00037.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>.  <a href="#ae840dd7732fd6c16ab759adacdd7c35a">More...</a><br /></td></tr>
 <tr class="separator:ae840dd7732fd6c16ab759adacdd7c35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -217,7 +220,7 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration data for generating a <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a>. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00032">32</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00033">33</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a402df7e9798ac2206d7e10e0eb158177"></a>
 <div class="memitem">
@@ -234,9 +237,35 @@ Friends</h2></td></tr>
 
 <p>Default constructor needed. </p>
 
-<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00026">26</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00027">27</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
 
-<p>References <a class="el" href="../../dc/de2/a00024.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>, <a class="el" href="../../dc/de2/a00024.html#a2ef783a0eb04a2a0dfc164b72f2c4503">constants</a>, and <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">generated</a>.</p>
+<p>References <a class="el" href="../../dc/de2/a00024.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>, <a class="el" href="../../dc/de2/a00024.html#a2ef783a0eb04a2a0dfc164b72f2c4503">constants</a>, <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">generated</a>, and <a class="el" href="../../dc/de2/a00024.html#a932e91e15c65933abb7934ecace53f35">input</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa801f622f71a87c7446573fdc58361e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">gengeopop::GeoGridConfig::GeoGridConfig </td>
+          <td>(</td>
+          <td class="paramtype">const boost::property_tree::ptree &amp;&#160;</td>
+          <td class="paramname"><em>configPt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor that configures input data. </p>
 
 </div>
 </div>
@@ -265,9 +294,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fill the input and calculated parts of the <a class="el" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d1/dc6/a00037.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>. </p>
+<p>Fill the <a class="el" href="../../dc/de2/a00024.html" title="Configuration data for generating a GeoGrid. ">GeoGridConfig</a> based on information in the provided <a class="el" href="../../de/d11/a00021.html" title="A Geographic information grid for a single region. ">GeoGrid</a> and <a class="el" href="../../d1/dc6/a00037.html" title="Create a Reader that retrieves the different Household profiles from a given file This can be impleme...">HouseholdReader</a>. </p>
 
-<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00028">28</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00040">40</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
 
 <p>References <a class="el" href="../../dc/de2/a00024.html#af9610682c3d25a6c5cf4dc0164988a54">calculated</a>, <a class="el" href="../../dc/de2/a00024.html#a981511c45d99012d50aefe53d08fef7c">generated</a>, and <a class="el" href="../../dc/de2/a00024.html#a932e91e15c65933abb7934ecace53f35">input</a>.</p>
 
@@ -279,7 +308,8 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="../../dc/de2/a00024_ae840dd7732fd6c16ab759adacdd7c35a_icgraph.gif" border="0" usemap="#dc/de2/a00024_ae840dd7732fd6c16ab759adacdd7c35a_icgraph" alt=""/></div>
 <map name="dc/de2/a00024_ae840dd7732fd6c16ab759adacdd7c35a_icgraph" id="dc/de2/a00024_ae840dd7732fd6c16ab759adacdd7c35a_icgraph">
 <area shape="rect" id="node2" href="../../d4/d51/a00017.html#a78e8176d380b72a2e8da3a7df06d55a4" title="Reads the data files. " alt="" coords="248,5,463,47"/>
-<area shape="rect" id="node3" href="../../dc/d57/a00194.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="511,13,565,39"/>
+<area shape="rect" id="node3" href="../../da/d2a/a00086.html#a9cfeb0e0c8ccc56a49fa15efff5bab18" title="Creates a synthetic population by generating it. " alt="" coords="511,5,671,47"/>
+<area shape="rect" id="node4" href="../../da/d74/a00099.html#a2e9a7a4c66f036eac67f12db01b89ef2" title="Create a population initialized by the configuration in property tree. " alt="" coords="719,5,852,47"/>
 </map>
 </div>
 </p>
@@ -321,7 +351,7 @@ Here is the caller graph for this function:</div>
 
 <p>Prints the GeoGridconfig. </p>
 
-<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00053">53</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d79/a00203_source.html#l00065">65</a> of file <a class="el" href="../../de/d79/a00203_source.html">GeoGridConfig.cpp</a>.</p>
 
 </div>
 </div>
@@ -338,9 +368,9 @@ Here is the caller graph for this function:</div>
 
 <p>Fraction of calc_fraction_1826 which are students. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00051">51</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00054">54</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -356,9 +386,9 @@ Here is the caller graph for this function:</div>
 
 <p>Fraction of calc_1865_and_active which commute. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00054">54</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00057">57</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -374,9 +404,9 @@ Here is the caller graph for this function:</div>
 
 <p>Fraction of fraction_1826_years_WhichAreStudents which commute. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00057">57</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00060">60</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -392,9 +422,9 @@ Here is the caller graph for this function:</div>
 
 <p>Fraction of (calculated._1865_years - calculated._1826_years_and_student) which are active. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00060">60</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00063">63</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -410,9 +440,9 @@ Here is the caller graph for this function:</div>
 
 <p>Absolute size of the population. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00063">63</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00066">66</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00043">stride::GenPopBuilder::Build()</a>, <a class="el" href="../../dc/d57/a00194_source.html#l00042">main()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -426,7 +456,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00043">stride::GenPopBuilder::Build()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00028">Calculate()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../dc/d57/a00194_source.html#l00042">main()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../da/d01/a00153_source.html#l00030">gengeopop::CollegePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00040">gengeopop::WorkplacePopulator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00122">gengeopop::WorkplacePopulator::AssignActive()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00040">Calculate()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00027">GeoGridConfig()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -442,9 +472,9 @@ Here is the caller graph for this function:</div>
 
 <p>Numbers of persons for which school is compulsory (i.e. 6-18 years old). </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00072">72</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00075">75</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -460,9 +490,9 @@ Here is the caller graph for this function:</div>
 
 <p>Absolute amount of population which are [18, 65) years old. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00075">75</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00078">78</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -478,9 +508,9 @@ Here is the caller graph for this function:</div>
 
 <p>Absolute amount of population which are [18, 26) years old. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00078">78</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00081">81</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -496,9 +526,9 @@ Here is the caller graph for this function:</div>
 
 <p>Absolute amount of population which are [18, 26) years old and are a student. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00081">81</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00084">84</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -514,9 +544,9 @@ Here is the caller graph for this function:</div>
 
 <p>Absolute amount of population which are [18, 65] years old and active. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00084">84</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00087">87</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -532,7 +562,7 @@ Here is the caller graph for this function:</div>
 
 <p>The number of households needed with this population size and these types of households. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00087">87</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00090">90</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>.</p>
 
@@ -548,7 +578,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00028">Calculate()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00026">GeoGridConfig()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00053">gengeopop::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00040">Calculate()</a>, <a class="el" href="../../dd/de2/a00320_source.html#l00095">gengeopop::WorkplacePopulator::CalculateFractionCommutingStudents()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00027">GeoGridConfig()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00065">gengeopop::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -565,7 +595,9 @@ Here is the caller graph for this function:</div>
 <p>The current amount of ContactPools, used to obtain an Id for a new contactPool. </p>
 <p>! 0 has special meaning (not assigned)! </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00097">97</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00100">100</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/d57/a00194_source.html#l00047">main()</a>.</p>
 
 </div>
 </div>
@@ -582,9 +614,9 @@ Here is the caller graph for this function:</div>
 <p>The current amount of ContactCenters, used to obtain an Id for a new contactCenter. </p>
 <p>! 0 has special meaning (not assigned)! </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00101">101</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00104">104</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
-<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, and <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00043">stride::GenPopBuilder::Build()</a>, and <a class="el" href="../../dc/d57/a00194_source.html#l00047">main()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +632,7 @@ Here is the caller graph for this function:</div>
 
 <p>A list of possible households. </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00104">104</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00107">107</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../dd/d2d/a00229_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>.</p>
 
@@ -616,7 +648,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00028">Calculate()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00026">GeoGridConfig()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dd/d2d/a00229_source.html#l00028">gengeopop::HouseholdPopulator::Apply()</a>, <a class="el" href="../../d9/d01/a00227_source.html#l00023">gengeopop::HouseholdGenerator::Apply()</a>, <a class="el" href="../../d3/d2a/a00195_source.html#l00043">stride::GenPopBuilder::Build()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00040">Calculate()</a>, <a class="el" href="../../de/d79/a00203_source.html#l00027">GeoGridConfig()</a>, and <a class="el" href="../../dc/d57/a00194_source.html#l00047">main()</a>.</p>
 
 </div>
 </div>
@@ -632,7 +664,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size used to calculate the amount of Colleges (double to prevent extra cast) </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00113">113</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00116">116</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>.</p>
 
@@ -650,7 +682,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size used to calculate the amount of Communities (double to prevent extra cast) </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00116">116</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00119">119</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>.</p>
 
@@ -668,7 +700,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size used to calculate the amount of K12Schools (double to prevent extra cast) </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00119">119</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00122">122</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>.</p>
 
@@ -686,7 +718,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size used to calculate the amount of Workplaces (double to prevent extra cast) </p>
 
-<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00122">122</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d72/a00204_source.html#l00125">125</a> of file <a class="el" href="../../d1/d72/a00204_source.html">GeoGridConfig.h</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>.</p>
 
@@ -702,7 +734,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00026">GeoGridConfig()</a>.</p>
+<p>Referenced by <a class="el" href="../../dd/db2/a00151_source.html#l00026">gengeopop::CollegeGenerator::Apply()</a>, <a class="el" href="../../d2/d41/a00318_source.html#l00026">gengeopop::WorkplaceGenerator::Apply()</a>, <a class="el" href="../../dc/ded/a00252_source.html#l00027">gengeopop::K12SchoolGenerator::Apply()</a>, <a class="el" href="../../d2/d34/a00156_source.html#l00029">gengeopop::CommunityGenerator::Apply()</a>, and <a class="el" href="../../de/d79/a00203_source.html#l00027">GeoGridConfig()</a>.</p>
 
 </div>
 </div>
@@ -716,7 +748,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/dbb/a00330.html">gengeopop</a></li><li class="navelem"><a class="el" href="../../dc/de2/a00024.html">GeoGridConfig</a></li>
-    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Feb 5 2019 15:24:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

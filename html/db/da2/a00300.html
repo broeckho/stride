@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Stride Reference Manual
-   &#160;<span id="projectnumber">- generated for commit e4d1615</span>
+   &#160;<span id="projectnumber">- generated for commit 3d31f4c</span>
    </div>
   </td>
  </tr>
@@ -119,6 +119,7 @@ $(document).ready(function(){initNavTree('db/da2/a00300.html','../../');});
 <code>#include &quot;<a class="el" href="../../d3/d58/a00285_source.html">util/RunConfigManager.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../da/d50/a00301_source.html">util/StringUtils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../dd/db3/a00313_source.html">util/TimeStamp.h</a>&quot;</code><br />
+<code>#include &lt;boost/property_tree/ptree.hpp&gt;</code><br />
 <code>#include &lt;tclap/CmdLine.h&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;regex&gt;</code><br />
@@ -129,18 +130,18 @@ Include dependency graph for stride.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d5/dd8/a00615.gif" border="0" usemap="#stride_8cpp" alt=""/></div>
 <map name="stride_8cpp" id="stride_8cpp">
-<area shape="rect" id="node2" href="../../d0/d4a/a00147.html" title="Header for the command line controller. " alt="" coords="1425,80,1562,107"/>
-<area shape="rect" id="node6" href="../../da/d50/a00301.html" title="Miscellaneous string utilities. " alt="" coords="347,401,447,427"/>
-<area shape="rect" id="node28" href="../../d9/d0d/a00298.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1587,80,1739,107"/>
-<area shape="rect" id="node29" href="../../dd/da2/a00192.html" title="Interface for install directory queries. " alt="" coords="1761,319,1861,345"/>
-<area shape="rect" id="node31" href="../../d3/d58/a00285.html" title="Produce run config ptree. " alt="" coords="2026,319,2201,345"/>
-<area shape="rect" id="node33" href="../../dd/db3/a00313.html" title="TimeStamp class. " alt="" coords="193,401,324,427"/>
-<area shape="rect" id="node3" href="../../d8/df1/a00174.html" title="Header for the command line controller. " alt="" coords="1567,162,1715,189"/>
-<area shape="rect" id="node4" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="1087,244,1187,271"/>
-<area shape="rect" id="node19" href="../../df/d95/a00299.html" title="Definition of Stopwatch. " alt="" coords="1351,319,1475,345"/>
-<area shape="rect" id="node5" href="../../dc/dc9/a00282.html" title="Interface of RnPcg. " alt="" coords="867,319,917,345"/>
-<area shape="rect" id="node20" href="../../d0/d39/a00314.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1345,401,1461,427"/>
-<area shape="rect" id="node32" href="../../db/d44/a00162.html" title="Info on configuration. " alt="" coords="2133,401,2253,427"/>
+<area shape="rect" id="node2" href="../../d0/d4a/a00147.html" title="Header for the command line controller. " alt="" coords="1281,80,1419,107"/>
+<area shape="rect" id="node6" href="../../da/d50/a00301.html" title="Miscellaneous string utilities. " alt="" coords="223,408,323,435"/>
+<area shape="rect" id="node28" href="../../d9/d0d/a00298.html" title="Header for the St(ochastic)an(alysis)Controller. " alt="" coords="1105,80,1257,107"/>
+<area shape="rect" id="node29" href="../../dd/da2/a00192.html" title="Interface for install directory queries. " alt="" coords="1497,162,1597,189"/>
+<area shape="rect" id="node31" href="../../d3/d58/a00285.html" title="Produce run config ptree. " alt="" coords="1720,162,1895,189"/>
+<area shape="rect" id="node33" href="../../dd/db3/a00313.html" title="TimeStamp class. " alt="" coords="346,408,477,435"/>
+<area shape="rect" id="node3" href="../../d8/df1/a00174.html" title="Header for the command line controller. " alt="" coords="1100,162,1248,189"/>
+<area shape="rect" id="node4" href="../../dd/dfe/a00283.html" title="Interface of RnMan. " alt="" coords="801,251,901,278"/>
+<area shape="rect" id="node19" href="../../df/d95/a00299.html" title="Definition of Stopwatch. " alt="" coords="1156,333,1280,360"/>
+<area shape="rect" id="node5" href="../../dc/dc9/a00282.html" title="Interface of RnPcg. " alt="" coords="787,333,838,360"/>
+<area shape="rect" id="node20" href="../../d0/d39/a00314.html" title="Utilities to tag clocks and reformat clock readout to string. " alt="" coords="1221,408,1337,435"/>
+<area shape="rect" id="node32" href="../../db/d44/a00162.html" title="Info on configuration. " alt="" coords="1775,333,1895,360"/>
 </map>
 </div>
 </div>
@@ -183,7 +184,7 @@ Functions</h2></td></tr>
 
 <p>Main program of the stride simulator. </p>
 
-<p>Definition at line <a class="el" href="../../db/da2/a00300_source.html#l00041">41</a> of file <a class="el" href="../../db/da2/a00300_source.html">stride.cpp</a>.</p>
+<p>Definition at line <a class="el" href="../../db/da2/a00300_source.html#l00042">42</a> of file <a class="el" href="../../db/da2/a00300_source.html">stride.cpp</a>.</p>
 
 <p>References <a class="el" href="../../d9/db6/a00146_source.html#l00036">stride::CliController::Control()</a>, <a class="el" href="../../d3/d4a/a00297_source.html#l00047">stride::StanController::Control()</a>, and <a class="el" href="../../da/d50/a00301_source.html#l00067">stride::util::Tokenize()</a>.</p>
 
@@ -239,7 +240,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li><li class="navelem"><a class="el" href="../../dir_a2a8aff9b00c67914e6daf05d7173af9.html">cpp</a></li><li class="navelem"><a class="el" href="../../dir_563242887663aa0a08dd2011933ce69c.html">execs</a></li><li class="navelem"><a class="el" href="../../db/da2/a00300.html">stride.cpp</a></li>
-    <li class="footer">Generated on Tue Feb 5 2019 11:23:09 for Stride Reference Manual by
+    <li class="footer">Generated on Tue Feb 5 2019 15:24:02 for Stride Reference Manual by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

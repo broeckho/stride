@@ -58,7 +58,7 @@ var searchData=
   ['geogrid_5flocation_5fcoordinate',['GeoGrid_Location_Coordinate',['../d9/db3/a00066.html',1,'proto']]],
   ['geogrid_5fperson',['GeoGrid_Person',['../dc/ddf/a00067.html#a5d1b711edfeb9bed9daea17421e8e3c7',1,'proto::GeoGrid_Person::GeoGrid_Person()'],['../dc/ddf/a00067.html#ab068076b7817bf37c69355c2eda871e4',1,'proto::GeoGrid_Person::GeoGrid_Person(const GeoGrid_Person &amp;from)']]],
   ['geogrid_5fperson',['GeoGrid_Person',['../dc/ddf/a00067.html',1,'proto']]],
-  ['geogridconfig',['GeoGridConfig',['../dc/de2/a00024.html#a402df7e9798ac2206d7e10e0eb158177',1,'gengeopop::GeoGridConfig']]],
+  ['geogridconfig',['GeoGridConfig',['../dc/de2/a00024.html#a402df7e9798ac2206d7e10e0eb158177',1,'gengeopop::GeoGridConfig::GeoGridConfig()'],['../dc/de2/a00024.html#aa801f622f71a87c7446573fdc58361e8',1,'gengeopop::GeoGridConfig::GeoGridConfig(const boost::property_tree::ptree &amp;configPt)']]],
   ['geogridconfig',['GeoGridConfig',['../dc/de2/a00024.html',1,'gengeopop']]],
   ['geogridconfig_2ecpp',['GeoGridConfig.cpp',['../de/d79/a00203.html',1,'']]],
   ['geogridconfig_2eh',['GeoGridConfig.h',['../d1/d72/a00204.html',1,'']]],
